@@ -159,6 +159,10 @@
 		0AE419131496F5C800342D8E /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419121496F5C800342D8E /* HelloWorldLayer.mm */; };
 		0AE419161496F5C800342D8E /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419151496F5C800342D8E /* GLES-Render.mm */; };
 		0AE419191496F5C800342D8E /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE419181496F5C800342D8E /* blocks.png */; };
+		0AE4192A1496FDC200342D8E /* BBGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419291496FDC200342D8E /* BBGameLayer.m */; };
+		0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4192D1496FEF300342D8E /* BBPlayer.m */; };
+		0AE419311496FF9500342D8E /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE419301496FF9500342D8E /* body.png */; };
+		0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419331496FFFE00342D8E /* BBSpriteFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -473,6 +477,13 @@
 		0AE419151496F5C800342D8E /* GLES-Render.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "GLES-Render.mm"; sourceTree = "<group>"; };
 		0AE419171496F5C800342D8E /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		0AE419181496F5C800342D8E /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
+		0AE419281496FDC100342D8E /* BBGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameLayer.h; sourceTree = "<group>"; };
+		0AE419291496FDC200342D8E /* BBGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGameLayer.m; sourceTree = "<group>"; };
+		0AE4192C1496FEF300342D8E /* BBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPlayer.h; sourceTree = "<group>"; };
+		0AE4192D1496FEF300342D8E /* BBPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPlayer.m; sourceTree = "<group>"; };
+		0AE419301496FF9500342D8E /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
+		0AE419321496FFFE00342D8E /* BBSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSpriteFactory.h; sourceTree = "<group>"; };
+		0AE419331496FFFE00342D8E /* BBSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSpriteFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -529,6 +540,7 @@
 		0AE417461496F5C400342D8E /* BitBlast */ = {
 			isa = PBXGroup;
 			children = (
+				0AE4192B1496FE7E00342D8E /* Code */,
 				0AE4190B1496F5C800342D8E /* AppDelegate.h */,
 				0AE4190C1496F5C800342D8E /* AppDelegate.mm */,
 				0AE4190E1496F5C800342D8E /* RootViewController.h */,
@@ -548,6 +560,7 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0AE4192F1496FF7900342D8E /* Player */,
 				0AE417481496F5C400342D8E /* Default.png */,
 				0AE4174A1496F5C400342D8E /* fps_images.png */,
 				0AE4174C1496F5C400342D8E /* Icon-72.png */,
@@ -1003,6 +1016,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0AE4192B1496FE7E00342D8E /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				0AE419281496FDC100342D8E /* BBGameLayer.h */,
+				0AE419291496FDC200342D8E /* BBGameLayer.m */,
+				0AE4192C1496FEF300342D8E /* BBPlayer.h */,
+				0AE4192D1496FEF300342D8E /* BBPlayer.m */,
+				0AE419321496FFFE00342D8E /* BBSpriteFactory.h */,
+				0AE419331496FFFE00342D8E /* BBSpriteFactory.m */,
+			);
+			name = Code;
+			sourceTree = "<group>";
+		};
+		0AE4192F1496FF7900342D8E /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				0AE419301496FF9500342D8E /* body.png */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1063,6 +1097,7 @@
 				0AE417571496F5C500342D8E /* Icon@2x.png in Resources */,
 				0AE4175A1496F5C500342D8E /* iTunesArtwork in Resources */,
 				0AE419191496F5C800342D8E /* blocks.png in Resources */,
+				0AE419311496FF9500342D8E /* body.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,6 +1242,9 @@
 				0AE419101496F5C800342D8E /* RootViewController.m in Sources */,
 				0AE419131496F5C800342D8E /* HelloWorldLayer.mm in Sources */,
 				0AE419161496F5C800342D8E /* GLES-Render.mm in Sources */,
+				0AE4192A1496FDC200342D8E /* BBGameLayer.m in Sources */,
+				0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */,
+				0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
