@@ -1,5 +1,5 @@
 //
-//  BBPlayer.h
+//  BBPhysicsWorld.h
 //  BitBlast
 //
 //  Created by Kristian Bauer on 12/12/11.
@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Box2D.h"
-#import "BBPhysicsWorld.h"
 
-@interface BBPlayer : CCNode {
-	
-    CCSprite *body;
-	b2Body *physicsBody;
+@interface BBPhysicsWorld : CCNode {
+    
+	b2World *world;
 }
 
-- (void) jump;
+@property (nonatomic) b2World *world;
+
++ (BBPhysicsWorld*) sharedSingleton;
 
 @end

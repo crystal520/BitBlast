@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BBPhysicsWorld.h"
 #import "BBPlayer.h"
 
 @interface BBGameLayer : CCLayer {
+	
     BBPlayer *player;
 }
 

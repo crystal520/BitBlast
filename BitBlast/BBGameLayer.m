@@ -8,7 +8,6 @@
 
 #import "BBGameLayer.h"
 
-
 @implementation BBGameLayer
 
 +(CCScene *) scene
@@ -33,6 +32,9 @@
 		player = [[BBPlayer alloc] init];
 		[self addChild:player];
 		
+		// add physics world node to this layer
+		[self addChild:[BBPhysicsWorld sharedSingleton]];
+		
 		// listen for touches
 		self.isTouchEnabled = YES;
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -44,7 +46,18 @@
 #pragma mark -
 #pragma mark touch input
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	return false;
+	
+	CGSize winSize = [CCDirector sharedDirector].winSize;
+	
+	// get coordinates of touch
+	CGPoint touchPoint = [touch locationInView:[touch view]];
+	
+	// right side of screen is jump
+	if(touchPoint.x > winSize.width * 0.5f) {
+		[player jump];
+	}
+	
+	return true;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -52,7 +65,7 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	
+
 }
 
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {

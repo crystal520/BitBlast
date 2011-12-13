@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723951497107C000E9412 /* BBPhysicsWorld.m */; };
 		0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417361496F5C400342D8E /* QuartzCore.framework */; };
 		0AE417391496F5C400342D8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417381496F5C400342D8E /* OpenGLES.framework */; };
 		0AE4173B1496F5C400342D8E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4173A1496F5C400342D8E /* OpenAL.framework */; };
@@ -166,6 +167,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AC723941497107C000E9412 /* BBPhysicsWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPhysicsWorld.h; sourceTree = "<group>"; };
+		0AC723951497107C000E9412 /* BBPhysicsWorld.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPhysicsWorld.m; sourceTree = "<group>"; };
 		0AE417321496F5C400342D8E /* BitBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE417361496F5C400342D8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AE417381496F5C400342D8E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -478,9 +481,9 @@
 		0AE419171496F5C800342D8E /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		0AE419181496F5C800342D8E /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
 		0AE419281496FDC100342D8E /* BBGameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameLayer.h; sourceTree = "<group>"; };
-		0AE419291496FDC200342D8E /* BBGameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGameLayer.m; sourceTree = "<group>"; };
+		0AE419291496FDC200342D8E /* BBGameLayer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameLayer.m; sourceTree = "<group>"; };
 		0AE4192C1496FEF300342D8E /* BBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPlayer.h; sourceTree = "<group>"; };
-		0AE4192D1496FEF300342D8E /* BBPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPlayer.m; sourceTree = "<group>"; };
+		0AE4192D1496FEF300342D8E /* BBPlayer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPlayer.m; sourceTree = "<group>"; };
 		0AE419301496FF9500342D8E /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 		0AE419321496FFFE00342D8E /* BBSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSpriteFactory.h; sourceTree = "<group>"; };
 		0AE419331496FFFE00342D8E /* BBSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSpriteFactory.m; sourceTree = "<group>"; };
@@ -1025,6 +1028,8 @@
 				0AE4192D1496FEF300342D8E /* BBPlayer.m */,
 				0AE419321496FFFE00342D8E /* BBSpriteFactory.h */,
 				0AE419331496FFFE00342D8E /* BBSpriteFactory.m */,
+				0AC723941497107C000E9412 /* BBPhysicsWorld.h */,
+				0AC723951497107C000E9412 /* BBPhysicsWorld.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -1245,6 +1250,7 @@
 				0AE4192A1496FDC200342D8E /* BBGameLayer.m in Sources */,
 				0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */,
 				0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */,
+				0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

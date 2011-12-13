@@ -20,7 +20,7 @@
 	[sprite.texture setAliasTexParameters];
 	
 	// Scale up
-	sprite.scale = 2;
+	//sprite.scale = 2;
 	
 	return sprite;
 }
