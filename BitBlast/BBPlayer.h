@@ -8,13 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "Box2D.h"
-#import "BBPhysicsWorld.h"
+#import "BBGameObject.h"
 
-@interface BBPlayer : CCNode {
+@interface BBPlayer : BBGameObject {
 	
-    CCSprite *body;
-	b2Body *physicsBody;
 }
 
 - (void) jump;
