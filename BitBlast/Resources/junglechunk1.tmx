@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="15" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="dirt_tile_set" tilewidth="32" tileheight="32">
+  <image source="dirt_tile_set.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Collision" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BgAS8Q8xHAXAPmusENmNAwC5IcOxZ5GGZFMwemlhENMyOpYUMS58ChBptaYszDpQZdLQBY7wD0
+  </data>
+ </layer>
+ <layer name="No Collision" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2D4AX4g5gFiATQMEhMk00wRIsUIAW4oLYNFDibGScAMQvLDFQAAd7cA9g==
+  </data>
+ </layer>
+</map>
