@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723951497107C000E9412 /* BBPhysicsWorld.m */; };
+		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
+		0AC723A314985F4F000E9412 /* player.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* player.plist */; };
+		0AC723A61498693D000E9412 /* walkCycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A41498693D000E9412 /* walkCycle.png */; };
+		0AC723A71498693D000E9412 /* walkCycle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A51498693D000E9412 /* walkCycle.plist */; };
 		0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417361496F5C400342D8E /* QuartzCore.framework */; };
 		0AE417391496F5C400342D8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417381496F5C400342D8E /* OpenGLES.framework */; };
 		0AE4173B1496F5C400342D8E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4173A1496F5C400342D8E /* OpenAL.framework */; };
@@ -169,6 +173,11 @@
 /* Begin PBXFileReference section */
 		0AC723941497107C000E9412 /* BBPhysicsWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPhysicsWorld.h; sourceTree = "<group>"; };
 		0AC723951497107C000E9412 /* BBPhysicsWorld.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPhysicsWorld.m; sourceTree = "<group>"; };
+		0AC7239F14985D9B000E9412 /* BBGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameObject.h; sourceTree = "<group>"; };
+		0AC723A014985D9C000E9412 /* BBGameObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameObject.m; sourceTree = "<group>"; };
+		0AC723A214985F4F000E9412 /* player.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = player.plist; sourceTree = "<group>"; };
+		0AC723A41498693D000E9412 /* walkCycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkCycle.png; path = Resources/Player/walkCycle.png; sourceTree = "<group>"; };
+		0AC723A51498693D000E9412 /* walkCycle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = walkCycle.plist; path = Resources/Player/walkCycle.plist; sourceTree = "<group>"; };
 		0AE417321496F5C400342D8E /* BitBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE417361496F5C400342D8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AE417381496F5C400342D8E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1030,6 +1039,8 @@
 				0AE419331496FFFE00342D8E /* BBSpriteFactory.m */,
 				0AC723941497107C000E9412 /* BBPhysicsWorld.h */,
 				0AC723951497107C000E9412 /* BBPhysicsWorld.m */,
+				0AC7239F14985D9B000E9412 /* BBGameObject.h */,
+				0AC723A014985D9C000E9412 /* BBGameObject.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -1037,7 +1048,10 @@
 		0AE4192F1496FF7900342D8E /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				0AC723A41498693D000E9412 /* walkCycle.png */,
+				0AC723A51498693D000E9412 /* walkCycle.plist */,
 				0AE419301496FF9500342D8E /* body.png */,
+				0AC723A214985F4F000E9412 /* player.plist */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -1103,6 +1117,9 @@
 				0AE4175A1496F5C500342D8E /* iTunesArtwork in Resources */,
 				0AE419191496F5C800342D8E /* blocks.png in Resources */,
 				0AE419311496FF9500342D8E /* body.png in Resources */,
+				0AC723A314985F4F000E9412 /* player.plist in Resources */,
+				0AC723A61498693D000E9412 /* walkCycle.png in Resources */,
+				0AC723A71498693D000E9412 /* walkCycle.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,6 +1268,7 @@
 				0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */,
 				0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */,
 				0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */,
+				0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
