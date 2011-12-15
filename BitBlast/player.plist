@@ -6,12 +6,6 @@
 	<dict>
 		<key>walk</key>
 		<dict>
-			<key>speed</key>
-			<real>0.1</real>
-			<key>plist</key>
-			<string>walkCycle.plist</string>
-			<key>image</key>
-			<string>walkCycle.png</string>
 			<key>frames</key>
 			<array>
 				<string>walk1.png</string>
@@ -19,6 +13,12 @@
 				<string>walk3.png</string>
 				<string>walk4.png</string>
 			</array>
+			<key>image</key>
+			<string>walkCycle.png</string>
+			<key>plist</key>
+			<string>walkCycle.plist</string>
+			<key>speed</key>
+			<real>0.1</real>
 		</dict>
 	</dict>
 	<key>physics</key>

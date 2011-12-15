@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "BBPhysicsWorld.h"
 #import "BBPlayer.h"
+#import "ChunkManager.h"
 
 @interface BBGameLayer : CCLayer {
 	
