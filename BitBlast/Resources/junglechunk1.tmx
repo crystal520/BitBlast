@@ -8,9 +8,14 @@
    eJxjYBgFo2BgAS8Q8xHAXAPmusENmNAwC5IcOxZ5GGZFMwemlhENMyOpYUMS58ChBptaYszDpQZdLQBY7wD0
   </data>
  </layer>
- <layer name="No Collision" width="20" height="15">
+ <layer name="Background" width="20" height="15">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2D4AX4g5gFiATQMEhMk00wRIsUIAW4oLYNFDibGScAMQvLDFQAAd7cA9g==
+  </data>
+ </layer>
+ <layer name="Foreground" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDGbAPdAOGEQAABA0AAw=
   </data>
  </layer>
 </map>
