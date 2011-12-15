@@ -18,6 +18,8 @@
 		//self.scale = 2;
 		
 		[self playAnimation:@"walk"];
+		
+		body->SetSleepingAllowed(NO);
 	}
 	
 	return self;

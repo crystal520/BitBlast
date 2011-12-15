@@ -24,7 +24,7 @@
 	<key>physics</key>
 	<dict>
 		<key>density</key>
-		<integer>1</integer>
+		<real>0.75</real>
 		<key>friction</key>
 		<real>0.3</real>
 	</dict>

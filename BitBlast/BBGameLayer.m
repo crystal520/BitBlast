@@ -28,6 +28,8 @@
 - (id) init {
 	if((self = [super init])) {
 		
+		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
+		
 		// create player and add it to this layer
 		player = [[BBPlayer alloc] init];
 		[self addChild:player];
@@ -50,9 +52,21 @@
 	return self;
 }
 
+- (void) dealloc {
+	
+	[super dealloc];
+}
+
 - (void) update:(float)delta {
 	
 	[[ChunkManager sharedSingleton] updateWithSpeed:-1];
+}
+
+- (void) draw {
+	
+	[super draw];
+	
+	[[BBPhysicsWorld sharedSingleton] draw];
 }
 
 #pragma mark -

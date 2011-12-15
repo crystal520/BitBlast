@@ -45,7 +45,8 @@
 - (void) updateWithSpeed:(float)speed {
 	
 	for(Chunk *c in chunks) {
-		[c setPosition:CGPointMake(c.position.x + speed, c.position.y)];
+		[c setPosition:ccp(c.position.x + speed, c.position.y)];
+		[c scrollWithSpeed:-speed/PTM_RATIO];
 	}
 }
 
