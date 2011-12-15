@@ -38,9 +38,21 @@
 		// listen for touches
 		self.isTouchEnabled = YES;
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+		
+		// load level
+		[self addChild:[ChunkManager sharedSingleton]];
+		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
+		
+		// update tick
+		[self scheduleUpdate];
 	}
 	
 	return self;
+}
+
+- (void) update:(float)delta {
+	
+	[[ChunkManager sharedSingleton] updateWithSpeed:-1];
 }
 
 #pragma mark -

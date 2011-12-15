@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>chunks</key>
+	<array>
+		<string>junglechunk1.tmx</string>
+	</array>
+	<key>firstChunk</key>
+	<string>junglechunk1.tmx</string>
+	<key>overrideChunk</key>
+	<string>junglechunk1.tmx</string>
+</dict>
+</plist>
