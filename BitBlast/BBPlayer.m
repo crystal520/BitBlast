@@ -19,7 +19,8 @@
 		
 		[self playAnimation:@"walk"];
 		
-		body->SetSleepingAllowed(NO);
+		body = [[BBPhysicsWorld sharedSingleton] createBoxFromFile:@"physicsPlayer" withPosition:ccp(64, 256) withData:self];
+		body.body->SetSleepingAllowed(NO);
 	}
 	
 	return self;
@@ -32,8 +33,8 @@
 - (void) jump {
 	
 	// only jump if we're not jumping already
-	if(body->GetLinearVelocity().y <= 0.01f && body->GetLinearVelocity().y >= -0.01f) {
-		body->ApplyLinearImpulse(b2Vec2(0, kJump/PTM_RATIO), body->GetWorldCenter());
+	if(body.body->GetLinearVelocity().y <= 0.01f && body.body->GetLinearVelocity().y >= -0.01f) {
+		body.body->ApplyLinearImpulse(b2Vec2(0, kJump/PTM_RATIO), body.body->GetWorldCenter());
 	}
 }
 

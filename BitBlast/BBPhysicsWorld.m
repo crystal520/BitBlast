@@ -94,33 +94,88 @@
 	}
 }
 
-- (BBPhysicsObject*) createBoxAt:(CGPoint)p size:(CGSize)ssize dynamic:(BOOL)d friction:(float)f density:(float)dens restitution:(float)rest anchor:(CGPoint)a userData:(id)data {
+- (BBPhysicsObject*) createBoxFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data {
 	
-	// define the dynamic body
-	b2BodyDef bodyDef;
+	// get dictionary from plist file
+	NSDictionary *boxPlist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"]];
 	
-	if(d) {
-		bodyDef.type = b2_dynamicBody;
+	// make sure it exists
+	if(boxPlist) {
+	
+		// grab variables from plist
+		float density = [[boxPlist objectForKey:@"density"] floatValue];
+		float friction = [[boxPlist objectForKey:@"friction"] floatValue];
+		float restitution = [[boxPlist objectForKey:@"restitution"] floatValue];
+		BOOL fixedRotation = [[boxPlist objectForKey:@"fixedRotation"] boolValue];
+		CGPoint anchor = ccp([[[boxPlist objectForKey:@"anchor"] objectForKey:@"x"] floatValue], [[[boxPlist objectForKey:@"anchor"] objectForKey:@"y"] floatValue]);
+		float linearDamping = [[boxPlist objectForKey:@"linearDamping"] floatValue];
+		float angularDamping = [[boxPlist objectForKey:@"angularDamping"] floatValue];
+		NSString *type = [boxPlist objectForKey:@"type"];
+		
+		// set defaults if they're null
+		if([boxPlist objectForKey:@"density"] == nil) {
+			density = 0.0f;
+		}
+		if([boxPlist objectForKey:@"friction"] == nil) {
+			friction = 0.0f;
+		}
+		if([boxPlist objectForKey:@"restitution"] == nil) {
+			restitution = 0.0f;
+		}
+		if([boxPlist objectForKey:@"fixedRotation"] == nil) {
+			fixedRotation = NO;
+		}
+		if([boxPlist objectForKey:@"anchor"] == nil) {
+			anchor = ccp(0.5f, 0.5f);
+		}
+		if([boxPlist objectForKey:@"linearDamping"] == nil) {
+			linearDamping = 0.0f;
+		}
+		if([boxPlist objectForKey:@"angularDamping"] == nil) {
+			angularDamping = 0.0f;
+		}
+		if([boxPlist objectForKey:@"type"] == nil) {
+			type = @"static";
+		}
+		
+		// define the dynamic body
+		b2BodyDef bodyDef;
+		
+		if([type isEqualToString:@"static"]) {
+			bodyDef.type = b2_staticBody;
+		}
+		else if([type isEqualToString:@"dynamic"]) {
+			bodyDef.type = b2_dynamicBody;
+		}
+		else if([type isEqualToString:@"kinematic"]) {
+			bodyDef.type = b2_kinematicBody;
+		}
+		
+		bodyDef.position.Set(pos.x/PTM_RATIO, pos.y/PTM_RATIO);
+		bodyDef.userData = data;
+		bodyDef.fixedRotation = fixedRotation;
+		bodyDef.linearDamping = linearDamping;
+		bodyDef.angularDamping = angularDamping;
+		b2Body *body = world->CreateBody(&bodyDef);
+		
+		// define the box shape for our dynamic body
+		b2PolygonShape box;
+		///box.SetAsBox(ssize.width/2/PTM_RATIO, ssize.height/2/PTM_RATIO);
+		box.SetAsBox(0.5f, 0.5f, b2Vec2(anchor.x, anchor.y), 0.0f);
+		
+		// define the dynamic body fixture
+		b2FixtureDef fixtureDef;
+		fixtureDef.shape = &box;
+		fixtureDef.density = density;
+		fixtureDef.friction = friction;
+		fixtureDef.restitution = restitution;
+		body->CreateFixture(&fixtureDef);
+		return [[BBPhysicsObject alloc] initWithBody:body];
 	}
-	
-	NSLog(@"Creating box at %.2f, %.2f", p.x, p.y);
-	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-	bodyDef.userData = data;
-	b2Body *body = world->CreateBody(&bodyDef);
-	
-	// define the box shape for our dynamic body
-	b2PolygonShape box;
-	///box.SetAsBox(ssize.width/2/PTM_RATIO, ssize.height/2/PTM_RATIO);
-	box.SetAsBox(0.5f, 0.5f, b2Vec2(a.x, a.y), 0.0f);
-	
-	// define the dynamic body fixture
-	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &box;
-	fixtureDef.density = dens;
-	fixtureDef.friction = f;
-	fixtureDef.restitution = rest;
-	body->CreateFixture(&fixtureDef);
-	return [[BBPhysicsObject alloc] initWithBody:body];
+	else {
+		return nil;
+	}
+
 }
 
 - (void) draw {

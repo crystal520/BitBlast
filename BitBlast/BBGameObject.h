@@ -8,18 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "Box2D.h"
 #import "BBPhysicsWorld.h"
+#import "BBPhysicsObject.h"
 
 @interface BBGameObject : CCNode {
     
-	b2Body *body;
+	BBPhysicsObject *body;
 	CCSprite *sprite;
 	NSDictionary *dictionary;
 }
 
 - (id) initWithFile:(NSString*)filename;
-- (void) setupPhysics;
 - (void) playAnimation:(NSString*)animName;
 
 @end

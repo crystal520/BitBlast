@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>density</key>
+	<integer>0</integer>
+	<key>friction</key>
+	<integer>1</integer>
+	<key>restitution</key>
+	<integer>0</integer>
+	<key>linearDamping</key>
+	<integer>0</integer>
+	<key>angularDamping</key>
+	<integer>0</integer>
+	<key>type</key>
+	<string>static</string>
+	<key>anchor</key>
+	<dict>
+		<key>x</key>
+		<real>0.5</real>
+		<key>y</key>
+		<real>0.5</real>
+	</dict>
+	<key>fixedRotation</key>
+	<true/>
+</dict>
+</plist>

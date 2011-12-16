@@ -17,8 +17,6 @@
 		
 		// save dictionary for future use
 		dictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
-		
-		[self setupPhysics];
 	}
 	
 	return self;
@@ -29,46 +27,6 @@
 	[super dealloc];
 	
 	[dictionary release];
-}
-
-- (void) setupPhysics {
-	
-	// get physics info
-	NSDictionary *physics = [dictionary objectForKey:@"physics"];
-	
-	// see if there's physics info
-	if(physics) {
-	
-		// define the dynamic body
-		b2BodyDef bodyDef;
-		bodyDef.type = b2_dynamicBody;
-		bodyDef.position.Set(100/PTM_RATIO, 320/PTM_RATIO);
-		bodyDef.userData = self;
-		body = [BBPhysicsWorld sharedSingleton].world->CreateBody(&bodyDef);
-		
-		// define the box shape for our dynamic body
-		b2PolygonShape box;
-		box.SetAsBox(0.5f, 0.5f);
-		
-		// set defaults first
-		float density = 1.0f;
-		float friction = 0.3f;
-		
-		// see if dictionary has values
-		if([[physics objectForKey:@"density"] isKindOfClass:[NSNull class]] == NO) {
-			density = [[physics objectForKey:@"density"] floatValue];
-		}
-		if([[physics objectForKey:@"friction"] isKindOfClass:[NSNull class]] == NO) {
-			friction = [[physics objectForKey:@"friction"] floatValue];
-		}
-		
-		// define the dynamic body fixture
-		b2FixtureDef fixtureDef;
-		fixtureDef.shape = &box;
-		fixtureDef.density = density;
-		fixtureDef.friction = friction;
-		body->CreateFixture(&fixtureDef);
-	}
 }
 
 - (void) playAnimation:(NSString*)animName {

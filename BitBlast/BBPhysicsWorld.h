@@ -21,7 +21,7 @@
 @property (nonatomic) b2World *world;
 
 + (BBPhysicsWorld*) sharedSingleton;
-- (BBPhysicsObject*) createBoxAt:(CGPoint)p size:(CGSize)ssize dynamic:(BOOL)d friction:(float)f density:(float)dens restitution:(float)rest anchor:(CGPoint)a userData:(id)data;
+- (BBPhysicsObject*) createBoxFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data;
 - (void) debugPhysics;
 
 @end
