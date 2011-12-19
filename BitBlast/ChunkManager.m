@@ -30,6 +30,7 @@
 	if((self = [super init])) {
 		
 		chunks = [NSMutableArray new];
+		currentChunks = [NSMutableArray new];
 	}
 	
 	return self;
@@ -40,23 +41,67 @@
 	[super dealloc];
 	
 	[chunks release];
+	[currentChunks release];
 }
 
-- (void) updateWithSpeed:(float)speed {
+#pragma mark -
+#pragma mark update
+- (void) update:(float)delta {
 	
-	for(Chunk *c in chunks) {
-		[c setPosition:ccp(c.position.x + speed, c.position.y)];
-		[c scrollWithSpeed:-speed/PTM_RATIO];
+	// see if any chunks are off screen
+	Chunk *firstChunk = [currentChunks objectAtIndex:0];
+	
+	if(firstChunk && [firstChunk convertToWorldSpace:ccp(firstChunk.position.x + firstChunk.width, 0)].x < firstChunk.startPosition) {
+		[self removeChunk];
+		[self addRandomChunk];
 	}
 }
 
+#pragma mark -
+#pragma mark adding/removing chunks
 - (void) addChunk:(NSString*)chunkName {
 	
-	Chunk *newChunk = [[Chunk alloc] initWithFile:chunkName];
-	[chunks addObject:newChunk];
+	[self addChunk:chunkName withOffset:ccp(0,0)];
+}
+
+- (void) addChunk:(NSString *)chunkName withOffset:(CGPoint)offset {
+	
+	Chunk *newChunk = [[Chunk alloc] initWithFile:chunkName withOffset:offset];
+	[currentChunks addObject:newChunk];
 	[self addChild:newChunk];
 }
 
+- (void) addRandomChunk {
+	
+	// get last chunk and new chunk's offset
+	Chunk *lastChunk = [currentChunks lastObject];
+	float offset = 0;
+	if(lastChunk) {
+		offset = lastChunk.endPosition;
+	}
+	
+	// generate random number based on number of chunks
+	int ranChunk = floor(CCRANDOM_0_1() * [chunks count]);
+	
+	if(ranChunk < [chunks count]) {
+		[self addChunk:[chunks objectAtIndex:ranChunk] withOffset:ccp(offset, 0)];
+	}
+	else {
+		NSLog(@"ERROR: Failed to add random chunk for index \"%i\" because it is out of bounds of the chunks array with length \"%i\"", ranChunk, [chunks count]);
+	}
+}
+
+- (void) removeChunk {
+	
+	// get first chunk
+	Chunk *firstChunk = [currentChunks objectAtIndex:0];
+	[firstChunk cleanupPhysics];
+	[self removeChild:firstChunk cleanup:YES];
+	[currentChunks removeObjectAtIndex:0];
+}
+
+#pragma mark -
+#pragma mark loading chunks
 - (void) loadChunksForLevel:(NSString*)levelName {
 	
 	// grab plist from bundle
@@ -68,12 +113,13 @@
 		NSString *firstChunk = [levelPlist objectForKey:@"firstChunk"];
 		
 		// grab array of chunks
-		//NSArray *chunks = [levelPlist objectForKey:@"chunks"];
+		[chunks addObjectsFromArray:[levelPlist objectForKey:@"chunks"]];
 		
 		// grab override chunk
 		//NSString *overrideChunk = [levelPlist objectForKey:@"overrideChunk"];
 		
 		[self addChunk:firstChunk];
+		[self addRandomChunk];
 	}
 	else {
 		NSLog(@"ERROR: Failed to load chunks for level \"%@\" because it doesn't exist", levelName);

@@ -13,9 +13,14 @@
 @interface Chunk : CCNode {
     
 	NSMutableArray *collidables;
+	int width, height;
+	float endPosition, startPosition;
 }
 
-- (id) initWithFile:(NSString*)chunkName;
-- (void) scrollWithSpeed:(float)speed;
+@property (nonatomic) int width, height;
+@property (nonatomic) float endPosition, startPosition;
+
+- (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset;
+- (void) cleanupPhysics;
 
 @end

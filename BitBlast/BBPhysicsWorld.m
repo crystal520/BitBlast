@@ -37,7 +37,7 @@
 		world = new b2World(gravity, true);
 		
 		// create edges around the entire screen
-		b2BodyDef groundBodyDef;
+		/*b2BodyDef groundBodyDef;
 		groundBodyDef.position.Set(0, 0);
 		b2Body *groundBody = world->CreateBody(&groundBodyDef);
 		b2PolygonShape groundBox;
@@ -50,7 +50,7 @@
 		groundBox.SetAsEdge(b2Vec2(0, winSize.height/PTM_RATIO), b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO));
 		groundBody->CreateFixture(&boxShapeDef);
 		groundBox.SetAsEdge(b2Vec2(winSize.width/PTM_RATIO, winSize.height/PTM_RATIO), b2Vec2(winSize.width/PTM_RATIO, 0));
-		groundBody->CreateFixture(&boxShapeDef);
+		groundBody->CreateFixture(&boxShapeDef);*/
 		
 		[self schedule:@selector(tick:)];
 	}

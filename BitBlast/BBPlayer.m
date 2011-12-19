@@ -27,7 +27,9 @@
 }
 
 - (void) draw {
-	
+	b2Vec2 v = body.body->GetLinearVelocity();
+	v.x = 5;
+	body.body->SetLinearVelocity(v);
 }
 
 - (void) jump {

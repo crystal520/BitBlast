@@ -30,19 +30,24 @@
 		
 		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
 		
+		// for objects that need to scroll
+		scrollingNode = [[CCNode alloc] init];
+		[self addChild:scrollingNode];
+		
 		// create player and add it to this layer
 		player = [[BBPlayer alloc] init];
-		[self addChild:player];
+		[scrollingNode addChild:player];
+		[scrollingNode runAction:[CCFollow actionWithTarget:player]];
 		
 		// add physics world node to this layer
-		[self addChild:[BBPhysicsWorld sharedSingleton]];
+		[scrollingNode addChild:[BBPhysicsWorld sharedSingleton]];
 		
 		// listen for touches
 		self.isTouchEnabled = YES;
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 		
 		// load level
-		[self addChild:[ChunkManager sharedSingleton]];
+		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
 		
 		// update tick
@@ -59,14 +64,12 @@
 
 - (void) update:(float)delta {
 	
-	[[ChunkManager sharedSingleton] updateWithSpeed:-1];
+	[[ChunkManager sharedSingleton] update:delta];
 }
 
 - (void) draw {
 	
 	[super draw];
-	
-	[[BBPhysicsWorld sharedSingleton] draw];
 }
 
 #pragma mark -

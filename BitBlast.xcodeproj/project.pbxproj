@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A5C35A614997EEF0019C113 /* RepeatableLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35A214997EEF0019C113 /* RepeatableLayer.mm */; };
-		0A5C35A714997EEF0019C113 /* GFFParallaxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35A414997EEF0019C113 /* GFFParallaxNode.mm */; };
+		0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35AF149984C80019C113 /* junglechunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35AE149984C80019C113 /* junglechunk1.tmx */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
@@ -181,10 +180,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A5C35A214997EEF0019C113 /* RepeatableLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RepeatableLayer.mm; sourceTree = "<group>"; };
-		0A5C35A314997EEF0019C113 /* RepeatableLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatableLayer.h; sourceTree = "<group>"; };
-		0A5C35A414997EEF0019C113 /* GFFParallaxNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GFFParallaxNode.mm; sourceTree = "<group>"; };
-		0A5C35A514997EEF0019C113 /* GFFParallaxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFFParallaxNode.h; sourceTree = "<group>"; };
+		0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFollowOffset.m; sourceTree = "<group>"; };
+		0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFollowOffset.h; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35AE149984C80019C113 /* junglechunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = junglechunk1.tmx; path = Resources/junglechunk1.tmx; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
@@ -542,15 +539,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A5C35A114997ED80019C113 /* Parallax Scrolling */ = {
+		0A1EC4A2149E68D8005A7ED6 /* CocosSubclasses */ = {
 			isa = PBXGroup;
 			children = (
-				0A5C35A214997EEF0019C113 /* RepeatableLayer.mm */,
-				0A5C35A314997EEF0019C113 /* RepeatableLayer.h */,
-				0A5C35A414997EEF0019C113 /* GFFParallaxNode.mm */,
-				0A5C35A514997EEF0019C113 /* GFFParallaxNode.h */,
+				0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */,
+				0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */,
 			);
-			name = "Parallax Scrolling";
+			name = CocosSubclasses;
+			sourceTree = "<group>";
+		};
+		0A1EC4A6149E7E41005A7ED6 /* Chunks */ = {
+			isa = PBXGroup;
+			children = (
+				0A5C35B1149988A30019C113 /* Chunk.h */,
+				0A5C35B2149988A40019C113 /* Chunk.m */,
+				0A5C35B4149988AE0019C113 /* ChunkManager.h */,
+				0A5C35B5149988AE0019C113 /* ChunkManager.m */,
+			);
+			name = Chunks;
+			sourceTree = "<group>";
+		};
+		0A1EC4A7149E7E4D005A7ED6 /* Basic Objects */ = {
+			isa = PBXGroup;
+			children = (
+				0AE419321496FFFE00342D8E /* BBSpriteFactory.h */,
+				0AE419331496FFFE00342D8E /* BBSpriteFactory.m */,
+				0AC7239F14985D9B000E9412 /* BBGameObject.h */,
+				0AC723A014985D9C000E9412 /* BBGameObject.m */,
+				0A5C35B91499A1D30019C113 /* BBPhysicsObject.h */,
+				0A5C35BA1499A1D40019C113 /* BBPhysicsObject.m */,
+			);
+			name = "Basic Objects";
 			sourceTree = "<group>";
 		};
 		0A5C35A8149981A50019C113 /* Levels */ = {
@@ -630,7 +649,7 @@
 		0AE417461496F5C400342D8E /* BitBlast */ = {
 			isa = PBXGroup;
 			children = (
-				0A5C35A114997ED80019C113 /* Parallax Scrolling */,
+				0A1EC4A2149E68D8005A7ED6 /* CocosSubclasses */,
 				0AE4192B1496FE7E00342D8E /* Code */,
 				0AE4190B1496F5C800342D8E /* AppDelegate.h */,
 				0AE4190C1496F5C800342D8E /* AppDelegate.mm */,
@@ -1113,22 +1132,14 @@
 		0AE4192B1496FE7E00342D8E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				0A1EC4A7149E7E4D005A7ED6 /* Basic Objects */,
+				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
 				0AE419281496FDC100342D8E /* BBGameLayer.h */,
 				0AE419291496FDC200342D8E /* BBGameLayer.m */,
 				0AE4192C1496FEF300342D8E /* BBPlayer.h */,
 				0AE4192D1496FEF300342D8E /* BBPlayer.m */,
-				0AE419321496FFFE00342D8E /* BBSpriteFactory.h */,
-				0AE419331496FFFE00342D8E /* BBSpriteFactory.m */,
 				0AC723941497107C000E9412 /* BBPhysicsWorld.h */,
 				0AC723951497107C000E9412 /* BBPhysicsWorld.m */,
-				0AC7239F14985D9B000E9412 /* BBGameObject.h */,
-				0AC723A014985D9C000E9412 /* BBGameObject.m */,
-				0A5C35B1149988A30019C113 /* Chunk.h */,
-				0A5C35B2149988A40019C113 /* Chunk.m */,
-				0A5C35B4149988AE0019C113 /* ChunkManager.h */,
-				0A5C35B5149988AE0019C113 /* ChunkManager.m */,
-				0A5C35B91499A1D30019C113 /* BBPhysicsObject.h */,
-				0A5C35BA1499A1D40019C113 /* BBPhysicsObject.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -1362,11 +1373,10 @@
 				0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */,
 				0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */,
 				0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */,
-				0A5C35A614997EEF0019C113 /* RepeatableLayer.mm in Sources */,
-				0A5C35A714997EEF0019C113 /* GFFParallaxNode.mm in Sources */,
 				0A5C35B3149988A40019C113 /* Chunk.m in Sources */,
 				0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */,
 				0A5C35BB1499A1D50019C113 /* BBPhysicsObject.m in Sources */,
+				0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

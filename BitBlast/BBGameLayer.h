@@ -11,10 +11,12 @@
 #import "BBPhysicsWorld.h"
 #import "BBPlayer.h"
 #import "ChunkManager.h"
+#import "CCFollowOffset.h"
 
 @interface BBGameLayer : CCLayer {
 	
     BBPlayer *player;
+	CCNode *scrollingNode;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child

@@ -11,4 +11,6 @@
 
 @implementation CCFollowOffset
 
+//+ (CCFollowOffset*) actionWith
+
 @end

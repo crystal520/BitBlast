@@ -11,14 +11,27 @@
 
 @implementation Chunk
 
-- (id) initWithFile:(NSString*)chunkName {
+@synthesize width, height;
+@synthesize endPosition, startPosition;
+
+- (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset {
 	
 	if((self = [super init])) {
 		
 		collidables = [NSMutableArray new];
 		
 		CCTMXTiledMap *map = [CCTMXTiledMap tiledMapWithTMXFile:chunkName];
+		self.position = offset;
 		[self addChild:map z:0];
+		
+		// keep track of width and height
+		width = map.mapSize.width * map.tileSize.width;
+		height = map.mapSize.height * map.tileSize.height;
+		
+		// generate end position based on width and offset
+		endPosition = offset.x + width;
+		// keep track of startPosition for removing chunk
+		startPosition = offset.x;
 		
 		// get collision layer
 		CCTMXLayer *collision = [map layerNamed:@"Collision"];
@@ -29,7 +42,7 @@
 				int gid = [collision tileGIDAt:ccp(x, y)];
 				if(gid != 0) {
 					
-					[collidables addObject:[[BBPhysicsWorld sharedSingleton] createBoxFromFile:@"physicsBasicTile" withPosition:ccp(x * map.tileSize.width, (map.mapSize.height - (y+1)) * map.tileSize.height) withData:nil]];
+					[collidables addObject:[[BBPhysicsWorld sharedSingleton] createBoxFromFile:@"physicsBasicTile" withPosition:ccp(x * map.tileSize.width + offset.x, (map.mapSize.height - (y+1)) * map.tileSize.height + offset.y) withData:nil]];
 				}
 			}
 		}
@@ -43,14 +56,13 @@
 	[super dealloc];
 }
 
-- (void) scrollWithSpeed:(float)speed {
+- (void) cleanupPhysics {
 	
-	// update collidable tiles
+	// get rid of physics bodies
 	for(BBPhysicsObject *c in collidables) {
-		b2Vec2 pos = c.body->GetPosition();
-		pos.x -= speed;
-		c.body->SetTransform(pos, 0);
+		[BBPhysicsWorld sharedSingleton].world->DestroyBody(c.body);
 	}
+	[collidables release];
 }
 
 @end

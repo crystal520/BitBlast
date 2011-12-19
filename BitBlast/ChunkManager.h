@@ -12,12 +12,19 @@
 
 @interface ChunkManager : CCNode {
     
+	NSMutableArray *currentChunks;
 	NSMutableArray *chunks;
 }
 
 + (ChunkManager*) sharedSingleton;
-- (void) updateWithSpeed:(float)speed;
+
+- (void) update:(float)delta;
+
 - (void) addChunk:(NSString*)chunkName;
+- (void) addChunk:(NSString *)chunkName withOffset:(CGPoint)offset;
+- (void) addRandomChunk;
+- (void) removeChunk;
+
 - (void) loadChunksForLevel:(NSString*)levelName;
 
 @end
