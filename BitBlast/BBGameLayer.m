@@ -8,6 +8,10 @@
 
 #import "BBGameLayer.h"
 
+#define kCameraXOffset -64
+#define kCameraYMinimum 40
+#define kCameraYMaximum 280
+
 @implementation BBGameLayer
 
 +(CCScene *) scene
@@ -32,12 +36,12 @@
 		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
+		scrollingNode.scale = 1;
 		[self addChild:scrollingNode];
 		
 		// create player and add it to this layer
 		player = [[BBPlayer alloc] init];
 		[scrollingNode addChild:player];
-		[scrollingNode runAction:[CCFollow actionWithTarget:player]];
 		
 		// add physics world node to this layer
 		[scrollingNode addChild:[BBPhysicsWorld sharedSingleton]];
@@ -62,14 +66,46 @@
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark update
 - (void) update:(float)delta {
 	
 	[[ChunkManager sharedSingleton] update:delta];
 }
 
+- (void) updateCamera {
+	
+	// get player's current position
+	CGPoint currentPlayerPosition = player.position;
+	
+	// convert player's y position to screen space
+	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];//[[CCDirector sharedDirector] convertToGL:currentPlayerPosition];
+	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - currentPlayerScreenPosition.y;
+	
+	// construct camera offset
+	CGPoint offset = ccp(kCameraXOffset, 0);
+	
+	// check to see if player is too close to the top of the screen
+	/*if(currentPlayerScreenPosition.y <= kCameraYMinimum) {
+		offset.y = kCameraYMinimum - currentPlayerScreenPosition.y;
+		NSLog(@"Offset: %.2f --- player pos: %.2f --- screen pos: %.2f", offset.y, currentPlayerPosition.y, currentPlayerScreenPosition.y);
+	}
+	// check to see if player is too close to the bottom of the screen
+	if(currentPlayerScreenPosition.y >= kCameraYMaximum) {
+		offset.y = kCameraYMaximum - currentPlayerScreenPosition.y;
+		NSLog(@"Offset: %.2f --- player pos: %.2f --- screen pos: %.2f", offset.y, currentPlayerPosition.y, currentPlayerScreenPosition.y);
+	}
+	NSLog(@"offset: (%.2f, %.2f)", offset.x, offset.y);*/
+	
+	// follow the player
+	CGRect boundary = CGRectMake(currentPlayerPosition.x + offset.x, offset.y, currentPlayerPosition.x + [CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height + offset.y);
+	[scrollingNode runAction:[CCFollow actionWithTarget:player worldBoundary:boundary]];
+}
+
 - (void) draw {
 	
 	[super draw];
+	[self updateCamera];
 }
 
 #pragma mark -

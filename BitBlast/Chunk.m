@@ -12,7 +12,7 @@
 @implementation Chunk
 
 @synthesize width, height;
-@synthesize endPosition, startPosition;
+@synthesize endPosition, startPosition, lowestPosition;
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset {
 	
@@ -32,6 +32,8 @@
 		endPosition = offset.x + width;
 		// keep track of startPosition for removing chunk
 		startPosition = offset.x;
+		// keep track of lowestPosition for killing player
+		lowestPosition = offset.y;
 		
 		// get collision layer
 		CCTMXLayer *collision = [map layerNamed:@"Collision"];

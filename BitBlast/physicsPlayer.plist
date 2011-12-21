@@ -16,7 +16,7 @@
 	<key>fixedRotation</key>
 	<true/>
 	<key>friction</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>linearDamping</key>
 	<integer>0</integer>
 	<key>restitution</key>

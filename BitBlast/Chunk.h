@@ -14,11 +14,11 @@
     
 	NSMutableArray *collidables;
 	int width, height;
-	float endPosition, startPosition;
+	float endPosition, startPosition, lowestPosition;
 }
 
 @property (nonatomic) int width, height;
-@property (nonatomic) float endPosition, startPosition;
+@property (nonatomic) float endPosition, startPosition, lowestPosition;
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset;
 - (void) cleanupPhysics;

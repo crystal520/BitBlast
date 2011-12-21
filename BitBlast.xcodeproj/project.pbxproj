@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */; };
+		0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */; };
+		0A1EC4B114A02F1B005A7ED6 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4AF14A02F1B005A7ED6 /* bullet.png */; };
+		0A1EC4B214A02F1B005A7ED6 /* bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4B014A02F1B005A7ED6 /* bullet.plist */; };
+		0A1EC4B414A02F53005A7ED6 /* bulletProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4B314A02F53005A7ED6 /* bulletProperties.plist */; };
+		0A1EC4B614A03488005A7ED6 /* physicsBullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4B514A03488005A7ED6 /* physicsBullet.plist */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35AF149984C80019C113 /* junglechunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35AE149984C80019C113 /* junglechunk1.tmx */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
@@ -18,7 +23,7 @@
 		0A5C35C2149AFF970019C113 /* physicsBasicTile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */; };
 		0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723951497107C000E9412 /* BBPhysicsWorld.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
-		0AC723A314985F4F000E9412 /* player.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* player.plist */; };
+		0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* playerProperties.plist */; };
 		0AC723A61498693D000E9412 /* walkCycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A41498693D000E9412 /* walkCycle.png */; };
 		0AC723A71498693D000E9412 /* walkCycle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A51498693D000E9412 /* walkCycle.plist */; };
 		0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417361496F5C400342D8E /* QuartzCore.framework */; };
@@ -175,13 +180,18 @@
 		0AE419191496F5C800342D8E /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE419181496F5C800342D8E /* blocks.png */; };
 		0AE4192A1496FDC200342D8E /* BBGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419291496FDC200342D8E /* BBGameLayer.m */; };
 		0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4192D1496FEF300342D8E /* BBPlayer.m */; };
-		0AE419311496FF9500342D8E /* body.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE419301496FF9500342D8E /* body.png */; };
 		0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419331496FFFE00342D8E /* BBSpriteFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFollowOffset.m; sourceTree = "<group>"; };
 		0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFollowOffset.h; sourceTree = "<group>"; };
+		0A1EC4A914A02CC8005A7ED6 /* BBBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBullet.h; sourceTree = "<group>"; };
+		0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBBullet.m; sourceTree = "<group>"; };
+		0A1EC4AF14A02F1B005A7ED6 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/Gun/bullet.png; sourceTree = "<group>"; };
+		0A1EC4B014A02F1B005A7ED6 /* bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bullet.plist; path = Resources/Gun/bullet.plist; sourceTree = "<group>"; };
+		0A1EC4B314A02F53005A7ED6 /* bulletProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bulletProperties.plist; sourceTree = "<group>"; };
+		0A1EC4B514A03488005A7ED6 /* physicsBullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsBullet.plist; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35AE149984C80019C113 /* junglechunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = junglechunk1.tmx; path = Resources/junglechunk1.tmx; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
@@ -197,7 +207,7 @@
 		0AC723951497107C000E9412 /* BBPhysicsWorld.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPhysicsWorld.m; sourceTree = "<group>"; };
 		0AC7239F14985D9B000E9412 /* BBGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameObject.h; sourceTree = "<group>"; };
 		0AC723A014985D9C000E9412 /* BBGameObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameObject.m; sourceTree = "<group>"; };
-		0AC723A214985F4F000E9412 /* player.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = player.plist; sourceTree = "<group>"; };
+		0AC723A214985F4F000E9412 /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
 		0AC723A41498693D000E9412 /* walkCycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkCycle.png; path = Resources/Player/walkCycle.png; sourceTree = "<group>"; };
 		0AC723A51498693D000E9412 /* walkCycle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = walkCycle.plist; path = Resources/Player/walkCycle.plist; sourceTree = "<group>"; };
 		0AE417321496F5C400342D8E /* BitBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -515,7 +525,6 @@
 		0AE419291496FDC200342D8E /* BBGameLayer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameLayer.m; sourceTree = "<group>"; };
 		0AE4192C1496FEF300342D8E /* BBPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPlayer.h; sourceTree = "<group>"; };
 		0AE4192D1496FEF300342D8E /* BBPlayer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPlayer.m; sourceTree = "<group>"; };
-		0AE419301496FF9500342D8E /* body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = body.png; sourceTree = "<group>"; };
 		0AE419321496FFFE00342D8E /* BBSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSpriteFactory.h; sourceTree = "<group>"; };
 		0AE419331496FFFE00342D8E /* BBSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSpriteFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -572,6 +581,35 @@
 			name = "Basic Objects";
 			sourceTree = "<group>";
 		};
+		0A1EC4A814A02C9F005A7ED6 /* Game Objects */ = {
+			isa = PBXGroup;
+			children = (
+				0AE4192C1496FEF300342D8E /* BBPlayer.h */,
+				0AE4192D1496FEF300342D8E /* BBPlayer.m */,
+				0A1EC4A914A02CC8005A7ED6 /* BBBullet.h */,
+				0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */,
+			);
+			name = "Game Objects";
+			sourceTree = "<group>";
+		};
+		0A1EC4AC14A02EEC005A7ED6 /* Equipment */ = {
+			isa = PBXGroup;
+			children = (
+				0A1EC4AD14A02EFD005A7ED6 /* Guns */,
+			);
+			name = Equipment;
+			sourceTree = "<group>";
+		};
+		0A1EC4AD14A02EFD005A7ED6 /* Guns */ = {
+			isa = PBXGroup;
+			children = (
+				0A1EC4AF14A02F1B005A7ED6 /* bullet.png */,
+				0A1EC4B014A02F1B005A7ED6 /* bullet.plist */,
+				0A1EC4B314A02F53005A7ED6 /* bulletProperties.plist */,
+			);
+			name = Guns;
+			sourceTree = "<group>";
+		};
 		0A5C35A8149981A50019C113 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +646,7 @@
 		0A5C35BC149AFC970019C113 /* Physics */ = {
 			isa = PBXGroup;
 			children = (
+				0A1EC4B514A03488005A7ED6 /* physicsBullet.plist */,
 				0A5C35BF149AFF970019C113 /* physicsPlayer.plist */,
 				0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */,
 			);
@@ -670,6 +709,7 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A1EC4AC14A02EEC005A7ED6 /* Equipment */,
 				0A5C35BC149AFC970019C113 /* Physics */,
 				0A5C35AB1499848E0019C113 /* Chunks */,
 				0A5C35A8149981A50019C113 /* Levels */,
@@ -1132,12 +1172,11 @@
 		0AE4192B1496FE7E00342D8E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				0A1EC4A814A02C9F005A7ED6 /* Game Objects */,
 				0A1EC4A7149E7E4D005A7ED6 /* Basic Objects */,
 				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
 				0AE419281496FDC100342D8E /* BBGameLayer.h */,
 				0AE419291496FDC200342D8E /* BBGameLayer.m */,
-				0AE4192C1496FEF300342D8E /* BBPlayer.h */,
-				0AE4192D1496FEF300342D8E /* BBPlayer.m */,
 				0AC723941497107C000E9412 /* BBPhysicsWorld.h */,
 				0AC723951497107C000E9412 /* BBPhysicsWorld.m */,
 			);
@@ -1149,8 +1188,7 @@
 			children = (
 				0AC723A41498693D000E9412 /* walkCycle.png */,
 				0AC723A51498693D000E9412 /* walkCycle.plist */,
-				0AE419301496FF9500342D8E /* body.png */,
-				0AC723A214985F4F000E9412 /* player.plist */,
+				0AC723A214985F4F000E9412 /* playerProperties.plist */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -1215,8 +1253,7 @@
 				0AE417571496F5C500342D8E /* Icon@2x.png in Resources */,
 				0AE4175A1496F5C500342D8E /* iTunesArtwork in Resources */,
 				0AE419191496F5C800342D8E /* blocks.png in Resources */,
-				0AE419311496FF9500342D8E /* body.png in Resources */,
-				0AC723A314985F4F000E9412 /* player.plist in Resources */,
+				0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */,
 				0AC723A61498693D000E9412 /* walkCycle.png in Resources */,
 				0AC723A71498693D000E9412 /* walkCycle.plist in Resources */,
 				0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */,
@@ -1224,6 +1261,10 @@
 				0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */,
 				0A5C35C1149AFF970019C113 /* physicsPlayer.plist in Resources */,
 				0A5C35C2149AFF970019C113 /* physicsBasicTile.plist in Resources */,
+				0A1EC4B114A02F1B005A7ED6 /* bullet.png in Resources */,
+				0A1EC4B214A02F1B005A7ED6 /* bullet.plist in Resources */,
+				0A1EC4B414A02F53005A7ED6 /* bulletProperties.plist in Resources */,
+				0A1EC4B614A03488005A7ED6 /* physicsBullet.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1377,6 +1418,7 @@
 				0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */,
 				0A5C35BB1499A1D50019C113 /* BBPhysicsObject.m in Sources */,
 				0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */,
+				0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

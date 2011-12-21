@@ -25,6 +25,8 @@
 - (void) addRandomChunk;
 - (void) removeChunk;
 
+- (Chunk*) getCurrentChunk;
+
 - (void) loadChunksForLevel:(NSString*)levelName;
 
 @end

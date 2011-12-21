@@ -100,6 +100,22 @@
 	[currentChunks removeObjectAtIndex:0];
 }
 
+- (void) removeChunks {
+	
+	for(Chunk *c in currentChunks) {
+		[c cleanupPhysics];
+		[self removeChild:c cleanup:YES];
+	}
+	
+	[currentChunks removeAllObjects];
+}
+
+#pragma mark -
+#pragma mark getting chunks
+- (Chunk*) getCurrentChunk {
+	return [currentChunks objectAtIndex:0];
+}
+
 #pragma mark -
 #pragma mark loading chunks
 - (void) loadChunksForLevel:(NSString*)levelName {

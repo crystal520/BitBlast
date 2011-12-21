@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BBGameObject.h"
+#import "ChunkManager.h"
+#import "BBBullet.h"
 
 @interface BBPlayer : BBGameObject {
 	
 }
 
+- (void) die:(NSString*)reason;
 - (void) jump;
+- (void) shoot;
 
 @end

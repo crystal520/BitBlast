@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>animations</key>
+	<dict>
+		<key>basic</key>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>bullet1.png</string>
+				<string>bullet2.png</string>
+			</array>
+			<key>image</key>
+			<string>bullet.png</string>
+			<key>plist</key>
+			<string>bullet.plist</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+	</dict>
+</dict>
 </plist>

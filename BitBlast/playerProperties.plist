@@ -21,12 +21,5 @@
 			<real>0.1</real>
 		</dict>
 	</dict>
-	<key>physics</key>
-	<dict>
-		<key>density</key>
-		<real>0.75</real>
-		<key>friction</key>
-		<real>0.3</real>
-	</dict>
 </dict>
 </plist>

@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BBGameObject.h"
 
 @interface BBBullet : BBGameObject {
     
 }
+
+- (id) initWithPosition:(CGPoint)position;
 
 @end

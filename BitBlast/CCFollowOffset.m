@@ -11,6 +11,7 @@
 
 @implementation CCFollowOffset
 
-//+ (CCFollowOffset*) actionWith
+//+ (CCFollowOffset*) actionWithTarget:(CCNode*)followedNode withOffset:(CGPoint)offset;
+//+ (CCFollowOffset*) actionWithTarget
 
 @end
