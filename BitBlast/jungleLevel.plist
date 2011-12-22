@@ -4,10 +4,12 @@
 <dict>
 	<key>chunks</key>
 	<array>
-		<string>junglechunk1.tmx</string>
+		<string>chunk1.tmx</string>
+		<string>chunk2.tmx</string>
+		<string>cavechunk1.tmx</string>
 	</array>
 	<key>firstChunk</key>
-	<string>junglechunk1.tmx</string>
+	<string>start.tmx</string>
 	<key>overrideChunk</key>
 	<string>junglechunk1.tmx</string>
 </dict>

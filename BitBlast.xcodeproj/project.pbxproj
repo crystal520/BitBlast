@@ -181,6 +181,10 @@
 		0AE4192A1496FDC200342D8E /* BBGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419291496FDC200342D8E /* BBGameLayer.m */; };
 		0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4192D1496FEF300342D8E /* BBPlayer.m */; };
 		0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419331496FFFE00342D8E /* BBSpriteFactory.m */; };
+		3BB1129814A2E02A005DC6CC /* start.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129714A2E02A005DC6CC /* start.tmx */; };
+		3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129A14A30130005DC6CC /* chunk1.tmx */; };
+		3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129C14A3035A005DC6CC /* chunk2.tmx */; };
+		3BB1129F14A3062F005DC6CC /* cavechunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -527,6 +531,10 @@
 		0AE4192D1496FEF300342D8E /* BBPlayer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPlayer.m; sourceTree = "<group>"; };
 		0AE419321496FFFE00342D8E /* BBSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSpriteFactory.h; sourceTree = "<group>"; };
 		0AE419331496FFFE00342D8E /* BBSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSpriteFactory.m; sourceTree = "<group>"; };
+		3BB1129714A2E02A005DC6CC /* start.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = start.tmx; path = Resources/start.tmx; sourceTree = "<group>"; };
+		3BB1129A14A30130005DC6CC /* chunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk1.tmx; path = Resources/chunk1.tmx; sourceTree = "<group>"; };
+		3BB1129C14A3035A005DC6CC /* chunk2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk2.tmx; path = Resources/chunk2.tmx; sourceTree = "<group>"; };
+		3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = cavechunk1.tmx; path = Resources/cavechunk1.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -629,6 +637,10 @@
 		0A5C35AD149984A90019C113 /* Jungle */ = {
 			isa = PBXGroup;
 			children = (
+				3BB1129714A2E02A005DC6CC /* start.tmx */,
+				3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */,
+				3BB1129C14A3035A005DC6CC /* chunk2.tmx */,
+				3BB1129A14A30130005DC6CC /* chunk1.tmx */,
 				0A5C35AE149984C80019C113 /* junglechunk1.tmx */,
 			);
 			name = Jungle;
@@ -1265,6 +1277,10 @@
 				0A1EC4B214A02F1B005A7ED6 /* bullet.plist in Resources */,
 				0A1EC4B414A02F53005A7ED6 /* bulletProperties.plist in Resources */,
 				0A1EC4B614A03488005A7ED6 /* physicsBullet.plist in Resources */,
+				3BB1129814A2E02A005DC6CC /* start.tmx in Resources */,
+				3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */,
+				3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */,
+				3BB1129F14A3062F005DC6CC /* cavechunk1.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
