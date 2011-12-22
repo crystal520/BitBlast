@@ -8,7 +8,7 @@
 
 #import "BBGameLayer.h"
 
-#define kCameraXOffset -64
+#define kCameraXOffset 64
 #define kCameraYMinimum 40
 #define kCameraYMaximum 280
 
@@ -32,7 +32,7 @@
 - (id) init {
 	if((self = [super init])) {
 		
-		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
+		[[BBPhysicsWorld sharedSingleton] debugPhysics];
 		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
@@ -56,6 +56,9 @@
 		
 		// update tick
 		[self scheduleUpdate];
+		
+		// listen for physics update notification
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCamera) name:kPhysicsUpdatedNotification object:nil];
 	}
 	
 	return self;
@@ -71,41 +74,33 @@
 - (void) update:(float)delta {
 	
 	[[ChunkManager sharedSingleton] update:delta];
+	//[self updateCamera];
 }
 
 - (void) updateCamera {
 	
-	// get player's current position
-	CGPoint currentPlayerPosition = player.position;
-	
 	// convert player's y position to screen space
-	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];//[[CCDirector sharedDirector] convertToGL:currentPlayerPosition];
-	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - currentPlayerScreenPosition.y;
+	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];
+	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - (currentPlayerScreenPosition.y + player.contentSize.height);
 	
-	// construct camera offset
-	CGPoint offset = ccp(kCameraXOffset, 0);
-	
+	float yOffset = 0;
 	// check to see if player is too close to the top of the screen
-	/*if(currentPlayerScreenPosition.y <= kCameraYMinimum) {
-		offset.y = kCameraYMinimum - currentPlayerScreenPosition.y;
-		NSLog(@"Offset: %.2f --- player pos: %.2f --- screen pos: %.2f", offset.y, currentPlayerPosition.y, currentPlayerScreenPosition.y);
+	if(currentPlayerScreenPosition.y < kCameraYMinimum) {
+		yOffset = kCameraYMinimum - currentPlayerScreenPosition.y;
 	}
 	// check to see if player is too close to the bottom of the screen
-	if(currentPlayerScreenPosition.y >= kCameraYMaximum) {
-		offset.y = kCameraYMaximum - currentPlayerScreenPosition.y;
-		NSLog(@"Offset: %.2f --- player pos: %.2f --- screen pos: %.2f", offset.y, currentPlayerPosition.y, currentPlayerScreenPosition.y);
+	else if(currentPlayerScreenPosition.y > kCameraYMaximum) {
+		yOffset = kCameraYMaximum - currentPlayerScreenPosition.y;
 	}
-	NSLog(@"offset: (%.2f, %.2f)", offset.x, offset.y);*/
 	
-	// follow the player
-	CGRect boundary = CGRectMake(currentPlayerPosition.x + offset.x, offset.y, currentPlayerPosition.x + [CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height + offset.y);
-	[scrollingNode runAction:[CCFollow actionWithTarget:player worldBoundary:boundary]];
+	b2Vec2 pos = player.body.body->GetPosition();
+	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + kCameraXOffset, self.position.y - yOffset);
+	[self setPosition:newPos];
 }
 
 - (void) draw {
 	
 	[super draw];
-	[self updateCamera];
 }
 
 #pragma mark -

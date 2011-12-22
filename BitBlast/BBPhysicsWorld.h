@@ -12,6 +12,8 @@
 #import "GLES-Render.h"
 #import "BBPhysicsObject.h"
 
+#define kPhysicsUpdatedNotification @"physicsUpdatedNotification"
+
 @interface BBPhysicsWorld : CCNode {
     
 	b2World *world;

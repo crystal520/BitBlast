@@ -11,6 +11,8 @@
 
 @implementation BBGameObject
 
+@synthesize body;
+
 - (id) initWithFile:(NSString *)filename {
 	
 	if((self = [super init])) {

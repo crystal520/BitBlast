@@ -17,6 +17,8 @@
 	
     BBPlayer *player;
 	CCNode *scrollingNode;
+	CGPoint cameraOrigPos;
+	BOOL savedCameraOrigPos;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child

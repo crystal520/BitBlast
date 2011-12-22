@@ -13,4 +13,7 @@
     
 }
 
++ (CCFollowOffset*) actionWithTarget:(CCNode*)followedNode withOffset:(CGPoint)offset;
+- (CCFollowOffset*) initWithTarget:(CCNode*)followedNode withOffset:(CGPoint)offset;
+
 @end

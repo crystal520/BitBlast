@@ -18,6 +18,8 @@
 	NSDictionary *dictionary;
 }
 
+@property (nonatomic) BBPhysicsObject *body;
+
 - (id) initWithFile:(NSString*)filename;
 - (void) playAnimation:(NSString*)animName;
 

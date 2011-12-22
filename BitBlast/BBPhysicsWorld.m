@@ -92,6 +92,8 @@
 			myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
 		}	
 	}
+	
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPhysicsUpdatedNotification object:nil]];
 }
 
 - (BBPhysicsObject*) createBoxFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data {
