@@ -95,6 +95,11 @@
 	
 	b2Vec2 pos = player.body.body->GetPosition();
 	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + kCameraXOffset, self.position.y - yOffset);
+    
+    // make sure newPos's y coordinate is not less than the current chunk's lowest point
+    if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+        newPos.y = [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition;
+    }
 	[self setPosition:newPos];
 }
 
