@@ -96,7 +96,7 @@
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPhysicsUpdatedNotification object:nil]];
 }
 
-- (BBPhysicsObject*) createBoxFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data {
+- (BBPhysicsObject*) createPhysicsObjectFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data {
 	
 	// get dictionary from plist file
 	NSDictionary *boxPlist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"]];
@@ -113,6 +113,8 @@
 		float linearDamping = [[boxPlist objectForKey:@"linearDamping"] floatValue];
 		float angularDamping = [[boxPlist objectForKey:@"angularDamping"] floatValue];
 		NSString *type = [boxPlist objectForKey:@"type"];
+		NSString *shape = [boxPlist objectForKey:@"shape"];
+		float radius = [[boxPlist objectForKey:@"radius"] floatValue];
 		
 		// set defaults if they're null
 		if([boxPlist objectForKey:@"density"] == nil) {
@@ -139,6 +141,12 @@
 		if([boxPlist objectForKey:@"type"] == nil) {
 			type = @"static";
 		}
+		if([boxPlist objectForKey:@"shape"] == nil) {
+			shape = @"box";
+		}
+		if([boxPlist objectForKey:@"radius"] == nil) {
+			radius = 1.0f;
+		}
 		
 		// define the dynamic body
 		b2BodyDef bodyDef;
@@ -160,17 +168,24 @@
 		bodyDef.angularDamping = angularDamping;
 		b2Body *body = world->CreateBody(&bodyDef);
 		
-		// define the box shape for our dynamic body
-		b2PolygonShape box;
-		///box.SetAsBox(ssize.width/2/PTM_RATIO, ssize.height/2/PTM_RATIO);
-		box.SetAsBox(0.5f, 0.5f, b2Vec2(anchor.x, anchor.y), 0.0f);
-		
 		// define the dynamic body fixture
 		b2FixtureDef fixtureDef;
-		fixtureDef.shape = &box;
 		fixtureDef.density = density;
 		fixtureDef.friction = friction;
 		fixtureDef.restitution = restitution;
+		
+		// define the box shape for our dynamic body
+		if([shape isEqualToString:@"box"]) {
+			b2PolygonShape box;
+			box.SetAsBox(0.5f, 0.5f, b2Vec2(anchor.x, anchor.y), 0.0f);
+			fixtureDef.shape = &box;
+		}
+		else if([shape isEqualToString:@"circle"]) {
+			b2CircleShape circle;
+			circle.m_radius = radius/PTM_RATIO;
+			fixtureDef.shape = &circle;
+		}
+		
 		body->CreateFixture(&fixtureDef);
 		return [[BBPhysicsObject alloc] initWithBody:body];
 	}

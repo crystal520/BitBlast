@@ -23,5 +23,7 @@
 	<integer>0</integer>
 	<key>type</key>
 	<string>static</string>
+	<key>shape</key>
+	<string>box</string>
 </dict>
 </plist>

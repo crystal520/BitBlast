@@ -17,7 +17,7 @@
 		
 		[self playAnimation:@"walk"];
 		
-		body = [[BBPhysicsWorld sharedSingleton] createBoxFromFile:@"physicsPlayer" withPosition:ccp(64, 256) withData:self];
+		body = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsPlayer" withPosition:ccp(64, 256) withData:self];
 		body.body->SetSleepingAllowed(NO);
 		
 		//[[CCScheduler sharedScheduler] scheduleSelector:@selector(shoot) forTarget:self interval:3 paused:NO];
@@ -60,6 +60,9 @@
 	// only jump if we're not jumping already
 	if(body.body->GetLinearVelocity().y <= 0.01f && body.body->GetLinearVelocity().y >= -0.01f) {
 		body.body->ApplyLinearImpulse(b2Vec2(0, kJump/PTM_RATIO), body.body->GetWorldCenter());
+	}
+	else {
+		NSLog(@"Can't jump because player's Y velocity is out of range: %f", body.body->GetLinearVelocity().y);
 	}
 }
 

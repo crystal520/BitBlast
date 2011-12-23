@@ -16,7 +16,7 @@
 		
 		[self playAnimation:@"basic"];
 		
-		/*body = [[BBPhysicsWorld sharedSingleton] createBoxFromFile:@"physicsBullet" withPosition:position withData:self];
+		/*body = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsBullet" withPosition:position withData:self];
 		body.body->SetSleepingAllowed(NO);
 		body.body->SetBullet(YES);
 		body.body->ApplyImpulse(b2Vec2(20.0f, 0.0f));*/

@@ -12,7 +12,7 @@
 	<key>angularDamping</key>
 	<integer>0</integer>
 	<key>density</key>
-	<real>0.5</real>
+	<real>0.7</real>
 	<key>fixedRotation</key>
 	<true/>
 	<key>friction</key>
@@ -23,5 +23,9 @@
 	<integer>0</integer>
 	<key>type</key>
 	<string>dynamic</string>
+	<key>shape</key>
+	<string>circle</string>
+	<key>radius</key>
+	<integer>16</integer>
 </dict>
 </plist>

@@ -44,7 +44,7 @@
 				int gid = [collision tileGIDAt:ccp(x, y)];
 				if(gid != 0) {
 					
-					[collidables addObject:[[BBPhysicsWorld sharedSingleton] createBoxFromFile:@"physicsBasicTile" withPosition:ccp(x * map.tileSize.width + offset.x, (map.mapSize.height - (y+1)) * map.tileSize.height + offset.y) withData:nil]];
+					[collidables addObject:[[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsBasicTile" withPosition:ccp(x * map.tileSize.width + offset.x, (map.mapSize.height - (y+1)) * map.tileSize.height + offset.y) withData:nil]];
 				}
 			}
 		}

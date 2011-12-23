@@ -23,7 +23,7 @@
 @property (nonatomic) b2World *world;
 
 + (BBPhysicsWorld*) sharedSingleton;
-- (BBPhysicsObject*) createBoxFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data;
+- (BBPhysicsObject*) createPhysicsObjectFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data;
 - (void) debugPhysics;
 
 @end
