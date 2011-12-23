@@ -5,8 +5,10 @@
 	<key>chunks</key>
 	<array>
 		<string>chunk1.tmx</string>
+		<string>chunk3.tmx</string>
+		<string>chunk4.tmx</string>
 		<string>chunk2.tmx</string>
-		<string>cavechunk1.tmx</string>
+		<string>chunk5.tmx</string>
 	</array>
 	<key>firstChunk</key>
 	<string>start.tmx</string>

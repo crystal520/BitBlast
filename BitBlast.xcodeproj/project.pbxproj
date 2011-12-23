@@ -185,6 +185,9 @@
 		3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129A14A30130005DC6CC /* chunk1.tmx */; };
 		3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129C14A3035A005DC6CC /* chunk2.tmx */; };
 		3BB1129F14A3062F005DC6CC /* cavechunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */; };
+		3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A014A3CE61005DC6CC /* chunk3.tmx */; };
+		3BB112A314A3D067005DC6CC /* chunk4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A214A3D067005DC6CC /* chunk4.tmx */; };
+		3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A414A410DB005DC6CC /* chunk5.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -535,6 +538,9 @@
 		3BB1129A14A30130005DC6CC /* chunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk1.tmx; path = Resources/chunk1.tmx; sourceTree = "<group>"; };
 		3BB1129C14A3035A005DC6CC /* chunk2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk2.tmx; path = Resources/chunk2.tmx; sourceTree = "<group>"; };
 		3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = cavechunk1.tmx; path = Resources/cavechunk1.tmx; sourceTree = "<group>"; };
+		3BB112A014A3CE61005DC6CC /* chunk3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk3.tmx; path = Resources/chunk3.tmx; sourceTree = "<group>"; };
+		3BB112A214A3D067005DC6CC /* chunk4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk4.tmx; path = Resources/chunk4.tmx; sourceTree = "<group>"; };
+		3BB112A414A410DB005DC6CC /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,6 +644,9 @@
 			isa = PBXGroup;
 			children = (
 				3BB1129714A2E02A005DC6CC /* start.tmx */,
+				3BB112A214A3D067005DC6CC /* chunk4.tmx */,
+				3BB112A014A3CE61005DC6CC /* chunk3.tmx */,
+				3BB112A414A410DB005DC6CC /* chunk5.tmx */,
 				3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */,
 				3BB1129C14A3035A005DC6CC /* chunk2.tmx */,
 				3BB1129A14A30130005DC6CC /* chunk1.tmx */,
@@ -1281,6 +1290,9 @@
 				3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */,
 				3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */,
 				3BB1129F14A3062F005DC6CC /* cavechunk1.tmx in Resources */,
+				3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */,
+				3BB112A314A3D067005DC6CC /* chunk4.tmx in Resources */,
+				3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

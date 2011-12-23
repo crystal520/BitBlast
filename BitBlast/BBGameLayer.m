@@ -9,8 +9,8 @@
 #import "BBGameLayer.h"
 
 #define kCameraXOffset 64
-#define kCameraYMinimum 40
-#define kCameraYMaximum 280
+#define kCameraYMinimum 20
+#define kCameraYMaximum 200
 
 @implementation BBGameLayer
 

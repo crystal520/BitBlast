@@ -35,7 +35,7 @@
 - (void) draw {
 	
 	b2Vec2 v = body.body->GetLinearVelocity();
-	v.x = 5;
+	v.x = 7;
 	body.body->SetLinearVelocity(v);
 	
 	// see if player has died by falling in a pit
