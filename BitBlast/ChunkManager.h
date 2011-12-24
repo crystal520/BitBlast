@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import "Chunk.h"
 
+#define kChunkCompletedNotification @"chunkCompletedNotification"
+
 @interface ChunkManager : CCNode {
     
 	NSMutableArray *currentChunks;

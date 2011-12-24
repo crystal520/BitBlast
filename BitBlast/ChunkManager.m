@@ -54,6 +54,8 @@
 	if(firstChunk && [firstChunk convertToWorldSpace:ccp(firstChunk.position.x + firstChunk.width, 0)].x < firstChunk.startPosition) {
 		[self removeChunk];
 		[self addRandomChunk];
+		
+		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kChunkCompletedNotification object:nil]];
 	}
 }
 
