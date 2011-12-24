@@ -14,6 +14,7 @@
 
 @interface BBPlayer : BBGameObject {
 	
+	float jumpImpulse, speed;
 }
 
 - (void) die:(NSString*)reason;

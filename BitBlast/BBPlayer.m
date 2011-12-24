@@ -8,8 +8,6 @@
 
 #import "BBPlayer.h"
 
-#define kJump 300
-
 @implementation BBPlayer
 
 - (id) init {
@@ -19,6 +17,12 @@
 		
 		body = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsPlayer" withPosition:ccp(64, 256) withData:self];
 		body.body->SetSleepingAllowed(NO);
+		
+		// load jump value from plist
+		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
+		
+		// load speed value from plist
+		speed = [[dictionary objectForKey:@"speed"] floatValue];
 		
 		//[[CCScheduler sharedScheduler] scheduleSelector:@selector(shoot) forTarget:self interval:3 paused:NO];
 	}
@@ -35,7 +39,7 @@
 - (void) draw {
 	
 	b2Vec2 v = body.body->GetLinearVelocity();
-	v.x = 7;
+	v.x = speed;
 	body.body->SetLinearVelocity(v);
 	
 	// see if player has died by falling in a pit
@@ -59,7 +63,7 @@
 	
 	// only jump if we're not jumping already
 	if(body.body->GetLinearVelocity().y <= 0.01f && body.body->GetLinearVelocity().y >= -0.01f) {
-		body.body->ApplyLinearImpulse(b2Vec2(0, kJump/PTM_RATIO), body.body->GetWorldCenter());
+		body.body->ApplyLinearImpulse(b2Vec2(0, jumpImpulse/PTM_RATIO), body.body->GetWorldCenter());
 	}
 	else {
 		NSLog(@"Can't jump because player's Y velocity is out of range: %f", body.body->GetLinearVelocity().y);

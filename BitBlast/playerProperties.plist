@@ -21,5 +21,9 @@
 			<real>0.1</real>
 		</dict>
 	</dict>
+	<key>jump</key>
+	<integer>300</integer>
+	<key>speed</key>
+	<integer>7</integer>
 </dict>
 </plist>
