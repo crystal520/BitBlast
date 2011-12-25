@@ -188,6 +188,8 @@
 		3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A014A3CE61005DC6CC /* chunk3.tmx */; };
 		3BB112A314A3D067005DC6CC /* chunk4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A214A3D067005DC6CC /* chunk4.tmx */; };
 		3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A414A410DB005DC6CC /* chunk5.tmx */; };
+		3BB112A714A5B285005DC6CC /* spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A614A5B285005DC6CC /* spritesheet.png */; };
+		3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A814A5B28C005DC6CC /* newchunk1.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -541,6 +543,8 @@
 		3BB112A014A3CE61005DC6CC /* chunk3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk3.tmx; path = Resources/chunk3.tmx; sourceTree = "<group>"; };
 		3BB112A214A3D067005DC6CC /* chunk4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk4.tmx; path = Resources/chunk4.tmx; sourceTree = "<group>"; };
 		3BB112A414A410DB005DC6CC /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
+		3BB112A614A5B285005DC6CC /* spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spritesheet.png; path = Resources/spritesheet.png; sourceTree = "<group>"; };
+		3BB112A814A5B28C005DC6CC /* newchunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = newchunk1.tmx; path = Resources/newchunk1.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,6 +647,7 @@
 		0A5C35AD149984A90019C113 /* Jungle */ = {
 			isa = PBXGroup;
 			children = (
+				3BB112A814A5B28C005DC6CC /* newchunk1.tmx */,
 				3BB1129714A2E02A005DC6CC /* start.tmx */,
 				3BB112A214A3D067005DC6CC /* chunk4.tmx */,
 				3BB112A014A3CE61005DC6CC /* chunk3.tmx */,
@@ -658,6 +663,7 @@
 		0A5C35B0149984DE0019C113 /* Jungle */ = {
 			isa = PBXGroup;
 			children = (
+				3BB112A614A5B285005DC6CC /* spritesheet.png */,
 				0A5C35B714998EA90019C113 /* dirt_tile_set.png */,
 				0A5C35A9149981C20019C113 /* jungleLevel.plist */,
 			);
@@ -1293,6 +1299,8 @@
 				3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */,
 				3BB112A314A3D067005DC6CC /* chunk4.tmx in Resources */,
 				3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */,
+				3BB112A714A5B285005DC6CC /* spritesheet.png in Resources */,
+				3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
