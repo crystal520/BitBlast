@@ -99,52 +99,52 @@
 - (BBPhysicsObject*) createPhysicsObjectFromFile:(NSString*)fileName withPosition:(CGPoint)pos withData:(id)data {
 	
 	// get dictionary from plist file
-	NSDictionary *boxPlist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"]];
+	NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:fileName ofType:@"plist"]];
 	
 	// make sure it exists
-	if(boxPlist) {
+	if(plist) {
 	
 		// grab variables from plist
-		float density = [[boxPlist objectForKey:@"density"] floatValue];
-		float friction = [[boxPlist objectForKey:@"friction"] floatValue];
-		float restitution = [[boxPlist objectForKey:@"restitution"] floatValue];
-		BOOL fixedRotation = [[boxPlist objectForKey:@"fixedRotation"] boolValue];
-		CGPoint anchor = ccp([[[boxPlist objectForKey:@"anchor"] objectForKey:@"x"] floatValue], [[[boxPlist objectForKey:@"anchor"] objectForKey:@"y"] floatValue]);
-		float linearDamping = [[boxPlist objectForKey:@"linearDamping"] floatValue];
-		float angularDamping = [[boxPlist objectForKey:@"angularDamping"] floatValue];
-		NSString *type = [boxPlist objectForKey:@"type"];
-		NSString *shape = [boxPlist objectForKey:@"shape"];
-		float radius = [[boxPlist objectForKey:@"radius"] floatValue];
+		float density = [[plist objectForKey:@"density"] floatValue];
+		float friction = [[plist objectForKey:@"friction"] floatValue];
+		float restitution = [[plist objectForKey:@"restitution"] floatValue];
+		BOOL fixedRotation = [[plist objectForKey:@"fixedRotation"] boolValue];
+		CGPoint anchor = ccp([[[plist objectForKey:@"anchor"] objectForKey:@"x"] floatValue], [[[plist objectForKey:@"anchor"] objectForKey:@"y"] floatValue]);
+		float linearDamping = [[plist objectForKey:@"linearDamping"] floatValue];
+		float angularDamping = [[plist objectForKey:@"angularDamping"] floatValue];
+		NSString *type = [plist objectForKey:@"type"];
+		NSString *shape = [plist objectForKey:@"shape"];
+		float radius = [[plist objectForKey:@"radius"] floatValue];
 		
 		// set defaults if they're null
-		if([boxPlist objectForKey:@"density"] == nil) {
+		if([plist objectForKey:@"density"] == nil) {
 			density = 0.0f;
 		}
-		if([boxPlist objectForKey:@"friction"] == nil) {
+		if([plist objectForKey:@"friction"] == nil) {
 			friction = 0.0f;
 		}
-		if([boxPlist objectForKey:@"restitution"] == nil) {
+		if([plist objectForKey:@"restitution"] == nil) {
 			restitution = 0.0f;
 		}
-		if([boxPlist objectForKey:@"fixedRotation"] == nil) {
+		if([plist objectForKey:@"fixedRotation"] == nil) {
 			fixedRotation = NO;
 		}
-		if([boxPlist objectForKey:@"anchor"] == nil) {
+		if([plist objectForKey:@"anchor"] == nil) {
 			anchor = ccp(0.5f, 0.5f);
 		}
-		if([boxPlist objectForKey:@"linearDamping"] == nil) {
+		if([plist objectForKey:@"linearDamping"] == nil) {
 			linearDamping = 0.0f;
 		}
-		if([boxPlist objectForKey:@"angularDamping"] == nil) {
+		if([plist objectForKey:@"angularDamping"] == nil) {
 			angularDamping = 0.0f;
 		}
-		if([boxPlist objectForKey:@"type"] == nil) {
+		if([plist objectForKey:@"type"] == nil) {
 			type = @"static";
 		}
-		if([boxPlist objectForKey:@"shape"] == nil) {
+		if([plist objectForKey:@"shape"] == nil) {
 			shape = @"box";
 		}
-		if([boxPlist objectForKey:@"radius"] == nil) {
+		if([plist objectForKey:@"radius"] == nil) {
 			radius = 1.0f;
 		}
 		
