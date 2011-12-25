@@ -32,19 +32,12 @@
 - (id) init {
 	if((self = [super init])) {
 		
-		[[BBPhysicsWorld sharedSingleton] debugPhysics];
+		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
 		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
 		scrollingNode.scale = 1;
 		[self addChild:scrollingNode];
-		
-		// create player and add it to this layer
-		player = [[BBPlayer alloc] init];
-		[scrollingNode addChild:player];
-		
-		// add physics world node to this layer
-		[scrollingNode addChild:[BBPhysicsWorld sharedSingleton]];
 		
 		// listen for touches
 		self.isTouchEnabled = YES;
@@ -53,6 +46,13 @@
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
+		
+		// create player and add it to this layer
+		player = [[BBPlayer alloc] init];
+		//[scrollingNode addChild:player];
+		
+		// add physics world node to this layer
+		[scrollingNode addChild:[BBPhysicsWorld sharedSingleton]];
 		
 		// update tick
 		[self scheduleUpdate];

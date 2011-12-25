@@ -23,16 +23,14 @@
 	</dict>
 	<key>jump</key>
 	<integer>300</integer>
-	<key>speed</key>
-	<integer>20</integer>
 	<key>speedRamp</key>
 	<dict>
-		<key>minSpeed</key>
-		<integer>7</integer>
-		<key>maxSpeed</key>
-		<integer>15</integer>
 		<key>incrementPercent</key>
 		<real>0.1</real>
+		<key>maxSpeed</key>
+		<integer>15</integer>
+		<key>minSpeed</key>
+		<integer>7</integer>
 		<key>numChunksToIncrement</key>
 		<integer>2</integer>
 	</dict>

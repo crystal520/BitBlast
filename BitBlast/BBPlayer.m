@@ -29,8 +29,13 @@
 		speed = minSpeed;
 		curNumChunks = 0;
 		
-		// register for notifications when a chunk is completed
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incrementSpeed) name:kChunkCompletedNotification object:nil];
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkWillBeRemoved) name:kChunkWillRemoveNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(physicsUpdated) name:kPhysicsUpdatedNotification object:nil];
+		
+		[[[ChunkManager sharedSingleton] getCurrentChunk].map addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+		sprite.tag = -1000;
 		
 		//[[CCScheduler sharedScheduler] scheduleSelector:@selector(shoot) forTarget:self interval:3 paused:NO];
 	}
@@ -58,7 +63,7 @@
 
 #pragma mark -
 #pragma mark notifications
-- (void) incrementSpeed {
+- (void) chunkCompleted {
 	
 	// increment the number of chunks completed
 	curNumChunks++;
@@ -72,6 +77,23 @@
 		speed = MIN(speed, maxSpeed);
 		NSLog(@"Player speed is now %.2f after incrementing", speed);
 	}
+	
+	// add player to current chunk
+	[[[ChunkManager sharedSingleton] getCurrentChunk].map addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+	[self release];
+}
+
+- (void) chunkWillBeRemoved {
+	
+	chunkSpriteOffset += [[ChunkManager sharedSingleton] getCurrentChunk].width;
+	[self retain];
+	[self.parent removeChild:self cleanup:NO];
+}
+
+- (void) physicsUpdated {
+	
+	// offset the sprite by the chunk offset
+	[self setPosition:ccp(self.position.x - chunkSpriteOffset, self.position.y)];
 }
 
 #pragma mark -

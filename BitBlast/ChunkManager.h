@@ -11,11 +11,13 @@
 #import "Chunk.h"
 
 #define kChunkCompletedNotification @"chunkCompletedNotification"
+#define kChunkWillRemoveNotification @"chunkWillRemoveNotification"
 
 @interface ChunkManager : CCNode {
     
 	NSMutableArray *currentChunks;
 	NSMutableArray *chunks;
+	NSMutableString *overrideChunk;
 }
 
 + (ChunkManager*) sharedSingleton;

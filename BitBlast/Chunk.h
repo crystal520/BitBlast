@@ -12,12 +12,14 @@
 
 @interface Chunk : CCNode {
     
+	CCTMXTiledMap *map;
 	NSMutableArray *collidables;
-	int width, height;
+	int width, height, playerZ;
 	float endPosition, startPosition, lowestPosition;
 }
 
-@property (nonatomic) int width, height;
+@property (nonatomic, assign) CCTMXTiledMap *map;
+@property (nonatomic) int width, height, playerZ;
 @property (nonatomic) float endPosition, startPosition, lowestPosition;
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset;

@@ -14,7 +14,7 @@
 
 @interface BBPlayer : BBGameObject {
 	
-	float jumpImpulse, speed, minSpeed, maxSpeed, speedIncrement;
+	float jumpImpulse, speed, minSpeed, maxSpeed, speedIncrement, chunkSpriteOffset;
 	int chunksToIncrement, curNumChunks;
 }
 

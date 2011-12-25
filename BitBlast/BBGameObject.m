@@ -12,6 +12,7 @@
 @implementation BBGameObject
 
 @synthesize body;
+@synthesize sprite;
 
 - (id) initWithFile:(NSString *)filename {
 	

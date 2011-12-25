@@ -31,6 +31,7 @@
 		
 		chunks = [NSMutableArray new];
 		currentChunks = [NSMutableArray new];
+		overrideChunk = [NSMutableString new];
 	}
 	
 	return self;
@@ -68,6 +69,11 @@
 
 - (void) addChunk:(NSString *)chunkName withOffset:(CGPoint)offset {
 	
+	// see if there is an override chunk. if there is, only display that one
+	if(![overrideChunk isEqualToString:@""]) {
+		chunkName = overrideChunk;
+	}
+	
 	Chunk *newChunk = [[Chunk alloc] initWithFile:chunkName withOffset:offset];
 	[currentChunks addObject:newChunk];
 	[self addChild:newChunk];
@@ -94,6 +100,8 @@
 }
 
 - (void) removeChunk {
+	
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kChunkWillRemoveNotification object:nil]];
 	
 	// get first chunk
 	Chunk *firstChunk = [currentChunks objectAtIndex:0];
@@ -134,7 +142,7 @@
 		[chunks addObjectsFromArray:[levelPlist objectForKey:@"chunks"]];
 		
 		// grab override chunk
-		//NSString *overrideChunk = [levelPlist objectForKey:@"overrideChunk"];
+		[overrideChunk setString:[levelPlist objectForKey:@"overrideChunk"]];
 		
 		[self addChunk:firstChunk];
 		[self addRandomChunk];

@@ -18,7 +18,8 @@
 	NSDictionary *dictionary;
 }
 
-@property (nonatomic) BBPhysicsObject *body;
+@property (nonatomic, assign) BBPhysicsObject *body;
+@property (nonatomic, readonly) CCSprite *sprite;
 
 - (id) initWithFile:(NSString*)filename;
 - (void) playAnimation:(NSString*)animName;
