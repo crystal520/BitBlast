@@ -17,12 +17,13 @@
 	
     BBPlayer *player;
 	CCNode *scrollingNode;
-	CGPoint cameraOrigPos;
-	BOOL savedCameraOrigPos;
+	CGPoint cameraOffset, cameraBounds;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child
 + (CCScene *) scene;
+
+- (void) loadCameraVariables;
 
 - (void) updateCamera;
 

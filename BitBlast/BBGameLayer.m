@@ -8,10 +8,6 @@
 
 #import "BBGameLayer.h"
 
-#define kCameraXOffset 64
-#define kCameraYMinimum 20
-#define kCameraYMaximum 200
-
 @implementation BBGameLayer
 
 +(CCScene *) scene
@@ -33,6 +29,7 @@
 	if((self = [super init])) {
 		
 		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
+		[self loadCameraVariables];
 		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
@@ -70,6 +67,17 @@
 }
 
 #pragma mark -
+#pragma mark setup
+- (void) loadCameraVariables {
+	
+	// get dictionary from plist
+	NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cameraProperties" ofType:@"plist"]];
+	
+	cameraOffset = ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]);
+	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
+}
+
+#pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
 	
@@ -85,16 +93,16 @@
 	
 	float yOffset = 0;
 	// check to see if player is too close to the top of the screen
-	if(currentPlayerScreenPosition.y < kCameraYMinimum) {
-		yOffset = kCameraYMinimum - currentPlayerScreenPosition.y;
+	if(currentPlayerScreenPosition.y < cameraBounds.x) {
+		yOffset = cameraBounds.x - currentPlayerScreenPosition.y;
 	}
 	// check to see if player is too close to the bottom of the screen
-	else if(currentPlayerScreenPosition.y > kCameraYMaximum) {
-		yOffset = kCameraYMaximum - currentPlayerScreenPosition.y;
+	else if(currentPlayerScreenPosition.y > cameraBounds.y) {
+		yOffset = cameraBounds.y - currentPlayerScreenPosition.y;
 	}
 	
 	b2Vec2 pos = player.body.body->GetPosition();
-	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + kCameraXOffset, self.position.y - yOffset);
+	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + cameraOffset.x, self.position.y - yOffset + cameraOffset.y);
     
     // make sure newPos's y coordinate is not less than the current chunk's lowest point
     if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
