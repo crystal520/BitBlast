@@ -22,7 +22,9 @@
 		</dict>
 	</dict>
 	<key>jump</key>
-	<integer>100</integer>
+	<integer>7</integer>
+	<key>maxJumpTime</key>
+	<real>0.25</real>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>

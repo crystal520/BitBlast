@@ -28,7 +28,7 @@
 - (id) init {
 	if((self = [super init])) {
 		
-		[[BBPhysicsWorld sharedSingleton] debugPhysics];
+		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
 		[self loadCameraVariables];
 		
 		// for objects that need to scroll
@@ -82,7 +82,7 @@
 - (void) update:(float)delta {
 	
 	[[ChunkManager sharedSingleton] update:delta];
-	//[self updateCamera];
+	[player update:delta];
 }
 
 - (void) updateCamera {
@@ -135,10 +135,23 @@
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	
+	//CGSize winSize = [CCDirector sharedDirector].winSize;
+	
+	// get coordinates of touch
+	//CGPoint touchPoint = [touch locationInView:[touch view]];
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 
+	CGSize winSize = [CCDirector sharedDirector].winSize;
+	
+	// get coordinates of touch
+	CGPoint touchPoint = [touch locationInView:[touch view]];
+	
+	// right side of screen is jump
+	if(touchPoint.x > winSize.width * 0.5f) {
+		[player endJump];
+	}
 }
 
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {

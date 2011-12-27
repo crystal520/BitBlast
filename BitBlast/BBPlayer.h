@@ -13,13 +13,16 @@
 
 @interface BBPlayer : BBGameObject {
 	
-	float jumpImpulse, speed, minSpeed, maxSpeed, speedIncrement;
+	float jumpImpulse, speed, minSpeed, maxSpeed, speedIncrement, jumpTimer, maxJumpTime;
 	int chunksToIncrement, curNumChunks;
-	BOOL canJump;
+	BOOL canJump, jumping;
 }
+
+- (void) update:(float)delta;
 
 - (void) die:(NSString*)reason;
 - (void) jump;
+- (void) endJump;
 - (void) shoot;
 
 - (void) collideWithObject:(CCSprite*)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact;

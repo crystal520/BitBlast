@@ -24,11 +24,13 @@
 		maxSpeed = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"maxSpeed"] floatValue];
 		speedIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"incrementPercent"] floatValue];
 		chunksToIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"numChunksToIncrement"] intValue];
+		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		
 		// set initial values
 		speed = minSpeed;
 		curNumChunks = 0;
 		canJump = NO;
+		jumpTimer = 0.0f;
 		self.tag = TAG_PLAYER;
 		
 		// register for notifications
@@ -48,10 +50,26 @@
 
 #pragma mark -
 #pragma mark update
+- (void) update:(float)delta {
+	
+	if(jumping) {
+		jumpTimer += delta;
+		if(jumpTimer >= maxJumpTime) {
+			jumping = NO;
+		}
+	}
+}
+
 - (void) draw {
 	
+	// update player's velocity
 	b2Vec2 v = body.body->GetLinearVelocity();
 	v.x = speed;
+	
+	if(jumping) {
+		v.y = jumpImpulse;
+	}
+	
 	body.body->SetLinearVelocity(v);
 	
 	// see if player has died by falling in a pit
@@ -93,9 +111,16 @@
 	
 	// only jump if we're not jumping already
 	if(canJump) {
-		body.body->SetLinearVelocity(b2Vec2(body.body->GetLinearVelocity().x, 0));
-		body.body->ApplyLinearImpulse(b2Vec2(0, jumpImpulse/PTM_RATIO), body.body->GetWorldCenter());
+		jumping = YES;
+		jumpTimer = 0;
+	}
+}
+
+- (void) endJump {
+	
+	if(canJump && jumping) {
 		canJump = NO;
+		jumping = NO;
 	}
 }
 
