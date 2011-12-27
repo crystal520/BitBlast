@@ -28,7 +28,7 @@
 - (id) init {
 	if((self = [super init])) {
 		
-		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
+		[[BBPhysicsWorld sharedSingleton] debugPhysics];
 		[self loadCameraVariables];
 		
 		// for objects that need to scroll

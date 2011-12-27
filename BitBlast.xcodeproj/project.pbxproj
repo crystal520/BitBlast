@@ -224,6 +224,7 @@
 		0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cameraProperties.plist; sourceTree = "<group>"; };
 		0AD96B4614A90C5200C9DAE9 /* BBContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBContactListener.h; sourceTree = "<group>"; };
 		0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBContactListener.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		0AD96B6114A948FA00C9DAE9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0AE417321496F5C400342D8E /* BitBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE417361496F5C400342D8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AE417381496F5C400342D8E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1214,6 +1215,7 @@
 				0AC723951497107C000E9412 /* BBPhysicsWorld.m */,
 				0AD96B4614A90C5200C9DAE9 /* BBContactListener.h */,
 				0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */,
+				0AD96B6114A948FA00C9DAE9 /* Constants.h */,
 			);
 			name = Code;
 			sourceTree = "<group>";

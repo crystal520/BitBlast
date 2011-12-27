@@ -15,11 +15,6 @@
 
 #define kPhysicsUpdatedNotification @"physicsUpdatedNotification"
 
-typedef enum {
-	TAG_COLLISION_TILE,
-	TAG_PLAYER
-} SpriteTags;
-
 @interface BBPhysicsWorld : CCNode {
     
 	BBContactListener *contactListener;

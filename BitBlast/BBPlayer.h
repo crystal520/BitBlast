@@ -23,5 +23,6 @@
 - (void) shoot;
 
 - (void) collideWithObject:(CCSprite*)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact;
+- (void) shouldCollideWithObject:(CCSprite*)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact;
 
 @end

@@ -103,15 +103,36 @@
 	//BBBullet *bullet = [[BBBullet alloc] initWithPosition:self.position];
 }
 
+#pragma mark -
+#pragma mark collisions
 - (void) collideWithObject:(CCSprite*)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact {
 	
 	// see if player is colliding with collision tile
-	if(collide.tag == TAG_COLLISION_TILE && body.body->GetLinearVelocity().y <= 0.0f) {
+	if((collide.tag == TAG_COLLISION_TILE || collide.tag == TAG_COLLISION_TILE_BOTTOM || collide.tag == TAG_COLLISION_TILE_TOP) && body.body->GetLinearVelocity().y <= 0.0f) {
 		// make sure player is colliding with top of platform
 		b2WorldManifold worldManifold;
 		contact->GetWorldManifold(&worldManifold);
 		if(worldManifold.normal.y == 1.0f) {
 			canJump = YES;
+		}
+	}
+}
+
+- (void) shouldCollideWithObject:(CCSprite *)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact {
+	
+	// see if player is about to collide with one sided platform
+	if(collide.tag == TAG_COLLISION_TILE_TOP) {
+		
+		// see if player is below tile. if they are, make sure they don't collide with this tile
+		if(body.body->GetPosition().y - body.body->GetFixtureList()->GetShape()->m_radius < collideBody->GetPosition().y - collideBody->GetFixtureList()->GetShape()->m_radius) {
+			contact->SetEnabled(false);
+		}
+	}
+	else if(collide.tag == TAG_COLLISION_TILE_BOTTOM) {
+		
+		// see if player is above tile. if they are, make sure they don't collide with this tile
+		if(body.body->GetPosition().y + body.body->GetFixtureList()->GetShape()->m_radius > collideBody->GetPosition().y + collideBody->GetFixtureList()->GetShape()->m_radius) {
+			contact->SetEnabled(false);
 		}
 	}
 }

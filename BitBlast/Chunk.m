@@ -46,17 +46,14 @@
 		
 		// get collision layer
 		CCTMXLayer *collision = [self layerNamed:@"Collision"];
+		CCTMXLayer *collisionTop = [self layerNamed:@"CollisionTop"];
+		CCTMXLayer *collisionBottom = [self layerNamed:@"CollisionBottom"];
 		for(int x=0;x<self.mapSize.width;x++) {
 			for(int y=0;y<self.mapSize.height;y++) {
 				
-				// make sure we have a tile
-				int gid = [collision tileGIDAt:ccp(x, y)];
-				if(gid != 0) {
-					CCSprite *tile = [collision tileAt:ccp(x, y)];
-					tile.tag = TAG_COLLISION_TILE;
-					BBPhysicsObject *newTile = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsBasicTile" withPosition:ccp(x * self.tileSize.width + offset.x, (self.mapSize.height - (y+1)) * self.tileSize.height + offset.y) withData:tile];
-					[collidables addObject:newTile];
-				}
+				[self makeTileAt:ccp(x, y) withLayer:collision withOffset:offset withTag:TAG_COLLISION_TILE];
+				[self makeTileAt:ccp(x, y) withLayer:collisionTop withOffset:offset withTag:TAG_COLLISION_TILE_TOP];
+				[self makeTileAt:ccp(x, y) withLayer:collisionBottom withOffset:offset withTag:TAG_COLLISION_TILE_BOTTOM];
 			}
 		}
 	}
@@ -68,6 +65,17 @@
 	
 	[super dealloc];
 	//[map release];
+}
+
+- (void) makeTileAt:(CGPoint)point withLayer:(CCTMXLayer*)layer withOffset:(CGPoint)offset withTag:(int)tag {
+	
+	int gid = [layer tileGIDAt:point];
+	if(gid != 0) {
+		CCSprite *tile = [layer tileAt:point];
+		tile.tag = tag;
+		BBPhysicsObject *newTile = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsBasicTile" withPosition:ccp(point.x * self.tileSize.width + offset.x, (self.mapSize.height - (point.y+1)) * self.tileSize.height + offset.y) withData:tile];
+		[collidables addObject:newTile];
+	}
 }
 
 - (void) cleanupPhysics {

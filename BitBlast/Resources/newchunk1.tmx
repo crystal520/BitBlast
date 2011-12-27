@@ -4,8 +4,18 @@
   <image source="spritesheet.png" width="1024" height="1024"/>
  </tileset>
  <layer name="Collision" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztw0ENAAAIBKDT/qGt4FthIwEAALb62fL0AZm/APE=
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3LsQ0AMAgEMcL+Q2eBL5BoKGzpyqsCAACmOrR5r/dCU+nVrT78YhEzEA4AAA==
+  </data>
+ </layer>
+ <layer name="CollisionTop" width="60" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3DsQ0AAAgDoMb/j/aBjg4OkJAAAADXpoRvFoh1IP0QDgAA
+  </data>
+ </layer>
+ <layer name="CollisionBottom" width="60" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3DsQkAAAgDsOL/R/tANychgSQAAMDFlPDBApb9K7EQDgAA
   </data>
  </layer>
 </map>

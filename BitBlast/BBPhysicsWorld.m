@@ -89,7 +89,7 @@
 			//Synchronize the position and rotation with the corresponding body
 			CCSprite *myActor = (CCSprite*)b->GetUserData();
 			
-			if(myActor.tag != TAG_COLLISION_TILE) {
+			if(myActor.tag == TAG_PLAYER) {
 				myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO * myActor.scale, b->GetPosition().y * PTM_RATIO * myActor.scale);
 				myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
 			}

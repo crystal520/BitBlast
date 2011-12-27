@@ -48,6 +48,27 @@ void BBContactListener::EndContact(b2Contact* contact) {
 
 void BBContactListener::PreSolve(b2Contact* contact, const b2Manifold* oldManifold) {
 	
+	// get fixtures from contact
+	b2Fixture *fixtureA = contact->GetFixtureA();
+	b2Fixture *fixtureB = contact->GetFixtureB();
+	
+	// get bodies from fixtures
+	b2Body *bodyA = fixtureA->GetBody();
+	b2Body *bodyB = fixtureB->GetBody();
+	
+	// get sprites from bodies
+	CCSprite *spriteA = (CCSprite*)(bodyA->GetUserData());
+	CCSprite *spriteB = (CCSprite*)(bodyB->GetUserData());
+	
+	// see if one of the bodies is the player
+	if([spriteA isKindOfClass:[BBPlayer class]] && spriteB) {
+		BBPlayer *player = (BBPlayer*)(spriteA);
+		[player shouldCollideWithObject:spriteB physicsBody:bodyB withContact:contact];
+	}
+	else if([spriteB isKindOfClass:[BBPlayer class]] && spriteA) {
+		BBPlayer *player = (BBPlayer*)(spriteB);
+		[player shouldCollideWithObject:spriteA physicsBody:bodyA withContact:contact];
+	}
 }
 
 void BBContactListener::PostSolve(b2Contact* contact, const b2ContactImpulse* impulse) {
