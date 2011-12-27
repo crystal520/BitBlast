@@ -30,11 +30,13 @@
 	
 	if((self = [super init])) {
 		
-		CGSize winSize = [CCDirector sharedDirector].winSize;
+		// create contact listener
+		contactListener = new BBContactListener();
 		
 		// create physics world
 		b2Vec2 gravity = b2Vec2(0.0f, -30.0f);
 		world = new b2World(gravity, true);
+		world->SetContactListener(contactListener);
 		
 		// create edges around the entire screen
 		/*b2BodyDef groundBodyDef;
@@ -81,15 +83,16 @@
 	// generally best to keep the time step and iterations fixed.
 	world->Step(dt, velocityIterations, positionIterations);
 	
-	
 	//Iterate over the bodies in the physics world
-	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
-	{
+	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext()) {
 		if (b->GetUserData() != NULL) {
-			//Synchronize the AtlasSprites position and rotation with the corresponding body
+			//Synchronize the position and rotation with the corresponding body
 			CCSprite *myActor = (CCSprite*)b->GetUserData();
-			myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO * myActor.scale, b->GetPosition().y * PTM_RATIO * myActor.scale);
-			myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+			
+			if(myActor.tag != TAG_COLLISION_TILE) {
+				myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO * myActor.scale, b->GetPosition().y * PTM_RATIO * myActor.scale);
+				myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+			}
 		}	
 	}
 	

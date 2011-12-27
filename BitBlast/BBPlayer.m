@@ -28,14 +28,13 @@
 		// set initial values
 		speed = minSpeed;
 		curNumChunks = 0;
+		canJump = NO;
+		self.tag = TAG_PLAYER;
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkWillBeRemoved) name:kChunkWillRemoveNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(physicsUpdated) name:kPhysicsUpdatedNotification object:nil];
 		
-		[[[ChunkManager sharedSingleton] getCurrentChunk].map addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
-		sprite.tag = -1000;
+		[[ChunkManager sharedSingleton] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
 		
 		//[[CCScheduler sharedScheduler] scheduleSelector:@selector(shoot) forTarget:self interval:3 paused:NO];
 	}
@@ -77,23 +76,6 @@
 		speed = MIN(speed, maxSpeed);
 		NSLog(@"Player speed is now %.2f after incrementing", speed);
 	}
-	
-	// add player to current chunk
-	[[[ChunkManager sharedSingleton] getCurrentChunk].map addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
-	[self release];
-}
-
-- (void) chunkWillBeRemoved {
-	
-	chunkSpriteOffset += [[ChunkManager sharedSingleton] getCurrentChunk].width;
-	[self retain];
-	[self.parent removeChild:self cleanup:NO];
-}
-
-- (void) physicsUpdated {
-	
-	// offset the sprite by the chunk offset
-	[self setPosition:ccp(self.position.x - chunkSpriteOffset, self.position.y)];
 }
 
 #pragma mark -
@@ -110,17 +92,28 @@
 - (void) jump {
 	
 	// only jump if we're not jumping already
-	if(1) {
-	//if(body.body->GetLinearVelocity().y <= 0.01f && body.body->GetLinearVelocity().y >= -0.01f) {
+	if(canJump) {
+		body.body->SetLinearVelocity(b2Vec2(body.body->GetLinearVelocity().x, 0));
 		body.body->ApplyLinearImpulse(b2Vec2(0, jumpImpulse/PTM_RATIO), body.body->GetWorldCenter());
-	}
-	else {
-		NSLog(@"Can't jump because player's Y velocity is out of range: %f", body.body->GetLinearVelocity().y);
+		canJump = NO;
 	}
 }
 
 - (void) shoot {
-	BBBullet *bullet = [[BBBullet alloc] initWithPosition:self.position];
+	//BBBullet *bullet = [[BBBullet alloc] initWithPosition:self.position];
+}
+
+- (void) collideWithObject:(CCSprite*)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact {
+	
+	// see if player is colliding with collision tile
+	if(collide.tag == TAG_COLLISION_TILE && body.body->GetLinearVelocity().y <= 0.0f) {
+		// make sure player is colliding with top of platform
+		b2WorldManifold worldManifold;
+		contact->GetWorldManifold(&worldManifold);
+		if(worldManifold.normal.y == 1.0f) {
+			canJump = YES;
+		}
+	}
 }
 
 @end

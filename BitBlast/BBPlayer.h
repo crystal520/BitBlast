@@ -10,16 +10,18 @@
 #import "cocos2d.h"
 #import "BBGameObject.h"
 #import "ChunkManager.h"
-#import "BBBullet.h"
 
 @interface BBPlayer : BBGameObject {
 	
-	float jumpImpulse, speed, minSpeed, maxSpeed, speedIncrement, chunkSpriteOffset;
+	float jumpImpulse, speed, minSpeed, maxSpeed, speedIncrement;
 	int chunksToIncrement, curNumChunks;
+	BOOL canJump;
 }
 
 - (void) die:(NSString*)reason;
 - (void) jump;
 - (void) shoot;
+
+- (void) collideWithObject:(CCSprite*)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact;
 
 @end

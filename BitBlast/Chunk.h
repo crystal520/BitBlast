@@ -10,15 +10,13 @@
 #import "cocos2d.h"
 #import "BBPhysicsWorld.h"
 
-@interface Chunk : CCNode {
+@interface Chunk : CCTMXTiledMap {
     
-	CCTMXTiledMap *map;
 	NSMutableArray *collidables;
 	int width, height, playerZ;
 	float endPosition, startPosition, lowestPosition;
 }
 
-@property (nonatomic, assign) CCTMXTiledMap *map;
 @property (nonatomic) int width, height, playerZ;
 @property (nonatomic) float endPosition, startPosition, lowestPosition;
 

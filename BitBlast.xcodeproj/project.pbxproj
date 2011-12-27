@@ -26,6 +26,8 @@
 		0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* playerProperties.plist */; };
 		0AC723A61498693D000E9412 /* walkCycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A41498693D000E9412 /* walkCycle.png */; };
 		0AC723A71498693D000E9412 /* walkCycle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A51498693D000E9412 /* walkCycle.plist */; };
+		0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */; };
+		0AD96B4814A90C5300C9DAE9 /* BBContactListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */; };
 		0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417361496F5C400342D8E /* QuartzCore.framework */; };
 		0AE417391496F5C400342D8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417381496F5C400342D8E /* OpenGLES.framework */; };
 		0AE4173B1496F5C400342D8E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4173A1496F5C400342D8E /* OpenAL.framework */; };
@@ -219,6 +221,9 @@
 		0AC723A214985F4F000E9412 /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
 		0AC723A41498693D000E9412 /* walkCycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkCycle.png; path = Resources/Player/walkCycle.png; sourceTree = "<group>"; };
 		0AC723A51498693D000E9412 /* walkCycle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = walkCycle.plist; path = Resources/Player/walkCycle.plist; sourceTree = "<group>"; };
+		0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cameraProperties.plist; sourceTree = "<group>"; };
+		0AD96B4614A90C5200C9DAE9 /* BBContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBContactListener.h; sourceTree = "<group>"; };
+		0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBContactListener.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		0AE417321496F5C400342D8E /* BitBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE417361496F5C400342D8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AE417381496F5C400342D8E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -736,6 +741,7 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */,
 				0A1EC4AC14A02EEC005A7ED6 /* Equipment */,
 				0A5C35BC149AFC970019C113 /* Physics */,
 				0A5C35AB1499848E0019C113 /* Chunks */,
@@ -1206,6 +1212,8 @@
 				0AE419291496FDC200342D8E /* BBGameLayer.m */,
 				0AC723941497107C000E9412 /* BBPhysicsWorld.h */,
 				0AC723951497107C000E9412 /* BBPhysicsWorld.m */,
+				0AD96B4614A90C5200C9DAE9 /* BBContactListener.h */,
+				0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -1301,6 +1309,7 @@
 				3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */,
 				3BB112A714A5B285005DC6CC /* spritesheet.png in Resources */,
 				3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */,
+				0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1455,6 +1464,7 @@
 				0A5C35BB1499A1D50019C113 /* BBPhysicsObject.m in Sources */,
 				0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */,
 				0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */,
+				0AD96B4814A90C5300C9DAE9 /* BBContactListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
