@@ -118,6 +118,7 @@
 		NSString *type = [plist objectForKey:@"type"];
 		NSString *shape = [plist objectForKey:@"shape"];
 		float radius = [[plist objectForKey:@"radius"] floatValue];
+		CGPoint size = ccp([[[plist objectForKey:@"size"] objectForKey:@"width"] floatValue] * 0.5f, [[[plist objectForKey:@"size"] objectForKey:@"height"] floatValue] * 0.5f);
 		
 		// set defaults if they're null
 		if([plist objectForKey:@"density"] == nil) {
@@ -150,6 +151,9 @@
 		if([plist objectForKey:@"radius"] == nil) {
 			radius = 1.0f;
 		}
+		if([plist objectForKey:@"size"] == nil) {
+			size = ccp(PTM_RATIO, PTM_RATIO);
+		}
 		
 		// define the dynamic body
 		b2BodyDef bodyDef;
@@ -180,7 +184,7 @@
 		// define the box shape for our dynamic body
 		if([shape isEqualToString:@"box"]) {
 			b2PolygonShape box;
-			box.SetAsBox(0.5f, 0.5f, b2Vec2(anchor.x, anchor.y), 0.0f);
+			box.SetAsBox(size.x / PTM_RATIO, size.y / PTM_RATIO, b2Vec2(anchor.x, anchor.y), 0.0f);
 			fixtureDef.shape = &box;
 		}
 		else if([shape isEqualToString:@"circle"]) {

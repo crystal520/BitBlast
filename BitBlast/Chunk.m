@@ -71,9 +71,21 @@
 	
 	int gid = [layer tileGIDAt:point];
 	if(gid != 0) {
+		
 		CCSprite *tile = [layer tileAt:point];
 		tile.tag = tag;
-		BBPhysicsObject *newTile = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsBasicTile" withPosition:ccp(point.x * self.tileSize.width + offset.x, (self.mapSize.height - (point.y+1)) * self.tileSize.height + offset.y) withData:tile];
+		NSMutableString *plistToUse = [NSMutableString string];
+		
+		// determine new tile position and size based on gid
+		if(gid == 2) {
+			[plistToUse setString:@"physicsHalfTile"];
+			offset.y += 16;
+		}
+		else {
+			[plistToUse setString:@"physicsBasicTile"];
+		}
+		
+		BBPhysicsObject *newTile = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:plistToUse withPosition:ccp(point.x * self.tileSize.width + offset.x, (self.mapSize.height - (point.y+1)) * self.tileSize.height + offset.y) withData:tile];
 		[collidables addObject:newTile];
 	}
 }

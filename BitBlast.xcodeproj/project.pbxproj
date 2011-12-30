@@ -21,6 +21,7 @@
 		0A5C35BB1499A1D50019C113 /* BBPhysicsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35BA1499A1D40019C113 /* BBPhysicsObject.m */; };
 		0A5C35C1149AFF970019C113 /* physicsPlayer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35BF149AFF970019C113 /* physicsPlayer.plist */; };
 		0A5C35C2149AFF970019C113 /* physicsBasicTile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */; };
+		0A7F994514AE3FD3006B146B /* physicsHalfTile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */; };
 		0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723951497107C000E9412 /* BBPhysicsWorld.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
 		0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* playerProperties.plist */; };
@@ -214,6 +215,7 @@
 		0A5C35BA1499A1D40019C113 /* BBPhysicsObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPhysicsObject.m; sourceTree = "<group>"; };
 		0A5C35BF149AFF970019C113 /* physicsPlayer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsPlayer.plist; sourceTree = "<group>"; };
 		0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsBasicTile.plist; sourceTree = "<group>"; };
+		0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsHalfTile.plist; sourceTree = "<group>"; };
 		0AC723941497107C000E9412 /* BBPhysicsWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPhysicsWorld.h; sourceTree = "<group>"; };
 		0AC723951497107C000E9412 /* BBPhysicsWorld.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPhysicsWorld.m; sourceTree = "<group>"; };
 		0AC7239F14985D9B000E9412 /* BBGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameObject.h; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 		0A5C35BC149AFC970019C113 /* Physics */ = {
 			isa = PBXGroup;
 			children = (
+				0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */,
 				0A1EC4B514A03488005A7ED6 /* physicsBullet.plist */,
 				0A5C35BF149AFF970019C113 /* physicsPlayer.plist */,
 				0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */,
@@ -1312,6 +1315,7 @@
 				3BB112A714A5B285005DC6CC /* spritesheet.png in Resources */,
 				3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */,
 				0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */,
+				0A7F994514AE3FD3006B146B /* physicsHalfTile.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

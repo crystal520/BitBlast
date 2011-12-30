@@ -149,14 +149,14 @@
 	if(collide.tag == TAG_COLLISION_TILE_TOP) {
 		
 		// see if player is below tile. if they are, make sure they don't collide with this tile
-		if(body.body->GetPosition().y - body.body->GetFixtureList()->GetShape()->m_radius < collideBody->GetPosition().y - collideBody->GetFixtureList()->GetShape()->m_radius) {
+		if(body.body->GetPosition().y - body.body->GetFixtureList()->GetShape()->m_radius <= collideBody->GetPosition().y - collideBody->GetFixtureList()->GetShape()->m_radius) {
 			contact->SetEnabled(false);
 		}
 	}
 	else if(collide.tag == TAG_COLLISION_TILE_BOTTOM) {
 		
 		// see if player is above tile. if they are, make sure they don't collide with this tile
-		if(body.body->GetPosition().y + body.body->GetFixtureList()->GetShape()->m_radius > collideBody->GetPosition().y + collideBody->GetFixtureList()->GetShape()->m_radius) {
+		if(body.body->GetPosition().y + body.body->GetFixtureList()->GetShape()->m_radius >= collideBody->GetPosition().y + collideBody->GetFixtureList()->GetShape()->m_radius) {
 			contact->SetEnabled(false);
 		}
 	}
