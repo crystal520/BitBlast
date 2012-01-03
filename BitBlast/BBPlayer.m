@@ -15,8 +15,7 @@
 		
 		[self playAnimation:@"walk"];
 		
-		body = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:@"physicsPlayer" withPosition:ccp(64, 192) withData:self];
-		body.body->SetSleepingAllowed(NO);
+		self.position = ccp(64, 192);
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -27,11 +26,11 @@
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		
 		// set initial values
-		speed = minSpeed;
+		velocity = ccp(minSpeed, 0);
 		curNumChunks = 0;
-		canJump = NO;
 		jumpTimer = 0.0f;
 		self.tag = TAG_PLAYER;
+		prevSize = sprite.contentSize;
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
@@ -52,30 +51,31 @@
 #pragma mark update
 - (void) update:(float)delta {
 	
+	// keep track of previous position
+	prevPosition = self.position;
+	
+	// apply jump
 	if(jumping) {
 		jumpTimer += delta;
 		if(jumpTimer >= maxJumpTime) {
 			jumping = NO;
 		}
+		velocity = ccp(velocity.x, jumpImpulse);
 	}
-}
-
-- (void) draw {
-	
-	// update player's velocity
-	b2Vec2 v = body.body->GetLinearVelocity();
-	v.x = speed;
-	
-	if(jumping) {
-		v.y = jumpImpulse;
+	// apply gravity
+	if(!jumping) {
+		velocity = ccp(velocity.x, velocity.y - gravity);
 	}
+	// apply velocity to position
+	self.position = ccp(self.position.x + velocity.x, self.position.y + velocity.y);
 	
-	body.body->SetLinearVelocity(v);
+	[self checkCollisions];
 	
-	// see if player has died by falling in a pit
-	if(body.body->GetPosition().y < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
-		[self die:@"fall"];
-	}
+	// keep track of previous size. done here so that a change in sprite frame size won't affect prevSize
+	prevSize = sprite.contentSize;
+	
+	// update score
+	[ScoreManager sharedSingleton].distance = floor(self.position.x / 64);
 }
 
 #pragma mark -
@@ -89,10 +89,11 @@
 		// reset the number of chunks
 		curNumChunks = 0;
 		// increment the player's speed
-		speed += (speedIncrement * speed);
+		float speed = velocity.x + speedIncrement * velocity.x;
 		// make sure we don't go over the maximum speed allowed
 		speed = MIN(speed, maxSpeed);
 		NSLog(@"Player speed is now %.2f after incrementing", speed);
+		velocity = ccp(speed, velocity.y);
 	}
 }
 
@@ -110,7 +111,8 @@
 - (void) jump {
 	
 	// only jump if we're not jumping already
-	if(canJump) {
+	if(touchingPlatform) {
+		touchingPlatform = NO;
 		jumping = YES;
 		jumpTimer = 0;
 	}
@@ -118,48 +120,92 @@
 
 - (void) endJump {
 	
-	if(canJump && jumping) {
-		canJump = NO;
-		jumping = NO;
-	}
+	jumping = NO;
 }
 
 - (void) shoot {
 	//BBBullet *bullet = [[BBBullet alloc] initWithPosition:self.position];
 }
 
-#pragma mark -
-#pragma mark collisions
-- (void) collideWithObject:(CCSprite*)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact {
+- (void) checkCollisions {
 	
-	// see if player is colliding with collision tile
-	if((collide.tag == TAG_COLLISION_TILE || collide.tag == TAG_COLLISION_TILE_BOTTOM || collide.tag == TAG_COLLISION_TILE_TOP) && body.body->GetLinearVelocity().y <= 0.0f) {
-		// make sure player is colliding with top of platform
-		b2WorldManifold worldManifold;
-		contact->GetWorldManifold(&worldManifold);
-		if(worldManifold.normal.y == 1.0f) {
-			canJump = YES;
+	// special note about tile collisions: tiles' origin is at (0, 0) instead of the normal (0.5, 0.5) anchor
+	touchingPlatform = NO;
+	for(Chunk *c in [ChunkManager sharedSingleton].currentChunks) {
+		
+		NSSet *playerVerts = [self positionsInChunk:c];
+		
+		for(NSValue *v in playerVerts) {
+			// get tile position from player's current position
+			CGPoint playerTilePos;
+			[v getValue:&playerTilePos];
+			
+			// return if player's tile position is invalid
+			if(playerTilePos.y >= c.mapSize.height || playerTilePos.y < 0 || playerTilePos.x < 0 || playerTilePos.x >= c.mapSize.width) {
+				continue;
+			}
+			
+			// check for normal collision layer
+			uint gid = [[c layerNamed:@"Collision"] tileGIDAt:playerTilePos];
+			if(gid) {
+				CCSprite *tile = [[c layerNamed:@"Collision"] tileAt:playerTilePos];
+				// if this is a special half collision block and the lowest part of the sprite is less than the middle of the tile
+				// set its position so the lowest part of the sprite is at the middle of the tile
+				if(gid == 2 && self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + tile.contentSize.height * 0.5) {
+					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5);
+					touchingPlatform = YES;
+					velocity = ccp(velocity.x, 0);
+				}
+			}
+			
+			// check for collision top layer
+			gid = [[c layerNamed:@"CollisionTop"] tileGIDAt:playerTilePos];
+			if(gid) {
+				CCSprite *tile = [[c layerNamed:@"CollisionTop"] tileAt:playerTilePos];
+				// if this is a special half collision block, the lowest part of the sprite is less than the middle of the tile,
+				// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
+				if(gid == 2 && self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + (tile.contentSize.height * 0.5) && velocity.y < 0 && prevPosition.y - (prevSize.height * 0.5) >= tile.position.y + (tile.contentSize.height * 0.5)) {
+					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5);
+					touchingPlatform = YES;
+					velocity = ccp(velocity.x, 0);
+				}
+			}
+			
+			// check for collision bottom layer
+			gid = [[c layerNamed:@"CollisionBottom"] tileGIDAt:playerTilePos];
+			if(gid) {
+				CCSprite *tile = [[c layerNamed:@"CollisionBottom"] tileAt:playerTilePos];
+				// if this is a special half collision block, the highest part of the sprite is greater than the lowest part of the tile,
+				// the sprite is moving upwards, and the previous highest part of the sprite is less than the lowest part of the tile
+				if(gid == 2 && self.position.y + (sprite.contentSize.height * 0.5) >= tile.position.y && velocity.y > 0 && prevPosition.y + (sprite.contentSize.height * 0.5) <= tile.position.y) {
+					self.position = ccp(self.position.x, tile.position.y - (sprite.contentSize.height * 0.5));
+					velocity = ccp(velocity.x, 0);
+					jumping = NO;
+				}
+			}
 		}
 	}
 }
 
-- (void) shouldCollideWithObject:(CCSprite *)collide physicsBody:(b2Body*)collideBody withContact:(b2Contact*)contact {
+#pragma mark -
+#pragma mark convenience functions
+- (CGPoint) positionInChunk:(Chunk*)chunk {
+	return ccp(floor((self.position.x - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor(self.position.y / chunk.tileSize.height) - 1);
+}
+
+- (NSSet*) positionsInChunk:(Chunk*)chunk {
 	
-	// see if player is about to collide with one sided platform
-	if(collide.tag == TAG_COLLISION_TILE_TOP) {
-		
-		// see if player is below tile. if they are, make sure they don't collide with this tile
-		if(body.body->GetPosition().y - body.body->GetFixtureList()->GetShape()->m_radius < collideBody->GetPosition().y - collideBody->GetFixtureList()->GetShape()->m_radius) {
-			contact->SetEnabled(false);
-		}
-	}
-	else if(collide.tag == TAG_COLLISION_TILE_BOTTOM) {
-		
-		// see if player is above tile. if they are, make sure they don't collide with this tile
-		if(body.body->GetPosition().y + body.body->GetFixtureList()->GetShape()->m_radius > collideBody->GetPosition().y + collideBody->GetFixtureList()->GetShape()->m_radius) {
-			contact->SetEnabled(false);
-		}
-	}
+	NSMutableSet *positions = [NSMutableSet set];
+	// top left corner of sprite
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	// top right corner of sprite
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	// bottom left corner of sprite
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	// bottom right corner of sprite
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	
+	return positions;
 }
 
 @end

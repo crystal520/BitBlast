@@ -21,20 +21,22 @@
 			<real>0.1</real>
 		</dict>
 	</dict>
+	<key>gravity</key>
+	<integer>1</integer>
 	<key>jump</key>
-	<integer>7</integer>
+	<integer>10</integer>
 	<key>maxJumpTime</key>
 	<real>0.25</real>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
-		<real>0.1</real>
+		<real>0.05</real>
 		<key>maxSpeed</key>
 		<integer>10</integer>
 		<key>minSpeed</key>
 		<integer>4</integer>
 		<key>numChunksToIncrement</key>
-		<integer>2</integer>
+		<integer>1</integer>
 	</dict>
 </dict>
 </plist>

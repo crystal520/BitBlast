@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "BBPhysicsWorld.h"
 
 @interface Chunk : CCTMXTiledMap {
     
-	NSMutableArray *collidables;
 	int width, height, playerZ;
 	float endPosition, startPosition, lowestPosition;
 }
@@ -22,6 +20,5 @@
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset;
 - (void) makeTileAt:(CGPoint)point withLayer:(CCTMXLayer*)layer withOffset:(CGPoint)offset withTag:(int)tag;
-- (void) cleanupPhysics;
 
 @end

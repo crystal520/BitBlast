@@ -20,6 +20,8 @@
 	NSMutableString *overrideChunk;
 }
 
+@property (nonatomic, readonly) NSMutableArray *currentChunks;
+
 + (ChunkManager*) sharedSingleton;
 
 - (void) update:(float)delta;

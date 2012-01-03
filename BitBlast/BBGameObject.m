@@ -11,7 +11,6 @@
 
 @implementation BBGameObject
 
-@synthesize body;
 @synthesize sprite;
 
 - (id) initWithFile:(NSString *)filename {
@@ -20,6 +19,7 @@
 		
 		// save dictionary for future use
 		dictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
+		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
 	}
 	
 	return self;
@@ -66,6 +66,16 @@
 	CCAction *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO]];
 	[sprite runAction:action];
 	[spritesheet addChild:sprite];
+}
+
+#pragma mark -
+#pragma mark convenience functions
+- (float) lowestPoint {
+	return self.position.y - self.contentSize.height * 0.5;
+}
+
+- (float) highestPoint {
+	return self.position.y + self.contentSize.height * 0.5;
 }
 
 @end

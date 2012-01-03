@@ -11,6 +11,8 @@
 
 @implementation ChunkManager
 
+@synthesize currentChunks;
+
 + (ChunkManager*) sharedSingleton {
 	
 	static ChunkManager *sharedSingleton;
@@ -105,7 +107,6 @@
 	
 	// get first chunk
 	Chunk *firstChunk = [currentChunks objectAtIndex:0];
-	[firstChunk cleanupPhysics];
 	[self removeChild:firstChunk cleanup:YES];
 	[currentChunks removeObjectAtIndex:0];
 }
@@ -113,7 +114,6 @@
 - (void) removeChunks {
 	
 	for(Chunk *c in currentChunks) {
-		[c cleanupPhysics];
 		[self removeChild:c cleanup:YES];
 	}
 	

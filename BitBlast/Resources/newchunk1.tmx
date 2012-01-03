@@ -5,17 +5,22 @@
  </tileset>
  <layer name="Collision" width="60" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3LsQ0AMAgEMcL+Q2eBL5BoKGzpyqsCAACmOrR5r/dCU+nVrT78YhEzEA4AAA==
+   H4sIAAAAAAAAA+3DsQkAAAgDsOL/R/tCZ00gCQAA0JpnuW0BAsOM1xAOAAA=
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3DsQ0AAAgDoMb/j/aBjg4OkJAAAADXpoRvFoh1IP0QDgAA
+   H4sIAAAAAAAAA+3PMQoAMAgDQPH/j+7i5FTclDvIErIkAgBuy8pvv0W2XOHXbA8w8QA38V0CEA4AAA==
   </data>
  </layer>
  <layer name="CollisionBottom" width="60" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3DsQkAAAgDsOL/R/tANychgSQAAMDFlPDBApb9K7EQDgAA
+   H4sIAAAAAAAAA+3SsQ0AAAjDMMT/R7N3YwVbygepAoAfOoKr8vVNwC8D5fmn1RAOAAA=
+  </data>
+ </layer>
+ <layer name="Background" width="60" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwCkbBcAKMBPBQBbj8MdT9S6p7h4p/iY0vUsWxqSOkZiiE12AGlITvKB78GABS8tq/EA4AAA==
   </data>
  </layer>
 </map>

@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "BBPhysicsWorld.h"
 #import "BBPlayer.h"
 #import "ChunkManager.h"
 #import "CCFollowOffset.h"
+#import "BBHud.h"
 
 @interface BBGameLayer : CCLayer {
 	
     BBPlayer *player;
+	BBHud *hud;
 	CCNode *scrollingNode;
 	CGPoint cameraOffset, cameraBounds;
 }
