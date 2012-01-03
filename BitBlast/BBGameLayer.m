@@ -35,6 +35,10 @@
 		scrollingNode.scale = 1;
 		[self addChild:scrollingNode];
 		
+		// for the HUD
+		hud = [[BBHud alloc] init];
+		[self addChild:hud];
+		
 		// listen for touches
 		self.isTouchEnabled = YES;
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -45,7 +49,6 @@
 		
 		// create player and add it to this layer
 		player = [[BBPlayer alloc] init];
-		//[scrollingNode addChild:player];
 		
 		// update tick
 		[self scheduleUpdate];
@@ -57,6 +60,9 @@
 - (void) dealloc {
 	
 	[super dealloc];
+	[scrollingNode release];
+	[hud release];
+	[player release];
 }
 
 #pragma mark -
@@ -77,6 +83,7 @@
 	[[ChunkManager sharedSingleton] update:delta];
 	[player update:delta];
 	[self updateCamera];
+	[hud update:delta];
 }
 
 - (void) updateCamera {
@@ -95,13 +102,13 @@
 		yOffset = cameraBounds.y - currentPlayerScreenPosition.y;
 	}
 	
-	CGPoint newPos = ccp(-1 * player.position.x + cameraOffset.x, self.position.y + cameraOffset.y - yOffset);
+	CGPoint newPos = ccp(-1 * player.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
     
     // make sure newPos's y coordinate is not less than the current chunk's lowest point
     if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
 		newPos.y = [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition;
 	}
-	[self setPosition:newPos];
+	[scrollingNode setPosition:newPos];
 }
 
 - (void) draw {

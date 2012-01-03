@@ -73,6 +73,9 @@
 	
 	// keep track of previous size. done here so that a change in sprite frame size won't affect prevSize
 	prevSize = sprite.contentSize;
+	
+	// update score
+	[ScoreManager sharedSingleton].distance = floor(self.position.x / 64);
 }
 
 #pragma mark -

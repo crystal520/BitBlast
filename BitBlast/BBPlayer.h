@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "BBGameObject.h"
 #import "ChunkManager.h"
+#import "ScoreManager.h"
 
 @interface BBPlayer : BBGameObject {
 	

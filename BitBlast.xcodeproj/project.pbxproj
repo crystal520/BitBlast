@@ -12,15 +12,13 @@
 		0A1EC4B114A02F1B005A7ED6 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4AF14A02F1B005A7ED6 /* bullet.png */; };
 		0A1EC4B214A02F1B005A7ED6 /* bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4B014A02F1B005A7ED6 /* bullet.plist */; };
 		0A1EC4B414A02F53005A7ED6 /* bulletProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4B314A02F53005A7ED6 /* bulletProperties.plist */; };
-		0A1EC4B614A03488005A7ED6 /* physicsBullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A1EC4B514A03488005A7ED6 /* physicsBullet.plist */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35AF149984C80019C113 /* junglechunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35AE149984C80019C113 /* junglechunk1.tmx */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
 		0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35B714998EA90019C113 /* dirt_tile_set.png */; };
-		0A5C35C1149AFF970019C113 /* physicsPlayer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35BF149AFF970019C113 /* physicsPlayer.plist */; };
-		0A5C35C2149AFF970019C113 /* physicsBasicTile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */; };
-		0A7F994514AE3FD3006B146B /* physicsHalfTile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */; };
+		0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */; };
+		0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3914B29AA3003A1DB1 /* BBHud.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
 		0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* playerProperties.plist */; };
 		0AC723A61498693D000E9412 /* walkCycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A41498693D000E9412 /* walkCycle.png */; };
@@ -200,7 +198,6 @@
 		0A1EC4AF14A02F1B005A7ED6 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/Gun/bullet.png; sourceTree = "<group>"; };
 		0A1EC4B014A02F1B005A7ED6 /* bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bullet.plist; path = Resources/Gun/bullet.plist; sourceTree = "<group>"; };
 		0A1EC4B314A02F53005A7ED6 /* bulletProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bulletProperties.plist; sourceTree = "<group>"; };
-		0A1EC4B514A03488005A7ED6 /* physicsBullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsBullet.plist; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35AE149984C80019C113 /* junglechunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = junglechunk1.tmx; path = Resources/junglechunk1.tmx; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
@@ -208,9 +205,10 @@
 		0A5C35B4149988AE0019C113 /* ChunkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkManager.h; sourceTree = "<group>"; };
 		0A5C35B5149988AE0019C113 /* ChunkManager.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ChunkManager.m; sourceTree = "<group>"; };
 		0A5C35B714998EA90019C113 /* dirt_tile_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dirt_tile_set.png; path = Resources/dirt_tile_set.png; sourceTree = "<group>"; };
-		0A5C35BF149AFF970019C113 /* physicsPlayer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsPlayer.plist; sourceTree = "<group>"; };
-		0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsBasicTile.plist; sourceTree = "<group>"; };
-		0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsHalfTile.plist; sourceTree = "<group>"; };
+		0A9A7B3414B293BA003A1DB1 /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
+		0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManager.m; sourceTree = "<group>"; };
+		0A9A7B3814B29AA2003A1DB1 /* BBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHud.h; sourceTree = "<group>"; };
+		0A9A7B3914B29AA3003A1DB1 /* BBHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBHud.m; sourceTree = "<group>"; };
 		0AC7239F14985D9B000E9412 /* BBGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameObject.h; sourceTree = "<group>"; };
 		0AC723A014985D9C000E9412 /* BBGameObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameObject.m; sourceTree = "<group>"; };
 		0AC723A214985F4F000E9412 /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
@@ -603,6 +601,10 @@
 				0AE4192D1496FEF300342D8E /* BBPlayer.m */,
 				0A1EC4A914A02CC8005A7ED6 /* BBBullet.h */,
 				0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */,
+				0A9A7B3414B293BA003A1DB1 /* ScoreManager.h */,
+				0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */,
+				0A9A7B3814B29AA2003A1DB1 /* BBHud.h */,
+				0A9A7B3914B29AA3003A1DB1 /* BBHud.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -667,17 +669,6 @@
 			name = Jungle;
 			sourceTree = "<group>";
 		};
-		0A5C35BC149AFC970019C113 /* Physics */ = {
-			isa = PBXGroup;
-			children = (
-				0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */,
-				0A1EC4B514A03488005A7ED6 /* physicsBullet.plist */,
-				0A5C35BF149AFF970019C113 /* physicsPlayer.plist */,
-				0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */,
-			);
-			name = Physics;
-			sourceTree = "<group>";
-		};
 		0AE417271496F5C400342D8E = {
 			isa = PBXGroup;
 			children = (
@@ -736,7 +727,6 @@
 			children = (
 				0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */,
 				0A1EC4AC14A02EEC005A7ED6 /* Equipment */,
-				0A5C35BC149AFC970019C113 /* Physics */,
 				0A5C35AB1499848E0019C113 /* Chunks */,
 				0A5C35A8149981A50019C113 /* Levels */,
 				0AE4192F1496FF7900342D8E /* Player */,
@@ -1284,12 +1274,9 @@
 				0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */,
 				0A5C35AF149984C80019C113 /* junglechunk1.tmx in Resources */,
 				0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */,
-				0A5C35C1149AFF970019C113 /* physicsPlayer.plist in Resources */,
-				0A5C35C2149AFF970019C113 /* physicsBasicTile.plist in Resources */,
 				0A1EC4B114A02F1B005A7ED6 /* bullet.png in Resources */,
 				0A1EC4B214A02F1B005A7ED6 /* bullet.plist in Resources */,
 				0A1EC4B414A02F53005A7ED6 /* bulletProperties.plist in Resources */,
-				0A1EC4B614A03488005A7ED6 /* physicsBullet.plist in Resources */,
 				3BB1129814A2E02A005DC6CC /* start.tmx in Resources */,
 				3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */,
 				3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */,
@@ -1300,7 +1287,6 @@
 				3BB112A714A5B285005DC6CC /* spritesheet.png in Resources */,
 				3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */,
 				0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */,
-				0A7F994514AE3FD3006B146B /* physicsHalfTile.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1453,6 +1439,8 @@
 				0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */,
 				0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */,
 				0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */,
+				0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */,
+				0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
