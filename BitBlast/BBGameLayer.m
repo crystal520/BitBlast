@@ -28,7 +28,6 @@
 - (id) init {
 	if((self = [super init])) {
 		
-		//[[BBPhysicsWorld sharedSingleton] debugPhysics];
 		[self loadCameraVariables];
 		
 		// for objects that need to scroll
@@ -48,14 +47,8 @@
 		player = [[BBPlayer alloc] init];
 		//[scrollingNode addChild:player];
 		
-		// add physics world node to this layer
-		[scrollingNode addChild:[BBPhysicsWorld sharedSingleton]];
-		
 		// update tick
 		[self scheduleUpdate];
-		
-		// listen for physics update notification
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateCamera) name:kPhysicsUpdatedNotification object:nil];
 	}
 	
 	return self;
@@ -83,13 +76,14 @@
 	
 	[[ChunkManager sharedSingleton] update:delta];
 	[player update:delta];
+	[self updateCamera];
 }
 
 - (void) updateCamera {
 	
 	// convert player's y position to screen space
 	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];
-	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - (currentPlayerScreenPosition.y + player.contentSize.height);
+	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - (currentPlayerScreenPosition.y + player.sprite.contentSize.height);
 	
 	float yOffset = 0;
 	// check to see if player is too close to the top of the screen
@@ -101,13 +95,12 @@
 		yOffset = cameraBounds.y - currentPlayerScreenPosition.y;
 	}
 	
-	b2Vec2 pos = player.body.body->GetPosition();
-	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + cameraOffset.x, self.position.y - yOffset + cameraOffset.y);
+	CGPoint newPos = ccp(-1 * player.position.x + cameraOffset.x, self.position.y + cameraOffset.y - yOffset);
     
     // make sure newPos's y coordinate is not less than the current chunk's lowest point
     if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
-        newPos.y = [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition;
-    }
+		newPos.y = [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition;
+	}
 	[self setPosition:newPos];
 }
 
@@ -142,7 +135,7 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-
+	
 	CGSize winSize = [CCDirector sharedDirector].winSize;
 	
 	// get coordinates of touch

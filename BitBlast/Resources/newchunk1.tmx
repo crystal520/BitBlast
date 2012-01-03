@@ -15,12 +15,12 @@
  </layer>
  <layer name="CollisionBottom" width="60" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3DsQ0AAAwCINP/j+7uC0JCAgAbrgLAugdYkJicEA4AAA==
+   H4sIAAAAAAAAA+3SsQ0AAAjDMMT/R7N3YwVbygepAoAfOoKr8vVNwC8D5fmn1RAOAAA=
   </data>
  </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+3RsQ0AAAgCQd1/aScwaifkL6GxkhABAACc5BBVXQ/1vtd/Vfpu97rev/Z1Nm1AtFNPIDlZEA4AAA==
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwCkbBcAKMBPBQBbj8MdT9S6p7h4p/iY0vUsWxqSOkZiiE12AGlITvKB78GABS8tq/EA4AAA==
   </data>
  </layer>
 </map>

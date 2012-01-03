@@ -18,17 +18,14 @@
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
 		0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35B714998EA90019C113 /* dirt_tile_set.png */; };
-		0A5C35BB1499A1D50019C113 /* BBPhysicsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35BA1499A1D40019C113 /* BBPhysicsObject.m */; };
 		0A5C35C1149AFF970019C113 /* physicsPlayer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35BF149AFF970019C113 /* physicsPlayer.plist */; };
 		0A5C35C2149AFF970019C113 /* physicsBasicTile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */; };
 		0A7F994514AE3FD3006B146B /* physicsHalfTile.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */; };
-		0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723951497107C000E9412 /* BBPhysicsWorld.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
 		0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* playerProperties.plist */; };
 		0AC723A61498693D000E9412 /* walkCycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A41498693D000E9412 /* walkCycle.png */; };
 		0AC723A71498693D000E9412 /* walkCycle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A51498693D000E9412 /* walkCycle.plist */; };
 		0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */; };
-		0AD96B4814A90C5300C9DAE9 /* BBContactListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */; };
 		0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417361496F5C400342D8E /* QuartzCore.framework */; };
 		0AE417391496F5C400342D8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417381496F5C400342D8E /* OpenGLES.framework */; };
 		0AE4173B1496F5C400342D8E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE4173A1496F5C400342D8E /* OpenAL.framework */; };
@@ -211,21 +208,15 @@
 		0A5C35B4149988AE0019C113 /* ChunkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkManager.h; sourceTree = "<group>"; };
 		0A5C35B5149988AE0019C113 /* ChunkManager.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ChunkManager.m; sourceTree = "<group>"; };
 		0A5C35B714998EA90019C113 /* dirt_tile_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dirt_tile_set.png; path = Resources/dirt_tile_set.png; sourceTree = "<group>"; };
-		0A5C35B91499A1D30019C113 /* BBPhysicsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPhysicsObject.h; sourceTree = "<group>"; };
-		0A5C35BA1499A1D40019C113 /* BBPhysicsObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPhysicsObject.m; sourceTree = "<group>"; };
 		0A5C35BF149AFF970019C113 /* physicsPlayer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsPlayer.plist; sourceTree = "<group>"; };
 		0A5C35C0149AFF970019C113 /* physicsBasicTile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsBasicTile.plist; sourceTree = "<group>"; };
 		0A7F994414AE3FD3006B146B /* physicsHalfTile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = physicsHalfTile.plist; sourceTree = "<group>"; };
-		0AC723941497107C000E9412 /* BBPhysicsWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPhysicsWorld.h; sourceTree = "<group>"; };
-		0AC723951497107C000E9412 /* BBPhysicsWorld.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPhysicsWorld.m; sourceTree = "<group>"; };
 		0AC7239F14985D9B000E9412 /* BBGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameObject.h; sourceTree = "<group>"; };
 		0AC723A014985D9C000E9412 /* BBGameObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameObject.m; sourceTree = "<group>"; };
 		0AC723A214985F4F000E9412 /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
 		0AC723A41498693D000E9412 /* walkCycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkCycle.png; path = Resources/Player/walkCycle.png; sourceTree = "<group>"; };
 		0AC723A51498693D000E9412 /* walkCycle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = walkCycle.plist; path = Resources/Player/walkCycle.plist; sourceTree = "<group>"; };
 		0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cameraProperties.plist; sourceTree = "<group>"; };
-		0AD96B4614A90C5200C9DAE9 /* BBContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBContactListener.h; sourceTree = "<group>"; };
-		0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBContactListener.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		0AD96B6114A948FA00C9DAE9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0AE417321496F5C400342D8E /* BitBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE417361496F5C400342D8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -601,8 +592,6 @@
 				0AE419331496FFFE00342D8E /* BBSpriteFactory.m */,
 				0AC7239F14985D9B000E9412 /* BBGameObject.h */,
 				0AC723A014985D9C000E9412 /* BBGameObject.m */,
-				0A5C35B91499A1D30019C113 /* BBPhysicsObject.h */,
-				0A5C35BA1499A1D40019C113 /* BBPhysicsObject.m */,
 			);
 			name = "Basic Objects";
 			sourceTree = "<group>";
@@ -1214,10 +1203,6 @@
 				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
 				0AE419281496FDC100342D8E /* BBGameLayer.h */,
 				0AE419291496FDC200342D8E /* BBGameLayer.m */,
-				0AC723941497107C000E9412 /* BBPhysicsWorld.h */,
-				0AC723951497107C000E9412 /* BBPhysicsWorld.m */,
-				0AD96B4614A90C5200C9DAE9 /* BBContactListener.h */,
-				0AD96B4714A90C5200C9DAE9 /* BBContactListener.m */,
 				0AD96B6114A948FA00C9DAE9 /* Constants.h */,
 			);
 			name = Code;
@@ -1463,14 +1448,11 @@
 				0AE4192A1496FDC200342D8E /* BBGameLayer.m in Sources */,
 				0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */,
 				0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */,
-				0AC723961497107C000E9412 /* BBPhysicsWorld.m in Sources */,
 				0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */,
 				0A5C35B3149988A40019C113 /* Chunk.m in Sources */,
 				0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */,
-				0A5C35BB1499A1D50019C113 /* BBPhysicsObject.m in Sources */,
 				0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */,
 				0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */,
-				0AD96B4814A90C5300C9DAE9 /* BBContactListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

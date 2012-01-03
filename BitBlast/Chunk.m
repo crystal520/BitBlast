@@ -18,8 +18,6 @@
 	
 	if((self = [super initWithTMXFile:chunkName])) {
 		
-		collidables = [NSMutableArray new];
-		
 		self.position = offset;
 		
 		// keep track of player's z value
@@ -64,7 +62,6 @@
 - (void) dealloc {
 	
 	[super dealloc];
-	//[map release];
 }
 
 - (void) makeTileAt:(CGPoint)point withLayer:(CCTMXLayer*)layer withOffset:(CGPoint)offset withTag:(int)tag {
@@ -84,19 +81,7 @@
 		else {
 			[plistToUse setString:@"physicsBasicTile"];
 		}
-		
-		BBPhysicsObject *newTile = [[BBPhysicsWorld sharedSingleton] createPhysicsObjectFromFile:plistToUse withPosition:ccp(point.x * self.tileSize.width + offset.x, (self.mapSize.height - (point.y+1)) * self.tileSize.height + offset.y) withData:tile];
-		[collidables addObject:newTile];
 	}
-}
-
-- (void) cleanupPhysics {
-	
-	// get rid of physics bodies
-	for(BBPhysicsObject *c in collidables) {
-		[BBPhysicsWorld sharedSingleton].world->DestroyBody(c.body);
-	}
-	[collidables release];
 }
 
 @end
