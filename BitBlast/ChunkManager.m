@@ -62,6 +62,12 @@
 	}
 }
 
+- (void) resetWithLevel:(NSString*)level {
+	
+	[self removeChunks];
+	[self loadChunksForLevel:level];
+}
+
 #pragma mark -
 #pragma mark adding/removing chunks
 - (void) addChunk:(NSString*)chunkName {

@@ -18,6 +18,8 @@
 
 + (ScoreManager*) sharedSingleton;
 
+- (void) reset;
+- (int) getScore;
 - (NSString*) getScoreString;
 
 @end

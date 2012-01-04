@@ -14,3 +14,10 @@ typedef enum {
 	TAG_COLLISION_TILE_TOP,
 	TAG_PLAYER
 } SpriteTags;
+
+#define kGameRestartNotification @"gameRestartNotification"
+
+#define kPlayerDeadNotification @"playerDeadNotification"
+
+#define kChunkCompletedNotification @"chunkCompletedNotification"
+#define kChunkWillRemoveNotification @"chunkWillRemoveNotification"

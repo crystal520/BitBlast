@@ -19,6 +19,10 @@
 		0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35B714998EA90019C113 /* dirt_tile_set.png */; };
 		0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */; };
 		0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3914B29AA3003A1DB1 /* BBHud.m */; };
+		0A9A7B3E14B33D10003A1DB1 /* BBGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */; };
+		0A9A7B4014B3E532003A1DB1 /* restart.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3F14B3E532003A1DB1 /* restart.png */; };
+		0A9A7B4214B3E669003A1DB1 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A7B4114B3E668003A1DB1 /* white.png */; };
+		0A9A7B4414B3EC5F003A1DB1 /* restartDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A7B4314B3EC5F003A1DB1 /* restartDown.png */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
 		0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* playerProperties.plist */; };
 		0AC723A61498693D000E9412 /* walkCycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A41498693D000E9412 /* walkCycle.png */; };
@@ -209,6 +213,11 @@
 		0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManager.m; sourceTree = "<group>"; };
 		0A9A7B3814B29AA2003A1DB1 /* BBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHud.h; sourceTree = "<group>"; };
 		0A9A7B3914B29AA3003A1DB1 /* BBHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBHud.m; sourceTree = "<group>"; };
+		0A9A7B3C14B33D10003A1DB1 /* BBGameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameOver.h; sourceTree = "<group>"; };
+		0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGameOver.m; sourceTree = "<group>"; };
+		0A9A7B3F14B3E532003A1DB1 /* restart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = restart.png; path = Resources/restart.png; sourceTree = "<group>"; };
+		0A9A7B4114B3E668003A1DB1 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = Resources/white.png; sourceTree = "<group>"; };
+		0A9A7B4314B3EC5F003A1DB1 /* restartDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = restartDown.png; path = Resources/restartDown.png; sourceTree = "<group>"; };
 		0AC7239F14985D9B000E9412 /* BBGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameObject.h; sourceTree = "<group>"; };
 		0AC723A014985D9C000E9412 /* BBGameObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameObject.m; sourceTree = "<group>"; };
 		0AC723A214985F4F000E9412 /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
@@ -603,8 +612,6 @@
 				0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */,
 				0A9A7B3414B293BA003A1DB1 /* ScoreManager.h */,
 				0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */,
-				0A9A7B3814B29AA2003A1DB1 /* BBHud.h */,
-				0A9A7B3914B29AA3003A1DB1 /* BBHud.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -669,6 +676,17 @@
 			name = Jungle;
 			sourceTree = "<group>";
 		};
+		0A9A7B3B14B33CF3003A1DB1 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0A9A7B3814B29AA2003A1DB1 /* BBHud.h */,
+				0A9A7B3914B29AA3003A1DB1 /* BBHud.m */,
+				0A9A7B3C14B33D10003A1DB1 /* BBGameOver.h */,
+				0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
 		0AE417271496F5C400342D8E = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +743,9 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A9A7B4314B3EC5F003A1DB1 /* restartDown.png */,
+				0A9A7B4114B3E668003A1DB1 /* white.png */,
+				0A9A7B3F14B3E532003A1DB1 /* restart.png */,
 				0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */,
 				0A1EC4AC14A02EEC005A7ED6 /* Equipment */,
 				0A5C35AB1499848E0019C113 /* Chunks */,
@@ -1188,6 +1209,7 @@
 		0AE4192B1496FE7E00342D8E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				0A9A7B3B14B33CF3003A1DB1 /* Screens */,
 				0A1EC4A814A02C9F005A7ED6 /* Game Objects */,
 				0A1EC4A7149E7E4D005A7ED6 /* Basic Objects */,
 				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
@@ -1287,6 +1309,9 @@
 				3BB112A714A5B285005DC6CC /* spritesheet.png in Resources */,
 				3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */,
 				0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */,
+				0A9A7B4014B3E532003A1DB1 /* restart.png in Resources */,
+				0A9A7B4214B3E669003A1DB1 /* white.png in Resources */,
+				0A9A7B4414B3EC5F003A1DB1 /* restartDown.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1441,6 +1466,7 @@
 				0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */,
 				0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */,
 				0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */,
+				0A9A7B3E14B33D10003A1DB1 /* BBGameOver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

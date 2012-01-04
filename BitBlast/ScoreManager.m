@@ -40,6 +40,10 @@
 	[super dealloc];
 }
 
+- (void) reset {
+	distance = 0;
+}
+
 - (int) getScore {
 	return distance;
 }

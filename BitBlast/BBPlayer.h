@@ -18,11 +18,12 @@
 	CGPoint velocity, prevPosition;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks;
-	BOOL canJump, jumping, touchingPlatform;
+	BOOL jumping, touchingPlatform, dead;
 }
 
 - (void) update:(float)delta;
 
+- (void) reset;
 - (void) die:(NSString*)reason;
 - (void) jump;
 - (void) endJump;

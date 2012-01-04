@@ -39,6 +39,9 @@
 		hud = [[BBHud alloc] init];
 		[self addChild:hud];
 		
+		// game over screen
+		gameOver = [[BBGameOver alloc] init];
+		
 		// listen for touches
 		self.isTouchEnabled = YES;
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -52,6 +55,10 @@
 		
 		// update tick
 		[self scheduleUpdate];
+		
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartGame) name:kGameRestartNotification object:nil];
 	}
 	
 	return self;
@@ -159,5 +166,18 @@
 }
 
 #pragma mark -
+#pragma mark notifications
+- (void) gameOver {
+	[gameOver updateFinalScore];
+	[self addChild:gameOver];
+}
+
+- (void) restartGame {
+	[[ScoreManager sharedSingleton] reset];
+	[player reset];
+	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
+	[self removeChild:gameOver cleanup:YES];
+	[self updateCamera];
+}
 
 @end

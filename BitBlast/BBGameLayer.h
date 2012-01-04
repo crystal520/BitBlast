@@ -12,11 +12,13 @@
 #import "ChunkManager.h"
 #import "CCFollowOffset.h"
 #import "BBHud.h"
+#import "BBGameOver.h"
 
 @interface BBGameLayer : CCLayer {
 	
     BBPlayer *player;
 	BBHud *hud;
+	BBGameOver *gameOver;
 	CCNode *scrollingNode;
 	CGPoint cameraOffset, cameraBounds;
 }

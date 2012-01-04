@@ -13,9 +13,7 @@
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
 		
-		[self playAnimation:@"walk"];
-		
-		self.position = ccp(64, 192);
+		self.tag = TAG_PLAYER;
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -25,12 +23,7 @@
 		chunksToIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"numChunksToIncrement"] intValue];
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		
-		// set initial values
-		velocity = ccp(minSpeed, 0);
-		curNumChunks = 0;
-		jumpTimer = 0.0f;
-		self.tag = TAG_PLAYER;
-		prevSize = sprite.contentSize;
+		[self reset];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
@@ -51,31 +44,38 @@
 #pragma mark update
 - (void) update:(float)delta {
 	
-	// keep track of previous position
-	prevPosition = self.position;
-	
-	// apply jump
-	if(jumping) {
-		jumpTimer += delta;
-		if(jumpTimer >= maxJumpTime) {
-			jumping = NO;
+	if(!dead) {
+		// keep track of previous position
+		prevPosition = self.position;
+		
+		// apply jump
+		if(jumping) {
+			jumpTimer += delta;
+			if(jumpTimer >= maxJumpTime) {
+				jumping = NO;
+			}
+			velocity = ccp(velocity.x, jumpImpulse);
 		}
-		velocity = ccp(velocity.x, jumpImpulse);
+		// apply gravity
+		if(!jumping) {
+			velocity = ccp(velocity.x, velocity.y - gravity);
+		}
+		// apply velocity to position
+		self.position = ccp(self.position.x + velocity.x, self.position.y + velocity.y);
+		
+		[self checkCollisions];
+		
+		// keep track of previous size. done here so that a change in sprite frame size won't affect prevSize
+		prevSize = sprite.contentSize;
+		
+		// update score
+		[ScoreManager sharedSingleton].distance = floor(self.position.x / 64);
+		
+		// check for falling death
+		if(self.position.y + sprite.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+			[self die:@"fall"];
+		}
 	}
-	// apply gravity
-	if(!jumping) {
-		velocity = ccp(velocity.x, velocity.y - gravity);
-	}
-	// apply velocity to position
-	self.position = ccp(self.position.x + velocity.x, self.position.y + velocity.y);
-	
-	[self checkCollisions];
-	
-	// keep track of previous size. done here so that a change in sprite frame size won't affect prevSize
-	prevSize = sprite.contentSize;
-	
-	// update score
-	[ScoreManager sharedSingleton].distance = floor(self.position.x / 64);
 }
 
 #pragma mark -
@@ -99,13 +99,25 @@
 
 #pragma mark -
 #pragma mark actions
+- (void) reset {
+	
+	// set initial values
+	[self playAnimation:@"walk"];
+	self.position = ccp(64, 192);
+	velocity = ccp(minSpeed, 0);
+	curNumChunks = 0;
+	jumpTimer = 0.0f;
+	prevSize = sprite.contentSize;
+	dead = NO;
+}
+
 - (void) die:(NSString*)reason {
 	
-	NSLog(@"Player has died from %@", reason);
-	
 	if([reason isEqualToString:@"fall"]) {
-		
+		dead = YES;
 	}
+	
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerDeadNotification object:nil]];
 }
 
 - (void) jump {
