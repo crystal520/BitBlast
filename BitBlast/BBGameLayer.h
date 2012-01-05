@@ -13,9 +13,11 @@
 #import "CCFollowOffset.h"
 #import "BBHud.h"
 #import "BBGameOver.h"
+#import "ParallaxManager.h"
 
 @interface BBGameLayer : CCLayer {
 	
+	ParallaxManager *parallax;
     BBPlayer *player;
 	BBHud *hud;
 	BBGameOver *gameOver;

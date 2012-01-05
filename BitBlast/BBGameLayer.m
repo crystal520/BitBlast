@@ -30,6 +30,10 @@
 		
 		[self loadCameraVariables];
 		
+		// create parallax scrolling background
+		parallax = [[ParallaxManager alloc] initWithFile:@"jungleLevel"];
+		[self addChild:parallax];
+		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
 		scrollingNode.scale = 1;
@@ -50,7 +54,7 @@
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
 		
-		// create player and add it to this layer
+		// create player
 		player = [[BBPlayer alloc] init];
 		
 		// update tick
@@ -67,9 +71,11 @@
 - (void) dealloc {
 	
 	[super dealloc];
+	[self removeAllChildrenWithCleanup:YES];
 	[scrollingNode release];
 	[hud release];
 	[player release];
+	[parallax release];
 }
 
 #pragma mark -
@@ -95,6 +101,8 @@
 
 - (void) updateCamera {
 	
+	// keep track of node's previous position
+	float prevPos = scrollingNode.position.x;
 	// convert player's y position to screen space
 	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];
 	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - (currentPlayerScreenPosition.y + player.sprite.contentSize.height);
@@ -116,6 +124,8 @@
 		newPos.y = [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition;
 	}
 	[scrollingNode setPosition:newPos];
+	
+	[parallax update:scrollingNode.position.x - prevPos];
 }
 
 - (void) draw {
