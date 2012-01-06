@@ -16,6 +16,7 @@
 
 - (id) initWithFile:(NSString*)file;
 
+- (void) reset;
 - (void) update:(float)changeInPos;
 
 @end

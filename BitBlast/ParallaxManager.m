@@ -35,8 +35,13 @@
 	[super dealloc];
 }
 
+- (void) reset {
+	for(ParallaxNode *p in nodes) {
+		[p reset];
+	}
+}
+
 - (void) update:(float)changeInPos {
-	
 	for(ParallaxNode *p in nodes) {
 		[p update:changeInPos];
 	}

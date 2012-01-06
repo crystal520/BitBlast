@@ -178,16 +178,20 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
+	[self unscheduleUpdate];
 	[gameOver updateFinalScore];
 	[self addChild:gameOver];
 }
 
 - (void) restartGame {
+	scrollingNode.position = ccp(0, scrollingNode.position.y);
+	[parallax reset];
 	[[ScoreManager sharedSingleton] reset];
 	[player reset];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
 	[self removeChild:gameOver cleanup:YES];
 	[self updateCamera];
+	[self scheduleUpdate];
 }
 
 @end

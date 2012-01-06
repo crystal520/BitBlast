@@ -18,6 +18,7 @@
 
 - (id) initWithDictionary:(NSDictionary*)dict;
 
+- (void) reset;
 - (void) update:(float)changeInPos;
 
 @end
