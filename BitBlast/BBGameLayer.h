@@ -14,6 +14,7 @@
 #import "BBHud.h"
 #import "BBGameOver.h"
 #import "ParallaxManager.h"
+#import "BulletManager.h"
 
 @interface BBGameLayer : CCLayer {
 	

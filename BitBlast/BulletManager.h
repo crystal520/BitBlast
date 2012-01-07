@@ -8,9 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BBBullet.h"
+
+#define MAX_BULLETS 100
 
 @interface BulletManager : NSObject {
-    
+    NSMutableArray *bullets;
+	CCNode *node;
 }
+
++ (BulletManager*) sharedSingleton;
+
+- (void) update:(float)delta;
+- (BBBullet*) getRecycledBullet;
+- (void) setNode:(CCNode*)newNode;
 
 @end

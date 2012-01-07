@@ -15,6 +15,11 @@
 		
 		self.tag = TAG_PLAYER;
 		
+		// create and load basic weapon
+		weapon = [[BBWeapon alloc] init];
+		[self addChild:weapon];
+		[weapon loadFromFile:@"pistol"];
+		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
 		minSpeed = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"minSpeed"] floatValue];
@@ -22,6 +27,7 @@
 		speedIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"incrementPercent"] floatValue];
 		chunksToIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"numChunksToIncrement"] intValue];
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
+		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
 		
 		[self reset];
 		
@@ -29,8 +35,6 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
 		
 		[[ChunkManager sharedSingleton] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
-		
-		//[[CCScheduler sharedScheduler] scheduleSelector:@selector(shoot) forTarget:self interval:3 paused:NO];
 	}
 	
 	return self;
@@ -133,10 +137,6 @@
 - (void) endJump {
 	
 	jumping = NO;
-}
-
-- (void) shoot {
-	//BBBullet *bullet = [[BBBullet alloc] initWithPosition:self.position];
 }
 
 - (void) checkCollisions {

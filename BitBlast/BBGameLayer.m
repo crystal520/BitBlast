@@ -57,6 +57,9 @@
 		// create player
 		player = [[BBPlayer alloc] init];
 		
+		// add BulletManager to the scrolling node
+		[[BulletManager sharedSingleton] setNode:scrollingNode];
+		
 		// update tick
 		[self scheduleUpdate];
 		
@@ -95,6 +98,7 @@
 	
 	[[ChunkManager sharedSingleton] update:delta];
 	[player update:delta];
+	[[BulletManager sharedSingleton] update:delta];
 	[self updateCamera];
 	[hud update:delta];
 }

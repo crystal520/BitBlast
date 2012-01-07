@@ -19,7 +19,6 @@
 		
 		// save dictionary for future use
 		dictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
-		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
 	}
 	
 	return self;

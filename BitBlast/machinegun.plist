@@ -5,26 +5,26 @@
 	<key>minSpeed</key>
 	<dict>
 		<key>x</key>
-		<integer>10</integer>
+		<integer>12</integer>
 		<key>y</key>
-		<integer>0</integer>
+		<real>-0.25</real>
 	</dict>
 	<key>maxSpeed</key>
 	<dict>
 		<key>x</key>
-		<integer>10</integer>
+		<integer>13</integer>
 		<key>y</key>
-		<integer>0</integer>
+		<real>0.25</real>
 	</dict>
 	<key>lifetime</key>
 	<dict>
 		<key>min</key>
-		<integer>5</integer>
+		<integer>3</integer>
 		<key>max</key>
-		<integer>5</integer>
+		<integer>3</integer>
 	</dict>
 	<key>rateOfFire</key>
-	<real>0.5</real>
+	<real>0.05</real>
 	<key>numBulletsToFire</key>
 	<integer>1</integer>
 	<key>graphic</key>

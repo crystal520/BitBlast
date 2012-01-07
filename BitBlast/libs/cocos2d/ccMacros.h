@@ -84,6 +84,11 @@ simple macro that swaps 2 variables
  */
 #define CCRANDOM_0_1() ((random() / (float)0x7fffffff ))
 
+/** @def CCRANDOM_MIN_MAX
+ returns a random float between min and max
+ */
+#define CCRANDOM_MIN_MAX(__MIN__, __MAX__) (__MIN__ + (CCRANDOM_0_1() * (__MAX__ - __MIN__)))
+
 /** @def CC_DEGREES_TO_RADIANS
  converts degrees to radians
  */

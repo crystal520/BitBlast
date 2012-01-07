@@ -11,14 +11,16 @@
 #import "BBGameObject.h"
 #import "ChunkManager.h"
 #import "ScoreManager.h"
+#import "BBWeapon.h"
 
 @interface BBPlayer : BBGameObject {
 	
-	float jumpImpulse, minSpeed, maxSpeed, speedIncrement, jumpTimer, maxJumpTime;
+	float jumpImpulse, minSpeed, maxSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity;
 	CGPoint velocity, prevPosition;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks;
 	BOOL jumping, touchingPlatform, dead;
+	BBWeapon *weapon;
 }
 
 - (void) update:(float)delta;

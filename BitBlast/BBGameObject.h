@@ -13,7 +13,6 @@
     
 	CCSprite *sprite;
 	NSDictionary *dictionary;
-	float gravity;
 }
 
 @property (nonatomic, readonly) CCSprite *sprite;
