@@ -145,10 +145,15 @@
 	
 	// get coordinates of touch
 	CGPoint touchPoint = [touch locationInView:[touch view]];
+	touchPoint = ccp(touchPoint.x, winSize.height - touchPoint.y);
 	
 	// right side of screen is jump
 	if(touchPoint.x > winSize.width * 0.5f) {
 		[player jump];
+	}
+	// left side controls shooting
+	else {
+		[player shoot:touchPoint];
 	}
 	
 	return true;
@@ -156,10 +161,16 @@
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
 	
-	//CGSize winSize = [CCDirector sharedDirector].winSize;
+	CGSize winSize = [CCDirector sharedDirector].winSize;
 	
 	// get coordinates of touch
-	//CGPoint touchPoint = [touch locationInView:[touch view]];
+	CGPoint touchPoint = [touch locationInView:[touch view]];
+	touchPoint = ccp(touchPoint.x, winSize.height - touchPoint.y);
+	
+	// left side of screen controls shooting
+	if(touchPoint.x <= winSize.width * 0.5f) {
+		[player shoot:touchPoint];
+	}
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {

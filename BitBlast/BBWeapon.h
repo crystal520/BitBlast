@@ -23,7 +23,11 @@
 	CGPoint maxVelocity;
 	// minimum and maximum lifetime each bullet can have
 	CGPoint lifetime;
+	// angle that weapon is at. this affects velocity of bullets
+	float angle;
 }
+
+@property (nonatomic) float angle;
 
 - (void) loadFromFile:(NSString*)filename;
 - (void) shoot;

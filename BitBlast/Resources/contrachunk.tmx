@@ -4,28 +4,28 @@
   <image source="tiles_aubrey.png" width="1024" height="1024"/>
  </tileset>
  <layer name="Background" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQAyQGWgH0BmIA7EEDiw9gO6iFRhp/lUEYnkcWGHgnEUzwArELDgw2wC6i1Zg1L+Dy79KVDZvOPoXW5mkAJUD+ZcZB6aFf5kYIGGJbhcsjJmQ+DA2E5o6Qm7DFodsSHL09C8AO9IEuw==
-  </data>
- </layer>
- <layer name="CollisionTop" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztlcsKgCAQRQeip73IatWq///IRijIIVAJ0cU9cDYq453ZDBEAAAAfDnZltdCc7QlzAQBATozs5HBOli5f5NwWsnfNRvau6VglHCJle+r3L+XfynEn852BGWq2EbbizddMQow1P0Novz6UbPHD6q5zAf5oBHE=
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglFADJAZaAfQGYgDsQQOLD2A7qIVGGn+VQRieRxYYeCcRTPACsQsODDbALqLVmDUv4PLv0pUNm84+hdbmaQAlQP5lxkHpoV/mRggYYluFyyMmZD4MDYTmjpCbsMWh2xIcsT4F586YjDMLABKi/R7EA4AAA==
   </data>
  </layer>
  <layer name="Collision" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztzqENAAAIwDA84f93eQCBIKg2mV8EAADALI+q73FWGnvLANQ=
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3OoQ0AAAjAMDzh/3d5AIEgqDaZXwQAAMAsj6rvcVYajM/aGBAOAAA=
   </data>
  </layer>
- <layer name="Foreground" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztz0ENAAAIxLDTgn+ReOABCWkVbAkAADBR1wHL/P7TyIgAZw==
+ <layer name="CollisionTop" width="60" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2VuQ6AIBBEt/PAK16Vlf//kS6FiUxMcAuEYl7yGiAwTLMihBBCvnCoq7qAfm3PmIsQQkpiUMeIU7Z05YK9zRLOmk3CWdOqDuwTZbvv7x7i2y6yh/lOY4ZKrcEGzrx1YjFVfx7rf//kAhBmLNIQDgAA
   </data>
  </layer>
  <layer name="CollisonBottom" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3BAQEAAACCIP+vbkhAAQAA8Gh7blyXEA4AAA==
+  </data>
+ </layer>
+ <layer name="Foreground" width="60" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3PQQ0AAAjEsNOCf5F44AEJaRVsCQAAMFHXAcv8/tP2jmtKEA4AAA==
   </data>
  </layer>
 </map>

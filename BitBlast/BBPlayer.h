@@ -29,7 +29,7 @@
 - (void) die:(NSString*)reason;
 - (void) jump;
 - (void) endJump;
-- (void) shoot;
+- (void) shoot:(CGPoint)touchPos;
 - (void) checkCollisions;
 
 - (CGPoint) positionInChunk:(Chunk*)chunk;

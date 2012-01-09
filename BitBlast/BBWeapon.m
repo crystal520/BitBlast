@@ -11,6 +11,8 @@
 
 @implementation BBWeapon
 
+@synthesize angle;
+
 - (void) loadFromFile:(NSString*)filename {
 	
 	// get dictionary from plist file

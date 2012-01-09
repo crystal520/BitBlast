@@ -18,7 +18,7 @@
 		// create and load basic weapon
 		weapon = [[BBWeapon alloc] init];
 		[self addChild:weapon];
-		[weapon loadFromFile:@"pistol"];
+		[weapon loadFromFile:@"machinegun"];
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -139,6 +139,17 @@
 	jumping = NO;
 }
 
+- (void) shoot:(CGPoint)touchPos {
+	
+	// convert point to player space
+	CGPoint convertedPos = [[ChunkManager sharedSingleton] convertToNodeSpace:touchPos];
+	// get angle between player position and converted position
+	float angle = CC_RADIANS_TO_DEGREES(ccpToAngle(ccpSub(convertedPos, self.position)));
+	// set currently equipped weapon's angle
+	weapon.angle = angle;
+	NSLog(@"%f", sin(angle));
+}
+
 - (void) checkCollisions {
 	
 	// special note about tile collisions: tiles' origin is at (0, 0) instead of the normal (0.5, 0.5) anchor
@@ -163,7 +174,7 @@
 				CCSprite *tile = [[c layerNamed:@"Collision"] tileAt:playerTilePos];
 				// if this is a special half collision block and the lowest part of the sprite is less than the middle of the tile
 				// set its position so the lowest part of the sprite is at the middle of the tile
-				if(gid == 2 && self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + tile.contentSize.height * 0.5) {
+				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + tile.contentSize.height * 0.5) {
 					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
@@ -176,7 +187,7 @@
 				CCSprite *tile = [[c layerNamed:@"CollisionTop"] tileAt:playerTilePos];
 				// if this is a special half collision block, the lowest part of the sprite is less than the middle of the tile,
 				// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
-				if(gid == 2 && self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + (tile.contentSize.height * 0.5) && velocity.y < 0 && prevPosition.y - (prevSize.height * 0.5) >= tile.position.y + (tile.contentSize.height * 0.5)) {
+				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + (tile.contentSize.height * 0.5) && velocity.y < 0 && prevPosition.y - (prevSize.height * 0.5) >= tile.position.y + (tile.contentSize.height * 0.5)) {
 					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
@@ -189,7 +200,7 @@
 				CCSprite *tile = [[c layerNamed:@"CollisionBottom"] tileAt:playerTilePos];
 				// if this is a special half collision block, the highest part of the sprite is greater than the lowest part of the tile,
 				// the sprite is moving upwards, and the previous highest part of the sprite is less than the lowest part of the tile
-				if(gid == 2 && self.position.y + (sprite.contentSize.height * 0.5) >= tile.position.y && velocity.y > 0 && prevPosition.y + (sprite.contentSize.height * 0.5) <= tile.position.y) {
+				if(/*gid == 2 &&*/ self.position.y + (sprite.contentSize.height * 0.5) >= tile.position.y && velocity.y > 0 && prevPosition.y + (sprite.contentSize.height * 0.5) <= tile.position.y) {
 					self.position = ccp(self.position.x, tile.position.y - (sprite.contentSize.height * 0.5));
 					velocity = ccp(velocity.x, 0);
 					jumping = NO;
