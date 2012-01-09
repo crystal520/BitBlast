@@ -191,6 +191,8 @@
 		0AE7A03F14B54F4400BC5C73 /* seaParallax.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7A03B14B54F4300BC5C73 /* seaParallax.png */; };
 		0AE7A04014B54F4400BC5C73 /* grassParallax.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7A03C14B54F4300BC5C73 /* grassParallax.png */; };
 		0AE7A04114B54F4400BC5C73 /* dirtParallax.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7A03D14B54F4300BC5C73 /* dirtParallax.png */; };
+		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
+		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3BB1129814A2E02A005DC6CC /* start.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129714A2E02A005DC6CC /* start.tmx */; };
 		3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129A14A30130005DC6CC /* chunk1.tmx */; };
 		3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129C14A3035A005DC6CC /* chunk2.tmx */; };
@@ -562,6 +564,8 @@
 		0AE7A03B14B54F4300BC5C73 /* seaParallax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seaParallax.png; path = Resources/seaParallax.png; sourceTree = "<group>"; };
 		0AE7A03C14B54F4300BC5C73 /* grassParallax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grassParallax.png; path = Resources/grassParallax.png; sourceTree = "<group>"; };
 		0AE7A03D14B54F4300BC5C73 /* dirtParallax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dirtParallax.png; path = Resources/dirtParallax.png; sourceTree = "<group>"; };
+		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
+		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3BB1129714A2E02A005DC6CC /* start.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = start.tmx; path = Resources/start.tmx; sourceTree = "<group>"; };
 		3BB1129A14A30130005DC6CC /* chunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk1.tmx; path = Resources/chunk1.tmx; sourceTree = "<group>"; };
 		3BB1129C14A3035A005DC6CC /* chunk2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk2.tmx; path = Resources/chunk2.tmx; sourceTree = "<group>"; };
@@ -677,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				3BB112A814A5B28C005DC6CC /* newchunk1.tmx */,
+				3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */,
 				3BB1129714A2E02A005DC6CC /* start.tmx */,
 				3BB112A214A3D067005DC6CC /* chunk4.tmx */,
 				3BB112A014A3CE61005DC6CC /* chunk3.tmx */,
@@ -693,6 +698,7 @@
 			isa = PBXGroup;
 			children = (
 				3BB112A614A5B285005DC6CC /* spritesheet.png */,
+				3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */,
 				0A5C35B714998EA90019C113 /* dirt_tile_set.png */,
 				0A5C35A9149981C20019C113 /* jungleLevel.plist */,
 			);
@@ -1356,6 +1362,8 @@
 				0AB8BC4B14B8CC4C0045491C /* pistol.plist in Resources */,
 				0AB8BC4D14B8D4F00045491C /* bullet.png in Resources */,
 				0AB8BC4F14B8F34D0045491C /* machinegun.plist in Resources */,
+				3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */,
+				3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

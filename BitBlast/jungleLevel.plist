@@ -4,10 +4,10 @@
 <dict>
 	<key>chunks</key>
 	<array>
-		<string>newchunk1.tmx</string>
+		<string>contrachunk.tmx</string>
 	</array>
 	<key>firstChunk</key>
-	<string>newchunk1.tmx</string>
+	<string>contrachunk.tmx</string>
 	<key>overrideChunk</key>
 	<string></string>
 	<key>parallax</key>
