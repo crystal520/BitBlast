@@ -202,6 +202,8 @@
 		3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A414A410DB005DC6CC /* chunk5.tmx */; };
 		3BB112A714A5B285005DC6CC /* spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A614A5B285005DC6CC /* spritesheet.png */; };
 		3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A814A5B28C005DC6CC /* newchunk1.tmx */; };
+		3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */; };
+		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -575,6 +577,8 @@
 		3BB112A414A410DB005DC6CC /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
 		3BB112A614A5B285005DC6CC /* spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spritesheet.png; path = Resources/spritesheet.png; sourceTree = "<group>"; };
 		3BB112A814A5B28C005DC6CC /* newchunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = newchunk1.tmx; path = Resources/newchunk1.tmx; sourceTree = "<group>"; };
+		3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gamefont.fnt; path = Resources/gamefont.fnt; sourceTree = "<group>"; };
+		3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamefont.png; path = Resources/gamefont.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -789,6 +793,7 @@
 				0A9A7B4114B3E668003A1DB1 /* white.png */,
 				0A9A7B3F14B3E532003A1DB1 /* restart.png */,
 				0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */,
+				3BD9BC7914BD5C18002D5E39 /* Font */,
 				0A1EC4AC14A02EEC005A7ED6 /* Equipment */,
 				0A5C35AB1499848E0019C113 /* Chunks */,
 				0A5C35A8149981A50019C113 /* Levels */,
@@ -1276,6 +1281,15 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
+		3BD9BC7914BD5C18002D5E39 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */,
+				3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1364,6 +1378,8 @@
 				0AB8BC4F14B8F34D0045491C /* machinegun.plist in Resources */,
 				3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */,
 				3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */,
+				3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */,
+				3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
