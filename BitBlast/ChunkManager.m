@@ -84,7 +84,15 @@
 	
 	Chunk *newChunk = [[Chunk alloc] initWithFile:chunkName withOffset:offset];
 	[currentChunks addObject:newChunk];
-	[self addChild:newChunk];
+	
+	// set z order based on previous chunk
+	if([currentChunks count] > 1) {
+		Chunk *prevChunk = [currentChunks objectAtIndex:[currentChunks count]-1];
+		[self addChild:newChunk z:[prevChunk zOrder]-1];
+	}
+	else {
+		[self addChild:newChunk];
+	}
 }
 
 - (void) addRandomChunk {
@@ -115,6 +123,12 @@
 	Chunk *firstChunk = [currentChunks objectAtIndex:0];
 	[self removeChild:firstChunk cleanup:YES];
 	[currentChunks removeObjectAtIndex:0];
+	
+	// reorder chunks' zorder
+	for(int i=0,j=[currentChunks count];i<j;i++) {
+		Chunk *c = [currentChunks objectAtIndex:i];
+		[self reorderChild:c z:j-i];
+	}
 }
 
 - (void) removeChunks {
@@ -130,6 +144,10 @@
 #pragma mark getting chunks
 - (Chunk*) getCurrentChunk {
 	return [currentChunks objectAtIndex:0];
+}
+
+- (Chunk*) getChunkAtIndex:(int)index {
+	return [currentChunks objectAtIndex:index];
 }
 
 #pragma mark -

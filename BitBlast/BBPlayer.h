@@ -18,7 +18,7 @@
 	float jumpImpulse, minSpeed, maxSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity;
 	CGPoint velocity, prevPosition;
 	CGSize prevSize;
-	int chunksToIncrement, curNumChunks;
+	int chunksToIncrement, curNumChunks, chunkOffset;
 	BOOL jumping, touchingPlatform, dead;
 	BBWeapon *weapon;
 }

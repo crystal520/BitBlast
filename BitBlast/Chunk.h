@@ -19,6 +19,5 @@
 @property (nonatomic) float endPosition, startPosition, lowestPosition;
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset;
-- (void) makeTileAt:(CGPoint)point withLayer:(CCTMXLayer*)layer withOffset:(CGPoint)offset withTag:(int)tag;
 
 @end

@@ -18,7 +18,7 @@
 		// create and load basic weapon
 		weapon = [[BBWeapon alloc] init];
 		[self addChild:weapon];
-		[weapon loadFromFile:@"machinegun"];
+		[weapon loadFromFile:@"pistol"];
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -33,8 +33,7 @@
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
-		
-		[[ChunkManager sharedSingleton] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkWillRemove) name:kChunkWillRemoveNotification object:nil];
 	}
 	
 	return self;
@@ -99,6 +98,16 @@
 		NSLog(@"Player speed is now %.2f after incrementing", speed);
 		velocity = ccp(speed, velocity.y);
 	}
+	
+	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+	[self release];
+}
+
+- (void) chunkWillRemove {
+	[self retain];
+	[[[ChunkManager sharedSingleton] getCurrentChunk] removeChild:self cleanup:NO];
+	
+	self.sprite.position = ccp(self.sprite.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].width, self.sprite.position.y);
 }
 
 #pragma mark -
@@ -113,6 +122,10 @@
 	jumpTimer = 0.0f;
 	prevSize = sprite.contentSize;
 	dead = NO;
+	
+	// add to current chunk
+	[self.parent removeChild:self cleanup:NO];
+	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
 }
 
 - (void) die:(NSString*)reason {

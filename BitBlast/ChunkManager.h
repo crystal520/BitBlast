@@ -31,6 +31,7 @@
 - (void) removeChunks;
 
 - (Chunk*) getCurrentChunk;
+- (Chunk*) getChunkAtIndex:(int)index;
 
 - (void) loadChunksForLevel:(NSString*)levelName;
 

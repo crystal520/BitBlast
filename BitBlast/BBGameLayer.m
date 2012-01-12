@@ -202,8 +202,8 @@
 	scrollingNode.position = ccp(0, scrollingNode.position.y);
 	[parallax reset];
 	[[ScoreManager sharedSingleton] reset];
-	[player reset];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
+	[player reset];
 	[self removeChild:gameOver cleanup:YES];
 	[self updateCamera];
 	[self scheduleUpdate];
