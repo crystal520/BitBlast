@@ -27,6 +27,8 @@
 	<integer>10</integer>
 	<key>maxJumpTime</key>
 	<real>0.25</real>
+	<key>shootAngle</key>
+	<integer>35</integer>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>

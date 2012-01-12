@@ -21,9 +21,10 @@
 	// grab values from dictionary
 	rateOfFire = [[dict objectForKey:@"rateOfFire"] floatValue];
 	numBulletsToFire = [[dict objectForKey:@"numBulletsToFire"] floatValue];
-	minVelocity = ccp([[[dict objectForKey:@"minSpeed"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"minSpeed"] objectForKey:@"y"] floatValue]);
-	maxVelocity = ccp([[[dict objectForKey:@"maxSpeed"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"maxSpeed"] objectForKey:@"y"] floatValue]);
+	minVelocity = [[dict objectForKey:@"minSpeed"] floatValue];
+	maxVelocity = [[dict objectForKey:@"maxSpeed"] floatValue];
 	lifetime = ccp([[[dict objectForKey:@"lifetime"] objectForKey:@"min"] floatValue], [[[dict objectForKey:@"lifetime"] objectForKey:@"max"] floatValue]);
+	angleOffset = ccp([[[dict objectForKey:@"angle"] objectForKey:@"min"] floatValue], [[[dict objectForKey:@"angle"] objectForKey:@"max"] floatValue]);
 	
 	// load image from dictionary
 	sprite = [CCSprite spriteWithFile:[dict objectForKey:@"graphic"]];
@@ -38,12 +39,15 @@
 		// get parent as player
 		BBPlayer *player = (BBPlayer*)(self.parent);
 		// generate a random velocity for the new bullet
-		CGPoint ranVelocity = ccp(CCRANDOM_MIN_MAX(minVelocity.x, maxVelocity.x) + player.velocity.x, CCRANDOM_MIN_MAX(minVelocity.y, maxVelocity.y));
+		float ranVelocity = CCRANDOM_MIN_MAX(minVelocity, maxVelocity) + player.velocity.x;
+		float ranAngle = CC_DEGREES_TO_RADIANS(CCRANDOM_MIN_MAX(angleOffset.x, angleOffset.y) + angle);
+		float ranXVelocity = cos(ranAngle) * ranVelocity;
+		float ranYVelocity = sin(ranAngle) * ranVelocity;
 		// get random lifetime
 		float ranLifetime = CCRANDOM_MIN_MAX(lifetime.x, lifetime.y);
 		// get a bullet from the bullet manager
 		BBBullet *bullet = [[BulletManager sharedSingleton] getRecycledBullet];
-		[bullet resetWithPosition:self.parent.position velocity:ranVelocity lifetime:ranLifetime graphic:@"bullet.png"];
+		[bullet resetWithPosition:self.parent.position velocity:ccp(ranXVelocity, ranYVelocity) lifetime:ranLifetime graphic:@"bullet.png"];
 	}
 }
 

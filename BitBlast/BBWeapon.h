@@ -17,10 +17,12 @@
     float rateOfFire;
 	// the number of bullets that appear when the shoot function is called
 	float numBulletsToFire;
-	// minimum x and y velocity the bullets can have
-	CGPoint minVelocity;
-	// maximum x and y velocity the bullets can have
-	CGPoint maxVelocity;
+	// minimum velocity the bullets can have
+	float minVelocity;
+	// maximum velocity the bullets can have
+	float maxVelocity;
+	// minimum and maximum angle offset
+	CGPoint angleOffset;
 	// minimum and maximum lifetime each bullet can have
 	CGPoint lifetime;
 	// angle that weapon is at. this affects velocity of bullets

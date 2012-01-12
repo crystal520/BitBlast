@@ -20,7 +20,6 @@
 		// create and load basic weapon
 		weapon = [[BBWeapon alloc] init];
 		[self addChild:weapon];
-		[weapon loadFromFile:@"pistol"];
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -30,6 +29,7 @@
 		chunksToIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"numChunksToIncrement"] intValue];
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
+		shootAngle = [[dictionary objectForKey:@"shootAngle"] floatValue];
 		
 		[self reset];
 		
@@ -118,6 +118,7 @@
 	
 	// set initial values
 	[self playAnimation:@"walk"];
+	[weapon loadFromFile:@"pistol"];
 	self.position = ccp(64, 192);
 	velocity = ccp(minSpeed, 0);
 	curNumChunks = 0;
@@ -150,7 +151,6 @@
 }
 
 - (void) endJump {
-	
 	jumping = NO;
 }
 
@@ -161,12 +161,16 @@
 	float shootPortion = winSize.height/2.0f;
 	// bottom half of screen. player is shooting diagonally down
 	if(touchPos.y <= shootPortion) {
-		
+		weapon.angle = -shootAngle;
 	}
 	// top half of screen. player is shooting diagonally up
 	else {
-		
+		weapon.angle = shootAngle;
 	}
+}
+
+- (void) endShoot {
+	weapon.angle = 0;
 }
 
 - (void) checkCollisions {

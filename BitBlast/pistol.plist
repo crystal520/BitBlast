@@ -2,32 +2,29 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>minSpeed</key>
-	<dict>
-		<key>x</key>
-		<integer>10</integer>
-		<key>y</key>
-		<integer>0</integer>
-	</dict>
-	<key>maxSpeed</key>
-	<dict>
-		<key>x</key>
-		<integer>10</integer>
-		<key>y</key>
-		<integer>0</integer>
-	</dict>
-	<key>lifetime</key>
-	<dict>
-		<key>min</key>
-		<integer>5</integer>
-		<key>max</key>
-		<integer>5</integer>
-	</dict>
-	<key>rateOfFire</key>
-	<real>0.5</real>
-	<key>numBulletsToFire</key>
-	<integer>1</integer>
 	<key>graphic</key>
 	<string>bullet.png</string>
+	<key>lifetime</key>
+	<dict>
+		<key>max</key>
+		<integer>5</integer>
+		<key>min</key>
+		<integer>5</integer>
+	</dict>
+	<key>angle</key>
+	<dict>
+		<key>max</key>
+		<integer>0</integer>
+		<key>min</key>
+		<integer>0</integer>
+	</dict>
+	<key>numBulletsToFire</key>
+	<integer>1</integer>
+	<key>maxSpeed</key>
+	<integer>10</integer>
+	<key>minSpeed</key>
+	<integer>10</integer>
+	<key>rateOfFire</key>
+	<real>0.5</real>
 </dict>
 </plist>

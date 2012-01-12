@@ -171,6 +171,10 @@
 	if(touchPoint.x <= winSize.width * 0.5f) {
 		[player shoot:touchPoint];
 	}
+	// left side controls shooting
+	else {
+		[player shoot:touchPoint];
+	}
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -183,6 +187,9 @@
 	// right side of screen is jump
 	if(touchPoint.x > winSize.width * 0.5f) {
 		[player endJump];
+	}
+	else {
+		[player endShoot];
 	}
 }
 
