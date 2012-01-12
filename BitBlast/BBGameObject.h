@@ -12,6 +12,7 @@
 @interface BBGameObject : CCNode {
     
 	CCSprite *sprite;
+	CCSpriteBatchNode *spriteBatch;
 	NSDictionary *dictionary;
 }
 

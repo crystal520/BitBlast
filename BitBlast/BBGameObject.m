@@ -46,8 +46,9 @@
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[animDict objectForKey:@"plist"]];
 	
 	// load image file
-	CCSpriteBatchNode *spritesheet = [CCSpriteBatchNode batchNodeWithFile:[animDict objectForKey:@"image"]];
-	[self addChild:spritesheet];
+	[spriteBatch.parent removeChild:spriteBatch cleanup:YES];
+	spriteBatch = [CCSpriteBatchNode batchNodeWithFile:[animDict objectForKey:@"image"]];
+	[self addChild:spriteBatch];
 	
 	// get the frames
 	NSMutableArray *frames = [NSMutableArray array];
@@ -64,7 +65,7 @@
 	// run it
 	CCAction *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO]];
 	[sprite runAction:action];
-	[spritesheet addChild:sprite];
+	[spriteBatch addChild:sprite];
 }
 
 #pragma mark -
