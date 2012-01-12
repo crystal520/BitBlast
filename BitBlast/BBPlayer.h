@@ -23,6 +23,8 @@
 	BBWeapon *weapon;
 }
 
+@property (nonatomic, readonly) CGPoint velocity;
+
 - (void) update:(float)delta;
 
 - (void) reset;

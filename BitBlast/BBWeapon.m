@@ -7,7 +7,7 @@
 //
 
 #import "BBWeapon.h"
-
+#import "BBPlayer.h"
 
 @implementation BBWeapon
 
@@ -35,8 +35,10 @@
 
 - (void) shoot {
 	for(int i=0;i<numBulletsToFire;i++) {
+		// get parent as player
+		BBPlayer *player = (BBPlayer*)(self.parent);
 		// generate a random velocity for the new bullet
-		CGPoint ranVelocity = ccp(CCRANDOM_MIN_MAX(minVelocity.x, maxVelocity.x), CCRANDOM_MIN_MAX(minVelocity.y, maxVelocity.y));
+		CGPoint ranVelocity = ccp(CCRANDOM_MIN_MAX(minVelocity.x, maxVelocity.x) + player.velocity.x, CCRANDOM_MIN_MAX(minVelocity.y, maxVelocity.y));
 		// get random lifetime
 		float ranLifetime = CCRANDOM_MIN_MAX(lifetime.x, lifetime.y);
 		// get a bullet from the bullet manager

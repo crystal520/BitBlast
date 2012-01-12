@@ -10,6 +10,8 @@
 
 @implementation BBPlayer
 
+@synthesize velocity;
+
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
 		
@@ -154,13 +156,17 @@
 
 - (void) shoot:(CGPoint)touchPos {
 	
-	// convert point to player space
-	CGPoint convertedPos = [[ChunkManager sharedSingleton] convertToNodeSpace:touchPos];
-	// get angle between player position and converted position
-	float angle = CC_RADIANS_TO_DEGREES(ccpToAngle(ccpSub(convertedPos, self.position)));
-	// set currently equipped weapon's angle
-	weapon.angle = angle;
-	NSLog(@"%f", sin(angle));
+	CGSize winSize = [CCDirector sharedDirector].winSize;
+	// split screen up into halves
+	float shootPortion = winSize.height/2.0f;
+	// bottom half of screen. player is shooting diagonally down
+	if(touchPos.y <= shootPortion) {
+		
+	}
+	// top half of screen. player is shooting diagonally up
+	else {
+		
+	}
 }
 
 - (void) checkCollisions {
