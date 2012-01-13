@@ -26,12 +26,12 @@
 		[self addChild:background];
 		
 		// create game over label
-		gameOverLabel = [CCLabelTTF labelWithString:@"GAME OVER" dimensions:CGSizeMake(winSize.width, 26.0f) alignment:UITextAlignmentCenter fontName:@"Verdana" fontSize:24.0f];
+		CCLabelBMFont *gameOverLabel = [CCLabelBMFont labelWithString:@"GAME OVER" fntFile:@"gamefont.fnt"];
 		gameOverLabel.position = ccp(winSize.width * 0.5, winSize.height * 0.75);
 		[self addChild:gameOverLabel];
 		
 		// create final score label
-		finalScoreLabel = [CCLabelTTF labelWithString:[[ScoreManager sharedSingleton] getScoreString] dimensions:CGSizeMake(winSize.width, 26.0f) alignment:UITextAlignmentCenter fontName:@"Verdana" fontSize:24.0f];
+		finalScoreLabel = [CCLabelBMFont labelWithString:[[ScoreManager sharedSingleton] getScoreString] fntFile:@"gamefont.fnt"];
 		finalScoreLabel.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 		[self addChild:finalScoreLabel];
 		

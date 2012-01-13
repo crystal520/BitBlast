@@ -17,8 +17,10 @@
 		CGSize winSize = [CCDirector sharedDirector].winSize;
 		
 		// create score label
-		score = [[CCLabelTTF alloc] initWithString:@"0" dimensions:CGSizeMake(100, 24) alignment:CCTextAlignmentRight fontName:@"Verdana" fontSize:20.0f];
-		score.position = ccp(winSize.width - (score.contentSize.width * 0.5), winSize.height - (score.contentSize.height * 0.5));
+		score = [[CCLabelBMFont alloc] initWithString:@"0" fntFile:@"gamefont.fnt"];
+		score.anchorPoint = ccp(1, 1);
+		score.scale = 0.4;
+		score.position = ccp(winSize.width, winSize.height);
 		[self addChild:score];
 	}
 	

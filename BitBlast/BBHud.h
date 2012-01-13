@@ -11,7 +11,7 @@
 #import "ScoreManager.h"
 
 @interface BBHud : CCNode {
-    CCLabelTTF *score;
+    CCLabelBMFont *score;
 }
 
 - (void) update:(float)delta;

@@ -11,7 +11,7 @@
 #import "ScoreManager.h"
 
 @interface BBGameOver : CCNode {
-    CCLabelTTF *gameOverLabel, *finalScoreLabel;
+	CCLabelBMFont *finalScoreLabel;
 }
 
 - (void) updateFinalScore;
