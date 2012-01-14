@@ -26,7 +26,7 @@
 		[self addChild:background];
 		
 		// create game over label
-		CCLabelBMFont *gameOverLabel = [CCLabelBMFont labelWithString:@"GAME OVER" fntFile:@"gamefont.fnt"];
+		CCLabelBMFont *gameOverLabel = [CCLabelBMFont labelWithString:@"GAME OVER!" fntFile:@"gamefont.fnt"];
 		gameOverLabel.position = ccp(winSize.width * 0.5, winSize.height * 0.75);
 		[self addChild:gameOverLabel];
 		
@@ -43,10 +43,6 @@
 	}
 	
 	return self;
-}
-
-- (void) dealloc {
-	[super dealloc];
 }
 
 - (void) updateFinalScore {

@@ -32,6 +32,8 @@
 @property (nonatomic) float angle;
 
 - (void) loadFromFile:(NSString*)filename;
+- (void) start;
+- (void) stop;
 - (void) shoot;
 
 @end

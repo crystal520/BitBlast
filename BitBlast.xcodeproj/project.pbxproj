@@ -14,6 +14,12 @@
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
 		0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35B714998EA90019C113 /* dirt_tile_set.png */; };
+		0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B414BFC15F00066390 /* BBMainMenu.m */; };
+		0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */; };
+		0A7D52BB14C074DF00066390 /* smallButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52B914C074DF00066390 /* smallButton.png */; };
+		0A7D52BC14C074DF00066390 /* bigButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BA14C074DF00066390 /* bigButton.png */; };
+		0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BD14C20D8800066390 /* smallButtonDown.png */; };
+		0A7D52C014C20D8800066390 /* bigButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BE14C20D8800066390 /* bigButtonDown.png */; };
 		0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */; };
 		0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3914B29AA3003A1DB1 /* BBHud.m */; };
 		0A9A7B3E14B33D10003A1DB1 /* BBGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */; };
@@ -218,6 +224,14 @@
 		0A5C35B4149988AE0019C113 /* ChunkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkManager.h; sourceTree = "<group>"; };
 		0A5C35B5149988AE0019C113 /* ChunkManager.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ChunkManager.m; sourceTree = "<group>"; };
 		0A5C35B714998EA90019C113 /* dirt_tile_set.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dirt_tile_set.png; path = Resources/dirt_tile_set.png; sourceTree = "<group>"; };
+		0A7D52B314BFC15F00066390 /* BBMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainMenu.h; sourceTree = "<group>"; };
+		0A7D52B414BFC15F00066390 /* BBMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMainMenu.m; sourceTree = "<group>"; };
+		0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemLabelAndImage.h; sourceTree = "<group>"; };
+		0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemLabelAndImage.m; sourceTree = "<group>"; };
+		0A7D52B914C074DF00066390 /* smallButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallButton.png; path = Resources/smallButton.png; sourceTree = "<group>"; };
+		0A7D52BA14C074DF00066390 /* bigButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigButton.png; path = Resources/bigButton.png; sourceTree = "<group>"; };
+		0A7D52BD14C20D8800066390 /* smallButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallButtonDown.png; path = Resources/smallButtonDown.png; sourceTree = "<group>"; };
+		0A7D52BE14C20D8800066390 /* bigButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigButtonDown.png; path = Resources/bigButtonDown.png; sourceTree = "<group>"; };
 		0A9A7B3414B293BA003A1DB1 /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
 		0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManager.m; sourceTree = "<group>"; };
 		0A9A7B3814B29AA2003A1DB1 /* BBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHud.h; sourceTree = "<group>"; };
@@ -605,6 +619,8 @@
 			children = (
 				0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */,
 				0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */,
+				0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */,
+				0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */,
 			);
 			name = CocosSubclasses;
 			sourceTree = "<group>";
@@ -716,6 +732,10 @@
 				0A9A7B3914B29AA3003A1DB1 /* BBHud.m */,
 				0A9A7B3C14B33D10003A1DB1 /* BBGameOver.h */,
 				0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */,
+				0AE419281496FDC100342D8E /* BBGameLayer.h */,
+				0AE419291496FDC200342D8E /* BBGameLayer.m */,
+				0A7D52B314BFC15F00066390 /* BBMainMenu.h */,
+				0A7D52B414BFC15F00066390 /* BBMainMenu.m */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -785,6 +805,10 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A7D52BD14C20D8800066390 /* smallButtonDown.png */,
+				0A7D52BE14C20D8800066390 /* bigButtonDown.png */,
+				0A7D52B914C074DF00066390 /* smallButton.png */,
+				0A7D52BA14C074DF00066390 /* bigButton.png */,
 				0AE7A03A14B54F4300BC5C73 /* skyParallax.png */,
 				0AE7A03B14B54F4300BC5C73 /* seaParallax.png */,
 				0AE7A03C14B54F4300BC5C73 /* grassParallax.png */,
@@ -1260,8 +1284,6 @@
 				0A1EC4A814A02C9F005A7ED6 /* Game Objects */,
 				0A1EC4A7149E7E4D005A7ED6 /* Basic Objects */,
 				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
-				0AE419281496FDC100342D8E /* BBGameLayer.h */,
-				0AE419291496FDC200342D8E /* BBGameLayer.m */,
 				0AD96B6114A948FA00C9DAE9 /* Constants.h */,
 				0A9A7B4B14B4869C003A1DB1 /* ParallaxManager.h */,
 				0A9A7B4C14B4869F003A1DB1 /* ParallaxManager.m */,
@@ -1380,6 +1402,10 @@
 				3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */,
 				3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */,
 				3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */,
+				0A7D52BB14C074DF00066390 /* smallButton.png in Resources */,
+				0A7D52BC14C074DF00066390 /* bigButton.png in Resources */,
+				0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */,
+				0A7D52C014C20D8800066390 /* bigButtonDown.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1539,6 +1565,8 @@
 				0AE7A03914B54A2500BC5C73 /* ParallaxNode.m in Sources */,
 				0AB8BC4414B6A3AF0045491C /* BulletManager.m in Sources */,
 				0AB8BC4914B8C90C0045491C /* BBWeapon.m in Sources */,
+				0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */,
+				0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

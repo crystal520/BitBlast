@@ -41,10 +41,6 @@
 		
 		// for the HUD
 		hud = [[BBHud alloc] init];
-		[self addChild:hud];
-		
-		// game over screen
-		gameOver = [[BBGameOver alloc] init];
 		
 		// listen for touches
 		self.isTouchEnabled = YES;
@@ -60,12 +56,19 @@
 		// add BulletManager to the scrolling node
 		[[BulletManager sharedSingleton] setNode:scrollingNode];
 		
-		// update tick
-		[self scheduleUpdate];
-		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartGame) name:kGameRestartNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startGame) name:kNavGameNotification object:nil];
+		
+		// set initial state
+		state = kStateMainMenu;
+		
+		// game over screen
+		gameOver = [[BBGameOver alloc] init];
+		// main menu screen
+		mainMenu = [[BBMainMenu alloc] init];
+		[self addChild:mainMenu];
 	}
 	
 	return self;
@@ -92,15 +95,30 @@
 	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
 }
 
+- (void) reset {
+	[self addChild:hud];
+	state = kStateGame;
+	scrollingNode.position = ccp(0, scrollingNode.position.y);
+	[parallax reset];
+	[[ScoreManager sharedSingleton] reset];
+	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
+	[player reset];
+	[self updateCamera];
+	[self scheduleUpdate];
+}
+
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
 	
-	[[ChunkManager sharedSingleton] update:delta];
-	[player update:delta];
-	[[BulletManager sharedSingleton] update:delta];
-	[self updateCamera];
-	[hud update:delta];
+	// update game
+	if(state == kStateGame) {
+		[[ChunkManager sharedSingleton] update:delta];
+		[player update:delta];
+		[[BulletManager sharedSingleton] update:delta];
+		[self updateCamera];
+		[hud update:delta];
+	}
 }
 
 - (void) updateCamera {
@@ -130,11 +148,6 @@
 	[scrollingNode setPosition:newPos];
 	
 	[parallax update:scrollingNode.position.x - prevPos];
-}
-
-- (void) draw {
-	
-	[super draw];
 }
 
 #pragma mark -
@@ -200,20 +213,21 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
+	[self removeChild:hud cleanup:YES];
+	state = kStateGameOver;
 	[self unscheduleUpdate];
 	[gameOver updateFinalScore];
 	[self addChild:gameOver];
 }
 
+- (void) startGame {
+	[self removeChild:mainMenu cleanup:YES];
+	[self reset];
+}
+
 - (void) restartGame {
-	scrollingNode.position = ccp(0, scrollingNode.position.y);
-	[parallax reset];
-	[[ScoreManager sharedSingleton] reset];
-	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
-	[player reset];
 	[self removeChild:gameOver cleanup:YES];
-	[self updateCamera];
-	[self scheduleUpdate];
+	[self reset];
 }
 
 @end

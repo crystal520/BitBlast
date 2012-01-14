@@ -18,9 +18,10 @@
 	float jumpImpulse, minSpeed, maxSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, shootAngle;
 	CGPoint velocity, prevPosition;
 	CGSize prevSize;
-	int chunksToIncrement, curNumChunks, chunkOffset;
+	int chunksToIncrement, curNumChunks, chunkOffset, bitCoins;
 	BOOL jumping, touchingPlatform, dead;
 	BBWeapon *weapon;
+	NSString *currentWeapon;
 }
 
 @property (nonatomic, readonly) CGPoint velocity;

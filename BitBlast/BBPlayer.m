@@ -31,8 +31,6 @@
 		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
 		shootAngle = [[dictionary objectForKey:@"shootAngle"] floatValue];
 		
-		[self reset];
-		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkWillRemove) name:kChunkWillRemoveNotification object:nil];
@@ -119,6 +117,7 @@
 	// set initial values
 	[self playAnimation:@"walk"];
 	[weapon loadFromFile:@"pistol"];
+	[weapon start];
 	self.position = ccp(64, 192);
 	velocity = ccp(minSpeed, 0);
 	curNumChunks = 0;
@@ -132,6 +131,9 @@
 }
 
 - (void) die:(NSString*)reason {
+	
+	// stop firing the equipped weapon
+	[weapon stop];
 	
 	if([reason isEqualToString:@"fall"]) {
 		dead = YES;

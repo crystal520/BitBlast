@@ -28,10 +28,16 @@
 	
 	// load image from dictionary
 	sprite = [CCSprite spriteWithFile:[dict objectForKey:@"graphic"]];
-	
+}
+
+- (void) start {
 	// unschedule and then schedule shoot function based on rateOfFire
 	[self unscheduleAllSelectors];
 	[self schedule:@selector(shoot) interval:rateOfFire];
+}
+
+- (void) stop {
+	[self unscheduleAllSelectors];
 }
 
 - (void) shoot {
