@@ -39,9 +39,6 @@
 		scrollingNode.scale = 1;
 		[self addChild:scrollingNode];
 		
-		// for the HUD
-		hud = [[BBHud alloc] init];
-		
 		// listen for touches
 		self.isTouchEnabled = YES;
 		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -64,6 +61,8 @@
 		// set initial state
 		state = kStateMainMenu;
 		
+		// HUD overlay
+		hud = [[BBHud alloc] init];
 		// game over screen
 		gameOver = [[BBGameOver alloc] init];
 		// main menu screen

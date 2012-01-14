@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "ScoreManager.h"
+#import "CCMenuItemLabelAndImage.h"
+#import "CCNodeColorBackground.h"
 
-@interface BBGameOver : CCNode {
-	CCLabelBMFont *finalScoreLabel;
+@interface BBGameOver : CCNodeColorBackground {
+	CCLabelBMFont *distanceLabel, *killLabel, *multiplierLabel, *scoreLabel;
 }
 
 - (void) updateFinalScore;

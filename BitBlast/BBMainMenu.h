@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "CCMenuItemLabelAndImage.h"
+#import "CCNodeColorBackground.h"
 
-@interface BBMainMenu : CCNode {
+@interface BBMainMenu : CCNodeColorBackground {
     
 }
 

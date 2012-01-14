@@ -20,6 +20,9 @@
 		0A7D52BC14C074DF00066390 /* bigButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BA14C074DF00066390 /* bigButton.png */; };
 		0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BD14C20D8800066390 /* smallButtonDown.png */; };
 		0A7D52C014C20D8800066390 /* bigButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BE14C20D8800066390 /* bigButtonDown.png */; };
+		0A7D52C314C22C3800066390 /* CCNodeColorBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */; };
+		0A7D52C614C22F9C00066390 /* mediumButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52C414C22F9B00066390 /* mediumButtonDown.png */; };
+		0A7D52C714C22F9C00066390 /* mediumButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52C514C22F9B00066390 /* mediumButton.png */; };
 		0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */; };
 		0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3914B29AA3003A1DB1 /* BBHud.m */; };
 		0A9A7B3E14B33D10003A1DB1 /* BBGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */; };
@@ -232,6 +235,10 @@
 		0A7D52BA14C074DF00066390 /* bigButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigButton.png; path = Resources/bigButton.png; sourceTree = "<group>"; };
 		0A7D52BD14C20D8800066390 /* smallButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallButtonDown.png; path = Resources/smallButtonDown.png; sourceTree = "<group>"; };
 		0A7D52BE14C20D8800066390 /* bigButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigButtonDown.png; path = Resources/bigButtonDown.png; sourceTree = "<group>"; };
+		0A7D52C114C22C3700066390 /* CCNodeColorBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeColorBackground.h; sourceTree = "<group>"; };
+		0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeColorBackground.m; sourceTree = "<group>"; };
+		0A7D52C414C22F9B00066390 /* mediumButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mediumButtonDown.png; path = Resources/mediumButtonDown.png; sourceTree = "<group>"; };
+		0A7D52C514C22F9B00066390 /* mediumButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mediumButton.png; path = Resources/mediumButton.png; sourceTree = "<group>"; };
 		0A9A7B3414B293BA003A1DB1 /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
 		0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManager.m; sourceTree = "<group>"; };
 		0A9A7B3814B29AA2003A1DB1 /* BBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHud.h; sourceTree = "<group>"; };
@@ -621,6 +628,8 @@
 				0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */,
 				0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */,
 				0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */,
+				0A7D52C114C22C3700066390 /* CCNodeColorBackground.h */,
+				0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */,
 			);
 			name = CocosSubclasses;
 			sourceTree = "<group>";
@@ -805,6 +814,8 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A7D52C414C22F9B00066390 /* mediumButtonDown.png */,
+				0A7D52C514C22F9B00066390 /* mediumButton.png */,
 				0A7D52BD14C20D8800066390 /* smallButtonDown.png */,
 				0A7D52BE14C20D8800066390 /* bigButtonDown.png */,
 				0A7D52B914C074DF00066390 /* smallButton.png */,
@@ -1406,6 +1417,8 @@
 				0A7D52BC14C074DF00066390 /* bigButton.png in Resources */,
 				0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */,
 				0A7D52C014C20D8800066390 /* bigButtonDown.png in Resources */,
+				0A7D52C614C22F9C00066390 /* mediumButtonDown.png in Resources */,
+				0A7D52C714C22F9C00066390 /* mediumButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1567,6 +1580,7 @@
 				0AB8BC4914B8C90C0045491C /* BBWeapon.m in Sources */,
 				0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */,
 				0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */,
+				0A7D52C314C22C3800066390 /* CCNodeColorBackground.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

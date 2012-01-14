@@ -13,18 +13,9 @@
 
 - (id) init {
 	
-	if((self = [super init])) {
+	if((self = [super initWithColor:ccc3(0, 0, 0) withAlpha:0.5f])) {
 		
 		CGSize winSize = [CCDirector sharedDirector].winSize;
-		
-		// create faded background
-		CCSprite *background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
-		background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
-		background.color = ccc3(0, 0, 0);
-		background.opacity = 128;
-		ccTexParams params = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
-		[background.texture setTexParameters:&params];
-		[self addChild:background];
 		
 		// create play text
 		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"PLAY!" fntFile:@"gamefont.fnt"];
