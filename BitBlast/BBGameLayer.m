@@ -65,9 +65,11 @@
 		hud = [[BBHud alloc] init];
 		// game over screen
 		gameOver = [[BBGameOver alloc] init];
+		// shop
+		shop = [[BBShop alloc] init];
 		// main menu screen
 		mainMenu = [[BBMainMenu alloc] init];
-		[self addChild:mainMenu];
+		[self addChild:shop];
 	}
 	
 	return self;

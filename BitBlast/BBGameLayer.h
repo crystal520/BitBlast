@@ -16,6 +16,7 @@
 #import "ParallaxManager.h"
 #import "BulletManager.h"
 #import "BBMainMenu.h"
+#import "BBShop.h"
 
 typedef enum {
 	kStateMainMenu,
@@ -27,12 +28,15 @@ typedef enum {
 	
 	ParallaxManager *parallax;
     BBPlayer *player;
-	BBHud *hud;
-	BBGameOver *gameOver;
-	BBMainMenu *mainMenu;
 	CCNode *scrollingNode;
 	CGPoint cameraOffset, cameraBounds;
 	GameState state;
+	
+	// screens
+	BBHud *hud;
+	BBGameOver *gameOver;
+	BBMainMenu *mainMenu;
+	BBShop *shop;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child

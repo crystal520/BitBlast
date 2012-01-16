@@ -1,8 +1,8 @@
 //
-//  BBMainMenu.h
+//  BBConfirmBuy.h
 //  BitBlast
 //
-//  Created by Kristian Bauer on 1/12/12.
+//  Created by Kristian Bauer on 1/16/12.
 //  Copyright 2012 Bauerkraut. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "CCNodeColorBackground.h"
 
-@interface BBMainMenu : CCNodeColorBackground {
+@interface BBConfirmBuy : CCNodeColorBackground {
     
 }
 

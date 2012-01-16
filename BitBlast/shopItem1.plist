@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>coins</key>
+	<string>$20</string>
+	<key>description</key>
+	<string>Heals 10 HP</string>
+	<key>equipmentName</key>
+	<string>potion</string>
+	<key>icon</key>
+	<string>shopItem1.png</string>
+	<key>name</key>
+	<string>Potion</string>
+</dict>
+</plist>
