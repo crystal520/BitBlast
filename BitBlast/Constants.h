@@ -22,6 +22,7 @@ typedef enum {
 #define kChunkCompletedNotification @"chunkCompletedNotification"
 #define kChunkWillRemoveNotification @"chunkWillRemoveNotification"
 
+#define kNavMainNotification @"navMainNotification"
 #define kNavGameNotification @"navGameNotification"
 #define kNavShopNotification @"navShopNotification"
 #define kNavLeaderboardsNotification @"navLeaderboardsNotification"

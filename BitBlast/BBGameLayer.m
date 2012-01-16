@@ -57,6 +57,8 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartGame) name:kGameRestartNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startGame) name:kNavGameNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoShop) name:kNavShopNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMain) name:kNavMainNotification object:nil];
 		
 		// set initial state
 		state = kStateMainMenu;
@@ -69,7 +71,7 @@
 		shop = [[BBShop alloc] init];
 		// main menu screen
 		mainMenu = [[BBMainMenu alloc] init];
-		[self addChild:shop];
+		[self addChild:mainMenu];
 	}
 	
 	return self;
@@ -229,6 +231,27 @@
 - (void) restartGame {
 	[self removeChild:gameOver cleanup:YES];
 	[self reset];
+}
+
+- (void) gotoShop {
+	if(state == kStateMainMenu) {
+		[self removeChild:mainMenu cleanup:YES];
+	}
+	else if(state == kStateGameOver) {
+		[self removeChild:gameOver cleanup:YES];
+	}
+	
+	state = kStateShop;
+	[self addChild:shop];
+}
+
+- (void) gotoMain {
+	if(state == kStateShop) {
+		[self removeChild:shop cleanup:YES];
+	}
+	
+	state = kStateMainMenu;
+	[self addChild:mainMenu];
 }
 
 @end

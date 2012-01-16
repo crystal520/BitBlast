@@ -21,7 +21,8 @@
 typedef enum {
 	kStateMainMenu,
 	kStateGameOver,
-	kStateGame
+	kStateGame,
+	kStateShop
 } GameState;
 
 @interface BBGameLayer : CCLayer {

@@ -67,7 +67,7 @@
 }
 
 - (void) back {
-	
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
 }
 
 #pragma mark -
