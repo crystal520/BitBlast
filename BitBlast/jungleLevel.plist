@@ -4,7 +4,7 @@
 <dict>
 	<key>chunks</key>
 	<array>
-		<string>contrachunk.tmx</string>
+		<string>chunk1.tmx</string>
 	</array>
 	<key>firstChunk</key>
 	<string>contrachunk.tmx</string>

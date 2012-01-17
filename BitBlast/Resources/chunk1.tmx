@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="dirt_tile_set" tilewidth="32" tileheight="32">
-  <image source="dirt_tile_set.png" width="1024" height="1024"/>
+<map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="tiles_aubrey" tilewidth="64" tileheight="64">
+  <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
- <layer name="Collision" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYHoADiJmwYNaBdBQNARsQM2LBzAPpKBqCkeZfUHrG5t+BSs/cDNjzF7UwNr/CMCG9LHjczU6k/djMwJXmBhrjS/PEuhlmBgDaxwD3
-  </data>
- </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYHoALhzgnXV0xCkbB8AS48tdgAPjyOLHuHqnlBACh5AA6
+   eJxjYBgFo2AUjIJRMApGwSigD+ADYn4gFhhoh9AJOKHRwx2M+nd4A2r6lxWIWYCYGQdmgmIWLJiNCvYT4z5k92BzByHMhsM8dHXIfibGHHLcgmwWBxBzIpkJAGvIA1Q=
+  </data>
+ </layer>
+ <layer name="CollisionBottom" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztyDENAAAMA6Ce9a+4BqZggZMEAACA73rcAA6wAAk=
+  </data>
+ </layer>
+ <layer name="CollisonTop" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0LENACAMA8HUoOy/LsyAIKS4k9y/HAEAAPw09ubhsnnfy84bXVUfdrUA8+UCSw==
+  </data>
+ </layer>
+ <layer name="Collison" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+  </data>
+ </layer>
+ <layer name="Foreground" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
   </data>
  </layer>
 </map>
