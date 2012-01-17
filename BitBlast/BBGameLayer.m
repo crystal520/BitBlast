@@ -62,6 +62,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoConfirmBuy:) name:kNavShopConfirmNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
 		
 		// set initial state
 		state = kStateMainMenu;
@@ -76,6 +77,8 @@
 		confirmBuy = [[BBConfirmBuy alloc] init];
 		// main menu screen
 		mainMenu = [[BBMainMenu alloc] init];
+		// leaderboards
+		leaderboards = [[BBLeaderboards alloc] init];
 		[self addChild:mainMenu];
 	}
 	
@@ -84,12 +87,17 @@
 
 - (void) dealloc {
 	
-	[super dealloc];
 	[self removeAllChildrenWithCleanup:YES];
 	[scrollingNode release];
 	[hud release];
 	[player release];
 	[parallax release];
+	[gameOver release];
+	[shop release];
+	[confirmBuy release];
+	[mainMenu release];
+	[leaderboards release];
+	[super dealloc];
 }
 
 #pragma mark -
@@ -254,9 +262,20 @@
 	if(state == kStateShop) {
 		[self removeChild:shop cleanup:YES];
 	}
+	else if(state == kStateLeaderboards) {
+		[self removeChild:leaderboards cleanup:YES];
+	}
 	
 	state = kStateMainMenu;
 	[self addChild:mainMenu];
+}
+
+- (void) gotoLeaderboards {
+	if(state == kStateMainMenu) {
+		state = kStateLeaderboards;
+		[self removeChild:mainMenu cleanup:YES];
+		[self addChild:leaderboards];
+	}
 }
 
 - (void) gotoConfirmBuy:(NSNotification*)n {

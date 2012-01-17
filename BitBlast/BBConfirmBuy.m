@@ -64,6 +64,8 @@
 }
 
 - (void) dealloc {
+	[buyLabel release];
+	[cost release];
 	[itemDictionary release];
 	[super dealloc];
 }

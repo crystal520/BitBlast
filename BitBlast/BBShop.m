@@ -51,7 +51,7 @@
 		[self addChild:shopBackground];
 		
 		// create advanced scrolling menu with items
-		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(320, 250)] retain];
+		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(316, 250)] retain];
 		table.delegate = self;
 		table.verticalFillOrder = SWTableViewFillTopDown;
 		table.direction = SWScrollViewDirectionVertical;
@@ -105,7 +105,7 @@
 #pragma mark -
 #pragma mark SWTableViewDataSource
 -(CGSize)cellSizeForTable:(SWTableView *)table {
-	return CGSizeMake(320, 75);
+	return CGSizeMake(316, 75);
 }
 
 -(SWTableViewCell *)table:(SWTableView *)table cellAtIndex:(NSUInteger)idx {
