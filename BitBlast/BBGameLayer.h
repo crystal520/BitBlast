@@ -17,12 +17,14 @@
 #import "BulletManager.h"
 #import "BBMainMenu.h"
 #import "BBShop.h"
+#import "BBConfirmBuy.h"
 
 typedef enum {
 	kStateMainMenu,
 	kStateGameOver,
 	kStateGame,
-	kStateShop
+	kStateShop,
+	kStateConfirmBuy
 } GameState;
 
 @interface BBGameLayer : CCLayer {
@@ -38,6 +40,7 @@ typedef enum {
 	BBGameOver *gameOver;
 	BBMainMenu *mainMenu;
 	BBShop *shop;
+	BBConfirmBuy *confirmBuy;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child

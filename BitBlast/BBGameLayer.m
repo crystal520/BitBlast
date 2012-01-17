@@ -59,6 +59,9 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startGame) name:kNavGameNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoShop) name:kNavShopNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMain) name:kNavMainNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoConfirmBuy:) name:kNavShopConfirmNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
 		
 		// set initial state
 		state = kStateMainMenu;
@@ -69,6 +72,8 @@
 		gameOver = [[BBGameOver alloc] init];
 		// shop
 		shop = [[BBShop alloc] init];
+		// confirm buy screen
+		confirmBuy = [[BBConfirmBuy alloc] init];
 		// main menu screen
 		mainMenu = [[BBMainMenu alloc] init];
 		[self addChild:mainMenu];
@@ -252,6 +257,28 @@
 	
 	state = kStateMainMenu;
 	[self addChild:mainMenu];
+}
+
+- (void) gotoConfirmBuy:(NSNotification*)n {
+	if(state == kStateShop) {
+		state = kStateConfirmBuy;
+		[confirmBuy updateWithInfo:[n userInfo]];
+		[self addChild:confirmBuy];
+	}
+}
+
+- (void) buyItem:(NSNotification*)n {
+	if(state == kStateConfirmBuy) {
+		state = kStateShop;
+		[self removeChild:confirmBuy cleanup:YES];
+	}
+}
+
+- (void) cancelBuyItem {
+	if(state == kStateConfirmBuy) {
+		state = kStateShop;
+		[self removeChild:confirmBuy cleanup:YES];
+	}
 }
 
 @end

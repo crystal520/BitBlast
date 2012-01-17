@@ -11,7 +11,10 @@
 #import "CCNodeColorBackground.h"
 
 @interface BBConfirmBuy : CCNodeColorBackground {
-    
+    CCLabelBMFont *buyLabel, *cost;
+	NSMutableDictionary *itemDictionary;
 }
+
+- (void) updateWithInfo:(NSDictionary*)dict;
 
 @end

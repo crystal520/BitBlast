@@ -28,7 +28,7 @@
 		CCLabelBMFont *backText = [CCLabelBMFont labelWithString:@"X" fntFile:@"gamefont.fnt"];
 		
 		// create back button
-		CCMenuItemLabelAndImage *back = [CCMenuItemLabelAndImage itemFromLabel:backText normalImage:@"backButton.png" selectedImage:@"backButtonDown.png" target:self selector:@selector(back)];
+		back = [[CCMenuItemLabelAndImage itemFromLabel:backText normalImage:@"backButton.png" selectedImage:@"backButtonDown.png" target:self selector:@selector(back)] retain];
 		back.label.scale = 0.5;
 		back.position = ccp((-winSize.width + back.contentSize.width) * 0.48, (winSize.height - back.contentSize.height) * 0.48);
 		
@@ -51,7 +51,7 @@
 		[self addChild:shopBackground];
 		
 		// create advanced scrolling menu with items
-		SWTableView *table = [SWTableView viewWithDataSource:self size:CGSizeMake(320, 250)];
+		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(320, 250)] retain];
 		table.delegate = self;
 		table.verticalFillOrder = SWTableViewFillTopDown;
 		table.direction = SWScrollViewDirectionVertical;
@@ -61,13 +61,45 @@
 		[self addChild:table];
 		[table reloadData];
 		table.contentOffset = [table minContainerOffset];
+		
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
 	}
 	
 	return self;
 }
 
+- (void) dealloc {
+	[back release];
+	[table release];
+	[items release];
+	[super dealloc];
+}
+
 - (void) back {
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
+}
+
+- (void) setEnabled:(BOOL)isEnabled {
+	[back setIsEnabled:isEnabled];
+	enabled = isEnabled;
+	table.isTouchEnabled = isEnabled;
+}
+
+- (void) onEnter {
+	[super onEnter];
+	[self setEnabled:YES];
+}
+
+#pragma mark -
+#pragma mark notifications
+- (void) buyItem:(NSNotification*)n {
+	[self setEnabled:YES];
+}
+
+- (void) cancelBuyItem {
+	[self setEnabled:YES];
 }
 
 #pragma mark -
@@ -87,9 +119,12 @@
 #pragma mark -
 #pragma mark SWTableViewDelegate
 -(void)table:(SWTableView *)table cellTouched:(SWTableViewCell *)cell withPoint:(CGPoint)point {
-	// get cell as BBShopItem
-	BBShopItem *item = (BBShopItem*)(cell);
-	[item touch:point];
+	if(enabled) {
+		// get cell as BBShopItem
+		BBShopItem *item = (BBShopItem*)(cell);
+		[item touch:point];
+		[self setEnabled:NO];
+	}
 }
 
 @end

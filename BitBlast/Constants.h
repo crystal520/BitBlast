@@ -25,5 +25,8 @@ typedef enum {
 #define kNavMainNotification @"navMainNotification"
 #define kNavGameNotification @"navGameNotification"
 #define kNavShopNotification @"navShopNotification"
+#define kNavShopConfirmNotification @"navShopConfirmNotification"
 #define kNavLeaderboardsNotification @"navLeaderboardsNotification"
 #define kNavGamecenterNotification @"navGamecenterNotification"
+#define kNavBuyItemNotification @"navBuyItemNotification"
+#define kNavCancelBuyItemNotification @"navCancelBuyItemNotification"

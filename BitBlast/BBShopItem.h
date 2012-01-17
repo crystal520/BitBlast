@@ -12,6 +12,7 @@
 @interface BBShopItem : SWTableViewCell {
 	CCMenuItemSprite *background;
 	CCMenuItemLabelAndImage *buy;
+	NSDictionary *itemDictionary;
 }
 
 - (id) initWithFile:(NSString*)filename;

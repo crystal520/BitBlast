@@ -13,6 +13,11 @@
 
 @interface BBShop : CCNodeColorBackground <SWTableViewDataSource, SWTableViewDelegate> {
     NSMutableArray *items;
+	CCMenuItemLabelAndImage *back;
+	SWTableView *table;
+	BOOL enabled;
 }
+
+- (void) setEnabled:(BOOL)isEnabled;
 
 @end
