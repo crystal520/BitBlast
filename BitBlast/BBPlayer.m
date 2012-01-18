@@ -24,7 +24,7 @@
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
 		minSpeed = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"minSpeed"] floatValue];
-		maxSpeed = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"maxSpeed"] floatValue];
+		maxVelocity = ccp([[[dictionary objectForKey:@"speedRamp"] objectForKey:@"maxSpeed"] floatValue], [[dictionary objectForKey:@"maxDownwardSpeed"] floatValue]);
 		speedIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"incrementPercent"] floatValue];
 		chunksToIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"numChunksToIncrement"] intValue];
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
@@ -61,7 +61,7 @@
 		}
 		// apply gravity
 		if(!jumping) {
-			velocity = ccp(velocity.x, velocity.y - gravity);
+			velocity = ccp(velocity.x, MAX(velocity.y - gravity, -maxVelocity.y));
 		}
 		// apply velocity to position
 		self.position = ccp(self.position.x + velocity.x, self.position.y + velocity.y);
@@ -94,7 +94,7 @@
 		// increment the player's speed
 		float speed = velocity.x + speedIncrement * velocity.x;
 		// make sure we don't go over the maximum speed allowed
-		speed = MIN(speed, maxSpeed);
+		speed = MIN(speed, maxVelocity.x);
 		NSLog(@"Player speed is now %.2f after incrementing", speed);
 		velocity = ccp(speed, velocity.y);
 	}
@@ -116,7 +116,7 @@
 	
 	// set initial values
 	[self playAnimation:@"walk"];
-	[weapon loadFromFile:@"pistol"];
+	[weapon loadFromFile:@"machinegun"];
 	[weapon start];
 	self.position = ccp(64, 192);
 	velocity = ccp(minSpeed, 0);

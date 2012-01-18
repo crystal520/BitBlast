@@ -22,13 +22,15 @@
 		</dict>
 	</dict>
 	<key>gravity</key>
-	<real>0.45</real>
+	<real>0.55</real>
 	<key>jump</key>
-	<integer>5</integer>
+	<integer>7</integer>
 	<key>maxJumpTime</key>
-	<real>0.5</real>
+	<real>0.25</real>
 	<key>shootAngle</key>
 	<integer>35</integer>
+	<key>maxDownwardSpeed</key>
+	<integer>10</integer>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>

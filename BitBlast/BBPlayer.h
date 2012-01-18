@@ -15,8 +15,8 @@
 
 @interface BBPlayer : BBGameObject {
 	
-	float jumpImpulse, minSpeed, maxSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, shootAngle;
-	CGPoint velocity, prevPosition;
+	float jumpImpulse, minSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, shootAngle;
+	CGPoint velocity, prevPosition, maxVelocity;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, chunkOffset, bitCoins;
 	BOOL jumping, touchingPlatform, dead;
