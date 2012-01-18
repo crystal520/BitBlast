@@ -30,6 +30,7 @@
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
 		shootAngle = [[dictionary objectForKey:@"shootAngle"] floatValue];
+		tileOffset = [[dictionary objectForKey:@"tileCenterOffset"] floatValue];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
@@ -199,8 +200,8 @@
 				CCSprite *tile = [[c layerNamed:@"Collision"] tileAt:playerTilePos];
 				// if this is a special half collision block and the lowest part of the sprite is less than the middle of the tile
 				// set its position so the lowest part of the sprite is at the middle of the tile
-				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + tile.contentSize.height * 0.5) {
-					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5);
+				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + tile.contentSize.height * 0.5 + tileOffset) {
+					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
 				}
@@ -212,8 +213,8 @@
 				CCSprite *tile = [[c layerNamed:@"CollisionTop"] tileAt:playerTilePos];
 				// if this is a special half collision block, the lowest part of the sprite is less than the middle of the tile,
 				// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
-				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + (tile.contentSize.height * 0.5) && velocity.y < 0 && prevPosition.y - (prevSize.height * 0.5) >= tile.position.y + (tile.contentSize.height * 0.5)) {
-					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5);
+				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + (tile.contentSize.height * 0.5) + tileOffset && velocity.y < 0 && prevPosition.y - (prevSize.height * 0.5) >= tile.position.y + (tile.contentSize.height * 0.5) + tileOffset) {
+					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
 				}
@@ -225,8 +226,8 @@
 				CCSprite *tile = [[c layerNamed:@"CollisionBottom"] tileAt:playerTilePos];
 				// if this is a special half collision block, the highest part of the sprite is greater than the lowest part of the tile,
 				// the sprite is moving upwards, and the previous highest part of the sprite is less than the lowest part of the tile
-				if(/*gid == 2 &&*/ self.position.y + (sprite.contentSize.height * 0.5) >= tile.position.y && velocity.y > 0 && prevPosition.y + (sprite.contentSize.height * 0.5) <= tile.position.y) {
-					self.position = ccp(self.position.x, tile.position.y - (sprite.contentSize.height * 0.5));
+				if(/*gid == 2 &&*/ self.position.y + (sprite.contentSize.height * 0.5) >= tile.position.y + tileOffset && velocity.y > 0 && prevPosition.y + (sprite.contentSize.height * 0.5) <= tile.position.y) {
+					self.position = ccp(self.position.x, tile.position.y - (sprite.contentSize.height * 0.5) + tileOffset);
 					velocity = ccp(velocity.x, 0);
 					jumping = NO;
 				}
