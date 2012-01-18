@@ -27,6 +27,7 @@
 		
 		// determine how many images we'll need based on image width and screen size
 		int numImages = [CCDirector sharedDirector].winSize.width / width + 1;
+		numImages = MAX(2, numImages);
 		
 		// get image to use from array of possible images
 		NSArray *possibleImages = [dict objectForKey:@"images"];
