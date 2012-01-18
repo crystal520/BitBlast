@@ -38,7 +38,7 @@
 #pragma mark update
 - (void) update:(float)delta {
 	// update bullet's position with velocity
-	self.position = ccp(self.position.x + velocity.x, self.position.y + velocity.y);
+	self.position = ccp(self.position.x + velocity.x * delta, self.position.y + velocity.y * delta);
 	// see if bullet is dead yet
 	lifeTimer += delta;
 	if(lifeTimer >= lifetime) {

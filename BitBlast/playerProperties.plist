@@ -22,23 +22,23 @@
 		</dict>
 	</dict>
 	<key>gravity</key>
-	<real>0.55</real>
+	<integer>40</integer>
 	<key>jump</key>
-	<integer>7</integer>
+	<integer>280</integer>
 	<key>maxJumpTime</key>
-	<real>0.25</real>
+	<real>0.45</real>
 	<key>shootAngle</key>
 	<integer>35</integer>
 	<key>maxDownwardSpeed</key>
-	<integer>10</integer>
+	<integer>300</integer>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
 		<real>0.05</real>
 		<key>maxSpeed</key>
-		<integer>10</integer>
+		<integer>700</integer>
 		<key>minSpeed</key>
-		<integer>4</integer>
+		<integer>300</integer>
 		<key>numChunksToIncrement</key>
 		<integer>1</integer>
 	</dict>

@@ -64,7 +64,7 @@
 			velocity = ccp(velocity.x, MAX(velocity.y - gravity, -maxVelocity.y));
 		}
 		// apply velocity to position
-		self.position = ccp(self.position.x + velocity.x, self.position.y + velocity.y);
+		self.position = ccp(self.position.x + (velocity.x * delta), self.position.y + (velocity.y * delta));
 		
 		[self checkCollisions];
 		

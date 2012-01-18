@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>angle</key>
+	<dict>
+		<key>max</key>
+		<integer>3</integer>
+		<key>min</key>
+		<integer>-3</integer>
+	</dict>
 	<key>graphic</key>
 	<string>bullet.png</string>
 	<key>lifetime</key>
@@ -11,19 +18,12 @@
 		<key>min</key>
 		<integer>3</integer>
 	</dict>
-	<key>angle</key>
-	<dict>
-		<key>max</key>
-		<integer>3</integer>
-		<key>min</key>
-		<integer>-3</integer>
-	</dict>
+	<key>maxSpeed</key>
+	<integer>300</integer>
+	<key>minSpeed</key>
+	<integer>300</integer>
 	<key>numBulletsToFire</key>
 	<integer>1</integer>
-	<key>maxSpeed</key>
-	<integer>10</integer>
-	<key>minSpeed</key>
-	<integer>10</integer>
 	<key>rateOfFire</key>
 	<real>0.05</real>
 </dict>
