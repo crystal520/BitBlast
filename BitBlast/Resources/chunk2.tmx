@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="32" tileheight="32">
- <tileset firstgid="1" name="dirt_tile_set" tilewidth="32" tileheight="32">
-  <image source="dirt_tile_set.png" width="1024" height="1024"/>
+<map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="tiles_aubrey" tilewidth="64" tileheight="64">
+  <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
- <layer name="Collision" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYGkAViNWojNXp6gPSgSsQuwOxGwGMTw1MzoPObicXKFOoBp8cNxAzATEPSS7CDkhNj7jSGi39CwKaRJhPLAClR3zpjZi0Rmv/KuGRY2eAxD82zIJHXzqJ4shgIP3LBsSMODAzVA0Aaj0Q0g==
-  </data>
- </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJzt0hECAAAIA8C0/v/gJE6D7mQwGSwCAAB+qMk8XcGVWrqvn2hbxAAn
+   eJztkm0KgCAQRKUPq5NUBNUV8v6Hyj8LyyCmIAkyDx5Bm9I4GkMIIYQQ8g+rd1Pu8BSPWj9YGMmL+VDJO3nngIvaM+WbWmC/umd9Bi31G+tWZi3ljd1j7NeptWdk39DMBd7lMHoHsAc70Kq1OPvSmjJ5H++V6Z2YF3NL3heorA4C
+  </data>
+ </layer>
+ <layer name="Decal" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztz8EJAEAIA0F/d/bfsDYhgszA/pMIAACY9brf5faQIdf/cVcBpYAAMQ==
+  </data>
+ </layer>
+ <layer name="Collision" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+  </data>
+ </layer>
+ <layer name="CollisionTop" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwUABHSBWJgKrDZQDBxhwATE3FsxLQA0PmprBCGDuHuzuJBcMd/+RA/iAmB+KFZHY6BibnACFduPKJzCML5/hyof4MLXiHVRGqkAxermILg5jj9TyklwAAO+LBrc=
+  </data>
+ </layer>
+ <layer name="CollisionBottom" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+  </data>
+ </layer>
+ <layer name="Foreground" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
   </data>
  </layer>
 </map>
