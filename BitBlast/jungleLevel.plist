@@ -5,6 +5,7 @@
 	<key>chunks</key>
 	<array>
 		<string>chunk1.tmx</string>
+		<string>chunk2.tmx</string>
 	</array>
 	<key>firstChunk</key>
 	<string>contrachunk.tmx</string>

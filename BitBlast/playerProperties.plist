@@ -24,7 +24,7 @@
 	<key>gravity</key>
 	<real>0.55</real>
 	<key>jump</key>
-	<integer>7</integer>
+	<real>7.5</real>
 	<key>maxJumpTime</key>
 	<real>0.25</real>
 	<key>shootAngle</key>
