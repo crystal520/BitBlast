@@ -64,6 +64,8 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
 		
+		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
+		
 		// set initial state
 		state = kStateMainMenu;
 		

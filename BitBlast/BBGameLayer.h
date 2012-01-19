@@ -19,6 +19,7 @@
 #import "BBShop.h"
 #import "BBConfirmBuy.h"
 #import "BBLeaderboards.h"
+#import "BBEquipmentManager.h"
 
 typedef enum {
 	kStateMainMenu,

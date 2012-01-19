@@ -10,7 +10,7 @@
 
 @implementation BBPlayer
 
-@synthesize velocity;
+@synthesize velocity, touchingPlatform;
 
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
@@ -57,6 +57,7 @@
 			jumpTimer += delta;
 			if(jumpTimer >= maxJumpTime) {
 				jumping = NO;
+				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpNotification object:self]];
 			}
 			velocity = ccp(velocity.x, jumpImpulse);
 		}
@@ -79,6 +80,9 @@
 		if(self.position.y + sprite.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
 			[self die:@"fall"];
 		}
+		
+		// post player update notification
+		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerUpdateNotification object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:delta] forKey:@"delta"]]];
 	}
 }
 
@@ -154,6 +158,7 @@
 }
 
 - (void) endJump {
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpNotification object:self]];
 	jumping = NO;
 }
 
@@ -233,6 +238,10 @@
 				}
 			}
 		}
+	}
+	
+	if(touchingPlatform) {
+		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerCollidePlatformNotification object:self]];
 	}
 }
 

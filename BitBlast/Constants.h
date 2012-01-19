@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-	TAG_COLLISION_TILE,
-	TAG_COLLISION_TILE_BOTTOM,
-	TAG_COLLISION_TILE_TOP,
 	TAG_PLAYER
 } SpriteTags;
 
 #define kGameRestartNotification @"gameRestartNotification"
 
+#define kPlayerUpdateNotification @"playerUpdateNotification"
+#define kPlayerCollectCoinNotification @"playerCollectCoinNotification"
+#define kPlayerEndJumpNotification @"playerEndJumpNotification"
+#define kPlayerDamagedNotification @"playerDamagedNotification"
+#define kPlayerCollidePlatformNotification @"playerCollidePlatformNotification"
 #define kPlayerDeadNotification @"playerDeadNotification"
 
 #define kChunkCompletedNotification @"chunkCompletedNotification"

@@ -25,6 +25,7 @@
 }
 
 @property (nonatomic, readonly) CGPoint velocity;
+@property (nonatomic, assign) BOOL touchingPlatform;
 
 - (void) update:(float)delta;
 
