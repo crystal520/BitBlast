@@ -24,11 +24,18 @@
 - (void) die:(NSNotification*)n;
 // player has collected a coin
 - (void) collectCoin:(NSNotification*)n;
-// player has reached the peak of their jump
-- (void) jumpApex:(NSNotification*)n;
+// player has attempted to jump, maybe not successfully. called whenever the player taps the right half of the screen
+- (void) jump:(NSNotification*)n;
+// player has reached the peak of their jump by lifting their finger from the screen
+- (void) endJumpWithTouch:(NSNotification*)n;
+// player has reached the peak of their jump by reaching the maximum time their finger can be on the screen to get a long jump
+- (void) endJumpWithoutTouch:(NSNotification*)n;
 // player has taken damage due to the given reason
 - (void) damage:(NSNotification*)n;
 // player has collided with a platform
 - (void) collidePlatform:(NSNotification*)n;
+
+// convenience method to grab player from notification
+- (BBPlayer*) playerFromNotification:(NSNotification*)n;
 
 @end

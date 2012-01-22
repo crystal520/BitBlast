@@ -16,7 +16,9 @@ typedef enum {
 
 #define kPlayerUpdateNotification @"playerUpdateNotification"
 #define kPlayerCollectCoinNotification @"playerCollectCoinNotification"
-#define kPlayerEndJumpNotification @"playerEndJumpNotification"
+#define kPlayerJumpNotification @"playerJumpNotification"
+#define kPlayerEndJumpWithTouchNotification @"playerEndJumpWithTouchNotification"
+#define kPlayerEndJumpWithoutTouchNotification @"playerEndJumpWithoutTouchNotification"
 #define kPlayerDamagedNotification @"playerDamagedNotification"
 #define kPlayerCollidePlatformNotification @"playerCollidePlatformNotification"
 #define kPlayerDeadNotification @"playerDeadNotification"

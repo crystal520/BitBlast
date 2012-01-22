@@ -69,6 +69,7 @@
 		0AB8BC4B14B8CC4C0045491C /* pistol.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4A14B8CC4C0045491C /* pistol.plist */; };
 		0AB8BC4D14B8D4F00045491C /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4C14B8D4F00045491C /* bullet.png */; };
 		0AB8BC4F14B8F34D0045491C /* machinegun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4E14B8F34D0045491C /* machinegun.plist */; };
+		0ABBDCEF14CB69A1001D36B7 /* BBGlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDCEE14CB69A1001D36B7 /* BBGlider.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
 		0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A214985F4F000E9412 /* playerProperties.plist */; };
 		0AC723A61498693D000E9412 /* walkCycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AC723A41498693D000E9412 /* walkCycle.png */; };
@@ -338,6 +339,8 @@
 		0AB8BC4A14B8CC4C0045491C /* pistol.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pistol.plist; sourceTree = "<group>"; };
 		0AB8BC4C14B8D4F00045491C /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/bullet.png; sourceTree = "<group>"; };
 		0AB8BC4E14B8F34D0045491C /* machinegun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = machinegun.plist; sourceTree = "<group>"; };
+		0ABBDCED14CB69A1001D36B7 /* BBGlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGlider.h; sourceTree = "<group>"; };
+		0ABBDCEE14CB69A1001D36B7 /* BBGlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBGlider.m; sourceTree = "<group>"; };
 		0AC7239F14985D9B000E9412 /* BBGameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameObject.h; sourceTree = "<group>"; };
 		0AC723A014985D9C000E9412 /* BBGameObject.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBGameObject.m; sourceTree = "<group>"; };
 		0AC723A214985F4F000E9412 /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
@@ -779,6 +782,8 @@
 				0A42D15D14C7B60500DD55CA /* BBDoubleJump.m */,
 				0A42D16214C7BFE800DD55CA /* BBEquipmentManager.h */,
 				0A42D16314C7BFE900DD55CA /* BBEquipmentManager.m */,
+				0ABBDCED14CB69A1001D36B7 /* BBGlider.h */,
+				0ABBDCEE14CB69A1001D36B7 /* BBGlider.m */,
 			);
 			name = Equipment;
 			sourceTree = "<group>";
@@ -1763,6 +1768,7 @@
 				0A42D15B14C7B2E000DD55CA /* BBEquipment.m in Sources */,
 				0A42D15E14C7B60500DD55CA /* BBDoubleJump.m in Sources */,
 				0A42D16414C7BFE900DD55CA /* BBEquipmentManager.m in Sources */,
+				0ABBDCEF14CB69A1001D36B7 /* BBGlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

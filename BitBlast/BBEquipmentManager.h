@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "BBEquipment.h"
 #import "BBDoubleJump.h"
+#import "BBGlider.h"
 
 @interface BBEquipmentManager : NSObject {
 	// set of equipment that the player has currently equipped

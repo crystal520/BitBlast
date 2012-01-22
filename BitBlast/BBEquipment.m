@@ -15,7 +15,9 @@
 	if((self = [super init])) {
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:kPlayerUpdateNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectCoin:) name:kPlayerCollectCoinNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jumpApex:) name:kPlayerEndJumpNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jump:) name:kPlayerJumpNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endJumpWithTouch:) name:kPlayerEndJumpWithTouchNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endJumpWithoutTouch:) name:kPlayerEndJumpWithoutTouchNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(damage:) name:kPlayerDamagedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collidePlatform:) name:kPlayerCollidePlatformNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(die:) name:kPlayerDeadNotification object:nil];
@@ -43,7 +45,15 @@
 	
 }
 
-- (void) jumpApex:(NSNotification*)n {
+- (void) jump:(NSNotification*)n {
+	
+}
+
+- (void) endJumpWithTouch:(NSNotification*)n {
+	
+}
+
+- (void) endJumpWithoutTouch:(NSNotification*)n {
 	
 }
 
@@ -53,6 +63,10 @@
 
 - (void) collidePlatform:(NSNotification*)n {
 	
+}
+
+- (BBPlayer*) playerFromNotification:(NSNotification*)n {
+	return [n object];
 }
 
 @end

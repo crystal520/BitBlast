@@ -16,15 +16,18 @@
 
 - (void) update:(NSNotification*)n {
 	if(jumpCount == 1) {
-		// grab info from notification
-		BBPlayer *player = [n object];
-		float delta = [[[n userInfo] objectForKey:@"delta"] floatValue];
 		// pretend player is colliding with platform so they can jump again
-		player.touchingPlatform = YES;
+		[self playerFromNotification:n].touchingPlatform = YES;
 	}
 }
 
-- (void) jumpApex:(NSNotification*)n {
+- (void) endJumpWithTouch:(NSNotification*)n {
+	if([self playerFromNotification:n].jumping) {
+		jumpCount++;
+	}
+}
+
+- (void) endJumpWithoutTouch:(NSNotification*)n {
 	jumpCount++;
 }
 

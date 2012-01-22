@@ -37,6 +37,9 @@
 	if([newEquipment isEqualToString:@"doublejump"]) {
 		[equipment addObject:[[BBDoubleJump new] autorelease]];
 	}
+	else if([newEquipment isEqualToString:@"glider"]) {
+		[equipment addObject:[[BBGlider new] autorelease]];
+	}
 }
 
 - (void) unequip:(NSString*)oldEquipment {

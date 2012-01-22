@@ -24,8 +24,9 @@
 	NSString *currentWeapon;
 }
 
-@property (nonatomic, readonly) CGPoint velocity;
-@property (nonatomic, assign) BOOL touchingPlatform;
+@property (nonatomic, assign) float gravity;
+@property (nonatomic, assign) CGPoint velocity, maxVelocity;
+@property (nonatomic, assign) BOOL touchingPlatform, jumping, dead;
 
 - (void) update:(float)delta;
 

@@ -64,6 +64,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
 		
+		[[BBEquipmentManager sharedSingleton] equip:@"glider"];
 		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
 		
 		// set initial state
@@ -200,10 +201,6 @@
 	
 	// left side of screen controls shooting
 	if(touchPoint.x <= winSize.width * 0.5f) {
-		[player shoot:touchPoint];
-	}
-	// left side controls shooting
-	else {
 		[player shoot:touchPoint];
 	}
 }

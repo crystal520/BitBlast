@@ -10,7 +10,7 @@
 
 @implementation BBPlayer
 
-@synthesize velocity, touchingPlatform;
+@synthesize velocity, maxVelocity, touchingPlatform, gravity, jumping, dead;
 
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
@@ -57,7 +57,7 @@
 			jumpTimer += delta;
 			if(jumpTimer >= maxJumpTime) {
 				jumping = NO;
-				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpNotification object:self]];
+				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithoutTouchNotification object:self]];
 			}
 			velocity = ccp(velocity.x, jumpImpulse);
 		}
@@ -155,10 +155,11 @@
 		jumping = YES;
 		jumpTimer = 0;
 	}
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerJumpNotification object:self]];
 }
 
 - (void) endJump {
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpNotification object:self]];
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithTouchNotification object:self]];
 	jumping = NO;
 }
 
