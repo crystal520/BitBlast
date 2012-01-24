@@ -20,11 +20,11 @@
 				<string>skyParallax.png</string>
 			</array>
 			<key>imageWidth</key>
-			<integer>639</integer>
+			<integer>852</integer>
 			<key>ratio</key>
 			<real>0.5</real>
 			<key>y</key>
-			<integer>-150</integer>
+			<integer>0</integer>
 		</dict>
 	</array>
 </dict>

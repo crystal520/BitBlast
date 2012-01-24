@@ -15,43 +15,51 @@
 	
 	if((self = [super initWithColor:ccc3(0, 0, 0) withAlpha:0.5f])) {
 		
-		CGSize winSize = [CCDirector sharedDirector].winSize;
+		CGSize winSize = [ResolutionManager sharedSingleton].size;
+		
+		// create spritebatch with UI image
+		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
+		[self addChild:uiSpriteBatch];
+		
+		// create background
+		CCSprite *background = [CCSprite spriteWithSpriteFrameName:@"mainmenushell.png"];
+		background.position = ccp(winSize.width * 0.5, background.contentSize.height * 0.5);
+		[uiSpriteBatch addChild:background];
 		
 		// create play text
 		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"PLAY!" fntFile:@"gamefont.fnt"];
 		
 		// create play button
-		CCMenuItemLabelAndImage *play = [CCMenuItemLabelAndImage itemFromLabel:playText normalImage:@"bigButton.png" selectedImage:@"bigButtonDown.png" target:self selector:@selector(play)];
-		play.anchorPoint = ccp(0.5, 1);
-		play.position = ccp(play.position.x, -winSize.height * 0.25);
+		CCLabelButton *play = [CCLabelButton buttonWithLabel:playText normalSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_pressed.png"] target:self selector:@selector(play)];
+		[play setSpriteBatchNode:uiSpriteBatch];
+		play.position = ccp(background.position.x - (80 * [ResolutionManager sharedSingleton].positionScale), background.position.y - (144 * [ResolutionManager sharedSingleton].positionScale));
+		[self addChild:play];
 		
 		// create shop label
 		CCLabelBMFont *shopText = [CCLabelBMFont labelWithString:@"SHOP" fntFile:@"gamefont.fnt"];
+		shopText.scale = 0.75;
 		
 		// create shop button
-		CCMenuItemLabelAndImage *shop = [CCMenuItemLabelAndImage itemFromLabel:shopText normalImage:@"smallButton.png" selectedImage:@"smallButtonDown.png" target:self selector:@selector(shop)];
-		shop.label.scale = 0.5;
-		shop.position = ccp(winSize.width * 0.4, winSize.height * 0.25);
+		CCLabelButton *shop = [CCLabelButton buttonWithLabel:shopText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(shop)];
+		[shop setSpriteBatchNode:uiSpriteBatch];
+		shop.position = ccp(background.position.x + (296 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (216 * [ResolutionManager sharedSingleton].positionScale));
+		[self addChild:shop];
 		
 		// create leaderboard label
 		CCLabelBMFont *leaderboardText = [CCLabelBMFont labelWithString:@"LEADER\nBOARDS" fntFile:@"gamefont.fnt"];
+		leaderboardText.scale = 0.5;
 		
 		// create leaderboard button
-		CCMenuItemLabelAndImage *leaderboard = [CCMenuItemLabelAndImage itemFromLabel:leaderboardText normalImage:@"smallButton.png" selectedImage:@"smallButtonDown.png" target:self selector:@selector(leaderboards)];
-		leaderboard.label.scale = 0.3;
-		leaderboard.position = ccp(winSize.width * 0.4, leaderboard.position.y);
-		
-		// create gamecenter label
-		CCLabelBMFont *gamecenterText = [CCLabelBMFont labelWithString:@"GAME\nCENTER" fntFile:@"gamefont.fnt"];
+		CCLabelButton *leaderboard = [CCLabelButton buttonWithLabel:leaderboardText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(leaderboards)];
+		[leaderboard setSpriteBatchNode:uiSpriteBatch];
+		leaderboard.position = ccp(background.position.x + (296 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (36 * [ResolutionManager sharedSingleton].positionScale));
+		[self addChild:leaderboard];
 		
 		// create gamecenter button
-		CCMenuItemLabelAndImage *gamecenter = [CCMenuItemLabelAndImage itemFromLabel:gamecenterText normalImage:@"smallButton.png" selectedImage:@"smallButtonDown.png" target:self selector:@selector(gamecenter)];
-		gamecenter.label.scale = 0.3;
-		gamecenter.position = ccp(winSize.width * 0.4, -winSize.height * 0.25);
-		
-		// create main menu with options
-		CCMenu *menu = [CCMenu menuWithItems:play, shop, leaderboard, gamecenter, nil];
-		[self addChild:menu];
+		CCButton *gamecenter = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_pressed.png"] target:self selector:@selector(gamecenter)];
+		[gamecenter setSpriteBatchNode:uiSpriteBatch];
+		gamecenter.position = ccp(background.position.x + (296 * [ResolutionManager sharedSingleton].positionScale), background.position.y - (142 * [ResolutionManager sharedSingleton].positionScale));
+		[self addChild:gamecenter];
 	}
 	
 	return self;

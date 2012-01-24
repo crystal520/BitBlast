@@ -32,8 +32,8 @@
 		}
 		
 		// keep track of width and height
-		width = self.mapSize.width * self.tileSize.width;
-		height = self.mapSize.height * self.tileSize.height;
+		width = self.mapSize.width * self.tileSize.width * [ResolutionManager sharedSingleton].positionScale;
+		height = self.mapSize.height * self.tileSize.height * [ResolutionManager sharedSingleton].positionScale;
 		
 		// generate end position based on width and offset
 		endPosition = offset.x + width;

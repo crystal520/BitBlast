@@ -65,6 +65,31 @@
     return self;
 }
 
++ (id) itemWithLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 {
+	return [self itemFromLabel:label normalSprite:value selectedSprite:value2 disabledSprite:nil target:nil selector:nil];
+}
+
++(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 target:(id)r selector:(SEL)s {
+	return [self itemFromLabel:label normalSprite:value selectedSprite:value2 disabledSprite:nil target:r selector:s];
+}
+
++(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 disabledSprite:(CCSprite*)value3 {
+	return [[[self alloc] initFromLabel:label normalSprite:value selectedSprite:value2 disabledSprite:value3 target:nil selector:nil] autorelease];
+}
+
++(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 disabledSprite:(CCSprite*)value3 target:(id)r selector:(SEL)s {
+	return [[[self alloc] initFromLabel:label normalSprite:value selectedSprite:value2 disabledSprite:value3 target:r selector:s] autorelease];
+}
+
+-(id) initFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 disabledSprite:(CCSprite*)value3 target:(id)r selector:(SEL)s {
+	if ((self = [super initFromNormalSprite:value selectedSprite:value2 disabledSprite:value3 target:r selector:s])) {
+        colorBackup = ccWHITE;
+        disabledColor_ = ccWHITE;
+        self.label = label;
+    }
+    return self;
+}
+
 #if NS_BLOCKS_AVAILABLE
 
 +(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalImage: (NSString*)value selectedImage:(NSString*) value2 block:(void(^)(id sender))block

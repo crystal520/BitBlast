@@ -15,7 +15,7 @@
 	
 	if((self = [super init])) {
 		
-		CGSize winSize = [CCDirector sharedDirector].winSize;
+		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		
 		// create faded background
 		CCSprite *background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];

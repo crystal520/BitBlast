@@ -48,6 +48,18 @@
 +(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalImage: (NSString*)value selectedImage:(NSString*) value2 disabledImage:(NSString*) value3 target:(id) r selector:(SEL) s;
 /** initializes a menu item with a label and a normal, selected  and disabled image with target/selector */
 -(id) initFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalImage: (NSString*) value selectedImage:(NSString*)value2 disabledImage:(NSString*) value3 target:(id) r selector:(SEL) s;
+
+/** creates a menu item with a label and a normal and selected sprite*/
++ (id) itemWithLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2;
+/** creates a menu item with a label and a normal and selected sprite with target/selector */
++(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 target:(id)r selector:(SEL)s;
+/** creates a menu item with a label and a normal, selected and disabled sprite */
++(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 disabledSprite:(CCSprite*)value3;
+/** creates a menu item with a label and a normal, selected and disabled sprite with target/selector */
++(id) itemFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 disabledSprite:(CCSprite*)value3 target:(id)r selector:(SEL)s;
+/** initializes a menu item with a label and a normal, selected and disabled sprite with target/selector */
+-(id) initFromLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol>*)label normalSprite:(CCSprite*)value selectedSprite:(CCSprite*)value2 disabledSprite:(CCSprite*)value3 target:(id)r selector:(SEL)s;
+
 #if NS_BLOCKS_AVAILABLE
 /** creates a menu item with a label and a normal and selected image with a block.
  The block will be "copied".

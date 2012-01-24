@@ -50,6 +50,7 @@ typedef enum {
 // returns a CCScene that contains the BBGameLayer as the only child
 + (CCScene *) scene;
 
+- (void) loadImages;
 - (void) loadCameraVariables;
 - (void) reset;
 

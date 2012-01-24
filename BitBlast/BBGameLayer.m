@@ -28,6 +28,9 @@
 - (id) init {
 	if((self = [super init])) {
 		
+		[self setScale:[ResolutionManager sharedSingleton].imageScale];
+		[self setPosition:[ResolutionManager sharedSingleton].position];
+		[self loadImages];
 		[self loadCameraVariables];
 		
 		// create parallax scrolling background
@@ -36,7 +39,6 @@
 		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
-		scrollingNode.scale = 1;
 		[self addChild:scrollingNode];
 		
 		// listen for touches
@@ -105,6 +107,10 @@
 
 #pragma mark -
 #pragma mark setup
+- (void) loadImages {
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"uiatlas.plist"];
+}
+
 - (void) loadCameraVariables {
 	
 	// get dictionary from plist
@@ -117,7 +123,7 @@
 - (void) reset {
 	[self addChild:hud];
 	state = kStateGame;
-	scrollingNode.position = ccp(0, scrollingNode.position.y);
+	scrollingNode.position = ccp(0, [ResolutionManager sharedSingleton].size.height * 0.5);
 	[parallax reset];
 	[[ScoreManager sharedSingleton] reset];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];

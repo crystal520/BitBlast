@@ -13,6 +13,7 @@
 #import <Foundation/Foundation.h>
 #import "BBSpriteFactory.h"
 #import "Constants.h"
+#import "ResolutionManager.h"
 #endif
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.

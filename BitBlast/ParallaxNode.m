@@ -26,7 +26,10 @@
 		int width = [[dict objectForKey:@"imageWidth"] intValue];
 		
 		// determine how many images we'll need based on image width and screen size
-		int numImages = [CCDirector sharedDirector].winSize.width / width + 1;
+		int numImages = ceil([CCDirector sharedDirector].winSize.width / width) + 1;
+		if((int)([ResolutionManager sharedSingleton].size.width) % width > 0) {
+			numImages++;
+		}
 		numImages = MAX(2, numImages);
 		
 		// get image to use from array of possible images
@@ -76,18 +79,9 @@
 	
 	for(int i=1,j=[sprites count];i<j;i++) {
 		CCSprite *sprite = [sprites objectAtIndex:i];
-		sprite.position = ccp(firstSprite.position.x + sprite.contentSize.width, sprite.position.y);
+		CCSprite *prevSprite = [sprites objectAtIndex:i-1];
+		sprite.position = ccp(prevSprite.position.x + sprite.contentSize.width, sprite.position.y);
 	}
-	
-	// update all sprite positions based on the changeInPos
-	/*for(CCSprite *s in sprites) {
-		s.position = ccp(floor(s.position.x + (changeInPos * ratio)), s.position.y);
-		
-		// if the sprite is completely offscreen, append it to the back of the sprite chain
-		if(s.position.x <= -(s.contentSize.width * 0.5)) {
-			s.position = ccp(floor(s.position.x + [sprites count] * s.contentSize.width), s.position.y);
-		}
-	}*/
 }
 
 @end

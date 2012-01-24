@@ -121,9 +121,9 @@
 	
 	// set initial values
 	[self playAnimation:@"walk"];
-	[weapon loadFromFile:@"machinegun"];
-	[weapon start];
-	self.position = ccp(64, 192);
+	//[weapon loadFromFile:@"machinegun"];
+	//[weapon start];
+	self.position = ccp(100, 192);
 	velocity = ccp(minSpeed, 0);
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
@@ -256,13 +256,13 @@
 	
 	NSMutableSet *positions = [NSMutableSet set];
 	// top left corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// top right corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// bottom left corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// bottom right corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	
 	return positions;
 }
