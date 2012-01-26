@@ -8,15 +8,19 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>walk1.png</string>
-				<string>walk2.png</string>
-				<string>walk3.png</string>
-				<string>walk4.png</string>
+				<string>run1.png</string>
+				<string>run2.png</string>
+				<string>run3.png</string>
+				<string>run4.png</string>
+				<string>run5.png</string>
+				<string>run6.png</string>
+				<string>run7.png</string>
+				<string>run8.png</string>
 			</array>
 			<key>image</key>
-			<string>walkCycle.png</string>
+			<string>uiatlas.png</string>
 			<key>plist</key>
-			<string>walkCycle.plist</string>
+			<string>uiatlas.plist</string>
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>
@@ -31,8 +35,6 @@
 	<real>0.45</real>
 	<key>shootAngle</key>
 	<integer>35</integer>
-	<key>tileCenterOffset</key>
-	<integer>20</integer>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
@@ -44,5 +46,7 @@
 		<key>numChunksToIncrement</key>
 		<integer>1</integer>
 	</dict>
+	<key>tileCenterOffset</key>
+	<integer>20</integer>
 </dict>
 </plist>

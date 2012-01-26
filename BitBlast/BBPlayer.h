@@ -22,6 +22,7 @@
 	BOOL jumping, touchingPlatform, dead;
 	BBWeapon *weapon;
 	NSString *currentWeapon;
+	//CCSprite *torso, *
 }
 
 @property (nonatomic, assign) float gravity;
