@@ -14,7 +14,7 @@
 - (id) init {
 	if((self = [super init])) {
 		
-		CGSize winSize = [CCDirector sharedDirector].winSize;
+		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		
 		// create score label
 		score = [[CCLabelBMFont alloc] initWithString:@"0" fntFile:@"gamefont.fnt"];
