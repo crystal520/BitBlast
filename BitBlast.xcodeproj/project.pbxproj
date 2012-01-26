@@ -252,6 +252,7 @@
 		3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A814A5B28C005DC6CC /* newchunk1.tmx */; };
 		3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */; };
 		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
+		3BDD4D1A14D0CD7B00D213AB /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BDD4D1914D0CD7B00D213AB /* player.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -695,6 +696,7 @@
 		3BB112A814A5B28C005DC6CC /* newchunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = newchunk1.tmx; path = Resources/newchunk1.tmx; sourceTree = "<group>"; };
 		3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gamefont.fnt; path = Resources/gamefont.fnt; sourceTree = "<group>"; };
 		3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamefont.png; path = Resources/gamefont.png; sourceTree = "<group>"; };
+		3BDD4D1914D0CD7B00D213AB /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = player.png; path = Resources/player.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1482,6 +1484,7 @@
 		0AE4192F1496FF7900342D8E /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				3BDD4D1914D0CD7B00D213AB /* player.png */,
 				0AC723A41498693D000E9412 /* walkCycle.png */,
 				0AC723A51498693D000E9412 /* walkCycle.plist */,
 				0AC723A214985F4F000E9412 /* playerProperties.plist */,
@@ -1616,6 +1619,7 @@
 				0A42D15714C521A200DD55CA /* leaderboards.plist in Resources */,
 				0ABBDCF314CB9F96001D36B7 /* uiatlas.plist in Resources */,
 				0ABBDCF414CB9F96001D36B7 /* uiatlas.png in Resources */,
+				3BDD4D1A14D0CD7B00D213AB /* player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

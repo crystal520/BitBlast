@@ -4,35 +4,29 @@
 <dict>
 	<key>frames</key>
 	<dict>
-		
-		<key>walk1.png</key>
+		<key>player.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {26, 29}}</string>
+			<string>{{0, 0}, {63, 63}}</string>
 			<key>spriteOffset</key>
 			<string>{0, -0}</string>
 			<key>spriteSize</key>
-			<string>{26, 29}</string>
+			<string>{64, 64}</string>
 			<key>spriteSourceSize</key>
-			<string>{26, 29}</string>
+			<string>{64, 64}</string>
 			<key>spriteTrimmed</key>
-			<true/>
+			<false/>
 			<key>textureRect</key>
-			<string>{{0, 32}, {26, 29}}</string>
+			<string>{{0, 64}, {26, 29}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>walk2.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
 			<string>{{0, 0}, {27, 30}}</string>
 			<key>spriteOffset</key>
@@ -48,13 +42,10 @@
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>walk3.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
 			<string>{{0, 0}, {29, 29}}</string>
 			<key>spriteOffset</key>
@@ -70,13 +61,10 @@
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>walk4.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
 			<string>{{0, 0}, {27, 30}}</string>
 			<key>spriteOffset</key>
@@ -92,7 +80,6 @@
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 	</dict>
 	<key>metadata</key>
 	<dict>
