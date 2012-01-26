@@ -54,7 +54,7 @@
 	// see if any chunks are off screen
 	Chunk *firstChunk = [currentChunks objectAtIndex:0];
 	
-	if(firstChunk && [firstChunk convertToWorldSpace:ccp(firstChunk.position.x / [ResolutionManager sharedSingleton].imageScale + firstChunk.width, 0)].x < firstChunk.startPosition) {
+	if(firstChunk && [firstChunk convertToWorldSpace:ccp(firstChunk.dummyPosition.x + firstChunk.dummySize.width, 0)].x < firstChunk.dummyStartPosition) {
 		[self removeChunk];
 		[self addRandomChunk];
 		

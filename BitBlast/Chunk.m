@@ -11,14 +11,15 @@
 
 @implementation Chunk
 
-@synthesize width, height, playerZ;
-@synthesize endPosition, startPosition, lowestPosition;
+@synthesize width, height, playerZ, dummyPosition, dummySize;
+@synthesize endPosition, startPosition, lowestPosition, dummyStartPosition;
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset {
 	
 	if((self = [super initWithTMXFile:chunkName])) {
 		
-		self.position = offset;
+		dummyPosition = offset;
+		self.position = ccpMult(offset, [ResolutionManager sharedSingleton].positionScale);
 		
 		// keep track of player's z value
 		if([self layerNamed:@"Foreground"]) {
@@ -32,13 +33,15 @@
 		}
 		
 		// keep track of width and height
-		width = self.mapSize.width * self.tileSize.width * [ResolutionManager sharedSingleton].positionScale;
-		height = self.mapSize.height * self.tileSize.height * [ResolutionManager sharedSingleton].positionScale;
-		
+		width = self.mapSize.width * self.tileSize.width;// * [ResolutionManager sharedSingleton].positionScale;
+		height = self.mapSize.height * self.tileSize.height;// * [ResolutionManager sharedSingleton].positionScale;
+		dummySize = CGSizeMake(width * [ResolutionManager sharedSingleton].positionScale, height * [ResolutionManager sharedSingleton].positionScale);
+															//offset = ccpMult(offset, [ResolutionManager sharedSingleton].positionScale);
 		// generate end position based on width and offset
 		endPosition = offset.x + width;
 		// keep track of startPosition for removing chunk
 		startPosition = offset.x;
+		dummyStartPosition = offset.x * [ResolutionManager sharedSingleton].imageScale;
 		// keep track of lowestPosition for killing player
 		lowestPosition = offset.y;
 	}

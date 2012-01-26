@@ -10,12 +10,12 @@
 #import "cocos2d.h"
 
 @interface ResolutionManager : NSObject {
-    float imageScale, positionScale;
+    float imageScale, positionScale, inversePositionScale;
 	CGPoint position;
 	CGSize size;
 }
 
-@property (nonatomic, readonly) float imageScale, positionScale;
+@property (nonatomic, readonly) float imageScale, positionScale, inversePositionScale;
 @property (nonatomic, readonly) CGPoint position;
 @property (nonatomic, readonly) CGSize size;
 

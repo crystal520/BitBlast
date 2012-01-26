@@ -30,7 +30,7 @@
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
 		shootAngle = [[dictionary objectForKey:@"shootAngle"] floatValue];
-		tileOffset = [[dictionary objectForKey:@"tileCenterOffset"] floatValue];
+		tileOffset = [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale;
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
@@ -50,7 +50,7 @@
 	
 	if(!dead) {
 		// keep track of previous position
-		prevPosition = self.position;
+		prevDummyPosition = dummyPosition;
 		
 		// apply jump
 		if(jumping) {
@@ -66,7 +66,8 @@
 			velocity = ccp(velocity.x, MAX(velocity.y - gravity, -maxVelocity.y));
 		}
 		// apply velocity to position
-		self.position = ccp(self.position.x + (velocity.x * delta), self.position.y + (velocity.y * delta));
+		dummyPosition = ccp(dummyPosition.x + (velocity.x * delta), dummyPosition.y + (velocity.y * delta));
+		self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 		
 		[self checkCollisions];
 		
@@ -74,10 +75,10 @@
 		prevSize = sprite.contentSize;
 		
 		// update score
-		[ScoreManager sharedSingleton].distance = floor(self.position.x / 64);
+		[ScoreManager sharedSingleton].distance = floor(dummyPosition.x / 64);
 		
 		// check for falling death
-		if(self.position.y + sprite.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+		if(dummyPosition.y + sprite.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
 			[self die:@"fall"];
 		}
 		
@@ -112,7 +113,7 @@
 	[self retain];
 	[[[ChunkManager sharedSingleton] getCurrentChunk] removeChild:self cleanup:NO];
 	
-	self.sprite.position = ccp(self.sprite.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].width, self.sprite.position.y);
+	self.sprite.position = ccp(self.sprite.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].dummySize.width, self.sprite.position.y);
 }
 
 #pragma mark -
@@ -123,7 +124,7 @@
 	[self playAnimation:@"walk"];
 	//[weapon loadFromFile:@"machinegun"];
 	//[weapon start];
-	self.position = ccp(100, 192);
+	dummyPosition = ccp(100, 192);
 	velocity = ccp(minSpeed, 0);
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
@@ -206,8 +207,9 @@
 				CCSprite *tile = [[c layerNamed:@"Collision"] tileAt:playerTilePos];
 				// if this is a special half collision block and the lowest part of the sprite is less than the middle of the tile
 				// set its position so the lowest part of the sprite is at the middle of the tile
-				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + tile.contentSize.height * 0.5 + tileOffset) {
-					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
+				float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
+				if(/*gid == 2 &&*/ dummyPosition.y - (sprite.contentSize.height * 0.5) <= actualTilePos + tile.contentSize.height * 0.5 + tileOffset) {
+					dummyPosition = ccp(dummyPosition.x, actualTilePos + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
 				}
@@ -219,8 +221,10 @@
 				CCSprite *tile = [[c layerNamed:@"CollisionTop"] tileAt:playerTilePos];
 				// if this is a special half collision block, the lowest part of the sprite is less than the middle of the tile,
 				// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
-				if(/*gid == 2 &&*/ self.position.y - (sprite.contentSize.height * 0.5) <= tile.position.y + (tile.contentSize.height * 0.5) + tileOffset && velocity.y < 0 && prevPosition.y - (prevSize.height * 0.5) >= tile.position.y + (tile.contentSize.height * 0.5) + tileOffset) {
-					self.position = ccp(self.position.x, tile.position.y + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
+				float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
+				if(/*gid == 2 &&*/ dummyPosition.y - (sprite.contentSize.height * 0.5) <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset && velocity.y < 0 && prevDummyPosition.y - (prevSize.height * 0.5) >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset) {
+					//NSLog(@"COLLIDE!");
+					dummyPosition = ccp(dummyPosition.x, actualTilePos + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
 				}
@@ -232,8 +236,9 @@
 				CCSprite *tile = [[c layerNamed:@"CollisionBottom"] tileAt:playerTilePos];
 				// if this is a special half collision block, the highest part of the sprite is greater than the lowest part of the tile,
 				// the sprite is moving upwards, and the previous highest part of the sprite is less than the lowest part of the tile
-				if(/*gid == 2 &&*/ self.position.y + (sprite.contentSize.height * 0.5) >= tile.position.y + tileOffset && velocity.y > 0 && prevPosition.y + (sprite.contentSize.height * 0.5) <= tile.position.y) {
-					self.position = ccp(self.position.x, tile.position.y - (sprite.contentSize.height * 0.5) + tileOffset);
+				float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
+				if(/*gid == 2 &&*/ dummyPosition.y + (sprite.contentSize.height * 0.5) >= actualTilePos + tileOffset && velocity.y > 0 && prevDummyPosition.y + (sprite.contentSize.height * 0.5) <= actualTilePos) {
+					dummyPosition = ccp(dummyPosition.x, actualTilePos - (sprite.contentSize.height * 0.5) + tileOffset);
 					velocity = ccp(velocity.x, 0);
 					jumping = NO;
 				}
@@ -249,20 +254,20 @@
 #pragma mark -
 #pragma mark convenience functions
 - (CGPoint) positionInChunk:(Chunk*)chunk {
-	return ccp(floor((self.position.x - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor(self.position.y / chunk.tileSize.height) - 1);
+	return ccp(floor((dummyPosition.x - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor(dummyPosition.y / chunk.tileSize.height) - 1);
 }
 
 - (NSSet*) positionsInChunk:(Chunk*)chunk {
 	
 	NSMutableSet *positions = [NSMutableSet set];
 	// top left corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// top right corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// bottom left corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// bottom right corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor(((self.position.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width) / [ResolutionManager sharedSingleton].positionScale), chunk.mapSize.height - floor((self.position.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	
 	return positions;
 }

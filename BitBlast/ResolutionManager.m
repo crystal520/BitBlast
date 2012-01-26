@@ -11,7 +11,7 @@
 
 @implementation ResolutionManager
 
-@synthesize imageScale, positionScale, position, size;
+@synthesize imageScale, positionScale, position, size, inversePositionScale;
 
 + (ResolutionManager*) sharedSingleton {
 	
@@ -29,16 +29,27 @@
 
 - (id) init {
 	if((self = [super init])) {
+		
+		// iPhone, retina
 		imageScale = 1;
 		positionScale = 0.5;
 		position = ccp(0, 0);
 		size = [CCDirector sharedDirector].winSize;
-		if(![[CCDirector sharedDirector] enableRetinaDisplay:YES] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-			imageScale = 0.5;
-			positionScale = 1;
-			size = CGSizeMake([CCDirector sharedDirector].winSize.width * 2, [CCDirector sharedDirector].winSize.height * 2);
-			position = ccp(-[CCDirector sharedDirector].winSize.width * imageScale * 0.5, -[CCDirector sharedDirector].winSize.height * imageScale * 0.5);
+		if(![[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
+			
+			// iPhone, non-retina
+			if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+				imageScale = 0.5;
+				positionScale = 1;
+				size = CGSizeMake([CCDirector sharedDirector].winSize.width * 2, [CCDirector sharedDirector].winSize.height * 2);
+				position = ccp(-[CCDirector sharedDirector].winSize.width * imageScale * 0.5, -[CCDirector sharedDirector].winSize.height * imageScale * 0.5);
+			}
+			// iPad, non-retina
+			else {
+				positionScale = 1;
+			}
 		}
+		inversePositionScale = 1 / positionScale;
 	}
 	return self;
 }
