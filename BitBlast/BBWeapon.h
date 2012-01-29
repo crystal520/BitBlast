@@ -27,6 +27,8 @@
 	CGPoint lifetime;
 	// angle that weapon is at. this affects velocity of bullets
 	float angle;
+	// graphic to use for bullet
+	NSString *graphic;
 }
 
 @property (nonatomic) float angle;

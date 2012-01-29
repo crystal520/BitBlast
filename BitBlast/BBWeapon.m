@@ -27,7 +27,13 @@
 	angleOffset = ccp([[[dict objectForKey:@"angle"] objectForKey:@"min"] floatValue], [[[dict objectForKey:@"angle"] objectForKey:@"max"] floatValue]);
 	
 	// load image from dictionary
+	graphic = [[dict objectForKey:@"graphic"] retain];
 	sprite = [CCSprite spriteWithFile:[dict objectForKey:@"graphic"]];
+}
+
+- (void) dealloc {
+	[super dealloc];
+	[graphic release];
 }
 
 - (void) start {
@@ -53,7 +59,7 @@
 		float ranLifetime = CCRANDOM_MIN_MAX(lifetime.x, lifetime.y);
 		// get a bullet from the bullet manager
 		BBBullet *bullet = [[BulletManager sharedSingleton] getRecycledBullet];
-		[bullet resetWithPosition:self.parent.position velocity:ccp(ranXVelocity, ranYVelocity) lifetime:ranLifetime graphic:@"bullet.png"];
+		[bullet resetWithPosition:self.parent.position velocity:ccp(ranXVelocity, ranYVelocity) lifetime:ranLifetime graphic:graphic];
 	}
 }
 
