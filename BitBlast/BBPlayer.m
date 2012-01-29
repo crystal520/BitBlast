@@ -16,6 +16,9 @@
 	if((self = [super initWithFile:@"playerProperties"])) {
 		
 		self.tag = TAG_PLAYER;
+		[self loadAnimations];
+		self.sprite.anchorPoint = ccp(0.5, 0);
+		[self setState:kPlayerUnknown];
 		
 		// create and load basic weapon
 		weapon = [[BBWeapon alloc] init];
@@ -57,6 +60,7 @@
 			jumpTimer += delta;
 			if(jumpTimer >= maxJumpTime) {
 				jumping = NO;
+				[self setState:kPlayerMidJump];
 				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithoutTouchNotification object:self]];
 			}
 			velocity = ccp(velocity.x, jumpImpulse);
@@ -117,14 +121,48 @@
 }
 
 #pragma mark -
+#pragma mark setters
+- (void) setState:(PlayerState)newState {
+	if(state != newState) {
+		NSLog(@"Changing state from: %i --- to: %i", state, newState);
+		switch(newState) {
+			case kPlayerRunning:
+				[self repeatAnimation:@"run"];
+				break;
+			case kPlayerBeginJump:
+				[self playAnimation:@"beginJump"];
+				break;
+			case kPlayerMidJump:
+				[self playAnimation:@"middleJump"];
+				break;
+			case kPlayerEndJump:
+				[self playAnimation:@"endJump" target:self selector:@selector(endJumpAnimation)];
+				break;
+			default:
+				break;
+		}
+	}
+	prevState = state;
+	state = newState;
+}
+
+#pragma mark -
+#pragma mark animations
+- (void) endJumpAnimation {
+	[self setState:kPlayerRunning];
+}
+
+#pragma mark -
 #pragma mark actions
 - (void) reset {
 	
 	// set initial values
-	[self playAnimation:@"walk"];
+	[self setState:kPlayerRunning];
 	//[weapon loadFromFile:@"machinegun"];
 	//[weapon start];
 	dummyPosition = ccp(100, 192);
+	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
+	self.sprite.position = ccp(0, 0);
 	velocity = ccp(minSpeed, 0);
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
@@ -155,11 +193,13 @@
 		touchingPlatform = NO;
 		jumping = YES;
 		jumpTimer = 0;
+		[self setState:kPlayerBeginJump];
 	}
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerJumpNotification object:self]];
 }
 
 - (void) endJump {
+	[self setState:kPlayerMidJump];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithTouchNotification object:self]];
 	jumping = NO;
 }
@@ -205,11 +245,11 @@
 			uint gid = [[c layerNamed:@"Collision"] tileGIDAt:playerTilePos];
 			if(gid) {
 				CCSprite *tile = [[c layerNamed:@"Collision"] tileAt:playerTilePos];
-				// if this is a special half collision block and the lowest part of the sprite is less than the middle of the tile
+				// if the lowest part of the sprite is less than the middle of the tile
 				// set its position so the lowest part of the sprite is at the middle of the tile
 				float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
-				if(/*gid == 2 &&*/ dummyPosition.y - (sprite.contentSize.height * 0.5) <= actualTilePos + tile.contentSize.height * 0.5 + tileOffset) {
-					dummyPosition = ccp(dummyPosition.x, actualTilePos + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
+				if(dummyPosition.y <= actualTilePos + tile.contentSize.height * 0.5 + tileOffset) {
+					dummyPosition = ccp(dummyPosition.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
 				}
@@ -219,12 +259,11 @@
 			gid = [[c layerNamed:@"CollisionTop"] tileGIDAt:playerTilePos];
 			if(gid) {
 				CCSprite *tile = [[c layerNamed:@"CollisionTop"] tileAt:playerTilePos];
-				// if this is a special half collision block, the lowest part of the sprite is less than the middle of the tile,
+				// if the lowest part of the sprite is less than the middle of the tile,
 				// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
 				float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
-				if(/*gid == 2 &&*/ dummyPosition.y - (sprite.contentSize.height * 0.5) <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset && velocity.y < 0 && prevDummyPosition.y - (prevSize.height * 0.5) >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset) {
-					//NSLog(@"COLLIDE!");
-					dummyPosition = ccp(dummyPosition.x, actualTilePos + (tile.contentSize.height + sprite.contentSize.height) * 0.5 + tileOffset);
+				if(dummyPosition.y <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset && velocity.y < 0 && prevDummyPosition.y >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset) {
+					dummyPosition = ccp(dummyPosition.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset);
 					touchingPlatform = YES;
 					velocity = ccp(velocity.x, 0);
 				}
@@ -234,11 +273,11 @@
 			gid = [[c layerNamed:@"CollisionBottom"] tileGIDAt:playerTilePos];
 			if(gid) {
 				CCSprite *tile = [[c layerNamed:@"CollisionBottom"] tileAt:playerTilePos];
-				// if this is a special half collision block, the highest part of the sprite is greater than the lowest part of the tile,
+				// if the highest part of the sprite is greater than the lowest part of the tile,
 				// the sprite is moving upwards, and the previous highest part of the sprite is less than the lowest part of the tile
 				float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
-				if(/*gid == 2 &&*/ dummyPosition.y + (sprite.contentSize.height * 0.5) >= actualTilePos + tileOffset && velocity.y > 0 && prevDummyPosition.y + (sprite.contentSize.height * 0.5) <= actualTilePos) {
-					dummyPosition = ccp(dummyPosition.x, actualTilePos - (sprite.contentSize.height * 0.5) + tileOffset);
+				if(dummyPosition.y >= actualTilePos + tileOffset && velocity.y > 0 && prevDummyPosition.y <= actualTilePos) {
+					dummyPosition = ccp(dummyPosition.x, actualTilePos + tileOffset);
 					velocity = ccp(velocity.x, 0);
 					jumping = NO;
 				}
@@ -247,7 +286,15 @@
 	}
 	
 	if(touchingPlatform) {
+		if(state != kPlayerRunning) {
+			[self setState:kPlayerEndJump];
+		}
 		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerCollidePlatformNotification object:self]];
+	}
+	else {
+		if(state == kPlayerRunning) {
+			[self setState:kPlayerMidJump];
+		}
 	}
 }
 

@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>animations</key>
-	<dict>
-		<key>walk</key>
+	<array>
 		<dict>
 			<key>frames</key>
 			<array>
@@ -17,14 +16,48 @@
 				<string>run7.png</string>
 				<string>run8.png</string>
 			</array>
-			<key>image</key>
-			<string>uiatlas.png</string>
-			<key>plist</key>
-			<string>uiatlas.plist</string>
+			<key>name</key>
+			<string>run</string>
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>
-	</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>jump1.png</string>
+				<string>jump2.png</string>
+			</array>
+			<key>name</key>
+			<string>beginJump</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>jump3.png</string>
+				<string>jump4.png</string>
+			</array>
+			<key>name</key>
+			<string>middleJump</string>
+			<key>speed</key>
+			<real>0.3</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>jump5.png</string>
+			</array>
+			<key>name</key>
+			<string>endJump</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+	</array>
+	<key>image</key>
+	<string>uiatlas.png</string>
+	<key>plist</key>
+	<string>uiatlas.plist</string>
 	<key>gravity</key>
 	<integer>40</integer>
 	<key>jump</key>
