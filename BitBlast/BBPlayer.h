@@ -13,6 +13,15 @@
 #import "ScoreManager.h"
 #import "BBWeapon.h"
 
+typedef enum {
+	kPlayerUnknown,
+	kPlayerRunning,
+	kPlayerBeginJump,
+	kPlayerMidJump,
+	kPlayerEndJump,
+	kPlayerDead
+} PlayerState;
+
 @interface BBPlayer : BBGameObject {
 	
 	float jumpImpulse, minSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, shootAngle, tileOffset;
@@ -22,7 +31,9 @@
 	BOOL jumping, touchingPlatform, dead;
 	BBWeapon *weapon;
 	NSString *currentWeapon;
-	//CCSprite *torso, *
+	PlayerState state, prevState;
+	NSMutableDictionary *animations;
+	//CCSprite *torso;
 }
 
 @property (nonatomic, assign) float gravity;
@@ -30,7 +41,9 @@
 @property (nonatomic, assign) BOOL touchingPlatform, jumping, dead;
 
 - (void) update:(float)delta;
-
+// setters
+- (void) setState:(PlayerState)newState;
+// actions
 - (void) reset;
 - (void) die:(NSString*)reason;
 - (void) jump;
@@ -38,7 +51,7 @@
 - (void) shoot:(CGPoint)touchPos;
 - (void) endShoot;
 - (void) checkCollisions;
-
+// convenience
 - (CGPoint) positionInChunk:(Chunk*)chunk;
 - (NSSet*) positionsInChunk:(Chunk*)chunk;
 

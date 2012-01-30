@@ -19,9 +19,10 @@
 @property (nonatomic, readonly) CCSprite *sprite;
 
 - (id) initWithFile:(NSString*)filename;
+// animations
+- (void) loadAnimations;
+- (void) repeatAnimation:(NSString*)animName;
 - (void) playAnimation:(NSString*)animName;
-
-- (float) lowestPoint;
-- (float) highestPoint;
+- (void) playAnimation:(NSString *)animName target:(id)target selector:(SEL)selector;
 
 @end
