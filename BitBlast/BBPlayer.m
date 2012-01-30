@@ -64,6 +64,8 @@
 	[self setWeaponAngle:0];
 	[spriteBatch addChild:torso z:1];
 	torso.anchorPoint = ccp(0.5, 1);
+	// create and load array of torsoOffsets
+	torsoOffsets = [[NSMutableArray alloc] initWithArray:[dictionary objectForKey:@"torsoOffsets"]];
 }
 
 #pragma mark -
@@ -97,7 +99,7 @@
 		// update score
 		[ScoreManager sharedSingleton].distance = floor(dummyPosition.x / 64);
 		// update torso position
-		torso.position = ccp(torso.contentSize.width * 0.25, sprite.contentSize.height + torso.contentSize.height * 0.8);
+		[self updateTorso];
 		
 		// check for falling death
 		if(dummyPosition.y < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
@@ -106,6 +108,16 @@
 		
 		// post player update notification
 		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerUpdateNotification object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:delta] forKey:@"delta"]]];
+	}
+}
+
+- (void) updateTorso {
+	// see which frame the legs are currently at and position the torso based on that
+	for(NSDictionary *d in torsoOffsets) {
+		if([sprite isFrameDisplayed:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[d objectForKey:@"imageName"]]]) {
+			torso.position = ccp([[[d objectForKey:@"offset"] objectForKey:@"x"] floatValue], [[[d objectForKey:@"offset"] objectForKey:@"y"] floatValue]);
+			break;
+		}
 	}
 }
 
@@ -189,8 +201,8 @@
 	
 	// set initial values
 	[self setState:kPlayerRunning];
-	//[weapon loadFromFile:@"machinegun"];
-	//[weapon start];
+	[weapon loadFromFile:@"machinegun"];
+	[weapon start];
 	dummyPosition = ccp(100, 192);
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	offsetNode.position = ccp(0, 0);
