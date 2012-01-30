@@ -5,9 +5,9 @@
 	<key>angle</key>
 	<dict>
 		<key>max</key>
-		<integer>10</integer>
+		<integer>12</integer>
 		<key>min</key>
-		<integer>-10</integer>
+		<integer>-12</integer>
 	</dict>
 	<key>graphic</key>
 	<string>redbullet.png</string>
