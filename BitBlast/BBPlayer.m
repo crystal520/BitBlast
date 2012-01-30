@@ -24,6 +24,9 @@
 		weapon = [[BBWeapon alloc] init];
 		[self addChild:weapon];
 		
+		// setup torso
+		[self setupTorso];
+		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
 		minSpeed = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"minSpeed"] floatValue];
@@ -38,13 +41,29 @@
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkWillRemove) name:kChunkWillRemoveNotification object:nil];
+		
+		// create node to hold all player pieces
+		offsetNode = [CCNode new];
+		[offsetNode addChild:spriteBatch];
+		[self addChild:offsetNode];
 	}
 	
 	return self;
 }
 
 - (void) dealloc {
+	[offsetNode release];
 	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark setup
+- (void) setupTorso {
+	// create and position torso
+	torso = [CCSprite new];
+	[self setWeaponAngle:0];
+	[spriteBatch addChild:torso z:1];
+	torso.anchorPoint = ccp(0.5, 1);
 }
 
 #pragma mark -
@@ -75,14 +94,13 @@
 		
 		[self checkCollisions];
 		
-		// keep track of previous size. done here so that a change in sprite frame size won't affect prevSize
-		prevSize = sprite.contentSize;
-		
 		// update score
 		[ScoreManager sharedSingleton].distance = floor(dummyPosition.x / 64);
+		// update torso position
+		torso.position = ccp(torso.contentSize.width * 0.25, sprite.contentSize.height + torso.contentSize.height * 0.8);
 		
 		// check for falling death
-		if(dummyPosition.y + sprite.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+		if(dummyPosition.y < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
 			[self die:@"fall"];
 		}
 		
@@ -117,14 +135,14 @@
 	[self retain];
 	[[[ChunkManager sharedSingleton] getCurrentChunk] removeChild:self cleanup:NO];
 	
-	self.sprite.position = ccp(self.sprite.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].dummySize.width, self.sprite.position.y);
+	offsetNode.position = ccp(offsetNode.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].dummySize.width, offsetNode.position.y);
 }
 
 #pragma mark -
 #pragma mark setters
 - (void) setState:(PlayerState)newState {
 	if(state != newState) {
-		NSLog(@"Changing state from: %i --- to: %i", state, newState);
+		//NSLog(@"Changing state from: %i --- to: %i", state, newState);
 		switch(newState) {
 			case kPlayerRunning:
 				[self repeatAnimation:@"run"];
@@ -146,6 +164,19 @@
 	state = newState;
 }
 
+- (void) setWeaponAngle:(int)newAngle {
+	if(newAngle > 0) {
+		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_up.png"]];
+	}
+	else if(newAngle < 0) {
+		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_down.png"]];
+	}
+	else {
+		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso.png"]];
+	}
+	weapon.angle = newAngle;
+}
+
 #pragma mark -
 #pragma mark animations
 - (void) endJumpAnimation {
@@ -162,11 +193,10 @@
 	//[weapon start];
 	dummyPosition = ccp(100, 192);
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
-	self.sprite.position = ccp(0, 0);
+	offsetNode.position = ccp(0, 0);
 	velocity = ccp(minSpeed, 0);
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
-	prevSize = sprite.contentSize;
 	dead = NO;
 	
 	// add to current chunk
@@ -211,16 +241,16 @@
 	float shootPortion = winSize.height/2.0f;
 	// bottom half of screen. player is shooting diagonally down
 	if(touchPos.y <= shootPortion) {
-		weapon.angle = -shootAngle;
+		[self setWeaponAngle:-shootAngle];
 	}
 	// top half of screen. player is shooting diagonally up
 	else {
-		weapon.angle = shootAngle;
+		[self setWeaponAngle:shootAngle];
 	}
 }
 
 - (void) endShoot {
-	weapon.angle = 0;
+	[self setWeaponAngle:0];
 }
 
 - (void) checkCollisions {
@@ -308,13 +338,13 @@
 	
 	NSMutableSet *positions = [NSMutableSet set];
 	// top left corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x - (offsetNode.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y + (offsetNode.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// top right corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y + (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x + (offsetNode.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y + (offsetNode.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// bottom left corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x - (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x - (offsetNode.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y - (offsetNode.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	// bottom right corner of sprite
-	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x + (sprite.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y - (sprite.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
+	[positions addObject:[NSValue valueWithCGPoint:ccp(floor((dummyPosition.x + (offsetNode.contentSize.width * 0.5) - chunk.startPosition) / chunk.tileSize.width), chunk.mapSize.height - floor((dummyPosition.y - (offsetNode.contentSize.height * 0.5)) / chunk.tileSize.height) - 1)]];
 	
 	return positions;
 }

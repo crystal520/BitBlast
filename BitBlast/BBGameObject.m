@@ -54,7 +54,6 @@
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[dictionary objectForKey:@"plist"]];
 	// load image file
 	spriteBatch = [CCSpriteBatchNode batchNodeWithFile:[dictionary objectForKey:@"image"]];
-	[self addChild:spriteBatch];
 }
 
 - (void) repeatAnimation:(NSString*)animName {
