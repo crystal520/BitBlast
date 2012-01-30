@@ -14,14 +14,14 @@
 	<key>lifetime</key>
 	<dict>
 		<key>max</key>
-		<integer>3</integer>
+		<integer>6</integer>
 		<key>min</key>
-		<integer>3</integer>
+		<integer>6</integer>
 	</dict>
 	<key>maxSpeed</key>
-	<real>0.1</real>
+	<integer>400</integer>
 	<key>minSpeed</key>
-	<real>0.1</real>
+	<integer>400</integer>
 	<key>numBulletsToFire</key>
 	<integer>1</integer>
 	<key>rateOfFire</key>
