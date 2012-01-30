@@ -19,9 +19,9 @@
 		<integer>3</integer>
 	</dict>
 	<key>maxSpeed</key>
-	<integer>500</integer>
+	<integer>450</integer>
 	<key>minSpeed</key>
-	<integer>500</integer>
+	<integer>450</integer>
 	<key>numBulletsToFire</key>
 	<integer>1</integer>
 	<key>rateOfFire</key>
