@@ -115,7 +115,7 @@
 	// see which frame the legs are currently at and position the torso based on that
 	for(NSDictionary *d in torsoOffsets) {
 		if([sprite isFrameDisplayed:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[d objectForKey:@"imageName"]]]) {
-			torso.position = ccp([[[d objectForKey:@"offset"] objectForKey:@"x"] floatValue], [[[d objectForKey:@"offset"] objectForKey:@"y"] floatValue]);
+			torso.position = ccp([[[d objectForKey:@"offset"] objectForKey:@"x"] floatValue] * [ResolutionManager sharedSingleton].positionScale, [[[d objectForKey:@"offset"] objectForKey:@"y"] floatValue] * [ResolutionManager sharedSingleton].positionScale);
 			break;
 		}
 	}
