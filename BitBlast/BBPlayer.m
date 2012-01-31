@@ -201,8 +201,8 @@
 	
 	// set initial values
 	[self setState:kPlayerRunning];
-	[weapon loadFromFile:@"ultralaser"];
-	[weapon start];
+	//[weapon loadFromFile:@"ultralaser"];
+	//[weapon start];
 	dummyPosition = ccp(100, 192);
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	offsetNode.position = ccp(0, 0);
