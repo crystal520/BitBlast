@@ -89,7 +89,7 @@
 				<key>x</key>
 				<integer>30</integer>
 				<key>y</key>
-				<integer>108</integer>
+				<integer>107</integer>
 			</dict>
 			<key>imageName</key>
 			<string>run1.png</string>
@@ -166,7 +166,7 @@
 				<key>x</key>
 				<integer>30</integer>
 				<key>y</key>
-				<integer>108</integer>
+				<integer>107</integer>
 			</dict>
 			<key>imageName</key>
 			<string>run8.png</string>
