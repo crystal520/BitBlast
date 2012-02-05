@@ -26,6 +26,7 @@
 		angleRestraints = ccp([[dict objectForKey:@"minAngleOffset"] floatValue], [[dict objectForKey:@"maxAngleOffset"] floatValue]);
 		lifetimeRestraints = ccp([[dict objectForKey:@"minLifetime"] floatValue], [[dict objectForKey:@"maxLifetime"] floatValue]);
 		numBulletsRestraints = ccp([[dict objectForKey:@"minNumBullets"] floatValue], [[dict objectForKey:@"maxNumBullets"] floatValue]);
+		blend = [[dict objectForKey:@"blend"] boolValue];
 		
 		// add angles to fire bullets at
 		angles = [NSMutableArray new];
@@ -120,6 +121,10 @@
 			}
 			// if fire was called more than once this frame, update the bullet based on rateOfFire
 			[bullet update:updateBulletTime * rateOfFire];
+			// set blend function if needed
+			if(blend) {
+				[bullet.sprite setBlendFunc:(ccBlendFunc){GL_SRC_ALPHA, GL_ONE}];
+			}
 		}
 	}
 }

@@ -10,93 +10,123 @@
 	<array>
 		<dict>
 			<key>curve</key>
-			<string>easeInOutSine</string>
-			<key>loop</key>
-			<true/>
-			<key>maxMaxValue</key>
-			<array>
-				<integer>30</integer>
-			</array>
-			<key>maxMinValue</key>
-			<array>
-				<integer>-30</integer>
-			</array>
-			<key>minMaxValue</key>
-			<array>
-				<integer>30</integer>
-			</array>
-			<key>minMinValue</key>
-			<array>
-				<integer>-30</integer>
-			</array>
-			<key>property</key>
-			<string>y</string>
-			<key>repeat</key>
-			<true/>
-			<key>speed</key>
-			<real>0.5</real>
-			<key>start</key>
-			<string>min</string>
-		</dict>
-		<dict>
-			<key>curve</key>
 			<string>ease</string>
 			<key>loop</key>
-			<true/>
+			<false/>
 			<key>maxMaxValue</key>
 			<array>
-				<integer>0</integer>
 				<integer>1</integer>
+				<real>0.27</real>
 				<integer>0</integer>
 			</array>
 			<key>maxMinValue</key>
 			<array>
-				<integer>0</integer>
-				<integer>0</integer>
 				<integer>1</integer>
+				<integer>1</integer>
+				<integer>0</integer>
 			</array>
 			<key>minMaxValue</key>
 			<array>
-				<integer>0</integer>
 				<integer>1</integer>
+				<integer>0</integer>
 				<integer>0</integer>
 			</array>
 			<key>minMinValue</key>
 			<array>
-				<integer>0</integer>
-				<integer>0</integer>
 				<integer>1</integer>
+				<real>0.84</real>
+				<integer>0</integer>
 			</array>
 			<key>property</key>
 			<string>color</string>
 			<key>repeat</key>
-			<true/>
+			<false/>
 			<key>speed</key>
-			<real>0.5</real>
+			<real>0.25</real>
+			<key>start</key>
+			<string>max</string>
+		</dict>
+		<dict>
+			<key>curve</key>
+			<string>easeInExpo</string>
+			<key>loop</key>
+			<false/>
+			<key>maxMinValue</key>
+			<array>
+				<integer>0</integer>
+			</array>
+			<key>maxMaxValue</key>
+			<array>
+				<integer>50</integer>
+			</array>
+			<key>minMaxValue</key>
+			<array>
+				<integer>40</integer>
+			</array>
+			<key>minMinValue</key>
+			<array>
+				<integer>0</integer>
+			</array>
+			<key>property</key>
+			<string>y</string>
+			<key>repeat</key>
+			<false/>
+			<key>speed</key>
+			<real>1.5</real>
+			<key>start</key>
+			<string>max</string>
+		</dict>
+		<dict>
+			<key>curve</key>
+			<string>easeInExpo</string>
+			<key>loop</key>
+			<false/>
+			<key>maxMinValue</key>
+			<array>
+				<integer>1</integer>
+			</array>
+			<key>maxMaxValue</key>
+			<array>
+				<integer>0</integer>
+			</array>
+			<key>minMaxValue</key>
+			<array>
+				<integer>0</integer>
+			</array>
+			<key>minMinValue</key>
+			<array>
+				<integer>1</integer>
+			</array>
+			<key>property</key>
+			<string>alpha</string>
+			<key>repeat</key>
+			<false/>
+			<key>speed</key>
+			<real>1.25</real>
 			<key>start</key>
 			<string>max</string>
 		</dict>
 	</array>
 	<key>maxAngleOffset</key>
-	<integer>0</integer>
+	<integer>10</integer>
 	<key>maxLifetime</key>
-	<real>6.5</real>
+	<real>1.5</real>
 	<key>maxNumBullets</key>
-	<integer>1</integer>
+	<integer>5</integer>
 	<key>maxSpeed</key>
-	<integer>500</integer>
+	<integer>200</integer>
 	<key>minAngleOffset</key>
-	<integer>0</integer>
+	<integer>-10</integer>
 	<key>minLifetime</key>
-	<real>6.5</real>
-	<key>minNumBullets</key>
 	<integer>1</integer>
+	<key>minNumBullets</key>
+	<integer>3</integer>
 	<key>minSpeed</key>
-	<integer>500</integer>
+	<integer>150</integer>
 	<key>rateOfFire</key>
-	<real>0.05</real>
+	<real>0.1</real>
 	<key>sprite</key>
-	<string>bullet.png</string>
+	<string>flame.png</string>
 	<key>blend</key>
 	<true/>
 </dict>

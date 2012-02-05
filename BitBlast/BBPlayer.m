@@ -71,7 +71,7 @@
 	weapons = [NSMutableArray new];
 	// create and add default weapon
 	BBWeapon *w = [BBWeapon new];
-	[w loadFromFile:@"testWeapon2"];
+	[w loadFromFile:@"flamethrower"];
 	[w setEnabled:YES];
 	[weapons addObject:w];
 	[w release];

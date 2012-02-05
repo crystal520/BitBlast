@@ -87,7 +87,9 @@
 - (void) gameOver {
 	// loop through bullets and stop all actions
 	for(BBBullet *b in bullets) {
-		[b.sprite stopAllActions];
+		if(!b.recycle) {
+			[b.sprite stopAllActions];
+		}
 	}
 }
 

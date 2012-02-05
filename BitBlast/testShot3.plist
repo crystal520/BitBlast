@@ -38,6 +38,44 @@
 			<key>start</key>
 			<string>max</string>
 		</dict>
+		<dict>
+			<key>curve</key>
+			<string>ease</string>
+			<key>loop</key>
+			<true/>
+			<key>maxMaxValue</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>0</integer>
+			</array>
+			<key>maxMinValue</key>
+			<array>
+				<integer>0</integer>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>minMaxValue</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>0</integer>
+			</array>
+			<key>minMinValue</key>
+			<array>
+				<integer>0</integer>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>property</key>
+			<string>color</string>
+			<key>repeat</key>
+			<true/>
+			<key>speed</key>
+			<real>0.5</real>
+			<key>start</key>
+			<string>max</string>
+		</dict>
 	</array>
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
@@ -59,5 +97,7 @@
 	<real>0.05</real>
 	<key>sprite</key>
 	<string>bullet.png</string>
+	<key>blend</key>
+	<true/>
 </dict>
 </plist>

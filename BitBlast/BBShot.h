@@ -36,6 +36,8 @@
 	float playerSpeed;
 	// position that shot starts from
 	CGPoint position;
+	// whether this shot is alpha blended
+	BOOL blend;
 }
 
 // initializers

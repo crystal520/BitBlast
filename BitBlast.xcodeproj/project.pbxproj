@@ -12,6 +12,9 @@
 		0A204EA914DF212400171F71 /* testShot3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EA614DF212300171F71 /* testShot3.plist */; };
 		0A204EAA14DF212400171F71 /* testShot2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EA714DF212300171F71 /* testShot2.plist */; };
 		0A204EAB14DF212400171F71 /* testWeapon2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EA814DF212400171F71 /* testWeapon2.plist */; };
+		0A204EAE14DF319400171F71 /* flamethrower.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAD14DF319400171F71 /* flamethrower.plist */; };
+		0A204EB014DF31B600171F71 /* flameShot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAF14DF31B600171F71 /* flameShot.plist */; };
+		0A204EB214DF331600171F71 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EB114DF331500171F71 /* flame.png */; };
 		0A42D13A14C49C5200DD55CA /* SWMultiColumnTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D12F14C49C5200DD55CA /* SWMultiColumnTableView.m */; };
 		0A42D13B14C49C5200DD55CA /* SWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13114C49C5200DD55CA /* SWScrollView.m */; };
 		0A42D13C14C49C5200DD55CA /* SWSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13314C49C5200DD55CA /* SWSorting.m */; };
@@ -274,6 +277,9 @@
 		0A204EA614DF212300171F71 /* testShot3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testShot3.plist; sourceTree = "<group>"; };
 		0A204EA714DF212300171F71 /* testShot2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testShot2.plist; sourceTree = "<group>"; };
 		0A204EA814DF212400171F71 /* testWeapon2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWeapon2.plist; sourceTree = "<group>"; };
+		0A204EAD14DF319400171F71 /* flamethrower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower.plist; sourceTree = "<group>"; };
+		0A204EAF14DF31B600171F71 /* flameShot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flameShot.plist; sourceTree = "<group>"; };
+		0A204EB114DF331500171F71 /* flame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flame.png; path = Resources/flame.png; sourceTree = "<group>"; };
 		0A42D12E14C49C5200DD55CA /* SWMultiColumnTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWMultiColumnTableView.h; path = libs/cocos2d/SWMultiColumnTableView.h; sourceTree = "<group>"; };
 		0A42D12F14C49C5200DD55CA /* SWMultiColumnTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWMultiColumnTableView.m; path = libs/cocos2d/SWMultiColumnTableView.m; sourceTree = "<group>"; };
 		0A42D13014C49C5200DD55CA /* SWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWScrollView.h; path = libs/cocos2d/SWScrollView.h; sourceTree = "<group>"; };
@@ -810,6 +816,9 @@
 		0A1EC4AD14A02EFD005A7ED6 /* Guns */ = {
 			isa = PBXGroup;
 			children = (
+				0A204EB114DF331500171F71 /* flame.png */,
+				0A204EAF14DF31B600171F71 /* flameShot.plist */,
+				0A204EAD14DF319400171F71 /* flamethrower.plist */,
 				0A204EA614DF212300171F71 /* testShot3.plist */,
 				0A204EA714DF212300171F71 /* testShot2.plist */,
 				0A204EA814DF212400171F71 /* testWeapon2.plist */,
@@ -1674,6 +1683,9 @@
 				0A204EA914DF212400171F71 /* testShot3.plist in Resources */,
 				0A204EAA14DF212400171F71 /* testShot2.plist in Resources */,
 				0A204EAB14DF212400171F71 /* testWeapon2.plist in Resources */,
+				0A204EAE14DF319400171F71 /* flamethrower.plist in Resources */,
+				0A204EB014DF31B600171F71 /* flameShot.plist in Resources */,
+				0A204EB214DF331600171F71 /* flame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
