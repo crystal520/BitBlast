@@ -24,16 +24,20 @@ typedef enum {
 
 @interface BBPlayer : BBGameObject {
 	
-	float jumpImpulse, minSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, shootAngle, tileOffset;
+	float jumpImpulse, minSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, tileOffset;
 	CGPoint velocity, maxVelocity, dummyPosition, prevDummyPosition;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, chunkOffset, bitCoins;
 	BOOL jumping, touchingPlatform, dead;
-	BBWeapon *weapon;
-	NSString *currentWeapon;
+	// array of currently equipped weapons
+	NSMutableArray *weapons;
+	// player's current and previous states
 	PlayerState state, prevState;
+	// offsets for torso for each frame of running and jumping animation
 	NSMutableArray *torsoOffsets;
+	// sprite for torso
 	CCSprite *torso;
+	// node that contains all pieces of player, to be offset in each chunk when switching between them
 	CCNode *offsetNode;
 }
 
@@ -41,11 +45,14 @@ typedef enum {
 @property (nonatomic, assign) CGPoint velocity, maxVelocity;
 @property (nonatomic, assign) BOOL touchingPlatform, jumping, dead;
 
+// initializers
+// setup
+- (void) setupTorso;
+- (void) setupWeapons;
 // update
 - (void) update:(float)delta;
 - (void) updateTorso;
-// setup
-- (void) setupTorso;
+- (void) updateWeapons:(float)delta;
 // setters
 - (void) setState:(PlayerState)newState;
 - (void) setWeaponAngle:(int)newAngle;

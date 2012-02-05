@@ -1068,6 +1068,47 @@ static inline float bezierat( float a, float b, float c, float d, ccTime t )
 @end
 
 //
+// FadeBy
+//
+#pragma mark -
+#pragma mark FadeBy
+@implementation CCFadeBy
++(id) actionWithDuration:(ccTime)t opacity:(float)opacity
+{
+	return [[(CCFadeBy*)[self alloc] initWithDuration:t opacity:opacity] autorelease];
+}
+
+-(id) initWithDuration:(ccTime)t opacity:(float)opacity
+{
+	if( (self=[super initWithDuration:t] ) ) {
+		deltaOpacity_ = opacity;
+	}
+	return self;
+}
+
+-(id) copyWithZone: (NSZone*) zone
+{
+	return[(CCFadeBy*)[[self class] allocWithZone: zone] initWithDuration: [self duration] opacity:deltaOpacity_];
+}
+
+-(void) startWithTarget:(id)aTarget
+{
+	[super startWithTarget:aTarget];
+	fromOpacity_ = [(id<CCRGBAProtocol>)target_ opacity];
+}
+
+-(void) update: (ccTime) t
+{
+	[(id<CCRGBAProtocol>)target_ setOpacity:fromOpacity_ + deltaOpacity_ * t];
+}
+
+- (CCActionInterval*) reverse
+{
+	return [CCFadeBy actionWithDuration:duration_ opacity:-deltaOpacity_];
+}
+@end
+
+//
 // TintTo
 //
 #pragma mark -

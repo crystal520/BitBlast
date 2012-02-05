@@ -329,9 +329,22 @@ typedef struct _ccBezierConfig {
 	GLubyte fromOpacity_;
 }
 /** creates an action with duration and opactiy */
-+(id) actionWithDuration:(ccTime)duration opacity:(GLubyte)opactiy;
++(id) actionWithDuration:(ccTime)duration opacity:(GLubyte)opacity;
 /** initializes the action with duration and opacity */
 -(id) initWithDuration:(ccTime)duration opacity:(GLubyte)opacity;
+@end
+
+/** Fades an object that implements the CCRGBAProtocol protocol. It modifies the opacity from the current value to a custom one.
+ */
+@interface CCFadeBy : CCActionInterval <NSCopying>
+{
+	float deltaOpacity_;
+	float fromOpacity_;
+}
+/** creates an action with duration and opacity */
++(id) actionWithDuration:(ccTime)duration opacity:(float)opacity;
+/** initializes the action with duration and opacity */
+-(id) initWithDuration:(ccTime)duration opacity:(float)opacity;
 @end
 
 /** Tints a CCNode that implements the CCNodeRGB protocol from current tint to a custom one.

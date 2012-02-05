@@ -20,12 +20,10 @@
 		self.sprite.anchorPoint = ccp(0.5, 0);
 		[self setState:kPlayerUnknown];
 		
-		// create and load basic weapon
-		weapon = [[BBWeapon alloc] init];
-		[self addChild:weapon];
-		
 		// setup torso
 		[self setupTorso];
+		// setup weapons
+		[self setupWeapons];
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -35,7 +33,6 @@
 		chunksToIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"numChunksToIncrement"] intValue];
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		gravity = [[dictionary objectForKey:@"gravity"] floatValue];
-		shootAngle = [[dictionary objectForKey:@"shootAngle"] floatValue];
 		tileOffset = [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale;
 		
 		// register for notifications
@@ -53,6 +50,7 @@
 
 - (void) dealloc {
 	[offsetNode release];
+	[weapons release];
 	[super dealloc];
 }
 
@@ -66,6 +64,17 @@
 	torso.anchorPoint = ccp(0.5, 1);
 	// create and load array of torsoOffsets
 	torsoOffsets = [[NSMutableArray alloc] initWithArray:[dictionary objectForKey:@"torsoOffsets"]];
+}
+
+- (void) setupWeapons {
+	// create weapons array
+	weapons = [NSMutableArray new];
+	// create and add default weapon
+	BBWeapon *w = [BBWeapon new];
+	[w loadFromFile:@"testWeapon2"];
+	[w setEnabled:YES];
+	[weapons addObject:w];
+	[w release];
 }
 
 #pragma mark -
@@ -100,6 +109,8 @@
 		[ScoreManager sharedSingleton].distance = floor(dummyPosition.x / 64);
 		// update torso position
 		[self updateTorso];
+		// update weapons
+		[self updateWeapons:delta];
 		
 		// check for falling death
 		if(dummyPosition.y < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
@@ -118,6 +129,15 @@
 			torso.position = ccp([[[d objectForKey:@"offset"] objectForKey:@"x"] floatValue] * [ResolutionManager sharedSingleton].positionScale, [[[d objectForKey:@"offset"] objectForKey:@"y"] floatValue] * [ResolutionManager sharedSingleton].positionScale);
 			break;
 		}
+	}
+}
+
+- (void) updateWeapons:(float)delta {
+	// loop through weapons and update them
+	for(BBWeapon *w in weapons) {
+		[w setPlayerSpeed:velocity.x];
+		[w setPosition:ccpAdd(self.position, torso.position)];
+		[w update:delta];
 	}
 }
 
@@ -177,6 +197,7 @@
 }
 
 - (void) setWeaponAngle:(int)newAngle {
+	// update torso image based on new angle
 	if(newAngle > 0) {
 		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_up.png"]];
 	}
@@ -186,7 +207,10 @@
 	else {
 		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso.png"]];
 	}
-	weapon.angle = newAngle;
+	// update weapons with new angle
+	for(BBWeapon *w in weapons) {
+		[w setAngle:newAngle];
+	}
 }
 
 #pragma mark -
@@ -217,10 +241,6 @@
 }
 
 - (void) die:(NSString*)reason {
-	
-	// stop firing the equipped weapon
-	[weapon stop];
-	
 	if([reason isEqualToString:@"fall"]) {
 		dead = YES;
 	}
@@ -253,11 +273,11 @@
 	float shootPortion = winSize.height/2.0f;
 	// bottom half of screen. player is shooting diagonally down
 	if(touchPos.y <= shootPortion) {
-		[self setWeaponAngle:-shootAngle];
+		[self setWeaponAngle:-1];
 	}
 	// top half of screen. player is shooting diagonally up
 	else {
-		[self setWeaponAngle:shootAngle];
+		[self setWeaponAngle:1];
 	}
 }
 

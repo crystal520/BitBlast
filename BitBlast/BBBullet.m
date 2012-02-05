@@ -44,6 +44,8 @@
 	if(lifeTimer >= lifetime) {
 		recycle = YES;
 		self.visible = NO;
+		[sprite stopAllActions];
+		[self removeChild:sprite cleanup:YES];
 	}
 }
 

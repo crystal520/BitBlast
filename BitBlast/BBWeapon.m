@@ -7,59 +7,98 @@
 //
 
 #import "BBWeapon.h"
-#import "BBPlayer.h"
 
 @implementation BBWeapon
 
-@synthesize angle;
-
+#pragma mark - 
+#pragma mark setup
 - (void) loadFromFile:(NSString*)filename {
 	
 	// get dictionary from plist file
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
 	
-	// grab values from dictionary
-	rateOfFire = [[dict objectForKey:@"rateOfFire"] floatValue];
-	numBulletsToFire = [[dict objectForKey:@"numBulletsToFire"] floatValue];
-	minVelocity = [[dict objectForKey:@"minSpeed"] floatValue];
-	maxVelocity = [[dict objectForKey:@"maxSpeed"] floatValue];
-	lifetime = ccp([[[dict objectForKey:@"lifetime"] objectForKey:@"min"] floatValue], [[[dict objectForKey:@"lifetime"] objectForKey:@"max"] floatValue]);
-	angleOffset = ccp([[[dict objectForKey:@"angle"] objectForKey:@"min"] floatValue], [[[dict objectForKey:@"angle"] objectForKey:@"max"] floatValue]);
+	// get values from dictionary
+	torsoOffset = ccp([[[dict objectForKey:@"torsoOffset"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"torsoOffset"] objectForKey:@"y"] floatValue]);
+	torsoOffsetUp = ccp([[[dict objectForKey:@"torsoUpOffset"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"torsoUpOffset"] objectForKey:@"y"] floatValue]);
+	torsoOffsetDown = ccp([[[dict objectForKey:@"torsoDownOffset"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"torsoDownOffset"] objectForKey:@"y"] floatValue]);
+	straightAngle = [[dict objectForKey:@"straightAngle"] floatValue];
+	upAngle = [[dict objectForKey:@"upAngle"] floatValue];
+	downAngle = [[dict objectForKey:@"downAngle"] floatValue];
+	// set default offset
+	currentOffset = torsoOffset;
+	
+	// create shots from dictionary
+	shots = [NSMutableArray new];
+	NSArray *dictShots = [NSArray arrayWithArray:[dict objectForKey:@"shots"]];
+	for(NSString *plist in dictShots) {
+		BBShot *shot = [[BBShot alloc] initWithFile:plist];
+		[shots addObject:shot];
+		[shot release];
+	}
 	
 	// load image from dictionary
-	graphic = [[dict objectForKey:@"graphic"] retain];
-	sprite = [CCSprite spriteWithFile:[dict objectForKey:@"graphic"]];
+	//sprite = [CCSprite spriteWithFile:[dict objectForKey:@"sprite"]];
 }
 
 - (void) dealloc {
 	[super dealloc];
-	[graphic release];
+	[shots release];
 }
 
-- (void) start {
-	// unschedule and then schedule shoot function based on rateOfFire
-	[self unscheduleAllSelectors];
-	[self schedule:@selector(shoot) interval:rateOfFire];
+#pragma mark - 
+#pragma mark setters
+- (void) setAngle:(float)newAngle {
+	// set current offset based on newAngle
+	if(newAngle == 0) {
+		currentOffset = torsoOffset;
+	}
+	else if(newAngle > 0) {
+		currentOffset = torsoOffsetUp;
+	}
+	else {
+		currentOffset = torsoOffsetDown;
+	}
+	// set new shot angle based on newAngle
+	float newShotAngle = straightAngle;
+	if(newAngle > 0) {
+		newShotAngle = upAngle;
+	}
+	else if(newAngle < 0) {
+		newShotAngle = downAngle;
+	}
+	// loop through shots and update angle
+	for(BBShot *s in shots) {
+		[s setAngle:newShotAngle];
+	}
 }
 
-- (void) stop {
-	[self unscheduleAllSelectors];
+- (void) setEnabled:(BOOL)newEnabled {
+	// loop through shots and update their enabled flags
+	for(BBShot *s in shots) {
+		[s setEnabled:newEnabled];
+	}
 }
 
-- (void) shoot {
-	for(int i=0;i<numBulletsToFire;i++) {
-		// get parent as player
-		BBPlayer *player = (BBPlayer*)(self.parent);
-		// generate a random velocity for the new bullet
-		float ranVelocity = CCRANDOM_MIN_MAX(minVelocity, maxVelocity) + player.velocity.x;
-		float ranAngle = CC_DEGREES_TO_RADIANS(CCRANDOM_MIN_MAX(angleOffset.x, angleOffset.y) + angle);
-		float ranXVelocity = cos(ranAngle) * ranVelocity;
-		float ranYVelocity = sin(ranAngle) * ranVelocity;
-		// get random lifetime
-		float ranLifetime = CCRANDOM_MIN_MAX(lifetime.x, lifetime.y);
-		// get a bullet from the bullet manager
-		BBBullet *bullet = [[BulletManager sharedSingleton] getRecycledBullet];
-		[bullet resetWithPosition:self.parent.position velocity:ccp(ranXVelocity, ranYVelocity) lifetime:ranLifetime graphic:graphic];
+- (void) setPlayerSpeed:(float)newPlayerSpeed {
+	// loop through shots and update their player speeds
+	for(BBShot *s in shots) {
+		[s setPlayerSpeed:newPlayerSpeed];
+	}
+}
+
+- (void) setPosition:(CGPoint)newPosition {
+	// loop through shots and update their positions
+	for(BBShot *s in shots) {
+		[s setPosition:ccpAdd(newPosition, currentOffset)];
+	}
+}
+
+#pragma mark - 
+#pragma mark update
+- (void) update:(float)delta {
+	// update each shot
+	for(BBShot *shot in shots) {
+		[shot update:delta];
 	}
 }
 

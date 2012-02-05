@@ -66,8 +66,6 @@
 	<real>0.45</real>
 	<key>plist</key>
 	<string>uiatlas.plist</string>
-	<key>shootAngle</key>
-	<integer>35</integer>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
@@ -84,83 +82,8 @@
 	<key>torsoOffsets</key>
 	<array>
 		<dict>
-			<key>offset</key>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>108</integer>
-			</dict>
 			<key>imageName</key>
 			<string>run1.png</string>
-		</dict>
-		<dict>
-			<key>offset</key>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>106</integer>
-			</dict>
-			<key>imageName</key>
-			<string>run2.png</string>
-		</dict>
-		<dict>
-			<key>offset</key>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>104</integer>
-			</dict>
-			<key>imageName</key>
-			<string>run3.png</string>
-		</dict>
-		<dict>
-			<key>offset</key>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>102</integer>
-			</dict>
-			<key>imageName</key>
-			<string>run4.png</string>
-		</dict>
-		<dict>
-			<key>offset</key>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>102</integer>
-			</dict>
-			<key>imageName</key>
-			<string>run5.png</string>
-		</dict>
-		<dict>
-			<key>offset</key>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>104</integer>
-			</dict>
-			<key>imageName</key>
-			<string>run6.png</string>
-		</dict>
-		<dict>
-			<key>offset</key>
-			<dict>
-				<key>x</key>
-				<integer>30</integer>
-				<key>y</key>
-				<integer>106</integer>
-			</dict>
-			<key>imageName</key>
-			<string>run7.png</string>
-		</dict>
-		<dict>
 			<key>offset</key>
 			<dict>
 				<key>x</key>
@@ -168,10 +91,87 @@
 				<key>y</key>
 				<integer>108</integer>
 			</dict>
-			<key>imageName</key>
-			<string>run8.png</string>
 		</dict>
 		<dict>
+			<key>imageName</key>
+			<string>run2.png</string>
+			<key>offset</key>
+			<dict>
+				<key>x</key>
+				<integer>30</integer>
+				<key>y</key>
+				<integer>106</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>run3.png</string>
+			<key>offset</key>
+			<dict>
+				<key>x</key>
+				<integer>30</integer>
+				<key>y</key>
+				<integer>104</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>run4.png</string>
+			<key>offset</key>
+			<dict>
+				<key>x</key>
+				<integer>30</integer>
+				<key>y</key>
+				<integer>102</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>run5.png</string>
+			<key>offset</key>
+			<dict>
+				<key>x</key>
+				<integer>30</integer>
+				<key>y</key>
+				<integer>102</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>run6.png</string>
+			<key>offset</key>
+			<dict>
+				<key>x</key>
+				<integer>30</integer>
+				<key>y</key>
+				<integer>104</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>run7.png</string>
+			<key>offset</key>
+			<dict>
+				<key>x</key>
+				<integer>30</integer>
+				<key>y</key>
+				<integer>106</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>run8.png</string>
+			<key>offset</key>
+			<dict>
+				<key>x</key>
+				<integer>30</integer>
+				<key>y</key>
+				<integer>108</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>imageName</key>
+			<string>jump1.png</string>
 			<key>offset</key>
 			<dict>
 				<key>x</key>
@@ -179,10 +179,10 @@
 				<key>y</key>
 				<integer>100</integer>
 			</dict>
-			<key>imageName</key>
-			<string>jump1.png</string>
 		</dict>
 		<dict>
+			<key>imageName</key>
+			<string>jump2.png</string>
 			<key>offset</key>
 			<dict>
 				<key>x</key>
@@ -190,10 +190,10 @@
 				<key>y</key>
 				<integer>115</integer>
 			</dict>
-			<key>imageName</key>
-			<string>jump2.png</string>
 		</dict>
 		<dict>
+			<key>imageName</key>
+			<string>jump3.png</string>
 			<key>offset</key>
 			<dict>
 				<key>x</key>
@@ -201,10 +201,10 @@
 				<key>y</key>
 				<integer>115</integer>
 			</dict>
-			<key>imageName</key>
-			<string>jump3.png</string>
 		</dict>
 		<dict>
+			<key>imageName</key>
+			<string>jump4.png</string>
 			<key>offset</key>
 			<dict>
 				<key>x</key>
@@ -212,10 +212,10 @@
 				<key>y</key>
 				<integer>115</integer>
 			</dict>
-			<key>imageName</key>
-			<string>jump4.png</string>
 		</dict>
 		<dict>
+			<key>imageName</key>
+			<string>jump5.png</string>
 			<key>offset</key>
 			<dict>
 				<key>x</key>
@@ -223,8 +223,6 @@
 				<key>y</key>
 				<integer>100</integer>
 			</dict>
-			<key>imageName</key>
-			<string>jump5.png</string>
 		</dict>
 	</array>
 </dict>

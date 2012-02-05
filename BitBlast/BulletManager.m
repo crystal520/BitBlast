@@ -35,6 +35,9 @@
 			[bullets addObject:bullet];
 			[bullet release];
 		}
+		
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 	}
 	
 	return self;
@@ -56,7 +59,7 @@
 }
 
 #pragma mark -
-#pragma mark accessors
+#pragma mark getters
 - (BBBullet*) getRecycledBullet {
 	for(BBBullet *b in bullets) {
 		if(b.recycle == YES) {
@@ -68,7 +71,7 @@
 }
 
 #pragma mark -
-#pragma mark mutators
+#pragma mark setters
 - (void) setNode:(CCNode*)newNode {
 	if(node != newNode) {
 		node = newNode;
@@ -76,6 +79,15 @@
 		for(BBBullet *b in bullets) {
 			[node addChild:b];
 		}
+	}
+}
+
+#pragma mark -
+#pragma mark notifications
+- (void) gameOver {
+	// loop through bullets and stop all actions
+	for(BBBullet *b in bullets) {
+		[b.sprite stopAllActions];
 	}
 }
 

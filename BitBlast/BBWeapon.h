@@ -8,34 +8,25 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "BBGameObject.h"
-#import "BulletManager.h"
-#import "BBBullet.h"
+#import "BBShot.h"
 
-@interface BBWeapon : BBGameObject {
-	// the amount of time between consecutive shoot calls
-    float rateOfFire;
-	// the number of bullets that appear when the shoot function is called
-	float numBulletsToFire;
-	// minimum velocity the bullets can have
-	float minVelocity;
-	// maximum velocity the bullets can have
-	float maxVelocity;
-	// minimum and maximum angle offset
-	CGPoint angleOffset;
-	// minimum and maximum lifetime each bullet can have
-	CGPoint lifetime;
-	// angle that weapon is at. this affects velocity of bullets
-	float angle;
-	// graphic to use for bullet
-	NSString *graphic;
+@interface BBWeapon : NSObject {
+	// array of shots this weapon fires
+	NSMutableArray *shots;
+	// offsets for different torso states
+	CGPoint currentOffset, torsoOffset, torsoOffsetUp, torsoOffsetDown;
+	// angles for firing up, down, and straight
+	float upAngle, downAngle, straightAngle;
 }
 
-@property (nonatomic) float angle;
-
+// setup
 - (void) loadFromFile:(NSString*)filename;
-- (void) start;
-- (void) stop;
-- (void) shoot;
+// setters
+- (void) setAngle:(float)newAngle;
+- (void) setEnabled:(BOOL)newEnabled;
+- (void) setPlayerSpeed:(float)newPlayerSpeed;
+- (void) setPosition:(CGPoint)newPosition;
+// update
+- (void) update:(float)delta;
 
 @end
