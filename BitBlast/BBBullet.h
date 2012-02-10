@@ -22,8 +22,11 @@
 }
 
 @property (nonatomic, readonly) BOOL recycle;
+@property (nonatomic, assign) float lifeTimer;
 
+// actions
 - (void) resetWithPosition:(CGPoint)newPosition velocity:(CGPoint)newVelocity lifetime:(float)newLifetime graphic:(NSString*)newGraphic;
+// update
 - (void) update:(float)delta;
 
 @end

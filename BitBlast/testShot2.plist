@@ -45,27 +45,27 @@
 			<true/>
 			<key>maxMaxValue</key>
 			<array>
-				<integer>0</integer>
 				<integer>1</integer>
-				<integer>0</integer>
+				<integer>1</integer>
+				<integer>1</integer>
 			</array>
 			<key>maxMinValue</key>
 			<array>
-				<integer>0</integer>
-				<integer>0</integer>
+				<integer>1</integer>
+				<integer>1</integer>
 				<integer>1</integer>
 			</array>
 			<key>minMaxValue</key>
 			<array>
 				<integer>0</integer>
-				<integer>1</integer>
+				<integer>0</integer>
 				<integer>0</integer>
 			</array>
 			<key>minMinValue</key>
 			<array>
 				<integer>0</integer>
 				<integer>0</integer>
-				<integer>1</integer>
+				<integer>0</integer>
 			</array>
 			<key>property</key>
 			<string>color</string>
@@ -77,6 +77,8 @@
 			<string>max</string>
 		</dict>
 	</array>
+	<key>blend</key>
+	<false/>
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
@@ -97,7 +99,5 @@
 	<real>0.05</real>
 	<key>sprite</key>
 	<string>bullet.png</string>
-	<key>blend</key>
-	<true/>
 </dict>
 </plist>

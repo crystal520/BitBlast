@@ -50,10 +50,10 @@
 }
 
 - (void) dealloc {
-	[super dealloc];
 	[sprite release];
 	[angles release];
 	[behaviors release];
+	[super dealloc];
 }
 
 #pragma mark -

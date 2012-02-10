@@ -35,14 +35,23 @@
 		[shots addObject:shot];
 		[shot release];
 	}
+	// create lasers from dictionary
+	lasers = [NSMutableArray new];
+	NSArray *dictLasers = [NSArray arrayWithArray:[dict objectForKey:@"lasers"]];
+	for(NSString *plist in dictLasers) {
+		BBLaser *laser = [[BBLaser alloc] initWithFile:plist];
+		[lasers addObject:laser];
+		[laser release];
+	}
 	
 	// load image from dictionary
 	//sprite = [CCSprite spriteWithFile:[dict objectForKey:@"sprite"]];
 }
 
 - (void) dealloc {
-	[super dealloc];
 	[shots release];
+	[lasers release];
+	[super dealloc];
 }
 
 #pragma mark - 
@@ -70,12 +79,20 @@
 	for(BBShot *s in shots) {
 		[s setAngle:newShotAngle];
 	}
+	// loop through lasers and update angle
+	for(BBLaser *l in lasers) {
+		[l setAngle:newShotAngle];
+	}
 }
 
 - (void) setEnabled:(BOOL)newEnabled {
 	// loop through shots and update their enabled flags
 	for(BBShot *s in shots) {
 		[s setEnabled:newEnabled];
+	}
+	// loop through lasers and update their enabled flags
+	for(BBLaser *l in lasers) {
+		[l setEnabled:newEnabled];
 	}
 }
 
@@ -91,14 +108,22 @@
 	for(BBShot *s in shots) {
 		[s setPosition:ccpAdd(newPosition, currentOffset)];
 	}
+	// loop through lasers and update their postions
+	for(BBLaser *l in lasers) {
+		[l setPosition:ccpAdd(newPosition, currentOffset)];
+	}
 }
 
 #pragma mark - 
 #pragma mark update
 - (void) update:(float)delta {
 	// update each shot
-	for(BBShot *shot in shots) {
-		[shot update:delta];
+	for(BBShot *s in shots) {
+		[s update:delta];
+	}
+	// update each laser
+	for(BBLaser *l in lasers) {
+		[l update:delta];
 	}
 }
 

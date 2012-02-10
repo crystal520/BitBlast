@@ -11,7 +11,7 @@
 
 @implementation BBBullet
 
-@synthesize recycle;
+@synthesize recycle, lifeTimer;
 
 - (id) init {
 	if((self = [super init])) {

@@ -5,9 +5,10 @@
 	<key>downAngle</key>
 	<integer>-30</integer>
 	<key>shots</key>
+	<array/>
+	<key>lasers</key>
 	<array>
-		<string>testShot2</string>
-		<string>testShot3</string>
+		<string>testLaser</string>
 	</array>
 	<key>sprite</key>
 	<string></string>

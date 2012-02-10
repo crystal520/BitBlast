@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BBShot.h"
+#import "BBLaser.h"
 
 @interface BBWeapon : NSObject {
 	// array of shots this weapon fires
 	NSMutableArray *shots;
+	// array of lasers this weapon has
+	NSMutableArray *lasers;
 	// offsets for different torso states
 	CGPoint currentOffset, torsoOffset, torsoOffsetUp, torsoOffsetDown;
 	// angles for firing up, down, and straight
