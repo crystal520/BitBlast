@@ -246,6 +246,20 @@
 		0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419331496FFFE00342D8E /* BBSpriteFactory.m */; };
 		0AE7A03914B54A2500BC5C73 /* ParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7A03814B54A2500BC5C73 /* ParallaxNode.m */; };
 		0AE7A03E14B54F4400BC5C73 /* skyParallax.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7A03A14B54F4300BC5C73 /* skyParallax.png */; };
+		3428FF2814E639D700184E31 /* pistol_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF2714E639D700184E31 /* pistol_bullet.plist */; };
+		3428FF2A14E639F500184E31 /* pistol.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF2914E639F500184E31 /* pistol.plist */; };
+		3428FF2C14E63CD500184E31 /* machinegun_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF2B14E63CD400184E31 /* machinegun_bullet.plist */; };
+		3428FF2E14E63CDD00184E31 /* machinegun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF2D14E63CDD00184E31 /* machinegun.plist */; };
+		3428FF3014E643DC00184E31 /* gattlingunbullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF2F14E643DB00184E31 /* gattlingunbullet.png */; };
+		3428FF3314E6440400184E31 /* gatlingun_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3114E6440200184E31 /* gatlingun_bullet.plist */; };
+		3428FF3414E6440400184E31 /* gattlingun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3214E6440300184E31 /* gattlingun.plist */; };
+		3428FF3714E645DB00184E31 /* shotgun_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3514E645D900184E31 /* shotgun_bullet.plist */; };
+		3428FF3814E645DB00184E31 /* shotgun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3614E645DA00184E31 /* shotgun.plist */; };
+		3428FF3B14E648BF00184E31 /* spreadgun_bullet1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3914E648BE00184E31 /* spreadgun_bullet1.plist */; };
+		3428FF3C14E648BF00184E31 /* spreadgun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3A14E648BE00184E31 /* spreadgun.plist */; };
+		3428FF3E14E64EC200184E31 /* bluewave.png in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3D14E64EC200184E31 /* bluewave.png */; };
+		3428FF4114E64EE000184E31 /* bluewave_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF3F14E64EDE00184E31 /* bluewave_bullet.plist */; };
+		3428FF4214E64EE000184E31 /* bluewave.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF4014E64EDF00184E31 /* bluewave.plist */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -704,6 +718,20 @@
 		0AE7A03714B54A2500BC5C73 /* ParallaxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxNode.h; sourceTree = "<group>"; };
 		0AE7A03814B54A2500BC5C73 /* ParallaxNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParallaxNode.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0AE7A03A14B54F4300BC5C73 /* skyParallax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skyParallax.png; path = Resources/skyParallax.png; sourceTree = "<group>"; };
+		3428FF2714E639D700184E31 /* pistol_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pistol_bullet.plist; sourceTree = "<group>"; };
+		3428FF2914E639F500184E31 /* pistol.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pistol.plist; sourceTree = "<group>"; };
+		3428FF2B14E63CD400184E31 /* machinegun_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = machinegun_bullet.plist; sourceTree = "<group>"; };
+		3428FF2D14E63CDD00184E31 /* machinegun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = machinegun.plist; sourceTree = "<group>"; };
+		3428FF2F14E643DB00184E31 /* gattlingunbullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gattlingunbullet.png; path = Resources/gattlingunbullet.png; sourceTree = "<group>"; };
+		3428FF3114E6440200184E31 /* gatlingun_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gatlingun_bullet.plist; sourceTree = "<group>"; };
+		3428FF3214E6440300184E31 /* gattlingun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gattlingun.plist; sourceTree = "<group>"; };
+		3428FF3514E645D900184E31 /* shotgun_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shotgun_bullet.plist; sourceTree = "<group>"; };
+		3428FF3614E645DA00184E31 /* shotgun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shotgun.plist; sourceTree = "<group>"; };
+		3428FF3914E648BE00184E31 /* spreadgun_bullet1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = spreadgun_bullet1.plist; sourceTree = "<group>"; };
+		3428FF3A14E648BE00184E31 /* spreadgun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = spreadgun.plist; sourceTree = "<group>"; };
+		3428FF3D14E64EC200184E31 /* bluewave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluewave.png; path = Resources/bluewave.png; sourceTree = "<group>"; };
+		3428FF3F14E64EDE00184E31 /* bluewave_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave_bullet.plist; sourceTree = "<group>"; };
+		3428FF4014E64EDF00184E31 /* bluewave.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave.plist; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -828,6 +856,18 @@
 		0A1EC4AD14A02EFD005A7ED6 /* Guns */ = {
 			isa = PBXGroup;
 			children = (
+				3428FF2714E639D700184E31 /* pistol_bullet.plist */,
+				3428FF2914E639F500184E31 /* pistol.plist */,
+				3428FF2B14E63CD400184E31 /* machinegun_bullet.plist */,
+				3428FF2D14E63CDD00184E31 /* machinegun.plist */,
+				3428FF3114E6440200184E31 /* gatlingun_bullet.plist */,
+				3428FF3214E6440300184E31 /* gattlingun.plist */,
+				3428FF3514E645D900184E31 /* shotgun_bullet.plist */,
+				3428FF3614E645DA00184E31 /* shotgun.plist */,
+				3428FF3914E648BE00184E31 /* spreadgun_bullet1.plist */,
+				3428FF3A14E648BE00184E31 /* spreadgun.plist */,
+				3428FF3F14E64EDE00184E31 /* bluewave_bullet.plist */,
+				3428FF4014E64EDF00184E31 /* bluewave.plist */,
 				0A0366DB14E4B68100313CCC /* testLaser.plist */,
 				0A204EB114DF331500171F71 /* flame.png */,
 				0A204EAF14DF31B600171F71 /* flameShot.plist */,
@@ -835,6 +875,8 @@
 				0A204EA614DF212300171F71 /* testShot3.plist */,
 				0A204EA714DF212300171F71 /* testShot2.plist */,
 				0A204EA814DF212400171F71 /* testWeapon2.plist */,
+				3428FF3D14E64EC200184E31 /* bluewave.png */,
+				3428FF2F14E643DB00184E31 /* gattlingunbullet.png */,
 				0AB8BC4C14B8D4F00045491C /* bullet.png */,
 				3B6F267314D67A0300DEDB75 /* laserbeam.png */,
 				3B6F267E14D67B2F00DEDB75 /* ultralaser.png */,
@@ -1685,6 +1727,20 @@
 				0A204EB014DF31B600171F71 /* flameShot.plist in Resources */,
 				0A204EB214DF331600171F71 /* flame.png in Resources */,
 				0A0366DC14E4B68200313CCC /* testLaser.plist in Resources */,
+				3428FF2814E639D700184E31 /* pistol_bullet.plist in Resources */,
+				3428FF2A14E639F500184E31 /* pistol.plist in Resources */,
+				3428FF2C14E63CD500184E31 /* machinegun_bullet.plist in Resources */,
+				3428FF2E14E63CDD00184E31 /* machinegun.plist in Resources */,
+				3428FF3014E643DC00184E31 /* gattlingunbullet.png in Resources */,
+				3428FF3314E6440400184E31 /* gatlingun_bullet.plist in Resources */,
+				3428FF3414E6440400184E31 /* gattlingun.plist in Resources */,
+				3428FF3714E645DB00184E31 /* shotgun_bullet.plist in Resources */,
+				3428FF3814E645DB00184E31 /* shotgun.plist in Resources */,
+				3428FF3B14E648BF00184E31 /* spreadgun_bullet1.plist in Resources */,
+				3428FF3C14E648BF00184E31 /* spreadgun.plist in Resources */,
+				3428FF3E14E64EC200184E31 /* bluewave.png in Resources */,
+				3428FF4114E64EE000184E31 /* bluewave_bullet.plist in Resources */,
+				3428FF4214E64EE000184E31 /* bluewave.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
