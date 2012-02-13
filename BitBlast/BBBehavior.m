@@ -135,7 +135,7 @@
 		// get actual min and max
 		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]);
 		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]);
-		if([start isEqualToString:@"max"]) {
+		if([start isEqualToString:@"min"]) {
 			// modify angle since it's the y axis
 			angle = 90+angle;
 			// offset position of node by minValue
@@ -164,7 +164,7 @@
 		// get actual min and max
 		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]);
 		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]);
-		if([start isEqualToString:@"max"]) {
+		if([start isEqualToString:@"min"]) {
 			// offset position of node by minValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// calculate amount to move by
@@ -189,7 +189,7 @@
 		// get actual min and max
 		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]);
 		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]);
-		if([start isEqualToString:@"max"]) {
+		if([start isEqualToString:@"min"]) {
 			return [CCActionTween actionWithDuration:speed * timeMult key:property from:min to:max];
 		}
 		else {
@@ -200,7 +200,7 @@
 		// get actual min and max
 		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]) * 255.0f;
 		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]) * 255.0f;
-		if([start isEqualToString:@"max"]) {
+		if([start isEqualToString:@"min"]) {
 			// set opacity to minValue
 			[(CCSprite*)(node) setOpacity:min];
 			// return fade action
@@ -217,7 +217,7 @@
 		// get actual min and max
 		ccColor3B min = ccc3(CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:1] floatValue], [[minHighValue objectAtIndex:1] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:2] floatValue], [[minHighValue objectAtIndex:2] floatValue]) * 255.0f);
 		ccColor3B max = ccc3(CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:1] floatValue], [[maxHighValue objectAtIndex:1] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:2] floatValue], [[maxHighValue objectAtIndex:2] floatValue]) * 255.0f);
-		if([start isEqualToString:@"max"]) {
+		if([start isEqualToString:@"min"]) {
 			// set color to minValue
 			[(CCSprite*)(node) setColor:min];
 			// return tint action
