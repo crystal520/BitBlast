@@ -1726,9 +1726,7 @@
 				0A204EB014DF31B600171F71 /* flameShot.plist in Resources */,
 				0A204EB214DF331600171F71 /* flame.png in Resources */,
 				0A0366DC14E4B68200313CCC /* testLaser.plist in Resources */,
-<<<<<<< HEAD
 				0A0366E714E4CC5F00313CCC /* testEnemy.plist in Resources */,
-=======
 				3428FF2814E639D700184E31 /* pistol_bullet.plist in Resources */,
 				3428FF2A14E639F500184E31 /* pistol.plist in Resources */,
 				3428FF2C14E63CD500184E31 /* machinegun_bullet.plist in Resources */,
@@ -1743,7 +1741,6 @@
 				3428FF3E14E64EC200184E31 /* bluewave.png in Resources */,
 				3428FF4114E64EE000184E31 /* bluewave_bullet.plist in Resources */,
 				3428FF4214E64EE000184E31 /* bluewave.plist in Resources */,
->>>>>>> 7c5cccf31c6f95fb38f04ac3e7c5b7e42d60f83d
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

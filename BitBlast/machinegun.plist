@@ -2,17 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>downAngle</key>
+	<integer>-30</integer>
 	<key>shots</key>
 	<array>
 		<string>machinegun_bullet</string>
 	</array>
 	<key>sprite</key>
 	<string></string>
-	<key>upAngle</key>
-	<integer>0</integer>
 	<key>straightAngle</key>
-	<integer>0</integer>
-	<key>downAngle</key>
 	<integer>0</integer>
 	<key>torsoDownOffset</key>
 	<dict>
@@ -35,5 +33,7 @@
 		<key>y</key>
 		<integer>-2</integer>
 	</dict>
+	<key>upAngle</key>
+	<integer>40</integer>
 </dict>
 </plist>

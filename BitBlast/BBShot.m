@@ -125,6 +125,8 @@
 			if(blend) {
 				[bullet.sprite setBlendFunc:(ccBlendFunc){GL_SRC_ALPHA, GL_ONE}];
 			}
+			// set rotation of bullet to current angle
+			bullet.rotation = -fireAngle;
 		}
 	}
 }
