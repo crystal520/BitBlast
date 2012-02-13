@@ -71,7 +71,7 @@
 	weapons = [NSMutableArray new];
 	// create and add default weapon
 	BBWeapon *w = [BBWeapon new];
-	[w loadFromFile:@"testWeapon"];
+	[w loadFromFile:@"bluewave"];
 	[w setEnabled:YES];
 	[weapons addObject:w];
 	[w release];
