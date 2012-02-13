@@ -24,8 +24,8 @@
 	straightAngle = [[dict objectForKey:@"straightAngle"] floatValue];
 	upAngle = [[dict objectForKey:@"upAngle"] floatValue];
 	downAngle = [[dict objectForKey:@"downAngle"] floatValue];
-	// set default offset
-	currentOffset = torsoOffset;
+	// set default angle
+	[self setAngle:0];
 	
 	// create shots from dictionary
 	shots = [NSMutableArray new];
@@ -59,13 +59,13 @@
 - (void) setAngle:(float)newAngle {
 	// set current offset based on newAngle
 	if(newAngle == 0) {
-		currentOffset = torsoOffset;
+		currentOffset = ccpMult(torsoOffset, [ResolutionManager sharedSingleton].positionScale);
 	}
 	else if(newAngle > 0) {
-		currentOffset = torsoOffsetUp;
+		currentOffset = ccpMult(torsoOffsetUp, [ResolutionManager sharedSingleton].positionScale);
 	}
 	else {
-		currentOffset = torsoOffsetDown;
+		currentOffset = ccpMult(torsoOffsetDown, [ResolutionManager sharedSingleton].positionScale);
 	}
 	// set new shot angle based on newAngle
 	float newShotAngle = straightAngle;

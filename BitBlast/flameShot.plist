@@ -9,34 +9,24 @@
 	<key>behaviors</key>
 	<array>
 		<dict>
+			<key>maxRange</key>
+			<dict>
+				<key>high</key>
+				<string>1, 0.27, 0</string>
+				<key>low</key>
+				<string>1, 0, 0</string>
+			</dict>
+			<key>minRange</key>
+			<dict>
+				<key>high</key>
+				<string>1, 1, 0</string>
+				<key>low</key>
+				<string>1, 0.84, 0</string>
+			</dict>
 			<key>curve</key>
 			<string>ease</string>
 			<key>loop</key>
 			<false/>
-			<key>maxMaxValue</key>
-			<array>
-				<integer>1</integer>
-				<real>0.27</real>
-				<integer>0</integer>
-			</array>
-			<key>maxMinValue</key>
-			<array>
-				<integer>1</integer>
-				<integer>1</integer>
-				<integer>0</integer>
-			</array>
-			<key>minMaxValue</key>
-			<array>
-				<integer>1</integer>
-				<integer>0</integer>
-				<integer>0</integer>
-			</array>
-			<key>minMinValue</key>
-			<array>
-				<integer>1</integer>
-				<real>0.84</real>
-				<integer>0</integer>
-			</array>
 			<key>property</key>
 			<string>color</string>
 			<key>repeat</key>
@@ -47,26 +37,24 @@
 			<string>max</string>
 		</dict>
 		<dict>
+			<key>maxRange</key>
+			<dict>
+				<key>high</key>
+				<string>50</string>
+				<key>low</key>
+				<string>40</string>
+			</dict>
+			<key>minRange</key>
+			<dict>
+				<key>high</key>
+				<string>0</string>
+				<key>low</key>
+				<string>0</string>
+			</dict>
 			<key>curve</key>
 			<string>easeInExpo</string>
 			<key>loop</key>
 			<false/>
-			<key>maxMinValue</key>
-			<array>
-				<integer>0</integer>
-			</array>
-			<key>maxMaxValue</key>
-			<array>
-				<integer>50</integer>
-			</array>
-			<key>minMaxValue</key>
-			<array>
-				<integer>40</integer>
-			</array>
-			<key>minMinValue</key>
-			<array>
-				<integer>0</integer>
-			</array>
 			<key>property</key>
 			<string>y</string>
 			<key>repeat</key>
@@ -81,22 +69,20 @@
 			<string>easeInExpo</string>
 			<key>loop</key>
 			<false/>
-			<key>maxMinValue</key>
-			<array>
-				<integer>1</integer>
-			</array>
-			<key>maxMaxValue</key>
-			<array>
-				<integer>0</integer>
-			</array>
-			<key>minMaxValue</key>
-			<array>
-				<integer>0</integer>
-			</array>
-			<key>minMinValue</key>
-			<array>
-				<integer>1</integer>
-			</array>
+			<key>maxRange</key>
+			<dict>
+				<key>high</key>
+				<string>0</string>
+				<key>low</key>
+				<string>0</string>
+			</dict>
+			<key>minRange</key>
+			<dict>
+				<key>high</key>
+				<string>1</string>
+				<key>low</key>
+				<string>1</string>
+			</dict>
 			<key>property</key>
 			<string>alpha</string>
 			<key>repeat</key>
@@ -107,6 +93,8 @@
 			<string>max</string>
 		</dict>
 	</array>
+	<key>blend</key>
+	<true/>
 	<key>maxAngleOffset</key>
 	<integer>10</integer>
 	<key>maxLifetime</key>
@@ -127,7 +115,5 @@
 	<real>0.1</real>
 	<key>sprite</key>
 	<string>flame.png</string>
-	<key>blend</key>
-	<true/>
 </dict>
 </plist>

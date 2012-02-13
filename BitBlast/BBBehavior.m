@@ -18,10 +18,10 @@
 		curve = [[[dict objectForKey:@"curve"] lowercaseString] retain];
 		speed = [[dict objectForKey:@"speed"] floatValue];
 		property = [[dict objectForKey:@"property"] retain];
-		minMaxValue = [[NSArray alloc] initWithArray:[dict objectForKey:@"minMaxValue"]];
-		maxMaxValue = [[NSArray alloc] initWithArray:[dict objectForKey:@"maxMaxValue"]];
-		minMinValue = [[NSArray alloc] initWithArray:[dict objectForKey:@"minMinValue"]];
-		maxMinValue = [[NSArray alloc] initWithArray:[dict objectForKey:@"maxMinValue"]];
+		minHighValue = [[NSArray alloc] initWithArray:[[[dict objectForKey:@"minRange"] objectForKey:@"high"] componentsSeparatedByString:@", "]];
+		minLowValue = [[NSArray alloc] initWithArray:[[[dict objectForKey:@"minRange"] objectForKey:@"low"] componentsSeparatedByString:@", "]];
+		maxHighValue = [[NSArray alloc] initWithArray:[[[dict objectForKey:@"maxRange"] objectForKey:@"high"] componentsSeparatedByString:@", "]];
+		maxLowValue = [[NSArray alloc] initWithArray:[[[dict objectForKey:@"maxRange"] objectForKey:@"low"] componentsSeparatedByString:@", "]];
 		start = [[[dict objectForKey:@"start"] lowercaseString] retain];
 		loop = [[dict objectForKey:@"loop"] boolValue];
 		repeat = [[dict objectForKey:@"repeat"] boolValue];
@@ -31,10 +31,10 @@
 }
 
 - (void) dealloc {
-	[minMaxValue release];
-	[maxMaxValue release];
-	[minMinValue release];
-	[maxMinValue release];
+	[minHighValue release];
+	[minLowValue release];
+	[maxHighValue release];
+	[maxLowValue release];
 	[curve release];
 	[property release];
 	[start release];
@@ -133,15 +133,15 @@
 	
 	if([property isEqualToString:@"y"]) {
 		// get actual min and max
-		float min = CCRANDOM_MIN_MAX([[minMinValue objectAtIndex:0] floatValue], [[maxMinValue objectAtIndex:0] floatValue]);
-		float max = CCRANDOM_MIN_MAX([[minMaxValue objectAtIndex:0] floatValue], [[maxMaxValue objectAtIndex:0] floatValue]);
+		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]);
+		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]);
 		if([start isEqualToString:@"max"]) {
 			// modify angle since it's the y axis
 			angle = 90+angle;
 			// offset position of node by minValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// calculate amount to move by
-			float moveBy = max + (-min);
+			float moveBy = (max + (-min)) * [ResolutionManager sharedSingleton].positionScale;
 			// create up action
 			CCMoveBy *upAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return upAction
@@ -153,7 +153,7 @@
 			// offset position of node by maxValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
 			// calculate amount to move by
-			float moveBy = min + (-max);
+			float moveBy = (min + (-max)) * [ResolutionManager sharedSingleton].positionScale;
 			// create down action
 			CCMoveBy *downAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return downAction
@@ -162,13 +162,13 @@
 	}
 	else if([property isEqualToString:@"x"]) {
 		// get actual min and max
-		float min = CCRANDOM_MIN_MAX([[minMinValue objectAtIndex:0] floatValue], [[maxMinValue objectAtIndex:0] floatValue]);
-		float max = CCRANDOM_MIN_MAX([[minMaxValue objectAtIndex:0] floatValue], [[maxMaxValue objectAtIndex:0] floatValue]);
+		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]);
+		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]);
 		if([start isEqualToString:@"max"]) {
 			// offset position of node by minValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// calculate amount to move by
-			float moveBy = max + (-min);
+			float moveBy = (max + (-min)) * [ResolutionManager sharedSingleton].positionScale;
 			// create right action
 			CCMoveBy *rightAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return rightAction
@@ -178,7 +178,7 @@
 			// offset position of node by maxValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
 			// calculate amount to move by
-			float moveBy = min + (-max);
+			float moveBy = (min + (-max)) * [ResolutionManager sharedSingleton].positionScale;
 			// create left action
 			CCMoveBy *leftAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return leftAction
@@ -187,8 +187,8 @@
 	}
 	else if([property isEqualToString:@"scale"] || [property isEqualToString:@"rotation"] || [property isEqualToString:@"skewX"] || [property isEqualToString:@"skewY"] || [property isEqualToString:@"scaleX"] || [property isEqualToString:@"scaleY"]) {
 		// get actual min and max
-		float min = CCRANDOM_MIN_MAX([[minMinValue objectAtIndex:0] floatValue], [[maxMinValue objectAtIndex:0] floatValue]);
-		float max = CCRANDOM_MIN_MAX([[minMaxValue objectAtIndex:0] floatValue], [[maxMaxValue objectAtIndex:0] floatValue]);
+		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]);
+		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]);
 		if([start isEqualToString:@"max"]) {
 			return [CCActionTween actionWithDuration:speed * timeMult key:property from:min to:max];
 		}
@@ -198,8 +198,8 @@
 	}
 	else if([property isEqualToString:@"alpha"]) {
 		// get actual min and max
-		float min = CCRANDOM_MIN_MAX([[minMinValue objectAtIndex:0] floatValue], [[maxMinValue objectAtIndex:0] floatValue]) * 255.0f;
-		float max = CCRANDOM_MIN_MAX([[minMaxValue objectAtIndex:0] floatValue], [[maxMaxValue objectAtIndex:0] floatValue]) * 255.0f;
+		float min = CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]) * 255.0f;
+		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]) * 255.0f;
 		if([start isEqualToString:@"max"]) {
 			// set opacity to minValue
 			[(CCSprite*)(node) setOpacity:min];
@@ -215,8 +215,8 @@
 	}
 	else if([property isEqualToString:@"color"]) {
 		// get actual min and max
-		ccColor3B min = ccc3(CCRANDOM_MIN_MAX([[minMinValue objectAtIndex:0] floatValue], [[maxMinValue objectAtIndex:0] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minMinValue objectAtIndex:1] floatValue], [[maxMinValue objectAtIndex:1] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minMinValue objectAtIndex:2] floatValue], [[maxMinValue objectAtIndex:2] floatValue]) * 255.0f);
-		ccColor3B max = ccc3(CCRANDOM_MIN_MAX([[minMaxValue objectAtIndex:0] floatValue], [[maxMaxValue objectAtIndex:0] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minMaxValue objectAtIndex:1] floatValue], [[maxMaxValue objectAtIndex:1] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minMaxValue objectAtIndex:2] floatValue], [[maxMaxValue objectAtIndex:2] floatValue]) * 255.0f);
+		ccColor3B min = ccc3(CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:0] floatValue], [[minHighValue objectAtIndex:0] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:1] floatValue], [[minHighValue objectAtIndex:1] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[minLowValue objectAtIndex:2] floatValue], [[minHighValue objectAtIndex:2] floatValue]) * 255.0f);
+		ccColor3B max = ccc3(CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:1] floatValue], [[maxHighValue objectAtIndex:1] floatValue]) * 255.0f, CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:2] floatValue], [[maxHighValue objectAtIndex:2] floatValue]) * 255.0f);
 		if([start isEqualToString:@"max"]) {
 			// set color to minValue
 			[(CCSprite*)(node) setColor:min];

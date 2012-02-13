@@ -11,4 +11,6 @@
 
 @implementation BBEnemy
 
+@synthesize recycle;
+
 @end

@@ -17,9 +17,9 @@
 	// property of an object to modify
 	NSString *property;
 	// max range the property can go to
-	NSArray *minMaxValue, *maxMaxValue;
+	NSArray *maxHighValue, *maxLowValue;
 	// min range the property can go to
-	NSArray *minMinValue, *maxMinValue;
+	NSArray *minHighValue, *minLowValue;
 	// which value the behavior should change to first
 	NSString *start;
 	// whether the behavior should loop

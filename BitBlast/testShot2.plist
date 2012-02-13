@@ -9,26 +9,24 @@
 	<key>behaviors</key>
 	<array>
 		<dict>
+			<key>minRange</key>
+			<dict>
+				<key>high</key>
+				<string>-30</string>
+				<key>low</key>
+				<string>-30</string>
+			</dict>
+			<key>maxRange</key>
+			<dict>
+				<key>high</key>
+				<string>30</string>
+				<key>low</key>
+				<string>30</string>
+			</dict>
 			<key>curve</key>
 			<string>easeInOutSine</string>
 			<key>loop</key>
 			<true/>
-			<key>maxMaxValue</key>
-			<array>
-				<integer>30</integer>
-			</array>
-			<key>maxMinValue</key>
-			<array>
-				<integer>-30</integer>
-			</array>
-			<key>minMaxValue</key>
-			<array>
-				<integer>30</integer>
-			</array>
-			<key>minMinValue</key>
-			<array>
-				<integer>-30</integer>
-			</array>
 			<key>property</key>
 			<string>y</string>
 			<key>repeat</key>
@@ -39,34 +37,24 @@
 			<string>min</string>
 		</dict>
 		<dict>
+			<key>maxRange</key>
+			<dict>
+				<key>high</key>
+				<string>1, 1, 1</string>
+				<key>low</key>
+				<string>1, 1, 1</string>
+			</dict>
+			<key>minRange</key>
+			<dict>
+				<key>high</key>
+				<string>0, 0, 0</string>
+				<key>low</key>
+				<string>0, 0, 0</string>
+			</dict>
 			<key>curve</key>
 			<string>ease</string>
 			<key>loop</key>
 			<true/>
-			<key>maxMaxValue</key>
-			<array>
-				<integer>1</integer>
-				<integer>1</integer>
-				<integer>1</integer>
-			</array>
-			<key>maxMinValue</key>
-			<array>
-				<integer>1</integer>
-				<integer>1</integer>
-				<integer>1</integer>
-			</array>
-			<key>minMaxValue</key>
-			<array>
-				<integer>0</integer>
-				<integer>0</integer>
-				<integer>0</integer>
-			</array>
-			<key>minMinValue</key>
-			<array>
-				<integer>0</integer>
-				<integer>0</integer>
-				<integer>0</integer>
-			</array>
 			<key>property</key>
 			<string>color</string>
 			<key>repeat</key>

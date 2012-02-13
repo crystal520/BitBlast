@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animations</key>
+	<array>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>monster1_1.png</string>
+				<string>monster1_2.png</string>
+				<string>monster1_3.png</string>
+				<string>monster1_4.png</string>
+			</array>
+			<key>name</key>
+			<string>walk</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+	</array>
+	<key>image</key>
+	<string>uiatlas.png</string>
+	<key>plist</key>
+	<string>uiatlas.plist</string>
+</dict>
+</plist>

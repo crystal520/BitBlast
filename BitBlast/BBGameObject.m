@@ -25,10 +25,15 @@
 }
 
 - (void) dealloc {
-	
-	[super dealloc];
-	
 	[dictionary release];
+	[super dealloc];
+}
+
+- (void) loadFromFile:(NSString*)filename {
+	if(dictionary) {
+		[dictionary release];
+	}
+	dictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
 }
 
 #pragma mark -
