@@ -230,6 +230,8 @@
 			return [CCTintBy actionWithDuration:speed * timeMult red:(min.r - max.r) green:(min.g - max.g) blue:(min.b - max.b)];
 		}
 	}
+	
+	return nil;
 }
 
 - (void) finishAction:(CCActionInterval*)action {

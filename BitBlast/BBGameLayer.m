@@ -48,6 +48,8 @@
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
+		[[EnemyManager sharedSingleton] chunkAdded];
+		[[EnemyManager sharedSingleton] chunkAdded];
 		
 		// create player
 		player = [[BBPlayer alloc] init];
@@ -141,6 +143,7 @@
 		[[ChunkManager sharedSingleton] update:delta];
 		[player update:delta];
 		[[BulletManager sharedSingleton] update:delta];
+		[[EnemyManager sharedSingleton] update:delta];
 		[self updateCamera];
 		[hud update:delta];
 	}

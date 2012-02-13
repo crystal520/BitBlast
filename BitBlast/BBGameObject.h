@@ -18,7 +18,9 @@
 
 @property (nonatomic, readonly) CCSprite *sprite;
 
+// initializers
 - (id) initWithFile:(NSString*)filename;
+- (void) loadFromFile:(NSString*)filename;
 // animations
 - (void) loadAnimations;
 - (void) repeatAnimation:(NSString*)animName;

@@ -25,6 +25,7 @@
 }
 
 - (void) dealloc {
+	[sprite release];
 	[dictionary release];
 	[super dealloc];
 }
@@ -39,6 +40,10 @@
 #pragma mark -
 #pragma mark animations
 - (void) loadAnimations {
+	// release sprite if it already exists
+	if(sprite) {
+		[sprite release];
+	}
 	// create sprite
 	sprite = [CCSprite new];
 	// get animations from dictionary

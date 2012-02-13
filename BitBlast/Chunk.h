@@ -23,5 +23,7 @@
 @property (nonatomic) float endPosition, startPosition, lowestPosition, dummyStartPosition;
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset;
+// getters
+- (CGPoint) getGroundPositionWithLayer:(NSString*)layerName;
 
 @end

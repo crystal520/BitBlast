@@ -20,19 +20,20 @@
 @property (nonatomic, readonly) NSMutableArray *currentChunks;
 
 + (ChunkManager*) sharedSingleton;
-
+// update
 - (void) update:(float)delta;
-
+// actions
 - (void) resetWithLevel:(NSString*)level;
 - (void) addChunk:(NSString*)chunkName;
 - (void) addChunk:(NSString *)chunkName withOffset:(CGPoint)offset;
 - (void) addRandomChunk;
 - (void) removeChunk;
 - (void) removeChunks;
-
+// getters
 - (Chunk*) getCurrentChunk;
 - (Chunk*) getChunkAtIndex:(int)index;
-
+- (Chunk*) getLastChunk;
+// setup
 - (void) loadChunksForLevel:(NSString*)levelName;
 
 @end

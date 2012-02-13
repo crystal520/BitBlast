@@ -22,5 +22,7 @@
 	<string>uiatlas.png</string>
 	<key>plist</key>
 	<string>uiatlas.plist</string>
+	<key>tileCenterOffset</key>
+	<integer>14</integer>
 </dict>
 </plist>

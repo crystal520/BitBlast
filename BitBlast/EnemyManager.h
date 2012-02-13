@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BBEnemy.h"
+#import "ChunkManager.h"
 
 #define MAX_ENEMIES 20
 
@@ -17,7 +18,11 @@
 }
 
 + (EnemyManager*) sharedSingleton;
-// actions
-- (void) resetEnemyWithPosition:(CGPoint)newPosition withType:(NSString*)enemyType;
+// update
+- (void) update:(float)delta;
+// getters
+- (BBEnemy*) getRecycledEnemy;
+// notifications
+- (void) chunkAdded;
 
 @end

@@ -150,6 +150,10 @@
 	return [currentChunks objectAtIndex:index];
 }
 
+- (Chunk*) getLastChunk {
+	return [currentChunks lastObject];
+}
+
 #pragma mark -
 #pragma mark loading chunks
 - (void) loadChunksForLevel:(NSString*)levelName {

@@ -20,6 +20,7 @@
 #import "BBConfirmBuy.h"
 #import "BBLeaderboards.h"
 #import "BBEquipmentManager.h"
+#import "EnemyManager.h"
 
 typedef enum {
 	kStateMainMenu,
