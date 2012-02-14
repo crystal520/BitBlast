@@ -34,7 +34,7 @@
 			<key>speed</key>
 			<real>0.5</real>
 			<key>start</key>
-			<string>max</string>
+			<string>min</string>
 		</dict>
 		<dict>
 			<key>maxRange</key>
@@ -42,50 +42,50 @@
 				<key>high</key>
 				<string>1, 1, 1</string>
 				<key>low</key>
-				<string>0, 0, 0</string>
+				<string>1, 1, 1</string>
 			</dict>
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>1, 1, 1</string>
+				<string>0, 0, 1</string>
 				<key>low</key>
-				<string>0, 0, 0</string>
+				<string>0, 0, 1</string>
 			</dict>
 			<key>curve</key>
-			<string>ease</string>
+			<string>easeInExpo</string>
 			<key>loop</key>
-			<true/>
+			<false/>
 			<key>property</key>
 			<string>color</string>
 			<key>repeat</key>
-			<true/>
+			<false/>
 			<key>speed</key>
 			<real>0.5</real>
 			<key>start</key>
-			<string>max</string>
+			<string>min</string>
 		</dict>
 	</array>
 	<key>blend</key>
-	<false/>
+	<true/>
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
-	<real>6.5</real>
+	<integer>1</integer>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
-	<integer>500</integer>
+	<integer>200</integer>
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
-	<real>6.5</real>
+	<real>0.75</real>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
-	<integer>500</integer>
+	<integer>200</integer>
 	<key>rateOfFire</key>
-	<real>0.05</real>
+	<real>0.1</real>
 	<key>sprite</key>
-	<string>flamelarge.png</string>
+	<string>flamesmall.png</string>
 </dict>
 </plist>

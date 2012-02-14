@@ -17,12 +17,75 @@
 		<dict>
 			<key>images</key>
 			<array>
-				<string>skyParallax.png</string>
+				<string>sky_far.png</string>
 			</array>
 			<key>imageWidth</key>
-			<integer>852</integer>
+			<integer>960</integer>
 			<key>ratio</key>
-			<real>0.5</real>
+			<real>0.05</real>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>cloud1.png</string>
+				<string>cloud2.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<real>0.25</real>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>backbackrefinery.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<real>0.125</real>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>backforest1.png</string>
+				<string>backforest2.png</string>
+				<string>backforest3.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<real>0.2</real>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>frontforest1.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<real>0.35</real>
+			<key>y</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>backfog.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<real>0.55</real>
 			<key>y</key>
 			<integer>0</integer>
 		</dict>

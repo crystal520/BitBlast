@@ -42,14 +42,14 @@
 				<key>high</key>
 				<string>1, 1, 1</string>
 				<key>low</key>
-				<string>0, 0, 0</string>
+				<string>1, 1, 1</string>
 			</dict>
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
 				<string>1, 1, 1</string>
 				<key>low</key>
-				<string>0, 0, 0</string>
+				<string>1, 1, 1</string>
 			</dict>
 			<key>curve</key>
 			<string>ease</string>
@@ -66,7 +66,7 @@
 		</dict>
 	</array>
 	<key>blend</key>
-	<false/>
+	<true/>
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
@@ -84,8 +84,8 @@
 	<key>minSpeed</key>
 	<integer>500</integer>
 	<key>rateOfFire</key>
-	<real>0.05</real>
+	<real>0.1</real>
 	<key>sprite</key>
-	<string>flamelarge.png</string>
+	<string>flamemedium.png</string>
 </dict>
 </plist>
