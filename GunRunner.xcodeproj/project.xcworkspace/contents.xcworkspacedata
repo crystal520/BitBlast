@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:BitBlast.xcodeproj">
+      location = "self:GunRunner.xcodeproj">
    </FileRef>
 </Workspace>

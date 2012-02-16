@@ -1699,9 +1699,9 @@
 		0AE417291496F5C400342D8E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = Bauerkraut;
+				ORGANIZATIONNAME = "Man Up Time Studios";
 			};
-			buildConfigurationList = 0AE4172C1496F5C400342D8E /* Build configuration list for PBXProject "BitBlast" */;
+			buildConfigurationList = 0AE4172C1496F5C400342D8E /* Build configuration list for PBXProject "GunRunner" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2100,7 +2100,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0AE4172C1496F5C400342D8E /* Build configuration list for PBXProject "BitBlast" */ = {
+		0AE4172C1496F5C400342D8E /* Build configuration list for PBXProject "GunRunner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0AE4191A1496F5C800342D8E /* Debug */,
