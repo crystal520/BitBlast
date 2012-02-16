@@ -49,6 +49,7 @@
 		0A6DD3B314DA409A00D6DB6D /* BBBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3B214DA409900D6DB6D /* BBBehavior.m */; };
 		0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A77285F14ECB93B000CB457 /* testEnemy2.plist */; };
 		0A77299214ECBA1F000CB457 /* BBWalkingEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */; };
+		0A77299414ECC404000CB457 /* thumbnail-page-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A77299314ECC404000CB457 /* thumbnail-page-1.png */; };
 		0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B414BFC15F00066390 /* BBMainMenu.m */; };
 		0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */; };
 		0A7D52BB14C074DF00066390 /* smallButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52B914C074DF00066390 /* smallButton.png */; };
@@ -369,6 +370,7 @@
 		0A77298F14ECB95F000CB457 /* BitBlast copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BitBlast copy-Info.plist"; path = "/Users/kristianbauer/Documents/Projects/BitBlast/BitBlast copy-Info.plist"; sourceTree = "<absolute>"; };
 		0A77299014ECBA1E000CB457 /* BBWalkingEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWalkingEnemy.h; sourceTree = "<group>"; };
 		0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWalkingEnemy.m; sourceTree = "<group>"; };
+		0A77299314ECC404000CB457 /* thumbnail-page-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail-page-1.png"; sourceTree = "<group>"; };
 		0A7D52B314BFC15F00066390 /* BBMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainMenu.h; sourceTree = "<group>"; };
 		0A7D52B414BFC15F00066390 /* BBMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BBMainMenu.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemLabelAndImage.h; sourceTree = "<group>"; };
@@ -429,7 +431,7 @@
 		0AC723A214985F4F000E9412 /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
 		0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cameraProperties.plist; sourceTree = "<group>"; };
 		0AD96B6114A948FA00C9DAE9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		0AE417321496F5C400342D8E /* BitBlast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BitBlast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AE417321496F5C400342D8E /* Gun Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gun Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE417361496F5C400342D8E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0AE417381496F5C400342D8E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0AE4173A1496F5C400342D8E /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1132,6 +1134,7 @@
 		0AE417271496F5C400342D8E = {
 			isa = PBXGroup;
 			children = (
+				0A77299314ECC404000CB457 /* thumbnail-page-1.png */,
 				0AE417461496F5C400342D8E /* BitBlast */,
 				0AE417351496F5C400342D8E /* Frameworks */,
 				0AE417331496F5C400342D8E /* Products */,
@@ -1142,7 +1145,7 @@
 		0AE417331496F5C400342D8E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0AE417321496F5C400342D8E /* BitBlast.app */,
+				0AE417321496F5C400342D8E /* Gun Runner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1708,7 +1711,7 @@
 			);
 			name = BitBlast;
 			productName = BitBlast;
-			productReference = 0AE417321496F5C400342D8E /* BitBlast.app */;
+			productReference = 0AE417321496F5C400342D8E /* Gun Runner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1852,6 +1855,7 @@
 				3428FF8E14E9DFC100184E31 /* cloud1.png in Resources */,
 				3428FF8F14E9DFC100184E31 /* cloud2.png in Resources */,
 				0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */,
+				0A77299414ECC404000CB457 /* thumbnail-page-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2092,7 +2096,7 @@
 				INFOPLIST_FILE = BitBlast/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Gun Runner";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2113,7 +2117,7 @@
 				INFOPLIST_FILE = BitBlast/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Gun Runner";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

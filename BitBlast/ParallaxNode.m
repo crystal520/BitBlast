@@ -40,7 +40,7 @@
 		for(int i=0;i<numImages;i++) {
 			CCSprite *parallaxImage = [CCSprite spriteWithFile:[self getRandomImage]];
 			[parallaxImage.texture setAliasTexParameters];
-			parallaxImage.position = ccp((i + 0.5) * width, 0);
+			parallaxImage.position = ccp((i + 0.5) * width * [ResolutionManager sharedSingleton].positionScale, 0);
 			[self addChild:parallaxImage];
 			[sprites addObject:parallaxImage];
 		}
