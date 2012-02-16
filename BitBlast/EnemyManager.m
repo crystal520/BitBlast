@@ -87,9 +87,16 @@
 	// things to check: equipment, weapon, speed, distance
 	// using parameters, generate enemies
 	// for now, for testing, just place the enemy at the first block encountered
-	BBEnemy *newEnemy = [self getRecycledEnemy];
-	[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy"];
-	[newChunk addChild:newEnemy z:newChunk.playerZ];
+	for(int i=0;i<2;i++) {
+		BBEnemy *newEnemy = [self getRecycledEnemy];
+		if(i == 0) {
+			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy"];
+		}
+		else {
+			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy2"];
+		}
+		[newChunk addChild:newEnemy z:newChunk.playerZ];
+	}
 }
 
 @end

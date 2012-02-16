@@ -34,10 +34,13 @@
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
 	if(newEnabled && !enabled) {
-		velocity = ccp(-200, 0);
+		velocity = ccp(-100, 0);
 	}
 	else if(!newEnabled && enabled) {
-		
+		/*recycle = YES;
+		self.visible = NO;
+		[self removeChild:spriteBatch cleanup:YES];
+		[self.parent removeChild:self cleanup:YES];*/
 	}
 	enabled = newEnabled;
 }
@@ -50,8 +53,11 @@
 	
 	// see if enemy is on screen
 	CGPoint enemyScreenPosition = [self convertToWorldSpace:CGPointZero];
-	if(enemyScreenPosition.x - self.sprite.contentSize.width * 0.5 < [CCDirector sharedDirector].winSize.width && !enabled) {
+	if(enemyScreenPosition.x - self.sprite.contentSize.width * 0.5 * [ResolutionManager sharedSingleton].imageScale < [CCDirector sharedDirector].winSize.width && !enabled) {
 		[self setEnabled:YES];
+	}
+	else if(enemyScreenPosition.x + self.sprite.contentSize.width * 0.5 * [ResolutionManager sharedSingleton].imageScale < 0 && enabled) {
+		[self setEnabled:NO];
 	}
 	
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
