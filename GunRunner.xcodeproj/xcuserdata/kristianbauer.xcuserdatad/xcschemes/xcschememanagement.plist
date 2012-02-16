@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BitBlast.xcscheme</key>
+		<key>BitBlast copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Gun Runner.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0A77286114ECB95E000CB457</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0AE417311496F5C400342D8E</key>
 		<dict>
 			<key>primary</key>

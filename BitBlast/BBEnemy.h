@@ -16,6 +16,8 @@
 	float health;
 	// whether or not the enemy can be recycled
 	BOOL recycle;
+	// whether or not the enemy is enabled
+	BOOL enabled;
 	// velocity of the enemy
 	CGPoint velocity;
 	// y offset from tile enemy is currently on
@@ -29,6 +31,8 @@
 @property (nonatomic, assign) BOOL recycle;
 @property (nonatomic, assign) float tileOffset;
 
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 // update
 - (void) update:(float)delta;
 // actions

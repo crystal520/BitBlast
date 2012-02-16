@@ -47,6 +47,8 @@
 		0A6DD3AD14D8F41200D6DB6D /* testWeapon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */; };
 		0A6DD3B014D8FE8A00D6DB6D /* BBShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */; };
 		0A6DD3B314DA409A00D6DB6D /* BBBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3B214DA409900D6DB6D /* BBBehavior.m */; };
+		0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A77285F14ECB93B000CB457 /* testEnemy2.plist */; };
+		0A77299214ECBA1F000CB457 /* BBWalkingEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */; };
 		0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B414BFC15F00066390 /* BBMainMenu.m */; };
 		0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */; };
 		0A7D52BB14C074DF00066390 /* smallButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52B914C074DF00066390 /* smallButton.png */; };
@@ -363,6 +365,10 @@
 		0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShot.m; sourceTree = "<group>"; };
 		0A6DD3B114DA409900D6DB6D /* BBBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBehavior.h; sourceTree = "<group>"; };
 		0A6DD3B214DA409900D6DB6D /* BBBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBehavior.m; sourceTree = "<group>"; };
+		0A77285F14ECB93B000CB457 /* testEnemy2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy2.plist; sourceTree = "<group>"; };
+		0A77298F14ECB95F000CB457 /* BitBlast copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BitBlast copy-Info.plist"; path = "/Users/kristianbauer/Documents/Projects/BitBlast/BitBlast copy-Info.plist"; sourceTree = "<absolute>"; };
+		0A77299014ECBA1E000CB457 /* BBWalkingEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWalkingEnemy.h; sourceTree = "<group>"; };
+		0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWalkingEnemy.m; sourceTree = "<group>"; };
 		0A7D52B314BFC15F00066390 /* BBMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainMenu.h; sourceTree = "<group>"; };
 		0A7D52B414BFC15F00066390 /* BBMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BBMainMenu.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemLabelAndImage.h; sourceTree = "<group>"; };
@@ -822,6 +828,8 @@
 				0A0366DF14E4C55900313CCC /* EnemyManager.m */,
 				0A0366E214E4C78800313CCC /* BBEnemy.h */,
 				0A0366E314E4C78800313CCC /* BBEnemy.m */,
+				0A77299014ECBA1E000CB457 /* BBWalkingEnemy.h */,
+				0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -829,6 +837,7 @@
 		0A0366E514E4C99400313CCC /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				0A77285F14ECB93B000CB457 /* testEnemy2.plist */,
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
 			);
 			name = Enemies;
@@ -1126,6 +1135,7 @@
 				0AE417461496F5C400342D8E /* BitBlast */,
 				0AE417351496F5C400342D8E /* Frameworks */,
 				0AE417331496F5C400342D8E /* Products */,
+				0A77298F14ECB95F000CB457 /* BitBlast copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1841,6 +1851,7 @@
 				3428FF8B14E9DEA700184E31 /* backfog.png in Resources */,
 				3428FF8E14E9DFC100184E31 /* cloud1.png in Resources */,
 				3428FF8F14E9DFC100184E31 /* cloud2.png in Resources */,
+				0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2025,6 +2036,7 @@
 				0A0366D914E21EA100313CCC /* BBLaser.m in Sources */,
 				0A0366E014E4C55900313CCC /* EnemyManager.m in Sources */,
 				0A0366E414E4C78800313CCC /* BBEnemy.m in Sources */,
+				0A77299214ECBA1F000CB457 /* BBWalkingEnemy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

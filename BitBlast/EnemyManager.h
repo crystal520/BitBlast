@@ -22,6 +22,7 @@
 - (void) update:(float)delta;
 // getters
 - (BBEnemy*) getRecycledEnemy;
+- (NSArray*) getActiveEnemies;
 // notifications
 - (void) chunkAdded;
 

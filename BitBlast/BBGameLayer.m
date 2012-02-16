@@ -48,8 +48,6 @@
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
-		[[EnemyManager sharedSingleton] chunkAdded];
-		[[EnemyManager sharedSingleton] chunkAdded];
 		
 		// create player
 		player = [[BBPlayer alloc] init];

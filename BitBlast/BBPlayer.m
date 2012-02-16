@@ -101,9 +101,9 @@
 		}
 		// apply velocity to position
 		dummyPosition = ccp(dummyPosition.x + (velocity.x * delta), dummyPosition.y + (velocity.y * delta));
-		self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 		
 		[self checkCollisions];
+		self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 		
 		// update score
 		[ScoreManager sharedSingleton].distance = floor(dummyPosition.x / 64);
@@ -113,7 +113,7 @@
 		[self updateWeapons:delta];
 		
 		// check for falling death
-		if(dummyPosition.y < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+		if(dummyPosition.y + sprite.contentSize.height + torso.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
 			[self die:@"fall"];
 		}
 		

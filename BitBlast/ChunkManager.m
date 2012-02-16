@@ -85,6 +85,8 @@
 	Chunk *newChunk = [[Chunk alloc] initWithFile:chunkName withOffset:offset];
 	[currentChunks addObject:newChunk];
 	
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kChunkAddedNotification object:nil]];
+	
 	// set z order based on previous chunk
 	if([currentChunks count] > 1) {
 		Chunk *prevChunk = [currentChunks objectAtIndex:[currentChunks count]-1];

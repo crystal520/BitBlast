@@ -37,7 +37,7 @@
 			[enemy release];
 		}
 		// register for notifications
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkAdded) name:kChunkCompletedNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkAdded) name:kChunkAddedNotification object:nil];
 	}
 	return self;
 }
@@ -68,16 +68,27 @@
 	return nil;
 }
 
+- (NSArray*) getActiveEnemies {
+	NSMutableArray *activeEnemies = [NSMutableArray array];
+	for(BBEnemy *e in currentEnemies) {
+		if(!e.recycle) {
+			[activeEnemies addObject:e];
+		}
+	}
+	return activeEnemies;
+}
+
 #pragma mark -
 #pragma mark notifications
 - (void) chunkAdded {
 	// get latest chunk
 	Chunk *newChunk = [[ChunkManager sharedSingleton] getLastChunk];
 	// check current state of player and update parameters for placing enemies based on it
+	// things to check: equipment, weapon, speed, distance
 	// using parameters, generate enemies
 	// for now, for testing, just place the enemy at the first block encountered
 	BBEnemy *newEnemy = [self getRecycledEnemy];
-	[newEnemy resetWithPosition:ccpAdd([newChunk getGroundPositionWithLayer:@"CollisionTop"], ccp(0, newEnemy.tileOffset)) withType:@"testEnemy"];
+	[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy"];
 	[newChunk addChild:newEnemy z:newChunk.playerZ];
 }
 
