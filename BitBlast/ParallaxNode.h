@@ -10,15 +10,22 @@
 #import "cocos2d.h"
 
 @interface ParallaxNode : CCNode {
+	// speed at which node moves
     float ratio;
+	// sprites that scroll sideways with the node
 	NSMutableArray *sprites;
+	// possible images that the sprites can use
+	NSMutableArray *spriteImages;
 }
 
 @property (nonatomic) float ratio;
 
 - (id) initWithDictionary:(NSDictionary*)dict;
-
+// setup
 - (void) reset;
+// getters
+- (NSString*) getRandomImage;
+// update
 - (void) update:(float)changeInPos;
 
 @end

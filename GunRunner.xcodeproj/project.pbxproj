@@ -878,6 +878,7 @@
 		0A1EC4A814A02C9F005A7ED6 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				0A5BAA7E14EC90050028D13B /* Parallax */,
 				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
 				0A0366DD14E4C54600313CCC /* Enemies */,
 				0A6DD3A814D8D77300D6DB6D /* Bullets */,
@@ -954,6 +955,17 @@
 				0ABBDCEE14CB69A1001D36B7 /* BBGlider.m */,
 			);
 			name = Equipment;
+			sourceTree = "<group>";
+		};
+		0A5BAA7E14EC90050028D13B /* Parallax */ = {
+			isa = PBXGroup;
+			children = (
+				0A9A7B4B14B4869C003A1DB1 /* ParallaxManager.h */,
+				0A9A7B4C14B4869F003A1DB1 /* ParallaxManager.m */,
+				0AE7A03714B54A2500BC5C73 /* ParallaxNode.h */,
+				0AE7A03814B54A2500BC5C73 /* ParallaxNode.m */,
+			);
+			name = Parallax;
 			sourceTree = "<group>";
 		};
 		0A5C35A8149981A50019C113 /* Levels */ = {
@@ -1648,10 +1660,6 @@
 				0A1EC4A814A02C9F005A7ED6 /* Game Objects */,
 				0A1EC4A7149E7E4D005A7ED6 /* Basic Objects */,
 				0AD96B6114A948FA00C9DAE9 /* Constants.h */,
-				0A9A7B4B14B4869C003A1DB1 /* ParallaxManager.h */,
-				0A9A7B4C14B4869F003A1DB1 /* ParallaxManager.m */,
-				0AE7A03714B54A2500BC5C73 /* ParallaxNode.h */,
-				0AE7A03814B54A2500BC5C73 /* ParallaxNode.m */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -2063,6 +2071,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2072,6 +2081,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"BitBlast/libs\"";
 				WRAPPER_EXTENSION = app;
@@ -2082,6 +2093,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BitBlast/Prefix.pch;
@@ -2090,6 +2102,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"BitBlast/libs\"";
 				VALIDATE_PRODUCT = YES;
