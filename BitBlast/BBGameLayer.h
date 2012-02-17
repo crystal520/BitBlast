@@ -33,6 +33,10 @@ typedef enum {
 
 @interface BBGameLayer : CCLayer {
 	
+#ifdef DEBUG
+	CCSprite *debugButton;
+#endif
+	
 	ParallaxManager *parallax;
     BBPlayer *player;
 	CCNode *scrollingNode;

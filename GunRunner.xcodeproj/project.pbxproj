@@ -50,6 +50,7 @@
 		0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A77285F14ECB93B000CB457 /* testEnemy2.plist */; };
 		0A77299214ECBA1F000CB457 /* BBWalkingEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */; };
 		0A77299414ECC404000CB457 /* thumbnail-page-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A77299314ECC404000CB457 /* thumbnail-page-1.png */; };
+		0A77299714EDE9B4000CB457 /* BBStationaryEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A77299614EDE9B4000CB457 /* BBStationaryEnemy.m */; };
 		0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B414BFC15F00066390 /* BBMainMenu.m */; };
 		0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */; };
 		0A7D52BB14C074DF00066390 /* smallButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52B914C074DF00066390 /* smallButton.png */; };
@@ -371,6 +372,8 @@
 		0A77299014ECBA1E000CB457 /* BBWalkingEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWalkingEnemy.h; sourceTree = "<group>"; };
 		0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWalkingEnemy.m; sourceTree = "<group>"; };
 		0A77299314ECC404000CB457 /* thumbnail-page-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail-page-1.png"; sourceTree = "<group>"; };
+		0A77299514EDE9B4000CB457 /* BBStationaryEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBStationaryEnemy.h; sourceTree = "<group>"; };
+		0A77299614EDE9B4000CB457 /* BBStationaryEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBStationaryEnemy.m; sourceTree = "<group>"; };
 		0A7D52B314BFC15F00066390 /* BBMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainMenu.h; sourceTree = "<group>"; };
 		0A7D52B414BFC15F00066390 /* BBMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BBMainMenu.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemLabelAndImage.h; sourceTree = "<group>"; };
@@ -832,6 +835,8 @@
 				0A0366E314E4C78800313CCC /* BBEnemy.m */,
 				0A77299014ECBA1E000CB457 /* BBWalkingEnemy.h */,
 				0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */,
+				0A77299514EDE9B4000CB457 /* BBStationaryEnemy.h */,
+				0A77299614EDE9B4000CB457 /* BBStationaryEnemy.m */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -2041,6 +2046,7 @@
 				0A0366E014E4C55900313CCC /* EnemyManager.m in Sources */,
 				0A0366E414E4C78800313CCC /* BBEnemy.m in Sources */,
 				0A77299214ECBA1F000CB457 /* BBWalkingEnemy.m in Sources */,
+				0A77299714EDE9B4000CB457 /* BBStationaryEnemy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

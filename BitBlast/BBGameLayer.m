@@ -85,6 +85,14 @@
 		// leaderboards
 		leaderboards = [[BBLeaderboards alloc] init];
 		[self addChild:mainMenu];
+		
+#ifdef DEBUG
+		debugButton = [CCSprite spriteWithFile:@"white.png"];
+		debugButton.color = ccc3(0, 0, 0);
+		[debugButton setTextureRect:CGRectMake(0, 0, 50, 50)];
+		debugButton.position = ccp(25, [ResolutionManager sharedSingleton].size.height - 25);
+		[self addChild:debugButton z:10];
+#endif
 	}
 	
 	return self;
@@ -218,6 +226,7 @@
 	
 	// get coordinates of touch
 	CGPoint touchPoint = [touch locationInView:[touch view]];
+	touchPoint = ccp(touchPoint.x, winSize.height - touchPoint.y);
 	
 	// right side of screen is jump
 	if(touchPoint.x > winSize.width * 0.5f) {
@@ -226,6 +235,13 @@
 	else {
 		[player endShoot];
 	}
+	
+#ifdef DEBUG
+	if(CGRectContainsPoint([debugButton boundingBox], ccpMult(touchPoint, 1/[ResolutionManager sharedSingleton].imageScale))) {
+		// print out all textures currently in memory
+		[[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
+	}
+#endif
 }
 
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
