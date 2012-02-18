@@ -33,7 +33,7 @@
 				<string>cloud2.png</string>
 			</array>
 			<key>imageWidth</key>
-			<integer>960</integer>
+			<integer>528</integer>
 			<key>ratio</key>
 			<real>0.25</real>
 			<key>y</key>
@@ -45,7 +45,7 @@
 				<string>backbackrefinery.png</string>
 			</array>
 			<key>imageWidth</key>
-			<integer>960</integer>
+			<integer>910</integer>
 			<key>ratio</key>
 			<real>0.125</real>
 			<key>y</key>
