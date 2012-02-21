@@ -376,7 +376,6 @@
 		0A6DD3B114DA409900D6DB6D /* BBBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBehavior.h; sourceTree = "<group>"; };
 		0A6DD3B214DA409900D6DB6D /* BBBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBehavior.m; sourceTree = "<group>"; };
 		0A77285F14ECB93B000CB457 /* testEnemy2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy2.plist; sourceTree = "<group>"; };
-		0A77298F14ECB95F000CB457 /* BitBlast copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BitBlast copy-Info.plist"; path = "/Users/kristianbauer/Documents/Projects/BitBlast/BitBlast copy-Info.plist"; sourceTree = "<absolute>"; };
 		0A77299014ECBA1E000CB457 /* BBWalkingEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWalkingEnemy.h; sourceTree = "<group>"; };
 		0A77299114ECBA1F000CB457 /* BBWalkingEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWalkingEnemy.m; sourceTree = "<group>"; };
 		0A77299314ECC404000CB457 /* thumbnail-page-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail-page-1.png"; sourceTree = "<group>"; };
@@ -1167,7 +1166,6 @@
 				0AE417461496F5C400342D8E /* BitBlast */,
 				0AE417351496F5C400342D8E /* Frameworks */,
 				0AE417331496F5C400342D8E /* Products */,
-				0A77298F14ECB95F000CB457 /* BitBlast copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};

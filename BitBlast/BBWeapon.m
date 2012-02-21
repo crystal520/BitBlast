@@ -59,13 +59,13 @@
 - (void) setAngle:(float)newAngle {
 	// set current offset based on newAngle
 	if(newAngle == 0) {
-		currentOffset = ccpMult(torsoOffset, [ResolutionManager sharedSingleton].positionScale);
+		currentOffset = torsoOffset;
 	}
 	else if(newAngle > 0) {
-		currentOffset = ccpMult(torsoOffsetUp, [ResolutionManager sharedSingleton].positionScale);
+		currentOffset = torsoOffsetUp;
 	}
 	else {
-		currentOffset = ccpMult(torsoOffsetDown, [ResolutionManager sharedSingleton].positionScale);
+		currentOffset = torsoOffsetDown;
 	}
 	// set new shot angle based on newAngle
 	float newShotAngle = straightAngle;

@@ -11,6 +11,8 @@
 #import "BBGameObject.h"
 
 @interface BBBullet : BBGameObject {
+    // dummy position for handling multiple resolutions
+    CGPoint dummyPosition;
 	// how fast the bullet moves in both x and y directions
     CGPoint velocity;
 	// how much damage the bullet does upon impact

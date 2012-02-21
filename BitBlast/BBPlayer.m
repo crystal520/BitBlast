@@ -136,7 +136,8 @@
 	// loop through weapons and update them
 	for(BBWeapon *w in weapons) {
 		[w setPlayerSpeed:velocity.x];
-		[w setPosition:ccpAdd(self.position, torso.position)];
+		[w setPosition:ccpAdd(dummyPosition, ccpMult(torso.position, [ResolutionManager sharedSingleton].inversePositionScale))];
+		//[w setPosition:ccpAdd(dummyPosition, torso.position)];
 		[w update:delta];
 	}
 }
