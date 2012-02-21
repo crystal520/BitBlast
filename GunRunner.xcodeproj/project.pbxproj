@@ -287,6 +287,14 @@
 		34BBABCC14EF725900154CE9 /* backforest3.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABBB14EF725900154CE9 /* backforest3.png */; };
 		34BBABCD14EF725900154CE9 /* backforest2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABBC14EF725900154CE9 /* backforest2.png */; };
 		34BBABCE14EF725900154CE9 /* backforest1.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABBD14EF725900154CE9 /* backforest1.png */; };
+		34BBABD814F312AB00154CE9 /* greenglow.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABD714F312AB00154CE9 /* greenglow.png */; };
+		34BBABDC14F312F200154CE9 /* wavegun_bullet1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABDA14F312F100154CE9 /* wavegun_bullet1.plist */; };
+		34BBABDD14F312F200154CE9 /* wavegun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABDB14F312F200154CE9 /* wavegun.plist */; };
+		34BBABDF14F3165000154CE9 /* wavegun_bullet2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABDE14F3164F00154CE9 /* wavegun_bullet2.plist */; };
+		34BBABE114F3170800154CE9 /* blueglow.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABE014F3170800154CE9 /* blueglow.png */; };
+		34BBABE414F3209B00154CE9 /* mortor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABE214F3209A00154CE9 /* mortor.plist */; };
+		34BBABE514F3209B00154CE9 /* mortor_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABE314F3209B00154CE9 /* mortor_bullet.plist */; };
+		34BBABE714F320C000154CE9 /* shell.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABE614F320C000154CE9 /* shell.png */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -789,6 +797,14 @@
 		34BBABBB14EF725900154CE9 /* backforest3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backforest3.png; path = Resources/backgroundA4444/backforest3.png; sourceTree = "<group>"; };
 		34BBABBC14EF725900154CE9 /* backforest2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backforest2.png; path = Resources/backgroundA4444/backforest2.png; sourceTree = "<group>"; };
 		34BBABBD14EF725900154CE9 /* backforest1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backforest1.png; path = Resources/backgroundA4444/backforest1.png; sourceTree = "<group>"; };
+		34BBABD714F312AB00154CE9 /* greenglow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = greenglow.png; path = Resources/greenglow.png; sourceTree = "<group>"; };
+		34BBABDA14F312F100154CE9 /* wavegun_bullet1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wavegun_bullet1.plist; sourceTree = "<group>"; };
+		34BBABDB14F312F200154CE9 /* wavegun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wavegun.plist; sourceTree = "<group>"; };
+		34BBABDE14F3164F00154CE9 /* wavegun_bullet2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wavegun_bullet2.plist; sourceTree = "<group>"; };
+		34BBABE014F3170800154CE9 /* blueglow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueglow.png; path = Resources/blueglow.png; sourceTree = "<group>"; };
+		34BBABE214F3209A00154CE9 /* mortor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mortor.plist; sourceTree = "<group>"; };
+		34BBABE314F3209B00154CE9 /* mortor_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mortor_bullet.plist; sourceTree = "<group>"; };
+		34BBABE614F320C000154CE9 /* shell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shell.png; path = Resources/shell.png; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -940,9 +956,17 @@
 				3428FF5E14E9AF9200184E31 /* flamethrower_bulletLarge.plist */,
 				3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */,
 				3428FF6614E9B11800184E31 /* flamethrower_bulletSmall.plist */,
+				34BBABDA14F312F100154CE9 /* wavegun_bullet1.plist */,
+				34BBABDE14F3164F00154CE9 /* wavegun_bullet2.plist */,
+				34BBABDB14F312F200154CE9 /* wavegun.plist */,
+				34BBABE214F3209A00154CE9 /* mortor.plist */,
+				34BBABE314F3209B00154CE9 /* mortor_bullet.plist */,
 				0A204EA614DF212300171F71 /* testShot3.plist */,
 				0A204EA714DF212300171F71 /* testShot2.plist */,
 				0A204EA814DF212400171F71 /* testWeapon2.plist */,
+				34BBABD714F312AB00154CE9 /* greenglow.png */,
+				34BBABE014F3170800154CE9 /* blueglow.png */,
+				34BBABE614F320C000154CE9 /* shell.png */,
 				3428FF6214E9B0B700184E31 /* flamemedium.png */,
 				3428FF5B14E9AF0400184E31 /* flamelarge.png */,
 				3428FF6414E9B0F900184E31 /* flamesmall.png */,
@@ -1861,6 +1885,14 @@
 				34BBABCC14EF725900154CE9 /* backforest3.png in Resources */,
 				34BBABCD14EF725900154CE9 /* backforest2.png in Resources */,
 				34BBABCE14EF725900154CE9 /* backforest1.png in Resources */,
+				34BBABD814F312AB00154CE9 /* greenglow.png in Resources */,
+				34BBABDC14F312F200154CE9 /* wavegun_bullet1.plist in Resources */,
+				34BBABDD14F312F200154CE9 /* wavegun.plist in Resources */,
+				34BBABDF14F3165000154CE9 /* wavegun_bullet2.plist in Resources */,
+				34BBABE114F3170800154CE9 /* blueglow.png in Resources */,
+				34BBABE414F3209B00154CE9 /* mortor.plist in Resources */,
+				34BBABE514F3209B00154CE9 /* mortor_bullet.plist in Resources */,
+				34BBABE714F320C000154CE9 /* shell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
