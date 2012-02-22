@@ -12,6 +12,8 @@
 #import "ChunkManager.h"
 
 @interface BBEnemy : BBGameObject {
+	// type of enemy
+	NSString* type;
     // damage the enemy can take before it's considered dead
 	float health;
 	// whether or not the enemy can be recycled
@@ -28,7 +30,7 @@
 	CGPoint prevDummyPosition;
 }
 
-@property (nonatomic, assign) BOOL recycle;
+@property (nonatomic, assign) BOOL recycle, enabled;
 @property (nonatomic, assign) float tileOffset;
 
 // setters
@@ -36,6 +38,7 @@
 // update
 - (void) update:(float)delta;
 // actions
+- (void) reset;
 - (void) resetWithPosition:(CGPoint)newPosition withType:(NSString*)enemyType;
 
 @end

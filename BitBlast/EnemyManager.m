@@ -30,38 +30,43 @@
 - (id) init {
 	if((self = [super init])) {
 		// create array of enemies
-		currentEnemies = [NSMutableArray new];
+		enemies = [NSMutableArray new];
 		for(int i=0;i<MAX_ENEMIES;i++) {
 			BBEnemy *enemy = [[BBEnemy alloc] init];
-			[currentEnemies addObject:enemy];
+			[enemies addObject:enemy];
 			[enemy release];
 		}
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkAdded) name:kChunkAddedNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kGameRestartNotification object:nil];
 	}
 	return self;
 }
 
 - (void) dealloc {
-	[currentEnemies release];
+	[enemies release];
 	[super dealloc];
 }
 
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	for(BBEnemy *e in currentEnemies) {
+	// update active enemies
+	for(BBEnemy *e in enemies) {
 		if(!e.recycle) {
 			[e update:delta];
 		}
 	}
+	// check collisions with bullets
+	//[[BulletManager sharedSingleton] checkCollisionWithArray:[self getActiveEnemies]];
 }
 
 #pragma mark -
 #pragma mark getters
 - (BBEnemy*) getRecycledEnemy {
-	for(BBEnemy *e in currentEnemies) {
-		if(e.recycle) {
+	for(BBEnemy *e in enemies) {
+		if(e.recycle && !e.enabled) {
 			return e;
 		}
 	}
@@ -70,8 +75,8 @@
 
 - (NSArray*) getActiveEnemies {
 	NSMutableArray *activeEnemies = [NSMutableArray array];
-	for(BBEnemy *e in currentEnemies) {
-		if(!e.recycle) {
+	for(BBEnemy *e in enemies) {
+		if(!e.recycle && e.enabled) {
 			[activeEnemies addObject:e];
 		}
 	}
@@ -87,15 +92,32 @@
 	// things to check: equipment, weapon, speed, distance
 	// using parameters, generate enemies
 	// for now, for testing, just place the enemy at the first block encountered
-	for(int i=0;i<2;i++) {
+	for(int i=0;i<3;i++) {
 		BBEnemy *newEnemy = [self getRecycledEnemy];
 		if(i == 0) {
 			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy"];
 		}
-		else {
+		else if(i == 1) {
 			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy2"];
 		}
-		[newChunk addChild:newEnemy z:newChunk.playerZ];
+		else {
+			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy3"];
+		}
+		if(newEnemy) {
+			[newChunk addChild:newEnemy z:newChunk.playerZ];
+		}
+	}
+}
+
+- (void) gameOver {
+	for(BBEnemy *e in enemies) {
+		[e stopAllActions];
+	}
+}
+
+- (void) newGame {
+	for(BBEnemy *e in enemies) {
+		[e setEnabled:NO];
 	}
 }
 

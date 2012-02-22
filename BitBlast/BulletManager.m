@@ -30,6 +30,7 @@
 	if((self = [super init])) {
 		
 		bullets = [NSMutableArray new];
+		activeBullets = [NSMutableArray new];
 		for(int i=0;i<MAX_BULLETS;i++) {
 			BBBullet *bullet = [BBBullet new];
 			[bullets addObject:bullet];
@@ -44,6 +45,8 @@
 }
 
 - (void) dealloc {
+	[activeBullets release];
+	[bullets release];
 	[super dealloc];
 }
 
@@ -66,8 +69,17 @@
 			return b;
 		}
 	}
-	
-	return NULL;
+	return nil;
+}
+
+- (NSArray*) getActiveBullets {
+	NSMutableArray *newActiveBullets = [NSMutableArray array];
+	for(BBBullet *b in bullets) {
+		if(!b.recycle) {
+			[newActiveBullets addObject:b];
+		}
+	}
+	return newActiveBullets;
 }
 
 #pragma mark -
@@ -89,6 +101,24 @@
 	for(BBBullet *b in bullets) {
 		if(!b.recycle) {
 			[b.sprite stopAllActions];
+		}
+	}
+}
+
+#pragma mark -
+#pragma mark actions
+- (void) checkCollisionWithArray:(NSArray *)collideArray {
+	// update active bullets
+	[activeBullets setArray:[self getActiveBullets]];
+	// loop through 
+	for(int i=0,j=[collideArray count];i<j;i++) {
+		id object = [collideArray objectAtIndex:i];
+		for(BBBullet *b in activeBullets) {
+			if([object respondsToSelector:@selector(getCollidesWithObject:)]) {
+				if([object getCollidesWithObject:b]) {
+					NSLog(@"BULLET COLLIDING WIHT ENEMY");
+				}
+			}
 		}
 	}
 }

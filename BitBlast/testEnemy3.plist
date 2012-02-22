@@ -7,10 +7,7 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>monster1_1.png</string>
-				<string>monster1_2.png</string>
-				<string>monster1_3.png</string>
-				<string>monster1_4.png</string>
+				<string>spikewall.png</string>
 			</array>
 			<key>name</key>
 			<string>walk</string>
@@ -23,13 +20,13 @@
 	<key>plist</key>
 	<string>uiatlas.plist</string>
 	<key>type</key>
-	<string>walking</string>
+	<string>stationary</string>
 	<key>tileCenterOffset</key>
 	<integer>14</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>
-		<integer>-100</integer>
+		<integer>0</integer>
 		<key>y</key>
 		<integer>0</integer>
 	</dict>

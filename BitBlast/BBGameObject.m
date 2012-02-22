@@ -111,4 +111,20 @@
 	}
 }
 
+#pragma mark -
+#pragma mark getters
+- (BOOL) getCollidesWithObject:(BBGameObject*)object {
+	// convert object's position into this game object's space
+	CGPoint thisPos = [self.parent convertToNodeSpace:object.position];
+	// check for collision
+	return CGRectIntersectsRect(CGRectMake(self.position.x, self.position.y, sprite.contentSize.width, sprite.contentSize.height), CGRectMake(thisPos.x, thisPos.y, object.sprite.contentSize.width, object.sprite.contentSize.height));
+}
+
+#pragma mark -
+#pragma mark actions
+- (void) stopAllActions {
+	[super stopAllActions];
+	[sprite stopAllActions];
+}
+
 @end

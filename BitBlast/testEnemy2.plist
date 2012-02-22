@@ -22,7 +22,16 @@
 	<string>uiatlas.png</string>
 	<key>plist</key>
 	<string>uiatlas.plist</string>
+	<key>type</key>
+	<string>stationary</string>
 	<key>tileCenterOffset</key>
 	<integer>14</integer>
+	<key>speed</key>
+	<dict>
+		<key>x</key>
+		<integer>-50</integer>
+		<key>y</key>
+		<integer>0</integer>
+	</dict>
 </dict>
 </plist>

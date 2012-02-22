@@ -15,12 +15,18 @@
 @interface BulletManager : NSObject {
     NSMutableArray *bullets;
 	CCNode *node;
+	NSMutableArray *activeBullets;
 }
 
 + (BulletManager*) sharedSingleton;
 
+// update
 - (void) update:(float)delta;
+// getters
 - (BBBullet*) getRecycledBullet;
+// setters
 - (void) setNode:(CCNode*)newNode;
+// actions
+- (void) checkCollisionWithArray:(NSArray*)collideArray;
 
 @end

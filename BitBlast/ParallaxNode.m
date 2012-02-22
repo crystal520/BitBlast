@@ -41,13 +41,14 @@
 			CCSprite *parallaxImage = [CCSprite spriteWithFile:[self getRandomImage]];
 			[parallaxImage.texture setAliasTexParameters];
 			parallaxImage.position = ccp((i + 0.5) * width * [ResolutionManager sharedSingleton].positionScale, 0);
+			parallaxImage.anchorPoint = ccp(0.5, 1);
 			[self addChild:parallaxImage];
 			[sprites addObject:parallaxImage];
 		}
 		
 		// apply y offset
 		CCSprite *sprite = [sprites objectAtIndex:0];
-		self.position = ccp(0, [[dict objectForKey:@"y"] floatValue] + (0.5 * sprite.contentSize.height));
+		self.position = ccp(0, [[dict objectForKey:@"y"] floatValue]);
 	}
 	
 	return self;

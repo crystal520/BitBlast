@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0AE417311496F5C400342D8E"
-            BuildableName = "BitBlast.app"
+            BuildableName = "Gun Runner.app"
             BlueprintName = "BitBlast"
             ReferencedContainer = "container:GunRunner.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0AE417311496F5C400342D8E"
-            BuildableName = "BitBlast.app"
+            BuildableName = "Gun Runner.app"
             BlueprintName = "BitBlast"
             ReferencedContainer = "container:GunRunner.xcodeproj">
          </BuildableReference>
@@ -66,15 +66,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0AE417311496F5C400342D8E"
-            BuildableName = "BitBlast.app"
+            BuildableName = "Gun Runner.app"
             BlueprintName = "BitBlast"
-            ReferencedContainer = "container:BitBlast.xcodeproj">
+            ReferencedContainer = "container:GunRunner.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

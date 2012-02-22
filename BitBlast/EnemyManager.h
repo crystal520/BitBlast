@@ -10,11 +10,12 @@
 #import "cocos2d.h"
 #import "BBEnemy.h"
 #import "ChunkManager.h"
+#import "BulletManager.h"
 
-#define MAX_ENEMIES 20
+#define MAX_ENEMIES 6
 
 @interface EnemyManager : NSObject {
-    NSMutableArray *currentEnemies;
+    NSMutableArray *enemies;
 }
 
 + (EnemyManager*) sharedSingleton;
@@ -25,5 +26,6 @@
 - (NSArray*) getActiveEnemies;
 // notifications
 - (void) chunkAdded;
+- (void) gameOver;
 
 @end
