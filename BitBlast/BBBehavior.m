@@ -141,7 +141,7 @@
 			// offset position of node by minValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// calculate amount to move by
-			float moveBy = (max + (-min)) * [ResolutionManager sharedSingleton].positionScale;
+			float moveBy = (max + (-min));
 			// create up action
 			CCMoveBy *upAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return upAction
@@ -153,7 +153,7 @@
 			// offset position of node by maxValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
 			// calculate amount to move by
-			float moveBy = (min + (-max)) * [ResolutionManager sharedSingleton].positionScale;
+			float moveBy = (min + (-max));
 			// create down action
 			CCMoveBy *downAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return downAction
@@ -168,7 +168,7 @@
 			// offset position of node by minValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// calculate amount to move by
-			float moveBy = (max + (-min)) * [ResolutionManager sharedSingleton].positionScale;
+			float moveBy = (max + (-min));
 			// create right action
 			CCMoveBy *rightAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return rightAction
@@ -178,7 +178,7 @@
 			// offset position of node by maxValue
 			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
 			// calculate amount to move by
-			float moveBy = (min + (-max)) * [ResolutionManager sharedSingleton].positionScale;
+			float moveBy = (min + (-max));
 			// create left action
 			CCMoveBy *leftAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return leftAction

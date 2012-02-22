@@ -6,7 +6,8 @@
 	<integer>-30</integer>
 	<key>shots</key>
 	<array>
-		<string>flamethrower_bulletSmall</string>
+		<string>wavegun_bullet1</string>
+		<string>wavegun_bullet2</string>
 	</array>
 	<key>sprite</key>
 	<string></string>

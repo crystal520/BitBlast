@@ -24,7 +24,7 @@
 
 - (void) resetWithPosition:(CGPoint)newPosition velocity:(CGPoint)newVelocity lifetime:(float)newLifetime graphic:(NSString*)newGraphic {
 	// reset the bullet with new parameters
-	self.position = newPosition;
+	dummyPosition = newPosition;
 	velocity = newVelocity;
 	recycle = NO;
 	lifeTimer = 0;
@@ -38,7 +38,8 @@
 #pragma mark update
 - (void) update:(float)delta {
 	// update bullet's position with velocity
-	self.position = ccp(self.position.x + velocity.x * delta * [ResolutionManager sharedSingleton].positionScale, self.position.y + velocity.y * delta * [ResolutionManager sharedSingleton].positionScale);
+	dummyPosition = ccp(dummyPosition.x + velocity.x * delta, dummyPosition.y + velocity.y * delta);
+    self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	// see if bullet is dead yet
 	lifeTimer += delta;
 	if(lifeTimer >= lifetime) {
