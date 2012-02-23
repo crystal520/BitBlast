@@ -294,6 +294,7 @@
 		34BBABE414F3209B00154CE9 /* mortor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABE214F3209A00154CE9 /* mortor.plist */; };
 		34BBABE514F3209B00154CE9 /* mortor_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABE314F3209B00154CE9 /* mortor_bullet.plist */; };
 		34BBABE714F320C000154CE9 /* shell.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABE614F320C000154CE9 /* shell.png */; };
+		34BBABF614F5FA9900154CE9 /* ripley.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABF514F5FA9900154CE9 /* ripley.plist */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -800,6 +801,7 @@
 		34BBABE214F3209A00154CE9 /* mortor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mortor.plist; sourceTree = "<group>"; };
 		34BBABE314F3209B00154CE9 /* mortor_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mortor_bullet.plist; sourceTree = "<group>"; };
 		34BBABE614F320C000154CE9 /* shell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shell.png; path = Resources/shell.png; sourceTree = "<group>"; };
+		34BBABF514F5FA9900154CE9 /* ripley.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ripley.plist; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 				0A0366DB14E4B68100313CCC /* testLaser.plist */,
 				0A204EB114DF331500171F71 /* flame.png */,
 				0A204EAF14DF31B600171F71 /* flameShot.plist */,
+				34BBABF514F5FA9900154CE9 /* ripley.plist */,
 				0A204EAD14DF319400171F71 /* flamethrower.plist */,
 				3428FF5E14E9AF9200184E31 /* flamethrower_bulletLarge.plist */,
 				3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */,
@@ -1885,6 +1888,7 @@
 				34BBABE514F3209B00154CE9 /* mortor_bullet.plist in Resources */,
 				34BBABE714F320C000154CE9 /* shell.png in Resources */,
 				0A2C61F914F2C68F00D3F94B /* testEnemy3.plist in Resources */,
+				34BBABF614F5FA9900154CE9 /* ripley.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
