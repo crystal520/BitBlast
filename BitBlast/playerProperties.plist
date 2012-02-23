@@ -71,7 +71,7 @@
 		<key>incrementPercent</key>
 		<real>0.15</real>
 		<key>maxSpeed</key>
-		<integer>700</integer>
+		<integer>1000</integer>
 		<key>minSpeed</key>
 		<integer>300</integer>
 		<key>numChunksToIncrement</key>
