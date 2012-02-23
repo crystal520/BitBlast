@@ -32,7 +32,7 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<real>1</real>
+			<real>1.25</real>
 			<key>start</key>
 			<string>min</string>
 		</dict>
@@ -92,6 +92,34 @@
 			<key>start</key>
 			<string>min</string>
 		</dict>
+		<dict>
+			<key>maxRange</key>
+			<dict>
+				<key>high</key>
+				<string>2</string>
+				<key>low</key>
+				<string>2</string>
+			</dict>
+			<key>minRange</key>
+			<dict>
+				<key>high</key>
+				<string>0.2</string>
+				<key>low</key>
+				<string>0.2</string>
+			</dict>
+			<key>curve</key>
+			<string>ease</string>
+			<key>loop</key>
+			<false/>
+			<key>property</key>
+			<string>scale</string>
+			<key>repeat</key>
+			<false/>
+			<key>speed</key>
+			<real>0.5</real>
+			<key>start</key>
+			<string>min</string>
+		</dict>
 	</array>
 	<key>blend</key>
 	<false/>
@@ -106,7 +134,7 @@
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
-	<real>1</real>
+	<real>1.25</real>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
