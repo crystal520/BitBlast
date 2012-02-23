@@ -43,6 +43,9 @@
 			<key>images</key>
 			<array>
 				<string>backbackrefinery.png</string>
+				<string>backbackpeak.png</string>
+				<string>backbackmountain.png</string>
+				<string>backbackspires.png</string>
 			</array>
 			<key>imageWidth</key>
 			<integer>910</integer>
@@ -69,6 +72,11 @@
 			<key>images</key>
 			<array>
 				<string>frontforest1.png</string>
+				<string>frontforest2.png</string>
+				<string>frontforest3.png</string>
+				<string>frontforest4.png</string>
+				<string>frontforest5.png</string>
+				<string>frontforest6.png</string>
 			</array>
 			<key>imageWidth</key>
 			<integer>960</integer>
