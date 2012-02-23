@@ -96,19 +96,19 @@
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>1</string>
+				<string>2</string>
 				<key>low</key>
-				<string>1</string>
+				<string>2</string>
 			</dict>
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>0.5</string>
+				<string>0.2</string>
 				<key>low</key>
-				<string>0.5</string>
+				<string>0.2</string>
 			</dict>
 			<key>curve</key>
-			<string>easeInExpo</string>
+			<string>ease</string>
 			<key>loop</key>
 			<false/>
 			<key>property</key>
@@ -116,7 +116,7 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<real>1.25</real>
+			<real>0.5</real>
 			<key>start</key>
 			<string>min</string>
 		</dict>
