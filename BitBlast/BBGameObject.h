@@ -10,13 +10,15 @@
 #import "cocos2d.h"
 
 @interface BBGameObject : CCNode {
-    
+    // dummy position for handling multiple resolutions
+    CGPoint dummyPosition;
 	CCSprite *sprite;
 	CCSpriteBatchNode *spriteBatch;
 	NSDictionary *dictionary;
 }
 
 @property (nonatomic, readonly) CCSprite *sprite;
+@property (nonatomic, assign) CGPoint dummyPosition;
 
 // initializers
 - (id) initWithFile:(NSString*)filename;

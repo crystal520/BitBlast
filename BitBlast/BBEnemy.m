@@ -37,6 +37,7 @@
 	tileOffset = [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale;
 	type = [[dictionary objectForKey:@"type"] retain];
 	velocity = ccp([[[dictionary objectForKey:@"speed"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"speed"] objectForKey:@"y"] floatValue]);
+	health = [[dictionary objectForKey:@"health"] floatValue];
 }
 
 #pragma mark -
@@ -103,6 +104,18 @@
 	[self addChild:spriteBatch];
 	[self repeatAnimation:@"walk"];
 	self.sprite.anchorPoint = ccp(0.5, 0);
+}
+
+- (void) hitByBullet:(BBBullet*)bullet {
+	health -= bullet.damage;
+	
+	// TODO: play hit animation or something cooler. possibly blood particles
+	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
+	[self.sprite runAction:action];
+	
+	if(health <= 0) {
+		[self setEnabled:NO];
+	}
 }
 
 @end

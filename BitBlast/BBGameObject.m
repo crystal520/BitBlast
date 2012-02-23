@@ -11,7 +11,7 @@
 
 @implementation BBGameObject
 
-@synthesize sprite;
+@synthesize sprite, dummyPosition;
 
 - (id) initWithFile:(NSString *)filename {
 	
@@ -115,9 +115,10 @@
 #pragma mark getters
 - (BOOL) getCollidesWith:(BBGameObject*)object {
 	// convert object's position into this game object's space
-	CGPoint thisPos = [self.parent convertToNodeSpace:object.position];
+	CGPoint thisPos = [self convertToWorldSpace:CGPointZero];
+	CGPoint thatPos = [object convertToWorldSpace:CGPointZero];
 	// check for collision
-	return CGRectIntersectsRect(CGRectMake(self.position.x, self.position.y, sprite.contentSize.width, sprite.contentSize.height), CGRectMake(thisPos.x, thisPos.y, object.sprite.contentSize.width, object.sprite.contentSize.height));
+	return CGRectIntersectsRect(CGRectMake(thisPos.x, thisPos.y, sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale), CGRectMake(thatPos.x, thatPos.y, object.sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, object.sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale));
 }
 
 #pragma mark -

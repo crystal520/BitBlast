@@ -25,7 +25,7 @@ typedef enum {
 @interface BBPlayer : BBGameObject {
 	
 	float jumpImpulse, minSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, tileOffset;
-	CGPoint velocity, maxVelocity, dummyPosition, prevDummyPosition;
+	CGPoint velocity, maxVelocity, prevDummyPosition;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, chunkOffset, bitCoins;
 	BOOL jumping, touchingPlatform, dead;

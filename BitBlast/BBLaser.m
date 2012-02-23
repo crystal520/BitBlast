@@ -97,7 +97,7 @@
 			// make sure laser never "dies"
 			laser.lifeTimer = 0;
 			// set laser's position
-			laser.position = position;
+			laser.dummyPosition = position;
 			// set angle based on this laser's angle and the angles array
 			laser.rotation = -angle + [[angles objectAtIndex:i] floatValue];
 		}

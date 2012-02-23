@@ -11,12 +11,14 @@
 
 @implementation BBBullet
 
-@synthesize recycle, lifeTimer;
+@synthesize recycle, enabled, lifeTimer, damage;
 
 - (id) init {
 	if((self = [super init])) {
 		recycle = YES;
 		self.visible = NO;
+		damage = 10;
+		enabled = NO;
 	}
 	
 	return self;
@@ -27,6 +29,7 @@
 	dummyPosition = newPosition;
 	velocity = newVelocity;
 	recycle = NO;
+	[self setEnabled:YES];
 	lifeTimer = 0;
 	lifetime = newLifetime;
 	self.visible = YES;
@@ -43,11 +46,23 @@
 	// see if bullet is dead yet
 	lifeTimer += delta;
 	if(lifeTimer >= lifetime) {
+		[self setEnabled:NO];
+	}
+}
+
+#pragma mark -
+#pragma mark setters
+- (void) setEnabled:(BOOL)newEnabled {
+	if(enabled && !newEnabled) {
 		recycle = YES;
 		self.visible = NO;
 		[sprite stopAllActions];
 		[self removeChild:sprite cleanup:YES];
 	}
+	else if(!enabled && newEnabled) {
+		
+	}
+	enabled = newEnabled;
 }
 
 @end
