@@ -26,6 +26,8 @@
 	<string>stationary</string>
 	<key>tileCenterOffset</key>
 	<integer>14</integer>
+	<key>health</key>
+	<integer>50</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>

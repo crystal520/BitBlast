@@ -59,7 +59,7 @@
 		}
 	}
 	// check collisions with bullets
-	//[self checkCollisions];
+	[self checkCollisions];
 }
 
 #pragma mark -
@@ -131,7 +131,10 @@
 		// loop through active bullets
 		for(BBBullet *b in activeBullets) {
 			// check for collision
-			[e getCollidesWith:b];
+			if(b.enabled && [e getCollidesWith:b]) {
+				[e hitByBullet:b];
+				[b setEnabled:NO];
+			}
 		}
 	}
 }

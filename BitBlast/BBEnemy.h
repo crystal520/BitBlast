@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BBGameObject.h"
-#import "ChunkManager.h"
+#import "BBBullet.h"
 
 @interface BBEnemy : BBGameObject {
 	// type of enemy
@@ -24,8 +24,6 @@
 	CGPoint velocity;
 	// y offset from tile enemy is currently on
 	float tileOffset;
-	// dummy position for handling multiple resolutions
-	CGPoint dummyPosition;
 	// previous dummy position, usually for collision detecting
 	CGPoint prevDummyPosition;
 }
@@ -40,5 +38,6 @@
 // actions
 - (void) reset;
 - (void) resetWithPosition:(CGPoint)newPosition withType:(NSString*)enemyType;
+- (void) hitByBullet:(BBBullet*)bullet;
 
 @end
