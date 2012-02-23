@@ -27,5 +27,8 @@
 // notifications
 - (void) chunkAdded;
 - (void) gameOver;
+- (void) newGame;
+// actions
+- (void) checkCollisions;
 
 @end

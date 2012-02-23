@@ -94,7 +94,7 @@
 	// if the first image is off the screen, reset it to its initial position
 	if(firstSprite.position.x <= -(firstSprite.contentSize.width * 0.5)) {
 		swapImages = YES;
-		firstSprite.position = ccp(firstSprite.contentSize.width * 0.5, firstSprite.contentSize.height * 0.5);
+		firstSprite.position = ccp(firstSprite.contentSize.width * 0.5, firstSprite.position.y);
 	}
 	
 	// move other sprites based on the end of the first image
@@ -104,11 +104,16 @@
 		sprite.position = ccp(prevSprite.position.x + sprite.contentSize.width, sprite.position.y);
 		
 		if(swapImages) {
-			[prevSprite setTexture:[sprite displayedFrame].texture];
-			prevSprite.position = ccp(prevSprite.position.x, prevSprite.contentSize.height * 0.5);
+			[prevSprite setDisplayFrame:[sprite displayedFrame]];
+			prevSprite.position = ccp(prevSprite.position.x, [prevSprite displayedFrame].rect.size.height * 0.5);
 			// make a new image if it's the last sprite
 			if(i == [sprites count]-1) {
-				[sprite setTexture:[[CCTextureCache sharedTextureCache] addImage:[self getRandomImage]]];
+				CCSprite *lastSprite = [CCSprite spriteWithFile:[self getRandomImage]];
+				[lastSprite.texture setAliasTexParameters];
+				lastSprite.position = ccp(sprite.position.x, [lastSprite displayedFrame].rect.size.height * 0.5);
+				[self addChild:lastSprite];
+				[self removeChild:sprite cleanup:YES];
+				[sprites replaceObjectAtIndex:i withObject:lastSprite];
 			}
 		}
 	}
