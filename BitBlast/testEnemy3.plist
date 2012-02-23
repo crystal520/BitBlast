@@ -22,7 +22,7 @@
 	<key>type</key>
 	<string>stationary</string>
 	<key>tileCenterOffset</key>
-	<integer>14</integer>
+	<integer>6</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>

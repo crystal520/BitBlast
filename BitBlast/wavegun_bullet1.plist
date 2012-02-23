@@ -60,7 +60,7 @@
 			<key>repeat</key>
 			<true/>
 			<key>speed</key>
-			<real>0.25</real>
+			<real>0.5</real>
 			<key>start</key>
 			<string>max</string>
 		</dict>
