@@ -40,14 +40,13 @@
 		for(int i=0;i<numImages;i++) {
 			CCSprite *parallaxImage = [CCSprite spriteWithFile:[self getRandomImage]];
 			[parallaxImage.texture setAliasTexParameters];
-			parallaxImage.position = ccp((i + 0.5) * width * [ResolutionManager sharedSingleton].positionScale, 0);
-			parallaxImage.anchorPoint = ccp(0.5, 1);
+			parallaxImage.position = ccp((i + 0.5) * width * [ResolutionManager sharedSingleton].positionScale, parallaxImage.contentSize.height * 0.5);
 			[self addChild:parallaxImage];
 			[sprites addObject:parallaxImage];
 		}
 		
 		// apply y offset
-		CCSprite *sprite = [sprites objectAtIndex:0];
+		//CCSprite *sprite = [sprites objectAtIndex:0];
 		self.position = ccp(0, [[dict objectForKey:@"y"] floatValue]);
 	}
 	
@@ -95,7 +94,7 @@
 	// if the first image is off the screen, reset it to its initial position
 	if(firstSprite.position.x <= -(firstSprite.contentSize.width * 0.5)) {
 		swapImages = YES;
-		firstSprite.position = ccp(firstSprite.contentSize.width * 0.5, firstSprite.position.y);
+		firstSprite.position = ccp(firstSprite.contentSize.width * 0.5, firstSprite.contentSize.height * 0.5);
 	}
 	
 	// move other sprites based on the end of the first image
@@ -106,6 +105,7 @@
 		
 		if(swapImages) {
 			[prevSprite setTexture:[sprite displayedFrame].texture];
+			prevSprite.position = ccp(prevSprite.position.x, prevSprite.contentSize.height * 0.5);
 			// make a new image if it's the last sprite
 			if(i == [sprites count]-1) {
 				[sprite setTexture:[[CCTextureCache sharedTextureCache] addImage:[self getRandomImage]]];
