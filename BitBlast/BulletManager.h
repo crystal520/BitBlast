@@ -22,11 +22,11 @@
 
 // update
 - (void) update:(float)delta;
+- (void) updateActiveBullets;
 // getters
 - (BBBullet*) getRecycledBullet;
+- (NSArray*) getActiveBullets;
 // setters
 - (void) setNode:(CCNode*)newNode;
-// actions
-- (void) checkCollisionWithArray:(NSArray*)collideArray;
 
 @end

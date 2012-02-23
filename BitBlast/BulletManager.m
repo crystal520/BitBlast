@@ -61,6 +61,10 @@
 	}
 }
 
+- (void) updateActiveBullets {
+	[activeBullets setArray:[self getActiveBullets]];
+}
+
 #pragma mark -
 #pragma mark getters
 - (BBBullet*) getRecycledBullet {
@@ -101,24 +105,6 @@
 	for(BBBullet *b in bullets) {
 		if(!b.recycle) {
 			[b.sprite stopAllActions];
-		}
-	}
-}
-
-#pragma mark -
-#pragma mark actions
-- (void) checkCollisionWithArray:(NSArray *)collideArray {
-	// update active bullets
-	[activeBullets setArray:[self getActiveBullets]];
-	// loop through 
-	for(int i=0,j=[collideArray count];i<j;i++) {
-		id object = [collideArray objectAtIndex:i];
-		for(BBBullet *b in activeBullets) {
-			if([object respondsToSelector:@selector(getCollidesWithObject:)]) {
-				if([object getCollidesWithObject:b]) {
-					NSLog(@"BULLET COLLIDING WIHT ENEMY");
-				}
-			}
 		}
 	}
 }

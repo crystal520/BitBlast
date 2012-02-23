@@ -59,7 +59,7 @@
 		}
 	}
 	// check collisions with bullets
-	//[[BulletManager sharedSingleton] checkCollisionWithArray:[self getActiveEnemies]];
+	//[self checkCollisions];
 }
 
 #pragma mark -
@@ -118,6 +118,21 @@
 - (void) newGame {
 	for(BBEnemy *e in enemies) {
 		[e setEnabled:NO];
+	}
+}
+
+#pragma mark -
+#pragma mark actions
+- (void) checkCollisions {
+	NSArray *activeEnemies = [self getActiveEnemies];
+	NSArray *activeBullets = [[BulletManager sharedSingleton] getActiveBullets];
+	// then loop through the active enemies
+	for(BBEnemy *e in activeEnemies) {
+		// loop through active bullets
+		for(BBBullet *b in activeBullets) {
+			// check for collision
+			[e getCollidesWith:b];
+		}
 	}
 }
 

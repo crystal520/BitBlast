@@ -27,7 +27,7 @@
 - (void) playAnimation:(NSString*)animName;
 - (void) playAnimation:(NSString *)animName target:(id)target selector:(SEL)selector;
 // getters
-- (BOOL) getCollidesWithObject:(BBGameObject*)object;
+- (BOOL) getCollidesWith:(BBGameObject*)object;
 // actions
 - (void) stopAllActions;
 

@@ -113,7 +113,7 @@
 
 #pragma mark -
 #pragma mark getters
-- (BOOL) getCollidesWithObject:(BBGameObject*)object {
+- (BOOL) getCollidesWith:(BBGameObject*)object {
 	// convert object's position into this game object's space
 	CGPoint thisPos = [self.parent convertToNodeSpace:object.position];
 	// check for collision
