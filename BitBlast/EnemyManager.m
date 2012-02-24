@@ -39,7 +39,7 @@
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkAdded) name:kChunkAddedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kGameRestartNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelWillLoad) name:kLoadLevelNotification object:nil];
 	}
 	return self;
 }
@@ -92,7 +92,7 @@
 	// things to check: equipment, weapon, speed, distance
 	// using parameters, generate enemies
 	// for now, for testing, just place the enemy at the first block encountered
-	for(int i=0;i<3;i++) {
+	for(int i=0;i<2;i++) {
 		BBEnemy *newEnemy = [self getRecycledEnemy];
 		if(i == 0) {
 			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy"];
@@ -115,7 +115,7 @@
 	}
 }
 
-- (void) newGame {
+- (void) levelWillLoad {
 	for(BBEnemy *e in enemies) {
 		[e setEnabled:NO];
 	}
@@ -131,7 +131,7 @@
 		// loop through active bullets
 		for(BBBullet *b in activeBullets) {
 			// check for collision
-			if(b.enabled && [e getCollidesWith:b]) {
+			if(b.enabled && e.enabled && [e getCollidesWith:b]) {
 				[e hitByBullet:b];
 				[b setEnabled:NO];
 			}

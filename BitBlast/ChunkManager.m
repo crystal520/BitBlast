@@ -63,7 +63,7 @@
 }
 
 - (void) resetWithLevel:(NSString*)level {
-	
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kLoadLevelNotification object:nil]];
 	[self removeChunks];
 	[self loadChunksForLevel:level];
 }

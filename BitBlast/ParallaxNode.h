@@ -16,6 +16,8 @@
 	NSMutableArray *sprites;
 	// possible images that the sprites can use
 	NSMutableArray *spriteImages;
+	// whether the images come one right after the other
+	BOOL seamless;
 }
 
 @property (nonatomic) float ratio;
@@ -27,5 +29,8 @@
 - (NSString*) getRandomImage;
 // update
 - (void) update:(float)changeInPos;
+- (void) updatePositions;
+// actions
+- (void) swapImages;
 
 @end
