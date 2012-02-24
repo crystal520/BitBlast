@@ -40,37 +40,37 @@
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>-15</string>
+				<string>0.25</string>
 				<key>low</key>
-				<string>-15</string>
+				<string>0.25</string>
 			</dict>
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>15</string>
+				<string>5</string>
 				<key>low</key>
-				<string>15</string>
+				<string>5</string>
 			</dict>
 			<key>curve</key>
-			<string>easeinoutsine</string>
+			<string>ease</string>
 			<key>loop</key>
-			<true/>
+			<false/>
 			<key>property</key>
-			<string>y</string>
+			<string>scale</string>
 			<key>repeat</key>
-			<true/>
+			<false/>
 			<key>speed</key>
-			<real>0.2</real>
+			<integer>2</integer>
 			<key>start</key>
-			<string>max</string>
+			<string>min</string>
 		</dict>
 		<dict>
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>1</string>
+				<string>0</string>
 				<key>low</key>
-				<string>1</string>
+				<string>0</string>
 			</dict>
 			<key>maxRange</key>
 			<dict>
@@ -88,13 +88,13 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<integer>1</integer>
+			<real>0.25</real>
 			<key>start</key>
-			<string>max</string>
+			<string>min</string>
 		</dict>
 	</array>
 	<key>blend</key>
-	<true/>
+	<false/>
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
@@ -102,7 +102,7 @@
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
-	<integer>900</integer>
+	<integer>700</integer>
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
@@ -110,9 +110,9 @@
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
-	<integer>900</integer>
+	<integer>600</integer>
 	<key>rateOfFire</key>
-	<real>0.35</real>
+	<integer>2</integer>
 	<key>sprite</key>
 	<string>bluewave.png</string>
 </dict>
