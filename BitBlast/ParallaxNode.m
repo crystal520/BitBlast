@@ -32,6 +32,12 @@
 		}
 		numImages = MAX(2, numImages);
 		
+		// see if the images need to be seamless
+		seamless = [[dict objectForKey:@"seamless"] boolValue];
+		if(!seamless) {
+			numImages = 1;
+		}
+		
 		// create array for sprite images
 		spriteImages = [NSMutableArray new];
 		[spriteImages setArray:[dict objectForKey:@"images"]];
@@ -40,13 +46,12 @@
 		for(int i=0;i<numImages;i++) {
 			CCSprite *parallaxImage = [CCSprite spriteWithFile:[self getRandomImage]];
 			[parallaxImage.texture setAliasTexParameters];
-			parallaxImage.position = ccp((i + 0.5) * width * [ResolutionManager sharedSingleton].positionScale, parallaxImage.contentSize.height * 0.5);
+			parallaxImage.position = ccp((i + 0.5) * parallaxImage.contentSize.width * [ResolutionManager sharedSingleton].positionScale, parallaxImage.contentSize.height * 0.5);
 			[self addChild:parallaxImage];
 			[sprites addObject:parallaxImage];
 		}
 		
-		// apply y offset
-		//CCSprite *sprite = [sprites objectAtIndex:0];
+		// apply y offset to entire node
 		self.position = ccp(0, [[dict objectForKey:@"y"] floatValue]);
 	}
 	
@@ -84,39 +89,54 @@
 #pragma mark update
 - (void) update:(float)changeInPos {
 	
-	// update all sprite positions based on the changeInPos
+	// update first sprite based on the changeInPos
 	CCSprite *firstSprite = [sprites objectAtIndex:0];
 	firstSprite.position = ccp(firstSprite.position.x + (changeInPos * ratio), firstSprite.position.y);
-	
-	// flag for whether first image went off screen. determines whether sprites need their images changed
-	BOOL swapImages = NO;
+	// update other sprite positions based on first sprite
+	[self updatePositions];
 	
 	// if the first image is off the screen, reset it to its initial position
-	if(firstSprite.position.x <= -(firstSprite.contentSize.width * 0.5)) {
-		swapImages = YES;
-		firstSprite.position = ccp(firstSprite.contentSize.width * 0.5, firstSprite.position.y);
+	if(firstSprite.position.x <= -([firstSprite displayedFrame].rect.size.width * 0.5)) {
+		// swap images so we re-use sprite objects
+		[self swapImages];
+		// reset first sprite's position
+		firstSprite.position = ccp([firstSprite displayedFrame].rect.size.width * 0.5, [firstSprite displayedFrame].rect.size.height * 0.5);
+		// update other sprite positions based on first sprite
+		[self updatePositions];
+		// position the sprite offscreen somewhere if not seamless
+		if(!seamless) {
+			float min = [ResolutionManager sharedSingleton].size.width + [firstSprite displayedFrame].rect.size.width * 0.5;
+			float max = min + [firstSprite displayedFrame].rect.size.width;
+			firstSprite.position = ccp(CCRANDOM_MIN_MAX(min, max), firstSprite.position.y);
+		}
 	}
-	
-	// move other sprites based on the end of the first image
+}
+
+- (void) updatePositions {
+	// loop through sprites and set positions
 	for(int i=1,j=[sprites count];i<j;i++) {
 		CCSprite *sprite = [sprites objectAtIndex:i];
 		CCSprite *prevSprite = [sprites objectAtIndex:i-1];
-		sprite.position = ccp(prevSprite.position.x + sprite.contentSize.width, sprite.position.y);
 		
-		if(swapImages) {
-			[prevSprite setDisplayFrame:[sprite displayedFrame]];
-			prevSprite.position = ccp(prevSprite.position.x, [prevSprite displayedFrame].rect.size.height * 0.5);
-			// make a new image if it's the last sprite
-			if(i == [sprites count]-1) {
-				CCSprite *lastSprite = [CCSprite spriteWithFile:[self getRandomImage]];
-				[lastSprite.texture setAliasTexParameters];
-				lastSprite.position = ccp(sprite.position.x, [lastSprite displayedFrame].rect.size.height * 0.5);
-				[self addChild:lastSprite];
-				[self removeChild:sprite cleanup:YES];
-				[sprites replaceObjectAtIndex:i withObject:lastSprite];
-			}
-		}
+		sprite.position = ccp(prevSprite.position.x + ([prevSprite displayedFrame].rect.size.width + [sprite displayedFrame].rect.size.width) * 0.5, [sprite displayedFrame].rect.size.height * 0.5);
 	}
+}
+
+#pragma mark -
+#pragma mark actions
+- (void) swapImages {
+	// loop through sprites and swap images
+	for(int i=1,j=[sprites count];i<j;i++) {
+		CCSprite *sprite = [sprites objectAtIndex:i];
+		CCSprite *prevSprite = [sprites objectAtIndex:i-1];
+		
+		[prevSprite setDisplayFrame:[sprite displayedFrame]];
+	}
+	
+	// get last sprite in array and set it to a new image
+	CCSprite *lastSprite = [sprites objectAtIndex:[sprites count]-1];
+	[lastSprite setTexture:[[CCTextureCache sharedTextureCache] addImage:[self getRandomImage]]];
+	[lastSprite setTextureRect:CGRectMake(0, 0, lastSprite.texture.contentSize.width, lastSprite.texture.contentSize.height)];
 }
 
 @end
