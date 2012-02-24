@@ -12,7 +12,7 @@
 #import "ChunkManager.h"
 #import "BulletManager.h"
 
-#define MAX_ENEMIES 6
+#define MAX_ENEMIES 10
 
 @interface EnemyManager : NSObject {
     NSMutableArray *enemies;

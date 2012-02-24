@@ -13,6 +13,7 @@ typedef enum {
 } SpriteTags;
 
 #define kGameRestartNotification @"gameRestartNotification"
+#define kLoadLevelNotification @"loadLevelNotification"
 
 #define kPlayerUpdateNotification @"playerUpdateNotification"
 #define kPlayerCollectCoinNotification @"playerCollectCoinNotification"
