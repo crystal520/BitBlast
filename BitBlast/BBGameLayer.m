@@ -35,11 +35,11 @@
 		
 		// create parallax scrolling background
 		parallax = [[ParallaxManager alloc] initWithFile:@"jungleLevel"];
-		[self addChild:parallax];
+		[self addChild:parallax z:1];
 		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
-		[self addChild:scrollingNode];
+		[self addChild:scrollingNode z:2];
 		
 		// listen for touches
 		self.isTouchEnabled = YES;
@@ -48,6 +48,10 @@
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
+		
+		// create background sprite
+		[self createBackground];
+		[self setBackgroundColorWithFile:@"jungleLevel"];
 		
 		// create player
 		player = [[BBPlayer alloc] init];
@@ -84,7 +88,7 @@
 		mainMenu = [[BBMainMenu alloc] init];
 		// leaderboards
 		leaderboards = [[BBLeaderboards alloc] init];
-		[self addChild:mainMenu];
+		[self addChild:mainMenu z:4];
 		
 #ifdef DEBUG
 		debugButton = [CCSprite spriteWithFile:@"white.png"];
@@ -140,6 +144,15 @@
 	[self scheduleUpdate];
 }
 
+- (void) createBackground {
+	// create colorable background
+	background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, [ResolutionManager sharedSingleton].size.width, [ResolutionManager sharedSingleton].size.height)];
+	background.anchorPoint = ccp(0, 0);
+	ccTexParams params = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
+	[background.texture setTexParameters:&params];
+	[self addChild:background z:0];
+}
+
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
@@ -183,6 +196,21 @@
 	
 	[parallax update:scrollingNode.position.x - prevPos];
 }
+
+#pragma mark -
+#pragma mark setters
+- (void) setBackgroundColorWithFile:(NSString*)file {
+	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"plist"]];
+	// get color from dictionary
+	NSArray *colorArray = [[dict objectForKey:@"backgroundColor"] componentsSeparatedByString:@", "];
+	// make color
+	ccColor3B bgColor = ccc3([[colorArray objectAtIndex:0] floatValue], [[colorArray objectAtIndex:1] floatValue], [[colorArray objectAtIndex:2] floatValue]);
+	// set color
+	background.color = bgColor;
+}
+
+#pragma mark -
+#pragma mark getters
 
 #pragma mark -
 #pragma mark touch input

@@ -42,6 +42,8 @@ typedef enum {
 	CCNode *scrollingNode;
 	CGPoint cameraOffset, cameraBounds;
 	GameState state;
+	// colored background sprite
+	CCSprite *background;
 	
 	// screens
 	BBHud *hud;
@@ -55,10 +57,14 @@ typedef enum {
 // returns a CCScene that contains the BBGameLayer as the only child
 + (CCScene *) scene;
 
+// setup
+- (void) createBackground;
 - (void) loadImages;
 - (void) loadCameraVariables;
 - (void) reset;
-
+// setters
+- (void) setBackgroundColorWithFile:(NSString*)file;
+// update
 - (void) updateCamera;
 
 @end

@@ -161,7 +161,7 @@
 - (void) loadChunksForLevel:(NSString*)levelName {
 	
 	// grab plist from bundle
-	NSDictionary *levelPlist = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"]];
+	NSDictionary *levelPlist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"]];
 	
 	// make sure it exists
 	if(levelPlist) {
