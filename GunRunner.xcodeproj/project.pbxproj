@@ -76,6 +76,7 @@
 		0A7D52EE14C4889900066390 /* shopItem3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52EB14C4889900066390 /* shopItem3.plist */; };
 		0A7D52EF14C4889900066390 /* shopItem2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52EC14C4889900066390 /* shopItem2.plist */; };
 		0A7D52F114C4950D00066390 /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52F014C4950C00066390 /* shop.plist */; };
+		0A94930714FAECD400941321 /* iCadeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A94930514FAECD400941321 /* iCadeReaderView.m */; };
 		0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */; };
 		0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3914B29AA3003A1DB1 /* BBHud.m */; };
 		0A9A7B3E14B33D10003A1DB1 /* BBGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */; };
@@ -409,6 +410,9 @@
 		0A7D52EB14C4889900066390 /* shopItem3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem3.plist; sourceTree = "<group>"; };
 		0A7D52EC14C4889900066390 /* shopItem2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem2.plist; sourceTree = "<group>"; };
 		0A7D52F014C4950C00066390 /* shop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
+		0A94930414FAECD400941321 /* iCadeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeReaderView.h; sourceTree = "<group>"; };
+		0A94930514FAECD400941321 /* iCadeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCadeReaderView.m; sourceTree = "<group>"; };
+		0A94930614FAECD400941321 /* iCadeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeState.h; sourceTree = "<group>"; };
 		0A9A7B3414B293BA003A1DB1 /* ScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManager.h; sourceTree = "<group>"; };
 		0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManager.m; sourceTree = "<group>"; };
 		0A9A7B3814B29AA2003A1DB1 /* BBHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHud.h; sourceTree = "<group>"; };
@@ -1117,6 +1121,24 @@
 			name = Shop;
 			sourceTree = "<group>";
 		};
+		0A94930114FAECA400941321 /* Supporting Code */ = {
+			isa = PBXGroup;
+			children = (
+				0A94930314FAECD400941321 /* iCade */,
+			);
+			name = "Supporting Code";
+			sourceTree = "<group>";
+		};
+		0A94930314FAECD400941321 /* iCade */ = {
+			isa = PBXGroup;
+			children = (
+				0A94930414FAECD400941321 /* iCadeReaderView.h */,
+				0A94930514FAECD400941321 /* iCadeReaderView.m */,
+				0A94930614FAECD400941321 /* iCadeState.h */,
+			);
+			path = iCade;
+			sourceTree = "<group>";
+		};
 		0A9A7B3B14B33CF3003A1DB1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -1191,6 +1213,7 @@
 		0AE417461496F5C400342D8E /* BitBlast */ = {
 			isa = PBXGroup;
 			children = (
+				0A94930114FAECA400941321 /* Supporting Code */,
 				0A1EC4A2149E68D8005A7ED6 /* CocosSubclasses */,
 				0AE4192B1496FE7E00342D8E /* Code */,
 				0AE4190B1496F5C800342D8E /* AppDelegate.h */,
@@ -2073,6 +2096,7 @@
 				0A0366D914E21EA100313CCC /* BBLaser.m in Sources */,
 				0A0366E014E4C55900313CCC /* EnemyManager.m in Sources */,
 				0A0366E414E4C78800313CCC /* BBEnemy.m in Sources */,
+				0A94930714FAECD400941321 /* iCadeReaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

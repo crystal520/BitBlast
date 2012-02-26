@@ -28,6 +28,9 @@
 - (id) init {
 	if((self = [super init])) {
 		
+		// setup iCade controls
+		[self setupICade];
+		
 		[self setScale:[ResolutionManager sharedSingleton].imageScale];
 		[self setPosition:[ResolutionManager sharedSingleton].position];
 		[self loadImages];
@@ -119,6 +122,13 @@
 
 #pragma mark -
 #pragma mark setup
+- (void) setupICade {
+	iCadeView = [[iCadeReaderView alloc] initWithFrame:CGRectZero];
+	[[[CCDirector sharedDirector] openGLView] addSubview:iCadeView];
+	iCadeView.active = YES;
+	iCadeView.delegate = self;
+}
+
 - (void) loadImages {
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"uiatlas.plist"];
 }
@@ -274,6 +284,29 @@
 
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
 	
+}
+
+#pragma mark -
+#pragma mark delegate
+- (void) buttonDown:(iCadeState)button {
+	if(button == iCadeJoystickDown || button == iCadeJoystickDownLeft || button == iCadeJoystickDownRight) {
+		[player setWeaponAngle:-1];
+	}
+	else if(button == iCadeJoystickUp || button == iCadeJoystickUpLeft || button == iCadeJoystickUpRight) {
+		[player setWeaponAngle:1];
+	}
+	else if(button == iCadeButtonA || button == iCadeButtonB || button == iCadeButtonC || button == iCadeButtonD || button == iCadeButtonE || button == iCadeButtonF || button == iCadeButtonG || button == iCadeButtonH) {
+		[player jump];
+	}
+}
+
+- (void) buttonUp:(iCadeState)button {
+	if(button == iCadeJoystickDown || button == iCadeJoystickDownLeft || button == iCadeJoystickDownRight || button == iCadeJoystickUp || button == iCadeJoystickUpLeft || button == iCadeJoystickUpRight) {
+		[player setWeaponAngle:0];
+	}
+	else if(button == iCadeButtonA || button == iCadeButtonB || button == iCadeButtonC || button == iCadeButtonD || button == iCadeButtonE || button == iCadeButtonF || button == iCadeButtonG || button == iCadeButtonH) {
+		[player endJump];
+	}
 }
 
 #pragma mark -
