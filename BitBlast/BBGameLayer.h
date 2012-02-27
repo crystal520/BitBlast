@@ -21,6 +21,7 @@
 #import "BBLeaderboards.h"
 #import "BBEquipmentManager.h"
 #import "EnemyManager.h"
+#import "iCadeReaderView.h"
 
 typedef enum {
 	kStateMainMenu,
@@ -31,7 +32,7 @@ typedef enum {
 	kStateLeaderboards
 } GameState;
 
-@interface BBGameLayer : CCLayer {
+@interface BBGameLayer : CCLayer <iCadeEventDelegate> {
 	
 #ifdef DEBUG
 	CCSprite *debugButton;
@@ -42,7 +43,10 @@ typedef enum {
 	CCNode *scrollingNode;
 	CGPoint cameraOffset, cameraBounds;
 	GameState state;
-	
+	// colored background sprite
+	CCSprite *background;
+	// iCade support view
+	iCadeReaderView *iCadeView;
 	// screens
 	BBHud *hud;
 	BBGameOver *gameOver;
@@ -55,10 +59,15 @@ typedef enum {
 // returns a CCScene that contains the BBGameLayer as the only child
 + (CCScene *) scene;
 
+// setup
+- (void) setupICade;
+- (void) createBackground;
 - (void) loadImages;
 - (void) loadCameraVariables;
 - (void) reset;
-
+// setters
+- (void) setBackgroundColorWithFile:(NSString*)file;
+// update
 - (void) updateCamera;
 
 @end

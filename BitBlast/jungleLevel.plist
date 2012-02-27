@@ -12,6 +12,8 @@
 	<string>contrachunk.tmx</string>
 	<key>overrideChunk</key>
 	<string></string>
+	<key>backgroundColor</key>
+	<string>170, 221, 238</string>
 	<key>parallax</key>
 	<array>
 		<dict>

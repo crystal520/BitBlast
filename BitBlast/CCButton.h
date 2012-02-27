@@ -19,6 +19,8 @@ typedef enum {
     ButtonState state;
 	CCNode<CCRGBAProtocol> *normalImage, *selectedImage, *disabledImage;
 	NSInvocation *invocation;
+	// whether or not this button will react to input
+	BOOL enabled;
 }
 
 /** creates a button with a normal and selected image*/
@@ -30,9 +32,11 @@ typedef enum {
 /** initializes a button with a normal, selected  and disabled image with target/selector */
 -(id) initFromNormalSprite:(CCNode<CCRGBAProtocol>*)normalSprite selectedSprite:(CCNode<CCRGBAProtocol>*)selectedSprite disabledSprite:(CCNode<CCRGBAProtocol>*)disabledSprite target:(id)target selector:(SEL)selector;
 
+// setters
 - (void) setState:(ButtonState)newState;
 - (void) setSpriteBatchNode:(CCSpriteBatchNode*)batchNode;
 - (void) setPosition:(CGPoint)newPosition;
+- (void) setEnabled:(BOOL)newEnabled;
 - (CGRect) scaledBoundingBox;
 
 @end

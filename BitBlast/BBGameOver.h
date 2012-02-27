@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "ScoreManager.h"
 #import "CCNodeColorBackground.h"
+#import "CCLabelButton.h"
 
 @interface BBGameOver : CCNodeColorBackground {
 	CCLabelBMFont *distanceLabel, *killLabel, *multiplierLabel, *scoreLabel;
