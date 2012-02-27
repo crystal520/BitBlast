@@ -28,6 +28,7 @@
 		normalImage = normalSprite;
 		selectedImage = selectedSprite;
 		disabledImage = disabledSprite;
+        enabled = YES;
 		
 		NSMethodSignature *sig = nil;
 		if(target && selector) {
