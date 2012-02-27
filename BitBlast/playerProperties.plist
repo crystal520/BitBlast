@@ -69,7 +69,7 @@
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
-		<real>0.15</real>
+		<real>0.1</real>
 		<key>maxSpeed</key>
 		<integer>1000</integer>
 		<key>minSpeed</key>
