@@ -57,8 +57,6 @@
 		0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BD14C20D8800066390 /* smallButtonDown.png */; };
 		0A7D52C014C20D8800066390 /* bigButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BE14C20D8800066390 /* bigButtonDown.png */; };
 		0A7D52C314C22C3800066390 /* CCNodeColorBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */; };
-		0A7D52C614C22F9C00066390 /* mediumButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52C414C22F9B00066390 /* mediumButtonDown.png */; };
-		0A7D52C714C22F9C00066390 /* mediumButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52C514C22F9B00066390 /* mediumButton.png */; };
 		0A7D52CA14C2317700066390 /* BBShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52C914C2317600066390 /* BBShop.m */; };
 		0A7D52D014C4844600066390 /* BBShopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52CF14C4844500066390 /* BBShopItem.m */; };
 		0A7D52D414C486C100066390 /* shopItem1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52D314C486C100066390 /* shopItem1.plist */; };
@@ -389,8 +387,6 @@
 		0A7D52BE14C20D8800066390 /* bigButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigButtonDown.png; path = Resources/bigButtonDown.png; sourceTree = "<group>"; };
 		0A7D52C114C22C3700066390 /* CCNodeColorBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeColorBackground.h; sourceTree = "<group>"; };
 		0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeColorBackground.m; sourceTree = "<group>"; };
-		0A7D52C414C22F9B00066390 /* mediumButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mediumButtonDown.png; path = Resources/mediumButtonDown.png; sourceTree = "<group>"; };
-		0A7D52C514C22F9B00066390 /* mediumButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mediumButton.png; path = Resources/mediumButton.png; sourceTree = "<group>"; };
 		0A7D52C814C2317500066390 /* BBShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShop.h; sourceTree = "<group>"; };
 		0A7D52C914C2317600066390 /* BBShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShop.m; sourceTree = "<group>"; };
 		0A7D52CE14C4844400066390 /* BBShopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShopItem.h; sourceTree = "<group>"; };
@@ -1095,8 +1091,6 @@
 				0A7D52E114C4883200066390 /* shopBuyButton.png */,
 				0A7D52E214C4883200066390 /* backButtonDown.png */,
 				0A7D52E314C4883200066390 /* backButton.png */,
-				0A7D52C414C22F9B00066390 /* mediumButtonDown.png */,
-				0A7D52C514C22F9B00066390 /* mediumButton.png */,
 				0A7D52BD14C20D8800066390 /* smallButtonDown.png */,
 				0A7D52BE14C20D8800066390 /* bigButtonDown.png */,
 				0A7D52B914C074DF00066390 /* smallButton.png */,
@@ -1824,8 +1818,6 @@
 				0A7D52BC14C074DF00066390 /* bigButton.png in Resources */,
 				0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */,
 				0A7D52C014C20D8800066390 /* bigButtonDown.png in Resources */,
-				0A7D52C614C22F9C00066390 /* mediumButtonDown.png in Resources */,
-				0A7D52C714C22F9C00066390 /* mediumButton.png in Resources */,
 				0A7D52D414C486C100066390 /* shopItem1.plist in Resources */,
 				0A7D52DA14C4882800066390 /* shopItem4.png in Resources */,
 				0A7D52DB14C4882800066390 /* shopItem3.png in Resources */,

@@ -63,6 +63,10 @@
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+	if(!enabled) {
+		return NO;
+	}
+	
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
 	if(CGRectContainsPoint([self scaledBoundingBox], touchPoint)) {
@@ -73,6 +77,10 @@
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+	if(!enabled) {
+		return;
+	}
+	
 	// reset state if button doesn't contain touch
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
@@ -82,6 +90,10 @@
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+	if(!enabled) {
+		return;
+	}
+	
 	// reset state and perform callback
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
@@ -140,6 +152,10 @@
 		[disabledImage setPosition:newPosition];
 	}
 	[super setPosition:newPosition];
+}
+
+- (void) setEnabled:(BOOL)newEnabled {
+	enabled = newEnabled;
 }
 
 - (CGRect) scaledBoundingBox {

@@ -15,7 +15,11 @@
 	
 	if((self = [super initWithColor:ccc3(0, 0, 0) withAlpha:0.5f])) {
 		
-		CGSize winSize = [CCDirector sharedDirector].winSize;
+		CGSize winSize = [ResolutionManager sharedSingleton].size;
+		
+		// create spritebatch with UI image
+		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
+		[self addChild:uiSpriteBatch];
 		
 		// create game over label
 		CCLabelBMFont *gameOverLabel = [CCLabelBMFont labelWithString:@"GAME OVER!" fntFile:@"gamefont.fnt"];
@@ -54,30 +58,30 @@
 		//////////////////////////////////////////// MENU ////////////////////////////////////////////
 		// create shop label
 		CCLabelBMFont *shopText = [CCLabelBMFont labelWithString:@"SHOP" fntFile:@"gamefont.fnt"];
+		shopText.scale = 0.5;
 		
 		// create shop button
-		CCMenuItemLabelAndImage *shop = [CCMenuItemLabelAndImage itemFromLabel:shopText normalImage:@"mediumButton.png" selectedImage:@"mediumButtonDown.png" target:self selector:@selector(shop)];
-		shop.label.scale = 0.5;
-		shop.position = ccp(-winSize.width * 0.25, -winSize.height * 0.3);
+		CCLabelButton *shop = [CCLabelButton buttonWithLabel:shopText normalSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButtonDown.png"] target:self selector:@selector(shop)];
+		[shop setSpriteBatchNode:uiSpriteBatch];
+		shop.position = ccp(winSize.width * 0.3, winSize.height * 0.2);
+		[self addChild:shop];
 		
 		// create play again label
 		CCLabelBMFont *playAgainText = [CCLabelBMFont labelWithString:@"PLAY AGAIN" fntFile:@"gamefont.fnt"];
+		playAgainText.scale = 0.5;
 		
 		// create play again button
-		CCMenuItemLabelAndImage *playAgain = [CCMenuItemLabelAndImage itemFromLabel:playAgainText normalImage:@"mediumButton.png" selectedImage:@"mediumButtonDown.png" target:self selector:@selector(restartGame)];
-		playAgain.label.scale = 0.5;
-		playAgain.position = ccp(winSize.width * 0.25, -winSize.height * 0.3);
-		
-		// create menu
-		CCMenu *menu = [CCMenu menuWithItems:shop, playAgain, nil];
-		[self addChild:menu];
+		CCLabelButton *playAgain = [CCLabelButton buttonWithLabel:playAgainText normalSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButtonDown.png"] target:self selector:@selector(restartGame)];
+		[playAgain setSpriteBatchNode:uiSpriteBatch];
+		playAgain.position = ccp(winSize.width * 0.7, winSize.height * 0.2);
+		[self addChild:playAgain];
 	}
 	
 	return self;
 }
 
 - (void) updateFinalScore {
-	//[distanceLabel setString:[NSString stringWithFormat:@"DISTANCE: %i", [[ScoreManager sharedSingleton] getScore]]];
+	[distanceLabel setString:[NSString stringWithFormat:@"DISTANCE: %i", [[ScoreManager sharedSingleton] getScore]]];
 }
 
 - (void) shop {
