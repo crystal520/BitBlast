@@ -15,7 +15,6 @@
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
 		
-		self.tag = TAG_PLAYER;
 		[self loadAnimations];
 		self.sprite.anchorPoint = ccp(0.5, 0);
 		[self setState:kPlayerUnknown];

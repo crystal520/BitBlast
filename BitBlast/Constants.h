@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-	TAG_PLAYER
-} SpriteTags;
+	DEPTH_BACKGROUND,
+	DEPTH_PARALLAX,
+	DEPTH_LEVEL,
+	DEPTH_MENU,
+	DEPTH_DEBUG
+} DepthOrder;
 
 #define kGameRestartNotification @"gameRestartNotification"
 #define kLoadLevelNotification @"loadLevelNotification"

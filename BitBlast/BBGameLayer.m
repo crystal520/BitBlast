@@ -38,11 +38,11 @@
 		
 		// create parallax scrolling background
 		parallax = [[ParallaxManager alloc] initWithFile:@"jungleLevel"];
-		[self addChild:parallax z:1];
+		[self addChild:parallax z:DEPTH_PARALLAX];
 		
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
-		[self addChild:scrollingNode z:2];
+		[self addChild:scrollingNode z:DEPTH_LEVEL];
 		
 		// listen for touches
 		self.isTouchEnabled = YES;
@@ -91,14 +91,14 @@
 		mainMenu = [[BBMainMenu alloc] init];
 		// leaderboards
 		leaderboards = [[BBLeaderboards alloc] init];
-		[self addChild:mainMenu z:4];
+		[self addChild:mainMenu z:DEPTH_MENU];
 		
 #ifdef DEBUG
 		debugButton = [CCSprite spriteWithFile:@"white.png"];
 		debugButton.color = ccc3(0, 0, 0);
 		[debugButton setTextureRect:CGRectMake(0, 0, 50, 50)];
 		debugButton.position = ccp(25, [ResolutionManager sharedSingleton].size.height - 25);
-		[self addChild:debugButton z:10];
+		[self addChild:debugButton z:DEPTH_DEBUG];
 #endif
 	}
 	
@@ -143,7 +143,7 @@
 }
 
 - (void) reset {
-	[self addChild:hud];
+	[self addChild:hud z:DEPTH_MENU];
 	state = kStateGame;
 	scrollingNode.position = ccp(0, [ResolutionManager sharedSingleton].size.height * 0.5);
 	[parallax reset];
@@ -160,7 +160,7 @@
 	background.anchorPoint = ccp(0, 0);
 	ccTexParams params = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
 	[background.texture setTexParameters:&params];
-	[self addChild:background z:0];
+	[self addChild:background z:DEPTH_BACKGROUND];
 }
 
 #pragma mark -
@@ -316,7 +316,7 @@
 	state = kStateGameOver;
 	[self unscheduleUpdate];
 	[gameOver updateFinalScore];
-	[self addChild:gameOver];
+	[self addChild:gameOver z:DEPTH_MENU];
 }
 
 - (void) startGame {
@@ -338,7 +338,7 @@
 	}
 	
 	state = kStateShop;
-	[self addChild:shop];
+	[self addChild:shop z:DEPTH_MENU];
 }
 
 - (void) gotoMain {
@@ -350,14 +350,14 @@
 	}
 	
 	state = kStateMainMenu;
-	[self addChild:mainMenu];
+	[self addChild:mainMenu z:DEPTH_MENU];
 }
 
 - (void) gotoLeaderboards {
 	if(state == kStateMainMenu) {
 		state = kStateLeaderboards;
 		[self removeChild:mainMenu cleanup:YES];
-		[self addChild:leaderboards];
+		[self addChild:leaderboards z:DEPTH_MENU];
 	}
 }
 
@@ -365,7 +365,7 @@
 	if(state == kStateShop) {
 		state = kStateConfirmBuy;
 		[confirmBuy updateWithInfo:[n userInfo]];
-		[self addChild:confirmBuy];
+		[self addChild:confirmBuy z:DEPTH_MENU];
 	}
 }
 
