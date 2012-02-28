@@ -5,7 +5,7 @@
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBbQATmj0cAej/iUfsAIxCx7MhISZoRgmx0YF+4kBtPAvMw4M8yu2sKC1f1mxuAdf3ODCbEjmseAxixT/EkonxLiJA4o5oWYCAAG4A3A=
+   eJxjYBgFo2AUjIJRMApGwSgYBbQA+mj0cAej/iUfsAIxCx7MhISZoRgmx0YF+4kBtPAvMw4M8yu2sKC1f1mxuAdf3ODCbEjmseAxixT/EkonxLiJA4o5oWYCABX6Atg=
   </data>
  </layer>
  <layer name="CollisionBottom" width="60" height="15">

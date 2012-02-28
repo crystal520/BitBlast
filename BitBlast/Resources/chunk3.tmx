@@ -5,17 +5,17 @@
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztlFkKgDAMRPvhehI3UK+g9z+UCVgoIV2oIkXmwYNaRZxM0RgAAAAAgPI4nfWq3Nf2fPsDOZGjcBbX/MyS+b1PeTuvzRPKy/4pr9avnEHpeVuyc0ztl9e+fuU72ZqsAjZknxP05qt+U88zz8CXWWaNzSY0M5vhILeIu8hre0r9X8XOs5ZZ6/UCSmESuw==
+   eJztkwsKgCAMQIX+p+kMlXn/I7VBwlqbUhJI7MGDspJeI+cMwzAMwzDqYybHi3BdWtPWV3ADPXNn53hPePm+pXzRy5v/3uvdtbmmXkqqdwBHotYbe+iceS8ahD3RDmwT9uBUVHlvy61p67GXz1LrlcBvoDXz1ty3kWzOfWID/Qc1A+uNc9KefdKrNUtzPQBK/hut
   </data>
  </layer>
  <layer name="Decal" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaNgFAxGwEkjczkolB9owM4AcSMyJhRWuPw02PxKip+IMQsfHwQAn8QAiw==
+   eJxjYBgFo2AUjIJRMApGwSgYBaOAvkB/oB1AZ0Cufzmp6goE4KBQnhCgdfyyM0DciIwJhRUuP1HqV2oDUvxEjFn4+CAAAA/OARg=
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwVAAfEDMD8WKSGx8YrjElYBYGQtWxSKmRg/PDVOAHGeEsMAAuXGwAy4g5gZiHijmpaKZ6JgHC0aWp4bdtAIgP6G7mVruxRZePDjYuMJLB4hVCGD0sgabvYM5DoYqAAByoAc2
+   eJxjYBgFo2AUjIJRMApGwVAAfEDMD8WKSGx8YrjElYBYGQtWxSKmRg/PDVOAHGeEsMAAuXGwAy4g5gZiHijmpaKZ6JgHC0aWp4bdtAIgP6G7mVruxRZePDjYuMJLHYhVCGD0sgabvYM5DoYqAABqlAcx
   </data>
  </layer>
  <layer name="CollisionBottom" width="60" height="15">
@@ -30,7 +30,7 @@
  </layer>
  <layer name="Foreground" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzwEJAAAIwDCz2T+UIQQF3RL8EQAA0JfbAcP83vbltwBwrgEJ
+   eJztzwEJAAAIwDAb2b+dIQQF3RL8EQAA0JfbAcP83vbltwDA3wC9
   </data>
  </layer>
 </map>
