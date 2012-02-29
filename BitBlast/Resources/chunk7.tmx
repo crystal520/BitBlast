@@ -5,32 +5,22 @@
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYuoAViFkoxGx0dzX5AObfDAbsfsnEIT5U/UvIL8xQjC8cBgsgN61i899QSeOUupsUjJwnCPnXkYA8NcoVemKYf/XJ8C8AUlkE0w==
+   eJztleEKgDAIhH21auv9H6n9aHTY6WAQJXkg+zGx+6ZbIqlUKpX6szYSpUU91x64H1lF7lzIy84jopCNMWlezI8oNsO4VpITsb96fq072nnZHLwt9LK3WFqscvkczS7r8Zf76/FanMim++u9V0/eX/TM3g/tpyhetm8x6rqV5FvfZnW6D4F1htfzqHlHs+uF9z8a1ZzhPQDG0TxM
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwXACXEDMTSHmpburR8FIBMSkVS0q2KOLxdyRnMb5gJgfDSui8QXQ9JBTrlAj7igFIL/qQWmQH9H9BQP6dHMRfQDIP45AbMCAPa71kNQCAE1ZBO8=
-  </data>
- </layer>
- <layer name="Collision" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJzt0MEJADAIBEErVOy/mSTgS4j4ChJ24P7HigAAAAB/8j2LadqNPfg1zelUNankrp3GmGMBe+AFOA==
-  </data>
- </layer>
- <layer name="CollisionBottom" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+   eJxjYBgFo2AUjIJRAAPqQKyMA6sCsQoUKyPRIKw2EI6lAnAiU58bVV1BewCL11Qy9Q81/5IbrzAwVPxLabzCwED6F+QH5LJEA4gVgVgJSQxW7lDqTxgYSP9SmjbJAZT6lwuIuaGYF0kcub6A1Q/odQO14owUkMKAux5DT2f8UFoAST87EHNAMSfdXE1foD/QDqAzIORfABORDCk=
   </data>
  </layer>
  <layer name="Foreground" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+   eJxjYBgFo2AUjIJRMApGHuADYn48eLgBfSxi2MJAgJ6OoiHA5l9ixYYiGGr+JZT/CGE9LGYOZv/Swh0D5V9i4g5b/FAKBsq/xNhhwEBZeqYk3VMDAADW8Ac5
   </data>
  </layer>
  <layer name="Decal" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+   eJxjYBgFo2AUjIJRMApGAToQGGgH0BnoD7QD6AxG/Tu8wah/BxbQuvw0AGJ+MvBQKtepEafEmgEAuAMCbQ==
   </data>
  </layer>
 </map>

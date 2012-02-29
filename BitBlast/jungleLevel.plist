@@ -7,7 +7,10 @@
 		<string>chunk1.tmx</string>
 		<string>chunk2.tmx</string>
 		<string>chunk3.tmx</string>
+		<string>chunk4.tmx</string>
+		<string>chunk5.tmx</string>
 		<string>chunk6.tmx</string>
+		<string>chunk7.tmx</string>
 	</array>
 	<key>firstChunk</key>
 	<string>contrachunk.tmx</string>
