@@ -10,10 +10,11 @@
 #import "cocos2d.h"
 #import "CCNodeColorBackground.h"
 #import "BBShopItem.h"
+#import "CCLabelButton.h"
 
 @interface BBShop : CCNodeColorBackground <SWTableViewDataSource, SWTableViewDelegate> {
     NSMutableArray *items;
-	CCMenuItemLabelAndImage *back;
+	CCLabelButton *back;
 	SWTableView *table;
 	BOOL enabled;
 }

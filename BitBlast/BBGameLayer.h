@@ -32,9 +32,11 @@ typedef enum {
 	kStateLeaderboards
 } GameState;
 
+#define DEBUG_TEXTURES
+
 @interface BBGameLayer : CCLayer <iCadeEventDelegate> {
 	
-#ifdef DEBUG
+#ifdef DEBUG_TEXTURES
 	CCSprite *debugButton;
 #endif
 	

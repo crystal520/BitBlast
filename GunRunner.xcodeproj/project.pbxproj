@@ -41,7 +41,6 @@
 		0A42D15E14C7B60500DD55CA /* BBDoubleJump.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15D14C7B60500DD55CA /* BBDoubleJump.m */; };
 		0A42D16414C7BFE900DD55CA /* BBEquipmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D16314C7BFE900DD55CA /* BBEquipmentManager.m */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
-		0A5C35AF149984C80019C113 /* junglechunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35AE149984C80019C113 /* junglechunk1.tmx */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
 		0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35B714998EA90019C113 /* dirt_tile_set.png */; };
@@ -301,14 +300,10 @@
 		3B6F267714D67A0300DEDB75 /* redbullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267414D67A0300DEDB75 /* redbullet.png */; };
 		3B6F267814D67A0300DEDB75 /* yellowbullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267514D67A0300DEDB75 /* yellowbullet.png */; };
 		3B6F267F14D67B2F00DEDB75 /* ultralaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267E14D67B2F00DEDB75 /* ultralaser.png */; };
-		3BB1129814A2E02A005DC6CC /* start.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129714A2E02A005DC6CC /* start.tmx */; };
 		3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129A14A30130005DC6CC /* chunk1.tmx */; };
 		3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129C14A3035A005DC6CC /* chunk2.tmx */; };
 		3BB1129F14A3062F005DC6CC /* cavechunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */; };
 		3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A014A3CE61005DC6CC /* chunk3.tmx */; };
-		3BB112A314A3D067005DC6CC /* chunk4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A214A3D067005DC6CC /* chunk4.tmx */; };
-		3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A414A410DB005DC6CC /* chunk5.tmx */; };
-		3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A814A5B28C005DC6CC /* newchunk1.tmx */; };
 		3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */; };
 		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
 /* End PBXBuildFile section */
@@ -365,7 +360,6 @@
 		0A42D16214C7BFE800DD55CA /* BBEquipmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEquipmentManager.h; sourceTree = "<group>"; };
 		0A42D16314C7BFE900DD55CA /* BBEquipmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEquipmentManager.m; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
-		0A5C35AE149984C80019C113 /* junglechunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = junglechunk1.tmx; path = Resources/junglechunk1.tmx; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.m; sourceTree = "<group>"; };
 		0A5C35B4149988AE0019C113 /* ChunkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkManager.h; sourceTree = "<group>"; };
@@ -810,14 +804,10 @@
 		3B6F267414D67A0300DEDB75 /* redbullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redbullet.png; path = Resources/redbullet.png; sourceTree = "<group>"; };
 		3B6F267514D67A0300DEDB75 /* yellowbullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowbullet.png; path = Resources/yellowbullet.png; sourceTree = "<group>"; };
 		3B6F267E14D67B2F00DEDB75 /* ultralaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ultralaser.png; path = Resources/ultralaser.png; sourceTree = "<group>"; };
-		3BB1129714A2E02A005DC6CC /* start.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = start.tmx; path = Resources/start.tmx; sourceTree = "<group>"; };
 		3BB1129A14A30130005DC6CC /* chunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk1.tmx; path = Resources/chunk1.tmx; sourceTree = "<group>"; };
 		3BB1129C14A3035A005DC6CC /* chunk2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk2.tmx; path = Resources/chunk2.tmx; sourceTree = "<group>"; };
 		3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = cavechunk1.tmx; path = Resources/cavechunk1.tmx; sourceTree = "<group>"; };
 		3BB112A014A3CE61005DC6CC /* chunk3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk3.tmx; path = Resources/chunk3.tmx; sourceTree = "<group>"; };
-		3BB112A214A3D067005DC6CC /* chunk4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk4.tmx; path = Resources/chunk4.tmx; sourceTree = "<group>"; };
-		3BB112A414A410DB005DC6CC /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
-		3BB112A814A5B28C005DC6CC /* newchunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = newchunk1.tmx; path = Resources/newchunk1.tmx; sourceTree = "<group>"; };
 		3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gamefont.fnt; path = Resources/gamefont.fnt; sourceTree = "<group>"; };
 		3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamefont.png; path = Resources/gamefont.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1024,17 +1014,12 @@
 		0A5C35AD149984A90019C113 /* Jungle */ = {
 			isa = PBXGroup;
 			children = (
-				3BB112A814A5B28C005DC6CC /* newchunk1.tmx */,
 				3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */,
-				3BB1129714A2E02A005DC6CC /* start.tmx */,
-				3BB112A214A3D067005DC6CC /* chunk4.tmx */,
 				3BB112A014A3CE61005DC6CC /* chunk3.tmx */,
-				3BB112A414A410DB005DC6CC /* chunk5.tmx */,
 				3BB1129E14A3062F005DC6CC /* cavechunk1.tmx */,
 				3BB1129C14A3035A005DC6CC /* chunk2.tmx */,
 				3BB1129A14A30130005DC6CC /* chunk1.tmx */,
 				34BBAC0014FC445500154CE9 /* chunk6.tmx */,
-				0A5C35AE149984C80019C113 /* junglechunk1.tmx */,
 			);
 			name = Jungle;
 			sourceTree = "<group>";
@@ -1799,16 +1784,11 @@
 				0AE419191496F5C800342D8E /* blocks.png in Resources */,
 				0AC723A314985F4F000E9412 /* playerProperties.plist in Resources */,
 				0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */,
-				0A5C35AF149984C80019C113 /* junglechunk1.tmx in Resources */,
 				0A5C35B814998EA90019C113 /* dirt_tile_set.png in Resources */,
-				3BB1129814A2E02A005DC6CC /* start.tmx in Resources */,
 				3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */,
 				3BB1129D14A3035A005DC6CC /* chunk2.tmx in Resources */,
 				3BB1129F14A3062F005DC6CC /* cavechunk1.tmx in Resources */,
 				3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */,
-				3BB112A314A3D067005DC6CC /* chunk4.tmx in Resources */,
-				3BB112A514A410DB005DC6CC /* chunk5.tmx in Resources */,
-				3BB112A914A5B28C005DC6CC /* newchunk1.tmx in Resources */,
 				0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */,
 				0A9A7B4214B3E669003A1DB1 /* white.png in Resources */,
 				0AE7A03E14B54F4400BC5C73 /* skyParallax.png in Resources */,

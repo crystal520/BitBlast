@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "CCButton.h"
 
 @interface BBShopItem : SWTableViewCell {
-	CCMenuItemSprite *background;
-	CCMenuItemLabelAndImage *buy;
+	CCButton *background, *buy;
 	NSDictionary *itemDictionary;
 }
 

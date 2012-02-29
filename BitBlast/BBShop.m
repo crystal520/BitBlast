@@ -15,7 +15,11 @@
 	
 	if((self = [super initWithColor:ccc3(0, 0, 0) withAlpha:0.5f])) {
 		
-		CGSize winSize = [CCDirector sharedDirector].winSize;
+		CGSize winSize = [ResolutionManager sharedSingleton].size;
+		
+		// create spritebatch with UI image
+		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
+		[self addChild:uiSpriteBatch];
 		
 		// create current funds label
 		CCLabelBMFont *coins = [CCLabelBMFont labelWithString:@"$1234567890" fntFile:@"gamefont.fnt"];
@@ -24,17 +28,16 @@
 		coins.position = ccp(winSize.width, winSize.height);
 		[self addChild:coins];
 		
-		// create back label
-		CCLabelBMFont *backText = [CCLabelBMFont labelWithString:@"X" fntFile:@"gamefont.fnt"];
+		// create back button holder
+		CCSprite *backHolder = [CCSprite spriteWithSpriteFrameName:@"backbuttonshell.png"];
+		backHolder.position = ccp(winSize.width * 0.075, winSize.height - backHolder.contentSize.height * 0.5);
+		[uiSpriteBatch addChild:backHolder z:0];
 		
 		// create back button
-		back = [[CCMenuItemLabelAndImage itemFromLabel:backText normalImage:@"backButton.png" selectedImage:@"backButtonDown.png" target:self selector:@selector(back)] retain];
-		back.label.scale = 0.5;
-		back.position = ccp((-winSize.width + back.contentSize.width) * 0.48, (winSize.height - back.contentSize.height) * 0.48);
-		
-		// create main menu with options
-		CCMenu *menu = [CCMenu menuWithItems:back, nil];
-		[self addChild:menu];
+		back = [[CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"backbutton_pressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"backbutton_unpressed.png"] target:self selector:@selector(back)] retain];
+		[back setSpriteBatchNode:uiSpriteBatch];
+		back.position = ccp(winSize.width * 0.075, winSize.height - back.contentSize.height * 0.5 - backHolder.contentSize.height * 0.175);
+		[self addChild:back z:1];
 		
 		// load shop items
 		items = [[NSMutableArray alloc] init];
@@ -45,19 +48,13 @@
 			[t release];
 		}
 		
-		// create shop background
-		CCSprite *shopBackground = [CCSprite spriteWithFile:@"shopBackground.png"];
-		shopBackground.position = ccp(winSize.width * 0.65, winSize.height * 0.42);
-		[self addChild:shopBackground];
-		
 		// create advanced scrolling menu with items
-		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(316, 250)] retain];
+		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(632 * [ResolutionManager sharedSingleton].imageScale, winSize.height)] retain];
 		table.delegate = self;
 		table.verticalFillOrder = SWTableViewFillTopDown;
 		table.direction = SWScrollViewDirectionVertical;
 		table.bounces = NO;
-		table.position = ccp(shopBackground.position.x - table.viewSize.width * 0.5, shopBackground.position.y - table.viewSize.height * 0.5);
-		table.anchorPoint = ccp(0.5, 0.5);
+		table.position = ccp(winSize.width - table.viewSize.width, 0);
 		[self addChild:table];
 		[table reloadData];
 		table.contentOffset = [table minContainerOffset];
@@ -82,7 +79,7 @@
 }
 
 - (void) setEnabled:(BOOL)isEnabled {
-	[back setIsEnabled:isEnabled];
+	[back setEnabled:isEnabled];
 	enabled = isEnabled;
 	table.isTouchEnabled = isEnabled;
 }
@@ -105,7 +102,7 @@
 #pragma mark -
 #pragma mark SWTableViewDataSource
 -(CGSize)cellSizeForTable:(SWTableView *)table {
-	return CGSizeMake(316, 75);
+	return CGSizeMake(632 * [ResolutionManager sharedSingleton].imageScale, 203 * [ResolutionManager sharedSingleton].imageScale);
 }
 
 -(SWTableViewCell *)table:(SWTableView *)table cellAtIndex:(NSUInteger)idx {
@@ -123,7 +120,7 @@
 		// get cell as BBShopItem
 		BBShopItem *item = (BBShopItem*)(cell);
 		[item touch:point];
-		[self setEnabled:NO];
+		//[self setEnabled:NO];
 	}
 }
 

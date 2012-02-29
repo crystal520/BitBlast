@@ -15,8 +15,13 @@
 	
 	if((self = [super init])) {
 		
+		// create spritebatch with UI image
+		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
+		[self addChild:uiSpriteBatch];
+		
 		// create background sprite
-		background = [CCMenuItemSprite itemFromNormalSprite:[CCSprite spriteWithFile:@"shopItemBackground.png"] selectedSprite:[CCSprite spriteWithFile:@"shopItemBackgroundDown.png"] target:self selector:@selector(viewItem)];
+		background = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"shopshell.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopshell.png"] target:self selector:@selector(viewItem)];
+		[background setSpriteBatchNode:uiSpriteBatch];
 		background.position = ccp(background.contentSize.width * 0.5, background.contentSize.height * 0.5);
 		[self addChild:background];
 		
@@ -24,28 +29,28 @@
 		
 		// create icon sprite
 		CCSprite *icon = [CCSprite spriteWithFile:[itemDictionary objectForKey:@"icon"]];
-		icon.position = ccp(icon.contentSize.width * 0.5, icon.contentSize.height * 0.5);
+		icon.position = ccp(background.contentSize.width * 0.1, background.contentSize.height * 0.65);
 		[self addChild:icon];
 		
 		// create name label
 		CCLabelBMFont *name = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"name"] fntFile:@"gamefont.fnt"];
-		name.scale = 0.4;
+		name.scale = 0.8 * [ResolutionManager sharedSingleton].imageScale;
 		name.anchorPoint = ccp(0, 0.5);
-		name.position = ccp(background.contentSize.width * 0.2, background.contentSize.height * 0.65);
+		name.position = ccp(background.contentSize.width * 0.2, background.contentSize.height * 0.8);
 		[self addChild:name];
 		
 		// create description label
 		CCLabelBMFont *desc = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"description"] fntFile:@"gamefont.fnt"];
-		desc.scale = 0.2;
+		desc.scale = 0.4 * [ResolutionManager sharedSingleton].imageScale;
 		desc.anchorPoint = ccp(0, 0.5);
-		desc.position = ccp(background.contentSize.width * 0.22, background.contentSize.height * 0.3);
+		desc.position = ccp(background.contentSize.width * 0.22, background.contentSize.height * 0.5);
 		[self addChild:desc];
 		
 		// create cost label
 		CCLabelBMFont *cost = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"coins"] fntFile:@"gamefont.fnt"];
-		cost.scale = 0.4;
+		cost.scale = 0.8 * [ResolutionManager sharedSingleton].imageScale;
 		cost.anchorPoint = ccp(1, 0.5);
-		cost.position = ccp(background.contentSize.width * 0.97, background.contentSize.height * 0.65);
+		cost.position = ccp(background.contentSize.width * 0.97, background.contentSize.height * 0.8);
 		[self addChild:cost];
 		
 		// create buy label
@@ -53,9 +58,9 @@
 		buyLabel.scale = 0.3;
 		
 		// create buy button
-		buy = [CCMenuItemLabelAndImage itemFromLabel:buyLabel normalImage:@"shopBuyButton.png" selectedImage:@"shopBuyButtonDown.png" target:self selector:@selector(buy)];
-		buy.anchorPoint = ccp(1, 0.5);
-		buy.position = ccp(background.contentSize.width * 0.97, background.contentSize.height * 0.3);
+		buy = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_pressed.png"] target:self selector:@selector(buy)];
+		[buy setSpriteBatchNode:uiSpriteBatch];
+		buy.position = ccp(background.contentSize.width * 0.9, background.contentSize.height * 0.45);
 		[self addChild:buy];
 	}
 	
@@ -69,13 +74,9 @@
 
 - (void) touch:(CGPoint)point {
 	if(CGRectContainsPoint(buy.boundingBox, point)) {
-		[buy selected];
-		[buy performSelector:@selector(unselected) withObject:buy afterDelay:0.1];
 		[self buy];
 	}
 	else {
-		[background selected];
-		[background performSelector:@selector(unselected) withObject:background afterDelay:0.1];
 		[self viewItem];
 	}
 }
