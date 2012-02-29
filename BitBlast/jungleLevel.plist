@@ -11,6 +11,9 @@
 		<string>chunk5.tmx</string>
 		<string>chunk6.tmx</string>
 		<string>chunk7.tmx</string>
+		<string>chunk8.tmx</string>
+		<string>chunk9.tmx</string>
+		<string>chunk10.tmx</string>
 	</array>
 	<key>firstChunk</key>
 	<string>contrachunk.tmx</string>
