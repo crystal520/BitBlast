@@ -93,7 +93,7 @@
 		leaderboards = [[BBLeaderboards alloc] init];
 		[self addChild:mainMenu z:DEPTH_MENU];
 		
-#ifdef DEBUG
+#ifdef DEBUG_TEXTURES
 		debugButton = [CCSprite spriteWithFile:@"white.png"];
 		debugButton.color = ccc3(0, 0, 0);
 		[debugButton setTextureRect:CGRectMake(0, 0, 50, 50)];
@@ -274,7 +274,7 @@
 		[player endShoot];
 	}
 	
-#ifdef DEBUG
+#ifdef DEBUG_TEXTURES
 	if(CGRectContainsPoint([debugButton boundingBox], ccpMult(touchPoint, 1/[ResolutionManager sharedSingleton].imageScale))) {
 		// print out all textures currently in memory
 		[[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
