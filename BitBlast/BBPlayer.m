@@ -227,7 +227,7 @@
 	[self setState:kPlayerRunning];
 	//[weapon loadFromFile:@"ultralaser"];
 	//[weapon start];
-	dummyPosition = ccp(100, 192);
+	dummyPosition = ccp(100, 400);
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	offsetNode.position = ccp(0, 0);
 	velocity = ccp(minSpeed, 0);

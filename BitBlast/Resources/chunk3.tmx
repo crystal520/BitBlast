@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="64" tileheight="64">
- <tileset firstgid="1" name="tiles_aubrey" tilewidth="64" tileheight="64">
-  <image source="tiles_aubrey.png" width="2048" height="2048"/>
+<map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="128" tileheight="128">
+ <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
+  <image source="tiles_aubrey.png" width="2048" height="641"/>
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztkwsKgCAMQIX+p+kMlXn/I7VBwlqbUhJI7MGDspJeI+cMwzAMwzDqYybHi3BdWtPWV3ADPXNn53hPePm+pXzRy5v/3uvdtbmmXkqqdwBHotYbe+iceS8ahD3RDmwT9uBUVHlvy61p67GXz1LrlcBvoDXz1ty3kWzOfWID/Qc1A+uNc9KefdKrNUtzPQBK/hut
+   eJztklsKgDAMBAu+TyE+739EU7BQ0o1F7YfgDizICiXT1DlCCCGEkO8xRt8T+I86q58lC8gGuv3hvCWh7399O0kf5a7v6lJffaZPI6kv0kqGV5apW66z+hL79XdgOWvX3N2gVOc5wcGaWc8a+4Y9lXrPyBnt9QCCaA67
   </data>
  </layer>
  <layer name="Decal" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaOAvkB/oB1AZ0Cufzmp6goE4KBQnhCgdfyyM0DciIwJhRUuP1HqV2oDUvxEjFn4+CAAAA/OARg=
+   eJxjYBgFo2AUjIJRMApGwSgYBaOAvkB+oB1AZ0Cufzmp6goE4KBQnhDQp1A/IcDOAHEjMiYUVrj8RKlfqQ1I8RMxZuHjgwAArT8A+A==
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwVAAfEDMD8WKSGx8YrjElYBYGQtWxSKmRg/PDVOAHGeEsMAAuXGwAy4g5gZiHijmpaKZ6JgHC0aWp4bdtAIgP6G7mVruxRZePDjYuMJLHYhVCGD0sgabvYM5DoYqAABqlAcx
+   eJxjYBgFo2AUjIJRMApGwVAAfEDMD8WCSGx8YrjEhYBYGAsWxSImRg/PDVOAHGeEsN4AuXGwAy4g5gZiHijmpaKZ6JgHC0aWp4bdtAIgP6G7mVruxRZePDjYuMJLnAF7mYOvrMFm72COg6EKAEeyBbc=
   </data>
  </layer>
  <layer name="CollisionBottom" width="60" height="15">
@@ -30,7 +30,7 @@
  </layer>
  <layer name="Foreground" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzwEJAAAIwDAb2b+dIQQF3RL8EQAA0JfbAcP83vbltwDA3wC9
+   eJztzwEJAAAIwDCb2L+lIQQF3RL8EQAA0JfbAcP83vbltwAs3wB9
   </data>
  </layer>
 </map>

@@ -78,7 +78,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>tileCenterOffset</key>
-	<integer>14</integer>
+	<integer>25</integer>
 	<key>torsoOffsets</key>
 	<array>
 		<dict>
