@@ -4,19 +4,10 @@
 <dict>
 	<key>chunks</key>
 	<array>
-		<string>chunk1.tmx</string>
-		<string>chunk2.tmx</string>
-		<string>chunk3.tmx</string>
-		<string>chunk4.tmx</string>
-		<string>chunk5.tmx</string>
-		<string>chunk6.tmx</string>
-		<string>chunk7.tmx</string>
-		<string>chunk8.tmx</string>
-		<string>chunk9.tmx</string>
-		<string>chunk10.tmx</string>
+		<string>trilevelchunk.tmx</string>
 	</array>
 	<key>firstChunk</key>
-	<string>contrachunk.tmx</string>
+	<string>trilevelchunk.tmx</string>
 	<key>overrideChunk</key>
 	<string></string>
 	<key>backgroundColor</key>

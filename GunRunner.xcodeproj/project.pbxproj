@@ -300,6 +300,7 @@
 		34BBAC1914FDDB0300154CE9 /* chunk7.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1414FDDB0300154CE9 /* chunk7.tmx */; };
 		34BBAC1A14FDDB0300154CE9 /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1514FDDB0300154CE9 /* chunk5.tmx */; };
 		34BBAC1D14FE0CDE00154CE9 /* chunk10.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */; };
+		34BBAC1F150093F100154CE9 /* trilevelchunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1E150093F100154CE9 /* trilevelchunk.tmx */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -809,6 +810,7 @@
 		34BBAC1414FDDB0300154CE9 /* chunk7.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk7.tmx; path = Resources/chunk7.tmx; sourceTree = "<group>"; };
 		34BBAC1514FDDB0300154CE9 /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
 		34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk10.tmx; path = Resources/chunk10.tmx; sourceTree = "<group>"; };
+		34BBAC1E150093F100154CE9 /* trilevelchunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = trilevelchunk.tmx; path = Resources/trilevelchunk.tmx; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -1024,6 +1026,7 @@
 		0A5C35AD149984A90019C113 /* Jungle */ = {
 			isa = PBXGroup;
 			children = (
+				34BBAC1E150093F100154CE9 /* trilevelchunk.tmx */,
 				3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */,
 				3BB1129A14A30130005DC6CC /* chunk1.tmx */,
 				3BB1129C14A3035A005DC6CC /* chunk2.tmx */,
@@ -1908,6 +1911,7 @@
 				34BBAC1914FDDB0300154CE9 /* chunk7.tmx in Resources */,
 				34BBAC1A14FDDB0300154CE9 /* chunk5.tmx in Resources */,
 				34BBAC1D14FE0CDE00154CE9 /* chunk10.tmx in Resources */,
+				34BBAC1F150093F100154CE9 /* trilevelchunk.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
