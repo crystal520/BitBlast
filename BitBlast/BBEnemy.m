@@ -44,43 +44,24 @@
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
 	if(newEnabled && !enabled) {
-		//velocity = ccp(-100, 0);
+		recycle = NO;
+		self.visible = YES;
 	}
 	else if(!newEnabled && enabled) {
 		recycle = YES;
 		self.visible = NO;
 		[self removeChild:spriteBatch cleanup:YES];
-		[self.parent removeChild:self cleanup:YES];
 	}
 	enabled = newEnabled;
 }
 
 #pragma mark -
-#pragma mark getters
-- (BOOL) getCollidesWithObject:(BBGameObject*)object {
-	// convert object's position into this game object's space
-	CGPoint objectPos = [object convertToWorldSpace:object.position];
-	CGPoint thisPos = [self convertToWorldSpace:dummyPosition];
-	// check for collision
-	return CGRectIntersectsRect(CGRectMake(thisPos.x, thisPos.y, sprite.contentSize.width, sprite.contentSize.height), CGRectMake(objectPos.x, objectPos.y, object.sprite.contentSize.width, object.sprite.contentSize.height));
-}
-
-#pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	// see if enemy is on screen
-	CGPoint enemyScreenPosition = [self convertToWorldSpace:CGPointZero];
-	if(enemyScreenPosition.x - self.sprite.contentSize.width * 0.5 * [ResolutionManager sharedSingleton].imageScale < [CCDirector sharedDirector].winSize.width && !enabled) {
-		[self setEnabled:YES];
-	}
-	else if(enemyScreenPosition.x + self.sprite.contentSize.width * 0.5 * [ResolutionManager sharedSingleton].imageScale < 0 && enabled) {
-		[self setEnabled:NO];
-	}
-	
 	// only update if this enemy is enabled
 	if(enabled) {
 		// apply velocity to position
-		dummyPosition = ccp(dummyPosition.x + (velocity.x * delta), dummyPosition.y + (velocity.y * delta));
+		dummyPosition = ccpAdd(dummyPosition, ccpMult(velocity, delta));
 	}
 	
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
@@ -99,11 +80,12 @@
 	[self loadFromFile:enemyType];
 	[self loadAnimations];
 	dummyPosition = ccpAdd(newPosition, ccp(0, tileOffset));
-	recycle = NO;
-	self.visible = YES;
+	[self setEnabled:YES];
 	[self addChild:spriteBatch];
 	[self repeatAnimation:@"walk"];
 	self.sprite.anchorPoint = ccp(0.5, 0);
+	// update once just to set correct position
+	[self update:0];
 }
 
 - (void) hitByBullet:(BBBullet*)bullet {

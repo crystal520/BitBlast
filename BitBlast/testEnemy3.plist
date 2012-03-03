@@ -24,7 +24,7 @@
 	<key>tileCenterOffset</key>
 	<integer>6</integer>
 	<key>health</key>
-	<integer>20</integer>
+	<integer>1</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>

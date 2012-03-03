@@ -17,6 +17,10 @@
 		
 		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		
+		// generate size of table from cell background image
+		CCSprite *cell = [CCSprite spriteWithSpriteFrameName:@"shopshell.png"];
+		cellSize = CGSizeMake(cell.contentSize.width, cell.contentSize.height);
+		
 		// create spritebatch with UI image
 		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
 		[self addChild:uiSpriteBatch];
@@ -49,15 +53,16 @@
 		}
 		
 		// create advanced scrolling menu with items
-		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(632 * [ResolutionManager sharedSingleton].imageScale, winSize.height)] retain];
+		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(cellSize.width, winSize.height)] retain];
 		table.delegate = self;
+		//table.clipsToBounds = NO;
 		table.verticalFillOrder = SWTableViewFillTopDown;
 		table.direction = SWScrollViewDirectionVertical;
 		table.bounces = NO;
-		table.position = ccp(winSize.width - table.viewSize.width, 0);
-		[self addChild:table];
 		[table reloadData];
 		table.contentOffset = [table minContainerOffset];
+		[self addChild:table];
+		table.position = ccp(winSize.width - cellSize.width, 0);
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
@@ -102,7 +107,7 @@
 #pragma mark -
 #pragma mark SWTableViewDataSource
 -(CGSize)cellSizeForTable:(SWTableView *)table {
-	return CGSizeMake(632 * [ResolutionManager sharedSingleton].imageScale, 203 * [ResolutionManager sharedSingleton].imageScale);
+	return cellSize;
 }
 
 -(SWTableViewCell *)table:(SWTableView *)table cellAtIndex:(NSUInteger)idx {

@@ -13,9 +13,15 @@
 #import "CCLabelButton.h"
 
 @interface BBShop : CCNodeColorBackground <SWTableViewDataSource, SWTableViewDelegate> {
+	// size of each cell in the table of items
+	CGSize cellSize;
+	// array of items in the store
     NSMutableArray *items;
+	// back button stored here so it can be disabled when going to confirm buy screen
 	CCLabelButton *back;
+	// table to contain list of scrolling items
 	SWTableView *table;
+	// whether the screen is enabled or disabled
 	BOOL enabled;
 }
 

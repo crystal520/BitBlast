@@ -33,11 +33,11 @@
 		enemies = [NSMutableArray new];
 		for(int i=0;i<MAX_ENEMIES;i++) {
 			BBEnemy *enemy = [[BBEnemy alloc] init];
+			[self addChild:enemy];
 			[enemies addObject:enemy];
 			[enemy release];
 		}
 		// register for notifications
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkAdded) name:kChunkAddedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelWillLoad) name:kLoadLevelNotification object:nil];
 	}
@@ -56,6 +56,10 @@
 	for(BBEnemy *e in enemies) {
 		if(!e.recycle) {
 			[e update:delta];
+			// see if enemy has gone off screen
+			if(e.dummyPosition.x < [Globals sharedSingleton].playerPosition.x) {
+				[e setEnabled:NO];
+			}
 		}
 	}
 	// check collisions with bullets
@@ -85,30 +89,6 @@
 
 #pragma mark -
 #pragma mark notifications
-- (void) chunkAdded {
-	// get latest chunk
-	Chunk *newChunk = [[ChunkManager sharedSingleton] getLastChunk];
-	// check current state of player and update parameters for placing enemies based on it
-	// things to check: equipment, weapon, speed, distance
-	// using parameters, generate enemies
-	// for now, for testing, just place the enemy at the first block encountered
-	for(int i=0;i<2;i++) {
-		BBEnemy *newEnemy = [self getRecycledEnemy];
-		if(i == 0) {
-			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy"];
-		}
-		else if(i == 1) {
-			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy2"];
-		}
-		else {
-			[newEnemy resetWithPosition:[newChunk getGroundPositionWithLayer:@"CollisionTop"] withType:@"testEnemy3"];
-		}
-		if(newEnemy) {
-			[newChunk addChild:newEnemy z:newChunk.playerZ];
-		}
-	}
-}
-
 - (void) gameOver {
 	for(BBEnemy *e in enemies) {
 		[e stopAllActions];

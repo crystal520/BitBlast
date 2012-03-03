@@ -12,6 +12,7 @@
 #import "ChunkManager.h"
 #import "ScoreManager.h"
 #import "BBWeapon.h"
+#import "BBDropshipManager.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -28,7 +29,7 @@ typedef enum {
 	CGPoint velocity, maxVelocity, prevDummyPosition;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, chunkOffset, bitCoins;
-	BOOL jumping, touchingPlatform, dead;
+	BOOL jumping, touchingPlatform;
 	// array of currently equipped weapons
 	NSMutableArray *weapons;
 	// player's current and previous states
@@ -43,7 +44,7 @@ typedef enum {
 
 @property (nonatomic, assign) float gravity;
 @property (nonatomic, assign) CGPoint velocity, maxVelocity;
-@property (nonatomic, assign) BOOL touchingPlatform, jumping, dead;
+@property (nonatomic, assign) BOOL touchingPlatform, jumping;
 
 // initializers
 // setup

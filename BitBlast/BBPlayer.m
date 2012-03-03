@@ -10,7 +10,7 @@
 
 @implementation BBPlayer
 
-@synthesize velocity, maxVelocity, touchingPlatform, gravity, jumping, dead;
+@synthesize velocity, maxVelocity, touchingPlatform, gravity, jumping;
 
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
@@ -50,6 +50,8 @@
 - (void) dealloc {
 	[offsetNode release];
 	[weapons release];
+	[torsoOffsets release];
+	[torso release];
 	[super dealloc];
 }
 
@@ -80,7 +82,7 @@
 #pragma mark update
 - (void) update:(float)delta {
 	
-	if(!dead) {
+	if(state != kPlayerDead) {
 		// keep track of previous position
 		prevDummyPosition = dummyPosition;
 		
@@ -103,6 +105,8 @@
 		
 		[self checkCollisions];
 		self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
+		// update global player position so other classes can use it
+		[Globals sharedSingleton].playerPosition = dummyPosition;
 		
 		// update score
 		[ScoreManager sharedSingleton].distance = floor(dummyPosition.x / 64);
@@ -155,8 +159,9 @@
 		float speed = velocity.x + speedIncrement * velocity.x;
 		// make sure we don't go over the maximum speed allowed
 		speed = MIN(speed, maxVelocity.x);
-		NSLog(@"Player speed is now %.2f after incrementing", speed);
 		velocity = ccp(speed, velocity.y);
+		// update dropships with new player speed
+		[[BBDropshipManager sharedSingleton] setVelocity:speed];
 	}
 	
 	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
@@ -233,7 +238,8 @@
 	velocity = ccp(minSpeed, 0);
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
-	dead = NO;
+	// update dropships with new player speed
+	[[BBDropshipManager sharedSingleton] setVelocity:minSpeed];
 	
 	// add to current chunk
 	[self.parent removeChild:self cleanup:NO];
@@ -241,9 +247,7 @@
 }
 
 - (void) die:(NSString*)reason {
-	if([reason isEqualToString:@"fall"]) {
-		dead = YES;
-	}
+	[self setState:kPlayerDead];
 	
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerDeadNotification object:nil]];
 }

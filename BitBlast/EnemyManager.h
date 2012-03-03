@@ -14,7 +14,7 @@
 
 #define MAX_ENEMIES 10
 
-@interface EnemyManager : NSObject {
+@interface EnemyManager : CCNode {
     NSMutableArray *enemies;
 }
 
@@ -25,9 +25,8 @@
 - (BBEnemy*) getRecycledEnemy;
 - (NSArray*) getActiveEnemies;
 // notifications
-- (void) chunkAdded;
 - (void) gameOver;
-- (void) newGame;
+- (void) levelWillLoad;
 // actions
 - (void) checkCollisions;
 

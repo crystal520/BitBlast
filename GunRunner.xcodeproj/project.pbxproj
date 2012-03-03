@@ -73,6 +73,9 @@
 		0A7D52EE14C4889900066390 /* shopItem3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52EB14C4889900066390 /* shopItem3.plist */; };
 		0A7D52EF14C4889900066390 /* shopItem2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52EC14C4889900066390 /* shopItem2.plist */; };
 		0A7D52F114C4950D00066390 /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52F014C4950C00066390 /* shop.plist */; };
+		0A8D310A1501D27B002F9B7B /* BBDropship.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D31091501D27B002F9B7B /* BBDropship.m */; };
+		0A8D310D1501D70E002F9B7B /* testDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D310C1501D70E002F9B7B /* testDropship.plist */; };
+		0A8D31101501D76F002F9B7B /* BBDropshipManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D310F1501D76F002F9B7B /* BBDropshipManager.m */; };
 		0A94930714FAECD400941321 /* iCadeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A94930514FAECD400941321 /* iCadeReaderView.m */; };
 		0A9A7B3614B293BA003A1DB1 /* ScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */; };
 		0A9A7B3A14B29AA3003A1DB1 /* BBHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3914B29AA3003A1DB1 /* BBHud.m */; };
@@ -245,6 +248,7 @@
 		0AE4192A1496FDC200342D8E /* BBGameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419291496FDC200342D8E /* BBGameLayer.m */; };
 		0AE4192E1496FEF300342D8E /* BBPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4192D1496FEF300342D8E /* BBPlayer.m */; };
 		0AE419341496FFFF00342D8E /* BBSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE419331496FFFE00342D8E /* BBSpriteFactory.m */; };
+		0AE7556C15029A5900E292ED /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7556B15029A5800E292ED /* Globals.m */; };
 		0AE7A03914B54A2500BC5C73 /* ParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7A03814B54A2500BC5C73 /* ParallaxNode.m */; };
 		0AE7A03E14B54F4400BC5C73 /* skyParallax.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AE7A03A14B54F4300BC5C73 /* skyParallax.png */; };
 		3428FF2814E639D700184E31 /* pistol_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF2714E639D700184E31 /* pistol_bullet.plist */; };
@@ -407,6 +411,11 @@
 		0A7D52EB14C4889900066390 /* shopItem3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem3.plist; sourceTree = "<group>"; };
 		0A7D52EC14C4889900066390 /* shopItem2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem2.plist; sourceTree = "<group>"; };
 		0A7D52F014C4950C00066390 /* shop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
+		0A8D31081501D27B002F9B7B /* BBDropship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDropship.h; sourceTree = "<group>"; };
+		0A8D31091501D27B002F9B7B /* BBDropship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDropship.m; sourceTree = "<group>"; };
+		0A8D310C1501D70E002F9B7B /* testDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testDropship.plist; sourceTree = "<group>"; };
+		0A8D310E1501D76E002F9B7B /* BBDropshipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDropshipManager.h; sourceTree = "<group>"; };
+		0A8D310F1501D76F002F9B7B /* BBDropshipManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDropshipManager.m; sourceTree = "<group>"; };
 		0A94930414FAECD400941321 /* iCadeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeReaderView.h; sourceTree = "<group>"; };
 		0A94930514FAECD400941321 /* iCadeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCadeReaderView.m; sourceTree = "<group>"; };
 		0A94930614FAECD400941321 /* iCadeState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeState.h; sourceTree = "<group>"; };
@@ -754,6 +763,8 @@
 		0AE4192D1496FEF300342D8E /* BBPlayer.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBPlayer.m; sourceTree = "<group>"; };
 		0AE419321496FFFE00342D8E /* BBSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSpriteFactory.h; sourceTree = "<group>"; };
 		0AE419331496FFFE00342D8E /* BBSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSpriteFactory.m; sourceTree = "<group>"; };
+		0AE7556A15029A5800E292ED /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
+		0AE7556B15029A5800E292ED /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		0AE7A03714B54A2500BC5C73 /* ParallaxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxNode.h; sourceTree = "<group>"; };
 		0AE7A03814B54A2500BC5C73 /* ParallaxNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParallaxNode.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0AE7A03A14B54F4300BC5C73 /* skyParallax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skyParallax.png; path = Resources/skyParallax.png; sourceTree = "<group>"; };
@@ -850,6 +861,10 @@
 				0A0366DF14E4C55900313CCC /* EnemyManager.m */,
 				0A0366E214E4C78800313CCC /* BBEnemy.h */,
 				0A0366E314E4C78800313CCC /* BBEnemy.m */,
+				0A8D31081501D27B002F9B7B /* BBDropship.h */,
+				0A8D31091501D27B002F9B7B /* BBDropship.m */,
+				0A8D310E1501D76E002F9B7B /* BBDropshipManager.h */,
+				0A8D310F1501D76F002F9B7B /* BBDropshipManager.m */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -857,6 +872,7 @@
 		0A0366E514E4C99400313CCC /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				0A8D310C1501D70E002F9B7B /* testDropship.plist */,
 				0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */,
 				0A77285F14ECB93B000CB457 /* testEnemy2.plist */,
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
@@ -920,6 +936,8 @@
 				0A9A7B3514B293BA003A1DB1 /* ScoreManager.m */,
 				0ABBDCFD14CBD58D001D36B7 /* ResolutionManager.h */,
 				0ABBDCFE14CBD58E001D36B7 /* ResolutionManager.m */,
+				0AE7556A15029A5800E292ED /* Globals.h */,
+				0AE7556B15029A5800E292ED /* Globals.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1912,6 +1930,7 @@
 				34BBAC1A14FDDB0300154CE9 /* chunk5.tmx in Resources */,
 				34BBAC1D14FE0CDE00154CE9 /* chunk10.tmx in Resources */,
 				34BBAC1F150093F100154CE9 /* trilevelchunk.tmx in Resources */,
+				0A8D310D1501D70E002F9B7B /* testDropship.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2097,6 +2116,9 @@
 				0A0366E014E4C55900313CCC /* EnemyManager.m in Sources */,
 				0A0366E414E4C78800313CCC /* BBEnemy.m in Sources */,
 				0A94930714FAECD400941321 /* iCadeReaderView.m in Sources */,
+				0A8D310A1501D27B002F9B7B /* BBDropship.m in Sources */,
+				0A8D31101501D76F002F9B7B /* BBDropshipManager.m in Sources */,
+				0AE7556C15029A5900E292ED /* Globals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

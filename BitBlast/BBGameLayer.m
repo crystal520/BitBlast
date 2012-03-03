@@ -52,6 +52,11 @@
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
 		
+		// add dropships to scrollingNode
+		[scrollingNode addChild:[BBDropshipManager sharedSingleton]];
+		// add enemies to scrollingNode
+		[scrollingNode addChild:[EnemyManager sharedSingleton]];
+		
 		// create background sprite
 		[self createBackground];
 		[self setBackgroundColorWithFile:@"jungleLevel"];
@@ -173,6 +178,7 @@
 		[player update:delta];
 		[[BulletManager sharedSingleton] update:delta];
 		[[EnemyManager sharedSingleton] update:delta];
+		[[BBDropshipManager sharedSingleton] update:delta];
 		[self updateCamera];
 		[hud update:delta];
 	}

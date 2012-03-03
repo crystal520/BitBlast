@@ -21,6 +21,7 @@
 #import "BBLeaderboards.h"
 #import "BBEquipmentManager.h"
 #import "EnemyManager.h"
+#import "BBDropshipManager.h"
 #import "iCadeReaderView.h"
 
 typedef enum {
@@ -32,7 +33,7 @@ typedef enum {
 	kStateLeaderboards
 } GameState;
 
-#define DEBUG_TEXTURES
+//#define DEBUG_TEXTURES
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate> {
 	

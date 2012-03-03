@@ -117,8 +117,11 @@
 	// convert object's position into this game object's space
 	CGPoint thisPos = [self convertToWorldSpace:CGPointZero];
 	CGPoint thatPos = [object convertToWorldSpace:CGPointZero];
+	// calculate sizes for each object
+	CGSize thisSize = CGSizeMake(sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
+	CGSize thatSize = CGSizeMake(object.sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, object.sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
 	// check for collision
-	return CGRectIntersectsRect(CGRectMake(thisPos.x, thisPos.y, sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale), CGRectMake(thatPos.x, thatPos.y, object.sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, object.sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale));
+	return CGRectIntersectsRect(CGRectMake(thisPos.x, thisPos.y, thisSize.width, thisSize.height), CGRectMake(thatPos.x, thatPos.y, thatSize.width, thatSize.height));
 }
 
 #pragma mark -
