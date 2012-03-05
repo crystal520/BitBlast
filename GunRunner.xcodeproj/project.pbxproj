@@ -20,6 +20,7 @@
 		0A204EAE14DF319400171F71 /* flamethrower.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAD14DF319400171F71 /* flamethrower.plist */; };
 		0A204EB014DF31B600171F71 /* flameShot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAF14DF31B600171F71 /* flameShot.plist */; };
 		0A204EB214DF331600171F71 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EB114DF331500171F71 /* flame.png */; };
+		0A2658A81503CFBB00DEA989 /* BBMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2658A71503CFBB00DEA989 /* BBMovingObject.m */; };
 		0A2C61F914F2C68F00D3F94B /* testEnemy3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */; };
 		0A42D13A14C49C5200DD55CA /* SWMultiColumnTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D12F14C49C5200DD55CA /* SWMultiColumnTableView.m */; };
 		0A42D13B14C49C5200DD55CA /* SWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13114C49C5200DD55CA /* SWScrollView.m */; };
@@ -337,6 +338,8 @@
 		0A204EAD14DF319400171F71 /* flamethrower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower.plist; sourceTree = "<group>"; };
 		0A204EAF14DF31B600171F71 /* flameShot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flameShot.plist; sourceTree = "<group>"; };
 		0A204EB114DF331500171F71 /* flame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flame.png; path = Resources/flame.png; sourceTree = "<group>"; };
+		0A2658A61503CFBB00DEA989 /* BBMovingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMovingObject.h; sourceTree = "<group>"; };
+		0A2658A71503CFBB00DEA989 /* BBMovingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMovingObject.m; sourceTree = "<group>"; };
 		0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy3.plist; sourceTree = "<group>"; };
 		0A42D12E14C49C5200DD55CA /* SWMultiColumnTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWMultiColumnTableView.h; path = libs/cocos2d/SWMultiColumnTableView.h; sourceTree = "<group>"; };
 		0A42D12F14C49C5200DD55CA /* SWMultiColumnTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWMultiColumnTableView.m; path = libs/cocos2d/SWMultiColumnTableView.m; sourceTree = "<group>"; };
@@ -917,6 +920,8 @@
 				0AE419331496FFFE00342D8E /* BBSpriteFactory.m */,
 				0AC7239F14985D9B000E9412 /* BBGameObject.h */,
 				0AC723A014985D9C000E9412 /* BBGameObject.m */,
+				0A2658A61503CFBB00DEA989 /* BBMovingObject.h */,
+				0A2658A71503CFBB00DEA989 /* BBMovingObject.m */,
 			);
 			name = "Basic Objects";
 			sourceTree = "<group>";
@@ -2119,6 +2124,7 @@
 				0A8D310A1501D27B002F9B7B /* BBDropship.m in Sources */,
 				0A8D31101501D76F002F9B7B /* BBDropshipManager.m in Sources */,
 				0AE7556C15029A5900E292ED /* Globals.m in Sources */,
+				0A2658A81503CFBB00DEA989 /* BBMovingObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

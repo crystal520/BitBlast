@@ -19,6 +19,7 @@
 		self.visible = NO;
 		damage = 10;
 		enabled = NO;
+		needsPlatformCollisions = NO;
 	}
 	
 	return self;
@@ -40,13 +41,14 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	// update bullet's position with velocity
-	dummyPosition = ccp(dummyPosition.x + velocity.x * delta, dummyPosition.y + velocity.y * delta);
-    self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	// see if bullet is dead yet
 	lifeTimer += delta;
 	if(lifeTimer >= lifetime) {
 		[self setEnabled:NO];
+	}
+	// update if enabled
+	if(enabled) {
+		[super update:delta];
 	}
 }
 

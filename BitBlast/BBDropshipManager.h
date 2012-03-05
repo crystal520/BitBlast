@@ -10,20 +10,26 @@
 #import "cocos2d.h"
 #import "BBDropship.h"
 #import "BulletManager.h"
+#import "ChunkManager.h"
 
 #define MAX_DROPSHIPS 1
 
 @interface BBDropshipManager : CCNode {
     // array of dropships
 	NSMutableArray *dropships;
+	// number of dropships that should be on screen
+	int targetDropships;
+	// whether or not a dropship is being spawned
+	BOOL spawningDropship;
+	// whether or not dropships are being updated and spawned
+	BOOL enabled;
 }
 
 + (BBDropshipManager*) sharedSingleton;
 
-// setters
-- (void) setVelocity:(float)velocity;
 // getters
 - (NSArray*) getActiveDropships;
+- (BBDropship*) getInactiveDropship;
 // update
 - (void) update:(float)delta;
 // actions

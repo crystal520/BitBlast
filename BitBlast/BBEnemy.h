@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "BBGameObject.h"
+#import "BBMovingObject.h"
 #import "BBBullet.h"
 
-@interface BBEnemy : BBGameObject {
+@interface BBEnemy : BBMovingObject {
 	// type of enemy
 	NSString* type;
     // damage the enemy can take before it's considered dead
@@ -20,16 +20,9 @@
 	BOOL recycle;
 	// whether or not the enemy is enabled
 	BOOL enabled;
-	// velocity of the enemy
-	CGPoint velocity;
-	// y offset from tile enemy is currently on
-	float tileOffset;
-	// previous dummy position, usually for collision detecting
-	CGPoint prevDummyPosition;
 }
 
 @property (nonatomic, assign) BOOL recycle, enabled;
-@property (nonatomic, assign) float tileOffset;
 
 // setters
 - (void) setEnabled:(BOOL)newEnabled;

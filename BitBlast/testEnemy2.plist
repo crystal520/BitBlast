@@ -27,13 +27,26 @@
 	<key>tileCenterOffset</key>
 	<integer>14</integer>
 	<key>health</key>
-	<integer>1</integer>
+	<integer>10</integer>
+	<key>gravity</key>
+	<integer>40</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>
 		<integer>-50</integer>
 		<key>y</key>
 		<integer>0</integer>
+	</dict>
+	<key>boundingBox</key>
+	<dict>
+		<key>x</key>
+		<integer>18</integer>
+		<key>y</key>
+		<integer>1</integer>
+		<key>width</key>
+		<integer>62</integer>
+		<key>height</key>
+		<integer>102</integer>
 	</dict>
 </dict>
 </plist>

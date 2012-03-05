@@ -11,7 +11,7 @@
 
 @implementation BBEnemy
 
-@synthesize recycle, enabled, tileOffset;
+@synthesize recycle, enabled;
 
 - (id) init {
 	if((self = [super init])) {
@@ -34,10 +34,11 @@
 	[self reset];
 	[super loadFromFile:filename];
 	// load extra variables
-	tileOffset = [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale;
+	tileOffset = ccp(0, [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale);
 	type = [[dictionary objectForKey:@"type"] retain];
 	velocity = ccp([[[dictionary objectForKey:@"speed"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"speed"] objectForKey:@"y"] floatValue]);
 	health = [[dictionary objectForKey:@"health"] floatValue];
+	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
 }
 
 #pragma mark -
@@ -60,11 +61,8 @@
 - (void) update:(float)delta {
 	// only update if this enemy is enabled
 	if(enabled) {
-		// apply velocity to position
-		dummyPosition = ccpAdd(dummyPosition, ccpMult(velocity, delta));
+		[super update:delta];
 	}
-	
-	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 }
 
 #pragma mark -
@@ -79,11 +77,11 @@
 	// reset the enemy with new parameters
 	[self loadFromFile:enemyType];
 	[self loadAnimations];
-	dummyPosition = ccpAdd(newPosition, ccp(0, tileOffset));
 	[self setEnabled:YES];
 	[self addChild:spriteBatch];
 	[self repeatAnimation:@"walk"];
 	self.sprite.anchorPoint = ccp(0.5, 0);
+	dummyPosition = ccpAdd(newPosition, ccp(0, tileOffset.y - sprite.contentSize.height * 0.5));
 	// update once just to set correct position
 	[self update:0];
 }

@@ -38,6 +38,8 @@
 	CGPoint position;
 	// whether this shot is alpha blended
 	BOOL blend;
+	// bounding box that the bullet will have
+	CGRect boundingBox;
 }
 
 // initializers

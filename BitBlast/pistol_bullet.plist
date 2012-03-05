@@ -96,7 +96,7 @@
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
@@ -104,7 +104,7 @@
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
@@ -113,5 +113,16 @@
 	<real>0.35</real>
 	<key>sprite</key>
 	<string>yellowbullet.png</string>
+	<key>boundingBox</key>
+	<dict>
+		<key>x</key>
+		<real>0</real>
+		<key>y</key>
+		<real>0</real>
+		<key>width</key>
+		<integer>25</integer>
+		<key>height</key>
+		<integer>8</integer>
+	</dict>
 </dict>
 </plist>

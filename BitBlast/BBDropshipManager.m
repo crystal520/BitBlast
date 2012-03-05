@@ -31,11 +31,17 @@
 		// create dropships
 		for(int i=0;i<MAX_DROPSHIPS;i++) {
 			BBDropship *d = [BBDropship new];
-			[d loadFromFile:@"testDropship"];
 			[self addChild:d];
 			[dropships addObject:d];
 			[d release];
 		}
+		// set to 1 for now. could possibly increase to 2 or 3 for increased difficulty
+		targetDropships = 1;
+		// not spawning a dropship initially
+		spawningDropship = NO;
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelWillLoad) name:kLoadLevelNotification object:nil];
 	}
 	return self;
 }
@@ -43,14 +49,6 @@
 - (void) dealloc {
 	[dropships release];
 	[super dealloc];
-}
-
-#pragma mark -
-#pragma mark setters
-- (void) setVelocity:(float)velocity {
-	for(BBDropship *d in dropships) {
-		[d setVelocity:velocity];
-	}
 }
 
 #pragma mark -
@@ -65,13 +63,36 @@
 	return activeDropships;
 }
 
+- (BBDropship*) getInactiveDropship {
+	for(BBDropship *d in dropships) {
+		if(!d.enabled) {
+			return d;
+		}
+	}
+	return nil;
+}
+
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	for(BBDropship *d in dropships) {
-		[d update:delta];
+	// only update if enabled
+	if(enabled) {
+		// make sure there are enough active dropships
+		int numActiveDropships = 0;
+		for(BBDropship *d in dropships) {
+			[d update:delta];
+			if(d.enabled) {
+				numActiveDropships += 1;
+			}
+		}
+		[self checkCollisions];
+		
+		// if there aren't enough active dropships, trigger a new one
+		if(numActiveDropships != targetDropships && !spawningDropship) {
+			spawningDropship = YES;
+			[self performSelector:@selector(spawnDropship) withObject:nil afterDelay:1];
+		}
 	}
-	[self checkCollisions];
 }
 
 #pragma mark -
@@ -90,6 +111,30 @@
 			}
 		}
 	}
+}
+
+- (void) spawnDropship {
+	// spawn a new dropship if enabled
+	if(enabled) {
+		BBDropship *newDropship = [self getInactiveDropship];
+		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width, [[[ChunkManager sharedSingleton] getCurrentChunk] getGroundPositionWithLayer:@"CollisionTop"].y) type:@"testDropship"];
+		spawningDropship = NO;
+	}
+}
+
+#pragma mark -
+#pragma mark notifications
+- (void) gameOver {
+	enabled = NO;
+}
+
+- (void) levelWillLoad {
+	enabled = YES;
+	// reset dropships
+	for(BBDropship *d in dropships) {
+		[d setEnabled:NO];
+	}
+	spawningDropship = NO;
 }
 
 @end

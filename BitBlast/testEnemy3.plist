@@ -25,6 +25,8 @@
 	<integer>6</integer>
 	<key>health</key>
 	<integer>1</integer>
+	<key>gravity</key>
+	<integer>40</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>

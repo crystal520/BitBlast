@@ -8,11 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "BBGameObject.h"
+#import "BBMovingObject.h"
 
-@interface BBBullet : BBGameObject {
-	// how fast the bullet moves in both x and y directions
-    CGPoint velocity;
+@interface BBBullet : BBMovingObject {
 	// how much damage the bullet does upon impact
 	float damage;
 	// how long the bullet is alive for

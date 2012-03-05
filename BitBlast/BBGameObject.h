@@ -12,13 +12,18 @@
 @interface BBGameObject : CCNode {
     // dummy position for handling multiple resolutions
     CGPoint dummyPosition;
+	// previous dummy position for handling multiple resolutions
+	CGPoint prevDummyPosition;
 	CCSprite *sprite;
 	CCSpriteBatchNode *spriteBatch;
 	NSDictionary *dictionary;
+	// bounding box for collisions
+	CGRect boundingBox;
 }
 
 @property (nonatomic, readonly) CCSprite *sprite;
-@property (nonatomic, assign) CGPoint dummyPosition;
+@property (nonatomic, assign) CGPoint dummyPosition, prevDummyPosition;
+@property (nonatomic, assign) CGRect boundingBox;
 
 // initializers
 - (id) initWithFile:(NSString*)filename;

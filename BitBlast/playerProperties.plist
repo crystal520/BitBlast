@@ -225,5 +225,16 @@
 			</dict>
 		</dict>
 	</array>
+	<key>boundingBox</key>
+	<dict>
+		<key>x</key>
+		<real>0</real>
+		<key>y</key>
+		<real>0</real>
+		<key>width</key>
+		<integer>40</integer>
+		<key>height</key>
+		<integer>138</integer>
+	</dict>
 </dict>
 </plist>

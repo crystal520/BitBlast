@@ -11,7 +11,7 @@
 
 @implementation BBGameObject
 
-@synthesize sprite, dummyPosition;
+@synthesize sprite, dummyPosition, prevDummyPosition, boundingBox;
 
 - (id) initWithFile:(NSString *)filename {
 	
@@ -35,6 +35,11 @@
 		[dictionary release];
 	}
 	dictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
+	// see if there's a bounding box
+	if([dictionary objectForKey:@"boundingBox"]) {
+		NSDictionary *bbDict = [dictionary objectForKey:@"boundingBox"];
+		boundingBox = CGRectMake([[bbDict objectForKey:@"x"] floatValue], [[bbDict objectForKey:@"y"] floatValue], [[bbDict objectForKey:@"width"] floatValue], [[bbDict objectForKey:@"height"] floatValue]);
+	}
 }
 
 #pragma mark -
@@ -115,13 +120,13 @@
 #pragma mark getters
 - (BOOL) getCollidesWith:(BBGameObject*)object {
 	// convert object's position into this game object's space
-	CGPoint thisPos = [self convertToWorldSpace:CGPointZero];
-	CGPoint thatPos = [object convertToWorldSpace:CGPointZero];
-	// calculate sizes for each object
-	CGSize thisSize = CGSizeMake(sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
-	CGSize thatSize = CGSizeMake(object.sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, object.sprite.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
+	CGPoint thisPos = self.dummyPosition;
+	CGPoint thatPos = object.dummyPosition;
+	// calculate collision boxes
+	CGRect thisBox = CGRectMake((thisPos.x + boundingBox.origin.x) - boundingBox.size.width * sprite.anchorPoint.x, (thisPos.y + boundingBox.origin.y) - boundingBox.size.height * sprite.anchorPoint.y, boundingBox.size.width, boundingBox.size.height);
+	CGRect thatBox = CGRectMake((thatPos.x + object.boundingBox.origin.x) - object.boundingBox.size.width * object.sprite.anchorPoint.x, (thatPos.y + object.boundingBox.origin.y) - object.boundingBox.size.height * object.sprite.anchorPoint.y, object.boundingBox.size.width, object.boundingBox.size.height);
 	// check for collision
-	return CGRectIntersectsRect(CGRectMake(thisPos.x, thisPos.y, thisSize.width, thisSize.height), CGRectMake(thatPos.x, thatPos.y, thatSize.width, thatSize.height));
+	return CGRectIntersectsRect(thisBox, thatBox);
 }
 
 #pragma mark -

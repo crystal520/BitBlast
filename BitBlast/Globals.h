@@ -12,9 +12,11 @@
 @interface Globals : NSObject {
     // player's position
 	CGPoint playerPosition;
+	// player's velocity
+	CGPoint playerVelocity;
 }
 
-@property (nonatomic, assign) CGPoint playerPosition;
+@property (nonatomic, assign) CGPoint playerPosition, playerVelocity;
 
 + (Globals*) sharedSingleton;
 

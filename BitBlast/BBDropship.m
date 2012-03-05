@@ -16,8 +16,7 @@
 - (id) init {
 	if((self = [super init])) {
 		enemyTypes = [NSMutableArray new];
-		dummyPosition = ccp([ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, 64);
-		enabled = YES;
+		[self setEnabled:NO];
 	}
 	return self;
 }
@@ -27,6 +26,8 @@
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark setup
 - (void) loadFromFile:(NSString *)filename {
 	[super loadFromFile:filename];
 	
@@ -34,24 +35,32 @@
 	spawnRate = [[dictionary objectForKey:@"spawnRate"] floatValue];
 	health = [[dictionary objectForKey:@"health"] intValue];
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
+	// see if there's a sprite and remove it from its parent first
+	if(sprite && sprite.parent) {
+		[sprite.parent removeChild:sprite cleanup:YES];
+	}
+	// make sprite
 	sprite = [CCSprite spriteWithSpriteFrameName:[dictionary objectForKey:@"image"]];
+	// TODO: turn this scale off once we get a different image for these
 	sprite.scaleX = -1;
-	sprite.anchorPoint = ccp(0.5, 0);
+	boundingBox.origin.x *= -1;
 	[self addChild:sprite];
 }
 
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	// update position
-	dummyPosition = ccpAdd(dummyPosition, ccpMult(velocity, delta));
-	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
-	
-	// spawn enemies
-	spawnTimer += delta;
-	while(spawnTimer >= spawnRate) {
-		[self spawnEnemy];
-		spawnTimer -= spawnRate;
+	// only update if enabled
+	if(enabled) {
+		// get velocity from player
+		velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
+		[super update:delta];
+		// spawn enemies
+		spawnTimer += delta;
+		while(spawnTimer >= spawnRate) {
+			[self spawnEnemy];
+			spawnTimer -= spawnRate;
+		}
 	}
 }
 
@@ -64,13 +73,12 @@
 
 #pragma mark -
 #pragma mark setters
-- (void) setVelocity:(float)newVelocity {
-	velocity = ccp(newVelocity, velocity.y);
-}
-
 - (void) setEnabled:(BOOL)newEnabled {
 	if(enabled && !newEnabled) {
 		self.visible = NO;
+	}
+	else if(!enabled && newEnabled) {
+		self.visible = YES;
 	}
 	enabled = newEnabled;
 }
@@ -85,15 +93,21 @@
 }
 
 - (void) hitByBullet:(BBBullet*)bullet {
-	//health -= bullet.damage;
+	health -= bullet.damage;
 	
-	// TODO: play hit animation or something cooler. possibly blood particles
+	// TODO: play hit animation or something cooler. possibly explosion particles
 	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
 	[self.sprite runAction:action];
 	
 	if(health <= 0) {
 		[self setEnabled:NO];
 	}
+}
+
+- (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type {
+	[self loadFromFile:type];
+	dummyPosition = ccpAdd(newPosition, ccp(-sprite.contentSize.width * 0.5, sprite.contentSize.height));
+	[self setEnabled:YES];
 }
 
 @end

@@ -53,11 +53,9 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	// loop through bullets and update ones that aren't flagged for recycle
+	// loop through bullets and update
 	for(BBBullet *b in bullets) {
-		if(b.recycle == NO) {
-			[b update:delta];
-		}
+		[b update:delta];
 	}
 }
 

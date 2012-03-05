@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "BBGameObject.h"
+#import "BBMovingObject.h"
 #import "ChunkManager.h"
 #import "ScoreManager.h"
 #import "BBWeapon.h"
-#import "BBDropshipManager.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -23,13 +22,11 @@ typedef enum {
 	kPlayerDead
 } PlayerState;
 
-@interface BBPlayer : BBGameObject {
+@interface BBPlayer : BBMovingObject {
 	
-	float jumpImpulse, minSpeed, speedIncrement, jumpTimer, maxJumpTime, gravity, tileOffset;
-	CGPoint velocity, maxVelocity, prevDummyPosition;
+	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime;
 	CGSize prevSize;
-	int chunksToIncrement, curNumChunks, chunkOffset, bitCoins;
-	BOOL jumping, touchingPlatform;
+	int chunksToIncrement, curNumChunks, chunkOffset;
 	// array of currently equipped weapons
 	NSMutableArray *weapons;
 	// player's current and previous states
@@ -42,10 +39,6 @@ typedef enum {
 	CCNode *offsetNode;
 }
 
-@property (nonatomic, assign) float gravity;
-@property (nonatomic, assign) CGPoint velocity, maxVelocity;
-@property (nonatomic, assign) BOOL touchingPlatform, jumping;
-
 // initializers
 // setup
 - (void) setupTorso;
@@ -54,6 +47,7 @@ typedef enum {
 - (void) update:(float)delta;
 - (void) updateTorso;
 - (void) updateWeapons:(float)delta;
+- (void) updateGlobals;
 // setters
 - (void) setState:(PlayerState)newState;
 - (void) setWeaponAngle:(int)newAngle;
@@ -64,9 +58,5 @@ typedef enum {
 - (void) endJump;
 - (void) shoot:(CGPoint)touchPos;
 - (void) endShoot;
-- (void) checkCollisions;
-// convenience
-- (CGPoint) positionInChunk:(Chunk*)chunk;
-- (NSSet*) positionsInChunk:(Chunk*)chunk;
 
 @end
