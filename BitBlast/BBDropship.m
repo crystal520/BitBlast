@@ -132,7 +132,7 @@
 		levelOffset = ccp([[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"y"] floatValue]);
 	}
 	
-	dummyPosition = ccpAdd(newPosition, ccpMult(levelOffset, [ResolutionManager sharedSingleton].inversePositionScale));
+	dummyPosition = ccpAdd(newPosition, levelOffset);
 	[self setEnabled:YES];
 }
 

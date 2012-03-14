@@ -73,7 +73,7 @@
 			// restrict levels to 3 levels. all extra tiles are fluff
 			if(tile && (y == 12 || y == 10 || y == 14)) {
 				// keep track of this tile's y position
-				[levels addObject:[NSNumber numberWithInt:tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale + tile.contentSize.height * 0.5]];
+				[levels addObject:[NSNumber numberWithInt:(tile.position.y + tile.contentSize.height * 0.5) * [ResolutionManager sharedSingleton].inversePositionScale]];
 			}
 		}
 	}
