@@ -117,7 +117,11 @@
 	// spawn a new dropship if enabled
 	if(enabled) {
 		BBDropship *newDropship = [self getInactiveDropship];
-		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getGroundPositionWithLayer:@"CollisionTop"].y) type:@"testDropship"];
+		// get a random level for dropship to be on
+		int ranLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getRandomLevel];
+		// dropship needs to know which level this is for position offset
+		ChunkLevel typeLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevelType:ranLevel];
+		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, ranLevel) type:@"testDropship" level:typeLevel];
 		spawningDropship = NO;
 	}
 }

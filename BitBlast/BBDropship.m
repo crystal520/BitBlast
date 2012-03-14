@@ -117,9 +117,22 @@
 	}
 }
 
-- (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type {
+- (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)level {
 	[self loadFromFile:type];
-	dummyPosition = ccpAdd(newPosition, ccp(-sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, sprite.contentSize.height));
+	
+	// determine offset based on level type
+	CGPoint levelOffset = ccp(0, 0);
+	if(level == CHUNK_LEVEL_BOTTOM) {
+		levelOffset = ccp([[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"y"] floatValue]);
+	}
+	else if(level == CHUNK_LEVEL_TOP) {
+		levelOffset = ccp([[[dictionary objectForKey:@"offsetTop"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetTop"] objectForKey:@"y"] floatValue]);
+	}
+	else {
+		levelOffset = ccp([[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"y"] floatValue]);
+	}
+	
+	dummyPosition = ccpAdd(newPosition, ccpMult(levelOffset, [ResolutionManager sharedSingleton].inversePositionScale));
 	[self setEnabled:YES];
 }
 
