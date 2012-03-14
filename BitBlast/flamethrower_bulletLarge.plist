@@ -87,5 +87,16 @@
 	<real>0.1</real>
 	<key>sprite</key>
 	<string>flamelarge.png</string>
+	<key>boundingBox</key>
+	<dict>
+		<key>x</key>
+		<real>0</real>
+		<key>y</key>
+		<real>0</real>
+		<key>width</key>
+		<integer>400</integer>
+		<key>height</key>
+		<integer>128</integer>
+	</dict>
 </dict>
 </plist>

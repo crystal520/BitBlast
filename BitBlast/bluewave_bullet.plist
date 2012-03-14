@@ -115,5 +115,16 @@
 	<integer>2</integer>
 	<key>sprite</key>
 	<string>bluewave.png</string>
+	<key>boundingBox</key>
+	<dict>
+		<key>x</key>
+		<real>0</real>
+		<key>y</key>
+		<real>0</real>
+		<key>width</key>
+		<integer>110</integer>
+		<key>height</key>
+		<integer>80</integer>
+	</dict>
 </dict>
 </plist>

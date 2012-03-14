@@ -116,5 +116,16 @@
 	<real>0.05</real>
 	<key>sprite</key>
 	<string>gattlingunbullet.png</string>
+	<key>boundingBox</key>
+	<dict>
+		<key>x</key>
+		<real>0</real>
+		<key>y</key>
+		<real>0</real>
+		<key>width</key>
+		<integer>103</integer>
+		<key>height</key>
+		<integer>5</integer>
+	</dict>
 </dict>
 </plist>
