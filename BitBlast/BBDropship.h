@@ -23,9 +23,11 @@
 	NSMutableArray *enemyTypes;
 	// whether or not the ship is enabled
 	BOOL enabled;
+	// whether or not the ship is alive
+	BOOL alive;
 }
 
-@property (nonatomic, assign) BOOL enabled;
+@property (nonatomic, assign) BOOL enabled, alive;
 
 // update
 - (void) update:(float)delta;

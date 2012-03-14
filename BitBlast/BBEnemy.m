@@ -11,12 +11,13 @@
 
 @implementation BBEnemy
 
-@synthesize recycle, enabled;
+@synthesize recycle, enabled, alive;
 
 - (id) init {
 	if((self = [super init])) {
 		recycle = YES;
 		self.visible = NO;
+		alive = YES;
 	}
 	
 	return self;
@@ -39,6 +40,9 @@
 	velocity = ccp([[[dictionary objectForKey:@"speed"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"speed"] objectForKey:@"y"] floatValue]);
 	health = [[dictionary objectForKey:@"health"] floatValue];
 	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
+	// use nearest so it will scale better
+	ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
+	[sprite.texture setTexParameters:&params];
 }
 
 #pragma mark -
@@ -47,10 +51,13 @@
 	if(newEnabled && !enabled) {
 		recycle = NO;
 		self.visible = YES;
+		alive = YES;
+		self.scale = 1;
 	}
 	else if(!newEnabled && enabled) {
 		recycle = YES;
 		self.visible = NO;
+		alive = NO;
 		[self removeChild:spriteBatch cleanup:YES];
 	}
 	enabled = newEnabled;
@@ -93,9 +100,18 @@
 	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
 	[self.sprite runAction:action];
 	
+	// if the enemy died, turn off all movement and play a death animation
 	if(health <= 0) {
-		[self setEnabled:NO];
+		alive = NO;
+		velocity = ccp(0, 0);
+		gravity = ccp(0, 0);
+		self.scale = 3;
+		[self playAnimation:@"death" target:self selector:@selector(deathAnimationOver)];
 	}
+}
+
+- (void) deathAnimationOver {
+	[self setEnabled:NO];
 }
 
 @end

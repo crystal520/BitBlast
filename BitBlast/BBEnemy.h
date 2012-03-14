@@ -20,9 +20,11 @@
 	BOOL recycle;
 	// whether or not the enemy is enabled
 	BOOL enabled;
+	// whether or not the enemy has died
+	BOOL alive;
 }
 
-@property (nonatomic, assign) BOOL recycle, enabled;
+@property (nonatomic, assign) BOOL recycle, enabled, alive;
 
 // setters
 - (void) setEnabled:(BOOL)newEnabled;

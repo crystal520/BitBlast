@@ -11,12 +11,13 @@
 
 @implementation BBDropship
 
-@synthesize enabled;
+@synthesize enabled, alive;
 
 - (id) init {
 	if((self = [super init])) {
 		enemyTypes = [NSMutableArray new];
 		[self setEnabled:NO];
+		alive = YES;
 	}
 	return self;
 }
@@ -30,21 +31,21 @@
 #pragma mark setup
 - (void) loadFromFile:(NSString *)filename {
 	[super loadFromFile:filename];
+	[self loadAnimations];
 	
 	// set values from dictionary
 	spawnRate = [[dictionary objectForKey:@"spawnRate"] floatValue];
+	spawnTimer = 0;
 	health = [[dictionary objectForKey:@"health"] intValue];
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
-	// see if there's a sprite and remove it from its parent first
-	if(sprite && sprite.parent) {
-		[sprite.parent removeChild:sprite cleanup:YES];
-	}
-	// make sprite
-	sprite = [CCSprite spriteWithSpriteFrameName:[dictionary objectForKey:@"image"]];
+	[self addChild:spriteBatch];
+	[self playAnimation:@"walk"];
 	// TODO: turn this scale off once we get a different image for these
 	sprite.scaleX = -1;
 	boundingBox.origin.x *= -1;
-	[self addChild:sprite];
+	// use nearest so it will scale better
+	ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
+	[sprite.texture setTexParameters:&params];
 }
 
 #pragma mark -
@@ -53,7 +54,9 @@
 	// only update if enabled
 	if(enabled) {
 		// get velocity from player
-		velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
+		if(alive) {
+			velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
+		}
 		[super update:delta];
 		// spawn enemies
 		spawnTimer += delta;
@@ -76,9 +79,12 @@
 - (void) setEnabled:(BOOL)newEnabled {
 	if(enabled && !newEnabled) {
 		self.visible = NO;
+		alive = NO;
+		[self removeChild:spriteBatch cleanup:YES];
 	}
 	else if(!enabled && newEnabled) {
 		self.visible = YES;
+		alive = YES;
 	}
 	enabled = newEnabled;
 }
@@ -86,10 +92,12 @@
 #pragma mark -
 #pragma mark actions
 - (void) spawnEnemy {
-	// get recycled enemy
-	BBEnemy *newEnemy = [[EnemyManager sharedSingleton] getRecycledEnemy];
-	// reset with position of dropship and random enemy type
-	[newEnemy resetWithPosition:dummyPosition withType:[self getRandomEnemy]];
+	if(alive && enabled) {
+		// get recycled enemy
+		BBEnemy *newEnemy = [[EnemyManager sharedSingleton] getRecycledEnemy];
+		// reset with position of dropship and random enemy type
+		[newEnemy resetWithPosition:dummyPosition withType:[self getRandomEnemy]];
+	}
 }
 
 - (void) hitByBullet:(BBBullet*)bullet {
@@ -99,15 +107,25 @@
 	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
 	[self.sprite runAction:action];
 	
+	// if the dropship died, turn off all movement and play death animation
 	if(health <= 0) {
-		[self setEnabled:NO];
+		alive = NO;
+		velocity = ccp(0, 0);
+		gravity = ccp(0, 0);
+		self.scale = 3;
+		[self playAnimation:@"death" target:self selector:@selector(deathAnimationOver)];
 	}
 }
 
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type {
 	[self loadFromFile:type];
-	dummyPosition = ccpAdd(newPosition, ccp(-sprite.contentSize.width * 0.5, sprite.contentSize.height));
+	dummyPosition = ccpAdd(newPosition, ccp(-sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale, sprite.contentSize.height));
 	[self setEnabled:YES];
+}
+
+- (void) deathAnimationOver {
+	self.scale = 1;
+	[self setEnabled:NO];
 }
 
 @end

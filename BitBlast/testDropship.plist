@@ -4,10 +4,40 @@
 <dict>
 	<key>health</key>
 	<integer>50</integer>
+	<key>animations</key>
+	<array>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>orange_smoke.png</string>
+				<string>orange_smoke2.png</string>
+				<string>orange_smoke3.png</string>
+				<string>orange_smoke4.png</string>
+				<string>orange_smoke5.png</string>
+				<string>orange_smoke6.png</string>
+			</array>
+			<key>name</key>
+			<string>death</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>chopper.png</string>
+			</array>
+			<key>name</key>
+			<string>walk</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+	</array>
 	<key>spawnRate</key>
-	<real>0.5</real>
+	<integer>1</integer>
 	<key>image</key>
-	<string>chopper.png</string>
+	<string>uiatlas.png</string>
+	<key>plist</key>
+	<string>uiatlas.plist</string>
 	<key>enemyTypes</key>
 	<array>
 		<string>testEnemy</string>

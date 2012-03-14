@@ -56,7 +56,7 @@
 - (NSArray*) getActiveDropships {
 	NSMutableArray *activeDropships = [NSMutableArray array];
 	for(BBDropship *d in dropships) {
-		if(d.enabled) {
+		if(d.enabled && d.alive) {
 			[activeDropships addObject:d];
 		}
 	}
@@ -117,7 +117,7 @@
 	// spawn a new dropship if enabled
 	if(enabled) {
 		BBDropship *newDropship = [self getInactiveDropship];
-		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width, [[[ChunkManager sharedSingleton] getCurrentChunk] getGroundPositionWithLayer:@"CollisionTop"].y) type:@"testDropship"];
+		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getGroundPositionWithLayer:@"CollisionTop"].y) type:@"testDropship"];
 		spawningDropship = NO;
 	}
 }

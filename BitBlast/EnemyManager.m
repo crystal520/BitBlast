@@ -80,7 +80,7 @@
 - (NSArray*) getActiveEnemies {
 	NSMutableArray *activeEnemies = [NSMutableArray array];
 	for(BBEnemy *e in enemies) {
-		if(!e.recycle && e.enabled) {
+		if(!e.recycle && e.enabled && e.alive) {
 			[activeEnemies addObject:e];
 		}
 	}

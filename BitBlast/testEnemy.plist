@@ -17,6 +17,21 @@
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>explosion1.png</string>
+				<string>explosion2.png</string>
+				<string>explosion3.png</string>
+				<string>explosion4.png</string>
+				<string>explosion5.png</string>
+				<string>explosion6.png</string>
+			</array>
+			<key>name</key>
+			<string>death</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
 	</array>
 	<key>image</key>
 	<string>uiatlas.png</string>
