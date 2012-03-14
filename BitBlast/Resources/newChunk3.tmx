@@ -5,7 +5,7 @@
  </tileset>
  <layer name="Background2" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztz0sKACAIRVHXYuD+l1iDhAiNhn3uAeFSoycCAAAA/EHbleGsv3tr0rd6bW9J2un0F22UoE+1u9fZorO9FUJlBm8=
+   eJztz0EKACAIRFHPotD9j1iLhAiFIlpE/4EwqJsRAQAAAP6gbWyY0veeNcmvut1XN/9PWZKdTreoowR51Qt9s5z1rQ+0B2g=
   </data>
  </layer>
  <layer name="Background" width="60" height="15">
@@ -15,7 +15,7 @@
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztk0sKwDAIRHOClv6b+1+0I1QQScR21zIPhrhQEz8phRBCCCGE/JEDWhraA58TmqEa2DaevGOAJmi8T+2tzsHaotUpM8tq/LeEHe3JE/w7vrgvUkOvLzoP6V1UW+//+Tx+1pmYVn8z9/k8EnsBQQwJOQ==
+   eJztk0sKwDAIRHOClv6b+1+0DlSwkohdtsyDIS6iSUZTCiGEEEII+SOHaGloD/acollUg9jmkyfwM+PPIJpE472qt9oHG0OrU6aX1ezfEnE0J2/w9/jivOANPV+0H/Auelvv//k6vteZnJa/mfN8HeReulgJZg==
   </data>
  </layer>
  <layer name="Collision" width="60" height="15">

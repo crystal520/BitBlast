@@ -5,10 +5,10 @@
 	<key>offsetX</key>
 	<integer>100</integer>
 	<key>offsetY</key>
-	<integer>0</integer>
+	<integer>-30</integer>
 	<key>minimumY</key>
-	<integer>20</integer>
+	<integer>120</integer>
 	<key>maximumY</key>
-	<integer>200</integer>
+	<integer>100</integer>
 </dict>
 </plist>
