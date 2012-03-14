@@ -126,5 +126,7 @@
 		<key>height</key>
 		<integer>46</integer>
 	</dict>
+	<key>damage</key>
+	<real>4.1</real>
 </dict>
 </plist>

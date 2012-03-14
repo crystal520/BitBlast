@@ -73,7 +73,7 @@
 	weapons = [NSMutableArray new];
 	// create and add default weapon
 	BBWeapon *w = [BBWeapon new];
-	[w loadFromFile:@"pistol"];
+	[w loadFromFile:@"gattlingun"];
 	[w setEnabled:YES];
 	[weapons addObject:w];
 	[w release];

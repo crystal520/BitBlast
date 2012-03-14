@@ -98,5 +98,7 @@
 		<key>height</key>
 		<integer>80</integer>
 	</dict>
+	<key>damage</key>
+	<integer>10</integer>
 </dict>
 </plist>
