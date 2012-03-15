@@ -23,6 +23,7 @@
 #import "EnemyManager.h"
 #import "BBDropshipManager.h"
 #import "iCadeReaderView.h"
+#import "BBCoinManager.h"
 
 typedef enum {
 	kStateMainMenu,

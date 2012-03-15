@@ -56,6 +56,8 @@
 		[scrollingNode addChild:[BBDropshipManager sharedSingleton]];
 		// add enemies to scrollingNode
 		[scrollingNode addChild:[EnemyManager sharedSingleton]];
+		// add coins to scrollingNode
+		[scrollingNode addChild:[BBCoinManager sharedSingleton]];
 		
 		// create background sprite
 		[self createBackground];
@@ -179,6 +181,7 @@
 		[[BulletManager sharedSingleton] update:delta];
 		[[EnemyManager sharedSingleton] update:delta];
 		[[BBDropshipManager sharedSingleton] update:delta];
+		[[BBCoinManager sharedSingleton] update:delta];
 		[self updateCamera];
 		[hud update:delta];
 	}
