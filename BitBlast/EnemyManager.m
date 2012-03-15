@@ -57,7 +57,7 @@
 		if(!e.recycle) {
 			[e update:delta];
 			// see if enemy has gone off screen
-			if(e.dummyPosition.x < [Globals sharedSingleton].playerPosition.x) {
+			if(e.dummyPosition.x < [Globals sharedSingleton].playerPosition.x - [Globals sharedSingleton].cameraOffset.x) {
 				[e setEnabled:NO];
 			}
 		}

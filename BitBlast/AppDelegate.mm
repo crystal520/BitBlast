@@ -41,6 +41,9 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 {
+	// load saved game data
+	[[SettingsManager sharedSingleton] loadFromFile:@"player.plist"];
+	
 	// seed the random number generator
 	srandom(time(NULL));
 	
@@ -120,6 +123,9 @@
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+	// save game data first
+	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+	
 	[[CCDirector sharedDirector] pause];
 }
 
@@ -140,6 +146,9 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+	// save game data first
+	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+	
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	[[director openGLView] removeFromSuperview];

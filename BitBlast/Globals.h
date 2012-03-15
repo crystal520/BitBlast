@@ -14,9 +14,11 @@
 	CGPoint playerPosition;
 	// player's velocity
 	CGPoint playerVelocity;
+	// camera offset (used to calculate when something is off screen to the left of the player)
+	CGPoint cameraOffset;
 }
 
-@property (nonatomic, assign) CGPoint playerPosition, playerVelocity;
+@property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
 
 + (Globals*) sharedSingleton;
 

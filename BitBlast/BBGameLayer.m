@@ -147,6 +147,7 @@
 	
 	cameraOffset = ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]);
 	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
+	[Globals sharedSingleton].cameraOffset = cameraOffset;
 }
 
 - (void) reset {
