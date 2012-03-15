@@ -12,6 +12,8 @@
 #import "ChunkManager.h"
 #import "ScoreManager.h"
 #import "BBWeapon.h"
+#import "BBCoinManager.h"
+#import "SettingsManager.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -52,6 +54,7 @@ typedef enum {
 - (void) setState:(PlayerState)newState;
 - (void) setWeaponAngle:(int)newAngle;
 // actions
+- (void) checkCollisions;
 - (void) reset;
 - (void) die:(NSString*)reason;
 - (void) jump;

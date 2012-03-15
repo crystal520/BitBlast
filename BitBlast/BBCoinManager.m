@@ -59,13 +59,11 @@
 	for(BBCoin *c in coins) {
 		if(!c.recycle) {
 			// see if enemy has gone off screen
-			if(c.dummyPosition.x < [Globals sharedSingleton].playerPosition.x) {
+			if(c.dummyPosition.x < [Globals sharedSingleton].playerPosition.x - [Globals sharedSingleton].cameraOffset.x) {
 				[c setEnabled:NO];
 			}
 		}
 	}
-	// check collisions with bullets
-	[self checkCollisions];
 }
 
 #pragma mark -
@@ -118,21 +116,6 @@
 
 #pragma mark -
 #pragma mark actions
-- (void) checkCollisions {
-	NSArray *activeCoins = [self getActiveCoins];
-	// then loop through the active coins
-	for(BBCoin *c in activeCoins) {
-		// loop through active bullets
-		/*for(BBBullet *b in activeBullets) {
-			// check for collision
-			if(b.enabled && e.enabled && [e getCollidesWith:b]) {
-				[e hitByBullet:b];
-				[b setEnabled:NO];
-			}
-		}*/
-	}
-}
-
 - (void) spawnCoinGroup {
 	// get random level from current chunk
 	Chunk *currentChunk = [[ChunkManager sharedSingleton] getCurrentChunk];

@@ -82,6 +82,8 @@
 
 - (void) updateFinalScore {
 	[distanceLabel setString:[NSString stringWithFormat:@"DISTANCE: %i", [[ScoreManager sharedSingleton] getScore]]];
+	[killLabel setString:[NSString stringWithFormat:@"COINS: %i", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
+	[multiplierLabel setString:[NSString stringWithFormat:@"TOTAL COINS: %i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 
 - (void) shop {

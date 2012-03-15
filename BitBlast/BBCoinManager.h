@@ -29,7 +29,6 @@
 - (void) gameOver;
 - (void) levelWillLoad;
 // actions
-- (void) checkCollisions;
 - (void) spawnCoinGroup;
 
 @end

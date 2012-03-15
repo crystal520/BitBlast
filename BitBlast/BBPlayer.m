@@ -96,6 +96,8 @@
 		}
 		[super update:delta];
 		
+		// check collisions
+		[self checkCollisions];
 		// update globals
 		[self updateGlobals];
 		// update score
@@ -219,6 +221,19 @@
 
 #pragma mark -
 #pragma mark actions
+- (void) checkCollisions {
+	// check to see if player is colliding with any coins
+	NSArray *activeCoins = [[BBCoinManager sharedSingleton] getActiveCoins];
+	for(BBCoin *c in activeCoins) {
+		if(c.enabled && c.alive && [c getCollidesWith:self]) {
+			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentCoins"];
+			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalCoins"];
+			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"allTimeCoins"];
+			[c setEnabled:NO];
+		}
+	}
+}
+
 - (void) reset {
 	
 	// set initial values
@@ -229,6 +244,9 @@
 	velocity = minVelocity;
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
+	
+	// reset stats specific to each run
+	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentCoins"];
 	
 	// add to current chunk
 	[self.parent removeChild:self cleanup:NO];

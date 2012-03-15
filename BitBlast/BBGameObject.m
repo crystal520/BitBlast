@@ -18,7 +18,7 @@
 	if((self = [super init])) {
 		
 		// save dictionary for future use
-		dictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
+		[self loadFromFile:filename];
 	}
 	
 	return self;
