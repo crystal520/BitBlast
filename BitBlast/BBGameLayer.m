@@ -145,7 +145,7 @@
 	// get dictionary from plist
 	NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cameraProperties" ofType:@"plist"]];
 	
-	cameraOffset = ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]);
+	cameraOffset = ccpMult(ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]), [ResolutionManager sharedSingleton].positionScale);
 	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
 	[Globals sharedSingleton].cameraOffset = cameraOffset;
 }
@@ -194,16 +194,16 @@
 	float prevPos = scrollingNode.position.x;
 	// convert player's y position to screen space
 	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];
-	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - (currentPlayerScreenPosition.y + player.sprite.contentSize.height);
 	
 	float yOffset = 0;
 	// check to see if player is too close to the top of the screen
 	if(currentPlayerScreenPosition.y < cameraBounds.x) {
-		yOffset = cameraBounds.x - currentPlayerScreenPosition.y;
+		//yOffset = cameraBounds.x - currentPlayerScreenPosition.y;
+		yOffset = currentPlayerScreenPosition.y - cameraBounds.x;
 	}
 	// check to see if player is too close to the bottom of the screen
 	else if(currentPlayerScreenPosition.y > cameraBounds.y) {
-		yOffset = cameraBounds.y - currentPlayerScreenPosition.y;
+		yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
 	}
 	
 	CGPoint newPos = ccp(-1 * player.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
