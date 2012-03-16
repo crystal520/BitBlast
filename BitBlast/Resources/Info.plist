@@ -13,7 +13,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon.png</string>
-		<string>thumbnail-page-1.png</string>
+		<string>Icon@2x.png</string>
 		<string>Icon-72.png</string>
 		<string>Icon-Small-50.png</string>
 		<string>Icon-Small.png</string>
@@ -26,7 +26,7 @@
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string>Icon.png</string>
-				<string>thumbnail-page-1.png</string>
+				<string>Icon@2x.png</string>
 				<string>Icon-72.png</string>
 				<string>Icon-Small-50.png</string>
 				<string>Icon-Small.png</string>
