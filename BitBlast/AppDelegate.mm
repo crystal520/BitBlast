@@ -121,20 +121,19 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene:[BBGameLayer scene]];
+	
+	// Override point for customization after application launch.
+	[[LocalyticsSession sharedLocalyticsSession] startSession:@"APP KEY FROM STEP 2"];
+	
+	self.window.rootViewController = viewController;
+	[self.window makeKeyAndVisible];
 }
 
-/*   SO THIS IS THE PART THAT"S MESSING UP.  I THINK THAT THE didFinishLaunchingWithOptions needs to be fixed/updated or something. */
- - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
- {
- // Override point for customization after application launch.
- [[LocalyticsSession sharedLocalyticsSession] startSession:@"APP KEY FROM STEP 2"];
- 
-     //Xcode suggested I change self.viewController; to self->viewController; so I did.  It builds but I get a black screen.
- self.window.rootViewController = self->viewController;
- [self.window makeKeyAndVisible];
- 
- return YES;
- }
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	[self applicationDidFinishLaunching:application];
+
+	return YES;
+}
  
 
 
