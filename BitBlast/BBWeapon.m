@@ -10,6 +10,15 @@
 
 @implementation BBWeapon
 
+@synthesize identifier;
+
+- (id) init {
+	if((self = [super init])) {
+		identifier = [NSMutableString new];
+	}
+	return self;
+}
+
 #pragma mark - 
 #pragma mark setup
 - (void) loadFromFile:(NSString*)filename {
@@ -49,6 +58,7 @@
 }
 
 - (void) dealloc {
+	[identifier release];
 	[shots release];
 	[lasers release];
 	[super dealloc];

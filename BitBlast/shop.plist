@@ -4,6 +4,7 @@
 <dict>
 	<key>items</key>
 	<array>
+		<string>pistol</string>
 		<string>machinegun</string>
 		<string>machinegun</string>
 		<string>machinegun</string>

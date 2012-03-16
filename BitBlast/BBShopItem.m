@@ -47,7 +47,7 @@
 		[self addChild:desc];
 		
 		// create cost label
-		CCLabelBMFont *cost = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"coins"] fntFile:@"gamefont.fnt"];
+		CCLabelBMFont *cost = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"cost"] fntFile:@"gamefont.fnt"];
 		cost.scale = 0.8;
 		cost.anchorPoint = ccp(1, 0.5);
 		cost.position = ccp(background.contentSize.width * 0.97, background.contentSize.height * 0.8);
@@ -55,12 +55,12 @@
 		
 		// create buy label
 		CCLabelBMFont *buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
-		buyLabel.scale = 0.3;
+		buyLabel.scale = 0.7;
 		
 		// create buy button
-		buy = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_pressed.png"] target:self selector:@selector(buy)];
+		buy = [CCLabelButton buttonWithLabel:buyLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_pressed.png"] target:self selector:@selector(buy)];
 		[buy setSpriteBatchNode:uiSpriteBatch];
-		buy.position = ccp(background.contentSize.width * 0.9, background.contentSize.height * 0.45);
+		buy.position = ccp(background.contentSize.width * 0.865, background.contentSize.height * 0.435);
 		[self addChild:buy];
 	}
 	
@@ -72,13 +72,8 @@
 	[super dealloc];
 }
 
-- (void) touch:(CGPoint)point {
-	if(CGRectContainsPoint(buy.boundingBox, point)) {
-		[self buy];
-	}
-	else {
-		[self viewItem];
-	}
+- (void) touch {
+	[self buy];
 }
 
 - (void) viewItem {

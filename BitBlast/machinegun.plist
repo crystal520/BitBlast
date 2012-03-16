@@ -38,13 +38,17 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<integer>1000</integer>
+		<string>30</string>
 		<key>description</key>
-		<string>Gazillions of bullets everywhere!</string>
+		<string>So many bullets!</string>
 		<key>icon</key>
 		<string>shopItem1.png</string>
 		<key>name</key>
 		<string>Machine Gun</string>
+		<key>identifier</key>
+		<string>machinegun</string>
+		<key>type</key>
+		<string>weapon</string>
 	</dict>
 </dict>
 </plist>

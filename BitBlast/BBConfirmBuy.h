@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "CCNodeColorBackground.h"
+#import "SettingsManager.h"
+#import "BBEquipmentManager.h"
+#import "BBWeaponManager.h"
 
 @interface BBConfirmBuy : CCNodeColorBackground {
     CCLabelBMFont *buyLabel, *cost;
+	CCMenuItemLabelAndImage *buyIt;
 	NSMutableDictionary *itemDictionary;
 }
 

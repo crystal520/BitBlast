@@ -33,6 +33,8 @@
 	return self;
 }
 
+#pragma mark -
+#pragma mark actions
 - (void) equip:(NSString*)newEquipment {
 	if([newEquipment isEqualToString:@"doublejump"]) {
 		[equipment addObject:[[BBDoubleJump new] autorelease]];

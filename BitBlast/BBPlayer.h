@@ -14,6 +14,7 @@
 #import "BBWeapon.h"
 #import "BBCoinManager.h"
 #import "SettingsManager.h"
+#import "BBWeaponManager.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -29,8 +30,6 @@ typedef enum {
 	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, chunkOffset;
-	// array of currently equipped weapons
-	NSMutableArray *weapons;
 	// player's current and previous states
 	PlayerState state, prevState;
 	// offsets for torso for each frame of running and jumping animation
@@ -44,7 +43,6 @@ typedef enum {
 // initializers
 // setup
 - (void) setupTorso;
-- (void) setupWeapons;
 // update
 - (void) update:(float)delta;
 - (void) updateTorso;

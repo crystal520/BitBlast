@@ -12,6 +12,8 @@
 #import "BBLaser.h"
 
 @interface BBWeapon : NSObject {
+	// unique identifier
+	NSMutableString *identifier;
 	// array of shots this weapon fires
 	NSMutableArray *shots;
 	// array of lasers this weapon has
@@ -21,6 +23,8 @@
 	// angles for firing up, down, and straight
 	float upAngle, downAngle, straightAngle;
 }
+
+@property (nonatomic, readonly) NSString *identifier;
 
 // setup
 - (void) loadFromFile:(NSString*)filename;

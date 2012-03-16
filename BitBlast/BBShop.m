@@ -44,7 +44,7 @@
 		[self addChild:back z:1];
 		
 		// create layer for all shop items
-		BBList *shopScroller = [[BBList alloc] init];
+		shopScroller = [[BBList alloc] init];
 		[shopScroller setItemSize:cellSize];
 		shopScroller.position = ccp(winSize.width - cellSize.width, winSize.height - cellSize.height);
 		
@@ -62,7 +62,8 @@
 		[shopScroller release];
 		
 		// register for notifications
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmBuy) name:kNavShopConfirmNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem) name:kNavBuyItemNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
 	}
 	
@@ -70,6 +71,7 @@
 }
 
 - (void) dealloc {
+	[shopScroller release];
 	[back release];
 	[items release];
 	[super dealloc];
@@ -82,7 +84,7 @@
 - (void) setEnabled:(BOOL)isEnabled {
 	[back setEnabled:isEnabled];
 	enabled = isEnabled;
-	//table.isTouchEnabled = isEnabled;
+	//shopScroller.isTouchEnabled = isEnabled;
 }
 
 - (void) onEnter {
@@ -92,37 +94,16 @@
 
 #pragma mark -
 #pragma mark notifications
-- (void) buyItem:(NSNotification*)n {
+- (void) confirmBuy {
+	[self setEnabled:NO];
+}
+
+- (void) buyItem {
 	[self setEnabled:YES];
 }
 
 - (void) cancelBuyItem {
 	[self setEnabled:YES];
-}
-
-#pragma mark -
-#pragma mark SWTableViewDataSource
--(CGSize)cellSizeForTable:(SWTableView *)table {
-	return cellSize;
-}
-
--(SWTableViewCell *)table:(SWTableView *)table cellAtIndex:(NSUInteger)idx {
-	return [items objectAtIndex:idx];
-}
-
--(NSUInteger)numberOfCellsInTableView:(SWTableView *)table {
-	return [items count];
-}
-
-#pragma mark -
-#pragma mark SWTableViewDelegate
--(void)table:(SWTableView *)table cellTouched:(SWTableViewCell *)cell withPoint:(CGPoint)point {
-	if(enabled) {
-		// get cell as BBShopItem
-		BBShopItem *item = (BBShopItem*)(cell);
-		[item touch:point];
-		//[self setEnabled:NO];
-	}
 }
 
 @end

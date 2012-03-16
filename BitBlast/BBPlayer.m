@@ -22,8 +22,6 @@
 		
 		// setup torso
 		[self setupTorso];
-		// setup weapons
-		[self setupWeapons];
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -50,7 +48,6 @@
 
 - (void) dealloc {
 	[offsetNode release];
-	[weapons release];
 	[torsoOffsets release];
 	[torso release];
 	[super dealloc];
@@ -66,17 +63,6 @@
 	torso.anchorPoint = ccp(0.5, 1);
 	// create and load array of torsoOffsets
 	torsoOffsets = [[NSMutableArray alloc] initWithArray:[dictionary objectForKey:@"torsoOffsets"]];
-}
-
-- (void) setupWeapons {
-	// create weapons array
-	weapons = [NSMutableArray new];
-	// create and add default weapon
-	BBWeapon *w = [BBWeapon new];
-	[w loadFromFile:@"gattlingun"];
-	[w setEnabled:YES];
-	[weapons addObject:w];
-	[w release];
 }
 
 #pragma mark -
@@ -129,7 +115,7 @@
 
 - (void) updateWeapons:(float)delta {
 	// loop through weapons and update them
-	for(BBWeapon *w in weapons) {
+	for(BBWeapon *w in [BBWeaponManager sharedSingleton].weapons) {
 		[w setPlayerSpeed:velocity.x];
 		[w setPosition:ccpAdd(dummyPosition, ccpMult(torso.position, [ResolutionManager sharedSingleton].inversePositionScale))];
 		[w update:delta];
@@ -208,7 +194,7 @@
 		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso.png"]];
 	}
 	// update weapons with new angle
-	for(BBWeapon *w in weapons) {
+	for(BBWeapon *w in [BBWeaponManager sharedSingleton].weapons) {
 		[w setAngle:newAngle];
 	}
 }

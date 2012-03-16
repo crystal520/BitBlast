@@ -48,6 +48,7 @@
 		0A6DD3AD14D8F41200D6DB6D /* testWeapon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */; };
 		0A6DD3B014D8FE8A00D6DB6D /* BBShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */; };
 		0A6DD3B314DA409A00D6DB6D /* BBBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3B214DA409900D6DB6D /* BBBehavior.m */; };
+		0A6E3BFD1513CEC8007D64B8 /* BBWeaponManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E3BFC1513CEC8007D64B8 /* BBWeaponManager.m */; };
 		0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A77285F14ECB93B000CB457 /* testEnemy2.plist */; };
 		0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B414BFC15F00066390 /* BBMainMenu.m */; };
 		0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */; };
@@ -58,7 +59,6 @@
 		0A7D52C314C22C3800066390 /* CCNodeColorBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */; };
 		0A7D52CA14C2317700066390 /* BBShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52C914C2317600066390 /* BBShop.m */; };
 		0A7D52D014C4844600066390 /* BBShopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52CF14C4844500066390 /* BBShopItem.m */; };
-		0A7D52D414C486C100066390 /* shopItem1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52D314C486C100066390 /* shopItem1.plist */; };
 		0A7D52DA14C4882800066390 /* shopItem4.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52D614C4882800066390 /* shopItem4.png */; };
 		0A7D52DB14C4882800066390 /* shopItem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52D714C4882800066390 /* shopItem3.png */; };
 		0A7D52DC14C4882800066390 /* shopItem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52D814C4882800066390 /* shopItem2.png */; };
@@ -69,9 +69,6 @@
 		0A7D52E714C4883200066390 /* shopBuyButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52E114C4883200066390 /* shopBuyButton.png */; };
 		0A7D52E814C4883200066390 /* backButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52E214C4883200066390 /* backButtonDown.png */; };
 		0A7D52E914C4883200066390 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52E314C4883200066390 /* backButton.png */; };
-		0A7D52ED14C4889900066390 /* shopItem4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52EA14C4889900066390 /* shopItem4.plist */; };
-		0A7D52EE14C4889900066390 /* shopItem3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52EB14C4889900066390 /* shopItem3.plist */; };
-		0A7D52EF14C4889900066390 /* shopItem2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52EC14C4889900066390 /* shopItem2.plist */; };
 		0A7D52F114C4950D00066390 /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52F014C4950C00066390 /* shop.plist */; };
 		0A8D310A1501D27B002F9B7B /* BBDropship.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D31091501D27B002F9B7B /* BBDropship.m */; };
 		0A8D310D1501D70E002F9B7B /* testDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D310C1501D70E002F9B7B /* testDropship.plist */; };
@@ -389,6 +386,8 @@
 		0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShot.m; sourceTree = "<group>"; };
 		0A6DD3B114DA409900D6DB6D /* BBBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBehavior.h; sourceTree = "<group>"; };
 		0A6DD3B214DA409900D6DB6D /* BBBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBehavior.m; sourceTree = "<group>"; };
+		0A6E3BFB1513CEC8007D64B8 /* BBWeaponManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWeaponManager.h; sourceTree = "<group>"; };
+		0A6E3BFC1513CEC8007D64B8 /* BBWeaponManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBWeaponManager.m; sourceTree = "<group>"; };
 		0A77285F14ECB93B000CB457 /* testEnemy2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy2.plist; sourceTree = "<group>"; };
 		0A7D52B314BFC15F00066390 /* BBMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainMenu.h; sourceTree = "<group>"; };
 		0A7D52B414BFC15F00066390 /* BBMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BBMainMenu.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -404,7 +403,6 @@
 		0A7D52C914C2317600066390 /* BBShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShop.m; sourceTree = "<group>"; };
 		0A7D52CE14C4844400066390 /* BBShopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShopItem.h; sourceTree = "<group>"; };
 		0A7D52CF14C4844500066390 /* BBShopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShopItem.m; sourceTree = "<group>"; };
-		0A7D52D314C486C100066390 /* shopItem1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem1.plist; sourceTree = "<group>"; };
 		0A7D52D614C4882800066390 /* shopItem4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopItem4.png; path = Resources/shopItem4.png; sourceTree = "<group>"; };
 		0A7D52D714C4882800066390 /* shopItem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopItem3.png; path = Resources/shopItem3.png; sourceTree = "<group>"; };
 		0A7D52D814C4882800066390 /* shopItem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopItem2.png; path = Resources/shopItem2.png; sourceTree = "<group>"; };
@@ -415,9 +413,6 @@
 		0A7D52E114C4883200066390 /* shopBuyButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopBuyButton.png; path = Resources/shopBuyButton.png; sourceTree = "<group>"; };
 		0A7D52E214C4883200066390 /* backButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButtonDown.png; path = Resources/backButtonDown.png; sourceTree = "<group>"; };
 		0A7D52E314C4883200066390 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backButton.png; path = Resources/backButton.png; sourceTree = "<group>"; };
-		0A7D52EA14C4889900066390 /* shopItem4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem4.plist; sourceTree = "<group>"; };
-		0A7D52EB14C4889900066390 /* shopItem3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem3.plist; sourceTree = "<group>"; };
-		0A7D52EC14C4889900066390 /* shopItem2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shopItem2.plist; sourceTree = "<group>"; };
 		0A7D52F014C4950C00066390 /* shop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
 		0A8D31081501D27B002F9B7B /* BBDropship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDropship.h; sourceTree = "<group>"; };
 		0A8D31091501D27B002F9B7B /* BBDropship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDropship.m; sourceTree = "<group>"; };
@@ -1153,10 +1148,6 @@
 				0A7D52D714C4882800066390 /* shopItem3.png */,
 				0A7D52D814C4882800066390 /* shopItem2.png */,
 				0A7D52D914C4882800066390 /* shopItem1.png */,
-				0A7D52D314C486C100066390 /* shopItem1.plist */,
-				0A7D52EC14C4889900066390 /* shopItem2.plist */,
-				0A7D52EB14C4889900066390 /* shopItem3.plist */,
-				0A7D52EA14C4889900066390 /* shopItem4.plist */,
 				0A7D52F014C4950C00066390 /* shop.plist */,
 			);
 			name = Shop;
@@ -1225,6 +1216,8 @@
 				0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */,
 				0A0366D714E21EA100313CCC /* BBLaser.h */,
 				0A0366D814E21EA100313CCC /* BBLaser.m */,
+				0A6E3BFB1513CEC8007D64B8 /* BBWeaponManager.h */,
+				0A6E3BFC1513CEC8007D64B8 /* BBWeaponManager.m */,
 			);
 			name = Weapons;
 			sourceTree = "<group>";
@@ -1879,7 +1872,6 @@
 				0A7D52BC14C074DF00066390 /* bigButton.png in Resources */,
 				0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */,
 				0A7D52C014C20D8800066390 /* bigButtonDown.png in Resources */,
-				0A7D52D414C486C100066390 /* shopItem1.plist in Resources */,
 				0A7D52DA14C4882800066390 /* shopItem4.png in Resources */,
 				0A7D52DB14C4882800066390 /* shopItem3.png in Resources */,
 				0A7D52DC14C4882800066390 /* shopItem2.png in Resources */,
@@ -1890,9 +1882,6 @@
 				0A7D52E714C4883200066390 /* shopBuyButton.png in Resources */,
 				0A7D52E814C4883200066390 /* backButtonDown.png in Resources */,
 				0A7D52E914C4883200066390 /* backButton.png in Resources */,
-				0A7D52ED14C4889900066390 /* shopItem4.plist in Resources */,
-				0A7D52EE14C4889900066390 /* shopItem3.plist in Resources */,
-				0A7D52EF14C4889900066390 /* shopItem2.plist in Resources */,
 				0A7D52F114C4950D00066390 /* shop.plist in Resources */,
 				0A42D14A14C4CA1900DD55CA /* shopBackground.png in Resources */,
 				0A42D14B14C4CA1900DD55CA /* leaderboardEntryBackground.png in Resources */,
@@ -2169,6 +2158,7 @@
 				0AC9624315106E7400790570 /* BBCoin.m in Sources */,
 				0A9463561511A4B700353C4B /* SettingsManager.m in Sources */,
 				0A0DD3F41513A26300BD35E7 /* BBList.m in Sources */,
+				0A6E3BFD1513CEC8007D64B8 /* BBWeaponManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

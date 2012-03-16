@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "CCLabelButton.h"
 #import "CCButton.h"
 
 @interface BBShopItem : CCNode {
-	CCButton *background, *buy;
+	CCButton *background;
+	CCLabelButton *buy;
 	NSDictionary *itemDictionary;
 }
 
 - (id) initWithFile:(NSString*)filename;
-- (void) touch:(CGPoint)point;
+- (void) touch;
 - (void) buy;
 - (void) viewItem;
 

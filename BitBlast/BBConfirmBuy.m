@@ -17,7 +17,7 @@
 		
 		itemDictionary = [NSMutableDictionary new];
 		
-		CGSize winSize = [CCDirector sharedDirector].winSize;
+		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		
 		// create background
 		CCSprite *background = [CCSprite spriteWithFile:@"shopConfirmBackground.png"];
@@ -51,7 +51,7 @@
 		buyItLabel.scale = 0.4;
 		
 		// create buy it button
-		CCMenuItemLabelAndImage *buyIt = [CCMenuItemLabelAndImage itemFromLabel:buyItLabel normalImage:@"shopConfirmButton.png" selectedImage:@"shopConfirmButtonDown.png" target:self selector:@selector(buy)];
+		buyIt = [[CCMenuItemLabelAndImage alloc] initFromLabel:buyItLabel normalImage:@"shopConfirmButton.png" selectedImage:@"shopConfirmButtonDown.png" disabledImage:@"shopConfirmButtonDown.png" target:self selector:@selector(buy)];
 		buyIt.position = ccp(background.contentSize.width * 0.75, background.contentSize.height * 0.15);
 		
 		// create menu with buttons
@@ -73,7 +73,15 @@
 - (void) updateWithInfo:(NSDictionary*)dict {
 	[itemDictionary setDictionary:dict];
 	[buyLabel setString:[NSString stringWithFormat:@"BUY  %@", [dict objectForKey:@"name"]]];
-	[cost setString:[NSString stringWithFormat:@"FOR  %@", [dict objectForKey:@"coins"]]];
+	[cost setString:[NSString stringWithFormat:@"FOR  %@", [dict objectForKey:@"cost"]]];
+	
+	// only show buy button if player is able to buy item
+	if([[SettingsManager sharedSingleton] getInt:@"totalCoins"] < [[itemDictionary objectForKey:@"cost"] intValue]) {
+		[buyIt setVisible:NO];
+	}
+	else {
+		[buyIt setVisible:YES];
+	}
 }
 
 - (void) cancel {
@@ -81,6 +89,23 @@
 }
 
 - (void) buy {
+	// subtract funds from total funds
+	[[SettingsManager sharedSingleton] incrementInteger:-[[itemDictionary objectForKey:@"cost"] intValue] keyString:@"totalCoins"];
+	// save the item to device
+	[[SettingsManager sharedSingleton] setBool:YES keyString:[itemDictionary objectForKey:@"identifier"]];
+	// equip based on type
+	NSString *type = [itemDictionary objectForKey:@"type"];
+	if([type isEqualToString:@"weapon"]) {
+		// for now, just have one weapon equipped
+		[[BBWeaponManager sharedSingleton] unequipAll];
+		[[BBWeaponManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+	}
+	else if([type isEqualToString:@"equipment"]) {
+		[[BBEquipmentManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+	}
+	else {
+		NSLog(@"ERROR: invalid type specified in item plist");
+	}
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavBuyItemNotification object:nil userInfo:itemDictionary]];
 }
 

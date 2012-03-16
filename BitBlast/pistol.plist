@@ -35,5 +35,20 @@
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<string>0</string>
+		<key>description</key>
+		<string>Only one bullet.</string>
+		<key>icon</key>
+		<string>shopItem2.png</string>
+		<key>name</key>
+		<string>Pistol</string>
+		<key>identifier</key>
+		<string>pistol</string>
+		<key>type</key>
+		<string>weapon</string>
+	</dict>
 </dict>
 </plist>

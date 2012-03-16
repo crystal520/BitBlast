@@ -39,9 +39,7 @@
 	for(int i=0,j=[children_ count];i<j;i++) {
 		CCNode *child = [children_ objectAtIndex:i];
 		CGRect bb = CGRectMake(child.position.x * [ResolutionManager sharedSingleton].imageScale, child.position.y * [ResolutionManager sharedSingleton].imageScale, child.contentSize.width, child.contentSize.height);
-		NSLog(@"Point: %@ --- Box: %@", NSStringFromCGPoint(pos), NSStringFromCGRect(bb));
 		if(CGRectContainsPoint(bb, pos)) {
-			NSLog(@"Success!");
 			return child;
 		}
 	}
@@ -106,7 +104,6 @@
 #pragma mark -
 #pragma mark touches
 - (BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	NSLog(@"Touch began");
 	// reset flags and variables
 	touchDown = YES;
 	dragging = YES;
@@ -119,6 +116,9 @@
 	// make sure touch is within the list
 	CCNode *child = [self getChildWithTouchPosition:touchPoint];
 	if(child) {
+		//TODO: any buttons within the child should have touch down states
+		// let child know that touches have begun
+		//[child 
 		return YES;
 	}
 	else {
@@ -150,7 +150,11 @@
 	// see if a tap should pass through to a child
 	if(totalDrag < 5) {
 		velocity = 0;
-		//[self getChildWithTouchPosition:touchPoint]
+		// send tap to child
+		CCNode *child = [self getChildWithTouchPosition:touchPoint];
+		if([child respondsToSelector:@selector(touch)]) {
+			[child touch];
+		}
 	}
 }
 
