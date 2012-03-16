@@ -40,11 +40,11 @@
 		<key>cost</key>
 		<string>0</string>
 		<key>description</key>
-		<string>Only one bullet.</string>
+		<string>A shot of hot lead</string>
 		<key>icon</key>
-		<string>shopItem2.png</string>
+		<string>shopItem1.png</string>
 		<key>name</key>
-		<string>Pistol</string>
+		<string>Simi-Auto</string>
 		<key>identifier</key>
 		<string>pistol</string>
 		<key>type</key>

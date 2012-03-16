@@ -15,25 +15,40 @@
 	<key>torsoDownOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>36</integer>
+		<integer>-100</integer>
 		<key>y</key>
-		<integer>-72</integer>
+		<integer>0</integer>
 	</dict>
 	<key>torsoOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>40</integer>
+		<integer>-100</integer>
 		<key>y</key>
 		<integer>-48</integer>
 	</dict>
 	<key>torsoUpOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>36</integer>
+		<integer>-100</integer>
 		<key>y</key>
-		<integer>-2</integer>
+		<integer>-100</integer>
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<string>0</string>
+		<key>description</key>
+		<string>Sonic wave of DEATH</string>
+		<key>icon</key>
+		<string>bluewaveicon.png</string>
+		<key>name</key>
+		<string>Sonic Disruptor</string>
+		<key>identifier</key>
+		<string>bluewave</string>
+		<key>type</key>
+		<string>weapon</string>
+	</dict>
 </dict>
 </plist>

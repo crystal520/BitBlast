@@ -38,11 +38,11 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>30</string>
+		<string>0</string>
 		<key>description</key>
 		<string>So many bullets!</string>
 		<key>icon</key>
-		<string>shopItem1.png</string>
+		<string>machinegun.png</string>
 		<key>name</key>
 		<string>Machine Gun</string>
 		<key>identifier</key>

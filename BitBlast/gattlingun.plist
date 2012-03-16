@@ -35,5 +35,20 @@
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<string>0</string>
+		<key>description</key>
+		<string>If it bleeds...</string>
+		<key>icon</key>
+		<string>gatlingunicon.png</string>
+		<key>name</key>
+		<string>Vulcan Cannon</string>
+		<key>identifier</key>
+		<string>gattlingun</string>
+		<key>type</key>
+		<string>weapon</string>
+	</dict>
 </dict>
 </plist>

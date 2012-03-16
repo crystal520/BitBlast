@@ -5,11 +5,12 @@
 	<key>items</key>
 	<array>
 		<string>pistol</string>
+		<string>burstshot</string>
 		<string>machinegun</string>
-		<string>machinegun</string>
-		<string>machinegun</string>
-		<string>machinegun</string>
-		<string>machinegun</string>
+		<string>flamethrower</string>
+		<string>shotgun</string>
+		<string>bluewave</string>
+		<string>gattlingun</string>
 		<string>machinegun</string>
 		<string>machinegun</string>
 	</array>
