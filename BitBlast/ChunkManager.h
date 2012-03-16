@@ -15,9 +15,12 @@
 	NSMutableArray *currentChunks;
 	NSMutableArray *chunks;
 	NSMutableString *overrideChunk;
+	// which array within the chunks array in the level plist is currently being used
+	int curSpeedLevel;
 }
 
 @property (nonatomic, readonly) NSMutableArray *currentChunks;
+@property (nonatomic, assign) int curSpeedLevel;
 
 + (ChunkManager*) sharedSingleton;
 // update

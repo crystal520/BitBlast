@@ -11,7 +11,7 @@
 
 @implementation ChunkManager
 
-@synthesize currentChunks;
+@synthesize currentChunks, curSpeedLevel;
 
 + (ChunkManager*) sharedSingleton {
 	
@@ -107,13 +107,13 @@
 	}
 	
 	// generate random number based on number of chunks
-	int ranChunk = floor(CCRANDOM_0_1() * [chunks count]);
+	int ranChunk = floor(CCRANDOM_0_1() * [[chunks objectAtIndex:curSpeedLevel] count]);
 	
-	if(ranChunk < [chunks count]) {
-		[self addChunk:[chunks objectAtIndex:ranChunk] withOffset:ccp(offset, 0)];
+	if(ranChunk < [[chunks objectAtIndex:curSpeedLevel] count]) {
+		[self addChunk:[[chunks objectAtIndex:curSpeedLevel] objectAtIndex:ranChunk] withOffset:ccp(offset, 0)];
 	}
 	else {
-		NSLog(@"ERROR: Failed to add random chunk for index \"%i\" because it is out of bounds of the chunks array with length \"%i\"", ranChunk, [chunks count]);
+		NSLog(@"ERROR: Failed to add random chunk for index \"%i\" because it is out of bounds of the chunks array with length \"%i\"", ranChunk, [[chunks objectAtIndex:curSpeedLevel] count]);
 	}
 }
 
@@ -157,6 +157,13 @@
 }
 
 #pragma mark -
+#pragma mark setters
+- (void) setCurSpeedLevel:(int)newCurSpeedLevel {
+	// make sure the new level doesn't go out of bounds
+	curSpeedLevel = MIN(newCurSpeedLevel, [chunks count]-1);
+}
+
+#pragma mark -
 #pragma mark loading chunks
 - (void) loadChunksForLevel:(NSString*)levelName {
 	
@@ -165,11 +172,13 @@
 	
 	// make sure it exists
 	if(levelPlist) {
+		// reset speed level
+		curSpeedLevel = 0;
 		// grab first chunk
 		NSString *firstChunk = [levelPlist objectForKey:@"firstChunk"];
 		
 		// grab array of chunks
-		[chunks addObjectsFromArray:[levelPlist objectForKey:@"chunks"]];
+		[chunks setArray:[levelPlist objectForKey:@"chunks"]];
 		
 		// grab override chunk
 		[overrideChunk setString:[levelPlist objectForKey:@"overrideChunk"]];
