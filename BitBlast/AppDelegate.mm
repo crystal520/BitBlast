@@ -40,7 +40,9 @@
 }
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
+
 {
+    
 	// load saved game data
 	[[SettingsManager sharedSingleton] loadFromFile:@"player.plist"];
 	
@@ -121,6 +123,20 @@
 	[[CCDirector sharedDirector] runWithScene:[BBGameLayer scene]];
 }
 
+/*   SO THIS IS THE PART THAT"S MESSING UP.  I THINK THAT THE didFinishLaunchingWithOptions needs to be fixed/updated or something. */
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+ {
+ // Override point for customization after application launch.
+ [[LocalyticsSession sharedLocalyticsSession] startSession:@"APP KEY FROM STEP 2"];
+ 
+     //Xcode suggested I change self.viewController; to self->viewController; so I did.  It builds but I get a black screen.
+ self.window.rootViewController = self->viewController;
+ [self.window makeKeyAndVisible];
+ 
+ return YES;
+ }
+ 
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	// save game data first
@@ -139,15 +155,22 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application {
 	[[CCDirector sharedDirector] stopAnimation];
+    
+    [[LocalyticsSession sharedLocalyticsSession] close];
+    [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {
 	[[CCDirector sharedDirector] startAnimation];
+    
+    [[LocalyticsSession sharedLocalyticsSession] resume];
+    [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// save game data first
 	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+    
 	
 	CCDirector *director = [CCDirector sharedDirector];
 	
@@ -158,6 +181,10 @@
 	[window release];
 	
 	[director end];	
+    
+    // Close Localytics Session
+    [[LocalyticsSession sharedLocalyticsSession] close];
+    [[LocalyticsSession sharedLocalyticsSession] upload];
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
