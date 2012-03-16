@@ -15,6 +15,7 @@
 #import "BBCoinManager.h"
 #import "SettingsManager.h"
 #import "BBWeaponManager.h"
+#import "EnemyManager.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -38,7 +39,11 @@ typedef enum {
 	CCSprite *torso;
 	// node that contains all pieces of player, to be offset in each chunk when switching between them
 	CCNode *offsetNode;
+	// number of times the player can get hit before dying
+	int health;
 }
+
+@property (nonatomic, readonly) int health;
 
 // initializers
 // setup

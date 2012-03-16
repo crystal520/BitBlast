@@ -34,5 +34,6 @@
 - (void) reset;
 - (void) resetWithPosition:(CGPoint)newPosition withType:(NSString*)enemyType;
 - (void) hitByBullet:(BBBullet*)bullet;
+- (void) die;
 
 @end

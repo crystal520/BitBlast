@@ -12,6 +12,8 @@
 
 @interface BBHud : CCNode {
     CCLabelBMFont *score;
+	// array of hearts keeping track of health
+	NSMutableArray *hearts;
 }
 
 - (void) update:(float)delta;

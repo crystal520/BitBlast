@@ -10,6 +10,8 @@
 
 @implementation BBPlayer
 
+@synthesize health;
+
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
 		
@@ -176,6 +178,9 @@
 			case kPlayerEndJump:
 				[self playAnimation:@"endJump" target:self selector:@selector(endJumpAnimation)];
 				break;
+			case kPlayerDead:
+				[self stopAllActions];
+				break;
 			default:
 				break;
 		}
@@ -201,6 +206,11 @@
 	}
 }
 
+- (void) setHealth:(int)newHealth {
+	health = newHealth;
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerHealthNotification object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:health] forKey:@"health"]]];
+}
+
 #pragma mark -
 #pragma mark animations
 - (void) endJumpAnimation {
@@ -220,6 +230,18 @@
 			[c setEnabled:NO];
 		}
 	}
+	// check to see if player is colliding with any enemies
+	NSArray *activeEnemies = [[EnemyManager sharedSingleton] getActiveEnemies];
+	for(BBEnemy *e in activeEnemies) {
+		if([e getCollidesWith:self]) {
+			[self setHealth:health-1];
+			[e die];
+			if(health <= 0) {
+				[self die:@"enemy"];
+				break;
+			}
+		}
+	}
 }
 
 - (void) reset {
@@ -232,6 +254,7 @@
 	velocity = minVelocity;
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
+	[self setHealth:[[dictionary objectForKey:@"health"] intValue]];
 	
 	// reset stats specific to each run
 	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentCoins"];
@@ -243,7 +266,6 @@
 
 - (void) die:(NSString*)reason {
 	[self setState:kPlayerDead];
-	
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerDeadNotification object:nil]];
 }
 

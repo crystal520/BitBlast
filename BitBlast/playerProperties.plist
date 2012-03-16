@@ -79,6 +79,8 @@
 	</dict>
 	<key>tileCenterOffset</key>
 	<integer>25</integer>
+	<key>health</key>
+	<integer>3</integer>
 	<key>torsoOffsets</key>
 	<array>
 		<dict>

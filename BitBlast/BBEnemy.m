@@ -102,12 +102,16 @@
 	
 	// if the enemy died, turn off all movement and play a death animation
 	if(health <= 0) {
-		alive = NO;
-		velocity = ccp(0, 0);
-		gravity = ccp(0, 0);
-		self.scale = 3;
-		[self playAnimation:@"death" target:self selector:@selector(deathAnimationOver)];
+		[self die];
 	}
+}
+
+- (void) die {
+	alive = NO;
+	velocity = ccp(0, 0);
+	gravity = ccp(0, 0);
+	self.scale = 3;
+	[self playAnimation:@"death" target:self selector:@selector(deathAnimationOver)];
 }
 
 - (void) deathAnimationOver {
