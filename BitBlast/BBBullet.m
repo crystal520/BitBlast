@@ -17,7 +17,7 @@
 	if((self = [super init])) {
 		recycle = YES;
 		self.visible = NO;
-		damage = 10;
+		damage = 1;
 		enabled = NO;
 		needsPlatformCollisions = NO;
 	}

@@ -29,6 +29,7 @@
 		blend = [[dict objectForKey:@"blend"] boolValue];
 		NSDictionary *bbDict = [dict objectForKey:@"boundingBox"];
 		boundingBox = CGRectMake([[bbDict objectForKey:@"x"] floatValue], [[bbDict objectForKey:@"y"] floatValue], [[bbDict objectForKey:@"width"] floatValue], [[bbDict objectForKey:@"height"] floatValue]);
+		damage = [[dict objectForKey:@"damage"] floatValue];
 		
 		// add angles to fire bullets at
 		angles = [NSMutableArray new];
@@ -130,6 +131,8 @@
 			}
 			// set rotation of bullet to current angle
 			bullet.rotation = -fireAngle;
+			// set damage of bullet to shot's damage
+			bullet.damage = damage;
 		}
 	}
 }
