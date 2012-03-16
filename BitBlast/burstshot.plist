@@ -6,7 +6,9 @@
 	<integer>-30</integer>
 	<key>shots</key>
 	<array>
-		<string>shotgun_bullet</string>
+		<string>burstshot_bullet1</string>
+		<string>burstshot_bullet2</string>
+		<string>burstshot_bullet3</string>
 	</array>
 	<key>sprite</key>
 	<string></string>
@@ -40,13 +42,13 @@
 		<key>cost</key>
 		<string>0</string>
 		<key>description</key>
-		<string>Lock &apos;n Load</string>
+		<string>3 rapid shots in a row</string>
 		<key>icon</key>
-		<string>shotgun.png</string>
+		<string>burstshot.png</string>
 		<key>name</key>
-		<string>Shotgun</string>
+		<string>Burst Shot</string>
 		<key>identifier</key>
-		<string>shotgun</string>
+		<string>burstshot</string>
 		<key>type</key>
 		<string>weapon</string>
 	</dict>

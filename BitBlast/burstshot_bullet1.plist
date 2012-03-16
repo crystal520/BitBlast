@@ -40,37 +40,37 @@
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>0.25</string>
+				<string>0</string>
 				<key>low</key>
-				<string>0.25</string>
+				<string>0</string>
 			</dict>
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>3</string>
+				<string>0</string>
 				<key>low</key>
-				<string>3</string>
+				<string>0</string>
 			</dict>
 			<key>curve</key>
-			<string>ease</string>
+			<string>easeInOutSine</string>
 			<key>loop</key>
-			<false/>
+			<true/>
 			<key>property</key>
-			<string>scale</string>
+			<string>y</string>
 			<key>repeat</key>
-			<false/>
+			<true/>
 			<key>speed</key>
-			<real>0.75</real>
+			<integer>1</integer>
 			<key>start</key>
-			<string>min</string>
+			<string>max</string>
 		</dict>
 		<dict>
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>0</string>
+				<string>1</string>
 				<key>low</key>
-				<string>0</string>
+				<string>1</string>
 			</dict>
 			<key>maxRange</key>
 			<dict>
@@ -88,33 +88,33 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<real>0.1</real>
+			<integer>1</integer>
 			<key>start</key>
-			<string>min</string>
+			<string>max</string>
 		</dict>
 	</array>
-	<key>blend</key>
-	<false/>
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>maxNumBullets</key>
-	<integer>1</integer>
+	<integer>3</integer>
 	<key>maxSpeed</key>
-	<integer>600</integer>
+	<integer>400</integer>
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>minNumBullets</key>
-	<integer>1</integer>
+	<integer>3</integer>
 	<key>minSpeed</key>
-	<integer>600</integer>
+	<integer>400</integer>
 	<key>rateOfFire</key>
-	<real>0.5</real>
+	<real>0.35</real>
 	<key>sprite</key>
-	<string>bluewave.png</string>
+	<string>yellowbullet.png</string>
+	<key>damage</key>
+	<real>1.9</real>
 	<key>boundingBox</key>
 	<dict>
 		<key>x</key>
@@ -122,11 +122,9 @@
 		<key>y</key>
 		<real>0</real>
 		<key>width</key>
-		<integer>200</integer>
+		<integer>25</integer>
 		<key>height</key>
-		<integer>200</integer>
+		<integer>8</integer>
 	</dict>
-	<key>damage</key>
-	<real>10</real>
 </dict>
 </plist>

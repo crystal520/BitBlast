@@ -123,7 +123,7 @@
 	[[CCDirector sharedDirector] runWithScene:[BBGameLayer scene]];
 	
 	// Override point for customization after application launch.
-	[[LocalyticsSession sharedLocalyticsSession] startSession:@"APP KEY FROM STEP 2"];
+	[[LocalyticsSession sharedLocalyticsSession] startSession:@"7f34f42eb738225af85f165-2d1da334-6f9f-11e1-200b-00a68a4c01fc"];
 	
 	self.window.rootViewController = viewController;
 	[self.window makeKeyAndVisible];

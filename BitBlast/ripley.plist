@@ -36,5 +36,20 @@
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<string>0</string>
+		<key>description</key>
+		<string>Flame + Machinegun</string>
+		<key>icon</key>
+		<string>ripley.png</string>
+		<key>name</key>
+		<string>Ripley</string>
+		<key>identifier</key>
+		<string>ripley</string>
+		<key>type</key>
+		<string>weapon</string>
+	</dict>
 </dict>
 </plist>
