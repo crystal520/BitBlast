@@ -35,5 +35,20 @@
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<string>0</string>
+		<key>description</key>
+		<string>Blot out the sun</string>
+		<key>icon</key>
+		<string>spreadgun.png</string>
+		<key>name</key>
+		<string>Spread-Gun</string>
+		<key>identifier</key>
+		<string>spreadgun</string>
+		<key>type</key>
+		<string>weapon</string>
+	</dict>
 </dict>
 </plist>

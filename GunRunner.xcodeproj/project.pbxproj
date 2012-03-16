@@ -17,7 +17,6 @@
 		0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */; };
 		0A204EA914DF212400171F71 /* testShot3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EA614DF212300171F71 /* testShot3.plist */; };
 		0A204EAA14DF212400171F71 /* testShot2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EA714DF212300171F71 /* testShot2.plist */; };
-		0A204EAB14DF212400171F71 /* testWeapon2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EA814DF212400171F71 /* testWeapon2.plist */; };
 		0A204EAE14DF319400171F71 /* flamethrower.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAD14DF319400171F71 /* flamethrower.plist */; };
 		0A204EB014DF31B600171F71 /* flameShot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAF14DF31B600171F71 /* flameShot.plist */; };
 		0A204EB214DF331600171F71 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EB114DF331500171F71 /* flame.png */; };
@@ -328,6 +327,11 @@
 		34FB2A451513E5EF00623BB4 /* shotgun.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A441513E5EF00623BB4 /* shotgun.png */; };
 		34FB2A471513E6FB00623BB4 /* bluewaveicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A461513E6FB00623BB4 /* bluewaveicon.png */; };
 		34FB2A491513F2AF00623BB4 /* gatlingunicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A481513F2AF00623BB4 /* gatlingunicon.png */; };
+		34FB2A4F1513F9FF00623BB4 /* wavemotioncannon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A4E1513F9FF00623BB4 /* wavemotioncannon.png */; };
+		34FB2A521513FAF000623BB4 /* ripley.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A511513FAF000623BB4 /* ripley.png */; };
+		34FB2A541513FBF100623BB4 /* spreadgun.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A531513FBF100623BB4 /* spreadgun.png */; };
+		34FB2A561513FCB900623BB4 /* ultraLaser.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A551513FCB900623BB4 /* ultraLaser.plist */; };
+		34FB2A581513FCF800623BB4 /* ultralasericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A571513FCF800623BB4 /* ultralasericon.png */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -358,7 +362,6 @@
 		0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBBullet.m; sourceTree = "<group>"; };
 		0A204EA614DF212300171F71 /* testShot3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testShot3.plist; sourceTree = "<group>"; };
 		0A204EA714DF212300171F71 /* testShot2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testShot2.plist; sourceTree = "<group>"; };
-		0A204EA814DF212400171F71 /* testWeapon2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWeapon2.plist; sourceTree = "<group>"; };
 		0A204EAD14DF319400171F71 /* flamethrower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower.plist; sourceTree = "<group>"; };
 		0A204EAF14DF31B600171F71 /* flameShot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flameShot.plist; sourceTree = "<group>"; };
 		0A204EB114DF331500171F71 /* flame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flame.png; path = Resources/flame.png; sourceTree = "<group>"; };
@@ -878,6 +881,11 @@
 		34FB2A441513E5EF00623BB4 /* shotgun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shotgun.png; path = Resources/shotgun.png; sourceTree = "<group>"; };
 		34FB2A461513E6FB00623BB4 /* bluewaveicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluewaveicon.png; path = Resources/bluewaveicon.png; sourceTree = "<group>"; };
 		34FB2A481513F2AF00623BB4 /* gatlingunicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gatlingunicon.png; path = Resources/gatlingunicon.png; sourceTree = "<group>"; };
+		34FB2A4E1513F9FF00623BB4 /* wavemotioncannon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wavemotioncannon.png; path = Resources/wavemotioncannon.png; sourceTree = "<group>"; };
+		34FB2A511513FAF000623BB4 /* ripley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ripley.png; path = Resources/ripley.png; sourceTree = "<group>"; };
+		34FB2A531513FBF100623BB4 /* spreadgun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spreadgun.png; path = Resources/spreadgun.png; sourceTree = "<group>"; };
+		34FB2A551513FCB900623BB4 /* ultraLaser.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ultraLaser.plist; sourceTree = "<group>"; };
+		34FB2A571513FCF800623BB4 /* ultralasericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ultralasericon.png; path = Resources/ultralasericon.png; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -1047,7 +1055,7 @@
 				34BBABE314F3209B00154CE9 /* mortor_bullet.plist */,
 				0A204EA614DF212300171F71 /* testShot3.plist */,
 				0A204EA714DF212300171F71 /* testShot2.plist */,
-				0A204EA814DF212400171F71 /* testWeapon2.plist */,
+				34FB2A551513FCB900623BB4 /* ultraLaser.plist */,
 				34BBABD714F312AB00154CE9 /* greenglow.png */,
 				34BBABE014F3170800154CE9 /* blueglow.png */,
 				34BBABE614F320C000154CE9 /* shell.png */,
@@ -1195,6 +1203,9 @@
 		0A7D52D214C4869600066390 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				34FB2A571513FCF800623BB4 /* ultralasericon.png */,
+				34FB2A531513FBF100623BB4 /* spreadgun.png */,
+				34FB2A511513FAF000623BB4 /* ripley.png */,
 				34FB2A481513F2AF00623BB4 /* gatlingunicon.png */,
 				0A7D52D614C4882800066390 /* shopItem4.png */,
 				0A7D52D714C4882800066390 /* shopItem3.png */,
@@ -1205,6 +1216,7 @@
 				34FB2A421513E4A700623BB4 /* flamethrower.png */,
 				34FB2A441513E5EF00623BB4 /* shotgun.png */,
 				34FB2A461513E6FB00623BB4 /* bluewaveicon.png */,
+				34FB2A4E1513F9FF00623BB4 /* wavemotioncannon.png */,
 				0A7D52F014C4950C00066390 /* shop.plist */,
 			);
 			name = Shop;
@@ -1977,7 +1989,6 @@
 				0A6DD3AD14D8F41200D6DB6D /* testWeapon.plist in Resources */,
 				0A204EA914DF212400171F71 /* testShot3.plist in Resources */,
 				0A204EAA14DF212400171F71 /* testShot2.plist in Resources */,
-				0A204EAB14DF212400171F71 /* testWeapon2.plist in Resources */,
 				0A204EAE14DF319400171F71 /* flamethrower.plist in Resources */,
 				0A204EB014DF31B600171F71 /* flameShot.plist in Resources */,
 				0A204EB214DF331600171F71 /* flame.png in Resources */,
@@ -2058,6 +2069,11 @@
 				34FB2A451513E5EF00623BB4 /* shotgun.png in Resources */,
 				34FB2A471513E6FB00623BB4 /* bluewaveicon.png in Resources */,
 				34FB2A491513F2AF00623BB4 /* gatlingunicon.png in Resources */,
+				34FB2A4F1513F9FF00623BB4 /* wavemotioncannon.png in Resources */,
+				34FB2A521513FAF000623BB4 /* ripley.png in Resources */,
+				34FB2A541513FBF100623BB4 /* spreadgun.png in Resources */,
+				34FB2A561513FCB900623BB4 /* ultraLaser.plist in Resources */,
+				34FB2A581513FCF800623BB4 /* ultralasericon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

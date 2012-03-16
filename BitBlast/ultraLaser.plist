@@ -37,5 +37,20 @@
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<string>0</string>
+		<key>description</key>
+		<string>Complete Chaos</string>
+		<key>icon</key>
+		<string>ultralasericon.png</string>
+		<key>name</key>
+		<string>DEATH BEAM</string>
+		<key>identifier</key>
+		<string>ultraLaser</string>
+		<key>type</key>
+		<string>weapon</string>
+	</dict>
 </dict>
 </plist>
