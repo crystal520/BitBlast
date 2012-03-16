@@ -44,10 +44,6 @@
 		scrollingNode = [[CCNode alloc] init];
 		[self addChild:scrollingNode z:DEPTH_LEVEL];
 		
-		// listen for touches
-		self.isTouchEnabled = YES;
-		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-		
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
@@ -148,9 +144,14 @@
 	cameraOffset = ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]);
 	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
 	[Globals sharedSingleton].cameraOffset = cameraOffset;
+	cameraOffset = ccpMult(cameraOffset, [ResolutionManager sharedSingleton].positionScale);
 }
 
 - (void) reset {
+	// listen for touches
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	self.isTouchEnabled = YES;
+	// add hud to screen
 	[self addChild:hud z:DEPTH_MENU];
 	state = kStateGame;
 	scrollingNode.position = ccp(0, [ResolutionManager sharedSingleton].size.height * 0.5);
@@ -194,16 +195,16 @@
 	float prevPos = scrollingNode.position.x;
 	// convert player's y position to screen space
 	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];
-	currentPlayerScreenPosition.y = [CCDirector sharedDirector].winSize.height - (currentPlayerScreenPosition.y + player.sprite.contentSize.height);
 	
 	float yOffset = 0;
 	// check to see if player is too close to the top of the screen
 	if(currentPlayerScreenPosition.y < cameraBounds.x) {
-		yOffset = cameraBounds.x - currentPlayerScreenPosition.y;
+		//yOffset = cameraBounds.x - currentPlayerScreenPosition.y;
+		yOffset = currentPlayerScreenPosition.y - cameraBounds.x;
 	}
 	// check to see if player is too close to the bottom of the screen
 	else if(currentPlayerScreenPosition.y > cameraBounds.y) {
-		yOffset = cameraBounds.y - currentPlayerScreenPosition.y;
+		yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
 	}
 	
 	CGPoint newPos = ccp(-1 * player.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
@@ -322,6 +323,9 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
+	// stop listening for touches
+	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+	// remove hud
 	[self removeChild:hud cleanup:YES];
 	state = kStateGameOver;
 	[self unscheduleUpdate];

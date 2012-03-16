@@ -7,8 +7,8 @@
 	<key>offsetY</key>
 	<integer>-30</integer>
 	<key>minimumY</key>
-	<integer>120</integer>
+	<integer>150</integer>
 	<key>maximumY</key>
-	<integer>100</integer>
+	<integer>170</integer>
 </dict>
 </plist>

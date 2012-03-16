@@ -43,26 +43,23 @@
 		back.position = ccp(winSize.width * 0.075, winSize.height - back.contentSize.height * 0.5 - backHolder.contentSize.height * 0.175);
 		[self addChild:back z:1];
 		
+		// create layer for all shop items
+		BBList *shopScroller = [[BBList alloc] init];
+		[shopScroller setItemSize:cellSize];
+		shopScroller.position = ccp(winSize.width - cellSize.width, winSize.height - cellSize.height);
+		
 		// load shop items
-		items = [[NSMutableArray alloc] init];
 		NSArray *shopList = [NSArray arrayWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"shop" ofType:@"plist"]] objectForKey:@"items"]];
-		for(NSString *shopItem in shopList) {
+		for(int i=0,j=[shopList count];i<j;i++) {
+			// get string from list
+			NSString *shopItem = [shopList objectAtIndex:i];
+			// create shop item with string
 			BBShopItem *t = [[BBShopItem alloc] initWithFile:shopItem];
-			[items addObject:t];
+			[shopScroller addItem:t];
 			[t release];
 		}
-		
-		// create advanced scrolling menu with items
-		table = [[SWTableView viewWithDataSource:self size:CGSizeMake(cellSize.width, winSize.height)] retain];
-		table.delegate = self;
-		//table.clipsToBounds = NO;
-		table.verticalFillOrder = SWTableViewFillTopDown;
-		table.direction = SWScrollViewDirectionVertical;
-		table.bounces = NO;
-		[table reloadData];
-		table.contentOffset = [table minContainerOffset];
-		[self addChild:table];
-		table.position = ccp(winSize.width - cellSize.width, 0);
+		[self addChild:shopScroller];
+		[shopScroller release];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
@@ -74,7 +71,6 @@
 
 - (void) dealloc {
 	[back release];
-	[table release];
 	[items release];
 	[super dealloc];
 }
@@ -86,7 +82,7 @@
 - (void) setEnabled:(BOOL)isEnabled {
 	[back setEnabled:isEnabled];
 	enabled = isEnabled;
-	table.isTouchEnabled = isEnabled;
+	//table.isTouchEnabled = isEnabled;
 }
 
 - (void) onEnter {
