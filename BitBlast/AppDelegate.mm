@@ -134,8 +134,6 @@
 
 	return YES;
 }
- 
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	// save game data first
