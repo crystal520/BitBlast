@@ -4,12 +4,11 @@
 <dict>
 	<key>chunks</key>
 	<array>
-		<string>newChunk1.tmx</string>
-		<string>newChunk2.tmx</string>
-		<string>newChunk3.tmx</string>
+		<string>aNewChunkIdea.tmx</string>
+		<string>aNewChunkIdea1.tmx</string>
 	</array>
 	<key>firstChunk</key>
-	<string>startingChunk.tmx</string>
+	<string>aNewChunkIdea.tmx</string>
 	<key>overrideChunk</key>
 	<string></string>
 	<key>backgroundColor</key>
