@@ -10,6 +10,9 @@
 #import "cocos2d.h"
 #import "CCLabelButton.h"
 #import "CCButton.h"
+#import "SettingsManager.h"
+#import "BBEquipmentManager.h"
+#import "BBWeaponManager.h"
 
 @interface BBShopItem : CCNode {
 	CCButton *background;

@@ -953,7 +953,6 @@
 				0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */,
 				0A0DD3F21513A26300BD35E7 /* BBList.h */,
 				0A0DD3F31513A26300BD35E7 /* BBList.m */,
-				0AE4192B1496FE7E00342D8E /* Code */,
 			);
 			name = CocosSubclasses;
 			sourceTree = "<group>";
@@ -1331,6 +1330,7 @@
 				34FB2A221513CE4F00623BB4 /* src */,
 				0A94930114FAECA400941321 /* Supporting Code */,
 				0A1EC4A2149E68D8005A7ED6 /* CocosSubclasses */,
+				0AE4192B1496FE7E00342D8E /* Code */,
 				0AE4190B1496F5C800342D8E /* AppDelegate.h */,
 				0AE4190C1496F5C800342D8E /* AppDelegate.mm */,
 				0AE4190E1496F5C800342D8E /* RootViewController.h */,

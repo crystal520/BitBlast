@@ -34,6 +34,8 @@
 	BOOL enabled;
 	// player's x speed so bullets fired don't go slower than the player
 	float playerSpeed;
+	// damage a bullet from this shot will do
+	float damage;
 	// position that shot starts from
 	CGPoint position;
 	// whether this shot is alpha blended

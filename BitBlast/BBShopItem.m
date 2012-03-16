@@ -81,7 +81,23 @@
 }
 
 - (void) buy {
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavShopConfirmNotification object:nil userInfo:itemDictionary]];
+	// if player already owns item, just equip it
+	if([[SettingsManager sharedSingleton] getBool:[itemDictionary objectForKey:@"identifier"]]) {
+		// equip based on type
+		NSString *type = [itemDictionary objectForKey:@"type"];
+		if([type isEqualToString:@"weapon"]) {
+			// for now, just have one weapon equipped
+			[[BBWeaponManager sharedSingleton] unequipAll];
+			[[BBWeaponManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+		}
+		else if([type isEqualToString:@"equipment"]) {
+			[[BBEquipmentManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+		}
+	}
+	// otherwise try to buy it
+	else {
+		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavShopConfirmNotification object:nil userInfo:itemDictionary]];
+	}
 }
 
 - (CGSize) contentSize {

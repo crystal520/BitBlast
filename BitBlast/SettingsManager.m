@@ -55,7 +55,7 @@ static SettingsManager* _sharedSettingsManager = nil;
 }
 
 -(void) setBool:(bool)value keyString:(NSString*)keyString {
-	[settings setObject:[NSString stringWithFormat:@"%b",value] forKey:keyString];
+	[settings setObject:[NSString stringWithFormat:@"%i",value] forKey:keyString];
 }
 
 - (void) incrementInteger:(int)value keyString:(NSString*)keyString {

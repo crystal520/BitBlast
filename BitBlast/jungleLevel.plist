@@ -4,8 +4,46 @@
 <dict>
 	<key>chunks</key>
 	<array>
-		<string>aNewChunkIdea.tmx</string>
-		<string>aNewChunkIdea1.tmx</string>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
+		<array>
+			<string>aNewChunkIdea.tmx</string>
+			<string>aNewChunkIdea1.tmx</string>
+		</array>
 	</array>
 	<key>firstChunk</key>
 	<string>aNewChunkIdea.tmx</string>

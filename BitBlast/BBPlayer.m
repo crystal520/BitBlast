@@ -143,6 +143,8 @@
 		// make sure we don't go over the maximum speed allowed
 		speed = MIN(speed, maxVelocity.x);
 		velocity = ccp(speed, velocity.y);
+		// increase difficulty of chunks
+		[ChunkManager sharedSingleton].curSpeedLevel++;
 	}
 	
 	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
