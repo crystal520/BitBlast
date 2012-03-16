@@ -44,10 +44,6 @@
 		scrollingNode = [[CCNode alloc] init];
 		[self addChild:scrollingNode z:DEPTH_LEVEL];
 		
-		// listen for touches
-		self.isTouchEnabled = YES;
-		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-		
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
@@ -145,12 +141,17 @@
 	// get dictionary from plist
 	NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cameraProperties" ofType:@"plist"]];
 	
-	cameraOffset = ccpMult(ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]), [ResolutionManager sharedSingleton].positionScale);
+	cameraOffset = ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]);
 	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
 	[Globals sharedSingleton].cameraOffset = cameraOffset;
+	cameraOffset = ccpMult(cameraOffset, [ResolutionManager sharedSingleton].positionScale);
 }
 
 - (void) reset {
+	// listen for touches
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	self.isTouchEnabled = YES;
+	// add hud to screen
 	[self addChild:hud z:DEPTH_MENU];
 	state = kStateGame;
 	scrollingNode.position = ccp(0, [ResolutionManager sharedSingleton].size.height * 0.5);
@@ -322,6 +323,9 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
+	// stop listening for touches
+	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+	// remove hud
 	[self removeChild:hud cleanup:YES];
 	state = kStateGameOver;
 	[self unscheduleUpdate];

@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "CCButton.h"
 
-@interface BBShopItem : SWTableViewCell {
+@interface BBShopItem : CCNode {
 	CCButton *background, *buy;
 	NSDictionary *itemDictionary;
 }

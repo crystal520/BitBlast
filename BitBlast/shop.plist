@@ -4,10 +4,13 @@
 <dict>
 	<key>items</key>
 	<array>
-		<string>shopItem1</string>
-		<string>shopItem2</string>
-		<string>shopItem3</string>
-		<string>shopItem4</string>
+		<string>machinegun</string>
+		<string>machinegun</string>
+		<string>machinegun</string>
+		<string>machinegun</string>
+		<string>machinegun</string>
+		<string>machinegun</string>
+		<string>machinegun</string>
 	</array>
 </dict>
 </plist>

@@ -25,7 +25,7 @@
 		background.position = ccp(background.contentSize.width * 0.5, background.contentSize.height * 0.5);
 		[self addChild:background];
 		
-		itemDictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
+		itemDictionary = [[NSDictionary alloc] initWithDictionary:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]] objectForKey:@"shop"]];
 		
 		// create icon sprite
 		CCSprite *icon = [CCSprite spriteWithFile:[itemDictionary objectForKey:@"icon"]];
@@ -87,6 +87,10 @@
 
 - (void) buy {
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavShopConfirmNotification object:nil userInfo:itemDictionary]];
+}
+
+- (CGSize) contentSize {
+	return CGSizeMake(background.contentSize.width * [ResolutionManager sharedSingleton].imageScale, background.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
 }
 
 @end

@@ -35,5 +35,16 @@
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<integer>1000</integer>
+		<key>description</key>
+		<string>Gazillions of bullets everywhere!</string>
+		<key>icon</key>
+		<string>shopItem1.png</string>
+		<key>name</key>
+		<string>Machine Gun</string>
+	</dict>
 </dict>
 </plist>

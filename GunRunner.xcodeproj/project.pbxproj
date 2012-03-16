@@ -12,6 +12,7 @@
 		0A0366E014E4C55900313CCC /* EnemyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0366DF14E4C55900313CCC /* EnemyManager.m */; };
 		0A0366E414E4C78800313CCC /* BBEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0366E314E4C78800313CCC /* BBEnemy.m */; };
 		0A0366E714E4CC5F00313CCC /* testEnemy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0366E614E4CC5F00313CCC /* testEnemy.plist */; };
+		0A0DD3F41513A26300BD35E7 /* BBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0DD3F31513A26300BD35E7 /* BBList.m */; };
 		0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */; };
 		0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */; };
 		0A204EA914DF212400171F71 /* testShot3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EA614DF212300171F71 /* testShot3.plist */; };
@@ -332,6 +333,8 @@
 		0A0366E214E4C78800313CCC /* BBEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEnemy.h; sourceTree = "<group>"; };
 		0A0366E314E4C78800313CCC /* BBEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEnemy.m; sourceTree = "<group>"; };
 		0A0366E614E4CC5F00313CCC /* testEnemy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy.plist; sourceTree = "<group>"; };
+		0A0DD3F21513A26300BD35E7 /* BBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBList.h; sourceTree = "<group>"; };
+		0A0DD3F31513A26300BD35E7 /* BBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBList.m; sourceTree = "<group>"; };
 		0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFollowOffset.m; sourceTree = "<group>"; };
 		0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFollowOffset.h; sourceTree = "<group>"; };
 		0A1EC4A914A02CC8005A7ED6 /* BBBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBullet.h; sourceTree = "<group>"; };
@@ -907,6 +910,9 @@
 				0ABBDD0114CC62B1001D36B7 /* CCButton.m */,
 				0ABBDD0314CCA19E001D36B7 /* CCLabelButton.h */,
 				0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */,
+				0A0DD3F21513A26300BD35E7 /* BBList.h */,
+				0A0DD3F31513A26300BD35E7 /* BBList.m */,
+				0AE4192B1496FE7E00342D8E /* Code */,
 			);
 			name = CocosSubclasses;
 			sourceTree = "<group>";
@@ -1271,7 +1277,6 @@
 			children = (
 				0A94930114FAECA400941321 /* Supporting Code */,
 				0A1EC4A2149E68D8005A7ED6 /* CocosSubclasses */,
-				0AE4192B1496FE7E00342D8E /* Code */,
 				0AE4190B1496F5C800342D8E /* AppDelegate.h */,
 				0AE4190C1496F5C800342D8E /* AppDelegate.mm */,
 				0AE4190E1496F5C800342D8E /* RootViewController.h */,
@@ -2163,6 +2168,7 @@
 				0AC9624015106E6800790570 /* BBCoinManager.m in Sources */,
 				0AC9624315106E7400790570 /* BBCoin.m in Sources */,
 				0A9463561511A4B700353C4B /* SettingsManager.m in Sources */,
+				0A0DD3F41513A26300BD35E7 /* BBList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
