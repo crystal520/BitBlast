@@ -42,7 +42,8 @@
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 
 {
-    
+    // attempt to connect to game center if available
+	[GameCenter sharedSingleton];
 	// load saved game data
 	[[SettingsManager sharedSingleton] loadFromFile:@"player.plist"];
 	

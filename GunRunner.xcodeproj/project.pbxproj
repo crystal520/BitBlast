@@ -22,6 +22,8 @@
 		0A204EB214DF331600171F71 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EB114DF331500171F71 /* flame.png */; };
 		0A2658A81503CFBB00DEA989 /* BBMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2658A71503CFBB00DEA989 /* BBMovingObject.m */; };
 		0A2C61F914F2C68F00D3F94B /* testEnemy3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */; };
+		0A428307151440F300E35219 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A428306151440F200E35219 /* GameCenter.m */; };
+		0A4283091514445800E35219 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4283081514445800E35219 /* GameKit.framework */; };
 		0A42D14314C4C7CF00DD55CA /* BBConfirmBuy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.m */; };
 		0A42D14A14C4CA1900DD55CA /* shopBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D14414C4CA1900DD55CA /* shopBackground.png */; };
 		0A42D14B14C4CA1900DD55CA /* leaderboardEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D14514C4CA1900DD55CA /* leaderboardEntryBackground.png */; };
@@ -367,6 +369,9 @@
 		0A2658A61503CFBB00DEA989 /* BBMovingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMovingObject.h; sourceTree = "<group>"; };
 		0A2658A71503CFBB00DEA989 /* BBMovingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMovingObject.m; sourceTree = "<group>"; };
 		0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy3.plist; sourceTree = "<group>"; };
+		0A428305151440F100E35219 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
+		0A428306151440F200E35219 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
+		0A4283081514445800E35219 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		0A42D14114C4C7CC00DD55CA /* BBConfirmBuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConfirmBuy.h; sourceTree = "<group>"; };
 		0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConfirmBuy.m; sourceTree = "<group>"; };
 		0A42D14414C4CA1900DD55CA /* shopBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopBackground.png; path = Resources/shopBackground.png; sourceTree = "<group>"; };
@@ -895,6 +900,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A4283091514445800E35219 /* GameKit.framework in Frameworks */,
 				34FB2A301513D05C00623BB4 /* libz.dylib in Frameworks */,
 				34FB2A2E1513D02E00623BB4 /* libsqlite3.dylib in Frameworks */,
 				0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */,
@@ -1000,6 +1006,8 @@
 				0ABBDCFE14CBD58E001D36B7 /* ResolutionManager.m */,
 				0AE7556A15029A5800E292ED /* Globals.h */,
 				0AE7556B15029A5800E292ED /* Globals.m */,
+				0A428305151440F100E35219 /* GameCenter.h */,
+				0A428306151440F200E35219 /* GameCenter.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1299,8 +1307,6 @@
 		0AE417271496F5C400342D8E = {
 			isa = PBXGroup;
 			children = (
-				34FB2A2F1513D05C00623BB4 /* libz.dylib */,
-				34FB2A2D1513D02E00623BB4 /* libsqlite3.dylib */,
 				0AE417461496F5C400342D8E /* BitBlast */,
 				0AE417351496F5C400342D8E /* Frameworks */,
 				0AE417331496F5C400342D8E /* Products */,
@@ -1318,6 +1324,9 @@
 		0AE417351496F5C400342D8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34FB2A2F1513D05C00623BB4 /* libz.dylib */,
+				34FB2A2D1513D02E00623BB4 /* libsqlite3.dylib */,
+				0A4283081514445800E35219 /* GameKit.framework */,
 				0AE417361496F5C400342D8E /* QuartzCore.framework */,
 				0AE417381496F5C400342D8E /* OpenGLES.framework */,
 				0AE4173A1496F5C400342D8E /* OpenAL.framework */,
@@ -2253,6 +2262,7 @@
 				34FB2A2A1513CE4F00623BB4 /* LocalyticsDatabase.m in Sources */,
 				34FB2A2B1513CE4F00623BB4 /* LocalyticsSession.m in Sources */,
 				34FB2A2C1513CE4F00623BB4 /* UploaderThread.m in Sources */,
+				0A428307151440F300E35219 /* GameCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

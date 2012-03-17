@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SettingsManager.h"
 #import "LocalyticsSession.h"
+#import "GameCenter.h"
 
 @class RootViewController;
 
