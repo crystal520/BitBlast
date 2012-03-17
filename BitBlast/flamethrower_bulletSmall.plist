@@ -32,7 +32,7 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<real>1.25</real>
+			<integer>3</integer>
 			<key>start</key>
 			<string>min</string>
 		</dict>
@@ -60,7 +60,7 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<real>1.25</real>
+			<integer>3</integer>
 			<key>start</key>
 			<string>min</string>
 		</dict>
@@ -116,7 +116,7 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<real>0.5</real>
+			<integer>1</integer>
 			<key>start</key>
 			<string>min</string>
 		</dict>
@@ -126,7 +126,7 @@
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
-	<real>1.25</real>
+	<integer>3</integer>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
@@ -134,7 +134,7 @@
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
-	<real>1.25</real>
+	<integer>3</integer>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>

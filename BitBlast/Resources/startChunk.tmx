@@ -3,19 +3,14 @@
  <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
   <image source="tiles_aubrey.png" width="2048" height="768"/>
  </tileset>
- <layer name="Background2" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
-  </data>
- </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztw7ENAAAEADAb/n+Y2QnSJo0AAADgs9x19h4QnAAx
+   eJztzysKADAMRMFAP/c/ck1ERF2o6gyszINEAAAA3I1H29lfzftOo25m87d/D2kHAXM=
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzLENACAIRFFqlaHU/XeSwsIQUXv/S67hABEAAAAA+EuyZBfdzDXY18uvaKda2kx/+BP1pzvfFZe1H8GfAxs=
+   eJztzCEOACAMBMFqCv//LgYLIdSRmWTlXQQAAHArV31TPjbWfyvuKx+nT/40AewbAn4=
   </data>
  </layer>
 </map>

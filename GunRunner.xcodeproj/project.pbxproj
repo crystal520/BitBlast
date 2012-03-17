@@ -332,6 +332,9 @@
 		34FB2A541513FBF100623BB4 /* spreadgun.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A531513FBF100623BB4 /* spreadgun.png */; };
 		34FB2A561513FCB900623BB4 /* ultraLaser.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A551513FCB900623BB4 /* ultraLaser.plist */; };
 		34FB2A581513FCF800623BB4 /* ultralasericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A571513FCF800623BB4 /* ultralasericon.png */; };
+		34FB2A5A1513FF7C00623BB4 /* 4gapjump.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A591513FF7C00623BB4 /* 4gapjump.tmx */; };
+		34FB2A5C1514006100623BB4 /* blank.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A5B1514006100623BB4 /* blank.tmx */; };
+		34FB2A5E151406AA00623BB4 /* startChunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A5D151406AA00623BB4 /* startChunk.tmx */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -886,6 +889,9 @@
 		34FB2A531513FBF100623BB4 /* spreadgun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spreadgun.png; path = Resources/spreadgun.png; sourceTree = "<group>"; };
 		34FB2A551513FCB900623BB4 /* ultraLaser.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ultraLaser.plist; sourceTree = "<group>"; };
 		34FB2A571513FCF800623BB4 /* ultralasericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ultralasericon.png; path = Resources/ultralasericon.png; sourceTree = "<group>"; };
+		34FB2A591513FF7C00623BB4 /* 4gapjump.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 4gapjump.tmx; path = Resources/4gapjump.tmx; sourceTree = "<group>"; };
+		34FB2A5B1514006100623BB4 /* blank.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = blank.tmx; path = Resources/blank.tmx; sourceTree = "<group>"; };
+		34FB2A5D151406AA00623BB4 /* startChunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = startChunk.tmx; path = Resources/startChunk.tmx; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -1117,6 +1123,9 @@
 		0A5C35AD149984A90019C113 /* Jungle */ = {
 			isa = PBXGroup;
 			children = (
+				34FB2A5D151406AA00623BB4 /* startChunk.tmx */,
+				34FB2A5B1514006100623BB4 /* blank.tmx */,
+				34FB2A591513FF7C00623BB4 /* 4gapjump.tmx */,
 				342435051510590800FAC64A /* newChunk3.tmx */,
 				34FB2A1E1513C6E900623BB4 /* aNewChunkIdea.tmx */,
 				34FB2A201513C90700623BB4 /* aNewChunkIdea1.tmx */,
@@ -2074,6 +2083,9 @@
 				34FB2A541513FBF100623BB4 /* spreadgun.png in Resources */,
 				34FB2A561513FCB900623BB4 /* ultraLaser.plist in Resources */,
 				34FB2A581513FCF800623BB4 /* ultralasericon.png in Resources */,
+				34FB2A5A1513FF7C00623BB4 /* 4gapjump.tmx in Resources */,
+				34FB2A5C1514006100623BB4 /* blank.tmx in Resources */,
+				34FB2A5E151406AA00623BB4 /* startChunk.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
