@@ -335,6 +335,8 @@
 		34FB2A5A1513FF7C00623BB4 /* 4gapjump.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A591513FF7C00623BB4 /* 4gapjump.tmx */; };
 		34FB2A5C1514006100623BB4 /* blank.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A5B1514006100623BB4 /* blank.tmx */; };
 		34FB2A5E151406AA00623BB4 /* startChunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A5D151406AA00623BB4 /* startChunk.tmx */; };
+		34FB2A6115141D0200623BB4 /* dropShip1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A5F15141D0200623BB4 /* dropShip1.plist */; };
+		34FB2A6215141D0200623BB4 /* dropShip2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A6015141D0200623BB4 /* dropShip2.plist */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -892,6 +894,8 @@
 		34FB2A591513FF7C00623BB4 /* 4gapjump.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = 4gapjump.tmx; path = Resources/4gapjump.tmx; sourceTree = "<group>"; };
 		34FB2A5B1514006100623BB4 /* blank.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = blank.tmx; path = Resources/blank.tmx; sourceTree = "<group>"; };
 		34FB2A5D151406AA00623BB4 /* startChunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = startChunk.tmx; path = Resources/startChunk.tmx; sourceTree = "<group>"; };
+		34FB2A5F15141D0200623BB4 /* dropShip1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropShip1.plist; sourceTree = "<group>"; };
+		34FB2A6015141D0200623BB4 /* dropShip2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropShip2.plist; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -945,6 +949,8 @@
 			isa = PBXGroup;
 			children = (
 				0A8D310C1501D70E002F9B7B /* testDropship.plist */,
+				34FB2A5F15141D0200623BB4 /* dropShip1.plist */,
+				34FB2A6015141D0200623BB4 /* dropShip2.plist */,
 				0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */,
 				0A77285F14ECB93B000CB457 /* testEnemy2.plist */,
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
@@ -2086,6 +2092,8 @@
 				34FB2A5A1513FF7C00623BB4 /* 4gapjump.tmx in Resources */,
 				34FB2A5C1514006100623BB4 /* blank.tmx in Resources */,
 				34FB2A5E151406AA00623BB4 /* startChunk.tmx in Resources */,
+				34FB2A6115141D0200623BB4 /* dropShip1.plist in Resources */,
+				34FB2A6215141D0200623BB4 /* dropShip2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

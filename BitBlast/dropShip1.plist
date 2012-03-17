@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>health</key>
-	<integer>150</integer>
+	<integer>100</integer>
 	<key>animations</key>
 	<array>
 		<dict>
@@ -24,7 +24,7 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>infected_dropship.png</string>
+				<string>dropship_1.png</string>
 			</array>
 			<key>name</key>
 			<string>walk</string>
