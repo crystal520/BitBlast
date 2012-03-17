@@ -22,12 +22,6 @@
 		0A204EB214DF331600171F71 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EB114DF331500171F71 /* flame.png */; };
 		0A2658A81503CFBB00DEA989 /* BBMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2658A71503CFBB00DEA989 /* BBMovingObject.m */; };
 		0A2C61F914F2C68F00D3F94B /* testEnemy3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */; };
-		0A42D13A14C49C5200DD55CA /* SWMultiColumnTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D12F14C49C5200DD55CA /* SWMultiColumnTableView.m */; };
-		0A42D13B14C49C5200DD55CA /* SWScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13114C49C5200DD55CA /* SWScrollView.m */; };
-		0A42D13C14C49C5200DD55CA /* SWSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13314C49C5200DD55CA /* SWSorting.m */; };
-		0A42D13D14C49C5200DD55CA /* SWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13514C49C5200DD55CA /* SWTableView.m */; };
-		0A42D13E14C49C5200DD55CA /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13714C49C5200DD55CA /* SWTableViewCell.m */; };
-		0A42D13F14C49C5200DD55CA /* SWTableViewSpriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D13914C49C5200DD55CA /* SWTableViewSpriteCell.m */; };
 		0A42D14314C4C7CF00DD55CA /* BBConfirmBuy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.m */; };
 		0A42D14A14C4CA1900DD55CA /* shopBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D14414C4CA1900DD55CA /* shopBackground.png */; };
 		0A42D14B14C4CA1900DD55CA /* leaderboardEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D14514C4CA1900DD55CA /* leaderboardEntryBackground.png */; };
@@ -50,7 +44,6 @@
 		0A6E3BFD1513CEC8007D64B8 /* BBWeaponManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E3BFC1513CEC8007D64B8 /* BBWeaponManager.m */; };
 		0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A77285F14ECB93B000CB457 /* testEnemy2.plist */; };
 		0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B414BFC15F00066390 /* BBMainMenu.m */; };
-		0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */; };
 		0A7D52BB14C074DF00066390 /* smallButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52B914C074DF00066390 /* smallButton.png */; };
 		0A7D52BC14C074DF00066390 /* bigButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BA14C074DF00066390 /* bigButton.png */; };
 		0A7D52BF14C20D8800066390 /* smallButtonDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52BD14C20D8800066390 /* smallButtonDown.png */; };
@@ -374,18 +367,6 @@
 		0A2658A61503CFBB00DEA989 /* BBMovingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMovingObject.h; sourceTree = "<group>"; };
 		0A2658A71503CFBB00DEA989 /* BBMovingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMovingObject.m; sourceTree = "<group>"; };
 		0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy3.plist; sourceTree = "<group>"; };
-		0A42D12E14C49C5200DD55CA /* SWMultiColumnTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWMultiColumnTableView.h; path = libs/cocos2d/SWMultiColumnTableView.h; sourceTree = "<group>"; };
-		0A42D12F14C49C5200DD55CA /* SWMultiColumnTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWMultiColumnTableView.m; path = libs/cocos2d/SWMultiColumnTableView.m; sourceTree = "<group>"; };
-		0A42D13014C49C5200DD55CA /* SWScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWScrollView.h; path = libs/cocos2d/SWScrollView.h; sourceTree = "<group>"; };
-		0A42D13114C49C5200DD55CA /* SWScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWScrollView.m; path = libs/cocos2d/SWScrollView.m; sourceTree = "<group>"; };
-		0A42D13214C49C5200DD55CA /* SWSorting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWSorting.h; path = libs/cocos2d/SWSorting.h; sourceTree = "<group>"; };
-		0A42D13314C49C5200DD55CA /* SWSorting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWSorting.m; path = libs/cocos2d/SWSorting.m; sourceTree = "<group>"; };
-		0A42D13414C49C5200DD55CA /* SWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWTableView.h; path = libs/cocos2d/SWTableView.h; sourceTree = "<group>"; };
-		0A42D13514C49C5200DD55CA /* SWTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWTableView.m; path = libs/cocos2d/SWTableView.m; sourceTree = "<group>"; };
-		0A42D13614C49C5200DD55CA /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWTableViewCell.h; path = libs/cocos2d/SWTableViewCell.h; sourceTree = "<group>"; };
-		0A42D13714C49C5200DD55CA /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWTableViewCell.m; path = libs/cocos2d/SWTableViewCell.m; sourceTree = "<group>"; };
-		0A42D13814C49C5200DD55CA /* SWTableViewSpriteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWTableViewSpriteCell.h; path = libs/cocos2d/SWTableViewSpriteCell.h; sourceTree = "<group>"; };
-		0A42D13914C49C5200DD55CA /* SWTableViewSpriteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWTableViewSpriteCell.m; path = libs/cocos2d/SWTableViewSpriteCell.m; sourceTree = "<group>"; };
 		0A42D14114C4C7CC00DD55CA /* BBConfirmBuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConfirmBuy.h; sourceTree = "<group>"; };
 		0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBConfirmBuy.m; sourceTree = "<group>"; };
 		0A42D14414C4CA1900DD55CA /* shopBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopBackground.png; path = Resources/shopBackground.png; sourceTree = "<group>"; };
@@ -420,8 +401,6 @@
 		0A77285F14ECB93B000CB457 /* testEnemy2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy2.plist; sourceTree = "<group>"; };
 		0A7D52B314BFC15F00066390 /* BBMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainMenu.h; sourceTree = "<group>"; };
 		0A7D52B414BFC15F00066390 /* BBMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BBMainMenu.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenuItemLabelAndImage.h; sourceTree = "<group>"; };
-		0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenuItemLabelAndImage.m; sourceTree = "<group>"; };
 		0A7D52B914C074DF00066390 /* smallButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallButton.png; path = Resources/smallButton.png; sourceTree = "<group>"; };
 		0A7D52BA14C074DF00066390 /* bigButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigButton.png; path = Resources/bigButton.png; sourceTree = "<group>"; };
 		0A7D52BD14C20D8800066390 /* smallButtonDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallButtonDown.png; path = Resources/smallButtonDown.png; sourceTree = "<group>"; };
@@ -965,8 +944,6 @@
 			children = (
 				0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */,
 				0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */,
-				0A7D52B614C0731200066390 /* CCMenuItemLabelAndImage.h */,
-				0A7D52B714C0731200066390 /* CCMenuItemLabelAndImage.m */,
 				0A7D52C114C22C3700066390 /* CCNodeColorBackground.h */,
 				0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */,
 				0ABBDD0014CC62B0001D36B7 /* CCButton.h */,
@@ -1430,18 +1407,6 @@
 		0AE4175C1496F5C500342D8E /* cocos2d */ = {
 			isa = PBXGroup;
 			children = (
-				0A42D12E14C49C5200DD55CA /* SWMultiColumnTableView.h */,
-				0A42D12F14C49C5200DD55CA /* SWMultiColumnTableView.m */,
-				0A42D13014C49C5200DD55CA /* SWScrollView.h */,
-				0A42D13114C49C5200DD55CA /* SWScrollView.m */,
-				0A42D13214C49C5200DD55CA /* SWSorting.h */,
-				0A42D13314C49C5200DD55CA /* SWSorting.m */,
-				0A42D13414C49C5200DD55CA /* SWTableView.h */,
-				0A42D13514C49C5200DD55CA /* SWTableView.m */,
-				0A42D13614C49C5200DD55CA /* SWTableViewCell.h */,
-				0A42D13714C49C5200DD55CA /* SWTableViewCell.m */,
-				0A42D13814C49C5200DD55CA /* SWTableViewSpriteCell.h */,
-				0A42D13914C49C5200DD55CA /* SWTableViewSpriteCell.m */,
 				0AE4175D1496F5C500342D8E /* CCAction.h */,
 				0AE4175E1496F5C500342D8E /* CCAction.m */,
 				0AE417601496F5C500342D8E /* CCActionCamera.h */,
@@ -2257,16 +2222,9 @@
 				0AB8BC4414B6A3AF0045491C /* BulletManager.m in Sources */,
 				0AB8BC4914B8C90C0045491C /* BBWeapon.m in Sources */,
 				0A7D52B514BFC15F00066390 /* BBMainMenu.m in Sources */,
-				0A7D52B814C0731200066390 /* CCMenuItemLabelAndImage.m in Sources */,
 				0A7D52C314C22C3800066390 /* CCNodeColorBackground.m in Sources */,
 				0A7D52CA14C2317700066390 /* BBShop.m in Sources */,
 				0A7D52D014C4844600066390 /* BBShopItem.m in Sources */,
-				0A42D13A14C49C5200DD55CA /* SWMultiColumnTableView.m in Sources */,
-				0A42D13B14C49C5200DD55CA /* SWScrollView.m in Sources */,
-				0A42D13C14C49C5200DD55CA /* SWSorting.m in Sources */,
-				0A42D13D14C49C5200DD55CA /* SWTableView.m in Sources */,
-				0A42D13E14C49C5200DD55CA /* SWTableViewCell.m in Sources */,
-				0A42D13F14C49C5200DD55CA /* SWTableViewSpriteCell.m in Sources */,
 				0A42D14314C4C7CF00DD55CA /* BBConfirmBuy.m in Sources */,
 				0A42D15214C51E7700DD55CA /* BBLeaderboards.m in Sources */,
 				0A42D15514C5214200DD55CA /* BBLeaderboardEntry.m in Sources */,

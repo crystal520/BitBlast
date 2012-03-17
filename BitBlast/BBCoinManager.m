@@ -129,7 +129,7 @@
 		// make string into a point
 		CGPoint p = CGPointFromString(s);
 		// reset coin with new position
-		[c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width, level))];
+		[c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
 	}
 }
 

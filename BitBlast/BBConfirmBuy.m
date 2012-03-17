@@ -43,21 +43,18 @@
 		noThanksLabel.scale = 0.4;
 		
 		// create no thanks button
-		CCMenuItemLabelAndImage *noThanks = [CCMenuItemLabelAndImage itemFromLabel:noThanksLabel normalImage:@"shopConfirmButton.png" selectedImage:@"shopConfirmButtonDown.png" target:self selector:@selector(cancel)];
+		CCLabelButton *noThanks = [[CCLabelButton alloc] initWithLabel:noThanksLabel normalSprite:[CCSprite spriteWithFile:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] target:self selector:@selector(cancel)];
 		noThanks.position = ccp(background.contentSize.width * 0.25, background.contentSize.height * 0.15);
+		[self addChild:noThanks];
 		
 		// create buy it label
 		CCLabelBMFont *buyItLabel = [CCLabelBMFont labelWithString:@"BUY IT" fntFile:@"gamefont.fnt"];
 		buyItLabel.scale = 0.4;
 		
 		// create buy it button
-		buyIt = [[CCMenuItemLabelAndImage alloc] initFromLabel:buyItLabel normalImage:@"shopConfirmButton.png" selectedImage:@"shopConfirmButtonDown.png" disabledImage:@"shopConfirmButtonDown.png" target:self selector:@selector(buy)];
+		buyIt = [[CCLabelButton alloc] initWithLabel:buyItLabel normalSprite:[CCSprite spriteWithFile:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] target:self selector:@selector(buy)];
 		buyIt.position = ccp(background.contentSize.width * 0.75, background.contentSize.height * 0.15);
-		
-		// create menu with buttons
-		CCMenu *menu = [CCMenu menuWithItems:noThanks, buyIt, nil];
-		menu.position = ccp(0, 0);
-		[background addChild:menu];
+		[self addChild:buyIt];
 	}
 	
 	return self;

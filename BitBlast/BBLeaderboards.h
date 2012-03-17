@@ -10,8 +10,9 @@
 #import "cocos2d.h"
 #import "CCNodeColorBackground.h"
 #import "BBLeaderboardEntry.h"
+#import "CCLabelButton.h"
 
-@interface BBLeaderboards : CCNodeColorBackground <SWTableViewDataSource> {
+@interface BBLeaderboards : CCNodeColorBackground {
     NSArray *scores;
 }
 

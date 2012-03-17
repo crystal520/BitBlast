@@ -12,10 +12,11 @@
 #import "SettingsManager.h"
 #import "BBEquipmentManager.h"
 #import "BBWeaponManager.h"
+#import "CCLabelButton.h"
 
 @interface BBConfirmBuy : CCNodeColorBackground {
     CCLabelBMFont *buyLabel, *cost;
-	CCMenuItemLabelAndImage *buyIt;
+	CCLabelButton *buyIt;
 	NSMutableDictionary *itemDictionary;
 }
 

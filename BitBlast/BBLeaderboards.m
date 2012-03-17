@@ -23,13 +23,9 @@
 		CCLabelBMFont *backText = [CCLabelBMFont labelWithString:@"X" fntFile:@"gamefont.fnt"];
 		
 		// create back button
-		CCMenuItemLabelAndImage *back = [CCMenuItemLabelAndImage itemFromLabel:backText normalImage:@"backButton.png" selectedImage:@"backButtonDown.png" target:self selector:@selector(back)];
+		CCLabelButton *back = [CCLabelButton buttonWithLabel:backText normalSprite:[CCSprite spriteWithFile:@"backButton.png"] selectedSprite:[CCSprite spriteWithFile:@"backButtonDown.png"] target:self selector:@selector(back)];
 		back.label.scale = 0.5;
 		back.position = ccp((-winSize.width + back.contentSize.width) * 0.48, (winSize.height - back.contentSize.height) * 0.48);
-		
-		// create main menu with options
-		CCMenu *menu = [CCMenu menuWithItems:back, nil];
-		[self addChild:menu];
 		
 		// create background
 		CCSprite *background = [CCSprite spriteWithFile:@"leaderboardBackground.png"];
@@ -37,7 +33,7 @@
 		[self addChild:background];
 		
 		// create advanced scrolling menu with items
-		SWTableView *table = [[SWTableView viewWithDataSource:self size:CGSizeMake(414, 241)] retain];
+		/*SWTableView *table = [[SWTableView viewWithDataSource:self size:CGSizeMake(414, 241)] retain];
 		table.verticalFillOrder = SWTableViewFillTopDown;
 		table.direction = SWScrollViewDirectionVertical;
 		table.bounces = NO;
@@ -45,7 +41,7 @@
 		table.anchorPoint = ccp(0.5, 0.5);
 		[self addChild:table];
 		[table reloadData];
-		table.contentOffset = [table minContainerOffset];
+		table.contentOffset = [table minContainerOffset];*/
 	}
 	
 	return self;
@@ -58,20 +54,6 @@
 
 - (void) back {
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
-}
-
-#pragma mark -
-#pragma mark SWTableViewDataSource
--(CGSize)cellSizeForTable:(SWTableView *)table {
-	return CGSizeMake(414, 41);
-}
-
--(SWTableViewCell *)table:(SWTableView *)table cellAtIndex:(NSUInteger)idx {
-	return [[BBLeaderboardEntry alloc] initWithDictionary:[scores objectAtIndex:idx] index:(idx+1)];
-}
-
--(NSUInteger)numberOfCellsInTableView:(SWTableView *)table {
-	return [scores count];
 }
 
 @end
