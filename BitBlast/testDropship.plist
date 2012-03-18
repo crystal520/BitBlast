@@ -44,6 +44,7 @@
 		<string>testEnemy</string>
 		<string>testEnemy2</string>
 		<string>enemyBird</string>
+		<string>enemySoldier</string>
 	</array>
 	<key>boundingBox</key>
 	<dict>

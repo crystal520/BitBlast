@@ -7,10 +7,11 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>flyer1.png</string>
-				<string>flyer2.png</string>
-				<string>flyer3.png</string>
-				<string>flyer4.png</string>
+				<string>enemy_soldier4.png</string>
+				<string>enemy_soldier7.png</string>
+				<string>enemy_soldier6.png</string>
+				<string>enemy_soldier18.png</string>
+				<string>enemy_soldier17.png</string>
 			</array>
 			<key>name</key>
 			<string>walk</string>
@@ -40,7 +41,7 @@
 	<key>type</key>
 	<string>walking</string>
 	<key>tileCenterOffset</key>
-	<integer>75</integer>
+	<integer>10</integer>
 	<key>health</key>
 	<real>0.1</real>
 	<key>gravity</key>
