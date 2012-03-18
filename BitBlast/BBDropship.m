@@ -39,7 +39,7 @@
 	health = [[dictionary objectForKey:@"health"] intValue];
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
 	[self addChild:spriteBatch];
-	[self playAnimation:@"walk"];
+	[self repeatAnimation:@"walk"];
 	// TODO: turn this scale off once we get a different image for these
 	sprite.scaleX = -1;
 	boundingBox.origin.x *= -1;
