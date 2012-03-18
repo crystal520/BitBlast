@@ -87,10 +87,12 @@
 }
 
 - (void) shop {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavShopNotification object:nil]];
 }
 
 - (void) restartGame {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kGameRestartNotification object:nil]];
 }
 

@@ -113,6 +113,8 @@
 	<real>0.35</real>
 	<key>sprite</key>
 	<string>yellowbullet.png</string>
+	<key>sound</key>
+	<string>pistol.wav</string>
 	<key>damage</key>
 	<real>5.83</real>
 	<key>boundingBox</key>

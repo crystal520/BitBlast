@@ -81,6 +81,7 @@
 }
 
 - (void) buy {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	// if player already owns item, just equip it
 	if([[SettingsManager sharedSingleton] getBool:[itemDictionary objectForKey:@"identifier"]]) {
 		// equip based on type

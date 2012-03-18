@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "CCNodeColorBackground.h"
 #import "CCLabelButton.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBMainMenu : CCNodeColorBackground {
     

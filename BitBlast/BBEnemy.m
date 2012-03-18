@@ -110,6 +110,7 @@
 }
 
 - (void) die {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"explosion.wav"];
 	alive = NO;
 	velocity = ccp(0, 0);
 	gravity = ccp(0, 0);

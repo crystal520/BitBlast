@@ -30,6 +30,7 @@
 		NSDictionary *bbDict = [dict objectForKey:@"boundingBox"];
 		boundingBox = CGRectMake([[bbDict objectForKey:@"x"] floatValue], [[bbDict objectForKey:@"y"] floatValue], [[bbDict objectForKey:@"width"] floatValue], [[bbDict objectForKey:@"height"] floatValue]);
 		damage = [[dict objectForKey:@"damage"] floatValue];
+		sound = [[dict objectForKey:@"sound"] retain];
 		
 		// add angles to fire bullets at
 		angles = [NSMutableArray new];
@@ -56,6 +57,7 @@
 	[sprite release];
 	[angles release];
 	[behaviors release];
+	[sound release];
 	[super dealloc];
 }
 
@@ -133,6 +135,10 @@
 			bullet.rotation = -fireAngle;
 			// set damage of bullet to shot's damage
 			bullet.damage = damage;
+			// play sound if there is any
+			if(sound) {
+				[[SimpleAudioEngine sharedEngine] playEffect:sound];
+			}
 		}
 	}
 }

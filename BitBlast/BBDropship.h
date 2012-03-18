@@ -11,6 +11,7 @@
 #import "BBMovingObject.h"
 #import "EnemyManager.h"
 #import "BBBullet.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBDropship : BBMovingObject {
     // number of bullets it takes for the dropship to die

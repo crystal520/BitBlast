@@ -13,6 +13,7 @@
 #import "SettingsManager.h"
 #import "BBEquipmentManager.h"
 #import "BBWeaponManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBShopItem : CCNode {
 	CCButton *background;

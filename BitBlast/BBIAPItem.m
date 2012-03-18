@@ -82,6 +82,7 @@
 }
 
 - (void) buy {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[IAPManager sharedSingleton] startTransaction:productID];
 }
 

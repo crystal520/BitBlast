@@ -11,6 +11,7 @@
 #import "CCLabelButton.h"
 #import "CCButton.h"
 #import "IAPManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBIAPItem : CCNode {
     CCButton *background;
