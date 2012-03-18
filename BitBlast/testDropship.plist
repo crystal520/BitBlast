@@ -25,6 +25,7 @@
 			<key>frames</key>
 			<array>
 				<string>infected_dropship.png</string>
+				<string>infected_dropship2.png</string>
 			</array>
 			<key>name</key>
 			<string>walk</string>

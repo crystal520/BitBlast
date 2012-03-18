@@ -5,7 +5,7 @@
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSigPfAHYjcodkeiPYDYEwl7A7EPFjwYACnuYgViZiyYDUmNIgH7YPKsaPpw2QNTo4gmh08vuh5i3IXN3JHoX2yAHP+i60O3mxDApReXXYTcRYq5o2DoAwCNTwjA
+   eJztwzENAAAIA7AJxL8eDOzj4WiTJgAAwNWU8N0CC4wBfQ==
   </data>
  </layer>
  <layer name="Decal" width="60" height="15">
@@ -20,7 +20,7 @@
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzksKACAIRdEWV9GHaP+7yYFBBNnUwT3wINAXhgAAAOBDM2ZD51WSJPGxNyVZU3T/7OVP9+7sdzfu+v0LAF4tNDgH7w==
+   eJztzjEKACAMBME8TiUiwf//JldoKWhjtQPbXXFmAAAAAF5M1ZSrrsZhF6qu7a78OAhcSlqEAxo=
   </data>
  </layer>
  <layer name="CollisionBottom" width="60" height="15">
@@ -30,7 +30,7 @@
  </layer>
  <layer name="Foreground" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzqENAAAMw7BeuP/P2QNDQwW2FJ4EAKDLHDVo/QL4WqBBAw0=
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
   </data>
  </layer>
 </map>
