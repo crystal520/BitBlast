@@ -37,12 +37,7 @@
 		0A42D15B14C7B2E000DD55CA /* BBEquipment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15A14C7B2E000DD55CA /* BBEquipment.m */; };
 		0A42D15E14C7B60500DD55CA /* BBDoubleJump.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15D14C7B60500DD55CA /* BBDoubleJump.m */; };
 		0A42D16414C7BFE900DD55CA /* BBEquipmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D16314C7BFE900DD55CA /* BBEquipmentManager.m */; };
-		0A46C0201516656A003483BD /* select.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01B1516656A003483BD /* select.wav */; };
 		0A46C0211516656A003483BD /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01C1516656A003483BD /* jump.wav */; };
-		0A46C0221516656A003483BD /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01D1516656A003483BD /* explosion.wav */; };
-		0A46C0231516656A003483BD /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01E1516656A003483BD /* coin.wav */; };
-		0A46C0241516656A003483BD /* pistol.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01F1516656A003483BD /* pistol.wav */; };
-		0A46C02715166FDB003483BD /* machinegun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02515166FDA003483BD /* machinegun.wav */; };
 		0A46C02815166FDB003483BD /* burstshot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02615166FDA003483BD /* burstshot.wav */; };
 		0A46C02C15167855003483BD /* game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02915167855003483BD /* game.mp3 */; };
 		0A46C02D15167855003483BD /* gameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02A15167855003483BD /* gameOver.mp3 */; };
@@ -329,6 +324,15 @@
 		34FB2A6215141D0200623BB4 /* dropShip2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A6015141D0200623BB4 /* dropShip2.plist */; };
 		34FB2A64151420CA00623BB4 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A63151420CA00623BB4 /* Icon-72@2x.png */; };
 		34FB2A721515813600623BB4 /* enemyBird.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A711515813600623BB4 /* enemyBird.plist */; };
+		34FB2A9D1516832A00623BB4 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A941516832900623BB4 /* coin.wav */; };
+		34FB2A9E1516832A00623BB4 /* dropshipexplosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A951516832A00623BB4 /* dropshipexplosion.wav */; };
+		34FB2A9F1516832A00623BB4 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A961516832A00623BB4 /* explosion.wav */; };
+		34FB2AA01516832A00623BB4 /* gattlingun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A971516832A00623BB4 /* gattlingun.wav */; };
+		34FB2AA11516832A00623BB4 /* machinegun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A981516832A00623BB4 /* machinegun.wav */; };
+		34FB2AA21516832A00623BB4 /* pistol.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A991516832A00623BB4 /* pistol.wav */; };
+		34FB2AA31516832A00623BB4 /* select.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A9A1516832A00623BB4 /* select.wav */; };
+		34FB2AA41516832A00623BB4 /* sonicwave.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A9B1516832A00623BB4 /* sonicwave.wav */; };
+		34FB2AA51516832A00623BB4 /* wavemotioncannon.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A9C1516832A00623BB4 /* wavemotioncannon.wav */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -389,12 +393,7 @@
 		0A42D15D14C7B60500DD55CA /* BBDoubleJump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDoubleJump.m; sourceTree = "<group>"; };
 		0A42D16214C7BFE800DD55CA /* BBEquipmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEquipmentManager.h; sourceTree = "<group>"; };
 		0A42D16314C7BFE900DD55CA /* BBEquipmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEquipmentManager.m; sourceTree = "<group>"; };
-		0A46C01B1516656A003483BD /* select.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = select.wav; sourceTree = "<group>"; };
 		0A46C01C1516656A003483BD /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
-		0A46C01D1516656A003483BD /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
-		0A46C01E1516656A003483BD /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
-		0A46C01F1516656A003483BD /* pistol.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pistol.wav; sourceTree = "<group>"; };
-		0A46C02515166FDA003483BD /* machinegun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = machinegun.wav; sourceTree = "<group>"; };
 		0A46C02615166FDA003483BD /* burstshot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burstshot.wav; sourceTree = "<group>"; };
 		0A46C02915167855003483BD /* game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game.mp3; sourceTree = "<group>"; };
 		0A46C02A15167855003483BD /* gameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOver.mp3; sourceTree = "<group>"; };
@@ -875,6 +874,15 @@
 		34FB2A6015141D0200623BB4 /* dropShip2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropShip2.plist; sourceTree = "<group>"; };
 		34FB2A63151420CA00623BB4 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/Icon-72@2x.png"; sourceTree = "<group>"; };
 		34FB2A711515813600623BB4 /* enemyBird.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemyBird.plist; sourceTree = "<group>"; };
+		34FB2A941516832900623BB4 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = coin.wav; path = Resources/SFX/coin.wav; sourceTree = "<group>"; };
+		34FB2A951516832A00623BB4 /* dropshipexplosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dropshipexplosion.wav; path = Resources/SFX/dropshipexplosion.wav; sourceTree = "<group>"; };
+		34FB2A961516832A00623BB4 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = Resources/SFX/explosion.wav; sourceTree = "<group>"; };
+		34FB2A971516832A00623BB4 /* gattlingun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gattlingun.wav; path = Resources/SFX/gattlingun.wav; sourceTree = "<group>"; };
+		34FB2A981516832A00623BB4 /* machinegun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = machinegun.wav; path = Resources/SFX/machinegun.wav; sourceTree = "<group>"; };
+		34FB2A991516832A00623BB4 /* pistol.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = pistol.wav; path = Resources/SFX/pistol.wav; sourceTree = "<group>"; };
+		34FB2A9A1516832A00623BB4 /* select.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = select.wav; path = Resources/SFX/select.wav; sourceTree = "<group>"; };
+		34FB2A9B1516832A00623BB4 /* sonicwave.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = sonicwave.wav; path = Resources/SFX/sonicwave.wav; sourceTree = "<group>"; };
+		34FB2A9C1516832A00623BB4 /* wavemotioncannon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = wavemotioncannon.wav; path = Resources/SFX/wavemotioncannon.wav; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -1084,13 +1092,17 @@
 		0A46C01915166551003483BD /* SFX */ = {
 			isa = PBXGroup;
 			children = (
-				0A46C02515166FDA003483BD /* machinegun.wav */,
+				34FB2A941516832900623BB4 /* coin.wav */,
+				34FB2A951516832A00623BB4 /* dropshipexplosion.wav */,
+				34FB2A961516832A00623BB4 /* explosion.wav */,
+				34FB2A971516832A00623BB4 /* gattlingun.wav */,
+				34FB2A981516832A00623BB4 /* machinegun.wav */,
+				34FB2A991516832A00623BB4 /* pistol.wav */,
+				34FB2A9A1516832A00623BB4 /* select.wav */,
+				34FB2A9B1516832A00623BB4 /* sonicwave.wav */,
+				34FB2A9C1516832A00623BB4 /* wavemotioncannon.wav */,
 				0A46C02615166FDA003483BD /* burstshot.wav */,
-				0A46C01B1516656A003483BD /* select.wav */,
 				0A46C01C1516656A003483BD /* jump.wav */,
-				0A46C01D1516656A003483BD /* explosion.wav */,
-				0A46C01E1516656A003483BD /* coin.wav */,
-				0A46C01F1516656A003483BD /* pistol.wav */,
 			);
 			name = SFX;
 			sourceTree = "<group>";
@@ -2063,16 +2075,20 @@
 				34FB2A64151420CA00623BB4 /* Icon-72@2x.png in Resources */,
 				0A42831015164DD300E35219 /* iap.plist in Resources */,
 				34FB2A721515813600623BB4 /* enemyBird.plist in Resources */,
-				0A46C0201516656A003483BD /* select.wav in Resources */,
 				0A46C0211516656A003483BD /* jump.wav in Resources */,
-				0A46C0221516656A003483BD /* explosion.wav in Resources */,
-				0A46C0231516656A003483BD /* coin.wav in Resources */,
-				0A46C0241516656A003483BD /* pistol.wav in Resources */,
-				0A46C02715166FDB003483BD /* machinegun.wav in Resources */,
 				0A46C02815166FDB003483BD /* burstshot.wav in Resources */,
 				0A46C02C15167855003483BD /* game.mp3 in Resources */,
 				0A46C02D15167855003483BD /* gameOver.mp3 in Resources */,
 				0A46C02E15167855003483BD /* menu.mp3 in Resources */,
+				34FB2A9D1516832A00623BB4 /* coin.wav in Resources */,
+				34FB2A9E1516832A00623BB4 /* dropshipexplosion.wav in Resources */,
+				34FB2A9F1516832A00623BB4 /* explosion.wav in Resources */,
+				34FB2AA01516832A00623BB4 /* gattlingun.wav in Resources */,
+				34FB2AA11516832A00623BB4 /* machinegun.wav in Resources */,
+				34FB2AA21516832A00623BB4 /* pistol.wav in Resources */,
+				34FB2AA31516832A00623BB4 /* select.wav in Resources */,
+				34FB2AA41516832A00623BB4 /* sonicwave.wav in Resources */,
+				34FB2AA51516832A00623BB4 /* wavemotioncannon.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
