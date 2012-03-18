@@ -43,6 +43,7 @@
 	<array>
 		<string>testEnemy</string>
 		<string>testEnemy2</string>
+		<string>enemyBird</string>
 	</array>
 	<key>boundingBox</key>
 	<dict>

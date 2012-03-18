@@ -314,6 +314,7 @@
 		34FB2A6115141D0200623BB4 /* dropShip1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A5F15141D0200623BB4 /* dropShip1.plist */; };
 		34FB2A6215141D0200623BB4 /* dropShip2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A6015141D0200623BB4 /* dropShip2.plist */; };
 		34FB2A64151420CA00623BB4 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A63151420CA00623BB4 /* Icon-72@2x.png */; };
+		34FB2A721515813600623BB4 /* enemyBird.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A711515813600623BB4 /* enemyBird.plist */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -843,6 +844,7 @@
 		34FB2A5F15141D0200623BB4 /* dropShip1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropShip1.plist; sourceTree = "<group>"; };
 		34FB2A6015141D0200623BB4 /* dropShip2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropShip2.plist; sourceTree = "<group>"; };
 		34FB2A63151420CA00623BB4 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/Icon-72@2x.png"; sourceTree = "<group>"; };
+		34FB2A711515813600623BB4 /* enemyBird.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemyBird.plist; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -901,6 +903,7 @@
 				34FB2A6015141D0200623BB4 /* dropShip2.plist */,
 				0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */,
 				0A77285F14ECB93B000CB457 /* testEnemy2.plist */,
+				34FB2A711515813600623BB4 /* enemyBird.plist */,
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
 			);
 			name = Enemies;
@@ -1995,6 +1998,7 @@
 				34FB2A6115141D0200623BB4 /* dropShip1.plist in Resources */,
 				34FB2A6215141D0200623BB4 /* dropShip2.plist in Resources */,
 				34FB2A64151420CA00623BB4 /* Icon-72@2x.png in Resources */,
+				34FB2A721515813600623BB4 /* enemyBird.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
