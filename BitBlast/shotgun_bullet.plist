@@ -127,6 +127,8 @@
 		<integer>20</integer>
 	</dict>
 	<key>damage</key>
-	<real>12.5</real>
+	<real>1.2</real>
+	<key>sound</key>
+	<string>shotgun.wav</string>
 </dict>
 </plist>

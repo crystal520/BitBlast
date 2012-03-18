@@ -109,7 +109,7 @@
 	
 	// if the dropship died, turn off all movement and play death animation
 	if(health <= 0) {
-		[[SimpleAudioEngine sharedEngine] playEffect:@"explosion.wav"];
+		[[SimpleAudioEngine sharedEngine] playEffect:@"dropshipexplosion.wav"];
 		// increment dropships killed
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
