@@ -130,6 +130,7 @@
 	
 	self.window.rootViewController = viewController;
 	[self.window makeKeyAndVisible];
+    
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 // Set this to true to enable localytics traces (useful for debugging)
-#define DO_LOCALYTICS_LOGGING false
+#define DO_LOCALYTICS_LOGGING true
 
 /*!
  @class LocalyticsSession 
