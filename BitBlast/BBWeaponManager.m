@@ -61,7 +61,8 @@
 	if(![[SettingsManager sharedSingleton] getBool:newWeapon]) {
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalWeapons"];
 	}
-	
+	// save the item to device
+	[[SettingsManager sharedSingleton] setBool:YES keyString:newWeapon];
 	// keep track of most recently equipped weapon
 	[[SettingsManager sharedSingleton] setString:newWeapon keyString:@"equippedWeapon"];
 }

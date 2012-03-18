@@ -172,6 +172,12 @@ static SettingsManager* _sharedSettingsManager = nil;
 		settings = [[NSMutableDictionary alloc] initWithCapacity:5];
 	}
 	
+#ifdef RESET_SAVED_DATA
+	[self purgeSettings];
+	[self saveToFile:@"player.plist"];
+	[self loadFromFile:@"player.plist"];
+#endif
+	
 	return self;
 }
 

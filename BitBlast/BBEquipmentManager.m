@@ -42,6 +42,8 @@
 	else if([newEquipment isEqualToString:@"glider"]) {
 		[equipment addObject:[[BBGlider new] autorelease]];
 	}
+	// save the item to device
+	[[SettingsManager sharedSingleton] setBool:YES keyString:newEquipment];
 }
 
 - (void) unequip:(NSString*)oldEquipment {

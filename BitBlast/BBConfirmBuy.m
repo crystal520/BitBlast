@@ -112,9 +112,6 @@
 	
 	// check for item specific achievements
 	[[GameCenter sharedSingleton] checkItemAchievements];
-	
-	// save the item to device
-	[[SettingsManager sharedSingleton] setBool:YES keyString:identifier];
 	// navigate back to shop
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavBuyItemNotification object:nil userInfo:itemDictionary]];
 }

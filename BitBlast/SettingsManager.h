@@ -27,6 +27,8 @@
 
 #import <Foundation/Foundation.h>
 
+//#define RESET_SAVED_DATA
+
 @interface SettingsManager : NSObject {
 	NSMutableDictionary* settings;
 }
