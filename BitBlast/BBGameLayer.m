@@ -95,6 +95,7 @@
 		// leaderboards
 		leaderboards = [[BBLeaderboards alloc] init];
 		[self addChild:mainMenu z:DEPTH_MENU];
+		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
 		
 #ifdef DEBUG_TEXTURES
 		debugButton = [CCSprite spriteWithFile:@"white.png"];
@@ -162,6 +163,7 @@
 	[player reset];
 	[self updateCamera];
 	[self scheduleUpdate];
+	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
 }
 
 - (void) resetSessionStats {
@@ -346,6 +348,7 @@
 	[self unscheduleUpdate];
 	[gameOver updateFinalScore];
 	[self addChild:gameOver z:DEPTH_MENU];
+	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
 }
 
 - (void) startGame {
@@ -380,6 +383,7 @@
 	
 	state = kStateMainMenu;
 	[self addChild:mainMenu z:DEPTH_MENU];
+	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
 }
 
 - (void) gotoLeaderboards {

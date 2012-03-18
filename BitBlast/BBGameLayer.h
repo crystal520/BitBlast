@@ -25,6 +25,7 @@
 #import "iCadeReaderView.h"
 #import "BBCoinManager.h"
 #import "GameCenter.h"
+#import "SimpleAudioEngine.h"
 
 typedef enum {
 	kStateMainMenu,
