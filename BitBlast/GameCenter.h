@@ -26,5 +26,7 @@
 - (void) resetAchievements;
 - (void) checkStatAchievements;
 - (void) checkItemAchievements;
+- (void) submitLeaderboards;
+- (void) submitLeaderboard:(NSString*)name withValue:(int64_t)value;
 
 @end

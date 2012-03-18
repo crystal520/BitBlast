@@ -336,6 +336,8 @@
 - (void) gameOver {
 	// update achievements
 	[[GameCenter sharedSingleton] checkStatAchievements];
+	// submit leaderboards
+	[[GameCenter sharedSingleton] submitLeaderboards];
 	// stop listening for touches
 	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
 	// remove hud

@@ -163,12 +163,33 @@
 	[self setAchievementProgress:@"20" percent:[[SettingsManager sharedSingleton] getBool:@"flamethrower"] * 100];
 }
 
+- (void) submitLeaderboards {
+	[self submitLeaderboard:@"distanceTraveled" withValue:[[SettingsManager sharedSingleton] getInt:@"currentMeters"]];
+}
+	 
+- (void) submitLeaderboard:(NSString*)name withValue:(int64_t)value {
+	NSLog(@"Submitting leaderboard: %@ --- value: %lld", name, value);
+	GKScore *leaderboard = [[GKScore alloc] initWithCategory:name];
+	if(leaderboard) {
+		leaderboard.value = value;
+		[leaderboard reportScoreWithCompletionHandler:^(NSError *error) {
+			if(error) {
+				NSLog(@"Error submitting leaderboard: %@ --- error: %@", name, [error localizedDescription]);
+			}
+			else {
+				NSLog(@"Success submitting leaderboard: %@ --- value: %lld", name, value);
+			}
+		}];
+		[leaderboard release];
+	}
+}
+
 - (void) authenticationChanged {
 	if([GKLocalPlayer localPlayer].isAuthenticated) {
-		
+		NSLog(@"Player is now authenticated with Game Center");
 	}
 	else {
-		
+		NSLog(@"Player lost connection to Game Center");
 	}
 }
 
