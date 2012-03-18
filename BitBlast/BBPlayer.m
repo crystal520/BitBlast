@@ -225,6 +225,7 @@
 	NSArray *activeCoins = [[BBCoinManager sharedSingleton] getActiveCoins];
 	for(BBCoin *c in activeCoins) {
 		if(c.enabled && c.alive && [c getCollidesWith:self]) {
+			[[SimpleAudioEngine sharedEngine] playEffect:@"coin.wav"];
 			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentCoins"];
 			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalCoins"];
 			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"allTimeCoins"];
@@ -279,6 +280,7 @@
 	
 	// only jump if we're not jumping already
 	if(touchingPlatform) {
+		[[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
 		touchingPlatform = NO;
 		jumping = YES;
 		jumpTimer = 0;

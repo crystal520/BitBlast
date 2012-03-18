@@ -97,6 +97,7 @@
 }
 
 - (void) back {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
 }
 

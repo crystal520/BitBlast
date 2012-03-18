@@ -14,6 +14,7 @@
 #import "BBList.h"
 #import "IAPManager.h"
 #import "BBIAPItem.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBShop : CCNodeColorBackground {
 	// size of each cell in the table of items

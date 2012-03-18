@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "BBBehavior.h"
 #import "BulletManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBShot : NSObject {
 	// graphic that bullets use
@@ -42,6 +43,8 @@
 	BOOL blend;
 	// bounding box that the bullet will have
 	CGRect boundingBox;
+	// sound to play when bullet is fired
+	NSString *sound;
 }
 
 // initializers

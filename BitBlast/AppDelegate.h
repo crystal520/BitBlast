@@ -11,6 +11,7 @@
 #import "LocalyticsSession.h"
 #import "GameCenter.h"
 #import "IAPManager.h"
+#import "SimpleAudioEngine.h"
 
 @class RootViewController;
 

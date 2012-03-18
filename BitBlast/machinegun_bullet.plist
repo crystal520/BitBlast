@@ -113,6 +113,8 @@
 	<real>0.15</real>
 	<key>sprite</key>
 	<string>yellowbullet.png</string>
+	<key>sound</key>
+	<string>machinegun.wav</string>
 	<key>boundingBox</key>
 	<dict>
 		<key>x</key>

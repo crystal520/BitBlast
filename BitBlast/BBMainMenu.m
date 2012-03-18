@@ -66,18 +66,22 @@
 }
 
 - (void) play {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavGameNotification object:nil]];
 }
 
 - (void) shop {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavShopNotification object:nil]];
 }
 
 - (void) leaderboards {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavLeaderboardsNotification object:nil]];
 }
 
 - (void) gamecenter {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavGamecenterNotification object:nil]];
 }
 

@@ -42,6 +42,8 @@
 - (void) applicationDidFinishLaunching:(UIApplication*)application
 
 {
+	// make sure audio engine is set up
+	[SimpleAudioEngine sharedEngine];
     // attempt to connect to game center if available
 	[GameCenter sharedSingleton];
 	// attempt to get IAP

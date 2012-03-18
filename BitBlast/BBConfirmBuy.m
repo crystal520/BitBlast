@@ -88,10 +88,12 @@
 }
 
 - (void) cancel {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavCancelBuyItemNotification object:nil]];
 }
 
 - (void) buy {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	// subtract funds from total funds
 	[[SettingsManager sharedSingleton] incrementInteger:-[[itemDictionary objectForKey:@"cost"] intValue] keyString:@"totalCoins"];
 	// equip based on type

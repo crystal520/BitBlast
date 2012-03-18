@@ -15,6 +15,7 @@
 #import "SettingsManager.h"
 #import "BBWeaponManager.h"
 #import "EnemyManager.h"
+#import "SimpleAudioEngine.h"
 
 typedef enum {
 	kPlayerUnknown,

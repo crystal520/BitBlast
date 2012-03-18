@@ -11,6 +11,7 @@
 #import "CCNodeColorBackground.h"
 #import "CCLabelButton.h"
 #import "SettingsManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBGameOver : CCNodeColorBackground {
 	CCLabelBMFont *distanceLabel, *killLabel, *multiplierLabel, *scoreLabel;
