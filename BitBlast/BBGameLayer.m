@@ -148,6 +148,8 @@
 }
 
 - (void) reset {
+	// reset session stats
+	[self resetSessionStats];
 	// listen for touches
 	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 	self.isTouchEnabled = YES;
@@ -156,11 +158,17 @@
 	state = kStateGame;
 	scrollingNode.position = ccp(0, [ResolutionManager sharedSingleton].size.height * 0.5);
 	[parallax reset];
-	[[ScoreManager sharedSingleton] reset];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
 	[player reset];
 	[self updateCamera];
 	[self scheduleUpdate];
+}
+
+- (void) resetSessionStats {
+	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentEnemies"];
+	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentCoins"];
+	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentMeters"];
+	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentDropships"];
 }
 
 - (void) createBackground {
@@ -300,6 +308,9 @@
 #pragma mark -
 #pragma mark delegate
 - (void) buttonDown:(iCadeState)button {
+	// check for icade achievement
+	[[GameCenter sharedSingleton] setAchievementProgress:@"14" percent:100];
+	
 	if(button == iCadeJoystickDown || button == iCadeJoystickDownLeft || button == iCadeJoystickDownRight) {
 		[player setWeaponAngle:-1];
 	}
@@ -323,6 +334,8 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
+	// update achievements
+	[[GameCenter sharedSingleton] checkStatAchievements];
 	// stop listening for touches
 	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
 	// remove hud

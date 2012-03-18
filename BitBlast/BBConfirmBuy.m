@@ -19,41 +19,47 @@
 		
 		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		
+		// create spritebatch with UI image
+		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
+		[self addChild:uiSpriteBatch];
+		
 		// create background
-		CCSprite *background = [CCSprite spriteWithFile:@"shopConfirmBackground.png"];
+		CCSprite *background = [CCSprite spriteWithSpriteFrameName:@"shopConfirmBackground.png"];
 		background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
-		[self addChild:background];
+		[uiSpriteBatch addChild:background];
 		
 		// create buy label
 		buyLabel = [[CCLabelBMFont alloc] initWithString:@"BUY" fntFile:@"gamefont.fnt"];
 		buyLabel.anchorPoint = ccp(0, 0.5);
-		buyLabel.scale = 0.5;
-		buyLabel.position = ccp(background.contentSize.width * 0.15, background.contentSize.height * 0.65);
-		[background addChild:buyLabel];
+		buyLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.65);
+		buyLabel.scale = 0.85;
+		[self addChild:buyLabel];
 		
 		// create for label
 		cost = [[CCLabelBMFont alloc] initWithString:@"FOR" fntFile:@"gamefont.fnt"];
 		cost.anchorPoint = ccp(0, 0.5);
-		cost.scale = 0.5;
-		cost.position = ccp(background.contentSize.width * 0.15, background.contentSize.height * 0.5);
-		[background addChild:cost];
+		cost.position = ccp(winSize.width * 0.2, winSize.height * 0.5);
+		cost.scale = 0.85;
+		[self addChild:cost];
 		
 		// create no thanks label
-		CCLabelBMFont *noThanksLabel = [CCLabelBMFont labelWithString:@"NO\nTHANKS" fntFile:@"gamefont.fnt"];
-		noThanksLabel.scale = 0.4;
+		CCLabelBMFont *noThanksLabel = [CCLabelBMFont labelWithString:@"NO THANKS" fntFile:@"gamefont.fnt"];
+		noThanksLabel.scale = 0.65;
 		
 		// create no thanks button
-		CCLabelButton *noThanks = [[CCLabelButton alloc] initWithLabel:noThanksLabel normalSprite:[CCSprite spriteWithFile:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] target:self selector:@selector(cancel)];
-		noThanks.position = ccp(background.contentSize.width * 0.25, background.contentSize.height * 0.15);
+		CCLabelButton *noThanks = [[CCLabelButton alloc] initWithLabel:noThanksLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(cancel)];
+		noThanks.position = ccp(winSize.width * 0.35, winSize.height * 0.325);
+		[noThanks setSpriteBatchNode:uiSpriteBatch];
 		[self addChild:noThanks];
 		
 		// create buy it label
 		CCLabelBMFont *buyItLabel = [CCLabelBMFont labelWithString:@"BUY IT" fntFile:@"gamefont.fnt"];
-		buyItLabel.scale = 0.4;
+		buyItLabel.scale = 0.95;
 		
 		// create buy it button
-		buyIt = [[CCLabelButton alloc] initWithLabel:buyItLabel normalSprite:[CCSprite spriteWithFile:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithFile:@"shopConfirmButtonDown.png"] target:self selector:@selector(buy)];
-		buyIt.position = ccp(background.contentSize.width * 0.75, background.contentSize.height * 0.15);
+		buyIt = [[CCLabelButton alloc] initWithLabel:buyItLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(buy)];
+		buyIt.position = ccp(winSize.width * 0.65, winSize.height * 0.325);
+		[buyIt setSpriteBatchNode:uiSpriteBatch];
 		[self addChild:buyIt];
 	}
 	
@@ -69,8 +75,8 @@
 
 - (void) updateWithInfo:(NSDictionary*)dict {
 	[itemDictionary setDictionary:dict];
-	[buyLabel setString:[NSString stringWithFormat:@"BUY  %@", [dict objectForKey:@"name"]]];
-	[cost setString:[NSString stringWithFormat:@"FOR  %@", [dict objectForKey:@"cost"]]];
+	[buyLabel setString:[NSString stringWithFormat:@"BUY:  %@", [dict objectForKey:@"name"]]];
+	[cost setString:[NSString stringWithFormat:@"FOR:  %@", [dict objectForKey:@"cost"]]];
 	
 	// only show buy button if player is able to buy item
 	if([[SettingsManager sharedSingleton] getInt:@"totalCoins"] < [[itemDictionary objectForKey:@"cost"] intValue]) {
@@ -88,21 +94,28 @@
 - (void) buy {
 	// subtract funds from total funds
 	[[SettingsManager sharedSingleton] incrementInteger:-[[itemDictionary objectForKey:@"cost"] intValue] keyString:@"totalCoins"];
-	// save the item to device
-	[[SettingsManager sharedSingleton] setBool:YES keyString:[itemDictionary objectForKey:@"identifier"]];
 	// equip based on type
 	NSString *type = [itemDictionary objectForKey:@"type"];
+	NSString *identifier = [itemDictionary objectForKey:@"identifier"];
+	
 	if([type isEqualToString:@"weapon"]) {
 		// for now, just have one weapon equipped
 		[[BBWeaponManager sharedSingleton] unequipAll];
-		[[BBWeaponManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+		[[BBWeaponManager sharedSingleton] equip:identifier];
 	}
 	else if([type isEqualToString:@"equipment"]) {
-		[[BBEquipmentManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+		[[BBEquipmentManager sharedSingleton] equip:identifier];
 	}
 	else {
 		NSLog(@"ERROR: invalid type specified in item plist");
 	}
+	
+	// check for item specific achievements
+	[[GameCenter sharedSingleton] checkItemAchievements];
+	
+	// save the item to device
+	[[SettingsManager sharedSingleton] setBool:YES keyString:identifier];
+	// navigate back to shop
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavBuyItemNotification object:nil userInfo:itemDictionary]];
 }
 

@@ -51,7 +51,7 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	[score setString:[[ScoreManager sharedSingleton] getScoreString]];
+	[score setString:[NSString stringWithFormat:@"%im", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
 }
 
 #pragma mark -

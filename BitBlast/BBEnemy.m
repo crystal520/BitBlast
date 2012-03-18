@@ -102,6 +102,9 @@
 	
 	// if the enemy died, turn off all movement and play a death animation
 	if(health <= 0) {
+		// increment enemies killed
+		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalEnemies"];
+		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentEnemies"];
 		[self die];
 	}
 }

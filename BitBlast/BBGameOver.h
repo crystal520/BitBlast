@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "ScoreManager.h"
 #import "CCNodeColorBackground.h"
 #import "CCLabelButton.h"
 #import "SettingsManager.h"

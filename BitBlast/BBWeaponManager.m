@@ -57,6 +57,11 @@
 	[weapons addObject:w];
 	[w release];
 	
+	// if this weapon is newly purchased, increment number of weapons owned
+	if(![[SettingsManager sharedSingleton] getBool:newWeapon]) {
+		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalWeapons"];
+	}
+	
 	// keep track of most recently equipped weapon
 	[[SettingsManager sharedSingleton] setString:newWeapon keyString:@"equippedWeapon"];
 }

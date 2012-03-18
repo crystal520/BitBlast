@@ -89,7 +89,8 @@
 		// update globals
 		[self updateGlobals];
 		// update score
-		[ScoreManager sharedSingleton].distance = floor(dummyPosition.x / 64);
+		[[SettingsManager sharedSingleton] setInteger:floor(dummyPosition.x / [[ChunkManager sharedSingleton] getCurrentChunk].tileSize.width) keyString:@"currentMeters"];
+		[[SettingsManager sharedSingleton] setInteger:previousTotalDistance + [[SettingsManager sharedSingleton] getInt:@"currentMeters"] keyString:@"totalMeters"];
 		// update torso position
 		[self updateTorso];
 		// update weapons
@@ -234,7 +235,13 @@
 	NSArray *activeEnemies = [[EnemyManager sharedSingleton] getActiveEnemies];
 	for(BBEnemy *e in activeEnemies) {
 		if([e getCollidesWith:self]) {
+			// flash player red so they know why they lost health
+			CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
+			[self.sprite runAction:action];
+			[torso runAction:action];
+			// update health
 			[self setHealth:health-1];
+			// kill the enemy
 			[e die];
 			if(health <= 0) {
 				[self die:@"enemy"];
@@ -254,11 +261,10 @@
 	velocity = minVelocity;
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
+	// reset health to starting value from plist
 	[self setHealth:[[dictionary objectForKey:@"health"] intValue]];
-	
-	// reset stats specific to each run
-	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentCoins"];
-	
+	// keep track of previous total distance
+	previousTotalDistance = [[SettingsManager sharedSingleton] getInt:@"totalMeters"];
 	// add to current chunk
 	[self.parent removeChild:self cleanup:NO];
 	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];

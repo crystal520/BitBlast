@@ -109,6 +109,9 @@
 	
 	// if the dropship died, turn off all movement and play death animation
 	if(health <= 0) {
+		// increment dropships killed
+		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
+		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
 		alive = NO;
 		velocity = ccp(0, 0);
 		gravity = ccp(0, 0);

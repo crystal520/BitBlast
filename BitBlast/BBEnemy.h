@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "BBMovingObject.h"
 #import "BBBullet.h"
+#import "SettingsManager.h"
 
 @interface BBEnemy : BBMovingObject {
 	// type of enemy

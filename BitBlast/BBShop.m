@@ -84,7 +84,12 @@
 - (void) setEnabled:(BOOL)isEnabled {
 	[back setEnabled:isEnabled];
 	enabled = isEnabled;
-	//shopScroller.isTouchEnabled = isEnabled;
+	if(isEnabled && !shopScroller.isTouchEnabled) {
+		[shopScroller onEnter];
+	}
+	else if(!isEnabled && shopScroller.isTouchEnabled) {
+		[shopScroller onExit];
+	}
 }
 
 - (void) onEnter {

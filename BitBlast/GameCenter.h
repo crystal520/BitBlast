@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import <GameKit/GameKit.h>
 
+#define RESET_ACHIEVEMENTS
+
 @interface GameCenter : NSObject {
     
 }
@@ -21,5 +23,8 @@
 + (BOOL) getIsGameCenterAvailable;
 // actions
 - (void) authenticateGameCenter;
+- (void) resetAchievements;
+- (void) checkStatAchievements;
+- (void) checkItemAchievements;
 
 @end

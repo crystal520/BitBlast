@@ -13,6 +13,7 @@
 #import "BBEquipmentManager.h"
 #import "BBWeaponManager.h"
 #import "CCLabelButton.h"
+#import "GameCenter.h"
 
 @interface BBConfirmBuy : CCNodeColorBackground {
     CCLabelBMFont *buyLabel, *cost;

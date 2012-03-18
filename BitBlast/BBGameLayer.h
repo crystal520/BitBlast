@@ -24,6 +24,7 @@
 #import "BBDropshipManager.h"
 #import "iCadeReaderView.h"
 #import "BBCoinManager.h"
+#import "GameCenter.h"
 
 typedef enum {
 	kStateMainMenu,
@@ -69,6 +70,7 @@ typedef enum {
 - (void) loadImages;
 - (void) loadCameraVariables;
 - (void) reset;
+- (void) resetSessionStats;
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
 // update

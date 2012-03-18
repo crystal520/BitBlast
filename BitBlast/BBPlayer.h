@@ -10,7 +10,6 @@
 #import "cocos2d.h"
 #import "BBMovingObject.h"
 #import "ChunkManager.h"
-#import "ScoreManager.h"
 #import "BBWeapon.h"
 #import "BBCoinManager.h"
 #import "SettingsManager.h"
@@ -41,6 +40,8 @@ typedef enum {
 	CCNode *offsetNode;
 	// number of times the player can get hit before dying
 	int health;
+	// total player distance prior to the current run. for calculating total distance
+	int previousTotalDistance;
 }
 
 @property (nonatomic, readonly) int health;
