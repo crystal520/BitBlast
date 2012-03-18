@@ -40,6 +40,10 @@
 		0A46C0211516656A003483BD /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01C1516656A003483BD /* jump.wav */; };
 		0A46C02815166FDB003483BD /* burstshot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02615166FDA003483BD /* burstshot.wav */; };
 		0A46C02E15167855003483BD /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02B15167855003483BD /* menu.mp3 */; };
+		0A46C03215167B7D003483BD /* macinegunBlast.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C03015167B7D003483BD /* macinegunBlast.plist */; };
+		0A46C03315167B7D003483BD /* machinegun blast.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C03115167B7D003483BD /* machinegun blast.png */; };
+		0A46C0361516824E003483BD /* whitecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0341516824E003483BD /* whitecircle.png */; };
+		0A46C0371516824E003483BD /* shotgunblast.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0351516824E003483BD /* shotgunblast.plist */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
@@ -398,6 +402,10 @@
 		0A46C01C1516656A003483BD /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		0A46C02615166FDA003483BD /* burstshot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burstshot.wav; sourceTree = "<group>"; };
 		0A46C02B15167855003483BD /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
+		0A46C03015167B7D003483BD /* macinegunBlast.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = macinegunBlast.plist; path = Resources/Particles/macinegunBlast.plist; sourceTree = "<group>"; };
+		0A46C03115167B7D003483BD /* machinegun blast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "machinegun blast.png"; path = "Resources/Particles/machinegun blast.png"; sourceTree = "<group>"; };
+		0A46C0341516824E003483BD /* whitecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitecircle.png; path = Resources/Particles/whitecircle.png; sourceTree = "<group>"; };
+		0A46C0351516824E003483BD /* shotgunblast.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = shotgunblast.plist; path = Resources/Particles/shotgunblast.plist; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.m; sourceTree = "<group>"; };
@@ -1123,6 +1131,17 @@
 			name = Music;
 			sourceTree = "<group>";
 		};
+		0A46C02F15167B4D003483BD /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				0A46C0341516824E003483BD /* whitecircle.png */,
+				0A46C0351516824E003483BD /* shotgunblast.plist */,
+				0A46C03015167B7D003483BD /* macinegunBlast.plist */,
+				0A46C03115167B7D003483BD /* machinegun blast.png */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
 		0A5BAA7E14EC90050028D13B /* Parallax */ = {
 			isa = PBXGroup;
 			children = (
@@ -1387,6 +1406,7 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A46C02F15167B4D003483BD /* Particles */,
 				0A46C01A1516655C003483BD /* Music */,
 				0A46C01915166551003483BD /* SFX */,
 				0A946350151180B100353C4B /* Coins */,
@@ -2084,6 +2104,10 @@
 				0A46C0211516656A003483BD /* jump.wav in Resources */,
 				0A46C02815166FDB003483BD /* burstshot.wav in Resources */,
 				0A46C02E15167855003483BD /* menu.mp3 in Resources */,
+				0A46C03215167B7D003483BD /* macinegunBlast.plist in Resources */,
+				0A46C03315167B7D003483BD /* machinegun blast.png in Resources */,
+				0A46C0361516824E003483BD /* whitecircle.png in Resources */,
+				0A46C0371516824E003483BD /* shotgunblast.plist in Resources */,
 				34FB2A9D1516832A00623BB4 /* coin.wav in Resources */,
 				34FB2A9E1516832A00623BB4 /* dropshipexplosion.wav in Resources */,
 				34FB2A9F1516832A00623BB4 /* explosion.wav in Resources */,
