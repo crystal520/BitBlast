@@ -44,7 +44,7 @@
 		
 		// create no thanks label
 		CCLabelBMFont *noThanksLabel = [CCLabelBMFont labelWithString:@"CANCEL" fntFile:@"gamefont.fnt"];
-		noThanksLabel.scale = 0.8;
+		noThanksLabel.scale = 0.7;
 		
 		// create no thanks button
 		CCLabelButton *noThanks = [[CCLabelButton alloc] initWithLabel:noThanksLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(cancel)];
