@@ -25,7 +25,12 @@
 		CCSprite *background = [CCSprite spriteWithSpriteFrameName:@"mainmenushell.png"];
 		background.position = ccp(winSize.width * 0.5, background.contentSize.height * 0.5);
 		[uiSpriteBatch addChild:background];
-		
+/*        
+		// Bruce Attempts to Add a Gamelogo.  Not sure why it does not work.
+		CCSprite *gameLogo = [CCSprite spriteWithSpriteFrameName:@"gamelogo.png"];
+		gameLogo.position = ccp(winSize.width * 0.075, winSize.height - gameLogo.contentSize.height * 0.5);
+		[uiSpriteBatch addChild:gameLogo z:0];
+*/		
 		// create play text
 		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"PLAY!" fntFile:@"gamefont.fnt"];
 		

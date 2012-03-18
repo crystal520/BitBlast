@@ -22,12 +22,12 @@
 		[self addChild:uiSpriteBatch];
 		
 		// create game over label
-		CCLabelBMFont *gameOverLabel = [CCLabelBMFont labelWithString:@"GAME OVER!" fntFile:@"gamefont.fnt"];
+		CCLabelBMFont *gameOverLabel = [CCLabelBMFont labelWithString:@"RUN OVER!" fntFile:@"gamefont.fnt"];
 		gameOverLabel.position = ccp(winSize.width * 0.5, winSize.height * 0.9);
 		[self addChild:gameOverLabel];
 		
 		// create distance label
-		distanceLabel = [CCLabelBMFont labelWithString:@"DISTANCE: 1234567890" fntFile:@"gamefont.fnt"];
+		distanceLabel = [CCLabelBMFont labelWithString:@"YOU RAN: 1234567890" fntFile:@"gamefont.fnt"];
 		distanceLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.66);
 		distanceLabel.scale = 0.5;
 		distanceLabel.anchorPoint = ccp(0, 0.5);
@@ -81,9 +81,9 @@
 }
 
 - (void) updateFinalScore {
-	[distanceLabel setString:[NSString stringWithFormat:@"DISTANCE: %i", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
-	[killLabel setString:[NSString stringWithFormat:@"COINS: %i", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
-	[multiplierLabel setString:[NSString stringWithFormat:@"TOTAL COINS: %i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
+	[distanceLabel setString:[NSString stringWithFormat:@"YOU RAN: %i", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
+	[killLabel setString:[NSString stringWithFormat:@"CASH COLLECTED: %i", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
+	[multiplierLabel setString:[NSString stringWithFormat:@"TOTAL COLD HARD CASH: %i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 
 - (void) shop {
