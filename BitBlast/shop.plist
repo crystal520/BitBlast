@@ -7,7 +7,6 @@
 		<string>pistol</string>
 		<string>burstshot</string>
 		<string>machinegun</string>
-		<string>flamethrower</string>
 		<string>shotgun</string>
 		<string>bluewave</string>
 		<string>gattlingun</string>
@@ -15,6 +14,7 @@
 		<string>ripley</string>
 		<string>spreadgun</string>
 		<string>ultraLaser</string>
+		<string>flamethrower</string>
 	</array>
 </dict>
 </plist>

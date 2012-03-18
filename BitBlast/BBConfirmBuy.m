@@ -43,22 +43,22 @@
 		[self addChild:cost];
 		
 		// create no thanks label
-		CCLabelBMFont *noThanksLabel = [CCLabelBMFont labelWithString:@"NO THANKS" fntFile:@"gamefont.fnt"];
-		noThanksLabel.scale = 0.65;
+		CCLabelBMFont *noThanksLabel = [CCLabelBMFont labelWithString:@"CANCEL" fntFile:@"gamefont.fnt"];
+		noThanksLabel.scale = 0.8;
 		
 		// create no thanks button
 		CCLabelButton *noThanks = [[CCLabelButton alloc] initWithLabel:noThanksLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(cancel)];
-		noThanks.position = ccp(winSize.width * 0.35, winSize.height * 0.325);
+		noThanks.position = ccp(winSize.width * 0.35, winSize.height * 0.317);
 		[noThanks setSpriteBatchNode:uiSpriteBatch];
 		[self addChild:noThanks];
 		
 		// create buy it label
 		CCLabelBMFont *buyItLabel = [CCLabelBMFont labelWithString:@"BUY IT" fntFile:@"gamefont.fnt"];
-		buyItLabel.scale = 0.95;
+		buyItLabel.scale = 0.8;
 		
 		// create buy it button
 		buyIt = [[CCLabelButton alloc] initWithLabel:buyItLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(buy)];
-		buyIt.position = ccp(winSize.width * 0.65, winSize.height * 0.325);
+		buyIt.position = ccp(winSize.width * 0.65, winSize.height * 0.317);
 		[buyIt setSpriteBatchNode:uiSpriteBatch];
 		[self addChild:buyIt];
 	}

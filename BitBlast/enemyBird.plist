@@ -40,7 +40,7 @@
 	<key>type</key>
 	<string>walking</string>
 	<key>tileCenterOffset</key>
-	<integer>50</integer>
+	<integer>75</integer>
 	<key>health</key>
 	<real>0.1</real>
 	<key>gravity</key>
