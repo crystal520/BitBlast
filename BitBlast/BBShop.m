@@ -47,6 +47,7 @@
 		shopScroller = [[BBList alloc] init];
 		[shopScroller setItemSize:cellSize];
 		shopScroller.position = ccp(winSize.width - cellSize.width, winSize.height - cellSize.height);
+		[self addChild:shopScroller];
 		
 		// load shop items
 		NSArray *shopList = [NSArray arrayWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"shop" ofType:@"plist"]] objectForKey:@"items"]];
@@ -58,8 +59,6 @@
 			[shopScroller addItem:t];
 			[t release];
 		}
-		[self addChild:shopScroller];
-		[shopScroller release];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmBuy) name:kNavShopConfirmNotification object:nil];
@@ -75,6 +74,26 @@
 	[back release];
 	[items release];
 	[super dealloc];
+}
+
+- (void) setupIAP {
+	// make sure items haven't been added already
+	if(!iapItemsAdded) {
+		// also add IAP items to the list
+		NSArray *iapItems = [[IAPManager sharedSingleton] getProducts];
+		if(iapItems) {
+			for(int i=0,j=[iapItems count];i<j;i++) {
+				// create iap item with dictionary
+				BBIAPItem *item = [[BBIAPItem alloc] initWithProduct:[iapItems objectAtIndex:i]];
+				[shopScroller addItem:item];
+				[item release];
+			}
+			iapItemsAdded = YES;
+		}
+		else {
+			[[IAPManager sharedSingleton] requestIAP];
+		}
+	}
 }
 
 - (void) back {
@@ -94,6 +113,7 @@
 
 - (void) onEnter {
 	[super onEnter];
+	[self setupIAP];
 	[self setEnabled:YES];
 }
 

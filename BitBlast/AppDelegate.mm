@@ -44,6 +44,8 @@
 {
     // attempt to connect to game center if available
 	[GameCenter sharedSingleton];
+	// attempt to get IAP
+	[IAPManager sharedSingleton];
 	// load saved game data
 	[[SettingsManager sharedSingleton] loadFromFile:@"player.plist"];
 	

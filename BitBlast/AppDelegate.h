@@ -10,6 +10,7 @@
 #import "SettingsManager.h"
 #import "LocalyticsSession.h"
 #import "GameCenter.h"
+#import "IAPManager.h"
 
 @class RootViewController;
 

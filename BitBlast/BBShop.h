@@ -12,6 +12,8 @@
 #import "BBShopItem.h"
 #import "CCLabelButton.h"
 #import "BBList.h"
+#import "IAPManager.h"
+#import "BBIAPItem.h"
 
 @interface BBShop : CCNodeColorBackground {
 	// size of each cell in the table of items
@@ -24,8 +26,11 @@
 	BBList *shopScroller;
 	// whether the screen is enabled or disabled
 	BOOL enabled;
+	// whether the IAP items have been added to the shop list
+	BOOL iapItemsAdded;
 }
 
+- (void) setupIAP;
 - (void) setEnabled:(BOOL)isEnabled;
 
 @end
