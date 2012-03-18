@@ -44,6 +44,9 @@
 		0A46C0241516656A003483BD /* pistol.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01F1516656A003483BD /* pistol.wav */; };
 		0A46C02715166FDB003483BD /* machinegun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02515166FDA003483BD /* machinegun.wav */; };
 		0A46C02815166FDB003483BD /* burstshot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02615166FDA003483BD /* burstshot.wav */; };
+		0A46C02C15167855003483BD /* game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02915167855003483BD /* game.mp3 */; };
+		0A46C02D15167855003483BD /* gameOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02A15167855003483BD /* gameOver.mp3 */; };
+		0A46C02E15167855003483BD /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02B15167855003483BD /* menu.mp3 */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
@@ -393,6 +396,9 @@
 		0A46C01F1516656A003483BD /* pistol.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pistol.wav; sourceTree = "<group>"; };
 		0A46C02515166FDA003483BD /* machinegun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = machinegun.wav; sourceTree = "<group>"; };
 		0A46C02615166FDA003483BD /* burstshot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burstshot.wav; sourceTree = "<group>"; };
+		0A46C02915167855003483BD /* game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game.mp3; sourceTree = "<group>"; };
+		0A46C02A15167855003483BD /* gameOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOver.mp3; sourceTree = "<group>"; };
+		0A46C02B15167855003483BD /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.m; sourceTree = "<group>"; };
@@ -1092,6 +1098,9 @@
 		0A46C01A1516655C003483BD /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				0A46C02915167855003483BD /* game.mp3 */,
+				0A46C02A15167855003483BD /* gameOver.mp3 */,
+				0A46C02B15167855003483BD /* menu.mp3 */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -2061,6 +2070,9 @@
 				0A46C0241516656A003483BD /* pistol.wav in Resources */,
 				0A46C02715166FDB003483BD /* machinegun.wav in Resources */,
 				0A46C02815166FDB003483BD /* burstshot.wav in Resources */,
+				0A46C02C15167855003483BD /* game.mp3 in Resources */,
+				0A46C02D15167855003483BD /* gameOver.mp3 in Resources */,
+				0A46C02E15167855003483BD /* menu.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
