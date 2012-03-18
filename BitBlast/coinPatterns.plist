@@ -87,9 +87,9 @@
 			<string>{224,96}</string>
 			<string>{224,64}</string>
 			<string>{256,64}</string>
-			<string>{256,0}</string>
+			<string>{256,32}</string>
 			<string>{288,64}</string>
-			<string>{288,0}</string>
+			<string>{288,32}</string>
 			<string>{320,64}</string>
 			<string>{320,96}</string>
 			<string>{352,96}</string>
@@ -106,27 +106,90 @@
 			<string>{32,32}</string>
 			<string>{64,0}</string>
 			<string>{64,64}</string>
-			<string>{96,0}</string>
+			<string>{96,32}</string>
 			<string>{128,0}</string>
 			<string>{128,64}</string>
-			<string>{160,0}</string>
+			<string>{160,32}</string>
 			<string>{192,0}</string>
 			<string>{192,64}</string>
-			<string>{224,0}</string>
+			<string>{224,32}</string>
 			<string>{256,0}</string>
 			<string>{256,64}</string>
-			<string>{288,0}</string>
+			<string>{288,32}</string>
 			<string>{320,0}</string>
 			<string>{320,64}</string>
-			<string>{352,0}</string>
+			<string>{352,32}</string>
 			<string>{384,0}</string>
 			<string>{384,64}</string>
-			<string>{416,0}</string>
+			<string>{416,32}</string>
 			<string>{448,0}</string>
 			<string>{448,64}</string>
-			<string>{480,0}</string>
+			<string>{480,32}</string>
 			<string>{512,0}</string>
 			<string>{512,64}</string>
+		</array>
+		<array>
+			<string>{256,0}</string>
+			<string>{288,0}</string>
+			<string>{192,32}</string>
+			<string>{224,32}</string>
+			<string>{256,32}</string>
+			<string>{288,32}</string>
+			<string>{320,32}</string>
+			<string>{352,32}</string>
+			<string>{160,64}</string>
+			<string>{192,64}</string>
+			<string>{224,64}</string>
+			<string>{256,64}</string>
+			<string>{288,64}</string>
+			<string>{320,64}</string>
+			<string>{352,64}</string>
+			<string>{384,64}</string>
+			<string>{128,96}</string>
+			<string>{160,96}</string>
+			<string>{192,96}</string>
+			<string>{224,96}</string>
+			<string>{256,96}</string>
+			<string>{288,96}</string>
+			<string>{320,96}</string>
+			<string>{352,96}</string>
+			<string>{384,96}</string>
+			<string>{416,96}</string>
+			<string>{128,128}</string>
+			<string>{160,128}</string>
+			<string>{192,128}</string>
+			<string>{224,128}</string>
+			<string>{256,128}</string>
+			<string>{288,128}</string>
+			<string>{320,128}</string>
+			<string>{352,128}</string>
+			<string>{384,128}</string>
+			<string>{416,128}</string>
+			<string>{128,160}</string>
+			<string>{160,160}</string>
+			<string>{192,160}</string>
+			<string>{224,160}</string>
+			<string>{256,160}</string>
+			<string>{228,160}</string>
+			<string>{320,160}</string>
+			<string>{352,160}</string>
+			<string>{384,160}</string>
+			<string>{416,160}</string>
+			<string>{160,192}</string>
+			<string>{192,192}</string>
+			<string>{224,192}</string>
+			<string>{256,192}</string>
+			<string>{288,192}</string>
+			<string>{320,192}</string>
+			<string>{352,192}</string>
+			<string>{192,224}</string>
+			<string>{224,224}</string>
+			<string>{256,224}</string>
+			<string>{288,224}</string>
+			<string>{320,224}</string>
+			<string>{352,224}</string>
+			<string>{256,256}</string>
+			<string>{288,256}</string>
 		</array>
 	</array>
 </dict>
