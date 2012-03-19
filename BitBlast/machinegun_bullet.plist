@@ -129,6 +129,6 @@
 	<key>damage</key>
 	<real>2.5</real>
 	<key>particles</key>
-	<string>macinegunBlast.plist</string>
+	<string>machinegunBlast.plist</string>
 </dict>
 </plist>
