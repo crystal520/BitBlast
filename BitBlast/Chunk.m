@@ -53,6 +53,7 @@
 }
 
 - (void) dealloc {
+	[levelTypes release];
 	[levels release];
 	[super dealloc];
 }
@@ -62,6 +63,7 @@
 - (void) generateLevels {
 	// make set
 	levels = [NSMutableSet new];
+	levelTypes = [NSMutableSet new];
 	// get layer
 	CCTMXLayer *layer = [self layerNamed:@"CollisionTop"];
 	// get size of layer
@@ -72,8 +74,17 @@
 			CCSprite *tile = [layer tileAt:ccp(x,y)];
 			// restrict levels to 3 levels. all extra tiles are fluff
 			if(tile && (y == 12 || y == 10 || y == 14)) {
+				// keep track of this tile's type
+				ChunkLevel type = CHUNK_LEVEL_BOTTOM;
+				if(y == 12) {
+					type = CHUNK_LEVEL_MIDDLE;
+				}
+				else if(y == 14) {
+					type = CHUNK_LEVEL_TOP;
+				}
 				// keep track of this tile's y position
 				[levels addObject:[NSNumber numberWithInt:(tile.position.y + tile.contentSize.height * 0.5) * [ResolutionManager sharedSingleton].inversePositionScale]];
+				[levelTypes addObject:[NSNumber numberWithInt:type]];
 			}
 		}
 	}
@@ -111,40 +122,22 @@
 	return ccp(0,0);
 }
 
-- (float) getRandomLevel {
+- (int) getRandomLevel {
 	// generate a random number from the array
 	int ran = CCRANDOM_MIN_MAX(0, [levels count]);
 	// make sure this is a valid number
 	if(ran >= 0 && ran < [levels count]) {
-		return [[[levels allObjects] objectAtIndex:ran] floatValue];
+		return ran;
 	}
 	return 0;
 }
 
-- (ChunkLevel) getLevelType:(int)level {
-	// set base min and max levels
-	int minLevel = 1000000;
-	int maxLevel = -1000000;
-	// get array from level set
-	NSArray *levelSet = [levels allObjects];
-	for(NSNumber *n in levelSet) {
-		if([n intValue] < minLevel) {
-			minLevel = [n intValue];
-		}
-		if([n intValue] > maxLevel) {
-			maxLevel = [n intValue];
-		}
-	}
-	// now determine what the given level is based on max and min
-	if(level == minLevel) {
-		return CHUNK_LEVEL_BOTTOM;
-	}
-	else if(level == maxLevel) {
-		return CHUNK_LEVEL_TOP;
-	}
-	else {
-		return CHUNK_LEVEL_MIDDLE;
-	}
+- (ChunkLevel) getLevelType:(int)index {
+	return (ChunkLevel)([[[levelTypes allObjects] objectAtIndex:index] intValue]);
+}
+
+- (int) getLevel:(int)index {
+	return [[[levels allObjects] objectAtIndex:index] intValue];
 }
 
 @end

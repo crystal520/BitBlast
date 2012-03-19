@@ -23,6 +23,8 @@ typedef enum {
 	CGSize dummySize;
 	// set of levels within chunk
 	NSMutableSet *levels;
+	// types of levels within chunk
+	NSMutableSet *levelTypes;
 }
 
 @property (nonatomic, assign) CGPoint dummyPosition;
@@ -35,7 +37,8 @@ typedef enum {
 - (void) generateLevels;
 // getters
 - (CGPoint) getGroundPositionWithLayer:(NSString*)layerName;
-- (float) getRandomLevel;
-- (ChunkLevel) getLevelType:(int)level;
+- (int) getRandomLevel;
+- (ChunkLevel) getLevelType:(int)index;
+- (int) getLevel:(int)index;
 
 @end

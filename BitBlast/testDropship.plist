@@ -67,7 +67,7 @@
 	<key>offsetMiddle</key>
 	<dict>
 		<key>x</key>
-		<integer>500</integer>
+		<integer>-500</integer>
 		<key>y</key>
 		<integer>100</integer>
 	</dict>

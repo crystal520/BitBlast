@@ -121,7 +121,7 @@
 		int ranLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getRandomLevel];
 		// dropship needs to know which level this is for position offset
 		ChunkLevel typeLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevelType:ranLevel];
-		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, ranLevel) type:@"testDropship" level:typeLevel];
+		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:@"testDropship" level:typeLevel];
 		spawningDropship = NO;
 	}
 }

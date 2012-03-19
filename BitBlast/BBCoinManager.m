@@ -119,7 +119,7 @@
 - (void) spawnCoinGroup {
 	// get random level from current chunk
 	Chunk *currentChunk = [[ChunkManager sharedSingleton] getCurrentChunk];
-	int level = [currentChunk getRandomLevel] + 50;
+	int level = [currentChunk getLevel:[currentChunk getRandomLevel]] + 50;
 	// get a random coin group
 	NSArray *coinGroup = [self getRandomCoinGroup];
 	// loop through and position coins
