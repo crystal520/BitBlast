@@ -111,6 +111,8 @@
 	<integer>400</integer>
 	<key>rateOfFire</key>
 	<real>0.35</real>
+	<key>particles</key>
+	<string>macinegunBlast.plist</string>
 	<key>sprite</key>
 	<string>yellowbullet.png</string>
 	<key>damage</key>

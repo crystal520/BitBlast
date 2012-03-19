@@ -128,5 +128,7 @@
 		<key>height</key>
 		<integer>8</integer>
 	</dict>
+	<key>particles</key>
+	<string>macinegunBlast.plist</string>
 </dict>
 </plist>
