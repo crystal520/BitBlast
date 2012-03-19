@@ -32,6 +32,14 @@
 		damage = [[dict objectForKey:@"damage"] floatValue];
 		sound = [[dict objectForKey:@"sound"] retain];
 		
+		// check for particle system
+		if(particles) {
+			[particles release];
+		}
+		if([dict objectForKey:@"particles"]) {
+			particles = [[CCParticleSystemQuad particleWithFile:[dict objectForKey:@"particles"]] retain];
+		}
+		
 		// add angles to fire bullets at
 		angles = [NSMutableArray new];
 		NSArray *dictAngles = [NSArray arrayWithArray:[dict objectForKey:@"angles"]];
@@ -54,6 +62,9 @@
 }
 
 - (void) dealloc {
+	if(particles) {
+		[particles release];
+	}
 	[sprite release];
 	[angles release];
 	[behaviors release];
@@ -77,6 +88,13 @@
 
 - (void) setPosition:(CGPoint)newPosition {
 	position = newPosition;
+	// play particles if there are any
+	if(particles) {
+		particles.position = ccpMult(position, [ResolutionManager sharedSingleton].positionScale);
+	}
+	if(particles && !particles.parent) {
+		[[BulletManager sharedSingleton].node addChild:particles];
+	}
 }
 
 #pragma mark -
@@ -135,11 +153,15 @@
 			bullet.rotation = -fireAngle;
 			// set damage of bullet to shot's damage
 			bullet.damage = damage;
-			// play sound if there is any
-			if(sound) {
-				[[SimpleAudioEngine sharedEngine] playEffect:sound];
-			}
 		}
+	}
+	// play sound if there is any
+	if(sound) {
+		[[SimpleAudioEngine sharedEngine] playEffect:sound];
+	}
+	// reset particles if there are any
+	if(particles) {
+		[particles resetSystem];
 	}
 }
 

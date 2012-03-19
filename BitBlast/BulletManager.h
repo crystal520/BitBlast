@@ -18,6 +18,8 @@
 	NSMutableArray *activeBullets;
 }
 
+@property (nonatomic, assign) CCNode *node;
+
 + (BulletManager*) sharedSingleton;
 
 // update

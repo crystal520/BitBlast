@@ -11,6 +11,8 @@
 
 @implementation BulletManager
 
+@synthesize node;
+
 + (BulletManager*) sharedSingleton {
 	
 	static BulletManager *sharedSingleton;

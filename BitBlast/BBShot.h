@@ -45,6 +45,8 @@
 	CGRect boundingBox;
 	// sound to play when bullet is fired
 	NSString *sound;
+	// particle system
+	CCParticleSystemQuad *particles;
 }
 
 // initializers
