@@ -339,8 +339,8 @@
 		34FB2AAB1516875600623BB4 /* shotgun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2AAA1516875600623BB4 /* shotgun.wav */; };
 		34FB2AAD1516884100623BB4 /* enemySoldier.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2AAC1516884100623BB4 /* enemySoldier.plist */; };
 		34FB2ABA1516C14B00623BB4 /* machinegunparticle.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2AB91516C14B00623BB4 /* machinegunparticle.png */; };
-		34FB2ABC1516C53C00623BB4 /* gattlingun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2ABB1516C53C00623BB4 /* gattlingun.plist */; };
 		34FB2ABE1516C98B00623BB4 /* machinegunBlast.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2ABD1516C98A00623BB4 /* machinegunBlast.plist */; };
+		34FB2AC01516CF2500623BB4 /* gattlingunparticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2ABF1516CF2500623BB4 /* gattlingunparticle.plist */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3B6F267614D67A0300DEDB75 /* laserbeam.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B6F267314D67A0300DEDB75 /* laserbeam.png */; };
@@ -897,8 +897,8 @@
 		34FB2AAA1516875600623BB4 /* shotgun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = shotgun.wav; path = Resources/SFX/shotgun.wav; sourceTree = "<group>"; };
 		34FB2AAC1516884100623BB4 /* enemySoldier.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemySoldier.plist; sourceTree = "<group>"; };
 		34FB2AB91516C14B00623BB4 /* machinegunparticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = machinegunparticle.png; path = Resources/Particles/machinegunparticle.png; sourceTree = "<group>"; };
-		34FB2ABB1516C53C00623BB4 /* gattlingun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = gattlingun.plist; path = Resources/Particles/gattlingun.plist; sourceTree = "<group>"; };
 		34FB2ABD1516C98A00623BB4 /* machinegunBlast.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = machinegunBlast.plist; path = Resources/Particles/machinegunBlast.plist; sourceTree = "<group>"; };
+		34FB2ABF1516CF2500623BB4 /* gattlingunparticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = gattlingunparticle.plist; path = Resources/Particles/gattlingunparticle.plist; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3B6F267314D67A0300DEDB75 /* laserbeam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserbeam.png; path = Resources/laserbeam.png; sourceTree = "<group>"; };
@@ -961,6 +961,7 @@
 				34FB2A711515813600623BB4 /* enemyBird.plist */,
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
 				34FB2AAC1516884100623BB4 /* enemySoldier.plist */,
+				34FB2ABF1516CF2500623BB4 /* gattlingunparticle.plist */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -1143,7 +1144,6 @@
 				0A46C0351516824E003483BD /* shotgunblast.plist */,
 				34FB2ABD1516C98A00623BB4 /* machinegunBlast.plist */,
 				34FB2AB91516C14B00623BB4 /* machinegunparticle.png */,
-				34FB2ABB1516C53C00623BB4 /* gattlingun.plist */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -2127,8 +2127,8 @@
 				34FB2AAD1516884100623BB4 /* enemySoldier.plist in Resources */,
 				0A0402461516A6DA008D179E /* particleTexture.png in Resources */,
 				34FB2ABA1516C14B00623BB4 /* machinegunparticle.png in Resources */,
-				34FB2ABC1516C53C00623BB4 /* gattlingun.plist in Resources */,
 				34FB2ABE1516C98B00623BB4 /* machinegunBlast.plist in Resources */,
+				34FB2AC01516CF2500623BB4 /* gattlingunparticle.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
