@@ -43,6 +43,7 @@
 	// TODO: turn this scale off once we get a different image for these
 	sprite.scaleX = -1;
 	boundingBox.origin.x *= -1;
+	rotation_ = 0;
 	// use nearest so it will scale better
 	ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
 	[sprite.texture setTexParameters:&params];
@@ -56,13 +57,18 @@
 		// get velocity from player
 		if(alive) {
 			velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
+			// spawn enemies
+			spawnTimer += delta;
+			while(spawnTimer >= spawnRate) {
+				[self spawnEnemy];
+				spawnTimer -= spawnRate;
+			}
 		}
 		[super update:delta];
-		// spawn enemies
-		spawnTimer += delta;
-		while(spawnTimer >= spawnRate) {
-			[self spawnEnemy];
-			spawnTimer -= spawnRate;
+		
+		// if dropship is dead and touches the ground, actually kill it
+		if(!alive && touchingPlatform) {
+			[self setEnabled:NO];
 		}
 	}
 }
@@ -115,9 +121,9 @@
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
 		alive = NO;
 		velocity = ccp(0, 0);
-		gravity = ccp(0, 0);
-		self.scale = 3;
-		[self playAnimation:@"death" target:self selector:@selector(deathAnimationOver)];
+		gravity = ccp(0, 5);
+		// turn towards the ground and crash!
+		[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
 	}
 }
 
