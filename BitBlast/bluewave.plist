@@ -15,21 +15,21 @@
 	<key>torsoDownOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>-100</integer>
+		<integer>40</integer>
 		<key>y</key>
 		<integer>0</integer>
 	</dict>
 	<key>torsoOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>-100</integer>
+		<integer>40</integer>
 		<key>y</key>
 		<integer>-48</integer>
 	</dict>
 	<key>torsoUpOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>-100</integer>
+		<integer>40</integer>
 		<key>y</key>
 		<integer>-100</integer>
 	</dict>
@@ -38,7 +38,7 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>0</string>
+		<string>46200</string>
 		<key>description</key>
 		<string>Sonic wave of DEATH</string>
 		<key>icon</key>

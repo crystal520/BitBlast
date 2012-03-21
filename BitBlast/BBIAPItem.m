@@ -34,14 +34,14 @@
 		CCLabelBMFont *name = [CCLabelBMFont labelWithString:product.localizedTitle fntFile:@"gamefont.fnt"];
 		name.scale = 0.8;
 		name.anchorPoint = ccp(0, 0.5);
-		name.position = ccp(background.contentSize.width * 0.2, background.contentSize.height * 0.8);
+		name.position = ccp(background.contentSize.width * 0.19, background.contentSize.height * 0.8);
 		[self addChild:name];
 		
 		// create description label
 		CCLabelBMFont *desc = [CCLabelBMFont labelWithString:product.localizedDescription fntFile:@"gamefont.fnt"];
 		desc.scale = 0.4;
 		desc.anchorPoint = ccp(0, 0.5);
-		desc.position = ccp(background.contentSize.width * 0.22, background.contentSize.height * 0.5);
+		desc.position = ccp(background.contentSize.width * 0.19, background.contentSize.height * 0.5);
 		[self addChild:desc];
 		
 		// create cost label
@@ -53,7 +53,7 @@
 		
 		// create buy label
 		CCLabelBMFont *buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
-		buyLabel.scale = 0.7;
+		buyLabel.scale = 0.45;
 		
 		// create buy button
 		buy = [CCLabelButton buttonWithLabel:buyLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_pressed.png"] target:self selector:@selector(buy)];

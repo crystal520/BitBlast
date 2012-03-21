@@ -130,5 +130,7 @@
 	<real>10</real>
 	<key>sound</key>
 	<string>sonicwave.wav</string>
+	<key>particles</key>
+	<string>wavegunParticle.plist</string>
 </dict>
 </plist>

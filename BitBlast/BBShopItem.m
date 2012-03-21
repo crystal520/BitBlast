@@ -36,14 +36,14 @@
 		CCLabelBMFont *name = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"name"] fntFile:@"gamefont.fnt"];
 		name.scale = 0.6;
 		name.anchorPoint = ccp(0, 0.5);
-		name.position = ccp(background.contentSize.width * 0.2, background.contentSize.height * 0.8);
+		name.position = ccp(background.contentSize.width * 0.19, background.contentSize.height * 0.8);
 		[self addChild:name];
 		
 		// create description label
 		CCLabelBMFont *desc = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"description"] fntFile:@"gamefont.fnt"];
 		desc.scale = 0.35;
 		desc.anchorPoint = ccp(0, 0.5);
-		desc.position = ccp(background.contentSize.width * 0.22, background.contentSize.height * 0.5);
+		desc.position = ccp(background.contentSize.width * 0.19, background.contentSize.height * 0.5);
 		[self addChild:desc];
 		
 		// create cost label

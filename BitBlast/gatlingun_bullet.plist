@@ -132,6 +132,6 @@
 	<key>sound</key>
 	<string>gattlingun.wav</string>
 	<key>particles</key>
-	<string>machinegunBlast.plist</string>
+	<string>gattlingunparticle.plist</string>
 </dict>
 </plist>

@@ -28,8 +28,13 @@
        
 		// Bruce Attempts to Add a Gamelogo.  Not sure why it does not work.
 		CCSprite *gameLogo = [CCSprite spriteWithSpriteFrameName:@"gamelogo.png"];
-		gameLogo.position = ccp(winSize.width * 0.35, winSize.height - gameLogo.contentSize.height * 0.6);
+		gameLogo.position = ccp(winSize.width * 0.4, winSize.height - gameLogo.contentSize.height * 0.65);
 		[uiSpriteBatch addChild:gameLogo z:0];
+        
+        // Add Syphus Logo
+		CCSprite *musicBySyphus = [CCSprite spriteWithSpriteFrameName:@"musicby.png"];
+		musicBySyphus.position = ccp(winSize.width * 0.1, winSize.height - musicBySyphus.contentSize.height * 0.55);
+		[uiSpriteBatch addChild:musicBySyphus z:0];
 		
 		// create play text
 		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"PLAY!" fntFile:@"gamefont.fnt"];
