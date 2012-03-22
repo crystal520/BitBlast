@@ -38,7 +38,7 @@
 		[self addChild:musicBySyphus z:0];
 		
 		// create play text
-		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"PLAY!" fntFile:@"gamefont.fnt"];
+		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"RUN!" fntFile:@"gamefont.fnt"];
 		
 		// create play button
 		CCLabelButton *play = [CCLabelButton buttonWithLabel:playText normalSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_pressed.png"] target:self selector:@selector(play)];
@@ -47,8 +47,8 @@
 		[self addChild:play];
 		
 		// create shop label
-		CCLabelBMFont *shopText = [CCLabelBMFont labelWithString:@"SHOP" fntFile:@"gamefont.fnt"];
-		shopText.scale = 0.6;
+		CCLabelBMFont *shopText = [CCLabelBMFont labelWithString:@"GUNS" fntFile:@"gamefont.fnt"];
+		shopText.scale = 0.48;
 		
 		// create shop button
 		CCLabelButton *shop = [CCLabelButton buttonWithLabel:shopText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(shop)];
@@ -58,7 +58,7 @@
 		
 		// create leaderboard label
 		CCLabelBMFont *leaderboardText = [CCLabelBMFont labelWithString:@"LEADER\nBOARDS" fntFile:@"gamefont.fnt"];
-		leaderboardText.scale = 0.4;
+		leaderboardText.scale = 0.34;
 		
 		// create leaderboard button
 		CCLabelButton *leaderboard = [CCLabelButton buttonWithLabel:leaderboardText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(leaderboards)];

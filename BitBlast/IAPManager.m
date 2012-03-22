@@ -111,11 +111,11 @@
 				validProduct = YES;
 			}
 			else if([productID isEqualToString:@"com.manuptimestudios.gunrunner.cashpack2"]) {
-				[[SettingsManager sharedSingleton] incrementInteger:5000 keyString:@"totalCoins"];
+				[[SettingsManager sharedSingleton] incrementInteger:10000 keyString:@"totalCoins"];
 				validProduct = YES;
 			}
 			else if([productID isEqualToString:@"com.manuptimestudios.gunrunner.cashpack3"]) {
-				[[SettingsManager sharedSingleton] incrementInteger:10000 keyString:@"totalCoins"];
+				[[SettingsManager sharedSingleton] incrementInteger:100000 keyString:@"totalCoins"];
 				validProduct = YES;
 			}
 			else if([productID isEqualToString:@"com.manuptimestudios.gunrunner.tip"]) {

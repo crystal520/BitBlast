@@ -34,21 +34,21 @@
 		// create distance label
 		distanceLabel = [CCLabelBMFont labelWithString:@"YOU RAN: 1234567890" fntFile:@"gamefont.fnt"];
 		distanceLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.66);
-		distanceLabel.scale = 0.5;
+		distanceLabel.scale = 0.3;
 		distanceLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:distanceLabel];
 		
 		// create kills label
 		killLabel = [CCLabelBMFont labelWithString:@"KILLS: 1234567890" fntFile:@"gamefont.fnt"];
 		killLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.59);
-		killLabel.scale = 0.5;
+		killLabel.scale = 0.3;
 		killLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:killLabel];
 		
 		// create multiplier label
 		multiplierLabel = [CCLabelBMFont labelWithString:@"MULTIPLIER: 4x" fntFile:@"gamefont.fnt"];
 		multiplierLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.52);
-		multiplierLabel.scale = 0.5;
+		multiplierLabel.scale = 0.3;
 		multiplierLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:multiplierLabel];
 		
@@ -62,7 +62,7 @@
 		
 		//////////////////////////////////////////// MENU ////////////////////////////////////////////
 		// create shop label
-		CCLabelBMFont *shopText = [CCLabelBMFont labelWithString:@"SHOP" fntFile:@"gamefont.fnt"];
+		CCLabelBMFont *shopText = [CCLabelBMFont labelWithString:@"GUNS!" fntFile:@"gamefont.fnt"];
 		shopText.scale = 0.5;
 		
 		// create shop button
@@ -72,7 +72,7 @@
 		[self addChild:shop];
 		
 		// create play again label
-		CCLabelBMFont *playAgainText = [CCLabelBMFont labelWithString:@"PLAY AGAIN" fntFile:@"gamefont.fnt"];
+		CCLabelBMFont *playAgainText = [CCLabelBMFont labelWithString:@"RUN!" fntFile:@"gamefont.fnt"];
 		playAgainText.scale = 0.5;
 		
 		// create play again button
@@ -86,8 +86,8 @@
 }
 
 - (void) updateFinalScore {
-	[distanceLabel setString:[NSString stringWithFormat:@"YOU RAN: %i", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
-	[killLabel setString:[NSString stringWithFormat:@"CASH COLLECTED: %i", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
+	[distanceLabel setString:[NSString stringWithFormat:@"YOU RAN: %i Meters", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
+	[killLabel setString:[NSString stringWithFormat:@"COLLECTED: %i COLD HARD CASH", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
 	[multiplierLabel setString:[NSString stringWithFormat:@"TOTAL COLD HARD CASH: %i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 

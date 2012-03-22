@@ -32,19 +32,19 @@
 		buyLabel = [[CCLabelBMFont alloc] initWithString:@"BUY" fntFile:@"gamefont.fnt"];
 		buyLabel.anchorPoint = ccp(0, 0.5);
 		buyLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.65);
-		buyLabel.scale = 0.85;
+		buyLabel.scale = 0.6;
 		[self addChild:buyLabel];
 		
 		// create for label
 		cost = [[CCLabelBMFont alloc] initWithString:@"FOR" fntFile:@"gamefont.fnt"];
 		cost.anchorPoint = ccp(0, 0.5);
 		cost.position = ccp(winSize.width * 0.2, winSize.height * 0.5);
-		cost.scale = 0.85;
+		cost.scale = 0.6;
 		[self addChild:cost];
 		
 		// create no thanks label
 		CCLabelBMFont *noThanksLabel = [CCLabelBMFont labelWithString:@"CANCEL" fntFile:@"gamefont.fnt"];
-		noThanksLabel.scale = 0.7;
+		noThanksLabel.scale = 0.6;
 		
 		// create no thanks button
 		CCLabelButton *noThanks = [[CCLabelButton alloc] initWithLabel:noThanksLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(cancel)];
@@ -54,7 +54,7 @@
 		
 		// create buy it label
 		CCLabelBMFont *buyItLabel = [CCLabelBMFont labelWithString:@"BUY IT" fntFile:@"gamefont.fnt"];
-		buyItLabel.scale = 0.8;
+		buyItLabel.scale = 0.6;
 		
 		// create buy it button
 		buyIt = [[CCLabelButton alloc] initWithLabel:buyItLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(buy)];
@@ -75,8 +75,8 @@
 
 - (void) updateWithInfo:(NSDictionary*)dict {
 	[itemDictionary setDictionary:dict];
-	[buyLabel setString:[NSString stringWithFormat:@"BUY:  %@", [dict objectForKey:@"name"]]];
-	[cost setString:[NSString stringWithFormat:@"FOR:  %@", [dict objectForKey:@"cost"]]];
+	[buyLabel setString:[NSString stringWithFormat:@"BUY: %@", [dict objectForKey:@"name"]]];
+	[cost setString:[NSString stringWithFormat:@"FOR: %@", [dict objectForKey:@"cost"]]];
 	
 	// only show buy button if player is able to buy item
 	if([[SettingsManager sharedSingleton] getInt:@"totalCoins"] < [[itemDictionary objectForKey:@"cost"] intValue]) {

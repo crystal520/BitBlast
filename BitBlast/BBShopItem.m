@@ -34,28 +34,28 @@
 		
 		// create name label
 		CCLabelBMFont *name = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"name"] fntFile:@"gamefont.fnt"];
-		name.scale = 0.6;
+		name.scale = 0.5;
 		name.anchorPoint = ccp(0, 0.5);
 		name.position = ccp(background.contentSize.width * 0.19, background.contentSize.height * 0.8);
 		[self addChild:name];
 		
 		// create description label
 		CCLabelBMFont *desc = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"description"] fntFile:@"gamefont.fnt"];
-		desc.scale = 0.35;
-		desc.anchorPoint = ccp(0, 0.5);
+		desc.scale = 0.3;
+		desc.anchorPoint = ccp(0, 0.35);
 		desc.position = ccp(background.contentSize.width * 0.19, background.contentSize.height * 0.5);
 		[self addChild:desc];
 		
 		// create cost label
 		CCLabelBMFont *cost = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"cost"] fntFile:@"gamefont.fnt"];
-		cost.scale = 0.7;
+		cost.scale = 0.6;
 		cost.anchorPoint = ccp(1, 0.5);
 		cost.position = ccp(background.contentSize.width * 0.97, background.contentSize.height * 0.8);
 		[self addChild:cost];
 		
 		// create buy label
 		CCLabelBMFont *buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
-		buyLabel.scale = 0.45;
+		buyLabel.scale = 0.4;
 		
 		// create buy button
 		buy = [CCLabelButton buttonWithLabel:buyLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_pressed.png"] target:self selector:@selector(buy)];
