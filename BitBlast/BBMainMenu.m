@@ -7,7 +7,7 @@
 //
 
 #import "BBMainMenu.h"
-
+#import "AppDelegate.h"
 
 @implementation BBMainMenu
 
@@ -32,9 +32,10 @@
 		[uiSpriteBatch addChild:gameLogo z:0];
         
         // Add Syphus Logo
-		CCSprite *musicBySyphus = [CCSprite spriteWithSpriteFrameName:@"musicby.png"];
+		CCButton *musicBySyphus = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"musicby.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"musicby.png"] target:self selector:@selector(gotoSyphus)];
+		[musicBySyphus setSpriteBatchNode:uiSpriteBatch];
 		musicBySyphus.position = ccp(winSize.width * 0.1, winSize.height - musicBySyphus.contentSize.height * 0.55);
-		[uiSpriteBatch addChild:musicBySyphus z:0];
+		[self addChild:musicBySyphus z:0];
 		
 		// create play text
 		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"PLAY!" fntFile:@"gamefont.fnt"];
@@ -112,6 +113,17 @@
 - (void) gamecenter {
 	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavAchievementsNotification object:nil]];
+}
+
+- (void) gotoSyphus {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.syphus.net"]];
+	// make a UIWebView that loads syphus.net
+	/*UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height)];
+	[web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.syphus.net"]]];
+	// get main view controller
+	AppDelegate *appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	[((UIViewController*)(appDel.viewController)).view addSubview:web];
+	[web release];*/
 }
 
 @end
