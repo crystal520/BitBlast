@@ -12,7 +12,7 @@
 
 //#define RESET_ACHIEVEMENTS
 
-@interface GameCenter : NSObject {
+@interface GameCenter : NSObject <GKLeaderboardViewControllerDelegate, GKAchievementViewControllerDelegate> {
     
 }
 
@@ -28,5 +28,6 @@
 - (void) checkItemAchievements;
 - (void) submitLeaderboards;
 - (void) submitLeaderboard:(NSString*)name withValue:(int64_t)value;
+- (void) gotoLeaderboards;
 
 @end

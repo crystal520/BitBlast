@@ -92,7 +92,7 @@
 
 - (void) gamecenter {
 	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavGamecenterNotification object:nil]];
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavAchievementsNotification object:nil]];
 }
 
 @end

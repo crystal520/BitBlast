@@ -9,6 +9,7 @@
 #import "GameCenter.h"
 #include <sys/sysctl.h>
 #import "SettingsManager.h"
+#import "AppDelegate.h"
 
 @implementation GameCenter
 
@@ -30,6 +31,10 @@
 	if((self = [super init])) {
 		if([GameCenter getIsGameCenterAvailable]) {
 			[self authenticateGameCenter];
+			
+			// register for notifications
+			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
+			[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoAchievements) name:kNavAchievementsNotification object:nil];
 		}
 	}
 	return self;
@@ -191,6 +196,44 @@
 	else {
 		NSLog(@"Player lost connection to Game Center");
 	}
+}
+
+#pragma mark -
+#pragma mark notifications
+- (void) gotoLeaderboards {
+	// make leaderboard controller and present it
+	GKLeaderboardViewController *leaderboardController = [GKLeaderboardViewController new];
+	if(leaderboardController) {
+		leaderboardController.leaderboardDelegate = self;
+		AppDelegate *appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+		[appDel.viewController presentModalViewController:leaderboardController animated:YES];
+	}
+	[leaderboardController release];
+}
+
+- (void) gotoAchievements {
+	// make achievement controller and present it
+	GKAchievementViewController *achievementController = [GKAchievementViewController new];
+	if(achievementController) {
+		achievementController.achievementDelegate = self;
+		AppDelegate *appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+		[appDel.viewController presentModalViewController:achievementController animated:YES];
+	}
+	[achievementController release];
+}
+
+#pragma mark -
+#pragma mark GKLeaderboardViewControllerDelegate
+- (void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController {
+	AppDelegate *appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	[appDel.viewController dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark GKAchievementViewControllerDelegate
+- (void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController {
+	AppDelegate *appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	[appDel.viewController dismissModalViewControllerAnimated:YES];
 }
 
 @end
