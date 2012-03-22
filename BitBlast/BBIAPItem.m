@@ -25,10 +25,21 @@
 		background.position = ccp(background.contentSize.width * 0.5, background.contentSize.height * 0.5);
 		[self addChild:background];
 		
+		// get dictionary using product ID
+		NSDictionary *iapDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"iap" ofType:@"plist"]];
+		NSArray *iap = [iapDict objectForKey:@"items"];
+		NSDictionary *dictionary;
+		for(NSDictionary *d in iap) {
+			if([[d objectForKey:@"identifier"] isEqualToString:[product productIdentifier]]) {
+				dictionary = d;
+				break;
+			}
+		}
+		
 		// create icon sprite
-		/*CCSprite *icon = [CCSprite spriteWithFile:[dictionary objectForKey:@"icon"]];
+		CCSprite *icon = [CCSprite spriteWithFile:[dictionary objectForKey:@"icon"]];
 		icon.position = ccp(background.contentSize.width * 0.1, background.contentSize.height * 0.65);
-		[self addChild:icon];*/
+		[self addChild:icon];
 		
 		// create name label
 		CCLabelBMFont *name = [CCLabelBMFont labelWithString:product.localizedTitle fntFile:@"gamefont.fnt"];
