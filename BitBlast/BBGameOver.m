@@ -21,6 +21,11 @@
 		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
 		[self addChild:uiSpriteBatch];
 		
+		// create background
+		CCSprite *background = [CCSprite spriteWithSpriteFrameName:@"shopConfirmBackground.png"];
+		background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+		[uiSpriteBatch addChild:background];
+		
 		// create game over label
 		CCLabelBMFont *gameOverLabel = [CCLabelBMFont labelWithString:@"RUN OVER!" fntFile:@"gamefont.fnt"];
 		gameOverLabel.position = ccp(winSize.width * 0.5, winSize.height * 0.9);
@@ -61,9 +66,9 @@
 		shopText.scale = 0.5;
 		
 		// create shop button
-		CCLabelButton *shop = [CCLabelButton buttonWithLabel:shopText normalSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButtonDown.png"] target:self selector:@selector(shop)];
+		CCLabelButton *shop = [CCLabelButton buttonWithLabel:shopText normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(shop)];
 		[shop setSpriteBatchNode:uiSpriteBatch];
-		shop.position = ccp(winSize.width * 0.3, winSize.height * 0.2);
+		shop.position = ccp(winSize.width * 0.35, winSize.height * 0.317);
 		[self addChild:shop];
 		
 		// create play again label
@@ -71,9 +76,9 @@
 		playAgainText.scale = 0.5;
 		
 		// create play again button
-		CCLabelButton *playAgain = [CCLabelButton buttonWithLabel:playAgainText normalSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"mediumButtonDown.png"] target:self selector:@selector(restartGame)];
+		CCLabelButton *playAgain = [CCLabelButton buttonWithLabel:playAgainText normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(restartGame)];
 		[playAgain setSpriteBatchNode:uiSpriteBatch];
-		playAgain.position = ccp(winSize.width * 0.7, winSize.height * 0.2);
+		playAgain.position = ccp(winSize.width * 0.65, winSize.height * 0.317);
 		[self addChild:playAgain];
 	}
 	
