@@ -29,6 +29,8 @@
 	BOOL enabled;
 	// whether the IAP items have been added to the shop list
 	BOOL iapItemsAdded;
+	// current funds the player has
+	CCLabelBMFont *coins;
 }
 
 - (void) setupIAP;

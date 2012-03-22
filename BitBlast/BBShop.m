@@ -26,10 +26,10 @@
 		[self addChild:uiSpriteBatch];
 		
 		// create current funds label
-		CCLabelBMFont *coins = [CCLabelBMFont labelWithString:@"$1234567890" fntFile:@"gamefont.fnt"];
-		coins.anchorPoint = ccp(1, 1);
-		coins.scale = 0.5;
-		coins.position = ccp(winSize.width, winSize.height);
+		coins = [CCLabelBMFont labelWithString:@"$1234567890" fntFile:@"gamefont.fnt"];
+		coins.anchorPoint = ccp(1, 0);
+		coins.scale = 0.75;
+		coins.position = ccp(winSize.width - cellSize.width, 0);
 		[self addChild:coins];
 		
 		// create back button holder
@@ -116,6 +116,8 @@
 	[super onEnter];
 	[self setupIAP];
 	[self setEnabled:YES];
+	// update current funds
+	[coins setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 
 #pragma mark -
