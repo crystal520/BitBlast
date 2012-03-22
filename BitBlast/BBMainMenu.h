@@ -11,9 +11,10 @@
 #import "CCNodeColorBackground.h"
 #import "CCLabelButton.h"
 #import "SimpleAudioEngine.h"
+#import "SettingsManager.h"
 
 @interface BBMainMenu : CCNodeColorBackground {
-    
+    CCLabelBMFont *playerCash;
 }
 
 @end

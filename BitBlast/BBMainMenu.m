@@ -70,9 +70,28 @@
 		[gamecenter setSpriteBatchNode:uiSpriteBatch];
 		gamecenter.position = ccp(background.position.x + (296 * [ResolutionManager sharedSingleton].positionScale), background.position.y - (142 * [ResolutionManager sharedSingleton].positionScale));
 		[self addChild:gamecenter];
+		
+		// create money label
+		playerCash = [CCLabelBMFont labelWithString:@"$0" fntFile:@"gamefont.fnt"];
+		playerCash.scale = 0.5;
+		playerCash.anchorPoint = ccp(1, 0.5);
+		playerCash.position = ccp(winSize.width * 0.46, winSize.height * 0.44);
+		[self addChild:playerCash];
 	}
 	
 	return self;
+}
+
+- (void) dealloc {
+	[playerCash release];
+	[super dealloc];
+}
+
+- (void) onEnter {
+	[super onEnter];
+	// update player's money dollars
+	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
+															
 }
 
 - (void) play {
