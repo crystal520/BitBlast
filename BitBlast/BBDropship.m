@@ -54,6 +54,7 @@
 - (void) update:(float)delta {
 	// only update if enabled
 	if(enabled) {
+		[super update:delta];
 		// get velocity from player
 		if(alive) {
 			velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
@@ -64,11 +65,12 @@
 				spawnTimer -= spawnRate;
 			}
 		}
-		[super update:delta];
 		
-		// if dropship is dead and touches the ground, actually kill it
-		if(!alive && touchingPlatform) {
-			[self setEnabled:NO];
+		// if dropship is dead and collides with platform OR goes off screen, actually kill it
+		if(!alive) {
+			if(touchingPlatform || dummyPosition.y + sprite.contentSize.height * 0.5 < 0) {
+				[self setEnabled:NO];
+			}
 		}
 	}
 }
@@ -120,8 +122,7 @@
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
 		alive = NO;
-		velocity = ccp(0, 0);
-		gravity = ccp(0, 5);
+		gravity = ccp(5, 5);
 		// turn towards the ground and crash!
 		[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
 	}

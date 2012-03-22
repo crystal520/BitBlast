@@ -75,12 +75,12 @@
 			// restrict levels to 3 levels. all extra tiles are fluff
 			if(tile && (y == 12 || y == 10 || y == 14)) {
 				// keep track of this tile's type
-				ChunkLevel type = CHUNK_LEVEL_BOTTOM;
+				ChunkLevel type = CHUNK_LEVEL_TOP;
 				if(y == 12) {
 					type = CHUNK_LEVEL_MIDDLE;
 				}
 				else if(y == 14) {
-					type = CHUNK_LEVEL_TOP;
+					type = CHUNK_LEVEL_BOTTOM;
 				}
 				// keep track of this tile's y position
 				[levels addObject:[NSNumber numberWithInt:(tile.position.y + tile.contentSize.height * 0.5) * [ResolutionManager sharedSingleton].inversePositionScale]];
