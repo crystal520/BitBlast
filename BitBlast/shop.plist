@@ -6,15 +6,15 @@
 	<array>
 		<string>pistol</string>
 		<string>burstshot</string>
-		<string>machinegun</string>
 		<string>shotgun</string>
 		<string>bluewave</string>
-		<string>gattlingun</string>
 		<string>wavegun</string>
-		<string>ripley</string>
 		<string>spreadgun</string>
-		<string>ultraLaser</string>
+		<string>machinegun</string>
+		<string>gattlingun</string>
 		<string>flamethrower</string>
+		<string>ripley</string>
+		<string>ultraLaser</string>
 	</array>
 </dict>
 </plist>

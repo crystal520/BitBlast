@@ -6,27 +6,27 @@
 	<array>
 		<dict>
 			<key>identifier</key>
+			<string>com.manuptimestudios.gunrunner.tip</string>
+			<key>icon</key>
+			<string>IAPatip.png</string>
+		</dict>
+		<dict>
+			<key>identifier</key>
 			<string>com.manuptimestudios.gunrunner.cashpack1</string>
 			<key>icon</key>
-			<string>shopItem1.png</string>
+			<string>99centIAP.png</string>
 		</dict>
 		<dict>
 			<key>identifier</key>
 			<string>com.manuptimestudios.gunrunner.cashpack2</string>
 			<key>icon</key>
-			<string>shopItem1.png</string>
+			<string>499IAPicon.png</string>
 		</dict>
 		<dict>
 			<key>identifier</key>
 			<string>com.manuptimestudios.gunrunner.cashpack3</string>
 			<key>icon</key>
-			<string>shopItem1.png</string>
-		</dict>
-		<dict>
-			<key>identifier</key>
-			<string>com.manuptimestudios.gunrunner.tip</string>
-			<key>icon</key>
-			<string>shopItem1.png</string>
+			<string>largeIAPicon.png</string>
 		</dict>
 	</array>
 </dict>
