@@ -18,6 +18,7 @@
 		enemyTypes = [NSMutableArray new];
 		[self setEnabled:NO];
 		alive = YES;
+		needsPlatformCollisions = NO;
 	}
 	return self;
 }
@@ -66,9 +67,9 @@
 			}
 		}
 		
-		// if dropship is dead and collides with platform OR goes off screen, actually kill it
+		// if dropship is dead and goes off screen, actually kill it
 		if(!alive) {
-			if(touchingPlatform || dummyPosition.y + sprite.contentSize.height * 0.5 < 0) {
+			if(dummyPosition.y + sprite.contentSize.height * 0.5 < 0) {
 				[self setEnabled:NO];
 			}
 		}
