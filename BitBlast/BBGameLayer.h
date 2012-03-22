@@ -26,6 +26,7 @@
 #import "BBCoinManager.h"
 #import "GameCenter.h"
 #import "SimpleAudioEngine.h"
+#import "BBPause.h"
 
 typedef enum {
 	kStateMainMenu,
@@ -33,7 +34,8 @@ typedef enum {
 	kStateGame,
 	kStateShop,
 	kStateConfirmBuy,
-	kStateLeaderboards
+	kStateLeaderboards,
+	kStatePause
 } GameState;
 
 //#define DEBUG_TEXTURES
@@ -60,6 +62,7 @@ typedef enum {
 	BBShop *shop;
 	BBConfirmBuy *confirmBuy;
 	BBLeaderboards *leaderboards;
+	BBPause *pause;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child
@@ -72,6 +75,8 @@ typedef enum {
 - (void) loadCameraVariables;
 - (void) reset;
 - (void) resetSessionStats;
+// actions
+- (void) finishGame;
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
 // update

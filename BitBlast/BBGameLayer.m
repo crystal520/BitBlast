@@ -75,6 +75,8 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
 		
 		[[BBEquipmentManager sharedSingleton] equip:@"glider"];
 		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
@@ -90,6 +92,8 @@
 		shop = [[BBShop alloc] init];
 		// confirm buy screen
 		confirmBuy = [[BBConfirmBuy alloc] init];
+		// pause screen
+		pause = [[BBPause alloc] init];
 		// main menu screen
 		mainMenu = [[BBMainMenu alloc] init];
 		// leaderboards
@@ -121,6 +125,7 @@
 	[confirmBuy release];
 	[mainMenu release];
 	[leaderboards release];
+	[pause release];
 	[super dealloc];
 }
 
@@ -152,7 +157,7 @@
 	// reset session stats
 	[self resetSessionStats];
 	// listen for touches
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:YES];
 	self.isTouchEnabled = YES;
 	// add hud to screen
 	[self addChild:hud z:DEPTH_MENU];
@@ -229,6 +234,20 @@
 }
 
 #pragma mark -
+#pragma mark actions
+- (void) finishGame {
+	// update achievements
+	[[GameCenter sharedSingleton] checkStatAchievements];
+	// submit leaderboards
+	[[GameCenter sharedSingleton] submitLeaderboards];
+	// stop listening for touches
+	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+	// remove hud
+	[self removeChild:hud cleanup:YES];
+	[self unscheduleUpdate];
+}
+
+#pragma mark -
 #pragma mark setters
 - (void) setBackgroundColorWithFile:(NSString*)file {
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"plist"]];
@@ -239,9 +258,6 @@
 	// set color
 	background.color = bgColor;
 }
-
-#pragma mark -
-#pragma mark getters
 
 #pragma mark -
 #pragma mark touch input
@@ -336,16 +352,8 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
-	// update achievements
-	[[GameCenter sharedSingleton] checkStatAchievements];
-	// submit leaderboards
-	[[GameCenter sharedSingleton] submitLeaderboards];
-	// stop listening for touches
-	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-	// remove hud
-	[self removeChild:hud cleanup:YES];
+	[self finishGame];
 	state = kStateGameOver;
-	[self unscheduleUpdate];
 	[gameOver updateFinalScore];
 	[self addChild:gameOver z:DEPTH_MENU];
 	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
@@ -357,8 +365,19 @@
 }
 
 - (void) restartGame {
-	[self removeChild:gameOver cleanup:YES];
+	if(state == kStatePause) {
+		[self finishGame];
+		[self removeChild:pause cleanup:YES];
+	}
+	else if(state == kStateGameOver) {
+		[self removeChild:gameOver cleanup:YES];
+	}
 	[self reset];
+}
+
+- (void) resumeGame {
+	state = kStateGame;
+	[self removeChild:pause cleanup:YES];
 }
 
 - (void) gotoShop {
@@ -391,6 +410,13 @@
 		state = kStateLeaderboards;
 		[self removeChild:mainMenu cleanup:YES];
 		[self addChild:leaderboards z:DEPTH_MENU];
+	}
+}
+
+- (void) gotoPause {
+	if(state == kStateGame) {
+		state = kStatePause;
+		[self addChild:pause z:DEPTH_MENU];
 	}
 }
 

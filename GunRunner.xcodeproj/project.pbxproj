@@ -23,6 +23,7 @@
 		0A204EB214DF331600171F71 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EB114DF331500171F71 /* flame.png */; };
 		0A2658A81503CFBB00DEA989 /* BBMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2658A71503CFBB00DEA989 /* BBMovingObject.m */; };
 		0A2C61F914F2C68F00D3F94B /* testEnemy3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */; };
+		0A2FC97B15197977005FDF5F /* BBPause.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FC97A15197977005FDF5F /* BBPause.m */; };
 		0A428307151440F300E35219 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A428306151440F200E35219 /* GameCenter.m */; };
 		0A4283091514445800E35219 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4283081514445800E35219 /* GameKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		0A42830C15158C9300E35219 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A42830B15158C9000E35219 /* IAPManager.m */; };
@@ -378,6 +379,8 @@
 		0A2658A61503CFBB00DEA989 /* BBMovingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMovingObject.h; sourceTree = "<group>"; };
 		0A2658A71503CFBB00DEA989 /* BBMovingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMovingObject.m; sourceTree = "<group>"; };
 		0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy3.plist; sourceTree = "<group>"; };
+		0A2FC97915197976005FDF5F /* BBPause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPause.h; sourceTree = "<group>"; };
+		0A2FC97A15197977005FDF5F /* BBPause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPause.m; sourceTree = "<group>"; };
 		0A428305151440F100E35219 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
 		0A428306151440F200E35219 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
 		0A4283081514445800E35219 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -1322,6 +1325,8 @@
 				0A42D15114C51E7500DD55CA /* BBLeaderboards.m */,
 				0A42D15314C5214000DD55CA /* BBLeaderboardEntry.h */,
 				0A42D15414C5214100DD55CA /* BBLeaderboardEntry.m */,
+				0A2FC97915197976005FDF5F /* BBPause.h */,
+				0A2FC97A15197977005FDF5F /* BBPause.m */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -2321,6 +2326,7 @@
 				0A428307151440F300E35219 /* GameCenter.m in Sources */,
 				0A42830C15158C9300E35219 /* IAPManager.m in Sources */,
 				0A4283131516505100E35219 /* BBIAPItem.m in Sources */,
+				0A2FC97B15197977005FDF5F /* BBPause.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

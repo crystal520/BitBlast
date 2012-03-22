@@ -20,6 +20,12 @@
 		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
 		[self addChild:uiSpriteBatch];
 		
+		// create pause button
+		CCButton *pause = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] target:self selector:@selector(pause)];
+		[pause setSpriteBatchNode:uiSpriteBatch];
+		pause.position = ccp(winSize.width - pause.contentSize.width * 0.5, pause.contentSize.height * 0.5);
+		[self addChild:pause];
+		
 		// create score label
 		score = [[CCLabelBMFont alloc] initWithString:@"0" fntFile:@"gamefont.fnt"];
 		score.anchorPoint = ccp(1, 1);
@@ -46,6 +52,11 @@
 - (void) dealloc {
 	[hearts release];
 	[super dealloc];
+}
+
+- (void) pause {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
 }
 
 #pragma mark -

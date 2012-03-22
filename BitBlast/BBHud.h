@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "SettingsManager.h"
+#import "CCButton.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBHud : CCNode {
     CCLabelBMFont *score;
