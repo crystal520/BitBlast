@@ -27,6 +27,7 @@
 #import "GameCenter.h"
 #import "SimpleAudioEngine.h"
 #import "BBPause.h"
+#import "BBLogic.h"
 
 typedef enum {
 	kStateMainMenu,
@@ -39,6 +40,7 @@ typedef enum {
 } GameState;
 
 //#define DEBUG_TEXTURES
+#define DEBUG_NO_SOUND
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate> {
 	

@@ -55,6 +55,8 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
+	// check to see how many active coins are on screen
+	int numActiveCoins = 0;
 	// update active coins
 	for(BBCoin *c in coins) {
 		if(!c.recycle) {
@@ -62,7 +64,15 @@
 			if(c.dummyPosition.x < [Globals sharedSingleton].playerPosition.x - [Globals sharedSingleton].cameraOffset.x) {
 				[c setEnabled:NO];
 			}
+			else {
+				numActiveCoins++;
+			}
 		}
+	}
+	// see if a coin group has been collected
+	if(checkForCoinGroup && numActiveCoins == 0) {
+		checkForCoinGroup = NO;
+		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventCoinGroupDone object:nil]];
 	}
 }
 
@@ -103,15 +113,12 @@
 	for(BBCoin *c in coins) {
 		[c stopAllActions];
 	}
-	[self unschedule:@selector(spawnCoinGroup)];
 }
 
 - (void) levelWillLoad {
 	for(BBCoin *c in coins) {
 		[c setEnabled:NO];
 	}
-	// TODO: move this to BBLogic
-	[self schedule:@selector(spawnCoinGroup) interval:2];
 }
 
 #pragma mark -
@@ -131,6 +138,8 @@
 		// reset coin with new position
 		[c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
 	}
+	// start checking for when there are no coin groups
+	checkForCoinGroup = YES;
 }
 
 @end

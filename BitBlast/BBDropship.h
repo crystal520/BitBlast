@@ -39,6 +39,7 @@
 // actions
 - (void) spawnEnemy;
 - (void) hitByBullet:(BBBullet*)bullet;
+- (void) die;
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)level;
 
 @end

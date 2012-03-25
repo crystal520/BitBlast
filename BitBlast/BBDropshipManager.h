@@ -34,5 +34,6 @@
 - (void) update:(float)delta;
 // actions
 - (void) checkCollisions;
+- (void) tryToSpawnDropship;
 
 @end

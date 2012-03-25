@@ -71,6 +71,7 @@
 		if(!alive) {
 			if(dummyPosition.y + sprite.contentSize.height * 0.5 < 0) {
 				[self setEnabled:NO];
+				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventDropshipDestroyed object:nil]];
 			}
 		}
 	}
@@ -118,15 +119,19 @@
 	
 	// if the dropship died, turn off all movement and play death animation
 	if(health <= 0) {
-		[[SimpleAudioEngine sharedEngine] playEffect:@"dropshipexplosion.wav"];
-		// increment dropships killed
-		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
-		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
-		alive = NO;
-		gravity = ccp(5, 5);
-		// turn towards the ground and crash!
-		[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
+		[self die];
 	}
+}
+
+- (void) die {
+	[[SimpleAudioEngine sharedEngine] playEffect:@"dropshipexplosion.wav"];
+	// increment dropships killed
+	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
+	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
+	alive = NO;
+	gravity = ccp(2, 5);
+	// turn towards the ground and crash!
+	[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
 }
 
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)level {
@@ -146,11 +151,6 @@
 	
 	dummyPosition = ccpAdd(newPosition, levelOffset);
 	[self setEnabled:YES];
-}
-
-- (void) deathAnimationOver {
-	self.scale = 1;
-	[self setEnabled:NO];
 }
 
 @end

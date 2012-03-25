@@ -16,6 +16,7 @@
 @interface BBCoinManager : CCNode {
     NSMutableArray *coins;
 	NSArray *patterns;
+	BOOL checkForCoinGroup;
 }
 
 + (BBCoinManager*) sharedSingleton;

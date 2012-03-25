@@ -28,6 +28,10 @@
 - (id) init {
 	if((self = [super init])) {
 		
+#ifdef DEBUG_NO_SOUND
+		[[SimpleAudioEngine sharedEngine] setMute:YES];
+#endif
+		
 		// setup iCade controls
 		[self setupICade];
 		
@@ -169,6 +173,9 @@
 	[self updateCamera];
 	[self scheduleUpdate];
 	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
+	
+	// start up game logic
+	[[BBLogic sharedSingleton] setEnabled:YES];
 }
 
 - (void) resetSessionStats {
@@ -352,6 +359,9 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
+	// stop game logic
+	[[BBLogic sharedSingleton] setEnabled:NO];
+	
 	[self finishGame];
 	state = kStateGameOver;
 	[gameOver updateFinalScore];

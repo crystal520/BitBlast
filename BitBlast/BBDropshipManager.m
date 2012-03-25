@@ -77,21 +77,10 @@
 - (void) update:(float)delta {
 	// only update if enabled
 	if(enabled) {
-		// make sure there are enough active dropships
-		int numActiveDropships = 0;
 		for(BBDropship *d in dropships) {
 			[d update:delta];
-			if(d.enabled) {
-				numActiveDropships += 1;
-			}
 		}
 		[self checkCollisions];
-		
-		// if there aren't enough active dropships, trigger a new one
-		if(numActiveDropships != targetDropships && !spawningDropship) {
-			spawningDropship = YES;
-			[self performSelector:@selector(spawnDropship) withObject:nil afterDelay:1];
-		}
 	}
 }
 
@@ -123,6 +112,22 @@
 		ChunkLevel typeLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevelType:ranLevel];
 		[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:@"testDropship" level:typeLevel];
 		spawningDropship = NO;
+	}
+}
+
+- (void) tryToSpawnDropship {
+	// make sure there are enough active dropships
+	int numActiveDropships = 0;
+	for(BBDropship *d in dropships) {
+		if(d.enabled) {
+			numActiveDropships += 1;
+		}
+	}
+	
+	// if there aren't enough active dropships, trigger a new one
+	if(numActiveDropships != targetDropships && !spawningDropship) {
+		spawningDropship = YES;
+		[self performSelector:@selector(spawnDropship) withObject:nil afterDelay:1];
 	}
 }
 

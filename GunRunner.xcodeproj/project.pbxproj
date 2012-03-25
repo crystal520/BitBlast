@@ -46,6 +46,8 @@
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
+		0A67AFCE151E6F2300CAA55B /* dropshipExplosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */; };
+		0A67AFD3151E84E100CAA55B /* BBLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67AFD2151E84DF00CAA55B /* BBLogic.m */; };
 		0A6DD3AD14D8F41200D6DB6D /* testWeapon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */; };
 		0A6DD3B014D8FE8A00D6DB6D /* BBShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */; };
 		0A6DD3B314DA409A00D6DB6D /* BBBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3B214DA409900D6DB6D /* BBBehavior.m */; };
@@ -419,6 +421,9 @@
 		0A5C35B2149988A40019C113 /* Chunk.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.m; sourceTree = "<group>"; };
 		0A5C35B4149988AE0019C113 /* ChunkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkManager.h; sourceTree = "<group>"; };
 		0A5C35B5149988AE0019C113 /* ChunkManager.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ChunkManager.m; sourceTree = "<group>"; };
+		0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropshipExplosion.plist; sourceTree = "<group>"; };
+		0A67AFD1151E84DE00CAA55B /* BBLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLogic.h; sourceTree = "<group>"; };
+		0A67AFD2151E84DF00CAA55B /* BBLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLogic.m; sourceTree = "<group>"; };
 		0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWeapon.plist; sourceTree = "<group>"; };
 		0A6DD3AE14D8FE8A00D6DB6D /* BBShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShot.h; sourceTree = "<group>"; };
 		0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShot.m; sourceTree = "<group>"; };
@@ -974,6 +979,7 @@
 				34FB2A711515813600623BB4 /* enemyBird.plist */,
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
 				34FB2AAC1516884100623BB4 /* enemySoldier.plist */,
+				0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -1024,6 +1030,7 @@
 		0A1EC4A814A02C9F005A7ED6 /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				0A67AFD0151E846B00CAA55B /* Explosions */,
 				0AC9623D15106E5200790570 /* Coins */,
 				0A5BAA7E14EC90050028D13B /* Parallax */,
 				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
@@ -1041,6 +1048,8 @@
 				0A428306151440F200E35219 /* GameCenter.m */,
 				0A42830A15158C8D00E35219 /* IAPManager.h */,
 				0A42830B15158C9000E35219 /* IAPManager.m */,
+				0A67AFD1151E84DE00CAA55B /* BBLogic.h */,
+				0A67AFD2151E84DF00CAA55B /* BBLogic.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1223,6 +1232,13 @@
 				0A5C35A9149981C20019C113 /* jungleLevel.plist */,
 			);
 			name = Jungle;
+			sourceTree = "<group>";
+		};
+		0A67AFD0151E846B00CAA55B /* Explosions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Explosions;
 			sourceTree = "<group>";
 		};
 		0A6DD3A814D8D77300D6DB6D /* Bullets */ = {
@@ -1974,6 +1990,7 @@
 		0AE417291496F5C400342D8E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Man Up Time Studios";
 			};
 			buildConfigurationList = 0AE4172C1496F5C400342D8E /* Build configuration list for PBXProject "GunRunner" */;
@@ -2154,6 +2171,7 @@
 				34FB2AC915199F1B00623BB4 /* 499IAPicon.png in Resources */,
 				34FB2ACA15199F1B00623BB4 /* 99centIAP.png in Resources */,
 				34FB2ACC1519A8C300623BB4 /* IAPatip.png in Resources */,
+				0A67AFCE151E6F2300CAA55B /* dropshipExplosion.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2347,6 +2365,7 @@
 				0A42830C15158C9300E35219 /* IAPManager.m in Sources */,
 				0A4283131516505100E35219 /* BBIAPItem.m in Sources */,
 				0A2FC97B15197977005FDF5F /* BBPause.m in Sources */,
+				0A67AFD3151E84E100CAA55B /* BBLogic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
