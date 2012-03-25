@@ -48,7 +48,7 @@
 #pragma mark actions
 - (void) requestIAP {
 	// make set of product IDs
-	NSMutableSet *productIDs = [NSMutableSet setWithObjects:@"com.manuptimestudios.gunrunner.cashpack1", @"com.manuptimestudios.gunrunner.cashpack2", @"com.manuptimestudios.gunrunner.cashpack3", @"com.manuptimestudios.gunrunner.tip", nil];
+	NSMutableSet *productIDs = [NSMutableSet setWithObjects:@"com.manuptimestudios.gunrunner.cashpack1", @"com.manuptimestudios.gunrunner.cashpack2", @"com.manuptimestudios.gunrunner.cashpack3", nil];
 	// make the request using the product IDs
 	SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:productIDs];
 	request.delegate = self;
