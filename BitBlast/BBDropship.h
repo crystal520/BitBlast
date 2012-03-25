@@ -26,9 +26,12 @@
 	BOOL enabled;
 	// whether or not the ship is alive
 	BOOL alive;
+	// level the dropship is on. used to make sure 2 dropships don't appear on the same level
+	ChunkLevel level;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;
+@property (nonatomic, readonly) ChunkLevel level;
 
 // update
 - (void) update:(float)delta;
@@ -40,6 +43,6 @@
 - (void) spawnEnemy;
 - (void) hitByBullet:(BBBullet*)bullet;
 - (void) die;
-- (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)level;
+- (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)newLevel;
 
 @end

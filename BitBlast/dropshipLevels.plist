@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>levels</key>
+	<array>
+		<dict>
+			<key>ships</key>
+			<array>
+				<string>testDropship</string>
+				<string>dropShip1</string>
+				<string>dropShip2</string>
+			</array>
+			<key>maxShipsOnScreen</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

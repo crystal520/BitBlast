@@ -54,13 +54,13 @@
 		float ran = CCRANDOM_0_1();
 		// wait for a half second
 		if(ran < 0.25) {
-			[self performSelector:@selector(rollDice) withObject:nil afterDelay:0.5];
+			[[BBCoinManager sharedSingleton] spawnCoinGroup];
 		}
-		else if(ran >= 0.25 && ran < 0.5) {
+		else if(ran >= 0.25 && ran < 0.5 && [[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0) {
 			[[BBDropshipManager sharedSingleton] tryToSpawnDropship];
 		}
 		else {
-			[[BBCoinManager sharedSingleton] spawnCoinGroup];
+			[self performSelector:@selector(rollDice) withObject:nil afterDelay:0.5];
 		}
 	}
 }

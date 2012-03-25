@@ -11,7 +11,7 @@
 
 @implementation BBDropship
 
-@synthesize enabled, alive;
+@synthesize enabled, alive, level;
 
 - (id) init {
 	if((self = [super init])) {
@@ -19,6 +19,7 @@
 		[self setEnabled:NO];
 		alive = YES;
 		needsPlatformCollisions = NO;
+		level = CHUNK_LEVEL_UNKNOWN;
 	}
 	return self;
 }
@@ -44,7 +45,12 @@
 	// TODO: turn this scale off once we get a different image for these
 	sprite.scaleX = -1;
 	boundingBox.origin.x *= -1;
+	
+	// reset variables
 	rotation_ = 0;
+	gravity = ccp(0, 0);
+	velocity = ccp(0, 0);
+	
 	// use nearest so it will scale better
 	ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
 	[sprite.texture setTexParameters:&params];
@@ -91,6 +97,7 @@
 		self.visible = NO;
 		alive = NO;
 		[self removeChild:spriteBatch cleanup:YES];
+		level = CHUNK_LEVEL_UNKNOWN;
 	}
 	else if(!enabled && newEnabled) {
 		self.visible = YES;
@@ -134,11 +141,12 @@
 	[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
 }
 
-- (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)level {
+- (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)newLevel {
 	[self loadFromFile:type];
 	
 	// determine offset based on level type
 	CGPoint levelOffset = ccp(0, 0);
+	level = newLevel;
 	if(level == CHUNK_LEVEL_BOTTOM) {
 		levelOffset = ccp([[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"y"] floatValue]);
 	}

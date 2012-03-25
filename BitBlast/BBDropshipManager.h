@@ -12,7 +12,7 @@
 #import "BulletManager.h"
 #import "ChunkManager.h"
 
-#define MAX_DROPSHIPS 1
+#define MAX_DROPSHIPS 3
 
 @interface BBDropshipManager : CCNode {
     // array of dropships
@@ -23,13 +23,20 @@
 	BOOL spawningDropship;
 	// whether or not dropships are being updated and spawned
 	BOOL enabled;
+	// current dropship level
+	int dropshipLevel;
+	// array of dropship levels
+	NSArray *dropshipLevels;
 }
+
+@property (nonatomic, assign) int dropshipLevel;
 
 + (BBDropshipManager*) sharedSingleton;
 
 // getters
 - (NSArray*) getActiveDropships;
 - (BBDropship*) getInactiveDropship;
+- (NSString*) getRandomDropshipType;
 // update
 - (void) update:(float)delta;
 // actions

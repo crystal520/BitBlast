@@ -34,6 +34,9 @@
 		chunks = [NSMutableArray new];
 		currentChunks = [NSMutableArray new];
 		overrideChunk = [NSMutableString new];
+		
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(increaseLevel) name:kPlayerLevelIncreaseNotification object:nil];
 	}
 	
 	return self;
@@ -189,6 +192,12 @@
 	else {
 		NSLog(@"ERROR: Failed to load chunks for level \"%@\" because it doesn't exist", levelName);
 	}
+}
+
+#pragma mark -
+#pragma mark notifications
+- (void) increaseLevel {
+	self.curSpeedLevel++;
 }
 
 @end

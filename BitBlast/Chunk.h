@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 
 typedef enum {
+	CHUNK_LEVEL_UNKNOWN,
 	CHUNK_LEVEL_TOP,
 	CHUNK_LEVEL_MIDDLE,
 	CHUNK_LEVEL_BOTTOM

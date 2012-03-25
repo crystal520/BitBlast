@@ -48,6 +48,7 @@
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
 		0A67AFCE151E6F2300CAA55B /* dropshipExplosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */; };
 		0A67AFD3151E84E100CAA55B /* BBLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67AFD2151E84DF00CAA55B /* BBLogic.m */; };
+		0A67AFD5151E99F000CAA55B /* dropshipLevels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A67AFD4151E99F000CAA55B /* dropshipLevels.plist */; };
 		0A6DD3AD14D8F41200D6DB6D /* testWeapon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */; };
 		0A6DD3B014D8FE8A00D6DB6D /* BBShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */; };
 		0A6DD3B314DA409A00D6DB6D /* BBBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3B214DA409900D6DB6D /* BBBehavior.m */; };
@@ -424,6 +425,7 @@
 		0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropshipExplosion.plist; sourceTree = "<group>"; };
 		0A67AFD1151E84DE00CAA55B /* BBLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLogic.h; sourceTree = "<group>"; };
 		0A67AFD2151E84DF00CAA55B /* BBLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLogic.m; sourceTree = "<group>"; };
+		0A67AFD4151E99F000CAA55B /* dropshipLevels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropshipLevels.plist; sourceTree = "<group>"; };
 		0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWeapon.plist; sourceTree = "<group>"; };
 		0A6DD3AE14D8FE8A00D6DB6D /* BBShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShot.h; sourceTree = "<group>"; };
 		0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShot.m; sourceTree = "<group>"; };
@@ -980,6 +982,7 @@
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
 				34FB2AAC1516884100623BB4 /* enemySoldier.plist */,
 				0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */,
+				0A67AFD4151E99F000CAA55B /* dropshipLevels.plist */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -2172,6 +2175,7 @@
 				34FB2ACA15199F1B00623BB4 /* 99centIAP.png in Resources */,
 				34FB2ACC1519A8C300623BB4 /* IAPatip.png in Resources */,
 				0A67AFCE151E6F2300CAA55B /* dropshipExplosion.plist in Resources */,
+				0A67AFD5151E99F000CAA55B /* dropshipLevels.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

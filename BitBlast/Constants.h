@@ -28,6 +28,7 @@ typedef enum {
 #define kPlayerCollidePlatformNotification @"playerCollidePlatformNotification"
 #define kPlayerDeadNotification @"playerDeadNotification"
 #define kPlayerHealthNotification @"playerHealthNotification"
+#define kPlayerLevelIncreaseNotification @"playerLevelIncreaseNotification"
 
 #define kChunkAddedNotification @"chunkAddedNotification"
 #define kChunkCompletedNotification @"chunkCompletedNotification"
