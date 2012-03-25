@@ -80,10 +80,10 @@
 	
 	// only show buy button if player is able to buy item
 	if([[SettingsManager sharedSingleton] getInt:@"totalCoins"] < [[itemDictionary objectForKey:@"cost"] intValue]) {
-		[buyIt setVisible:NO];
+		[buyIt setEnabled:NO];
 	}
 	else {
-		[buyIt setVisible:YES];
+		[buyIt setEnabled:YES];
 	}
 }
 

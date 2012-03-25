@@ -56,6 +56,18 @@
     [self repositionLabel];
 }
 
+- (void) setVisible:(BOOL)visible {
+	[super setVisible:visible];
+	[normalImage setVisible:visible];
+	[selectedImage setVisible:visible];
+	[disabledImage setVisible:visible];
+}
+
+- (void) setEnabled:(BOOL)newEnabled {
+	[super setEnabled:newEnabled];
+	[self setState:kStateDisabled];
+}
+
 - (void) repositionLabel {
 	label.position = ccp(normalImage.contentSize.width/2, normalImage.contentSize.height/2);
 }
