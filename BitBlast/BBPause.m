@@ -22,7 +22,7 @@
 		[self addChild:uiSpriteBatch];
 		
 		// create new game label
-		CCLabelBMFont *newText = [CCLabelBMFont labelWithString:@"NEW GAME" fntFile:@"gamefont.fnt"];
+		CCLabelBMFont *newText = [CCLabelBMFont labelWithString:@"MAIN" fntFile:@"gamefont.fnt"];
 		newText.scale = 0.5;
 		
 		// create new game button

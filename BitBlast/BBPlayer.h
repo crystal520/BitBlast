@@ -19,6 +19,7 @@
 
 typedef enum {
 	kPlayerUnknown,
+	kPlayerIntro,
 	kPlayerRunning,
 	kPlayerBeginJump,
 	kPlayerMidJump,
@@ -59,6 +60,7 @@ typedef enum {
 - (void) setState:(PlayerState)newState;
 - (void) setWeaponAngle:(int)newAngle;
 // actions
+- (void) playIntro;
 - (void) checkCollisions;
 - (void) reset;
 - (void) die:(NSString*)reason;

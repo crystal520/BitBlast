@@ -71,7 +71,7 @@
 #pragma mark update
 - (void) update:(float)delta {
 	
-	if(state != kPlayerDead) {
+	if(state != kPlayerDead && state != kPlayerIntro) {
 		// apply jump
 		if(jumping) {
 			jumpTimer += delta;
@@ -103,6 +103,11 @@
 		
 		// post player update notification
 		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerUpdateNotification object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:delta] forKey:@"delta"]]];
+	}
+	else if(state == kPlayerIntro) {
+		[super update:delta];
+		// update torso position
+		[self updateTorso];
 	}
 }
 
@@ -181,6 +186,8 @@
 			case kPlayerDead:
 				[self stopAllActions];
 				break;
+			case kPlayerIntro:
+				break;
 			default:
 				break;
 		}
@@ -219,6 +226,56 @@
 
 #pragma mark -
 #pragma mark actions
+- (void) playIntro {
+	[self setState:kPlayerIntro];
+	
+	// player is unaffected by gravity during the intro
+	gravity = ccp(0, 0);
+	velocity = ccp(500, 0);
+	
+	// set these so we can jump out of the chopper
+	needsPlatformCollisions = NO;
+	touchingPlatform = YES;
+	
+	dummyPosition = ccp(-150, 500);
+	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
+	offsetNode.position = ccp(0, 0);
+	
+	// add to current chunk
+	[self.parent removeChild:self cleanup:NO];
+	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+	
+	// set the legs to the first frame of the run animation
+	CCAnimation *runAnim = [[CCAnimationCache sharedAnimationCache] animationByName:@"run"];
+	[sprite setDisplayFrame:[runAnim.frames objectAtIndex:[runAnim.frames count]-1]];
+	if(sprite.parent) {
+		[sprite.parent removeChild:sprite cleanup:YES];
+	}
+	[spriteBatch addChild:sprite];
+	
+	// jump out of the chopper after a certain amount of time
+	CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(jumpOutOfChopper)], nil];
+	[self runAction:action];
+}
+
+- (void) jumpOutOfChopper {
+	velocity = minVelocity;
+	// re-enable gravity
+	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
+	needsPlatformCollisions = YES;
+	[self jump];
+	// end the jump after a given amount of time
+	CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:0.25], [CCCallFunc actionWithTarget:self selector:@selector(endJump)], nil];
+	[self runAction:action];
+	// switch to game mode after a second
+	action = [CCSequence actions:[CCDelayTime actionWithDuration:1.25], [CCCallFunc actionWithTarget:self selector:@selector(gameOn)], nil];
+	[self runAction:action];
+}
+
+- (void) gameOn {
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
+}
+
 - (void) checkCollisions {
 	// check to see if player is colliding with any coins
 	NSArray *activeCoins = [[BBCoinManager sharedSingleton] getActiveCoins];
@@ -252,22 +309,15 @@
 }
 
 - (void) reset {
-	
 	// set initial values
-	[self setState:kPlayerRunning];
-	dummyPosition = ccp(100, 400);
-	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	offsetNode.position = ccp(0, 0);
-	velocity = minVelocity;
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
 	// reset health to starting value from plist
 	[self setHealth:[[dictionary objectForKey:@"health"] intValue]];
 	// keep track of previous total distance
 	previousTotalDistance = [[SettingsManager sharedSingleton] getInt:@"totalMeters"];
-	// add to current chunk
-	[self.parent removeChild:self cleanup:NO];
-	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+	[self playIntro];
 }
 
 - (void) die:(NSString*)reason {

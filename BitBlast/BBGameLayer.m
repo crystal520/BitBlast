@@ -81,6 +81,7 @@
 		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone) name:kPlayerOutOfChopperNotification object:nil];
 		
 		[[BBEquipmentManager sharedSingleton] equip:@"glider"];
 		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
@@ -160,19 +161,17 @@
 - (void) reset {
 	// reset session stats
 	[self resetSessionStats];
+	
 	// listen for touches
 	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:YES];
 	self.isTouchEnabled = YES;
+	
 	// add hud to screen
 	[self addChild:hud z:DEPTH_MENU];
-	state = kStateGame;
-	scrollingNode.position = ccp(0, [ResolutionManager sharedSingleton].size.height * 0.5);
-	[parallax reset];
-	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
-	[player reset];
+	[followNode stopAllActions];
+	[scrollingNode removeChild:followNode cleanup:YES];
+	followNode = player;
 	[self updateCamera];
-	[self scheduleUpdate];
-	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
 	
 	// start up game logic
 	[[BBLogic sharedSingleton] setEnabled:YES];
@@ -200,6 +199,7 @@
 	
 	// update game
 	if(state == kStateGame) {
+		[chopper update:delta];
 		[[ChunkManager sharedSingleton] update:delta];
 		[player update:delta];
 		[[BulletManager sharedSingleton] update:delta];
@@ -209,6 +209,13 @@
 		[self updateCamera];
 		[hud update:delta];
 	}
+	else if(state == kStateIntro) {
+		[chopper update:delta];
+		[[ChunkManager sharedSingleton] update:delta];
+		[player update:delta];
+		[[BulletManager sharedSingleton] update:delta];
+		[self updateCamera];
+	}
 }
 
 - (void) updateCamera {
@@ -216,7 +223,7 @@
 	// keep track of node's previous position
 	float prevPos = scrollingNode.position.x;
 	// convert player's y position to screen space
-	CGPoint currentPlayerScreenPosition = [player convertToWorldSpace:CGPointZero];
+	CGPoint currentPlayerScreenPosition = [followNode convertToWorldSpace:CGPointZero];
 	
 	float yOffset = 0;
 	// check to see if player is too close to the top of the screen
@@ -229,7 +236,7 @@
 		yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
 	}
 	
-	CGPoint newPos = ccp(-1 * player.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
+	CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
     
     // make sure newPos's y coordinate is not less than the current chunk's lowest point
     if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
@@ -242,6 +249,42 @@
 
 #pragma mark -
 #pragma mark actions
+- (void) playIntro {
+	// create chopper for intro animation
+	[self killChopper];
+	chopper = [BBChopper new];
+	[scrollingNode addChild:chopper z:-1];
+	
+	// reset level
+	scrollingNode.position = ccp(0, 0);
+	[parallax reset];
+	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
+	[player reset];
+	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
+	[self scheduleUpdate];
+	
+	// make node for camera to follow during intro
+	followNode = [CCNode node];
+	[scrollingNode addChild:followNode];
+	followNode.position = ccpMult(ccp(258, 340), [ResolutionManager sharedSingleton].positionScale);;
+	CCAction *move = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:2 position:ccp((int)player.minVelocity.x, 0)]];
+	[followNode runAction:move];
+	
+	// kill chopper after a certain amount of time
+	[[CCScheduler sharedScheduler] scheduleSelector:@selector(killChopper) forTarget:self interval:5 paused:NO];
+}
+
+- (void) killChopper {
+	if(state != kStatePause) {
+		[[CCScheduler sharedScheduler] unscheduleSelector:@selector(killChopper) forTarget:self];
+		if(chopper) {
+			[scrollingNode removeChild:chopper cleanup:YES];
+			[chopper release];
+			chopper = nil;
+		}
+	}
+}
+
 - (void) finishGame {
 	// update achievements
 	[[GameCenter sharedSingleton] checkStatAchievements];
@@ -371,7 +414,8 @@
 
 - (void) startGame {
 	[self removeChild:mainMenu cleanup:YES];
-	[self reset];
+	state = kStateIntro;
+	[self playIntro];
 }
 
 - (void) restartGame {
@@ -382,7 +426,8 @@
 	else if(state == kStateGameOver) {
 		[self removeChild:gameOver cleanup:YES];
 	}
-	[self reset];
+	state = kStateIntro;
+	[self playIntro];
 }
 
 - (void) resumeGame {
@@ -450,6 +495,11 @@
 		state = kStateShop;
 		[self removeChild:confirmBuy cleanup:YES];
 	}
+}
+
+- (void) introDone {
+	state = kStateGame;
+	[self reset];
 }
 
 @end
