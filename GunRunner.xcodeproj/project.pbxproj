@@ -49,6 +49,8 @@
 		0A67AFCE151E6F2300CAA55B /* dropshipExplosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */; };
 		0A67AFD3151E84E100CAA55B /* BBLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67AFD2151E84DF00CAA55B /* BBLogic.m */; };
 		0A67AFD5151E99F000CAA55B /* dropshipLevels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A67AFD4151E99F000CAA55B /* dropshipLevels.plist */; };
+		0A67AFD8151EB22600CAA55B /* BBChopper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A67AFD7151EB22300CAA55B /* BBChopper.m */; };
+		0A67AFDA151EB3AB00CAA55B /* chopper.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A67AFD9151EB3AB00CAA55B /* chopper.plist */; };
 		0A6DD3AD14D8F41200D6DB6D /* testWeapon.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */; };
 		0A6DD3B014D8FE8A00D6DB6D /* BBShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */; };
 		0A6DD3B314DA409A00D6DB6D /* BBBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6DD3B214DA409900D6DB6D /* BBBehavior.m */; };
@@ -296,9 +298,6 @@
 		34BBAC1914FDDB0300154CE9 /* chunk7.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1414FDDB0300154CE9 /* chunk7.tmx */; };
 		34BBAC1A14FDDB0300154CE9 /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1514FDDB0300154CE9 /* chunk5.tmx */; };
 		34BBAC1D14FE0CDE00154CE9 /* chunk10.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */; };
-		34D60373151FA81700AF842F /* 3shot1_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D60370151FA81700AF842F /* 3shot1_bullet.plist */; };
-		34D60378151FA82700AF842F /* 3shot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D60377151FA82700AF842F /* 3shot.plist */; };
-		34D6037C151FC5BA00AF842F /* wavemotionparticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D6037B151FC5BA00AF842F /* wavemotionparticle.plist */; };
 		34FB2A1A1513C23900623BB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A171513C23900623BB4 /* Default@2x.png */; };
 		34FB2A1B1513C23900623BB4 /* Default-LandscapeLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A181513C23900623BB4 /* Default-LandscapeLeft.png */; };
 		34FB2A1C1513C23900623BB4 /* Default-LandscapeLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A191513C23900623BB4 /* Default-LandscapeLeft@2x.png */; };
@@ -429,6 +428,9 @@
 		0A67AFD1151E84DE00CAA55B /* BBLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLogic.h; sourceTree = "<group>"; };
 		0A67AFD2151E84DF00CAA55B /* BBLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBLogic.m; sourceTree = "<group>"; };
 		0A67AFD4151E99F000CAA55B /* dropshipLevels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropshipLevels.plist; sourceTree = "<group>"; };
+		0A67AFD6151EB22100CAA55B /* BBChopper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBChopper.h; sourceTree = "<group>"; };
+		0A67AFD7151EB22300CAA55B /* BBChopper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBChopper.m; sourceTree = "<group>"; };
+		0A67AFD9151EB3AB00CAA55B /* chopper.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chopper.plist; sourceTree = "<group>"; };
 		0A6DD3AC14D8F41200D6DB6D /* testWeapon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWeapon.plist; sourceTree = "<group>"; };
 		0A6DD3AE14D8FE8A00D6DB6D /* BBShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShot.h; sourceTree = "<group>"; };
 		0A6DD3AF14D8FE8A00D6DB6D /* BBShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShot.m; sourceTree = "<group>"; };
@@ -864,9 +866,6 @@
 		34BBAC1414FDDB0300154CE9 /* chunk7.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk7.tmx; path = Resources/chunk7.tmx; sourceTree = "<group>"; };
 		34BBAC1514FDDB0300154CE9 /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
 		34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk10.tmx; path = Resources/chunk10.tmx; sourceTree = "<group>"; };
-		34D60370151FA81700AF842F /* 3shot1_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3shot1_bullet.plist; sourceTree = "<group>"; };
-		34D60377151FA82700AF842F /* 3shot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3shot.plist; sourceTree = "<group>"; };
-		34D6037B151FC5BA00AF842F /* wavemotionparticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = wavemotionparticle.plist; path = Resources/Particles/wavemotionparticle.plist; sourceTree = "<group>"; };
 		34FB2A171513C23900623BB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		34FB2A181513C23900623BB4 /* Default-LandscapeLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-LandscapeLeft.png"; path = "Resources/Default-LandscapeLeft.png"; sourceTree = "<group>"; };
 		34FB2A191513C23900623BB4 /* Default-LandscapeLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-LandscapeLeft@2x.png"; path = "Resources/Default-LandscapeLeft@2x.png"; sourceTree = "<group>"; };
@@ -1059,6 +1058,8 @@
 				0A42830B15158C9000E35219 /* IAPManager.m */,
 				0A67AFD1151E84DE00CAA55B /* BBLogic.h */,
 				0A67AFD2151E84DF00CAA55B /* BBLogic.m */,
+				0A67AFD6151EB22100CAA55B /* BBChopper.h */,
+				0A67AFD7151EB22300CAA55B /* BBChopper.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1074,8 +1075,6 @@
 		0A1EC4AD14A02EFD005A7ED6 /* Guns */ = {
 			isa = PBXGroup;
 			children = (
-				34D60377151FA82700AF842F /* 3shot.plist */,
-				34D60370151FA81700AF842F /* 3shot1_bullet.plist */,
 				3428FF2714E639D700184E31 /* pistol_bullet.plist */,
 				3428FF2914E639F500184E31 /* pistol.plist */,
 				34FB2A351513DFF600623BB4 /* burstshot.plist */,
@@ -1178,7 +1177,6 @@
 				34FB2AB91516C14B00623BB4 /* machinegunparticle.png */,
 				34FB2ABF1516CF2500623BB4 /* gattlingunparticle.plist */,
 				34FB2AC11516D9D400623BB4 /* wavegunParticle.plist */,
-				34D6037B151FC5BA00AF842F /* wavemotionparticle.plist */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -1949,6 +1947,7 @@
 			isa = PBXGroup;
 			children = (
 				0AC723A214985F4F000E9412 /* playerProperties.plist */,
+				0A67AFD9151EB3AB00CAA55B /* chopper.plist */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -2185,9 +2184,7 @@
 				34FB2ACC1519A8C300623BB4 /* IAPatip.png in Resources */,
 				0A67AFCE151E6F2300CAA55B /* dropshipExplosion.plist in Resources */,
 				0A67AFD5151E99F000CAA55B /* dropshipLevels.plist in Resources */,
-				34D60373151FA81700AF842F /* 3shot1_bullet.plist in Resources */,
-				34D60378151FA82700AF842F /* 3shot.plist in Resources */,
-				34D6037C151FC5BA00AF842F /* wavemotionparticle.plist in Resources */,
+				0A67AFDA151EB3AB00CAA55B /* chopper.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2382,6 +2379,7 @@
 				0A4283131516505100E35219 /* BBIAPItem.m in Sources */,
 				0A2FC97B15197977005FDF5F /* BBPause.m in Sources */,
 				0A67AFD3151E84E100CAA55B /* BBLogic.m in Sources */,
+				0A67AFD8151EB22600CAA55B /* BBChopper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

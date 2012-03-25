@@ -28,10 +28,12 @@
 #import "SimpleAudioEngine.h"
 #import "BBPause.h"
 #import "BBLogic.h"
+#import "BBChopper.h"
 
 typedef enum {
 	kStateMainMenu,
 	kStateGameOver,
+	kStateIntro,
 	kStateGame,
 	kStateShop,
 	kStateConfirmBuy,
@@ -57,6 +59,8 @@ typedef enum {
 	CCSprite *background;
 	// iCade support view
 	iCadeReaderView *iCadeView;
+	// chopper for intro
+	BBChopper *chopper;
 	// screens
 	BBHud *hud;
 	BBGameOver *gameOver;
@@ -65,6 +69,8 @@ typedef enum {
 	BBConfirmBuy *confirmBuy;
 	BBLeaderboards *leaderboards;
 	BBPause *pause;
+	// node that the camera follows
+	CCNode *followNode;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child
@@ -78,6 +84,8 @@ typedef enum {
 - (void) reset;
 - (void) resetSessionStats;
 // actions
+- (void) playIntro;
+- (void) killChopper;
 - (void) finishGame;
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
