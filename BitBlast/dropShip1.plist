@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>health</key>
-	<integer>100</integer>
+	<integer>150</integer>
 	<key>animations</key>
 	<array>
 		<dict>
