@@ -29,6 +29,11 @@
 		// create new game label
 		CCLabelBMFont *newText = [CCLabelBMFont labelWithString:@"MAIN" fntFile:@"gamefont.fnt"];
 		newText.scale = 0.5;
+        
+        // create gGamePause label
+		CCLabelBMFont *gamePaused = [CCLabelBMFont labelWithString:@"GAME PAUSED" fntFile:@"gamefont.fnt"];
+		gamePaused.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+		[self addChild:gamePaused];
         		
 		// create new game button
 		CCLabelButton *new = [CCLabelButton buttonWithLabel:newText normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(newGame)];
