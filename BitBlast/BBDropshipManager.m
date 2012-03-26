@@ -44,6 +44,9 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelWillLoad) name:kLoadLevelNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(increaseLevel) name:kPlayerLevelIncreaseNotification object:nil];
+		// explosions!
+		explosionManager = [BBExplosionManager new];
+		[explosionManager setNode:self];
 	}
 	return self;
 }
@@ -119,6 +122,9 @@
 			// check for collision
 			if(b.enabled && d.enabled && [d getCollidesWith:b]) {
 				[d hitByBullet:b];
+				if(!d.alive) {
+					[explosionManager explodeInObject:d number:5];
+				}
 				[b setEnabled:NO];
 			}
 		}
@@ -153,6 +159,7 @@
 		}
 		
 		if(numChecks > 0) {
+			[explosionManager stopExploding:newDropship];
 			[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
 		}
 	}

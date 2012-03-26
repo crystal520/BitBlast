@@ -184,11 +184,10 @@
 				[self playAnimation:@"endJump" target:self selector:@selector(endJumpAnimation)];
 				break;
 			case kPlayerDead:
-				// disable weapons
-				[[BBWeaponManager sharedSingleton] setEnabled:NO];
 				[self stopAllActions];
 				break;
 			case kPlayerIntro:
+				[[BBWeaponManager sharedSingleton] setEnabled:NO];
 				break;
 			default:
 				break;

@@ -38,6 +38,9 @@
 	[identifier setString:filename];
 	
 	// create shots from dictionary
+	if(shots) {
+		[shots release];
+	}
 	shots = [NSMutableArray new];
 	NSArray *dictShots = [NSArray arrayWithArray:[dict objectForKey:@"shots"]];
 	for(NSString *plist in dictShots) {
@@ -46,6 +49,9 @@
 		[shot release];
 	}
 	// create lasers from dictionary
+	if(lasers) {
+		[lasers release];
+	}
 	lasers = [NSMutableArray new];
 	NSArray *dictLasers = [NSArray arrayWithArray:[dict objectForKey:@"lasers"]];
 	for(NSString *plist in dictLasers) {
@@ -135,6 +141,14 @@
 	// update each laser
 	for(BBLaser *l in lasers) {
 		[l update:delta];
+	}
+}
+
+#pragma mark -
+#pragma mark actions
+- (void) clearLasers {
+	for(BBLaser *l in lasers) {
+		[l clearBullets];
 	}
 }
 

@@ -11,6 +11,7 @@
 #import "BBDropship.h"
 #import "BulletManager.h"
 #import "ChunkManager.h"
+#import "BBExplosionManager.h"
 
 #define MAX_DROPSHIPS 3
 
@@ -27,6 +28,8 @@
 	int dropshipLevel;
 	// array of dropship levels
 	NSArray *dropshipLevels;
+	// explosions!
+	BBExplosionManager *explosionManager;
 }
 
 @property (nonatomic, assign) int dropshipLevel;

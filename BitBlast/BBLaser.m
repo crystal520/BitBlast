@@ -111,4 +111,13 @@
 	}
 }
 
+#pragma mark -
+#pragma mark actions
+- (void) clearBullets {
+	for(BBBullet *b in lasers) {
+		b.indestructible = NO;
+		[b setEnabled:NO];
+	}
+}
+
 @end

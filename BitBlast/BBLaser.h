@@ -38,5 +38,7 @@
 - (void) setPosition:(CGPoint)newPosition;
 // update
 - (void) update:(float)delta;
+// actions
+- (void) clearBullets;
 
 @end

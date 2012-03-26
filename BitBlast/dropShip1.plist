@@ -9,21 +9,6 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>orange_smoke.png</string>
-				<string>orange_smoke2.png</string>
-				<string>orange_smoke3.png</string>
-				<string>orange_smoke4.png</string>
-				<string>orange_smoke5.png</string>
-				<string>orange_smoke6.png</string>
-			</array>
-			<key>name</key>
-			<string>death</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-		<dict>
-			<key>frames</key>
-			<array>
 				<string>dropship_1.png</string>
 				<string>dropship_1_2.png</string>
 			</array>

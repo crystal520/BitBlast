@@ -41,6 +41,7 @@
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kGameRestartNotification object:nil];
 	}
 	
 	return self;
@@ -106,6 +107,13 @@
 		if(!b.recycle) {
 			[b.sprite stopAllActions];
 		}
+	}
+}
+
+- (void) newGame {
+	// loop through bullets and kill them all
+	for(BBBullet *b in bullets) {
+		[b setEnabled:NO];
 	}
 }
 

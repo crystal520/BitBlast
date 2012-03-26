@@ -78,6 +78,8 @@
 - (void) unequip:(NSString*)oldWeapon {
 	for(BBWeapon *w in weapons) {
 		if([w.identifier isEqualToString:oldWeapon]) {
+			[w setEnabled:NO];
+			[w clearLasers];
 			[weapons removeObject:w];
 			break;
 		}
