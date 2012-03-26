@@ -25,6 +25,7 @@
 			<key>frames</key>
 			<array>
 				<string>dropship_2.png</string>
+				<string>dropship_2_2.png</string>
 			</array>
 			<key>name</key>
 			<string>walk</string>
@@ -64,7 +65,7 @@
 	<key>offsetMiddle</key>
 	<dict>
 		<key>x</key>
-		<integer>500</integer>
+		<integer>-300</integer>
 		<key>y</key>
 		<integer>100</integer>
 	</dict>
