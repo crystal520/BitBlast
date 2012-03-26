@@ -41,8 +41,7 @@
 	<string>uiatlas.plist</string>
 	<key>enemyTypes</key>
 	<array>
-		<string>testEnemy</string>
-		<string>testEnemy2</string>
+		<string>enemySoldier</string>
 	</array>
 	<key>boundingBox</key>
 	<dict>

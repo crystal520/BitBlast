@@ -48,7 +48,7 @@
 	<key>speed</key>
 	<dict>
 		<key>x</key>
-		<integer>-100</integer>
+		<integer>-150</integer>
 		<key>y</key>
 		<integer>0</integer>
 	</dict>

@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>spawnRate</key>
-	<integer>1</integer>
+	<real>0.8</real>
 	<key>image</key>
 	<string>uiatlas.png</string>
 	<key>plist</key>
@@ -42,7 +42,7 @@
 	<key>enemyTypes</key>
 	<array>
 		<string>testEnemy</string>
-		<string>testEnemy2</string>
+		<string>enemyBird</string>
 	</array>
 	<key>boundingBox</key>
 	<dict>
