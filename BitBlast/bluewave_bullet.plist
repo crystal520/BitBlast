@@ -112,7 +112,7 @@
 	<key>minSpeed</key>
 	<integer>600</integer>
 	<key>rateOfFire</key>
-	<real>0.5</real>
+	<real>0.85</real>
 	<key>sprite</key>
 	<string>bluewave.png</string>
 	<key>boundingBox</key>

@@ -298,6 +298,7 @@
 		34BBAC1914FDDB0300154CE9 /* chunk7.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1414FDDB0300154CE9 /* chunk7.tmx */; };
 		34BBAC1A14FDDB0300154CE9 /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1514FDDB0300154CE9 /* chunk5.tmx */; };
 		34BBAC1D14FE0CDE00154CE9 /* chunk10.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */; };
+		34D60382151FE63C00AF842F /* wavemotionparticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D60381151FE63C00AF842F /* wavemotionparticle.plist */; };
 		34FB2A1A1513C23900623BB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A171513C23900623BB4 /* Default@2x.png */; };
 		34FB2A1B1513C23900623BB4 /* Default-LandscapeLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A181513C23900623BB4 /* Default-LandscapeLeft.png */; };
 		34FB2A1C1513C23900623BB4 /* Default-LandscapeLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A191513C23900623BB4 /* Default-LandscapeLeft@2x.png */; };
@@ -866,6 +867,7 @@
 		34BBAC1414FDDB0300154CE9 /* chunk7.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk7.tmx; path = Resources/chunk7.tmx; sourceTree = "<group>"; };
 		34BBAC1514FDDB0300154CE9 /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
 		34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk10.tmx; path = Resources/chunk10.tmx; sourceTree = "<group>"; };
+		34D60381151FE63C00AF842F /* wavemotionparticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = wavemotionparticle.plist; path = Resources/Particles/wavemotionparticle.plist; sourceTree = "<group>"; };
 		34FB2A171513C23900623BB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		34FB2A181513C23900623BB4 /* Default-LandscapeLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-LandscapeLeft.png"; path = "Resources/Default-LandscapeLeft.png"; sourceTree = "<group>"; };
 		34FB2A191513C23900623BB4 /* Default-LandscapeLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-LandscapeLeft@2x.png"; path = "Resources/Default-LandscapeLeft@2x.png"; sourceTree = "<group>"; };
@@ -1177,6 +1179,7 @@
 				34FB2AB91516C14B00623BB4 /* machinegunparticle.png */,
 				34FB2ABF1516CF2500623BB4 /* gattlingunparticle.plist */,
 				34FB2AC11516D9D400623BB4 /* wavegunParticle.plist */,
+				34D60381151FE63C00AF842F /* wavemotionparticle.plist */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -2185,6 +2188,7 @@
 				0A67AFCE151E6F2300CAA55B /* dropshipExplosion.plist in Resources */,
 				0A67AFD5151E99F000CAA55B /* dropshipLevels.plist in Resources */,
 				0A67AFDA151EB3AB00CAA55B /* chopper.plist in Resources */,
+				34D60382151FE63C00AF842F /* wavemotionparticle.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

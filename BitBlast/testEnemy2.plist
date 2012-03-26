@@ -42,7 +42,7 @@
 	<key>tileCenterOffset</key>
 	<integer>14</integer>
 	<key>health</key>
-	<real>2.5</real>
+	<integer>10</integer>
 	<key>gravity</key>
 	<integer>40</integer>
 	<key>speed</key>
