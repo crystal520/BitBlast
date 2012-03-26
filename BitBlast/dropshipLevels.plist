@@ -31,7 +31,7 @@
 		<dict>
 			<key>ships</key>
 			<array>
-				<string>testDropship</string>
+				<string>dropShip1</string>
 			</array>
 			<key>maxShipsOnScreen</key>
 			<integer>1</integer>
@@ -40,7 +40,6 @@
 			<key>ships</key>
 			<array>
 				<string>testDropship</string>
-				<string>dropShip1</string>
 				<string>dropShip2</string>
 			</array>
 			<key>maxShipsOnScreen</key>
@@ -51,7 +50,6 @@
 			<array>
 				<string>testDropship</string>
 				<string>dropShip1</string>
-				<string>dropShip2</string>
 			</array>
 			<key>maxShipsOnScreen</key>
 			<integer>2</integer>
