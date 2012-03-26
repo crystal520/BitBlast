@@ -184,6 +184,8 @@
 				[self playAnimation:@"endJump" target:self selector:@selector(endJumpAnimation)];
 				break;
 			case kPlayerDead:
+				// disable weapons
+				[[BBWeaponManager sharedSingleton] setEnabled:NO];
 				[self stopAllActions];
 				break;
 			case kPlayerIntro:
@@ -197,6 +199,15 @@
 }
 
 - (void) setWeaponAngle:(int)newAngle {
+	BOOL laserEquipped = NO;
+	// update weapons with new angle
+	for(BBWeapon *w in [BBWeaponManager sharedSingleton].weapons) {
+		if([w.identifier isEqualToString:@"ultraLaser"]) {
+			laserEquipped = YES;
+			newAngle = 0;
+		}
+		[w setAngle:newAngle];
+	}
 	// update torso image based on new angle
 	if(newAngle > 0) {
 		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_up.png"]];
@@ -206,10 +217,6 @@
 	}
 	else {
 		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso.png"]];
-	}
-	// update weapons with new angle
-	for(BBWeapon *w in [BBWeaponManager sharedSingleton].weapons) {
-		[w setAngle:newAngle];
 	}
 }
 
@@ -274,6 +281,9 @@
 
 - (void) gameOn {
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
+	
+	// enable weapons
+	[[BBWeaponManager sharedSingleton] setEnabled:YES];
 }
 
 - (void) checkCollisions {

@@ -47,7 +47,7 @@
 
 - (void) newGame {
 	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kGameRestartNotification object:nil]];
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
 }
 
 - (void) resumeGame {

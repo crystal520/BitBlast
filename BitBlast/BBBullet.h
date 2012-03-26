@@ -19,9 +19,12 @@
 	BOOL recycle;
 	// if the bullet is enabled or not
 	BOOL enabled;
+	// whether this bullet should always be alive
+	BOOL indestructible;
 }
 
 @property (nonatomic, readonly) BOOL recycle, enabled;
+@property (nonatomic, assign) BOOL indestructible;
 @property (nonatomic, assign) float lifeTimer;
 @property (nonatomic, assign) float damage;
 

@@ -11,7 +11,7 @@
 
 @implementation BBBullet
 
-@synthesize recycle, enabled, lifeTimer, damage;
+@synthesize recycle, enabled, lifeTimer, damage, indestructible;
 
 - (id) init {
 	if((self = [super init])) {
@@ -55,7 +55,7 @@
 #pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
-	if(enabled && !newEnabled) {
+	if(enabled && !newEnabled && !indestructible) {
 		recycle = YES;
 		self.visible = NO;
 		[sprite stopAllActions];

@@ -49,11 +49,19 @@
 }
 
 #pragma mark -
+#pragma mark setters
+- (void) setEnabled:(BOOL)newEnabled {
+	for(BBWeapon *w in weapons) {
+		[w setEnabled:newEnabled];
+	}
+}
+
+#pragma mark -
 #pragma mark actions
 - (void) equip:(NSString*)newWeapon {
 	BBWeapon *w = [BBWeapon new];
 	[w loadFromFile:newWeapon];
-	[w setEnabled:YES];
+	//[w setEnabled:YES];
 	[weapons addObject:w];
 	[w release];
 	

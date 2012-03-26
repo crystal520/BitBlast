@@ -28,6 +28,7 @@
 - (id) init {
 	if((self = [super init])) {
 		
+		[[SettingsManager sharedSingleton] setInteger:1000000 keyString:@"totalCoins"];
 #ifdef DEBUG_NO_SOUND
 		[[SimpleAudioEngine sharedEngine] setMute:YES];
 #endif
@@ -453,6 +454,10 @@
 	}
 	else if(state == kStateLeaderboards) {
 		[self removeChild:leaderboards cleanup:YES];
+	}
+	else if(state == kStatePause) {
+		[self finishGame];
+		[self removeChild:pause cleanup:YES];
 	}
 	
 	state = kStateMainMenu;

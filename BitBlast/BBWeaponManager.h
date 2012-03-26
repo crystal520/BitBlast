@@ -18,6 +18,8 @@
 @property (nonatomic, readonly) NSMutableSet *weapons;
 
 + (BBWeaponManager*) sharedSingleton;
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 // actions
 - (void) equip:(NSString*)newWeapon;
 - (void) unequip:(NSString*)oldWeapon;

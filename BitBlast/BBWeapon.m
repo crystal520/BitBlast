@@ -35,6 +35,7 @@
 	downAngle = [[dict objectForKey:@"downAngle"] floatValue];
 	// set default angle
 	[self setAngle:0];
+	[identifier setString:filename];
 	
 	// create shots from dictionary
 	shots = [NSMutableArray new];

@@ -46,12 +46,15 @@
 		for(int i=0,j=[angles count];i<j;i++) {
 			BBBullet *laser = [[BulletManager sharedSingleton] getRecycledBullet];
 			[laser resetWithPosition:ccp(0,0) velocity:ccp(0,0) lifetime:100 graphic:sprite];
+			laser.visible = NO;
+			laser.indestructible = YES;
 			// set tex params so it repeats horizontally
 			ccTexParams params = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
 			[laser.sprite.texture setTexParameters:&params];
 			// set size equal to the width of the screen
 			CGRect texRect = laser.sprite.textureRect;
 			laser.sprite.textureRect = CGRectMake(texRect.origin.x, texRect.origin.y, [ResolutionManager sharedSingleton].size.width, texRect.size.height);
+			laser.boundingBox = CGRectMake(0, 0, [ResolutionManager sharedSingleton].size.width, texRect.size.height);
 			// set anchor point so it starts at the end of the gun
 			laser.sprite.anchorPoint = ccp(0, 0.5);
 			// set blend function if needed
@@ -81,6 +84,9 @@
 
 - (void) setEnabled:(BOOL)newEnable {
 	enabled = newEnable;
+	for(BBBullet *b in lasers) {
+		b.visible = newEnable;
+	}
 }
 
 - (void) setPosition:(CGPoint)newPosition {
@@ -96,6 +102,7 @@
 			BBBullet *laser = [lasers objectAtIndex:i];
 			// make sure laser never "dies"
 			laser.lifeTimer = 0;
+			[laser setEnabled:YES];
 			// set laser's position
 			laser.dummyPosition = position;
 			// set angle based on this laser's angle and the angles array
