@@ -28,7 +28,7 @@
 - (id) init {
 	if((self = [super init])) {
 		
-		[[SettingsManager sharedSingleton] setInteger:1000000 keyString:@"totalCoins"];
+//		[[SettingsManager sharedSingleton] setInteger:0 keyString:@"totalCoins"];
 #ifdef DEBUG_NO_SOUND
 		[[SimpleAudioEngine sharedEngine] setMute:YES];
 #endif
