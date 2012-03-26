@@ -34,30 +34,30 @@
 		// create distance label
 		distanceLabel = [CCLabelBMFont labelWithString:@"YOU RAN: 1234567890" fntFile:@"gamefont.fnt"];
 		distanceLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.66);
-		distanceLabel.scale = 0.3;
+		distanceLabel.scale = 0.4;
 		distanceLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:distanceLabel];
 		
 		// create kills label
 		killLabel = [CCLabelBMFont labelWithString:@"KILLS: 1234567890" fntFile:@"gamefont.fnt"];
 		killLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.59);
-		killLabel.scale = 0.3;
+		killLabel.scale = 0.4;
 		killLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:killLabel];
 		
 		// create multiplier label
 		multiplierLabel = [CCLabelBMFont labelWithString:@"MULTIPLIER: 4x" fntFile:@"gamefont.fnt"];
 		multiplierLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.52);
-		multiplierLabel.scale = 0.3;
+		multiplierLabel.scale = 0.4;
 		multiplierLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:multiplierLabel];
 		
 		// create score label
-		scoreLabel = [CCLabelBMFont labelWithString:@"SCORE: 1234567890" fntFile:@"gamefont.fnt"];
+		/*scoreLabel = [CCLabelBMFont labelWithString:@"SCORE: 1234567890" fntFile:@"gamefont.fnt"];
 		scoreLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.40);
 		scoreLabel.scale = 0.5;
 		scoreLabel.anchorPoint = ccp(0, 0.5);
-		[self addChild:scoreLabel];
+		[self addChild:scoreLabel];*/
 		
 		
 		//////////////////////////////////////////// MENU ////////////////////////////////////////////
