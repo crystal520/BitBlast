@@ -40,7 +40,7 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>7000</string>
+		<string>1000</string>
 		<key>description</key>
 		<string>3 rapid shots in a row</string>
 		<key>icon</key>

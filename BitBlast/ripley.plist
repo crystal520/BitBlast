@@ -39,7 +39,7 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>75246</string>
+		<string>75000</string>
 		<key>description</key>
 		<string>Flame + Machinegun</string>
 		<key>icon</key>
