@@ -65,7 +65,12 @@
 
 - (void) setEnabled:(BOOL)newEnabled {
 	[super setEnabled:newEnabled];
-	[self setState:kStateDisabled];
+	if(newEnabled) {
+		[self setState:kStateUp];
+	}
+	else {
+		[self setState:kStateDisabled];
+	}
 }
 
 - (void) repositionLabel {

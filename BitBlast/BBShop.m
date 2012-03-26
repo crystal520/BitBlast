@@ -110,14 +110,14 @@
 	else if(!isEnabled && shopScroller.isTouchEnabled) {
 		[shopScroller onExit];
 	}
+	// update current funds
+	[coins setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 
 - (void) onEnter {
 	[super onEnter];
 	[self setupIAP];
 	[self setEnabled:YES];
-	// update current funds
-	[coins setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 
 #pragma mark -
