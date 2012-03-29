@@ -83,16 +83,10 @@
 	return self;
 }
 
-- (void) dealloc {
-	[playerCash release];
-	[super dealloc];
-}
-
 - (void) onEnter {
 	[super onEnter];
 	// update player's money dollars
 	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
-															
 }
 
 - (void) play {

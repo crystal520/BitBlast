@@ -87,24 +87,8 @@
 		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
 		
 		// set initial state
-		state = kStateMainMenu;
-		
-		// HUD overlay
-		hud = [[BBHud alloc] init];
-		// game over screen
-		gameOver = [[BBGameOver alloc] init];
-		// shop
-		shop = [[BBShop alloc] init];
-		// confirm buy screen
-		confirmBuy = [[BBConfirmBuy alloc] init];
-		// pause screen
-		pause = [[BBPause alloc] init];
-		// main menu screen
-		mainMenu = [[BBMainMenu alloc] init];
-		// leaderboards
-		leaderboards = [[BBLeaderboards alloc] init];
-		[self addChild:mainMenu z:DEPTH_MENU];
-		[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
+		state = kStateUnknown;
+		[self setState:kStateMainMenu];
 		
 #ifdef DEBUG_TEXTURES
 		debugButton = [CCSprite spriteWithFile:@"white.png"];
@@ -122,15 +106,8 @@
 	
 	[self removeAllChildrenWithCleanup:YES];
 	[scrollingNode release];
-	[hud release];
 	[player release];
 	[parallax release];
-	[gameOver release];
-	[shop release];
-	[confirmBuy release];
-	[mainMenu release];
-	[leaderboards release];
-	[pause release];
 	[super dealloc];
 }
 
@@ -167,7 +144,7 @@
 	self.isTouchEnabled = YES;
 	
 	// add hud to screen
-	[self addChild:hud z:DEPTH_MENU];
+	//[self addChild:hud z:DEPTH_MENU];
 	[followNode stopAllActions];
 	[scrollingNode removeChild:followNode cleanup:YES];
 	followNode = player;
@@ -207,7 +184,7 @@
 		[[BBDropshipManager sharedSingleton] update:delta];
 		[[BBCoinManager sharedSingleton] update:delta];
 		[self updateCamera];
-		[hud update:delta];
+		[(BBHud*)([self getChildByTag:TAG_MENU]) update:delta];
 	}
 	else if(state == kStateIntro) {
 		[chopper update:delta];
@@ -293,8 +270,16 @@
 	// stop listening for touches
 	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
 	// remove hud
-	[self removeChild:hud cleanup:YES];
+	//[self removeChild:hud cleanup:YES];
 	[self unscheduleUpdate];
+}
+
+- (void) clearMenuWithTag:(SpriteTag)tag {
+	// clean up old menu node
+	CCNode *oldMenu = [self getChildByTag:tag];
+	[self removeChild:oldMenu cleanup:YES];
+	[oldMenu release];
+	oldMenu = nil;
 }
 
 #pragma mark -
@@ -307,6 +292,76 @@
 	ccColor3B bgColor = ccc3([[colorArray objectAtIndex:0] floatValue], [[colorArray objectAtIndex:1] floatValue], [[colorArray objectAtIndex:2] floatValue]);
 	// set color
 	background.color = bgColor;
+}
+
+- (void) setState:(GameState)newState {
+	if(newState != state) {
+		CCNode *newMenu = nil;
+		switch (newState) {
+			case kStateMainMenu:
+				if(state == kStatePause) {
+					[self finishGame];
+				}
+				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
+				[self clearMenuWithTag:TAG_MENU];
+				newMenu = [[BBMainMenu alloc] init];
+				newMenu.tag = TAG_MENU;
+				break;
+			case kStateGame:
+				if(state == kStatePause) {
+					[self clearMenuWithTag:TAG_POPUP];
+				}
+				else {
+					[self reset];
+					[self clearMenuWithTag:TAG_MENU];
+					newMenu = [[BBHud alloc] init];
+					newMenu.tag = TAG_MENU;
+				}
+				break;
+			case kStateShop:
+				if(state == kStateConfirmBuy) {
+					[self clearMenuWithTag:TAG_POPUP];
+				}
+				else {
+					[self clearMenuWithTag:TAG_POPUP];
+					[self clearMenuWithTag:TAG_MENU];
+					newMenu = [[BBShop alloc] init];
+					newMenu.tag = TAG_MENU;
+				}
+				break;
+			case kStateConfirmBuy:
+				newMenu = [[BBConfirmBuy alloc] init];
+				newMenu.tag = TAG_POPUP;
+				break;
+			case kStatePause:
+				newMenu = [[BBPause alloc] init];
+				newMenu.tag = TAG_POPUP;
+				break;
+			case kStateIntro:
+				if(state == kStatePause) {
+					[self finishGame];
+				}
+				[self clearMenuWithTag:TAG_POPUP];
+				[self clearMenuWithTag:TAG_MENU];
+				[self playIntro];
+				break;
+			case kStateGameOver:
+				// stop game logic
+				[[BBLogic sharedSingleton] setEnabled:NO];
+				[self finishGame];
+				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
+				newMenu = [[BBGameOver alloc] init];
+				newMenu.tag = TAG_POPUP;
+				[newMenu updateFinalScore];
+				break;
+			default:
+				break;
+		}
+		state = newState;
+		if(newMenu) {
+			[self addChild:newMenu z:DEPTH_MENU];
+		}
+	}
 }
 
 #pragma mark -
@@ -402,108 +457,57 @@
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
-	// stop game logic
-	[[BBLogic sharedSingleton] setEnabled:NO];
-	
-	[self finishGame];
-	state = kStateGameOver;
-	[gameOver updateFinalScore];
-	[self addChild:gameOver z:DEPTH_MENU];
-	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
+	[self setState:kStateGameOver];
 }
 
 - (void) startGame {
-	[self removeChild:mainMenu cleanup:YES];
-	state = kStateIntro;
-	[self playIntro];
+	[self setState:kStateIntro];
 }
 
 - (void) restartGame {
-	if(state == kStatePause) {
-		[self finishGame];
-		[self removeChild:pause cleanup:YES];
-	}
-	else if(state == kStateGameOver) {
-		[self removeChild:gameOver cleanup:YES];
-	}
-	state = kStateIntro;
-	[self playIntro];
+	[self setState:kStateIntro];
 }
 
 - (void) resumeGame {
-	state = kStateGame;
-	[self removeChild:pause cleanup:YES];
+	[self setState:kStateGame];
 }
 
 - (void) gotoShop {
-	if(state == kStateMainMenu) {
-		[self removeChild:mainMenu cleanup:YES];
-	}
-	else if(state == kStateGameOver) {
-		[self removeChild:gameOver cleanup:YES];
-	}
-	
-	state = kStateShop;
-	[self addChild:shop z:DEPTH_MENU];
+	[self setState:kStateShop];
 }
 
 - (void) gotoMain {
-	if(state == kStateShop) {
-		[self removeChild:shop cleanup:YES];
-	}
-	else if(state == kStateLeaderboards) {
-		[self removeChild:leaderboards cleanup:YES];
-	}
-	else if(state == kStatePause) {
-		[self finishGame];
-		[self removeChild:pause cleanup:YES];
-	}
-	
-	state = kStateMainMenu;
-	[self addChild:mainMenu z:DEPTH_MENU];
-	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
+	[self setState:kStateMainMenu];
 }
 
 - (void) gotoLeaderboards {
-	if(state == kStateMainMenu) {
+	/*if(state == kStateMainMenu) {
 		state = kStateLeaderboards;
 		[self removeChild:mainMenu cleanup:YES];
 		[self addChild:leaderboards z:DEPTH_MENU];
-	}
+	}*/
 }
 
 - (void) gotoPause {
-	if(state == kStateGame) {
-		state = kStatePause;
-		[self addChild:pause z:DEPTH_MENU];
-	}
+	[self setState:kStatePause];
 }
 
 - (void) gotoConfirmBuy:(NSNotification*)n {
-	if(state == kStateShop) {
-		state = kStateConfirmBuy;
-		[confirmBuy updateWithInfo:[n userInfo]];
-		[self addChild:confirmBuy z:DEPTH_MENU];
-	}
+	[self setState:kStateConfirmBuy];
+	BBConfirmBuy *confirmBuy = (BBConfirmBuy*)([self getChildByTag:TAG_POPUP]);
+	[confirmBuy updateWithInfo:[n userInfo]];
 }
 
 - (void) buyItem:(NSNotification*)n {
-	if(state == kStateConfirmBuy) {
-		state = kStateShop;
-		[self removeChild:confirmBuy cleanup:YES];
-	}
+	[self setState:kStateShop];
 }
 
 - (void) cancelBuyItem {
-	if(state == kStateConfirmBuy) {
-		state = kStateShop;
-		[self removeChild:confirmBuy cleanup:YES];
-	}
+	[self setState:kStateShop];
 }
 
 - (void) introDone {
-	state = kStateGame;
-	[self reset];
+	[self setState:kStateGame];
 }
 
 @end

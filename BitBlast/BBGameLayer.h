@@ -31,6 +31,7 @@
 #import "BBChopper.h"
 
 typedef enum {
+	kStateUnknown,
 	kStateMainMenu,
 	kStateGameOver,
 	kStateIntro,
@@ -41,8 +42,14 @@ typedef enum {
 	kStatePause
 } GameState;
 
+typedef enum {
+	TAG_MENU,
+	TAG_HUD,
+	TAG_POPUP
+} SpriteTag;
+
 //#define DEBUG_TEXTURES
-//#define DEBUG_NO_SOUND
+#define DEBUG_NO_SOUND
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate> {
 	
@@ -61,14 +68,6 @@ typedef enum {
 	iCadeReaderView *iCadeView;
 	// chopper for intro
 	BBChopper *chopper;
-	// screens
-	BBHud *hud;
-	BBGameOver *gameOver;
-	BBMainMenu *mainMenu;
-	BBShop *shop;
-	BBConfirmBuy *confirmBuy;
-	BBLeaderboards *leaderboards;
-	BBPause *pause;
 	// node that the camera follows
 	CCNode *followNode;
 }
@@ -87,8 +86,10 @@ typedef enum {
 - (void) playIntro;
 - (void) killChopper;
 - (void) finishGame;
+- (void) clearMenuWithTag:(SpriteTag)tag;
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
+- (void) setState:(GameState)newState;
 // update
 - (void) updateCamera;
 

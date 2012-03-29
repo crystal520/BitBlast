@@ -50,6 +50,7 @@
 }
 
 - (void) dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[hearts release];
 	[super dealloc];
 }

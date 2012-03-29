@@ -70,6 +70,7 @@
 }
 
 - (void) dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[shopScroller release];
 	[back release];
 	[items release];

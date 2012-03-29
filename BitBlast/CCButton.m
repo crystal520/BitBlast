@@ -49,8 +49,8 @@
 }
 
 - (void) dealloc {
-	[super dealloc];
 	[invocation release];
+	[super dealloc];
 }
 
 - (void)onEnter {
@@ -98,10 +98,10 @@
 	// reset state and perform callback
 	CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
+	[self setState:kStateUp];
 	if(CGRectContainsPoint([self scaledBoundingBox], touchPoint)) {
 		[invocation invoke];
 	}
-	[self setState:kStateUp];
 }
 
 - (void) setState:(ButtonState)newState {
