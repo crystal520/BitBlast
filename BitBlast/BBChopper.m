@@ -24,7 +24,7 @@
 		[self repeatAnimation:@"chopperBlades"];
 		
 		// start copter off screen
-		dummyPosition = ccp(-self.sprite.contentSize.width * 0.5, ([ResolutionManager sharedSingleton].size.height + self.sprite.contentSize.height) * [ResolutionManager sharedSingleton].inversePositionScale);
+		dummyPosition = ccp(-self.sprite.contentSize.width * 0.5 * [ResolutionManager sharedSingleton].imageScale, ([ResolutionManager sharedSingleton].size.height + self.sprite.contentSize.height) * [ResolutionManager sharedSingleton].inversePositionScale);
 		needsPlatformCollisions = NO;
 		
 		// intro sequence!

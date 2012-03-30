@@ -19,7 +19,6 @@
 
 typedef enum {
 	kPlayerUnknown,
-	kPlayerIntro,
 	kPlayerRunning,
 	kPlayerBeginJump,
 	kPlayerMidJump,
@@ -44,6 +43,8 @@ typedef enum {
 	int health;
 	// total player distance prior to the current run. for calculating total distance
 	int previousTotalDistance;
+	// whether or not the player is in the intro
+	BOOL introEnabled;
 }
 
 @property (nonatomic, readonly) int health;

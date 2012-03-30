@@ -243,8 +243,8 @@
 	// make node for camera to follow during intro
 	followNode = [CCNode node];
 	[scrollingNode addChild:followNode];
-	followNode.position = ccpMult(ccp(258, 340), [ResolutionManager sharedSingleton].positionScale);;
-	CCAction *move = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:2 position:ccp((int)player.minVelocity.x, 0)]];
+	followNode.position = ccpMult(ccp(258, 340), [ResolutionManager sharedSingleton].positionScale);
+	CCAction *move = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1 position:ccp((int)player.minVelocity.x, 0)]];
 	[followNode runAction:move];
 	
 	// kill chopper after a certain amount of time
@@ -263,6 +263,8 @@
 }
 
 - (void) finishGame {
+	// stop game logic
+	[[BBLogic sharedSingleton] setEnabled:NO];
 	// update achievements
 	[[GameCenter sharedSingleton] checkStatAchievements];
 	// submit leaderboards
@@ -346,8 +348,6 @@
 				[self playIntro];
 				break;
 			case kStateGameOver:
-				// stop game logic
-				[[BBLogic sharedSingleton] setEnabled:NO];
 				[self finishGame];
 				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
 				newMenu = [[BBGameOver alloc] init];

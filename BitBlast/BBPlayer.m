@@ -17,6 +17,8 @@
 		
 		// make sure to clamp velocity
 		clampVelocity = YES;
+		// this will be enabled in playIntro
+		introEnabled = NO;
 		
 		[self loadAnimations];
 		self.sprite.anchorPoint = ccp(0.5, 0);
@@ -71,7 +73,7 @@
 #pragma mark update
 - (void) update:(float)delta {
 	
-	if(state != kPlayerDead && state != kPlayerIntro) {
+	if(state != kPlayerDead && !introEnabled) {
 		// apply jump
 		if(jumping) {
 			jumpTimer += delta;
@@ -104,10 +106,25 @@
 		// post player update notification
 		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerUpdateNotification object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:delta] forKey:@"delta"]]];
 	}
-	else if(state == kPlayerIntro) {
+	else if(introEnabled) {
+		// apply jump
+		if(jumping) {
+			jumpTimer += delta;
+			if(jumpTimer >= maxJumpTime) {
+				jumping = NO;
+				[self setState:kPlayerMidJump];
+				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithoutTouchNotification object:self]];
+			}
+			velocity = ccp(velocity.x, jumpImpulse);
+		}
 		[super update:delta];
 		// update torso position
 		[self updateTorso];
+		if(touchingPlatform) {
+			introEnabled = NO;
+			[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
+			[[BBWeaponManager sharedSingleton] setEnabled:YES];
+		}
 	}
 }
 
@@ -186,9 +203,6 @@
 			case kPlayerDead:
 				[self stopAllActions];
 				break;
-			case kPlayerIntro:
-				[[BBWeaponManager sharedSingleton] setEnabled:NO];
-				break;
 			default:
 				break;
 		}
@@ -233,15 +247,16 @@
 #pragma mark -
 #pragma mark actions
 - (void) playIntro {
-	[self setState:kPlayerIntro];
+	[[BBWeaponManager sharedSingleton] setEnabled:NO];
+	introEnabled = YES;
 	
 	// player is unaffected by gravity during the intro
 	gravity = ccp(0, 0);
 	velocity = ccp(500, 0);
 	
-	// set these so we can jump out of the chopper
+	// set this so we can jump out of the chopper
 	needsPlatformCollisions = NO;
-	touchingPlatform = YES;
+	touchingPlatform = NO;
 	
 	dummyPosition = ccp(-150, 500);
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
@@ -273,16 +288,6 @@
 	// end the jump after a given amount of time
 	CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:0.25], [CCCallFunc actionWithTarget:self selector:@selector(endJump)], nil];
 	[self runAction:action];
-	// switch to game mode after a second
-	action = [CCSequence actions:[CCDelayTime actionWithDuration:1.25], [CCCallFunc actionWithTarget:self selector:@selector(gameOn)], nil];
-	[self runAction:action];
-}
-
-- (void) gameOn {
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
-	
-	// enable weapons
-	[[BBWeaponManager sharedSingleton] setEnabled:YES];
 }
 
 - (void) checkCollisions {
@@ -337,7 +342,7 @@
 - (void) jump {
 	
 	// only jump if we're not jumping already
-	if(touchingPlatform) {
+	if(touchingPlatform || introEnabled) {
 		[[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
 		touchingPlatform = NO;
 		jumping = YES;
