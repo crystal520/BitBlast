@@ -28,7 +28,7 @@
        
 		// Bruce Attempts to Add a Gamelogo.  Not sure why it does not work.
 		CCSprite *gameLogo = [CCSprite spriteWithSpriteFrameName:@"gamelogo.png"];
-		gameLogo.position = ccp(winSize.width * 0.4, winSize.height - gameLogo.contentSize.height * 0.65);
+		gameLogo.position = ccp(winSize.width * 0.4, background.position.y + gameLogo.contentSize.height * 0.7);
 		[uiSpriteBatch addChild:gameLogo z:0];
         
         // Add Syphus Logo
@@ -76,7 +76,7 @@
 		playerCash = [CCLabelBMFont labelWithString:@"$0" fntFile:@"gamefont.fnt"];
 		playerCash.scale = 0.5;
 		playerCash.anchorPoint = ccp(1, 0.5);
-		playerCash.position = ccp(winSize.width * 0.46, winSize.height * 0.44);
+		playerCash.position = ccp(winSize.width * 0.46, background.position.y - (10 * [ResolutionManager sharedSingleton].positionScale));
 		[self addChild:playerCash];
 	}
 	

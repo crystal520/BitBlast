@@ -33,21 +33,21 @@
 		
 		// create distance label
 		distanceLabel = [CCLabelBMFont labelWithString:@"YOU RAN: 1234567890" fntFile:@"gamefont.fnt"];
-		distanceLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.66);
+		distanceLabel.position = ccp(background.position.x - 275 * [ResolutionManager sharedSingleton].positionScale, background.position.y + 125 * [ResolutionManager sharedSingleton].positionScale);
 		distanceLabel.scale = 0.4;
 		distanceLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:distanceLabel];
 		
 		// create kills label
 		killLabel = [CCLabelBMFont labelWithString:@"KILLS: 1234567890" fntFile:@"gamefont.fnt"];
-		killLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.59);
+		killLabel.position = ccp(background.position.x - 275 * [ResolutionManager sharedSingleton].positionScale, background.position.y + 50 * [ResolutionManager sharedSingleton].positionScale);
 		killLabel.scale = 0.4;
 		killLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:killLabel];
 		
 		// create multiplier label
 		multiplierLabel = [CCLabelBMFont labelWithString:@"MULTIPLIER: 4x" fntFile:@"gamefont.fnt"];
-		multiplierLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.52);
+		multiplierLabel.position = ccp(background.position.x - 275 * [ResolutionManager sharedSingleton].positionScale, background.position.y - 25 * [ResolutionManager sharedSingleton].positionScale);
 		multiplierLabel.scale = 0.4;
 		multiplierLabel.anchorPoint = ccp(0, 0.5);
 		[self addChild:multiplierLabel];
@@ -68,7 +68,7 @@
 		// create shop button
 		CCLabelButton *shop = [CCLabelButton buttonWithLabel:shopText normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(shop)];
 		[shop setSpriteBatchNode:uiSpriteBatch];
-		shop.position = ccp(winSize.width * 0.35, winSize.height * 0.317);
+		shop.position = ccp(background.position.x - 150 * [ResolutionManager sharedSingleton].positionScale, background.position.y - 126 * [ResolutionManager sharedSingleton].positionScale);
 		[self addChild:shop];
 		
 		// create play again label
@@ -78,7 +78,7 @@
 		// create play again button
 		CCLabelButton *playAgain = [CCLabelButton buttonWithLabel:playAgainText normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(restartGame)];
 		[playAgain setSpriteBatchNode:uiSpriteBatch];
-		playAgain.position = ccp(winSize.width * 0.65, winSize.height * 0.317);
+		playAgain.position = ccp(background.position.x + 150 * [ResolutionManager sharedSingleton].positionScale, background.position.y - 126 * [ResolutionManager sharedSingleton].positionScale);
 		[self addChild:playAgain];
 	}
 	

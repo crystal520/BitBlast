@@ -31,14 +31,14 @@
 		// create buy label
 		buyLabel = [[CCLabelBMFont alloc] initWithString:@"BUY" fntFile:@"gamefont.fnt"];
 		buyLabel.anchorPoint = ccp(0, 0.5);
-		buyLabel.position = ccp(winSize.width * 0.2, winSize.height * 0.65);
+		buyLabel.position = ccp(background.position.x - 280 * [ResolutionManager sharedSingleton].positionScale, background.position.y + 100 * [ResolutionManager sharedSingleton].positionScale);
 		buyLabel.scale = 0.6;
 		[self addChild:buyLabel];
 		
 		// create for label
 		cost = [[CCLabelBMFont alloc] initWithString:@"FOR" fntFile:@"gamefont.fnt"];
 		cost.anchorPoint = ccp(0, 0.5);
-		cost.position = ccp(winSize.width * 0.2, winSize.height * 0.5);
+		cost.position = ccp(background.position.x - 280 * [ResolutionManager sharedSingleton].positionScale, background.position.y);
 		cost.scale = 0.6;
 		[self addChild:cost];
 		
@@ -48,7 +48,7 @@
 		
 		// create no thanks button
 		CCLabelButton *noThanks = [[CCLabelButton alloc] initWithLabel:noThanksLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(cancel)];
-		noThanks.position = ccp(winSize.width * 0.35, winSize.height * 0.317);
+		noThanks.position = ccp(background.position.x - 150 * [ResolutionManager sharedSingleton].positionScale, background.position.y - 126 * [ResolutionManager sharedSingleton].positionScale);
 		[noThanks setSpriteBatchNode:uiSpriteBatch];
 		[self addChild:noThanks];
 		
@@ -58,7 +58,7 @@
 		
 		// create buy it button
 		buyIt = [[CCLabelButton alloc] initWithLabel:buyItLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButton.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] disabledSprite:[CCSprite spriteWithSpriteFrameName:@"shopConfirmButtonDown.png"] target:self selector:@selector(buy)];
-		buyIt.position = ccp(winSize.width * 0.65, winSize.height * 0.317);
+		buyIt.position = ccp(background.position.x + 150 * [ResolutionManager sharedSingleton].positionScale, background.position.y - 126 * [ResolutionManager sharedSingleton].positionScale);
 		[buyIt setSpriteBatchNode:uiSpriteBatch];
 		[self addChild:buyIt];
 	}
