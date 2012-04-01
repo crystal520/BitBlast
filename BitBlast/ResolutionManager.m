@@ -49,6 +49,10 @@
 				positionScale = 1;
 			}
 		}
+		else if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+			imageScale = 2;
+			positionScale = 0.5;
+		}
 		inversePositionScale = 1 / positionScale;
 	}
 	return self;
