@@ -28,6 +28,8 @@
 	BOOL blend;
 	// each laser is a bullet that stays on screen and follows the player
 	NSMutableArray *lasers;
+	// particle system
+	CCParticleSystemQuad *particles;
 }
 
 // initializers

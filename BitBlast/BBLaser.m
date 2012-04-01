@@ -23,6 +23,14 @@
 		sprite = [[dict objectForKey:@"sprite"] retain];
 		blend = [[dict objectForKey:@"blend"] boolValue];
 		
+		// check for particle system
+		if(particles) {
+			[particles release];
+		}
+		if([dict objectForKey:@"particles"]) {
+			particles = [[CCParticleSystemQuad particleWithFile:[dict objectForKey:@"particles"]] retain];
+		}
+		
 		// add angles to fire bullets at
 		angles = [NSMutableArray new];
 		NSArray *dictAngles = [NSArray arrayWithArray:[dict objectForKey:@"angles"]];
@@ -69,6 +77,9 @@
 }
 
 - (void) dealloc {
+	if(particles) {
+		[particles release];
+	}
 	[lasers release];
 	[sprite release];
 	[angles release];
@@ -91,6 +102,13 @@
 
 - (void) setPosition:(CGPoint)newPosition {
 	position = newPosition;
+	// play particles if there are any
+	if(particles) {
+		particles.position = ccpMult(position, [ResolutionManager sharedSingleton].positionScale);
+	}
+	if(particles && !particles.parent) {
+		[[BulletManager sharedSingleton].node addChild:particles];
+	}
 }
 
 #pragma mark -
@@ -107,6 +125,10 @@
 			laser.dummyPosition = position;
 			// set angle based on this laser's angle and the angles array
 			laser.rotation = -angle + [[angles objectAtIndex:i] floatValue];
+		}
+		// reset particles if there are any
+		if(particles) {
+			[particles resetSystem];
 		}
 	}
 }
