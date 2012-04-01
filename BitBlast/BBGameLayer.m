@@ -244,7 +244,7 @@
 	followNode = [CCNode node];
 	[scrollingNode addChild:followNode];
 	followNode.position = ccpMult(ccp(258, 340), [ResolutionManager sharedSingleton].positionScale);
-	CCAction *move = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1 position:ccp((int)player.minVelocity.x, 0)]];
+	CCAction *move = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1 position:ccpMult(ccp((int)player.minVelocity.x, 0), [ResolutionManager sharedSingleton].positionScale)]];
 	[followNode runAction:move];
 	
 	// kill chopper after a certain amount of time
