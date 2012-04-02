@@ -13,6 +13,12 @@
 #import "BBBullet.h"
 #import "SimpleAudioEngine.h"
 
+typedef enum {
+	DROPSHIP_STATE_INTRO_MOVING_RIGHT,
+	DROPSHIP_STATE_INTRO_MOVING_LEFT,
+	DROPSHIP_STATE_ACTIVE
+} DropshipState;
+
 @interface BBDropship : BBMovingObject {
     // number of bullets it takes for the dropship to die
 	int health;
@@ -28,6 +34,10 @@
 	BOOL alive;
 	// level the dropship is on. used to make sure 2 dropships don't appear on the same level
 	ChunkLevel level;
+	// current state of the dropship
+	DropshipState state;
+	// position the dropship will be enabled at
+	CGPoint finalPos;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;

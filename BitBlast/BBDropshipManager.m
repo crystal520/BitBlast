@@ -160,7 +160,7 @@
 		
 		if(numChecks > 0) {
 			[explosionManager stopExploding:newDropship];
-			[newDropship resetWithPosition:ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
+			[newDropship resetWithPosition:ccp([ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
 		}
 	}
 }

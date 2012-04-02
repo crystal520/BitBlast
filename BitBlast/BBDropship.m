@@ -61,23 +61,43 @@
 - (void) update:(float)delta {
 	// only update if enabled
 	if(enabled) {
-		[super update:delta];
-		// get velocity from player
-		if(alive) {
-			velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
-			// spawn enemies
-			spawnTimer += delta;
-			while(spawnTimer >= spawnRate) {
-				[self spawnEnemy];
-				spawnTimer -= spawnRate;
+		if(state == DROPSHIP_STATE_ACTIVE) {
+			[super update:delta];
+			// get velocity from player
+			if(alive) {
+				velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
+				// spawn enemies
+				spawnTimer += delta;
+				while(spawnTimer >= spawnRate) {
+					[self spawnEnemy];
+					spawnTimer -= spawnRate;
+				}
+			}
+			
+			// if dropship is dead and goes off screen, actually kill it
+			if(!alive) {
+				if(dummyPosition.y + sprite.contentSize.height * 0.5 < 0) {
+					[self setEnabled:NO];
+					[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventDropshipDestroyed object:nil]];
+				}
 			}
 		}
-		
-		// if dropship is dead and goes off screen, actually kill it
-		if(!alive) {
-			if(dummyPosition.y + sprite.contentSize.height * 0.5 < 0) {
-				[self setEnabled:NO];
-				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventDropshipDestroyed object:nil]];
+		else if(state == DROPSHIP_STATE_INTRO_MOVING_RIGHT) {
+			[super update:delta];
+			
+			CGPoint shipScreenPos = [self convertToWorldSpace:CGPointZero];
+			if(shipScreenPos.x - sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale > [CCDirector sharedDirector].winSize.width) {
+				velocity = ccp([Globals sharedSingleton].playerVelocity.x - 200, 0);
+				self.scale = 1;
+				state = DROPSHIP_STATE_INTRO_MOVING_LEFT;
+			}
+		}
+		else if(state == DROPSHIP_STATE_INTRO_MOVING_LEFT) {
+			[super update:delta];
+			
+			if(dummyPosition.x < [Globals sharedSingleton].playerPosition.x + finalPos.x) {
+				state = DROPSHIP_STATE_ACTIVE;
+				alive = YES;
 			}
 		}
 	}
@@ -143,6 +163,7 @@
 
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)newLevel {
 	[self loadFromFile:type];
+	state = DROPSHIP_STATE_INTRO_MOVING_RIGHT;
 	
 	// determine offset based on level type
 	CGPoint levelOffset = ccp(0, 0);
@@ -157,8 +178,18 @@
 		levelOffset = ccp([[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"y"] floatValue]);
 	}
 	
-	dummyPosition = ccpAdd(newPosition, levelOffset);
+	// make dropship huge
+	self.scale = 2;
+	// save final position for later
+	finalPos = ccpAdd(newPosition, levelOffset);
+	// set velocity to more than the player so it flies past him
+	velocity = ccp([Globals sharedSingleton].playerVelocity.x + 800, 0);
+	// start dropship off screen, to the left of the player
+	dummyPosition = ccpAdd(ccpAdd(newPosition, ccp(-800, 0)), levelOffset);
+	dummyPosition.x = dummyPosition.x + [Globals sharedSingleton].playerPosition.x;
 	[self setEnabled:YES];
+	// make sure it can't get hit by bullets yet
+	alive = NO;
 }
 
 @end

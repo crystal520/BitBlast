@@ -52,6 +52,8 @@
 		[scrollingNode addChild:[ChunkManager sharedSingleton]];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
 		
+		// add BulletManager to the scrolling node
+		[[BulletManager sharedSingleton] setNode:scrollingNode];
 		// add dropships to scrollingNode
 		[scrollingNode addChild:[BBDropshipManager sharedSingleton]];
 		// add enemies to scrollingNode
@@ -65,9 +67,6 @@
 		
 		// create player
 		player = [[BBPlayer alloc] init];
-		
-		// add BulletManager to the scrolling node
-		[[BulletManager sharedSingleton] setNode:scrollingNode];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
