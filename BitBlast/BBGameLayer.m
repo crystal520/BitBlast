@@ -134,7 +134,7 @@
 	cameraOffset = ccpMult(cameraOffset, [ResolutionManager sharedSingleton].positionScale);
 	
 	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		cameraBounds = ccpMult(cameraBounds, 2.4);
+		cameraBounds = ccpMult(cameraBounds, 2.5);
 	}
 }
 
@@ -208,7 +208,6 @@
 	float yOffset = 0;
 	// check to see if player is too close to the top of the screen
 	if(currentPlayerScreenPosition.y < cameraBounds.x) {
-		//yOffset = cameraBounds.x - currentPlayerScreenPosition.y;
 		yOffset = currentPlayerScreenPosition.y - cameraBounds.x;
 	}
 	// check to see if player is too close to the bottom of the screen
@@ -216,7 +215,8 @@
 		yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
 	}
 	
-	CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
+	//CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
+    CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, followNode.position.y + cameraOffset.y);
     
     // make sure newPos's y coordinate is not less than the current chunk's lowest point
     if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
