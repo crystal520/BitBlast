@@ -129,13 +129,9 @@
 	NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cameraProperties" ofType:@"plist"]];
 	
 	cameraOffset = ccp([[plist objectForKey:@"offsetX"] floatValue], [[plist objectForKey:@"offsetY"] floatValue]);
-	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
+	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [CCDirector sharedDirector].winSize.height - [[plist objectForKey:@"maximumY"] floatValue]);
 	[Globals sharedSingleton].cameraOffset = cameraOffset;
 	cameraOffset = ccpMult(cameraOffset, [ResolutionManager sharedSingleton].positionScale);
-	
-	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-		cameraBounds = ccpMult(cameraBounds, 2.5);
-	}
 }
 
 - (void) reset {
@@ -216,7 +212,7 @@
 	}
 	
 	//CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
-    CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, followNode.position.y + cameraOffset.y);
+    CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y - yOffset);
     
     // make sure newPos's y coordinate is not less than the current chunk's lowest point
     if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
@@ -236,7 +232,7 @@
 	[scrollingNode addChild:chopper z:-1];
 	
 	// reset level
-	scrollingNode.position = ccp(0, 0);
+	scrollingNode.position = ccp(0, -cameraOffset.y);
 	[parallax reset];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
 	[player reset];
