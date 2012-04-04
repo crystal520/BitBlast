@@ -132,6 +132,10 @@
 	cameraBounds = ccp([[plist objectForKey:@"minimumY"] floatValue], [[plist objectForKey:@"maximumY"] floatValue]);
 	[Globals sharedSingleton].cameraOffset = cameraOffset;
 	cameraOffset = ccpMult(cameraOffset, [ResolutionManager sharedSingleton].positionScale);
+	
+	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		cameraBounds = ccpMult(cameraBounds, 2.4);
+	}
 }
 
 - (void) reset {
