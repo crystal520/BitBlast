@@ -13,4 +13,9 @@
    eJztzCEOACAMBMFqCv//LgYLIdSRmWTlXQQAAHArV31TPjbWfyvuKx+nT/40AewbAn4=
   </data>
  </layer>
+ <layer name="Foreground" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztztkJACAMBcE0ppV49N+FqUECIszAfuaRCAAA4IWW9cvbkc2iP1a2i7b4ywFc5AHy
+  </data>
+ </layer>
 </map>

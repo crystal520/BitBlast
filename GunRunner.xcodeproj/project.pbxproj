@@ -267,6 +267,7 @@
 		3428FF6114E9B09100184E31 /* flamethrower_bulletMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */; };
 		3428FF6514E9B0F900184E31 /* flamesmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6414E9B0F900184E31 /* flamesmall.png */; };
 		3428FF6714E9B11800184E31 /* flamethrower_bulletSmall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6614E9B11800184E31 /* flamethrower_bulletSmall.plist */; };
+		34A0307B152408F60067AA4B /* ultralaserParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0307A152408F60067AA4B /* ultralaserParticle.plist */; };
 		34BBABBE14EF725900154CE9 /* sky_far.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAD14EF725900154CE9 /* sky_far.png */; };
 		34BBABBF14EF725900154CE9 /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAE14EF725900154CE9 /* cloud2.png */; };
 		34BBABC014EF725900154CE9 /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAF14EF725900154CE9 /* cloud1.png */; };
@@ -840,6 +841,7 @@
 		3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower_bulletMedium.plist; sourceTree = "<group>"; };
 		3428FF6414E9B0F900184E31 /* flamesmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flamesmall.png; path = Resources/flamesmall.png; sourceTree = "<group>"; };
 		3428FF6614E9B11800184E31 /* flamethrower_bulletSmall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower_bulletSmall.plist; sourceTree = "<group>"; };
+		34A0307A152408F60067AA4B /* ultralaserParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ultralaserParticle.plist; path = Resources/Particles/ultralaserParticle.plist; sourceTree = "<group>"; };
 		34BBABAD14EF725900154CE9 /* sky_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky_far.png; path = Resources/backgroundA4444/sky_far.png; sourceTree = "<group>"; };
 		34BBABAE14EF725900154CE9 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/backgroundA4444/cloud2.png; sourceTree = "<group>"; };
 		34BBABAF14EF725900154CE9 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud1.png; path = Resources/backgroundA4444/cloud1.png; sourceTree = "<group>"; };
@@ -1186,6 +1188,7 @@
 				34FB2ABF1516CF2500623BB4 /* gattlingunparticle.plist */,
 				34FB2AC11516D9D400623BB4 /* wavegunParticle.plist */,
 				34D60381151FE63C00AF842F /* wavemotionparticle.plist */,
+				34A0307A152408F60067AA4B /* ultralaserParticle.plist */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -2199,6 +2202,7 @@
 				0A67AFD5151E99F000CAA55B /* dropshipLevels.plist in Resources */,
 				0A67AFDA151EB3AB00CAA55B /* chopper.plist in Resources */,
 				34D60382151FE63C00AF842F /* wavemotionparticle.plist in Resources */,
+				34A0307B152408F60067AA4B /* ultralaserParticle.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2465,6 +2469,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BitBlast/Prefix.pch;
@@ -2474,6 +2479,7 @@
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Gun Runner";
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"BitBlast/libs\"";

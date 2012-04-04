@@ -12,5 +12,7 @@
 	<false/>
 	<key>sprite</key>
 	<string>ultralaser.png</string>
+	<key>particles</key>
+	<string>ultralaserParticle.plist</string>
 </dict>
 </plist>
