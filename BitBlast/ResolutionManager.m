@@ -52,6 +52,8 @@
 		else if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
 			imageScale = 2;
 			positionScale = 0.5;
+			size = CGSizeMake([CCDirector sharedDirector].winSize.width * 0.5, [CCDirector sharedDirector].winSize.height * 0.5);
+			position = ccp([CCDirector sharedDirector].winSize.width * 0.25, [CCDirector sharedDirector].winSize.height * 0.25);
 		}
 		inversePositionScale = 1 / positionScale;
 	}
