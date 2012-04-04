@@ -180,6 +180,7 @@
 	
 	// make dropship huge
 	self.scale = 2;
+	self.scaleX = -2;
 	// save final position for later
 	finalPos = ccpAdd(newPosition, levelOffset);
 	// set velocity to more than the player so it flies past him
