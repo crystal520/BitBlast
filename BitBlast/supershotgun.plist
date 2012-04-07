@@ -6,7 +6,7 @@
 	<integer>-30</integer>
 	<key>shots</key>
 	<array>
-		<string>shotgun_bullet</string>
+		<string>supershotgun_bullet</string>
 	</array>
 	<key>sprite</key>
 	<string></string>
@@ -38,15 +38,15 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>3000</string>
+		<string>0</string>
 		<key>description</key>
-		<string>Lock &apos;n Load</string>
+		<string>Double Boom</string>
 		<key>icon</key>
 		<string>shotgun.png</string>
 		<key>name</key>
-		<string>Shotgun</string>
+		<string>Super Shotgun</string>
 		<key>identifier</key>
-		<string>shotgun</string>
+		<string>supershotgun</string>
 		<key>type</key>
 		<string>weapon</string>
 	</dict>

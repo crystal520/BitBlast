@@ -110,9 +110,9 @@
 	<key>minNumBullets</key>
 	<integer>18</integer>
 	<key>minSpeed</key>
-	<integer>850</integer>
+	<integer>900</integer>
 	<key>rateOfFire</key>
-	<real>0.55</real>
+	<real>0.45</real>
 	<key>sprite</key>
 	<string>redbullet.png</string>
 	<key>boundingBox</key>

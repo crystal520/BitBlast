@@ -6,7 +6,7 @@
 	<integer>-30</integer>
 	<key>shots</key>
 	<array>
-		<string>shotgun_bullet</string>
+		<string>experimentalplasmapistol_bullet</string>
 	</array>
 	<key>sprite</key>
 	<string></string>
@@ -22,7 +22,7 @@
 	<key>torsoOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>40</integer>
+		<integer>50</integer>
 		<key>y</key>
 		<integer>-48</integer>
 	</dict>
@@ -38,15 +38,15 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>3000</string>
+		<string>15000</string>
 		<key>description</key>
-		<string>Lock &apos;n Load</string>
+		<string>Exp. Plasma Pistol</string>
 		<key>icon</key>
-		<string>shotgun.png</string>
+		<string>experimentalshopicon.png</string>
 		<key>name</key>
-		<string>Shotgun</string>
+		<string>EXP. PLM3000Z</string>
 		<key>identifier</key>
-		<string>shotgun</string>
+		<string>experimentalplasmapistol</string>
 		<key>type</key>
 		<string>weapon</string>
 	</dict>

@@ -52,9 +52,9 @@
 				<string>0</string>
 			</dict>
 			<key>curve</key>
-			<string>ease</string>
+			<string>easeInOutSine</string>
 			<key>loop</key>
-			<false/>
+			<true/>
 			<key>property</key>
 			<string>y</string>
 			<key>repeat</key>
@@ -93,28 +93,32 @@
 			<string>max</string>
 		</dict>
 	</array>
-	<key>blend</key>
-	<false/>
 	<key>maxAngleOffset</key>
-	<integer>10</integer>
+	<integer>25</integer>
 	<key>maxLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>maxNumBullets</key>
-	<integer>20</integer>
+	<integer>1</integer>
 	<key>maxSpeed</key>
-	<integer>1100</integer>
+	<integer>1000</integer>
 	<key>minAngleOffset</key>
-	<integer>-10</integer>
+	<integer>-25</integer>
 	<key>minLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>minNumBullets</key>
-	<integer>18</integer>
+	<integer>1</integer>
 	<key>minSpeed</key>
-	<integer>850</integer>
+	<integer>800</integer>
 	<key>rateOfFire</key>
-	<real>0.55</real>
+	<real>0.125</real>
 	<key>sprite</key>
-	<string>redbullet.png</string>
+	<string>bluelaserbullet.png</string>
+	<key>sound</key>
+	<string>bruce-effects-bounce.wavblast5.wav</string>
+	<key>particles</key>
+	<string>experimentalplasmapistolparticle.plist</string>
+	<key>damage</key>
+	<integer>4</integer>
 	<key>boundingBox</key>
 	<dict>
 		<key>x</key>
@@ -122,15 +126,9 @@
 		<key>y</key>
 		<real>0</real>
 		<key>width</key>
-		<integer>20</integer>
+		<integer>25</integer>
 		<key>height</key>
-		<integer>20</integer>
+		<integer>8</integer>
 	</dict>
-	<key>damage</key>
-	<real>0.5</real>
-	<key>sound</key>
-	<string>shotgun.wav</string>
-	<key>particles</key>
-	<string>shotgunblast.plist</string>
 </dict>
 </plist>

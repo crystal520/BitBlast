@@ -114,7 +114,7 @@
 	<key>sprite</key>
 	<string>yellowbullet.png</string>
 	<key>damage</key>
-	<real>1.9</real>
+	<integer>1</integer>
 	<key>boundingBox</key>
 	<dict>
 		<key>x</key>

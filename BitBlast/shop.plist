@@ -5,9 +5,11 @@
 	<key>items</key>
 	<array>
 		<string>pistol</string>
+		<string>plasmapistol</string>
 		<string>burstshot</string>
 		<string>shotgun</string>
 		<string>bluewave</string>
+		<string>experimentalplasmapistol</string>
 		<string>wavegun</string>
 		<string>spreadgun</string>
 		<string>machinegun</string>
@@ -15,6 +17,7 @@
 		<string>flamethrower</string>
 		<string>ripley</string>
 		<string>ultraLaser</string>
+		<string>supershotgun</string>
 	</array>
 </dict>
 </plist>
