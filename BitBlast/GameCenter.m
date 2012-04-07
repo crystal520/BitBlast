@@ -169,7 +169,7 @@
 }
 
 - (void) submitLeaderboards {
-	[self submitLeaderboard:@"distanceTraveled" withValue:[[SettingsManager sharedSingleton] getInt:@"currentMeters"]];
+	[self submitLeaderboard:@"distanceTraveled" withValue:[[SettingsManager sharedSingleton] getInt:@"currentMeters"] * 100];
 }
 	 
 - (void) submitLeaderboard:(NSString*)name withValue:(int64_t)value {

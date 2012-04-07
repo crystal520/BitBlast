@@ -54,8 +54,16 @@
 		[self addChild:cost];
 		
 		// create buy label
-		CCLabelBMFont *buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
-		buyLabel.scale = 0.4;
+		CCLabelBMFont *buyLabel;
+		// set text to equip if player owns the weapon
+		if([[SettingsManager sharedSingleton] getBool:filename]) {
+			buyLabel = [CCLabelBMFont labelWithString:@"EQUIP" fntFile:@"gamefont.fnt"];
+			buyLabel.scale = 0.4;
+		}
+		else {
+			buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
+			buyLabel.scale = 0.4;
+		}
 		
 		// create buy button
 		buy = [CCLabelButton buttonWithLabel:buyLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_pressed.png"] target:self selector:@selector(buy)];
