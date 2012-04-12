@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>downAngle</key>
+	<integer>-30</integer>
+	<key>shots</key>
+	<array>
+		<string>highenergyshot_bullet</string>
+		<string>buildupparticle_bullet</string>
+	</array>
+	<key>sprite</key>
+	<string></string>
+	<key>straightAngle</key>
+	<integer>0</integer>
+	<key>torsoDownOffset</key>
+	<dict>
+		<key>x</key>
+		<integer>50</integer>
+		<key>y</key>
+		<integer>-72</integer>
+	</dict>
+	<key>torsoOffset</key>
+	<dict>
+		<key>x</key>
+		<integer>50</integer>
+		<key>y</key>
+		<integer>-48</integer>
+	</dict>
+	<key>torsoUpOffset</key>
+	<dict>
+		<key>x</key>
+		<integer>50</integer>
+		<key>y</key>
+		<integer>-2</integer>
+	</dict>
+	<key>upAngle</key>
+	<integer>40</integer>
+	<key>shop</key>
+	<dict>
+		<key>cost</key>
+		<string>0</string>
+		<key>description</key>
+		<string>HIgh Energy</string>
+		<key>icon</key>
+		<string>plasmapistolstoreicon.png</string>
+		<key>name</key>
+		<string>High Energy</string>
+		<key>identifier</key>
+		<string>highenergyshot</string>
+		<key>type</key>
+		<string>weapon</string>
+	</dict>
+</dict>
+</plist>

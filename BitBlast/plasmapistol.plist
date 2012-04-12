@@ -38,7 +38,7 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>500</string>
+		<string>0</string>
 		<key>description</key>
 		<string>A shot of hot plasma</string>
 		<key>icon</key>

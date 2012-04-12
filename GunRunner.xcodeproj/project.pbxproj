@@ -281,6 +281,12 @@
 		34A03097152FE2250067AA4B /* plasmapistolstoreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A03096152FE2250067AA4B /* plasmapistolstoreicon.png */; };
 		34A03099152FE45D0067AA4B /* bruce-effects-bounce.wavblast5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34A03098152FE45D0067AA4B /* bruce-effects-bounce.wavblast5.wav */; };
 		34A0309B152FE5580067AA4B /* experimentalshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A0309A152FE5580067AA4B /* experimentalshopicon.png */; };
+		34A0309D1536985D0067AA4B /* highenergyshot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0309C1536985C0067AA4B /* highenergyshot.plist */; };
+		34A0309F153698710067AA4B /* highenergyshot_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0309E1536986F0067AA4B /* highenergyshot_bullet.plist */; };
+		34A030A315369D3D0067AA4B /* buildupparticle_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030A215369D3C0067AA4B /* buildupparticle_bullet.plist */; };
+		34A030A51536A2EC0067AA4B /* chargeup.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A030A41536A2EC0067AA4B /* chargeup.png */; };
+		34A030A71536A2F10067AA4B /* bluechargeupparticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030A61536A2F10067AA4B /* bluechargeupparticle.plist */; };
+		34A030A91536A4F90067AA4B /* highenergyshot_particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030A81536A4F90067AA4B /* highenergyshot_particle.plist */; };
 		34BBABBE14EF725900154CE9 /* sky_far.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAD14EF725900154CE9 /* sky_far.png */; };
 		34BBABBF14EF725900154CE9 /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAE14EF725900154CE9 /* cloud2.png */; };
 		34BBABC014EF725900154CE9 /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAF14EF725900154CE9 /* cloud1.png */; };
@@ -868,6 +874,12 @@
 		34A03096152FE2250067AA4B /* plasmapistolstoreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plasmapistolstoreicon.png; path = Resources/plasmapistolstoreicon.png; sourceTree = "<group>"; };
 		34A03098152FE45D0067AA4B /* bruce-effects-bounce.wavblast5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "bruce-effects-bounce.wavblast5.wav"; path = "Resources/SFX/bruce-effects-bounce.wavblast5.wav"; sourceTree = "<group>"; };
 		34A0309A152FE5580067AA4B /* experimentalshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = experimentalshopicon.png; path = Resources/experimentalshopicon.png; sourceTree = "<group>"; };
+		34A0309C1536985C0067AA4B /* highenergyshot.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highenergyshot.plist; sourceTree = "<group>"; };
+		34A0309E1536986F0067AA4B /* highenergyshot_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = highenergyshot_bullet.plist; sourceTree = "<group>"; };
+		34A030A215369D3C0067AA4B /* buildupparticle_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildupparticle_bullet.plist; sourceTree = "<group>"; };
+		34A030A41536A2EC0067AA4B /* chargeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chargeup.png; path = Resources/Particles/chargeup.png; sourceTree = "<group>"; };
+		34A030A61536A2F10067AA4B /* bluechargeupparticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bluechargeupparticle.plist; path = Resources/Particles/bluechargeupparticle.plist; sourceTree = "<group>"; };
+		34A030A81536A4F90067AA4B /* highenergyshot_particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = highenergyshot_particle.plist; path = Resources/Particles/highenergyshot_particle.plist; sourceTree = "<group>"; };
 		34BBABAD14EF725900154CE9 /* sky_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky_far.png; path = Resources/backgroundA4444/sky_far.png; sourceTree = "<group>"; };
 		34BBABAE14EF725900154CE9 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/backgroundA4444/cloud2.png; sourceTree = "<group>"; };
 		34BBABAF14EF725900154CE9 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud1.png; path = Resources/backgroundA4444/cloud1.png; sourceTree = "<group>"; };
@@ -1111,6 +1123,9 @@
 		0A1EC4AD14A02EFD005A7ED6 /* Guns */ = {
 			isa = PBXGroup;
 			children = (
+				34A030A215369D3C0067AA4B /* buildupparticle_bullet.plist */,
+				34A0309E1536986F0067AA4B /* highenergyshot_bullet.plist */,
+				34A0309C1536985C0067AA4B /* highenergyshot.plist */,
 				34A0308C152FCEA90067AA4B /* experimentalplasmapistol.plist */,
 				34A0308E152FCEBC0067AA4B /* experimentalplasmapistol_bullet.plist */,
 				34A03088152FCA320067AA4B /* plasmapistol.plist */,
@@ -1215,6 +1230,8 @@
 		0A46C02F15167B4D003483BD /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				34A030A81536A4F90067AA4B /* highenergyshot_particle.plist */,
+				34A030A61536A2F10067AA4B /* bluechargeupparticle.plist */,
 				0A0402451516A6DA008D179E /* particleTexture.png */,
 				0A46C0341516824E003483BD /* whitecircle.png */,
 				0A46C0351516824E003483BD /* shotgunblast.plist */,
@@ -1226,6 +1243,7 @@
 				34A0307A152408F60067AA4B /* ultralaserParticle.plist */,
 				34A0308A152FCD230067AA4B /* plasmapistolparticle.plist */,
 				34A03092152FD02E0067AA4B /* experimentalplasmapistolparticle.plist */,
+				34A030A41536A2EC0067AA4B /* chargeup.png */,
 			);
 			name = Particles;
 			sourceTree = "<group>";
@@ -2255,6 +2273,12 @@
 				34A03097152FE2250067AA4B /* plasmapistolstoreicon.png in Resources */,
 				34A03099152FE45D0067AA4B /* bruce-effects-bounce.wavblast5.wav in Resources */,
 				34A0309B152FE5580067AA4B /* experimentalshopicon.png in Resources */,
+				34A0309D1536985D0067AA4B /* highenergyshot.plist in Resources */,
+				34A0309F153698710067AA4B /* highenergyshot_bullet.plist in Resources */,
+				34A030A315369D3D0067AA4B /* buildupparticle_bullet.plist in Resources */,
+				34A030A51536A2EC0067AA4B /* chargeup.png in Resources */,
+				34A030A71536A2F10067AA4B /* bluechargeupparticle.plist in Resources */,
+				34A030A91536A4F90067AA4B /* highenergyshot_particle.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

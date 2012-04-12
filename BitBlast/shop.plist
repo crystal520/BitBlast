@@ -5,6 +5,7 @@
 	<key>items</key>
 	<array>
 		<string>pistol</string>
+		<string>highenergyshot</string>
 		<string>plasmapistol</string>
 		<string>burstshot</string>
 		<string>shotgun</string>
