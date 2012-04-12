@@ -16,11 +16,6 @@
 - (id) init {
 	if((self = [super initWithFile:@"dropshipExplosion"])) {
 		[self loadAnimations];
-		[self addChild:spriteBatch];
-		
-		// use nearest so it will scale better
-		ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
-		[sprite.texture setTexParameters:&params];
 		
 		self.scale = 2;
 	}

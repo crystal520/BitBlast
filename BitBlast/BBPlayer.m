@@ -19,13 +19,16 @@
 		clampVelocity = YES;
 		// this will be enabled in playIntro
 		introEnabled = NO;
+		self.anchorPoint = ccp(0.5, 0);
 		
 		[self loadAnimations];
-		self.sprite.anchorPoint = ccp(0.5, 0);
-		[self setState:kPlayerUnknown];
 		
 		// setup torso
+		[self setupLegs];
 		[self setupTorso];
+		
+		legs.anchorPoint = ccp(0.5, 0);
+		[self setState:kPlayerUnknown];
 		
 		// load values from plist
 		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
@@ -43,7 +46,8 @@
 		
 		// create node to hold all player pieces
 		offsetNode = [CCNode new];
-		[offsetNode addChild:spriteBatch];
+		[offsetNode addChild:legs];
+		[offsetNode addChild:torso];
 		[self addChild:offsetNode];
 	}
 	
@@ -51,9 +55,11 @@
 }
 
 - (void) dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[offsetNode release];
 	[torsoOffsets release];
 	[torso release];
+	[legs release];
 	[super dealloc];
 }
 
@@ -63,17 +69,21 @@
 	// create and position torso
 	torso = [CCSprite new];
 	[self setWeaponAngle:0];
-	[spriteBatch addChild:torso z:1];
 	torso.anchorPoint = ccp(0.5, 1);
 	// create and load array of torsoOffsets
 	torsoOffsets = [[NSMutableArray alloc] initWithArray:[dictionary objectForKey:@"torsoOffsets"]];
+}
+
+- (void) setupLegs {
+	// create and position legs
+	legs = [[BBGameObject alloc] initWithFile:@"playerProperties"];
 }
 
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
 	
-	if(state != kPlayerDead && !introEnabled) {
+	if(state != kPlayerDead && !introEnabled && state != kPlayerShop) {
 		// apply jump
 		if(jumping) {
 			jumpTimer += delta;
@@ -99,12 +109,18 @@
 		[self updateWeapons:delta];
 		
 		// check for falling death
-		if(dummyPosition.y + sprite.contentSize.height + torso.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+		if(dummyPosition.y + legs.contentSize.height + torso.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
 			[self die:@"fall"];
 		}
 		
 		// post player update notification
 		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerUpdateNotification object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:delta] forKey:@"delta"]]];
+	}
+	else if(state == kPlayerShop) {
+		// update torso position and graphic
+		[self updateTorso];
+		// update weapons
+		[self updateWeapons:delta];
 	}
 	else if(introEnabled) {
 		// apply jump
@@ -131,7 +147,7 @@
 - (void) updateTorso {
 	// see which frame the legs are currently at and position the torso based on that
 	for(NSDictionary *d in torsoOffsets) {
-		if([sprite isFrameDisplayed:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[d objectForKey:@"imageName"]]]) {
+		if([legs isFrameDisplayed:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[d objectForKey:@"imageName"]]]) {
 			torso.position = ccp([[[d objectForKey:@"offset"] objectForKey:@"x"] floatValue] * [ResolutionManager sharedSingleton].positionScale, [[[d objectForKey:@"offset"] objectForKey:@"y"] floatValue] * [ResolutionManager sharedSingleton].positionScale);
 			break;
 		}
@@ -142,7 +158,7 @@
 	// loop through weapons and update them
 	for(BBWeapon *w in [BBWeaponManager sharedSingleton].weapons) {
 		[w setPlayerSpeed:velocity.x];
-		[w setPosition:ccpAdd(dummyPosition, ccpMult(torso.position, [ResolutionManager sharedSingleton].inversePositionScale))];
+		[w setPosition:ccpAdd(dummyPosition, ccpMult(torso.position, [ResolutionManager sharedSingleton].inversePositionScale * self.scale))];
 		[w update:delta];
 	}
 }
@@ -189,19 +205,23 @@
 		//NSLog(@"Changing state from: %i --- to: %i", state, newState);
 		switch(newState) {
 			case kPlayerRunning:
-				[self repeatAnimation:@"run"];
+				[legs repeatAnimation:@"run"];
 				break;
 			case kPlayerBeginJump:
-				[self playAnimation:@"beginJump"];
+				[legs playAnimation:@"beginJump"];
 				break;
 			case kPlayerMidJump:
-				[self playAnimation:@"middleJump"];
+				[legs playAnimation:@"middleJump"];
 				break;
 			case kPlayerEndJump:
-				[self playAnimation:@"endJump" target:self selector:@selector(endJumpAnimation)];
+				[legs playAnimation:@"endJump" target:self selector:@selector(endJumpAnimation)];
+				break;
+			case kPlayerShop:
+				[legs repeatAnimation:@"run"];
 				break;
 			case kPlayerDead:
-				[self stopAllActions];
+				[torso stopAllActions];
+				[legs stopAllActions];
 				break;
 			default:
 				break;
@@ -268,11 +288,7 @@
 	
 	// set the legs to the first frame of the run animation
 	CCAnimation *runAnim = [[CCAnimationCache sharedAnimationCache] animationByName:@"run"];
-	[sprite setDisplayFrame:[runAnim.frames objectAtIndex:[runAnim.frames count]-1]];
-	if(sprite.parent) {
-		[sprite.parent removeChild:sprite cleanup:YES];
-	}
-	[spriteBatch addChild:sprite];
+	[legs setDisplayFrame:[runAnim.frames objectAtIndex:[runAnim.frames count]-1]];
 	
 	// jump out of the chopper after a certain amount of time
 	CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(jumpOutOfChopper)], nil];
@@ -308,7 +324,7 @@
 		if([e getCollidesWith:self]) {
 			// flash player red so they know why they lost health
 			CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-			[self.sprite runAction:action];
+			[legs runAction:action];
 			[torso runAction:action];
 			// update health
 			[self setHealth:health-1];

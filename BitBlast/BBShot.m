@@ -18,6 +18,7 @@
 		
 		// get dictionary from plist file
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
+		scale = 1;
 		
 		// get values from dictionary
 		sprite = [[dict objectForKey:@"sprite"] retain];
@@ -97,6 +98,13 @@
 	}
 }
 
+- (void) setScale:(float)newScale {
+	scale = newScale;
+	if(particles) {
+		particles.scale = scale;
+	}
+}
+
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
@@ -141,13 +149,13 @@
 			bullet.boundingBox = boundingBox;
 			// loop through behaviors and apply to bullet
 			for(BBBehavior *b in behaviors) {
-				[b applyToNode:bullet.sprite withAngle:fireAngle];
+				[b applyToNode:bullet withAngle:fireAngle];
 			}
 			// if fire was called more than once this frame, update the bullet based on rateOfFire
 			[bullet update:updateBulletTime * rateOfFire];
 			// set blend function if needed
 			if(blend) {
-				[bullet.sprite setBlendFunc:(ccBlendFunc){GL_SRC_ALPHA, GL_ONE}];
+				[bullet setBlendFunc:(ccBlendFunc){GL_SRC_ALPHA, GL_ONE}];
 			}
 			// set rotation of bullet to current angle
 			bullet.rotation = -fireAngle;

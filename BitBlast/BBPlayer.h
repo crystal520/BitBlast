@@ -19,6 +19,7 @@
 
 typedef enum {
 	kPlayerUnknown,
+	kPlayerShop,
 	kPlayerRunning,
 	kPlayerBeginJump,
 	kPlayerMidJump,
@@ -35,8 +36,9 @@ typedef enum {
 	PlayerState state, prevState;
 	// offsets for torso for each frame of running and jumping animation
 	NSMutableArray *torsoOffsets;
-	// sprite for torso
+	// sprites for torso and legs
 	CCSprite *torso;
+	BBGameObject *legs;
 	// node that contains all pieces of player, to be offset in each chunk when switching between them
 	CCNode *offsetNode;
 	// number of times the player can get hit before dying
@@ -52,6 +54,7 @@ typedef enum {
 // initializers
 // setup
 - (void) setupTorso;
+- (void) setupLegs;
 // update
 - (void) update:(float)delta;
 - (void) updateTorso;

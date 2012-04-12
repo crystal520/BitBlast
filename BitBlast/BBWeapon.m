@@ -15,6 +15,7 @@
 - (id) init {
 	if((self = [super init])) {
 		identifier = [NSMutableString new];
+		scale = 1;
 	}
 	return self;
 }
@@ -123,12 +124,31 @@
 - (void) setPosition:(CGPoint)newPosition {
 	// loop through shots and update their positions
 	for(BBShot *s in shots) {
-		[s setPosition:ccpAdd(newPosition, currentOffset)];
+		[s setPosition:ccpAdd(newPosition, ccpMult(currentOffset, scale))];
 	}
 	// loop through lasers and update their postions
 	for(BBLaser *l in lasers) {
-		[l setPosition:ccpAdd(newPosition, currentOffset)];
+		[l setPosition:ccpAdd(newPosition, ccpMult(currentOffset, scale))];
 	}
+	position = newPosition;
+}
+
+- (void) setScale:(float)newScale {
+	// loop through shots and update their scales
+	for(BBShot *s in shots) {
+		[s setScale:newScale];
+	}
+	// loop through lasers and update their postions
+	for(BBLaser *l in lasers) {
+		[l setScale:newScale];
+	}
+	scale = newScale;
+}
+
+#pragma mark -
+#pragma mark getters
+- (CGPoint) getPosition {
+	return position;
 }
 
 #pragma mark - 

@@ -14,17 +14,16 @@
 - (id) init {
 	if((self = [super initWithFile:@"chopper"])) {
 		[self loadAnimations];
-		[self addChild:spriteBatch];
 		
 		// make hull image
 		CCSprite *hull = [CCSprite spriteWithSpriteFrameName:@"chopper.png"];
-		hull.position = ccpMult(ccp(-120, -130), [ResolutionManager sharedSingleton].positionScale);
-		[spriteBatch addChild:hull];
+		hull.position = ccpMult(ccp(230, -70), [ResolutionManager sharedSingleton].positionScale);
+		[self addChild:hull];
 		
 		[self repeatAnimation:@"chopperBlades"];
 		
 		// start copter off screen
-		dummyPosition = ccp(-170, 760);
+		dummyPosition = ccp(-170, 750);
 		needsPlatformCollisions = NO;
 		
 		// intro sequence!

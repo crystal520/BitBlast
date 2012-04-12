@@ -15,6 +15,7 @@
 #import "IAPManager.h"
 #import "BBIAPItem.h"
 #import "SimpleAudioEngine.h"
+#import "BBPlayer.h"
 
 @interface BBShop : CCNodeColorBackground {
 	// size of each cell in the table of items
@@ -31,6 +32,8 @@
 	BOOL iapItemsAdded;
 	// current funds the player has
 	CCLabelBMFont *coins;
+	// large player running next to shop
+	BBPlayer *player;
 }
 
 - (void) setupIAP;

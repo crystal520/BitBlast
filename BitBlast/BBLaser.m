@@ -18,6 +18,7 @@
 		
 		// get dictionary from plist file
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
+		scale = 1;
 		
 		// get values from dictionary
 		sprite = [[dict objectForKey:@"sprite"] retain];
@@ -58,16 +59,16 @@
 			laser.indestructible = YES;
 			// set tex params so it repeats horizontally
 			ccTexParams params = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_REPEAT};
-			[laser.sprite.texture setTexParameters:&params];
+			[laser.texture setTexParameters:&params];
 			// set size equal to the width of the screen
-			CGRect texRect = laser.sprite.textureRect;
-			laser.sprite.textureRect = CGRectMake(texRect.origin.x, texRect.origin.y, [ResolutionManager sharedSingleton].size.width, texRect.size.height);
+			CGRect texRect = laser.textureRect;
+			laser.textureRect = CGRectMake(texRect.origin.x, texRect.origin.y, [ResolutionManager sharedSingleton].size.width, texRect.size.height);
 			laser.boundingBox = CGRectMake(0, 0, [ResolutionManager sharedSingleton].size.width, texRect.size.height);
 			// set anchor point so it starts at the end of the gun
-			laser.sprite.anchorPoint = ccp(0, 0.5);
+			laser.anchorPoint = ccp(0, 0.5);
 			// set blend function if needed
 			if(blend) {
-				[laser.sprite setBlendFunc:(ccBlendFunc){GL_SRC_ALPHA, GL_ONE}];
+				[laser setBlendFunc:(ccBlendFunc){GL_SRC_ALPHA, GL_ONE}];
 			}
 			// store in array for later use
 			[lasers addObject:laser];
@@ -108,6 +109,13 @@
 	}
 	if(particles && !particles.parent) {
 		[[BulletManager sharedSingleton].node addChild:particles];
+	}
+}
+
+- (void) setScale:(float)newScale {
+	scale = newScale;
+	if(particles) {
+		particles.scale = scale;
 	}
 }
 

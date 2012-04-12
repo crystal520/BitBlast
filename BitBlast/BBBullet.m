@@ -34,8 +34,7 @@
 	lifeTimer = 0;
 	lifetime = newLifetime;
 	self.visible = YES;
-	sprite = [CCSprite spriteWithFile:newGraphic];
-	[self addChild:sprite];
+	[self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:newGraphic]];
 }
 
 #pragma mark -
@@ -58,8 +57,7 @@
 	if(enabled && !newEnabled && !indestructible) {
 		recycle = YES;
 		self.visible = NO;
-		[sprite stopAllActions];
-		[self removeChild:sprite cleanup:YES];
+		[self stopAllActions];
 	}
 	else if(!enabled && newEnabled) {
 		

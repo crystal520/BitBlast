@@ -94,8 +94,15 @@
 		node = newNode;
 		
 		for(BBBullet *b in bullets) {
+			[b.parent removeChild:b cleanup:YES];
 			[node addChild:b];
 		}
+	}
+}
+
+- (void) setScale:(float)scale {
+	for(BBBullet *b in bullets) {
+		[b setScale:scale];
 	}
 }
 
@@ -105,7 +112,7 @@
 	// loop through bullets and stop all actions
 	for(BBBullet *b in bullets) {
 		if(!b.recycle) {
-			[b.sprite stopAllActions];
+			[b stopAllActions];
 		}
 	}
 }

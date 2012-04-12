@@ -40,9 +40,6 @@
 	velocity = ccp([[[dictionary objectForKey:@"speed"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"speed"] objectForKey:@"y"] floatValue]);
 	health = [[dictionary objectForKey:@"health"] floatValue];
 	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
-	// use nearest so it will scale better
-	ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
-	[sprite.texture setTexParameters:&params];
 }
 
 #pragma mark -
@@ -58,7 +55,6 @@
 		recycle = YES;
 		self.visible = NO;
 		alive = NO;
-		[self removeChild:spriteBatch cleanup:YES];
 	}
 	enabled = newEnabled;
 }
@@ -85,10 +81,9 @@
 	[self loadFromFile:enemyType];
 	[self loadAnimations];
 	[self setEnabled:YES];
-	[self addChild:spriteBatch];
 	[self repeatAnimation:@"walk"];
-	self.sprite.anchorPoint = ccp(0.5, 0);
-	dummyPosition = ccpAdd(newPosition, ccp(0, tileOffset.y - sprite.contentSize.height * 0.5));
+	self.anchorPoint = ccp(0.5, 0);
+	dummyPosition = ccpAdd(newPosition, ccp(0, tileOffset.y - self.contentSize.height * 0.5));
 	// update once just to set correct position
 	[self update:0];
 }
@@ -98,7 +93,7 @@
 	
 	// TODO: play hit animation or something cooler. possibly blood particles
 	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-	[self.sprite runAction:action];
+	[self runAction:action];
 	
 	// if the enemy died, turn off all movement and play a death animation
 	if(health <= 0) {

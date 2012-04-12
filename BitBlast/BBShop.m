@@ -25,13 +25,6 @@
 		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
 		[self addChild:uiSpriteBatch];
 		
-		// create current funds label
-		coins = [CCLabelBMFont labelWithString:@"$1234567890" fntFile:@"gamefont.fnt"];
-		coins.anchorPoint = ccp(1, 0);
-		coins.scale = 0.75;
-		coins.position = ccp(winSize.width - cellSize.width, 0);
-		[self addChild:coins];
-		
 		// create back button holder
 		CCSprite *backHolder = [CCSprite spriteWithSpriteFrameName:@"backbuttonshell.png"];
 		backHolder.position = ccp(winSize.width * 0.075, winSize.height - backHolder.contentSize.height * 0.5);
@@ -42,6 +35,23 @@
 		[back setSpriteBatchNode:uiSpriteBatch];
 		back.position = ccp(winSize.width * 0.075, winSize.height - back.contentSize.height * 0.5 - backHolder.contentSize.height * 0.175);
 		[self addChild:back z:1];
+		
+		// make player at 4x for shop
+		player = [BBPlayer new];
+		player.dummyPosition = ccp(winSize.width * 0.1, winSize.height * 0.1);
+		player.position = player.dummyPosition;
+		[player setState:kPlayerShop];
+		[self addChild:player];
+		
+		// enable weapons so the player can see the currently equipped weapon being shot
+		[[BBWeaponManager sharedSingleton] setEnabled:YES];
+		// add BulletManager to the scrolling node
+		[[BulletManager sharedSingleton] setNode:self];
+		
+		// scale up player, bullets, and weapons
+		[[BulletManager sharedSingleton] setScale:2];
+		player.scale = 2;
+		[[BBWeaponManager sharedSingleton] setScale:2];
 		
 		// create layer for all shop items
 		shopScroller = [[BBList alloc] init];
@@ -60,6 +70,16 @@
 			[t release];
 		}
 		
+		// create current funds label
+		coins = [CCLabelBMFont labelWithString:@"$0" fntFile:@"gamefont.fnt"];
+		coins.anchorPoint = ccp(1, 0);
+		coins.scale = 0.75;
+		coins.position = ccp(winSize.width - cellSize.width, 0);
+		[self addChild:coins];
+		
+		// schedule update so the player's torso gets updated
+		[self scheduleUpdate];
+		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmBuy) name:kNavShopConfirmNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem) name:kNavBuyItemNotification object:nil];
@@ -70,8 +90,13 @@
 }
 
 - (void) dealloc {
+	// reset bullets and weapons to normal size
+	[[BBWeaponManager sharedSingleton] setScale:1];
+	[[BulletManager sharedSingleton] setScale:1];
+	
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[shopScroller release];
+	[player release];
 	[back release];
 	[items release];
 	[super dealloc];
@@ -104,6 +129,7 @@
 
 - (void) setEnabled:(BOOL)isEnabled {
 	[back setEnabled:isEnabled];
+	[[BBWeaponManager sharedSingleton] setEnabled:isEnabled];
 	enabled = isEnabled;
 	if(isEnabled && !shopScroller.isTouchEnabled) {
 		[shopScroller onEnter];
@@ -119,6 +145,13 @@
 	[super onEnter];
 	[self setupIAP];
 	[self setEnabled:YES];
+}
+
+#pragma mark -
+#pragma mark update
+- (void) update:(float)delta {
+	[player update:delta];
+	[[BulletManager sharedSingleton] update:delta];
 }
 
 #pragma mark -

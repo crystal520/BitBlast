@@ -56,6 +56,12 @@
 	}
 }
 
+- (void) setScale:(float)scale {
+	for(BBWeapon *w in weapons) {
+		[w setScale:scale];
+	}
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) equip:(NSString*)newWeapon {

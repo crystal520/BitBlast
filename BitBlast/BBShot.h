@@ -47,6 +47,8 @@
 	NSString *sound;
 	// particle system
 	CCParticleSystemQuad *particles;
+	// scale of the bullets fired
+	float scale;
 }
 
 // initializers
@@ -56,6 +58,7 @@
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setPlayerSpeed:(float)newPlayerSpeed;
 - (void) setPosition:(CGPoint)newPosition;
+- (void) setScale:(float)newScale;
 // update
 - (void) update:(float)delta;
 // actions

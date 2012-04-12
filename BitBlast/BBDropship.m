@@ -40,20 +40,14 @@
 	spawnTimer = 0;
 	health = [[dictionary objectForKey:@"health"] intValue];
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
-	[self addChild:spriteBatch];
 	[self repeatAnimation:@"walk"];
 	// TODO: turn this scale off once we get a different image for these
-	sprite.scaleX = -1;
 	boundingBox.origin.x *= -1;
 	
 	// reset variables
 	rotation_ = 0;
 	gravity = ccp(0, 0);
 	velocity = ccp(0, 0);
-	
-	// use nearest so it will scale better
-	ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
-	[sprite.texture setTexParameters:&params];
 }
 
 #pragma mark -
@@ -76,7 +70,7 @@
 			
 			// if dropship is dead and goes off screen, actually kill it
 			if(!alive) {
-				if(dummyPosition.y + sprite.contentSize.height * 0.5 < 0) {
+				if(dummyPosition.y + self.contentSize.height * 0.5 < 0) {
 					[self setEnabled:NO];
 					[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventDropshipDestroyed object:nil]];
 				}
@@ -86,9 +80,10 @@
 			[super update:delta];
 			
 			CGPoint shipScreenPos = [self convertToWorldSpace:CGPointZero];
-			if(shipScreenPos.x - sprite.contentSize.width * [ResolutionManager sharedSingleton].imageScale > [CCDirector sharedDirector].winSize.width) {
+			if(shipScreenPos.x - self.contentSize.width * [ResolutionManager sharedSingleton].imageScale > [CCDirector sharedDirector].winSize.width) {
 				velocity = ccp([Globals sharedSingleton].playerVelocity.x - 200, 0);
 				self.scale = 1;
+				self.scaleX = -1;
 				state = DROPSHIP_STATE_INTRO_MOVING_LEFT;
 			}
 		}
@@ -116,12 +111,13 @@
 	if(enabled && !newEnabled) {
 		self.visible = NO;
 		alive = NO;
-		[self removeChild:spriteBatch cleanup:YES];
-		level = CHUNK_LEVEL_UNKNOWN;
 	}
 	else if(!enabled && newEnabled) {
 		self.visible = YES;
 		alive = YES;
+	}
+	if(!newEnabled) {
+		level = CHUNK_LEVEL_UNKNOWN;
 	}
 	enabled = newEnabled;
 }
@@ -142,7 +138,7 @@
 	
 	// TODO: play hit animation or something cooler. possibly explosion particles
 	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-	[self.sprite runAction:action];
+	[self runAction:action];
 	
 	// if the dropship died, turn off all movement and play death animation
 	if(health <= 0) {
@@ -157,6 +153,7 @@
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
 	alive = NO;
 	gravity = ccp(2, 5);
+	level = CHUNK_LEVEL_UNKNOWN;
 	// turn towards the ground and crash!
 	[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
 }
@@ -180,11 +177,10 @@
 	
 	// make dropship huge
 	self.scale = 2;
-	self.scaleX = -2;
 	// save final position for later
 	finalPos = ccpAdd(newPosition, levelOffset);
 	// set velocity to more than the player so it flies past him
-	velocity = ccp([Globals sharedSingleton].playerVelocity.x + 800, 0);
+	velocity = ccp([Globals sharedSingleton].playerVelocity.x + 1000, 0);
 	// start dropship off screen, to the left of the player
 	dummyPosition = ccpAdd(ccpAdd(newPosition, ccp(-800, 0)), levelOffset);
 	dummyPosition.x = dummyPosition.x + [Globals sharedSingleton].playerPosition.x;

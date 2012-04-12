@@ -19,9 +19,9 @@
 	// array of lasers this weapon has
 	NSMutableArray *lasers;
 	// offsets for different torso states
-	CGPoint currentOffset, torsoOffset, torsoOffsetUp, torsoOffsetDown;
+	CGPoint currentOffset, torsoOffset, torsoOffsetUp, torsoOffsetDown, position;
 	// angles for firing up, down, and straight
-	float upAngle, downAngle, straightAngle;
+	float upAngle, downAngle, straightAngle, scale;
 }
 
 @property (nonatomic, readonly) NSString *identifier;
@@ -33,6 +33,9 @@
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setPlayerSpeed:(float)newPlayerSpeed;
 - (void) setPosition:(CGPoint)newPosition;
+- (void) setScale:(float)newScale;
+// getters
+- (CGPoint) getPosition;
 // update
 - (void) update:(float)delta;
 // actions

@@ -20,7 +20,6 @@
 		alive = YES;
 		[self loadFromFile:@"coin"];
 		[self loadAnimations];
-		[self addChild:spriteBatch];
 	}
 	
 	return self;

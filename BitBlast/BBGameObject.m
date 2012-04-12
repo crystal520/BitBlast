@@ -11,7 +11,7 @@
 
 @implementation BBGameObject
 
-@synthesize sprite, dummyPosition, prevDummyPosition, boundingBox;
+@synthesize dummyPosition, prevDummyPosition, boundingBox;
 
 - (id) initWithFile:(NSString *)filename {
 	
@@ -25,7 +25,6 @@
 }
 
 - (void) dealloc {
-	[sprite release];
 	[dictionary release];
 	[super dealloc];
 }
@@ -45,12 +44,6 @@
 #pragma mark -
 #pragma mark animations
 - (void) loadAnimations {
-	// release sprite if it already exists
-	if(sprite) {
-		[sprite release];
-	}
-	// create sprite
-	sprite = [CCSprite new];
 	// get animations from dictionary
 	NSArray *dictAnimations = [NSArray arrayWithArray:[dictionary objectForKey:@"animations"]];
 	// loop through and create animations
@@ -67,53 +60,39 @@
 	}
 	// load plist file with information about spritesheet
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[dictionary objectForKey:@"plist"]];
-	// load image file
-	spriteBatch = [CCSpriteBatchNode batchNodeWithFile:[dictionary objectForKey:@"image"]];
 }
 
 - (void) repeatAnimation:(NSString*)animName {
-	[sprite stopAllActions];
+	[self stopAllActions];
 	// get animation from dictionary
 	CCAnimation *anim = [[CCAnimationCache sharedAnimationCache] animationByName:animName];
 	// set sprite to first frame of the animation
-	[sprite setDisplayFrame:[anim.frames objectAtIndex:0]];
+	[self setDisplayFrame:[anim.frames objectAtIndex:0]];
 	// run it
 	CCAction *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO]];
-	[sprite runAction:action];
-	// add it to the spritebatch if we need to
-	if(!sprite.parent) {
-		[spriteBatch addChild:sprite];
-	}
+	[self runAction:action];
 }
 
 - (void) playAnimation:(NSString *)animName {
-	[sprite stopAllActions];
+	[self stopAllActions];
 	// get animation from dictionary
 	CCAnimation *anim = [[CCAnimationCache sharedAnimationCache] animationByName:animName];
 	// set sprite to first frame of the animation
-	[sprite setDisplayFrame:[anim.frames objectAtIndex:0]];
+	[self setDisplayFrame:[anim.frames objectAtIndex:0]];
 	// run it
 	CCAnimate *action = [CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO];
-	[sprite runAction:action];
-	// add it to the spritebatch if we need to
-	if(!sprite.parent) {
-		[spriteBatch addChild:sprite];
-	}
+	[self runAction:action];
 }
 
 - (void) playAnimation:(NSString *)animName target:(id)target selector:(SEL)selector {
-	[sprite stopAllActions];
+	[self stopAllActions];
 	// get animation from dictionary
 	CCAnimation *anim = [[CCAnimationCache sharedAnimationCache] animationByName:animName];
 	// set sprite to first frame of the animation
-	[sprite setDisplayFrame:[anim.frames objectAtIndex:0]];
+	[self setDisplayFrame:[anim.frames objectAtIndex:0]];
 	// compose sequence with animate and selector
 	CCAction *action = [CCSequence actions:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO], [CCCallFunc actionWithTarget:target selector:selector], nil];
-	[sprite runAction:action];
-	// add it to the spritebatch if we need to
-	if(!sprite.parent) {
-		[spriteBatch addChild:sprite];
-	}
+	[self runAction:action];
 }
 
 #pragma mark -
@@ -123,17 +102,19 @@
 	CGPoint thisPos = self.dummyPosition;
 	CGPoint thatPos = object.dummyPosition;
 	// calculate collision boxes
-	CGRect thisBox = CGRectMake((thisPos.x + boundingBox.origin.x) - boundingBox.size.width * sprite.anchorPoint.x, (thisPos.y + boundingBox.origin.y) - boundingBox.size.height * sprite.anchorPoint.y, boundingBox.size.width, boundingBox.size.height);
-	CGRect thatBox = CGRectMake((thatPos.x + object.boundingBox.origin.x) - object.boundingBox.size.width * object.sprite.anchorPoint.x, (thatPos.y + object.boundingBox.origin.y) - object.boundingBox.size.height * object.sprite.anchorPoint.y, object.boundingBox.size.width, object.boundingBox.size.height);
+	CGRect thisBox = CGRectMake((thisPos.x + boundingBox.origin.x) - boundingBox.size.width * self.anchorPoint.x, (thisPos.y + boundingBox.origin.y) - boundingBox.size.height * self.anchorPoint.y, boundingBox.size.width, boundingBox.size.height);
+	CGRect thatBox = CGRectMake((thatPos.x + object.boundingBox.origin.x) - object.boundingBox.size.width * object.anchorPoint.x, (thatPos.y + object.boundingBox.origin.y) - object.boundingBox.size.height * object.anchorPoint.y, object.boundingBox.size.width, object.boundingBox.size.height);
 	// check for collision
 	return CGRectIntersectsRect(thisBox, thatBox);
 }
 
 #pragma mark -
-#pragma mark actions
-- (void) stopAllActions {
-	[super stopAllActions];
-	[sprite stopAllActions];
+#pragma mark setters
+- (void) setDisplayFrame:(CCSpriteFrame *)newFrame {
+	[super setDisplayFrame:newFrame];
+	// use nearest so it will scale better
+	ccTexParams params = {GL_NEAREST,GL_NEAREST,GL_REPEAT,GL_REPEAT};
+	[self.texture setTexParameters:&params];
 }
 
 @end

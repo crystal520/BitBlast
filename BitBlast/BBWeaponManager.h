@@ -20,6 +20,7 @@
 + (BBWeaponManager*) sharedSingleton;
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
+- (void) setScale:(float)scale;
 // actions
 - (void) equip:(NSString*)newWeapon;
 - (void) unequip:(NSString*)oldWeapon;

@@ -9,19 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface BBGameObject : CCNode {
+@interface BBGameObject : CCSprite {
     // dummy position for handling multiple resolutions
     CGPoint dummyPosition;
 	// previous dummy position for handling multiple resolutions
 	CGPoint prevDummyPosition;
-	CCSprite *sprite;
-	CCSpriteBatchNode *spriteBatch;
 	NSDictionary *dictionary;
 	// bounding box for collisions
 	CGRect boundingBox;
 }
 
-@property (nonatomic, readonly) CCSprite *sprite;
 @property (nonatomic, assign) CGPoint dummyPosition, prevDummyPosition;
 @property (nonatomic, assign) CGRect boundingBox;
 
@@ -35,7 +32,5 @@
 - (void) playAnimation:(NSString *)animName target:(id)target selector:(SEL)selector;
 // getters
 - (BOOL) getCollidesWith:(BBGameObject*)object;
-// actions
-- (void) stopAllActions;
 
 @end

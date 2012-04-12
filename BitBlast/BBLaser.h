@@ -30,6 +30,8 @@
 	NSMutableArray *lasers;
 	// particle system
 	CCParticleSystemQuad *particles;
+	// scale of the lasers fired
+	float scale;
 }
 
 // initializers
@@ -38,6 +40,7 @@
 - (void) setAngle:(float)newAngle;
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setPosition:(CGPoint)newPosition;
+- (void) setScale:(float)newScale;
 // update
 - (void) update:(float)delta;
 // actions

@@ -30,5 +30,6 @@
 - (NSArray*) getActiveBullets;
 // setters
 - (void) setNode:(CCNode*)newNode;
+- (void) setScale:(float)scale;
 
 @end
