@@ -40,6 +40,8 @@
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelWillLoad) name:kLoadLevelNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 	}
 	return self;
 }
@@ -98,6 +100,18 @@
 - (void) levelWillLoad {
 	for(BBEnemy *e in enemies) {
 		[e setEnabled:NO];
+	}
+}
+
+- (void) pause {
+	for(BBEnemy *e in enemies) {
+		[e pause];
+	}
+}
+
+- (void) resume {
+	for(BBEnemy *e in enemies) {
+		[e resume];
 	}
 }
 

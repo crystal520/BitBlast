@@ -48,7 +48,7 @@
 		// add BulletManager to the scrolling node
 		[[BulletManager sharedSingleton] setNode:self];
 		
-		// scale up player, bullets, and weapons
+		// scale up player, bullets, and weapons scale
 		[[BulletManager sharedSingleton] setScale:2];
 		player.scale = 2;
 		[[BBWeaponManager sharedSingleton] setScale:2];
@@ -84,6 +84,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmBuy) name:kNavShopConfirmNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem) name:kNavBuyItemNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(weaponEquipped) name:kPlayerEquipWeaponNotification object:nil];
 	}
 	
 	return self;
@@ -166,6 +167,13 @@
 
 - (void) cancelBuyItem {
 	[self setEnabled:YES];
+}
+
+- (void) weaponEquipped {
+	// set weapon scale here in case a new weapon was equipped
+	[[BBWeaponManager sharedSingleton] setScale:2];
+	// enable weapons as they're disabled upon equipping
+	[[BBWeaponManager sharedSingleton] setEnabled:YES];
 }
 
 @end

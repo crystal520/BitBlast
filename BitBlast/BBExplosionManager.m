@@ -20,6 +20,9 @@
 			[explosions addObject:e];
 			[e release];
 		}
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 	}
 	return self;
 }
@@ -64,6 +67,20 @@
 			e.explodingObject = nil;
 			[e stopAllActions];
 		}
+	}
+}
+
+#pragma mark -
+#pragma mark notifications
+- (void) pause {
+	for(BBExplosion *e in explosions) {
+		[e pause];
+	}
+}
+
+- (void) resume {
+	for(BBExplosion *e in explosions) {
+		[e resume];
 	}
 }
 

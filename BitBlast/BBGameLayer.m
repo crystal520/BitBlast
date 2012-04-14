@@ -303,6 +303,7 @@
 			case kStateMainMenu:
 				if(state == kStatePause) {
 					[self finishGame];
+					[self clearMenuWithTag:TAG_POPUP];
 				}
 				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
 				[self clearMenuWithTag:TAG_MENU];

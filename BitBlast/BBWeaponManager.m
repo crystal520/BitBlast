@@ -79,6 +79,9 @@
 	[[SettingsManager sharedSingleton] setBool:YES keyString:newWeapon];
 	// keep track of most recently equipped weapon
 	[[SettingsManager sharedSingleton] setString:newWeapon keyString:@"equippedWeapon"];
+	
+	// post notification that weapon was equipped
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEquipWeaponNotification object:nil]];
 }
 
 - (void) unequip:(NSString*)oldWeapon {

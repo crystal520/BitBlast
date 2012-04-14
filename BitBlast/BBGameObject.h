@@ -32,5 +32,8 @@
 - (void) playAnimation:(NSString *)animName target:(id)target selector:(SEL)selector;
 // getters
 - (BOOL) getCollidesWith:(BBGameObject*)object;
+// actions
+- (void) pause;
+- (void) resume;
 
 @end

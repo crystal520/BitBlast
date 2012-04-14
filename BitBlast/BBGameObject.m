@@ -117,4 +117,14 @@
 	[self.texture setTexParameters:&params];
 }
 
+#pragma mark -
+#pragma mark actions
+- (void) pause {
+	[self pauseSchedulerAndActions];
+}
+
+- (void) resume {
+	[self resumeSchedulerAndActions];
+}
+
 @end

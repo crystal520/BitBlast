@@ -44,6 +44,8 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelWillLoad) name:kLoadLevelNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(increaseLevel) name:kPlayerLevelIncreaseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 		// explosions!
 		explosionManager = [BBExplosionManager new];
 		[explosionManager setNode:self];
@@ -199,6 +201,18 @@
 
 - (void) increaseLevel {
 	self.dropshipLevel++;
+}
+
+- (void) pause {
+	for(BBDropship *d in dropships) {
+		[d pause];
+	}
+}
+
+- (void) resume {
+	for(BBDropship *d in dropships) {
+		[d resume];
+	}
 }
 
 @end

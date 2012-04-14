@@ -90,13 +90,10 @@
 #pragma mark -
 #pragma mark setters
 - (void) setNode:(CCNode*)newNode {
-	if(node != newNode) {
-		node = newNode;
-		
-		for(BBBullet *b in bullets) {
-			[b.parent removeChild:b cleanup:YES];
-			[node addChild:b];
-		}
+	node = newNode;
+	for(BBBullet *b in bullets) {
+		[b.parent removeChild:b cleanup:YES];
+		[node addChild:b];
 	}
 }
 

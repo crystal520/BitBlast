@@ -43,6 +43,8 @@
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkWillRemove) name:kChunkWillRemoveNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 		
 		// create node to hold all player pieces
 		offsetNode = [CCNode new];
@@ -196,6 +198,16 @@
 	[[[ChunkManager sharedSingleton] getCurrentChunk] removeChild:self cleanup:NO];
 	
 	offsetNode.position = ccp(offsetNode.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].dummySize.width, offsetNode.position.y);
+}
+
+- (void) pause {
+	[self pauseSchedulerAndActions];
+	[legs pauseSchedulerAndActions];
+}
+
+- (void) resume {
+	[self resumeSchedulerAndActions];
+	[legs resumeSchedulerAndActions];
 }
 
 #pragma mark -

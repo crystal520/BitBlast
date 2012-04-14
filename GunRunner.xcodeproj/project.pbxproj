@@ -467,7 +467,7 @@
 		0A7D52C114C22C3700066390 /* CCNodeColorBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeColorBackground.h; sourceTree = "<group>"; };
 		0A7D52C214C22C3800066390 /* CCNodeColorBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNodeColorBackground.m; sourceTree = "<group>"; };
 		0A7D52C814C2317500066390 /* BBShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShop.h; sourceTree = "<group>"; };
-		0A7D52C914C2317600066390 /* BBShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShop.m; sourceTree = "<group>"; };
+		0A7D52C914C2317600066390 /* BBShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShop.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0A7D52CE14C4844400066390 /* BBShopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShopItem.h; sourceTree = "<group>"; };
 		0A7D52CF14C4844500066390 /* BBShopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBShopItem.m; sourceTree = "<group>"; };
 		0A7D52D914C4882800066390 /* shopItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopItem1.png; path = Resources/shopItem1.png; sourceTree = "<group>"; };
