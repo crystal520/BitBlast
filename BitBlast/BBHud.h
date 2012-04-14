@@ -16,6 +16,8 @@
     CCLabelBMFont *score;
 	// array of hearts keeping track of health
 	NSMutableArray *hearts;
+	// pause button
+	CCButton *pause;
 }
 
 - (void) update:(float)delta;

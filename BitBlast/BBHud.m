@@ -21,7 +21,7 @@
 		[self addChild:uiSpriteBatch];
 		
 		// create pause button
-		CCButton *pause = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] target:self selector:@selector(pause)];
+		pause = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] target:self selector:@selector(pause)];
 		[pause setSpriteBatchNode:uiSpriteBatch];
 		pause.position = ccp(winSize.width - pause.contentSize.width * 0.5, pause.contentSize.height * 0.5);
 		[self addChild:pause];
@@ -44,6 +44,8 @@
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(healthUpdate:) name:kPlayerHealthNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameStart) name:kNavGameNotification object:nil];
 	}
 	
 	return self;
@@ -75,6 +77,14 @@
 		CCSprite *heart = [hearts objectAtIndex:i];
 		[heart setVisible:(i < newHealth)];
 	}
+}
+
+- (void) gameOver {
+	[pause setEnabled:NO];
+}
+
+- (void) gameStart {
+	[pause setEnabled:YES];
 }
 
 @end
