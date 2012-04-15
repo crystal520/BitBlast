@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="128" tileheight="128">
  <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
-  <image source="tiles_aubrey.png" width="2048" height="1024"/>
+  <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaNgcIBkIE4hU28iECdRyR2pQJxGJbOGOmCmEWaDms9KoX5KzEDGLFAzR5p/Adi4A8g=
+   eJxjYBgFo2AUjIJRMApGwSgYBaNgcIBkIE4hU28iECdRyR2pQJxGJbOGOmCmEWaDms9KoX5KzMBm3kjzLwDU6APA
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzCEOACAMBMFqCo+F/wsQJxA0oUiyk1xS0zUDAAAAcMu1GswT62tDd1O/PPzu/5lG1Do18acJVckE5Q==
+   eJztzDEKACAMBMHURh+r/y+0uEKEgLGUHThIkzUDAAAAcMu1GswT62tDd1O/PPzu/5lG1Dp7+NcEQQUE2g==
+  </data>
+ </layer>
+ <layer name="Backdrop" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztjVEKgDAMQ3db/Vdx/+oNPIIHtYMNymhXOoYfkgehJaVJCAAAAAAA37OQVtJmeL1ZnvuIDouDdJIuw+vN8txHdLSY8rzZXvzkzR2ZdZbUxdE6JJ9neP4Ke54P24ufvNj41aizpC6O1iH5PMPzB/7JCwXvHjU=
   </data>
  </layer>
  <layer name="Foreground" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzsEJAAAIxDAH1f3X0C3kIIH+WwUAAKTpa74niLeyswC6
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
   </data>
  </layer>
 </map>
