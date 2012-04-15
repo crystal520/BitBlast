@@ -10,12 +10,12 @@
  </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztj10KwCAMg73K5s+TV9ghfN797zGFFkLoQHzOB6EVk2pTEkIIIYQQQoiYeyqbBvSuTn2D3EveJ8i7MLf662cGe/1PdapY9TP6st3zrAK10b474jdOcrjv7hs1qOjjXaPdl/8DLGwQbw==
+   eJztj0EKgDAMBPsVbevJL/gIz/7/H1ZIICwpiucZWJLQTZqUAgAAAAAAkLMOVdMZctcu+Rb6LvEeSb8r9j35MpmhXt+pDzWLXkdftXed1ZKZsx3f9v7bF+/9+kdPYvTprVq79wYJpBAo
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaNgFBALxIFYmAQshqRPhEx9EkAsCMRCJNghioVGVwdTC6Il8ZibQFZIUQ9Qw35izaAkfilJF/gwNjsIxS8h+2HmAgAB5gnZ
+   eJxjYBgFo2AUjIJRMApGwSgYBaNgFBALxIFYmAQshqRPhEx9EkAsCMRCJNghioVGVwdTC6IlcZgJAgmkBxNVATXsJ9YMSuKXknSBD2Ozg1D8Ems/AN2vCbI=
   </data>
  </layer>
  <layer name="Collision" width="60" height="15">

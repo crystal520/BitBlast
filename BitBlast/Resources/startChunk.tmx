@@ -15,7 +15,12 @@
  </layer>
  <layer name="Backdrop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztjVEKgDAMQ3db/Vdx/+oNPIIHtYMNymhXOoYfkgehJaVJCAAAAAAA37OQVtJmeL1ZnvuIDouDdJIuw+vN8txHdLSY8rzZXvzkzR2ZdZbUxdE6JJ9neP4Ke54P24ufvNj41aizpC6O1iH5PMPzB/7JCwXvHjU=
+   eJztjVEKgDAMQ3db/VfRf/UGHsGDukEHoXTDleGH5EFpSGkSAiGEEELIN0xx5jiL0tbdm+u59+iw2GWfog/ReNfe29zanze3V8Yg+wKd/eSNjkydZXUhpQ7Lx4yWv8wq+wad/eRtld8SOsvqQkodlo8ZLX/knzxk4yCZ
+  </data>
+ </layer>
+ <layer name="Backdrop2" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSigLSgG4hIgLsXBJ1bfUAHNQNwCxK1QGplPrL6hBqYAcTqUZkCiidE3FMESIC6H0gxINDH6RsEoGEwAAGlQDvs=
   </data>
  </layer>
  <layer name="Foreground" width="60" height="15">

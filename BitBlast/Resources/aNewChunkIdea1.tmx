@@ -23,14 +23,14 @@
    eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
   </data>
  </layer>
- <layer name="Foreground" width="60" height="15">
-  <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
-  </data>
- </layer>
  <layer name="FrontLayer" width="60" height="15">
   <data encoding="base64" compression="zlib">
    eJztklEKxCAMRD2qf9X+dku1v9u9wR5hD1oLKwxhVKTLlkIehEgcJiFqjKIoiqIoynVMKR4p5pv0OOv1TLGleP1gln/06PUaSO0t7h3och5B40h2pg72KGlHUvMNr5Z2IbWPuA+gy3kFTSA5mDrYo6RdSS02vEpaC+e8X7YPhP0F9MN3Ym/Tg5zFFzztN8vZav8r75ftDmF/gfkcsLfpQc4SG55yNpxlBzrBIo8=
+  </data>
+ </layer>
+ <layer name="Foreground" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
   </data>
  </layer>
 </map>
