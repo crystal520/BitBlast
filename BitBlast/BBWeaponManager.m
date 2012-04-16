@@ -62,6 +62,12 @@
 	}
 }
 
+- (void) setNode:(CCNode *)node {
+	for(BBWeapon *w in weapons) {
+		[w setNode:node];
+	}
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) equip:(NSString*)newWeapon {

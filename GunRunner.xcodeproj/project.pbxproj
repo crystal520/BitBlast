@@ -13,6 +13,7 @@
 		0A0366E414E4C78800313CCC /* BBEnemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0366E314E4C78800313CCC /* BBEnemy.m */; };
 		0A0366E714E4CC5F00313CCC /* testEnemy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0366E614E4CC5F00313CCC /* testEnemy.plist */; };
 		0A0402461516A6DA008D179E /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A0402451516A6DA008D179E /* particleTexture.png */; };
+		0A0DA445153A2C8800A420E8 /* BBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0DA444153A2C8800A420E8 /* BBDialog.m */; };
 		0A0DD3F41513A26300BD35E7 /* BBList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0DD3F31513A26300BD35E7 /* BBList.m */; };
 		0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */; };
 		0A1EC4AB14A02CC8005A7ED6 /* BBBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */; };
@@ -72,6 +73,7 @@
 		0A9A7B3E14B33D10003A1DB1 /* BBGameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3D14B33D10003A1DB1 /* BBGameOver.m */; };
 		0A9A7B4214B3E669003A1DB1 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A7B4114B3E668003A1DB1 /* white.png */; };
 		0A9A7B4D14B486A2003A1DB1 /* ParallaxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B4C14B4869F003A1DB1 /* ParallaxManager.m */; };
+		0AA27155153BA378003659A8 /* BBMovingCoin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA27154153BA378003659A8 /* BBMovingCoin.m */; };
 		0AB8BC4414B6A3AF0045491C /* BulletManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4314B6A3AF0045491C /* BulletManager.m */; };
 		0AB8BC4914B8C90C0045491C /* BBWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4814B8C90C0045491C /* BBWeapon.m */; };
 		0AB8BC4D14B8D4F00045491C /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4C14B8D4F00045491C /* bullet.png */; };
@@ -398,6 +400,8 @@
 		0A0366E314E4C78800313CCC /* BBEnemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBEnemy.m; sourceTree = "<group>"; };
 		0A0366E614E4CC5F00313CCC /* testEnemy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy.plist; sourceTree = "<group>"; };
 		0A0402451516A6DA008D179E /* particleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = particleTexture.png; path = Resources/Particles/particleTexture.png; sourceTree = "<group>"; };
+		0A0DA443153A2C8700A420E8 /* BBDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDialog.h; sourceTree = "<group>"; };
+		0A0DA444153A2C8800A420E8 /* BBDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDialog.m; sourceTree = "<group>"; };
 		0A0DD3F21513A26300BD35E7 /* BBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBList.h; sourceTree = "<group>"; };
 		0A0DD3F31513A26300BD35E7 /* BBList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBList.m; sourceTree = "<group>"; };
 		0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFollowOffset.m; sourceTree = "<group>"; };
@@ -490,6 +494,8 @@
 		0A9A7B4114B3E668003A1DB1 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white.png; path = Resources/white.png; sourceTree = "<group>"; };
 		0A9A7B4B14B4869C003A1DB1 /* ParallaxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxManager.h; sourceTree = "<group>"; };
 		0A9A7B4C14B4869F003A1DB1 /* ParallaxManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxManager.m; sourceTree = "<group>"; };
+		0AA27153153BA378003659A8 /* BBMovingCoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMovingCoin.h; sourceTree = "<group>"; };
+		0AA27154153BA378003659A8 /* BBMovingCoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMovingCoin.m; sourceTree = "<group>"; };
 		0AB8BC4214B6A3AF0045491C /* BulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletManager.h; sourceTree = "<group>"; };
 		0AB8BC4314B6A3AF0045491C /* BulletManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletManager.m; sourceTree = "<group>"; };
 		0AB8BC4714B8C90C0045491C /* BBWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWeapon.h; sourceTree = "<group>"; };
@@ -1441,6 +1447,8 @@
 				0A42D15414C5214100DD55CA /* BBLeaderboardEntry.m */,
 				0A2FC97915197976005FDF5F /* BBPause.h */,
 				0A2FC97A15197977005FDF5F /* BBPause.m */,
+				0A0DA443153A2C8700A420E8 /* BBDialog.h */,
+				0A0DA444153A2C8800A420E8 /* BBDialog.m */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -1467,6 +1475,8 @@
 				0AC9623F15106E6800790570 /* BBCoinManager.m */,
 				0AC9624115106E7400790570 /* BBCoin.h */,
 				0AC9624215106E7400790570 /* BBCoin.m */,
+				0AA27153153BA378003659A8 /* BBMovingCoin.h */,
+				0AA27154153BA378003659A8 /* BBMovingCoin.m */,
 			);
 			name = Coins;
 			sourceTree = "<group>";
@@ -2476,6 +2486,8 @@
 				0A67AFD8151EB22600CAA55B /* BBChopper.m in Sources */,
 				0AC5ECB1152018CD001F7292 /* BBExplosion.m in Sources */,
 				0AC5ECB515201BF6001F7292 /* BBExplosionManager.m in Sources */,
+				0A0DA445153A2C8800A420E8 /* BBDialog.m in Sources */,
+				0AA27155153BA378003659A8 /* BBMovingCoin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

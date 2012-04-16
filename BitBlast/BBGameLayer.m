@@ -152,6 +152,7 @@
 	[[BBLogic sharedSingleton] setEnabled:YES];
 	// add BulletManager to the scrolling node
 	[[BulletManager sharedSingleton] setNode:scrollingNode];
+	[[BBWeaponManager sharedSingleton] setNode:scrollingNode];
 }
 
 - (void) resetSessionStats {

@@ -45,7 +45,8 @@
 		
 		// enable weapons so the player can see the currently equipped weapon being shot
 		[[BBWeaponManager sharedSingleton] setEnabled:YES];
-		// add BulletManager to the scrolling node
+		[[BBWeaponManager sharedSingleton] setNode:self];
+		// add BulletManager to the shop node
 		[[BulletManager sharedSingleton] setNode:self];
 		
 		// scale up player, bullets, and weapons scale
