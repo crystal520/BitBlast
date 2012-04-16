@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="128" tileheight="128">
  <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
-  <image source="tiles_aubrey.png" width="2048" height="768"/>
+  <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
  <layer name="Background2" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaNgFIwC+gIVEtUrE6FGCY2vhqRXDU1cCU3NUAS4/IuNjcu/AKorAiM=
+   eJztz0EKACAIRFHPYjH3P2IELkSQaBME/22kmsAxAwAAAIC35mV+HO739JLLb/W/xw6Ks+wPuUftqyYn6/suXE4DNw==
   </data>
  </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaNgFIwC2gJFJFoJiEOBWBkJq6Dx0XE0EKuhmamERR+Ir0qAjQ2jm00sUILqt0EzB9m/RkBsTMB/xLhJCYc6VSLYuMwGAHSTC4Q=
+   eJztjzEKgDAQBH2IjbnoA7T1G1Y+Ra1TaO933UACSwgIgt0ODLdRPLNNI4QQQgghhBD/0tF0cIFG+uJcusKh2Bn3nHCHbZoX7OmbmGcYKOd/hTTz+y842mF0R+47wumlX81a3y31zB7U1yjflD09M8qRB5vjEcA=
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztkVsKwCAMBHuCltY+6P0v2gQMyIISKLQ/M7AYRFezmSYAAAAAAPiS2bSalrpupttUqtratYti/xTfSzzi/JGoi0i9s7R/eOPzJ95DL5eYh2c36k1z6PnorDN3Rvlm3g0fv/sALZsHRQ==
+   eJztkkEKgDAMBPsCRasW/6Y/8P9nE2ghLIn0IHrZgaGhkJQkTYkQQgghhBDyJYM4iWM9Z3EXc9XG6gK2+w3qFvFyXE1uFGcQa/dSXqrzJ9pDNJe2D53dU284h6gO7ronx+72hHeP5P8BT829AaFrDlE=
   </data>
  </layer>
  <layer name="Collision" width="60" height="15">
@@ -23,9 +23,14 @@
    eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
   </data>
  </layer>
+ <layer name="Backdrop" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYBaNgFAwFYEdAPhuHeC61HUIlkDDQDqAxIBRfhOSxqccVx+QCAH81Apw=
+  </data>
+ </layer>
  <layer name="Foreground" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzwENAAAIw7A7wb9LVAAhaRVsCQAAwJy6Dlj26bcBVMgAPw==
+   eJxjYBgFo2AUjIJRMApGwSgYBaNgFIwC2gH5gXYAGminsfmDzb/T8cgBAPKgAV0=
   </data>
  </layer>
 </map>

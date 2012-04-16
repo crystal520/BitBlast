@@ -30,7 +30,7 @@
  </layer>
  <layer name="Backdrop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzkERAAAEAEERRdA/hQ7Gh9ktcBcBAAAwV0c6uTHxTAOKXwER
+   eJxjYBgFo2AUjIJRMApGwSgYBaOAdqCRAH+4gYkE+IMZZJKpLwGLWAYR+rKIUIOcXrDZQwoIAOJ0JL4dheYhgwoizKsiwhxqp5dyAvIAuvgHzg==
   </data>
  </layer>
  <layer name="Foreground" width="60" height="15">
