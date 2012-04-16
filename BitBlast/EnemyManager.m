@@ -38,7 +38,7 @@
 			[enemy release];
 		}
 		// register for notifications
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelWillLoad) name:kLoadLevelNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
@@ -91,12 +91,6 @@
 
 #pragma mark -
 #pragma mark notifications
-- (void) gameOver {
-	for(BBEnemy *e in enemies) {
-		[e stopAllActions];
-	}
-}
-
 - (void) levelWillLoad {
 	for(BBEnemy *e in enemies) {
 		[e setEnabled:NO];

@@ -34,6 +34,7 @@
 - (void) setPlayerSpeed:(float)newPlayerSpeed;
 - (void) setPosition:(CGPoint)newPosition;
 - (void) setScale:(float)newScale;
+- (void) setNode:(CCNode*)node;
 // getters
 - (CGPoint) getPosition;
 // update

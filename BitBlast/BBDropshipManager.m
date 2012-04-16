@@ -189,6 +189,7 @@
 - (void) gameOver {
 	enabled = NO;
 	self.dropshipLevel = 0;
+	[self pause];
 }
 
 - (void) levelWillLoad {

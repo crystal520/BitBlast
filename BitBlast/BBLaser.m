@@ -107,9 +107,6 @@
 	if(particles) {
 		particles.position = ccpMult(position, [ResolutionManager sharedSingleton].positionScale);
 	}
-	if(particles && !particles.parent) {
-		[[BulletManager sharedSingleton].node addChild:particles];
-	}
 }
 
 - (void) setScale:(float)newScale {
@@ -117,6 +114,14 @@
 	if(particles) {
 		particles.scale = scale;
 	}
+}
+
+- (void) setNode:(CCNode*)node {
+	[particles.parent removeChild:particles cleanup:YES];
+	[node addChild:particles];
+	// unschedule and reschedule update in case it has been unscheduled by a parent
+	[particles unscheduleUpdate];
+	[particles scheduleUpdateWithPriority:1];
 }
 
 #pragma mark -

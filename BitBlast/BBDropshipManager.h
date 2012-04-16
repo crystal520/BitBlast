@@ -45,5 +45,7 @@
 // actions
 - (void) checkCollisions;
 - (void) tryToSpawnDropship;
+// notifications
+- (void) pause;
 
 @end

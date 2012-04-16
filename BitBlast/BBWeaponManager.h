@@ -21,6 +21,7 @@
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setScale:(float)scale;
+- (void) setNode:(CCNode*)node;
 // actions
 - (void) equip:(NSString*)newWeapon;
 - (void) unequip:(NSString*)oldWeapon;

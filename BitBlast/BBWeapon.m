@@ -145,6 +145,15 @@
 	scale = newScale;
 }
 
+- (void) setNode:(CCNode *)node {
+	for(BBShot *s in shots) {
+		[s setNode:node];
+	}
+	for(BBLaser *l in lasers) {
+		[l setNode:node];
+	}
+}
+
 #pragma mark -
 #pragma mark getters
 - (CGPoint) getPosition {

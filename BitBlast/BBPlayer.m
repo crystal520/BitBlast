@@ -189,15 +189,15 @@
 		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerLevelIncreaseNotification object:nil]];
 	}
 	
-	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
-	[self release];
+	//[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+	//[self release];
 }
 
 - (void) chunkWillRemove {
-	[self retain];
-	[[[ChunkManager sharedSingleton] getCurrentChunk] removeChild:self cleanup:NO];
+	//[self retain];
+	//[[[ChunkManager sharedSingleton] getCurrentChunk] removeChild:self cleanup:NO];
 	
-	offsetNode.position = ccp(offsetNode.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].dummySize.width, offsetNode.position.y);
+	//offsetNode.position = ccp(offsetNode.position.x - [[ChunkManager sharedSingleton] getCurrentChunk].dummySize.width, offsetNode.position.y);
 }
 
 - (void) pause {
@@ -295,8 +295,8 @@
 	offsetNode.position = ccp(0, 0);
 	
 	// add to current chunk
-	[self.parent removeChild:self cleanup:NO];
-	[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
+	//[self.parent removeChild:self cleanup:NO];
+	//[[[ChunkManager sharedSingleton] getCurrentChunk] addChild:self z:[[ChunkManager sharedSingleton] getCurrentChunk].playerZ];
 	
 	// set the legs to the first frame of the run animation
 	CCAnimation *runAnim = [[CCAnimationCache sharedAnimationCache] animationByName:@"run"];
