@@ -65,7 +65,7 @@
 		
 		// create player
 		player = [[BBPlayer alloc] init];
-		[scrollingNode addChild:player];
+		[scrollingNode addChild:player z:1];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
@@ -231,7 +231,7 @@
 	// create chopper for intro animation
 	[self killChopper];
 	chopper = [BBChopper new];
-	[scrollingNode addChild:chopper z:-1];
+	[scrollingNode addChild:chopper z:0];
 	
 	// reset level
 	scrollingNode.position = ccp(0, -cameraOffset.y);

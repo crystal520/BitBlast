@@ -25,7 +25,6 @@
 - (BBEnemy*) getRecycledEnemy;
 - (NSArray*) getActiveEnemies;
 // notifications
-- (void) gameOver;
 - (void) levelWillLoad;
 // actions
 - (void) checkCollisions;
