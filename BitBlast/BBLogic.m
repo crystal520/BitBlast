@@ -52,7 +52,6 @@
 	if(enabled) {
 		// TODO: make this way cooler. for now, just determine whether to wait, spawn a dropship, or spawn some coins
 		float ran = CCRANDOM_0_1();
-		ran = 0.25;
 		// wait for a half second
 		if(ran < 0.25) {
 			[[BBCoinManager sharedSingleton] spawnCoinGroup];
