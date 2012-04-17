@@ -93,7 +93,7 @@
 	node = newNode;
 	for(BBBullet *b in bullets) {
 		[b.parent removeChild:b cleanup:YES];
-		[node addChild:b];
+		[node addChild:b z:DEPTH_GAME_BULLETS];
 	}
 }
 

@@ -49,15 +49,15 @@
 		[self addChild:scrollingNode z:DEPTH_LEVEL];
 		
 		// load level
-		[scrollingNode addChild:[ChunkManager sharedSingleton]];
+		[scrollingNode addChild:[ChunkManager sharedSingleton] z:DEPTH_GAME_LEVEL];
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
 		
 		// add dropships to scrollingNode
-		[scrollingNode addChild:[BBDropshipManager sharedSingleton]];
+		[scrollingNode addChild:[BBDropshipManager sharedSingleton] z:DEPTH_GAME_DROPSHIPS];
 		// add enemies to scrollingNode
-		[scrollingNode addChild:[EnemyManager sharedSingleton]];
+		[scrollingNode addChild:[EnemyManager sharedSingleton] z:DEPTH_GAME_ENEMIES];
 		// add coins to scrollingNode
-		[scrollingNode addChild:[BBCoinManager sharedSingleton]];
+		[scrollingNode addChild:[BBCoinManager sharedSingleton] z:DEPTH_GAME_COINS];
 		
 		// create background sprite
 		[self createBackground];
@@ -65,7 +65,7 @@
 		
 		// create player
 		player = [[BBPlayer alloc] init];
-		[scrollingNode addChild:player z:1];
+		[scrollingNode addChild:player z:DEPTH_GAME_PLAYER];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
@@ -231,7 +231,7 @@
 	// create chopper for intro animation
 	[self killChopper];
 	chopper = [BBChopper new];
-	[scrollingNode addChild:chopper z:0];
+	[scrollingNode addChild:chopper z:DEPTH_GAME_INTRO_CHOPPER];
 	
 	// reset level
 	scrollingNode.position = ccp(0, -cameraOffset.y);
