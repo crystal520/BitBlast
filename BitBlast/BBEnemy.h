@@ -12,6 +12,7 @@
 #import "BBBullet.h"
 #import "SettingsManager.h"
 #import "SimpleAudioEngine.h"
+#import "BBMovingCoinManager.h"
 
 @interface BBEnemy : BBMovingObject {
 	// type of enemy

@@ -105,6 +105,7 @@
 }
 
 - (void) die {
+	[[BBMovingCoinManager sharedSingleton] spawnCoins:5 atPosition:self.dummyPosition];
 	[[SimpleAudioEngine sharedEngine] playEffect:@"explosion.wav"];
 	alive = NO;
 	velocity = ccp(0, 0);

@@ -60,7 +60,7 @@
 	// update active coins
 	for(BBCoin *c in coins) {
 		if(!c.recycle) {
-			// see if enemy has gone off screen
+			// see if coin has gone off screen
 			if(c.dummyPosition.x < [Globals sharedSingleton].playerPosition.x - [Globals sharedSingleton].cameraOffset.x) {
 				[c setEnabled:NO];
 			}
