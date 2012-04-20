@@ -409,6 +409,7 @@ typedef struct _ccBezierConfig {
 	CCAnimation *animation_;
 	id origFrame_;
 	BOOL restoreOriginalFrame_;
+	int startFrame_;
 }
 /** animation used for the animage */
 @property (readwrite,nonatomic,retain) CCAnimation * animation;
@@ -421,6 +422,10 @@ typedef struct _ccBezierConfig {
 +(id) actionWithAnimation:(CCAnimation*) a restoreOriginalFrame:(BOOL)b;
 /** initializes the action with an Animation */
 -(id) initWithAnimation:(CCAnimation*) a restoreOriginalFrame:(BOOL)b;
+/** creates the action with an animation that will restore the original frame when the animation is over and start at the given frame */
++(id) actionWithAnimation:(CCAnimation *)a restoreOriginalFrame:(BOOL)b startFrame:(int)f;
+/** initializes the action with an animation that will restore the original frame when the animation is over and start at the given frame */
+-(id) initWithAnimation:(CCAnimation *)a restoreOriginalFrame:(BOOL)b startFrame:(int)f;
 /** creates an action with a duration, animation and depending of the restoreOriginalFrame, it will restore the original frame or not.
  The 'delay' parameter of the animation will be overrided by the duration parameter.
  @since v0.99.0

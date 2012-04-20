@@ -40,6 +40,7 @@
 	spawnTimer = 0;
 	health = [[dictionary objectForKey:@"health"] intValue];
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
+	coins = [[dictionary objectForKey:@"coins"] intValue];
 	[self repeatAnimation:@"walk"];
 	// TODO: turn this scale off once we get a different image for these
 	boundingBox.origin.x *= -1;
@@ -136,17 +137,22 @@
 - (void) hitByBullet:(BBBullet*)bullet {
 	health -= bullet.damage;
 	
-	// TODO: play hit animation or something cooler. possibly explosion particles
-	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-	[self runAction:action];
-	
 	// if the dropship died, turn off all movement and play death animation
 	if(health <= 0) {
+		[self stopActionByTag:DROPSHIP_ACTION_TAG_HIT];
+		[self setColor:ccc3(255, 255, 255)];
 		[self die];
+	}
+	else {
+		// TODO: play hit animation or something cooler. possibly explosion particles
+		CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
+		action.tag = DROPSHIP_ACTION_TAG_HIT;
+		[self runAction:action];
 	}
 }
 
 - (void) die {
+	[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:dummyPosition];
 	[[SimpleAudioEngine sharedEngine] playEffect:@"dropshipexplosion.wav"];
 	// increment dropships killed
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];

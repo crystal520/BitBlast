@@ -30,8 +30,17 @@
 		score = [[CCLabelBMFont alloc] initWithString:@"0" fntFile:@"gamefont.fnt"];
 		score.anchorPoint = ccp(1, 1);
 		score.scale = 0.7;
-		score.position = ccp(winSize.width, winSize.height);
+		score.position = ccp(winSize.width * 0.98, winSize.height);
+		score.color = ccc3(178, 34, 34);
 		[self addChild:score];
+		
+		// create coins label
+		coins = [[CCLabelBMFont alloc] initWithString:@"$0" fntFile:@"gamefont.fnt"];
+		coins.anchorPoint = ccp(1, 1);
+		coins.scale = 0.7;
+		coins.position = ccp(winSize.width * 0.98, winSize.height - score.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
+		coins.color = ccc3(255, 215, 0);
+		[self addChild:coins];
 		
 		// create hearts based on player's starting health
 		hearts = [NSMutableArray new];
@@ -54,6 +63,8 @@
 - (void) dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[hearts release];
+	[coins release];
+	[score release];
 	[super dealloc];
 }
 
@@ -66,6 +77,7 @@
 #pragma mark update
 - (void) update:(float)delta {
 	[score setString:[NSString stringWithFormat:@"%im", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
+	[coins setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
 }
 
 #pragma mark -

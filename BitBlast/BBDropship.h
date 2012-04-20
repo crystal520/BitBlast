@@ -12,12 +12,17 @@
 #import "EnemyManager.h"
 #import "BBBullet.h"
 #import "SimpleAudioEngine.h"
+#import "BBMovingCoinManager.h"
 
 typedef enum {
 	DROPSHIP_STATE_INTRO_MOVING_RIGHT,
 	DROPSHIP_STATE_INTRO_MOVING_LEFT,
 	DROPSHIP_STATE_ACTIVE
 } DropshipState;
+
+typedef enum {
+	DROPSHIP_ACTION_TAG_HIT
+} DropshipActions;
 
 @interface BBDropship : BBMovingObject {
     // number of bullets it takes for the dropship to die
@@ -38,6 +43,8 @@ typedef enum {
 	DropshipState state;
 	// position the dropship will be enabled at
 	CGPoint finalPos;
+	// number of coins dropship gives off upon dying
+	int coins;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;

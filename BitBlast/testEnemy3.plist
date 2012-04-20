@@ -34,5 +34,7 @@
 		<key>y</key>
 		<integer>0</integer>
 	</dict>
+	<key>coins</key>
+	<integer>3</integer>
 </dict>
 </plist>

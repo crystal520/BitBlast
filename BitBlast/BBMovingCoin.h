@@ -15,6 +15,8 @@
 	float restitution;
 	// whether or not this coin can be reused
 	BOOL recycle;
+	// whether or not this coin is enabled
+	BOOL enabled;
 	// how long this coin remains active for
 	float lifeTime;
 	float lifeTimer;
@@ -24,7 +26,7 @@
 	CGPoint yVelRange;
 }
 
-@property (nonatomic, assign) BOOL recycle;
+@property (nonatomic, assign) BOOL recycle, enabled;
 
 // update
 - (void) update:(float)delta;

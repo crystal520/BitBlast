@@ -28,6 +28,7 @@
 // animations
 - (void) loadAnimations;
 - (void) repeatAnimation:(NSString*)animName;
+- (void) repeatAnimation:(NSString *)animName startFrame:(int)frame;
 - (void) playAnimation:(NSString*)animName;
 - (void) playAnimation:(NSString *)animName target:(id)target selector:(SEL)selector;
 // getters

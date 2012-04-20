@@ -64,5 +64,7 @@
 		<key>height</key>
 		<integer>128</integer>
 	</dict>
+	<key>coins</key>
+	<integer>3</integer>
 </dict>
 </plist>

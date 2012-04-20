@@ -40,6 +40,7 @@
 	velocity = ccp([[[dictionary objectForKey:@"speed"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"speed"] objectForKey:@"y"] floatValue]);
 	health = [[dictionary objectForKey:@"health"] floatValue];
 	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
+	coins = [[dictionary objectForKey:@"coins"] intValue];
 }
 
 #pragma mark -
@@ -91,21 +92,25 @@
 - (void) hitByBullet:(BBBullet*)bullet {
 	health -= bullet.damage;
 	
-	// TODO: play hit animation or something cooler. possibly blood particles
-	CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-	[self runAction:action];
-	
 	// if the enemy died, turn off all movement and play a death animation
 	if(health <= 0) {
+		[self stopActionByTag:ENEMY_ACTION_TAG_HIT];
+		[self setColor:ccc3(255, 255, 255)];
 		// increment enemies killed
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalEnemies"];
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentEnemies"];
 		[self die];
+		[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:self.dummyPosition];
+	}
+	else {
+		// TODO: play hit animation or something cooler. possibly blood particles
+		CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
+		action.tag = ENEMY_ACTION_TAG_HIT;
+		[self runAction:action];
 	}
 }
 
 - (void) die {
-	[[BBMovingCoinManager sharedSingleton] spawnCoins:5 atPosition:self.dummyPosition];
 	[[SimpleAudioEngine sharedEngine] playEffect:@"explosion.wav"];
 	alive = NO;
 	velocity = ccp(0, 0);

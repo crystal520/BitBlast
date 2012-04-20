@@ -62,5 +62,7 @@
 		<key>y</key>
 		<integer>50</integer>
 	</dict>
+	<key>coins</key>
+	<integer>25</integer>
 </dict>
 </plist>

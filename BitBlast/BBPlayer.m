@@ -330,6 +330,17 @@
 			[c setEnabled:NO];
 		}
 	}
+	// check to see if player is colliding with any moving coins
+	NSArray *activeMovingCoins = [[BBMovingCoinManager sharedSingleton] getActiveCoins];
+	for(BBMovingCoin *c in activeMovingCoins) {
+		if(c.enabled && [c getCollidesWith:self]) {
+			[[SimpleAudioEngine sharedEngine] playEffect:@"coin.wav"];
+			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentCoins"];
+			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalCoins"];
+			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"allTimeCoins"];
+			[c setEnabled:NO];
+		}
+	}
 	// check to see if player is colliding with any enemies
 	NSArray *activeEnemies = [[EnemyManager sharedSingleton] getActiveEnemies];
 	for(BBEnemy *e in activeEnemies) {

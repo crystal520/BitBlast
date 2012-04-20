@@ -21,6 +21,7 @@
 - (void) update:(float)delta;
 // getters
 - (BBMovingCoin*) getRecycledCoin;
+- (NSArray*) getActiveCoins;
 // actions
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position;
 

@@ -1295,6 +1295,11 @@ static inline float bezierat( float a, float b, float c, float d, ccTime t )
 	return [[[self alloc] initWithAnimation:anim restoreOriginalFrame:b] autorelease];
 }
 
++(id) actionWithAnimation:(CCAnimation *)anim restoreOriginalFrame:(BOOL)b startFrame:(int)frame
+{
+	return [[[self alloc] initWithAnimation:anim restoreOriginalFrame:b startFrame:frame] autorelease];
+}
+
 +(id) actionWithDuration:(ccTime)duration animation: (CCAnimation*)anim restoreOriginalFrame:(BOOL)b
 {
 	return [[[self alloc] initWithDuration:duration animation:anim restoreOriginalFrame:b] autorelease];
@@ -1309,12 +1314,19 @@ static inline float bezierat( float a, float b, float c, float d, ccTime t )
 -(id) initWithAnimation: (CCAnimation*)anim restoreOriginalFrame:(BOOL) b
 {
 	NSAssert( anim!=nil, @"Animate: argument Animation must be non-nil");
+	return [self initWithAnimation:anim restoreOriginalFrame:b startFrame:0];
+}
 
+-(id) initWithAnimation:(CCAnimation *)anim restoreOriginalFrame:(BOOL)b startFrame:(int)frame
+{
+	NSAssert( anim!=nil, @"Animate: argument Animation must be non-nil");
+	
 	if( (self=[super initWithDuration: [[anim frames] count] * [anim delay]]) ) {
-
+		
 		restoreOriginalFrame_ = b;
 		self.animation = anim;
 		origFrame_ = nil;
+		startFrame_ = frame;
 	}
 	return self;
 }
@@ -1328,6 +1340,7 @@ static inline float bezierat( float a, float b, float c, float d, ccTime t )
 		restoreOriginalFrame_ = b;
 		self.animation = anim;
 		origFrame_ = nil;
+		startFrame_ = 0;
 	}
 	return self;
 }
@@ -1371,10 +1384,19 @@ static inline float bezierat( float a, float b, float c, float d, ccTime t )
 	NSArray *frames = [animation_ frames];
 	NSUInteger numberOfFrames = [frames count];
 	
-	NSUInteger idx = t * numberOfFrames;
+	NSUInteger idx = startFrame_ + t * numberOfFrames;
 
-	if( idx >= numberOfFrames )
-		idx = numberOfFrames -1;
+	if( idx >= numberOfFrames ) {
+		if(startFrame_ != 0)
+		{
+			idx -= numberOfFrames;
+			// handle any potential overtime issues
+			if(idx >= startFrame_)
+				idx = startFrame_-1;
+		}
+		else
+			idx = numberOfFrames -1;
+	}
 	
 	CCSprite *sprite = target_;
 	if (! [sprite isFrameDisplayed: [frames objectAtIndex: idx]] )

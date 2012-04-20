@@ -14,6 +14,10 @@
 #import "SimpleAudioEngine.h"
 #import "BBMovingCoinManager.h"
 
+typedef enum {
+	ENEMY_ACTION_TAG_HIT
+} EnemyActions;
+
 @interface BBEnemy : BBMovingObject {
 	// type of enemy
 	NSString* type;
@@ -25,6 +29,8 @@
 	BOOL enabled;
 	// whether or not the enemy has died
 	BOOL alive;
+	// number of coins enemy gives off when it is killed
+	int coins;
 }
 
 @property (nonatomic, assign) BOOL recycle, enabled, alive;

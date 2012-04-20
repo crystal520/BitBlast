@@ -63,13 +63,21 @@
 }
 
 - (void) repeatAnimation:(NSString*)animName {
+	[self repeatAnimation:animName startFrame:0];
+}
+
+- (void) repeatAnimation:(NSString *)animName startFrame:(int)frame {
 	[self stopAllActions];
 	// get animation from dictionary
 	CCAnimation *anim = [[CCAnimationCache sharedAnimationCache] animationByName:animName];
 	// set sprite to first frame of the animation
 	[self setDisplayFrame:[anim.frames objectAtIndex:0]];
+	// check to see if it should start on a random frame
+	if(frame == -1) {
+		frame = CCRANDOM_MIN_MAX(0, [anim.frames count]);
+	}
 	// run it
-	CCAction *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO]];
+	CCAction *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO startFrame:frame]];
 	[self runAction:action];
 }
 

@@ -11,22 +11,49 @@
 
 @implementation BBMovingCoin
 
-@synthesize recycle;
+@synthesize recycle, enabled;
 
 - (id) init {
 	if((self = [super initWithFile:@"coinExplosion"])) {
-		[self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"oldCoin1.png"]];
+		[self loadAnimations];
+		[self repeatAnimation:@"coinExplosionIdle" startFrame:-1];
+		enabled = NO;
 		recycle = YES;
-		self.gravity = ccp(0, 50);
-		restitution = 0.9;
+		self.visible = NO;
+		
+		// load extra variables from dictionary
+		gravity = CGPointFromString([dictionary objectForKey:@"gravity"]);
+		xVelRange = CGPointFromString([dictionary objectForKey:@"xMovementRange"]);
+		yVelRange = CGPointFromString([dictionary objectForKey:@"yMovementRange"]);
+		restitution = [[dictionary objectForKey:@"bounciness"] floatValue];
+		lifeTime = [[dictionary objectForKey:@"lifetime"] floatValue];
+		tileOffset = ccp(0, [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale);
 	}
 	return self;
 }
 
+#pragma mark -
+#pragma mark update
 - (void) update:(float)delta {
-	[super update:delta];
+	// only update if enabled
+	if(enabled) {
+		[super update:delta];
+		
+		// count down the lifetime of this coin. once it passes 0, kill it
+		lifeTimer -= delta;
+		if(lifeTimer <= 0) {
+			[self setEnabled:NO];
+		}
+		
+		// clamp X velocity if Y velocity is at or close to 0
+		if(abs(velocity.y) <= 1) {
+			velocity.x = 0;
+		}
+	}
 }
 
+#pragma mark -
+#pragma mark super
 - (void) checkPlatformCollisions {
 	// special note about tile collisions: tiles' origin is at (0, 0) instead of the normal (0.5, 0.5) anchor
 	touchingPlatform = NO;
@@ -54,7 +81,7 @@
 			if(dummyPosition.y <= actualTilePos + tile.contentSize.height * 0.5 + tileOffset.y) {
 				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y);
 				touchingPlatform = YES;
-				velocity = ccp(velocity.x, restitution * -velocity.y);
+				velocity = ccp(velocity.x * restitution, restitution * -velocity.y);
 				break;
 			}
 		}
@@ -69,7 +96,7 @@
 			if(dummyPosition.y <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y && velocity.y < 0 && prevDummyPosition.y >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y) {
 				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y);
 				touchingPlatform = YES;
-				velocity = ccp(velocity.x, restitution * -velocity.y);
+				velocity = ccp(velocity.x * restitution, restitution * -velocity.y);
 				break;
 			}
 		}
@@ -83,7 +110,7 @@
 			float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
 			if(dummyPosition.y >= actualTilePos + tileOffset.y && velocity.y > 0 && prevDummyPosition.y <= actualTilePos) {
 				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + tileOffset.y);
-				velocity = ccp(velocity.x, restitution * -velocity.y);
+				velocity = ccp(velocity.x * restitution, restitution * -velocity.y);
 				jumping = NO;
 				break;
 			}
@@ -91,13 +118,30 @@
 	}
 }
 
+#pragma mark -
+#pragma mark actions
 - (void) resetWithPosition:(CGPoint)newPosition {
 	dummyPosition = newPosition;
 	// generate random x and y velocity
-	float xVel = CCRANDOM_MIN_MAX(-40, 40);
-	float yVel = CCRANDOM_MIN_MAX(200, 300);
+	float xVel = CCRANDOM_MIN_MAX(xVelRange.x, xVelRange.y);
+	float yVel = CCRANDOM_MIN_MAX(yVelRange.x, yVelRange.y);
 	velocity = ccp(xVel, yVel);
-	recycle = NO;
+	lifeTimer = lifeTime;
+	[self setEnabled:YES];
+}
+
+#pragma mark -
+#pragma mark setters
+- (void) setEnabled:(BOOL)newEnabled {
+	if(newEnabled && !enabled) {
+		self.visible = YES;
+		recycle = NO;
+	}
+	else if(enabled && !newEnabled) {
+		self.visible = NO;
+		recycle = YES;
+	}
+	enabled = newEnabled;
 }
 
 @end

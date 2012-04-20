@@ -135,6 +135,8 @@
 }
 
 - (void) reset {
+	// let everyone know that a new game is being started
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventNewGame object:nil]];
 	// reset session stats
 	[self resetSessionStats];
 	

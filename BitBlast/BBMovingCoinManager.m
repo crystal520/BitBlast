@@ -29,12 +29,19 @@
 	if((self = [super init])) {
 		coins = [NSMutableArray new];
 		
+		// create coins
 		for(int i=0;i<MAX_MOVING_COINS;i++) {
 			BBMovingCoin *coin = [BBMovingCoin new];
 			[self addChild:coin];
 			[coins addObject:coin];
 			[coin release];
 		}
+		
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kPlayerDeadNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kEventNewGame object:nil];
 	}
 	return self;
 }
@@ -66,12 +73,36 @@
 	return nil;
 }
 
+- (NSArray*) getActiveCoins {
+	NSMutableArray *activeCoins = [NSMutableArray array];
+	for(BBMovingCoin *c in coins) {
+		if(!c.recycle) {
+			[activeCoins addObject:c];
+		}
+	}
+	return activeCoins;
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position {
 	for(int i=0;i<numCoins;i++) {
 		BBMovingCoin *coin = [self getRecycledCoin];
 		[coin resetWithPosition:position];
+	}
+}
+
+#pragma mark -
+#pragma mark notifications
+- (void) pause {
+	for(BBMovingCoin *c in coins) {
+		[c pause];
+	}
+}
+
+- (void) resume {
+	for(BBMovingCoin *c in coins) {
+		[c resume];
 	}
 }
 

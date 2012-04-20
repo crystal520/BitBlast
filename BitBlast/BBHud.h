@@ -18,6 +18,8 @@
 	NSMutableArray *hearts;
 	// pause button
 	CCButton *pause;
+	// keeps track of player coins during game
+	CCLabelBMFont *coins;
 }
 
 - (void) update:(float)delta;
