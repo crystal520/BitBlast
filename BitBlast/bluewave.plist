@@ -6,7 +6,8 @@
 	<integer>-30</integer>
 	<key>shots</key>
 	<array>
-		<string>bluewave_bullet</string>
+		<string>bluewave_bullet_new</string>
+		<string>plasmabullet_slowfire</string>
 	</array>
 	<key>sprite</key>
 	<string></string>
@@ -38,7 +39,7 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>10000</string>
+		<string>0</string>
 		<key>description</key>
 		<string>Sonic wave of DEATH</string>
 		<key>icon</key>
