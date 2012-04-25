@@ -132,6 +132,11 @@
 	// Override point for customization after application launch.
 	[[LocalyticsSession sharedLocalyticsSession] startSession:@"7f34f42eb738225af85f165-2d1da334-6f9f-11e1-200b-00a68a4c01fc"];
 	
+	// boot up SessionM
+	[SessionM initWithApplicationId:@"aacd562506d9942e340a244642bd929091de99f4"];
+	// lock to landscape mode
+	[SessionM config].orientation = SessionM_UIDisplayLandscape;
+	
 	self.window.rootViewController = viewController;
 	[self.window makeKeyAndVisible];
     

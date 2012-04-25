@@ -104,11 +104,13 @@
 }
 
 - (void) setNode:(CCNode *)node {
-	[particles.parent removeChild:particles cleanup:NO];
-	[node addChild:particles];
-	// unschedule and reschedule update in case it has been unscheduled by a parent
-	[particles unscheduleUpdate];
-	[particles scheduleUpdateWithPriority:1];
+	if(particles) {
+		[particles.parent removeChild:particles cleanup:NO];
+		[node addChild:particles];
+		// unschedule and reschedule update in case it has been unscheduled by a parent
+		[particles unscheduleUpdate];
+		[particles scheduleUpdateWithPriority:1];
+	}
 }
 
 #pragma mark -
