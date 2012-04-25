@@ -157,6 +157,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
+	[[CCDirector sharedDirector].runningScene onEnter];
 	[[PromoManager sharedSingleton] resume];
 }
 
@@ -167,6 +168,7 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application {
 	[[CCDirector sharedDirector] stopAnimation];
+	[[CCDirector sharedDirector].runningScene onExit];
     
     [[LocalyticsSession sharedLocalyticsSession] close];
     [[LocalyticsSession sharedLocalyticsSession] upload];

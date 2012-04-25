@@ -87,8 +87,6 @@
 	[super onEnter];
 	// update player's money dollars
 	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
-	
-	// check for a new promo
 }
 
 - (void) play {
@@ -113,13 +111,6 @@
 
 - (void) gotoSyphus {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.syphus.net"]];
-	// make a UIWebView that loads syphus.net
-	/*UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, [CCDirector sharedDirector].winSize.width, [CCDirector sharedDirector].winSize.height)];
-	[web loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.syphus.net"]]];
-	// get main view controller
-	AppDelegate *appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	[((UIViewController*)(appDel.viewController)).view addSubview:web];
-	[web release];*/
 }
 
 @end

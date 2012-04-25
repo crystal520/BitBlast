@@ -63,7 +63,7 @@
 	
 	BOOL override = NO;
 #ifdef TARGET_IPHONE_SIMULATOR
-	override = YES;
+	override = NO;
 #endif
 	
 	// make sure player hasn't seen this promo
