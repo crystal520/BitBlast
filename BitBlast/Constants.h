@@ -20,8 +20,16 @@ typedef enum {
 	DEPTH_GAME_BULLETS,
 	DEPTH_GAME_COINS,
 	DEPTH_GAME_DROPSHIPS,
-	DEPTH_GAME_ENEMIES
+	DEPTH_GAME_ENEMIES,
+	DEPTH_MENU_POPUP
 } DepthOrder;
+
+typedef enum {
+	TOUCH_DEPTH_LIST,
+	TOUCH_DEPTH_BUTTON,
+	TOUCH_DEPTH_GAME,
+	TOUCH_DEPTH_POPUP
+} TouchOrder;
 
 #define kGameRestartNotification @"gameRestartNotification"
 #define kLoadLevelNotification @"loadLevelNotification"

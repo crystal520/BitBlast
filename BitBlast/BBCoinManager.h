@@ -27,7 +27,6 @@
 - (NSArray*) getActiveCoins;
 - (NSArray*) getRandomCoinGroup;
 // notifications
-- (void) gameOver;
 - (void) levelWillLoad;
 // actions
 - (void) spawnCoinGroup;

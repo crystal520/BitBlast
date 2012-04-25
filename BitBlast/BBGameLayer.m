@@ -40,6 +40,9 @@
 		[self loadImages];
 		[self loadCameraVariables];
 		
+		// add dialog queue to layer
+		[self addChild:[BBDialogQueue sharedSingleton] z:DEPTH_MENU_POPUP];
+		
 		// create parallax scrolling background
 		parallax = [[ParallaxManager alloc] initWithFile:@"jungleLevel"];
 		[self addChild:parallax z:DEPTH_PARALLAX];
@@ -141,7 +144,7 @@
 	[self resetSessionStats];
 	
 	// listen for touches
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:2 swallowsTouches:YES];
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:TOUCH_DEPTH_GAME swallowsTouches:YES];
 	self.isTouchEnabled = YES;
 	
 	// add hud to screen

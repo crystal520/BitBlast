@@ -30,6 +30,7 @@
 #import "BBLogic.h"
 #import "BBChopper.h"
 #import "BBMovingCoinManager.h"
+#import "BBDialogQueue.h"
 
 typedef enum {
 	kStateUnknown,

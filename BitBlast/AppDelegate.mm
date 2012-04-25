@@ -12,6 +12,8 @@
 #import "GameConfig.h"
 #import "BBGameLayer.h"
 #import "RootViewController.h"
+#import "SettingsManager.h"
+#import "PromoManager.h"
 
 @implementation AppDelegate
 
@@ -105,7 +107,7 @@
 #endif
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	//[director setDisplayFPS:YES];
 	
 	
 	// make the OpenGLView a child of the view controller
@@ -150,10 +152,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
+	[[PromoManager sharedSingleton] resume];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
 	[[CCDirector sharedDirector] purgeCachedData];
+	[[CCTextureCache sharedTextureCache] removeUnusedTextures];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application {

@@ -15,4 +15,5 @@
 #import "Constants.h"
 #import "ResolutionManager.h"
 #import "Globals.h"
+#import "SessionM.h"
 #endif

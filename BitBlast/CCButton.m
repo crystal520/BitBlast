@@ -30,6 +30,16 @@
 		disabledImage = disabledSprite;
         enabled = YES;
 		
+		if(normalImage) {
+			[self addChild:normalImage];
+		}
+		if(selectedImage) {
+			[self addChild:selectedImage];
+		}
+		if(disabledImage) {
+			[self addChild:disabledImage];
+		}
+		
 		NSMethodSignature *sig = nil;
 		if(target && selector) {
 			sig = [target methodSignatureForSelector:selector];
@@ -54,7 +64,7 @@
 }
 
 - (void)onEnter {
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:1 swallowsTouches:YES];
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:TOUCH_DEPTH_BUTTON swallowsTouches:YES];
 	[super onEnter];
 }
 
@@ -132,12 +142,15 @@
 
 - (void) setSpriteBatchNode:(CCSpriteBatchNode *)batchNode {
 	if(normalImage) {
+		[normalImage.parent removeChild:normalImage cleanup:YES];
 		[batchNode addChild:normalImage];
 	}
 	if(selectedImage) {
+		[selectedImage.parent removeChild:selectedImage cleanup:YES];
 		[batchNode addChild:selectedImage];
 	}
 	if(disabledImage) {
+		[disabledImage.parent removeChild:disabledImage cleanup:YES];
 		[batchNode addChild:disabledImage];
 	}
 }
@@ -161,7 +174,8 @@
 
 - (CGRect) scaledBoundingBox {
 	CGRect b = [self boundingBox];
-	return CGRectMake(b.origin.x * [ResolutionManager sharedSingleton].imageScale, b.origin.y * [ResolutionManager sharedSingleton].imageScale, b.size.width * [ResolutionManager sharedSingleton].imageScale, b.size.height * [ResolutionManager sharedSingleton].imageScale);
+	b.origin = [self convertToWorldSpace:CGPointZero];
+	return CGRectMake(b.origin.x, b.origin.y, b.size.width * [ResolutionManager sharedSingleton].imageScale, b.size.height * [ResolutionManager sharedSingleton].imageScale);
 }
 
 @end

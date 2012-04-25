@@ -58,7 +58,7 @@
 		shopScroller = [[BBList alloc] init];
 		[shopScroller setItemSize:cellSize];
 		shopScroller.position = ccp(winSize.width - cellSize.width, winSize.height - cellSize.height);
-		[self addChild:shopScroller];
+		[self addChild:shopScroller z:100];
 		
 		// load shop items
 		NSArray *shopList = [NSArray arrayWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"shop" ofType:@"plist"]] objectForKey:@"items"]];

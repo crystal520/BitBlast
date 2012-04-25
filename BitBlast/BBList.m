@@ -67,7 +67,7 @@
 
 - (void) onEnter {
 	// make the list touchable
-	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:TOUCH_DEPTH_LIST swallowsTouches:YES];
 	self.isTouchEnabled = YES;
 	[super onEnter];
 }

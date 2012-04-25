@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>message</key>
+	<string>Battle space aliens in this awesome game.</string>
+	<key>title</key>
+	<string></string>
+	<key>buttons</key>
+	<string>no thanks,get it</string>
+	<key>incentive</key>
+	<integer>100</integer>
+	<key>url</key>
+	<string>http://www.google.com</string>
+	<key>icon</key>
+	<string>http://www.textually.org/textually/archives/images/set3/icon100x100.png</string>
+	<key>id</key>
+	<string>1</string>
+</dict>
+</plist>

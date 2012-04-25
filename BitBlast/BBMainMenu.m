@@ -87,6 +87,8 @@
 	[super onEnter];
 	// update player's money dollars
 	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
+	
+	// check for a new promo
 }
 
 - (void) play {

@@ -38,7 +38,7 @@
 		coins = [[CCLabelBMFont alloc] initWithString:@"$0" fntFile:@"gamefont.fnt"];
 		coins.anchorPoint = ccp(1, 1);
 		coins.scale = 0.7;
-		coins.position = ccp(winSize.width * 0.98, winSize.height - score.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
+		coins.position = ccp(winSize.width * 0.98, winSize.height * 0.9);
 		coins.color = ccc3(255, 215, 0);
 		[self addChild:coins];
 		
