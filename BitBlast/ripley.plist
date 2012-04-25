@@ -41,7 +41,7 @@
 		<key>cost</key>
 		<string>75000</string>
 		<key>description</key>
-		<string>Flame + Machinegun</string>
+		<string>Flame AND Machinegun</string>
 		<key>icon</key>
 		<string>ripley.png</string>
 		<key>name</key>

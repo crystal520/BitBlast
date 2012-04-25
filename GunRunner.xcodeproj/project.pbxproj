@@ -304,6 +304,9 @@
 		34A030A51536A2EC0067AA4B /* chargeup.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A030A41536A2EC0067AA4B /* chargeup.png */; };
 		34A030A71536A2F10067AA4B /* bluechargeupparticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030A61536A2F10067AA4B /* bluechargeupparticle.plist */; };
 		34A030A91536A4F90067AA4B /* highenergyshot_particle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030A81536A4F90067AA4B /* highenergyshot_particle.plist */; };
+		34A030BB1544A2760067AA4B /* bluewave_bullet_new.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030BA1544A2750067AA4B /* bluewave_bullet_new.plist */; };
+		34A030BE1544A3750067AA4B /* plasmabullet_slowfire.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030BD1544A3740067AA4B /* plasmabullet_slowfire.plist */; };
+		34A030C01544A4D90067AA4B /* highenergyshopitem.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A030BF1544A4D90067AA4B /* highenergyshopitem.png */; };
 		34BBABBE14EF725900154CE9 /* sky_far.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAD14EF725900154CE9 /* sky_far.png */; };
 		34BBABBF14EF725900154CE9 /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAE14EF725900154CE9 /* cloud2.png */; };
 		34BBABC014EF725900154CE9 /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAF14EF725900154CE9 /* cloud1.png */; };
@@ -919,6 +922,9 @@
 		34A030A41536A2EC0067AA4B /* chargeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chargeup.png; path = Resources/Particles/chargeup.png; sourceTree = "<group>"; };
 		34A030A61536A2F10067AA4B /* bluechargeupparticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bluechargeupparticle.plist; path = Resources/Particles/bluechargeupparticle.plist; sourceTree = "<group>"; };
 		34A030A81536A4F90067AA4B /* highenergyshot_particle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = highenergyshot_particle.plist; path = Resources/Particles/highenergyshot_particle.plist; sourceTree = "<group>"; };
+		34A030BA1544A2750067AA4B /* bluewave_bullet_new.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave_bullet_new.plist; sourceTree = "<group>"; };
+		34A030BD1544A3740067AA4B /* plasmabullet_slowfire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = plasmabullet_slowfire.plist; sourceTree = "<group>"; };
+		34A030BF1544A4D90067AA4B /* highenergyshopitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = highenergyshopitem.png; path = Resources/highenergyshopitem.png; sourceTree = "<group>"; };
 		34BBABAD14EF725900154CE9 /* sky_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky_far.png; path = Resources/backgroundA4444/sky_far.png; sourceTree = "<group>"; };
 		34BBABAE14EF725900154CE9 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/backgroundA4444/cloud2.png; sourceTree = "<group>"; };
 		34BBABAF14EF725900154CE9 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud1.png; path = Resources/backgroundA4444/cloud1.png; sourceTree = "<group>"; };
@@ -1164,6 +1170,7 @@
 		0A1EC4AD14A02EFD005A7ED6 /* Guns */ = {
 			isa = PBXGroup;
 			children = (
+				34A030BD1544A3740067AA4B /* plasmabullet_slowfire.plist */,
 				34A030A215369D3C0067AA4B /* buildupparticle_bullet.plist */,
 				34A0309E1536986F0067AA4B /* highenergyshot_bullet.plist */,
 				34A0309C1536985C0067AA4B /* highenergyshot.plist */,
@@ -1187,6 +1194,7 @@
 				3428FF3614E645DA00184E31 /* shotgun.plist */,
 				3428FF3914E648BE00184E31 /* spreadgun_bullet1.plist */,
 				3428FF3A14E648BE00184E31 /* spreadgun.plist */,
+				34A030BA1544A2750067AA4B /* bluewave_bullet_new.plist */,
 				3428FF3F14E64EDE00184E31 /* bluewave_bullet.plist */,
 				3428FF4014E64EDF00184E31 /* bluewave.plist */,
 				0A0366DB14E4B68100313CCC /* testLaser.plist */,
@@ -1405,6 +1413,7 @@
 		0A7D52D214C4869600066390 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				34A030BF1544A4D90067AA4B /* highenergyshopitem.png */,
 				34A0309A152FE5580067AA4B /* experimentalshopicon.png */,
 				34A03096152FE2250067AA4B /* plasmapistolstoreicon.png */,
 				34FB2A571513FCF800623BB4 /* ultralasericon.png */,
@@ -2368,6 +2377,9 @@
 				34A030A91536A4F90067AA4B /* highenergyshot_particle.plist in Resources */,
 				0A38407F1541A76900F9A96A /* coinExplosion.plist in Resources */,
 				0AFF01FB154463AD000F9A2E /* promo.plist in Resources */,
+				34A030BB1544A2760067AA4B /* bluewave_bullet_new.plist in Resources */,
+				34A030BE1544A3750067AA4B /* plasmabullet_slowfire.plist in Resources */,
+				34A030C01544A4D90067AA4B /* highenergyshopitem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
