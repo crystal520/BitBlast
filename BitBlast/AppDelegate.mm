@@ -14,6 +14,7 @@
 #import "RootViewController.h"
 #import "SettingsManager.h"
 #import "PromoManager.h"
+#import "ChartBoost.h"
 
 @implementation AppDelegate
 
@@ -159,6 +160,17 @@
 	[[CCDirector sharedDirector] resume];
 	[[CCDirector sharedDirector].runningScene onEnter];
 	[[PromoManager sharedSingleton] resume];
+    
+    // Configure ChartBoost
+    ChartBoost *cb = [ChartBoost sharedChartBoost];
+    cb.appId = @"4f98d76ef77659e64f000023";
+    cb.appSignature = @"9d0624026bada35dc30be246e209880b0848f681";
+    
+    // Notify the beginning of a user session
+    [cb startSession];
+    
+    // Show an interstitial
+    [cb showInterstitial];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {

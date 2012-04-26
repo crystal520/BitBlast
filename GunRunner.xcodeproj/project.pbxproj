@@ -307,6 +307,7 @@
 		34A030BB1544A2760067AA4B /* bluewave_bullet_new.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030BA1544A2750067AA4B /* bluewave_bullet_new.plist */; };
 		34A030BE1544A3750067AA4B /* plasmabullet_slowfire.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A030BD1544A3740067AA4B /* plasmabullet_slowfire.plist */; };
 		34A030C01544A4D90067AA4B /* highenergyshopitem.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A030BF1544A4D90067AA4B /* highenergyshopitem.png */; };
+		34A030CB15490C410067AA4B /* libChartBoost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A030CA15490C410067AA4B /* libChartBoost.a */; };
 		34BBABBE14EF725900154CE9 /* sky_far.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAD14EF725900154CE9 /* sky_far.png */; };
 		34BBABBF14EF725900154CE9 /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAE14EF725900154CE9 /* cloud2.png */; };
 		34BBABC014EF725900154CE9 /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BBABAF14EF725900154CE9 /* cloud1.png */; };
@@ -925,6 +926,8 @@
 		34A030BA1544A2750067AA4B /* bluewave_bullet_new.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave_bullet_new.plist; sourceTree = "<group>"; };
 		34A030BD1544A3740067AA4B /* plasmabullet_slowfire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = plasmabullet_slowfire.plist; sourceTree = "<group>"; };
 		34A030BF1544A4D90067AA4B /* highenergyshopitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = highenergyshopitem.png; path = Resources/highenergyshopitem.png; sourceTree = "<group>"; };
+		34A030C71549085C0067AA4B /* ChartBoost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChartBoost.h; path = ../../Downloads/ChartBoost/ChartBoost.h; sourceTree = "<group>"; };
+		34A030CA15490C410067AA4B /* libChartBoost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChartBoost.a; sourceTree = "<group>"; };
 		34BBABAD14EF725900154CE9 /* sky_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky_far.png; path = Resources/backgroundA4444/sky_far.png; sourceTree = "<group>"; };
 		34BBABAE14EF725900154CE9 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/backgroundA4444/cloud2.png; sourceTree = "<group>"; };
 		34BBABAF14EF725900154CE9 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud1.png; path = Resources/backgroundA4444/cloud1.png; sourceTree = "<group>"; };
@@ -1035,6 +1038,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A030CB15490C410067AA4B /* libChartBoost.a in Frameworks */,
 				0AFF021515447F23000F9A2E /* libxml2.2.7.3.dylib in Frameworks */,
 				0AFF021315447F15000F9A2E /* libz.1.2.5.dylib in Frameworks */,
 				0AFF021115447EFB000F9A2E /* SystemConfiguration.framework in Frameworks */,
@@ -1450,6 +1454,7 @@
 		0A94930114FAECA400941321 /* Supporting Code */ = {
 			isa = PBXGroup;
 			children = (
+				34A030C5154908500067AA4B /* Chartboost */,
 				0AFF020315447E6F000F9A2E /* SessionM */,
 				0A94930314FAECD400941321 /* iCade */,
 				0A9463541511A4B600353C4B /* SettingsManager.h */,
@@ -1534,6 +1539,8 @@
 		0AE417271496F5C400342D8E = {
 			isa = PBXGroup;
 			children = (
+				34A030CA15490C410067AA4B /* libChartBoost.a */,
+				34A030C71549085C0067AA4B /* ChartBoost.h */,
 				0AE417461496F5C400342D8E /* BitBlast */,
 				0AE417351496F5C400342D8E /* Frameworks */,
 				0AE417331496F5C400342D8E /* Products */,
@@ -2121,6 +2128,13 @@
 			name = SessionM;
 			sourceTree = "<group>";
 		};
+		34A030C5154908500067AA4B /* Chartboost */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Chartboost;
+			sourceTree = "<group>";
+		};
 		34FB2A221513CE4F00623BB4 /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -2639,6 +2653,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Downloads/ChartBoost\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Gun Runner";
@@ -2665,6 +2680,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../Downloads/ChartBoost\"",
 				);
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Gun Runner";

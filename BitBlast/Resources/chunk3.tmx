@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="128" tileheight="128">
  <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
-  <image source="tiles_aubrey.png" width="2048" height="768"/>
+  <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
+ <layer name="Background2" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztzzEBAAAIw7BZwb9JJPDBQaKgTQAAAH6o64Bl028DNUAAQw==
+  </data>
+ </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYXkBooB1AAVDEwZfHohYmpgTEKkCsCsXKQKxGhD50+3CpxeYmbGrJAaP+xe8WEBho/7ICMRMZmA2H2YTcTWv/KkHNhGE1Bkz/spCImRko8y/IHbTyrxEQGyNhMzS1AM2FDVY=
+   eJxjYBgFo2AUjIJRMApGwSgYBYMFKOLgy9PbIXQCpPgXJqYExCpArArFykCsRoQ+dPtwqcXmJmqF/1D0LysQM5GB2XCYjeyWdjS3gPi4/NuOxw/o5qOLI4vFAXENFIPMjsfiXxYSMTOR/p2O5pbpUP8qY/HvdBr4twaLfwHmsRD/
   </data>
  </layer>
  <layer name="Decal" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzzERACAQxMB3gisa/PvAAhX3A7sKkioAAF6y0gEHRjrgst9+u5vpgEY2pB4A8A==
+   eJxjYBgFo2AUjIJRMApGwSigHygG4hIgLh1oh9AJNANxCxC3DrRDqADaiVQ3BUpnQDEMpCPR8hS6xQaJHU2hWbjAdCLVLYHSFVAMA+VINKX+pQdYTkWzEqhoFrUBKB2HQWkbAmqHA5iORqMDAKlxDWU=
+  </data>
+ </layer>
+ <layer name="Decal2" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6AHsX9OY9xNSEACAADwz7QDBywqgAAd
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYfIAPiPmBWBBK86PxBfDoEQJiYSAWhWIQW4IIfej24VKLzU2EzCWE9bAHwygYhIALiLnJwLwU2GnFgEgr1kS4zxGInZCwMx77xRkgeQSGxShw50AAdiDmJEKMlgAWP5SUV8iY2PIKGZOrFgBoFghH
+   eJxjYBgFo2AUjIJRMApGwSgYfIAPiPmBWBBK86PxBQbOaUQDmB+IwXoUmC8ExMJALArFILYEA+5wQnYXcvjiUostDoZC+NMKcAExNxmYlwI7rRgQ4W9NhPscgdgJCTvjsT8GiHOQcCwF7hwIwA7EnESI0RLA4oeU8go9/yJjYvMvMiZXLQAUTAne
   </data>
  </layer>
  <layer name="CollisionBottom" width="60" height="15">
@@ -26,6 +36,11 @@
  <layer name="Collision" width="60" height="15">
   <data encoding="base64" compression="zlib">
    eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+  </data>
+ </layer>
+ <layer name="Backdrop" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwSgYGsBuoB0wCqgKGuloVzoWsSw62g8CE+loVzkWsSo62j/SAalllR0ONj0AAH/PA80=
   </data>
  </layer>
  <layer name="Foreground" width="60" height="15">
