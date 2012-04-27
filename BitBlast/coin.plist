@@ -9,10 +9,10 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>coin1.png</string>
-				<string>coin2.png</string>
-				<string>coin3.png</string>
-				<string>coin4.png</string>
+				<string>oldCoin1.png</string>
+				<string>oldCoin2.png</string>
+				<string>oldCoin3.png</string>
+				<string>oldCoin4.png</string>
 			</array>
 			<key>name</key>
 			<string>idle</string>

@@ -5,12 +5,12 @@
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaOANoAViNmIUMMCxBZQGpt6Vjxy7EDMgYY5STQDJMeMAxNyP7pbsNmNz7243GpJot3YzCAlzPC5h9YA5h5K7CbWDHkK7BiKgJB/AcHkAfs=
+   eJxjYBgFo2AUjIJRMApGwSgYBaOANoAViNmIUMMCxBZQGpt6Vjxy7EDMgYY5STQDJMeMAxNyP7pbsNmNz7243GpJot3YzMDlXymoHDZMiZ2kAFg4cKKxQaAdi1pCcshmtCPJoacNYtIKPQHIrdPxyOOTI0aNPAG9AC3ABj0=
   </data>
  </layer>
  <layer name="Decal" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIAyBNYv+WxribkIAqAAD4odOBgyYdIGoBTyQAIQ==
+   eJztz0ERADAIwDBQgn+Xk8APdkeioI0AAIAbcjvgQ7UdMOzab+cBcBQAQA==
   </data>
  </layer>
  <layer name="Collision" width="60" height="15">
@@ -20,12 +20,17 @@
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBfQCXEDMS4QaHiSMTT0XEXLUNgOfWcMFWAGxwEA7YhQMKAClfW4CGFeeoZY8NdQQytcweQDXsgMT
+   eJxjYBgFo2AUjIJRMApGwSgYBfQCXEDMS4QaHiSMTT0XEXLUNgOfWcMFWAGxAJXMAoWhIxA7MxAXZiD13CSoxaWOkBw3EeaTA9iBmBOJHqoAFkb4MK48Qy35HCCOJcJt+MwhlK9h8gDVEwTk
   </data>
  </layer>
  <layer name="CollisionBottom" width="60" height="15">
   <data encoding="base64" compression="zlib">
    eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+  </data>
+ </layer>
+ <layer name="Backdrop" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGATIoBuISIC4daIfQCTQDcQsQtw60Q6gAOomUn0JFOxupaBapYCaR8ksIqLMjwc6JRKghlIfSSbCP1oAa8UcoD5VTwQ5qAWLijxgAy0MdVDIPF+hEowcKwPLQDBrbA8qz2QyE8zY1AQA3pBGU
   </data>
  </layer>
  <layer name="Foreground" width="60" height="15">
