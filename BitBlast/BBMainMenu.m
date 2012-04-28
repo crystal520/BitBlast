@@ -85,8 +85,16 @@
 
 - (void) onEnter {
 	[super onEnter];
+	// enable dialog queue
+	[[BBDialogQueue sharedSingleton] setEnabled:YES];
 	// update player's money dollars
 	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
+}
+
+- (void) onExit {
+	[super onExit];
+	// disable dialog queue
+	[[BBDialogQueue sharedSingleton] setEnabled:NO];
 }
 
 - (void) play {

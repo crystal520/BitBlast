@@ -40,7 +40,7 @@
 #pragma mark -
 #pragma mark actions
 - (void) addDialog:(BBDialog *)dialog {
-	if (self.children.count == 0) {
+	if (self.children.count == 0 && enabled) {
 		// Display now
 		[self addChild:dialog];
 		[dialog animateDisplay];
@@ -63,12 +63,22 @@
 }
 
 - (void) popDialog {
-	if (dialogs.count > 0) {
+	if (dialogs.count > 0 && enabled) {
 		BBDialog *newDlg = [dialogs lastObject];
 		[self addChild:newDlg];
 		[newDlg animateDisplay];
 		[dialogs removeLastObject];
 	}
+}
+
+#pragma mark -
+#pragma mark setters
+- (void) setEnabled:(BOOL)newEnabled {
+	if(newEnabled && !enabled) {
+		enabled = newEnabled;
+		[self popDialog];
+	}
+	enabled = newEnabled;
 }
 
 @end

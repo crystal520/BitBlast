@@ -12,6 +12,7 @@
 
 @interface BBDialogQueue : CCNode {
     NSMutableArray *dialogs;
+	BOOL enabled;
 }
 
 + (BBDialogQueue*) sharedSingleton;
@@ -19,5 +20,6 @@
 - (void) addDialog:(BBDialog*)dialog;
 - (void) removeDialog:(BBDialog*)dialog;
 - (void) popDialog;
+- (void) setEnabled:(BOOL)newEnabled;
 
 @end

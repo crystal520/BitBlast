@@ -426,6 +426,7 @@
 		0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFollowOffset.h; sourceTree = "<group>"; };
 		0A1EC4A914A02CC8005A7ED6 /* BBBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBullet.h; sourceTree = "<group>"; };
 		0A1EC4AA14A02CC8005A7ED6 /* BBBullet.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BBBullet.m; sourceTree = "<group>"; };
+		0A1FE8E8154C61280070A41F /* ChartBoost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartBoost.h; sourceTree = SOURCE_ROOT; };
 		0A204EA614DF212300171F71 /* testShot3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testShot3.plist; sourceTree = "<group>"; };
 		0A204EA714DF212300171F71 /* testShot2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testShot2.plist; sourceTree = "<group>"; };
 		0A204EAD14DF319400171F71 /* flamethrower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower.plist; sourceTree = "<group>"; };
@@ -926,8 +927,7 @@
 		34A030BA1544A2750067AA4B /* bluewave_bullet_new.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave_bullet_new.plist; sourceTree = "<group>"; };
 		34A030BD1544A3740067AA4B /* plasmabullet_slowfire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = plasmabullet_slowfire.plist; sourceTree = "<group>"; };
 		34A030BF1544A4D90067AA4B /* highenergyshopitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = highenergyshopitem.png; path = Resources/highenergyshopitem.png; sourceTree = "<group>"; };
-		34A030C71549085C0067AA4B /* ChartBoost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChartBoost.h; path = ../../Downloads/ChartBoost/ChartBoost.h; sourceTree = "<group>"; };
-		34A030CA15490C410067AA4B /* libChartBoost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libChartBoost.a; sourceTree = "<group>"; };
+		34A030CA15490C410067AA4B /* libChartBoost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChartBoost.a; path = ../libChartBoost.a; sourceTree = "<group>"; };
 		34BBABAD14EF725900154CE9 /* sky_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky_far.png; path = Resources/backgroundA4444/sky_far.png; sourceTree = "<group>"; };
 		34BBABAE14EF725900154CE9 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/backgroundA4444/cloud2.png; sourceTree = "<group>"; };
 		34BBABAF14EF725900154CE9 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud1.png; path = Resources/backgroundA4444/cloud1.png; sourceTree = "<group>"; };
@@ -1539,8 +1539,6 @@
 		0AE417271496F5C400342D8E = {
 			isa = PBXGroup;
 			children = (
-				34A030CA15490C410067AA4B /* libChartBoost.a */,
-				34A030C71549085C0067AA4B /* ChartBoost.h */,
 				0AE417461496F5C400342D8E /* BitBlast */,
 				0AE417351496F5C400342D8E /* Frameworks */,
 				0AE417331496F5C400342D8E /* Products */,
@@ -2131,6 +2129,8 @@
 		34A030C5154908500067AA4B /* Chartboost */ = {
 			isa = PBXGroup;
 			children = (
+				0A1FE8E8154C61280070A41F /* ChartBoost.h */,
+				34A030CA15490C410067AA4B /* libChartBoost.a */,
 			);
 			name = Chartboost;
 			sourceTree = "<group>";
