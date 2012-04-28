@@ -138,6 +138,17 @@
 	// lock to landscape mode
 	[SessionM config].orientation = SessionM_UIDisplayLandscape;
 	
+	// Configure ChartBoost
+    ChartBoost *cb = [ChartBoost sharedChartBoost];
+    cb.appId = @"4f98d76ef77659e64f000023";
+    cb.appSignature = @"9d0624026bada35dc30be246e209880b0848f681";
+    
+    // Notify the beginning of a user session
+    [cb startSession];
+    
+    // Show an interstitial
+    [cb showInterstitial];
+	
 	self.window.rootViewController = viewController;
 	[self.window makeKeyAndVisible];
     
@@ -153,24 +164,13 @@
 	// save game data first
 	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
 	
+	[[CCDirector sharedDirector].runningScene onExit];
 	[[CCDirector sharedDirector] pause];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
-	[[CCDirector sharedDirector].runningScene onEnter];
 	[[PromoManager sharedSingleton] resume];
-    
-    // Configure ChartBoost
-    ChartBoost *cb = [ChartBoost sharedChartBoost];
-    cb.appId = @"4f98d76ef77659e64f000023";
-    cb.appSignature = @"9d0624026bada35dc30be246e209880b0848f681";
-    
-    // Notify the beginning of a user session
-    [cb startSession];
-    
-    // Show an interstitial
-    [cb showInterstitial];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -180,7 +180,6 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application {
 	[[CCDirector sharedDirector] stopAnimation];
-	[[CCDirector sharedDirector].runningScene onExit];
     
     [[LocalyticsSession sharedLocalyticsSession] close];
     [[LocalyticsSession sharedLocalyticsSession] upload];
@@ -188,6 +187,10 @@
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {
 	[[CCDirector sharedDirector] startAnimation];
+	[[CCDirector sharedDirector].runningScene onEnter];
+	
+	// let everything know that the game is pausing
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
     
     [[LocalyticsSession sharedLocalyticsSession] resume];
     [[LocalyticsSession sharedLocalyticsSession] upload];

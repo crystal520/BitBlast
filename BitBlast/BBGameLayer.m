@@ -113,6 +113,16 @@
 	[super dealloc];
 }
 
+- (void) onEnter {
+	[super onEnter];
+	
+	// make sure player can still tap on the screen after returning from backgrounding the game
+	if(state == kStateGame) {
+		[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:TOUCH_DEPTH_GAME swallowsTouches:YES];
+	}
+}
+
 #pragma mark -
 #pragma mark setup
 - (void) setupICade {
@@ -345,8 +355,10 @@
 				newMenu.tag = TAG_POPUP;
 				break;
 			case kStatePause:
-				newMenu = [[BBPause alloc] init];
-				newMenu.tag = TAG_POPUP;
+				if(state == kStateGame) {
+					newMenu = [[BBPause alloc] init];
+					newMenu.tag = TAG_POPUP;
+				}
 				break;
 			case kStateIntro:
 				if(state == kStatePause) {

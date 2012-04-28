@@ -51,7 +51,7 @@ typedef enum {
 } SpriteTag;
 
 //#define DEBUG_TEXTURES
-//#define DEBUG_NO_SOUND
+#define DEBUG_NO_SOUND
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate> {
 	
