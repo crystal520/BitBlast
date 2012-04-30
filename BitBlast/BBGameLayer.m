@@ -373,7 +373,7 @@
 				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
 				newMenu = [[BBGameOver alloc] init];
 				newMenu.tag = TAG_POPUP;
-				[newMenu updateFinalScore];
+				[(BBGameOver*)(newMenu) updateFinalScore];
 				break;
 			default:
 				break;

@@ -47,6 +47,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kEventNewGame object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropshipDestroyed) name:kEventDropshipDestroyed object:nil];
 		// explosions!
 		explosionManager = [BBExplosionManager new];
 		[explosionManager setNode:self];
@@ -164,6 +165,7 @@
 		if(numChecks > 0) {
 			[explosionManager stopExploding:newDropship];
 			[newDropship resetWithPosition:ccp([ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
+			numDropshipsLeft++;
 		}
 	}
 }
@@ -195,9 +197,11 @@
 
 - (void) levelWillLoad {
 	enabled = YES;
+	numDropshipsLeft = 0;
 	// reset dropships
 	for(BBDropship *d in dropships) {
 		[d setEnabled:NO];
+		d.alive = NO;
 	}
 }
 
@@ -214,6 +218,14 @@
 - (void) resume {
 	for(BBDropship *d in dropships) {
 		[d resume];
+	}
+}
+
+- (void) dropshipDestroyed {
+	numDropshipsLeft--;
+	if(numDropshipsLeft <= 0) {
+		numDropshipsLeft = 0;
+		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventDropshipsDestroyed object:nil]];
 	}
 }
 

@@ -26,6 +26,8 @@
 	BOOL enabled;
 	// current dropship level
 	int dropshipLevel;
+	// number of dropships left after spawning them
+	int numDropshipsLeft;
 	// array of dropship levels
 	NSArray *dropshipLevels;
 	// explosions!
