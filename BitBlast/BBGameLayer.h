@@ -31,6 +31,7 @@
 #import "BBChopper.h"
 #import "BBMovingCoinManager.h"
 #import "BBDialogQueue.h"
+#import "ChartBoost.h"
 
 typedef enum {
 	kStateUnknown,
@@ -53,7 +54,7 @@ typedef enum {
 //#define DEBUG_TEXTURES
 #define DEBUG_NO_SOUND
 
-@interface BBGameLayer : CCLayer <iCadeEventDelegate> {
+@interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartBoostDelegate> {
 	
 #ifdef DEBUG_TEXTURES
 	CCSprite *debugButton;

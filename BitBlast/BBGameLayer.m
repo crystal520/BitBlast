@@ -92,6 +92,9 @@
 		state = kStateUnknown;
 		[self setState:kStateMainMenu];
 		
+		// set ourselves as the ChartBoost delegate
+		[ChartBoost sharedChartBoost].delegate = self;
+		
 #ifdef DEBUG_TEXTURES
 		debugButton = [CCSprite spriteWithFile:@"white.png"];
 		debugButton.color = ccc3(0, 0, 0);
@@ -529,6 +532,15 @@
 
 - (void) introDone {
 	[self setState:kStateGame];
+}
+
+#pragma mark -
+#pragma mark ChartBoostDelegate
+- (BOOL) shouldDisplayInterstitial:(UIView *)interstitialView {
+	if(state == kStateMainMenu) {
+		return YES;
+	}
+	return NO;
 }
 
 @end
