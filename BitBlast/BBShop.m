@@ -36,7 +36,7 @@
 		back.position = ccp(winSize.width * 0.075, winSize.height - back.contentSize.height * 0.5 - backHolder.contentSize.height * 0.175);
 		[self addChild:back z:1];
 		
-		// make player at 4x for shop
+		// make player at 2x for shop
 		player = [BBPlayer new];
 		player.dummyPosition = ccp(winSize.width * 0.1, winSize.height * 0.1);
 		player.position = player.dummyPosition;
@@ -140,6 +140,7 @@
 		[shopScroller onExit];
 	}
 	// update current funds
+	[[BBWeaponManager sharedSingleton] setNode:self];
 	[coins setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 

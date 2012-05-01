@@ -106,7 +106,7 @@
 - (void) setNode:(CCNode *)node {
 	if(particles) {
 		[particles.parent removeChild:particles cleanup:NO];
-		[node addChild:particles];
+		[node addChild:particles z:DEPTH_GAME_BULLETS];
 		// unschedule and reschedule update in case it has been unscheduled by a parent
 		[particles unscheduleUpdate];
 		[particles scheduleUpdateWithPriority:1];
