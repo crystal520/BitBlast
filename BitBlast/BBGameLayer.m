@@ -258,7 +258,9 @@
 	[parallax reset];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
 	[player reset];
+#ifndef DEBUG_NO_MUSIC
 	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
+#endif
 	[self scheduleUpdate];
 	
 	// make node for camera to follow during intro
@@ -326,7 +328,9 @@
 					[self finishGame];
 					[self clearMenuWithTag:TAG_POPUP];
 				}
+#ifndef DEBUG_NO_MUSIC
 				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
+#endif
 				[self clearMenuWithTag:TAG_MENU];
 				newMenu = [[BBMainMenu alloc] init];
 				newMenu.tag = TAG_MENU;
@@ -373,7 +377,9 @@
 				break;
 			case kStateGameOver:
 				[self finishGame];
+#ifndef DEBUG_NO_MUSIC
 				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
+#endif
 				newMenu = [[BBGameOver alloc] init];
 				newMenu.tag = TAG_POPUP;
 				[(BBGameOver*)(newMenu) updateFinalScore];

@@ -62,5 +62,12 @@
 	</dict>
 	<key>coins</key>
 	<integer>25</integer>
+	<key>sounds</key>
+	<dict>
+		<key>hit</key>
+		<string>dropshipHit.wav</string>
+		<key>death</key>
+		<string>dropshipexplosion.wav</string>
+	</dict>
 </dict>
 </plist>

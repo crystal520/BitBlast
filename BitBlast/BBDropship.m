@@ -137,6 +137,9 @@
 - (void) hitByBullet:(BBBullet*)bullet {
 	health -= bullet.damage;
 	
+	// play sound for dropship getting hit by bullet
+	[[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"hit"]];
+	
 	// if the dropship died, turn off all movement and play death animation
 	if(health <= 0) {
 		[self stopActionByTag:DROPSHIP_ACTION_TAG_HIT];
@@ -153,7 +156,7 @@
 
 - (void) die {
 	[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:dummyPosition];
-	[[SimpleAudioEngine sharedEngine] playEffect:@"dropshipexplosion.wav"];
+	[[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"death"]];
 	// increment dropships killed
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];

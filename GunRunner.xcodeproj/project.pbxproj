@@ -45,6 +45,7 @@
 		0A46C02815166FDB003483BD /* burstshot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02615166FDA003483BD /* burstshot.wav */; };
 		0A46C0361516824E003483BD /* whitecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0341516824E003483BD /* whitecircle.png */; };
 		0A46C0371516824E003483BD /* shotgunblast.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0351516824E003483BD /* shotgunblast.plist */; };
+		0A4C46F5154F7BE900C6FDCA /* dropshipHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
@@ -466,6 +467,7 @@
 		0A46C02615166FDA003483BD /* burstshot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burstshot.wav; sourceTree = "<group>"; };
 		0A46C0341516824E003483BD /* whitecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitecircle.png; path = Resources/Particles/whitecircle.png; sourceTree = "<group>"; };
 		0A46C0351516824E003483BD /* shotgunblast.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = shotgunblast.plist; path = Resources/Particles/shotgunblast.plist; sourceTree = "<group>"; };
+		0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dropshipHit.wav; path = Resources/SFX/dropshipHit.wav; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.m; sourceTree = "<group>"; };
@@ -1252,6 +1254,7 @@
 		0A46C01915166551003483BD /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */,
 				34A03094152FD2E90067AA4B /* lasershot1-short2.wav */,
 				34FB2AAA1516875600623BB4 /* shotgun.wav */,
 				34FB2A941516832900623BB4 /* coin.wav */,
@@ -2394,6 +2397,7 @@
 				34A030BB1544A2760067AA4B /* bluewave_bullet_new.plist in Resources */,
 				34A030BE1544A3750067AA4B /* plasmabullet_slowfire.plist in Resources */,
 				34A030C01544A4D90067AA4B /* highenergyshopitem.png in Resources */,
+				0A4C46F5154F7BE900C6FDCA /* dropshipHit.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
