@@ -13,6 +13,8 @@
 
 @interface BBLogic : NSObject {
     BOOL enabled;
+	// make sure the first dice roll results in a coin group
+	BOOL firstRun;
 }
 
 + (BBLogic*) sharedSingleton;

@@ -69,5 +69,7 @@
 		<key>death</key>
 		<string>dropshipexplosion.wav</string>
 	</dict>
+	<key>particles</key>
+	<string>plasmapistolparticle.plist</string>
 </dict>
 </plist>

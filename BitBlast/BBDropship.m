@@ -35,6 +35,14 @@
 	[super loadFromFile:filename];
 	[self loadAnimations];
 	
+	// check for particle system
+	if(particles) {
+		[particles release];
+	}
+	if([dictionary objectForKey:@"particles"]) {
+		particles = [[dictionary objectForKey:@"particles"] retain];
+	}
+	
 	// set values from dictionary
 	spawnRate = [[dictionary objectForKey:@"spawnRate"] floatValue];
 	spawnTimer = 0;
@@ -136,6 +144,14 @@
 
 - (void) hitByBullet:(BBBullet*)bullet {
 	health -= bullet.damage;
+	
+	// play particles where ship was hit
+	if(particles) {
+		CCParticleSystemQuad *hitParticles = [CCParticleSystemQuad particleWithFile:particles];
+		[self.parent addChild:hitParticles];
+		hitParticles.autoRemoveOnFinish = YES;
+		hitParticles.position = bullet.position;
+	}
 	
 	// play sound for dropship getting hit by bullet
 	[[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"hit"]];

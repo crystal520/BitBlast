@@ -45,6 +45,8 @@ typedef enum {
 	CGPoint finalPos;
 	// number of coins dropship gives off upon dying
 	int coins;
+	// particles for when dropship is hit by bullet
+	NSString *particles;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;

@@ -42,6 +42,7 @@
 	}
 	else if(!enabled && newEnabled) {
 		enabled = newEnabled;
+		firstRun = YES;
 		[self performSelector:@selector(rollDice) withObject:nil afterDelay:0.5];
 	}
 }
@@ -53,6 +54,11 @@
 	if(enabled) {
 		// TODO: make this way cooler. for now, just determine whether to wait, spawn a dropship, or spawn some coins
 		float ran = CCRANDOM_0_1();
+		// automatically generate a coin group on first run
+		if(firstRun) {
+			firstRun = NO;
+			ran = 0;
+		}
 		// wait for a half second
 		if(ran < 0.25) {
 			NSLog(@"BBLogic: rollDice spawning coin group");
