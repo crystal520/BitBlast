@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-//#define kPromoURL @"http://www.manuptimestudios.com/promos/gunrunner/current.plist"
+#define kPromoURL @"http://www.manuptimestudios.com/promos/gunrunner/current.plist"
 //Use the one below to test Promos when the game is live.
-#define kPromoURL @"http://www.manuptimestudios.com/promos/testing/"
+//#define kPromoURL @"http://www.manuptimestudios.com/promos/testing/"
 
 @interface PromoManager : NSObject <NSURLConnectionDataDelegate> {
 	// unique identifier of the promo

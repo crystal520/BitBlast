@@ -49,6 +49,8 @@
 		<string>spreadgun</string>
 		<key>type</key>
 		<string>weapon</string>
+		<key>sound</key>
+		<string>shotgun.wav</string>
 	</dict>
 </dict>
 </plist>

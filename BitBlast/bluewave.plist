@@ -39,7 +39,7 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>0</string>
+		<string>10000</string>
 		<key>description</key>
 		<string>Sonic wave of DEATH</string>
 		<key>icon</key>

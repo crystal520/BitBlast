@@ -116,7 +116,7 @@
 	<key>particles</key>
 	<string>highenergyshot_particle.plist</string>
 	<key>sound</key>
-	<string>lasershot1-short2.wav</string>
+	<string>bounce.wav</string>
 	<key>damage</key>
 	<integer>25</integer>
 	<key>boundingBox</key>

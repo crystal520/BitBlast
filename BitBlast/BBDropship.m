@@ -205,7 +205,7 @@
 	// save final position for later
 	finalPos = ccpAdd(newPosition, levelOffset);
 	// set velocity to more than the player so it flies past him
-	velocity = ccp([Globals sharedSingleton].playerVelocity.x + 1000, 0);
+	velocity = ccp([Globals sharedSingleton].playerVelocity.x + 2000, 0);
 	// start dropship off screen, to the left of the player
 	dummyPosition = ccpAdd(ccpAdd(newPosition, ccp(-800, 0)), levelOffset);
 	dummyPosition.x = dummyPosition.x + [Globals sharedSingleton].playerPosition.x;
