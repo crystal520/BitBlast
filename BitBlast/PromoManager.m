@@ -61,7 +61,7 @@
 	url = [[promoDictionary objectForKey:@"url"] retain];
 	promoID = [[promoDictionary objectForKey:@"id"] retain];
 	
-	BOOL override = NO;
+	BOOL override = YES;
 #ifdef TARGET_IPHONE_SIMULATOR
 	override = NO;
 #endif
@@ -87,6 +87,7 @@
 			[promoDialog.container addChild:incentiveImage];
 			
 			CCLabelBMFont *incentiveText = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"get %i", incentive] fntFile:@"gamefont.fnt"];
+			incentiveText.color = ccc3(255, 215, 0);
 			incentiveText.position = ccpMult(ccp(135, 100), [ResolutionManager sharedSingleton].positionScale);
 			incentiveText.scale = 0.4;
 			incentiveText.anchorPoint = ccp(1, 0.5);
@@ -107,6 +108,7 @@
 	// give incentive and go to URL
 	if(dialog.buttonIndex == 1) {
 		[[SettingsManager sharedSingleton] incrementInteger:incentive keyString:@"totalCoins"];
+		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventPromoCoinsAwarded object:nil]];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 		[url release];
 	}

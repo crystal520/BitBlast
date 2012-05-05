@@ -89,6 +89,7 @@
 		0ABBDCFF14CBD58F001D36B7 /* ResolutionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDCFE14CBD58E001D36B7 /* ResolutionManager.m */; };
 		0ABBDD0214CC62B1001D36B7 /* CCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDD0114CC62B1001D36B7 /* CCButton.m */; };
 		0ABBDD0514CCA1A0001D36B7 /* CCLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */; };
+		0AC2855D1555B23900DBF497 /* bounce.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2855C1555B23900DBF497 /* bounce.wav */; };
 		0AC5ECB1152018CD001F7292 /* BBExplosion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB0152018CD001F7292 /* BBExplosion.m */; };
 		0AC5ECB515201BF6001F7292 /* BBExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB415201BF5001F7292 /* BBExplosionManager.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
@@ -288,7 +289,6 @@
 		3428FF6114E9B09100184E31 /* flamethrower_bulletMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */; };
 		3428FF6514E9B0F900184E31 /* flamesmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6414E9B0F900184E31 /* flamesmall.png */; };
 		3428FF6714E9B11800184E31 /* flamethrower_bulletSmall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6614E9B11800184E31 /* flamethrower_bulletSmall.plist */; };
-		348AF0CA155101020057A555 /* bounce.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348AF0C9155101020057A555 /* bounce.wav */; };
 		34A0307B152408F60067AA4B /* ultralaserParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0307A152408F60067AA4B /* ultralaserParticle.plist */; };
 		34A0307E152FC4220067AA4B /* supershotgun_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0307C152FC4210067AA4B /* supershotgun_bullet.plist */; };
 		34A0307F152FC4220067AA4B /* supershotgun.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0307D152FC4220067AA4B /* supershotgun.plist */; };
@@ -545,6 +545,7 @@
 		0ABBDD0114CC62B1001D36B7 /* CCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0ABBDD0314CCA19E001D36B7 /* CCLabelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelButton.h; sourceTree = "<group>"; };
 		0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelButton.m; sourceTree = "<group>"; };
+		0AC2855C1555B23900DBF497 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bounce.wav; path = Resources/SFX/bounce.wav; sourceTree = "<group>"; };
 		0AC5ECAF152018CD001F7292 /* BBExplosion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosion.h; sourceTree = "<group>"; };
 		0AC5ECB0152018CD001F7292 /* BBExplosion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBExplosion.m; sourceTree = "<group>"; };
 		0AC5ECB315201BF5001F7292 /* BBExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosionManager.h; sourceTree = "<group>"; };
@@ -916,7 +917,6 @@
 		3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower_bulletMedium.plist; sourceTree = "<group>"; };
 		3428FF6414E9B0F900184E31 /* flamesmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flamesmall.png; path = Resources/flamesmall.png; sourceTree = "<group>"; };
 		3428FF6614E9B11800184E31 /* flamethrower_bulletSmall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower_bulletSmall.plist; sourceTree = "<group>"; };
-		348AF0C9155101020057A555 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bounce.wav; path = "../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/bounce.wav"; sourceTree = "<group>"; };
 		34A0307A152408F60067AA4B /* ultralaserParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ultralaserParticle.plist; path = Resources/Particles/ultralaserParticle.plist; sourceTree = "<group>"; };
 		34A0307C152FC4210067AA4B /* supershotgun_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = supershotgun_bullet.plist; sourceTree = "<group>"; };
 		34A0307D152FC4220067AA4B /* supershotgun.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = supershotgun.plist; sourceTree = "<group>"; };
@@ -1267,7 +1267,7 @@
 		0A46C01915166551003483BD /* SFX */ = {
 			isa = PBXGroup;
 			children = (
-				348AF0C9155101020057A555 /* bounce.wav */,
+				0AC2855C1555B23900DBF497 /* bounce.wav */,
 				0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */,
 				34A03094152FD2E90067AA4B /* lasershot1-short2.wav */,
 				34FB2AAA1516875600623BB4 /* shotgun.wav */,
@@ -2416,7 +2416,7 @@
 				34A030BE1544A3750067AA4B /* plasmabullet_slowfire.plist in Resources */,
 				34A030C01544A4D90067AA4B /* highenergyshopitem.png in Resources */,
 				0A4C46F5154F7BE900C6FDCA /* dropshipHit.wav in Resources */,
-				348AF0CA155101020057A555 /* bounce.wav in Resources */,
+				0AC2855D1555B23900DBF497 /* bounce.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

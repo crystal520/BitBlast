@@ -74,10 +74,14 @@
 		
 		// create money label
 		playerCash = [CCLabelBMFont labelWithString:@"$0" fntFile:@"gamefont.fnt"];
+		playerCash.color = ccc3(255, 215, 0);
 		playerCash.scale = 0.5;
 		playerCash.anchorPoint = ccp(1, 0.5);
 		playerCash.position = ccp(winSize.width * 0.46, background.position.y - (10 * [ResolutionManager sharedSingleton].positionScale));
 		[self addChild:playerCash];
+		
+		// register for notifications
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coinsUpdated) name:kEventPromoCoinsAwarded object:nil];
 	}
 	
 	return self;
@@ -87,14 +91,18 @@
 	[super onEnter];
 	// enable dialog queue
 	[[BBDialogQueue sharedSingleton] setEnabled:YES];
-	// update player's money dollars
-	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
+	[self coinsUpdated];
 }
 
 - (void) onExit {
 	[super onExit];
 	// disable dialog queue
 	[[BBDialogQueue sharedSingleton] setEnabled:NO];
+}
+
+- (void) coinsUpdated {
+	// update player's money dollars
+	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 
 - (void) play {

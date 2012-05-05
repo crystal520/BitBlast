@@ -18,4 +18,6 @@
     CCLabelBMFont *playerCash;
 }
 
+- (void) coinsUpdated;
+
 @end

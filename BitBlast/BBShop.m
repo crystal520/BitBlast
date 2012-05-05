@@ -73,6 +73,7 @@
 		
 		// create current funds label
 		coins = [CCLabelBMFont labelWithString:@"$0" fntFile:@"gamefont.fnt"];
+		coins.color = ccc3(255, 215, 0);
 		coins.anchorPoint = ccp(1, 0);
 		coins.scale = 0.75;
 		coins.position = ccp(winSize.width - cellSize.width, 0);

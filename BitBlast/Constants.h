@@ -55,6 +55,7 @@ typedef enum {
 #define kEventCoinGroupDone @"eventCoinGroupDone"
 #define kEventNewGame @"eventNewGame"
 #define kEventDropshipsDestroyed @"eventDropshipsDestroyed"
+#define kEventPromoCoinsAwarded @"eventPromoCoinsAwarded"
 
 #define kNavMainNotification @"navMainNotification"
 #define kNavGameNotification @"navGameNotification"

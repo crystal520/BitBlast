@@ -69,7 +69,7 @@
 	// make comma separated string from queue
 	NSMutableString *queueString = [NSMutableString string];
 	for(NSString *event in eventQueue) {
-		[queueString appendFormat:@"%@,"];
+		[queueString appendFormat:@"%@,", event];
 	}
 	// get rid of trailing comma
 	[queueString setString:[queueString substringToIndex:[queueString length]-1]];
