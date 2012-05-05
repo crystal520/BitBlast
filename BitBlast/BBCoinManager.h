@@ -11,7 +11,7 @@
 #import "BBCoin.h"
 #import "ChunkManager.h"
 
-#define MAX_COINS 60
+#define MAX_COINS 100
 
 @interface BBCoinManager : CCNode {
     NSMutableArray *coins;

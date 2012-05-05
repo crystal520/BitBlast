@@ -13,12 +13,12 @@
 		<string>experimentalplasmapistol</string>
 		<string>wavegun</string>
 		<string>spreadgun</string>
+		<string>supershotgun</string>
 		<string>machinegun</string>
 		<string>gattlingun</string>
 		<string>flamethrower</string>
 		<string>ripley</string>
 		<string>ultraLaser</string>
-		<string>supershotgun</string>
 	</array>
 </dict>
 </plist>

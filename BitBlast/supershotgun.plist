@@ -44,7 +44,7 @@
 		<key>icon</key>
 		<string>shotgun.png</string>
 		<key>name</key>
-		<string>Super Shotgun</string>
+		<string>S. Shotgun</string>
 		<key>identifier</key>
 		<string>supershotgun</string>
 		<key>type</key>

@@ -33,7 +33,7 @@
 	<key>boundingBox</key>
 	<dict>
 		<key>x</key>
-		<integer>0</integer>
+		<integer>-50</integer>
 		<key>y</key>
 		<integer>0</integer>
 		<key>width</key>
@@ -63,7 +63,7 @@
 		<integer>50</integer>
 	</dict>
 	<key>coins</key>
-	<integer>25</integer>
+	<integer>50</integer>
 	<key>sounds</key>
 	<dict>
 		<key>hit</key>
