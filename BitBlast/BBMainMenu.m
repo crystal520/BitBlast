@@ -80,6 +80,12 @@
 		playerCash.position = ccp(winSize.width * 0.46, background.position.y - (10 * [ResolutionManager sharedSingleton].positionScale));
 		[self addChild:playerCash];
 		
+		// create SessionM button
+		CCButton *sessionM = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_pressed.png"] target:[SessionMWrapper sharedSingleton] selector:@selector(openSessionM)];
+		[sessionM setSpriteBatchNode:uiSpriteBatch];
+		sessionM.position = ccp(background.position.x, background.position.y - (180 * [ResolutionManager sharedSingleton].positionScale));
+		[self addChild:sessionM];
+		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coinsUpdated) name:kEventPromoCoinsAwarded object:nil];
 	}

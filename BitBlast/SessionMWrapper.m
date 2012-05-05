@@ -28,9 +28,9 @@
 	if((self = [super init])) {
 		enabled = NO;
 		eventQueue = [NSMutableArray new];
+		[SessionM config].orientation = SessionM_UIDisplayLandscape;
 		[SessionM setDelegate:self];
 		[SessionM initWithApplicationId:@"aacd562506d9942e340a244642bd929091de99f4"];
-		[SessionM config].orientation = SessionM_UIDisplayLandscape;
 		
 		// listen for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemPurchased) name:kNavBuyItemNotification object:nil];
@@ -82,6 +82,10 @@
 - (void) loadQueue {
 	// add events from comma separated string to queue
 	[eventQueue addObjectsFromArray:[[[SettingsManager sharedSingleton] getString:@"SessionMQueue"] componentsSeparatedByString:@","]];
+}
+
+- (void) openSessionM {
+	[SessionM summonPortal];
 }
 
 #pragma mark -

@@ -23,5 +23,6 @@
 - (void) clearQueue;
 - (void) saveQueue;
 - (void) loadQueue;
+- (void) openSessionM;
 
 @end

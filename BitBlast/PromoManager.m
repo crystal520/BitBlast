@@ -61,7 +61,7 @@
 	url = [[promoDictionary objectForKey:@"url"] retain];
 	promoID = [[promoDictionary objectForKey:@"id"] retain];
 	
-	BOOL override = YES;
+	BOOL override = NO;
 #ifdef TARGET_IPHONE_SIMULATOR
 	override = NO;
 #endif

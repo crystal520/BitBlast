@@ -13,6 +13,7 @@
 #import "SimpleAudioEngine.h"
 #import "SettingsManager.h"
 #import "BBDialogQueue.h"
+#import "SessionMWrapper.h"
 
 @interface BBMainMenu : CCNodeColorBackground {
     CCLabelBMFont *playerCash;
