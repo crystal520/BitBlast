@@ -64,6 +64,7 @@ typedef enum {
 - (void) setState:(PlayerState)newState;
 - (void) setWeaponAngle:(int)newAngle;
 // actions
+- (void) addCoins:(int)coins;
 - (void) playIntro;
 - (void) checkCollisions;
 - (void) reset;

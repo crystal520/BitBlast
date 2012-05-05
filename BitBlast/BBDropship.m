@@ -176,6 +176,7 @@
 	// increment dropships killed
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
+	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyDropships"];
 	alive = NO;
 	gravity = ccp(2, 5);
 	level = CHUNK_LEVEL_UNKNOWN;

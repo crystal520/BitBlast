@@ -278,6 +278,13 @@
 
 #pragma mark -
 #pragma mark actions
+- (void) addCoins:(int)coins {
+	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"currentCoins"];
+	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"totalCoins"];
+	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"allTimeCoins"];
+	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"dailyCoins"];
+}
+
 - (void) playIntro {
 	[[BBWeaponManager sharedSingleton] setEnabled:NO];
 	introEnabled = YES;
@@ -324,9 +331,7 @@
 	for(BBCoin *c in activeCoins) {
 		if(c.enabled && c.alive && [c getCollidesWith:self]) {
 			[[SimpleAudioEngine sharedEngine] playEffect:@"coin.wav"];
-			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentCoins"];
-			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalCoins"];
-			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"allTimeCoins"];
+			[self addCoins:1];
 			[c setEnabled:NO];
 		}
 	}
@@ -335,9 +340,7 @@
 	for(BBMovingCoin *c in activeMovingCoins) {
 		if(c.enabled && [c getCollidesWith:self]) {
 			[[SimpleAudioEngine sharedEngine] playEffect:@"coin.wav"];
-			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentCoins"];
-			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalCoins"];
-			[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"allTimeCoins"];
+			[self addCoins:1];
 			[c setEnabled:NO];
 		}
 	}
@@ -375,6 +378,7 @@
 
 - (void) die:(NSString*)reason {
 	[self setState:kPlayerDead];
+	[[SettingsManager sharedSingleton] incrementInteger:[[SettingsManager sharedSingleton] getInt:@"currentDistance"] keyString:@"dailyDistance"];
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerDeadNotification object:nil]];
 }
 

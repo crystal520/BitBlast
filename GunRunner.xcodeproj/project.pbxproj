@@ -46,6 +46,9 @@
 		0A46C0361516824E003483BD /* whitecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0341516824E003483BD /* whitecircle.png */; };
 		0A46C0371516824E003483BD /* shotgunblast.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0351516824E003483BD /* shotgunblast.plist */; };
 		0A4C46F5154F7BE900C6FDCA /* dropshipHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */; };
+		0A4C46F91551659400C6FDCA /* BBPowerupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46F81551659300C6FDCA /* BBPowerupManager.m */; };
+		0A4C46FC15555FC100C6FDCA /* BBDailyBonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FB15555FC100C6FDCA /* BBDailyBonus.m */; };
+		0A4C46FF15558C8400C6FDCA /* SessionMWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FE15558C8300C6FDCA /* SessionMWrapper.m */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.m */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.m */; };
@@ -468,6 +471,12 @@
 		0A46C0341516824E003483BD /* whitecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitecircle.png; path = Resources/Particles/whitecircle.png; sourceTree = "<group>"; };
 		0A46C0351516824E003483BD /* shotgunblast.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = shotgunblast.plist; path = Resources/Particles/shotgunblast.plist; sourceTree = "<group>"; };
 		0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dropshipHit.wav; path = Resources/SFX/dropshipHit.wav; sourceTree = "<group>"; };
+		0A4C46F71551659200C6FDCA /* BBPowerupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPowerupManager.h; sourceTree = "<group>"; };
+		0A4C46F81551659300C6FDCA /* BBPowerupManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPowerupManager.m; sourceTree = "<group>"; };
+		0A4C46FA15555FC100C6FDCA /* BBDailyBonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDailyBonus.h; sourceTree = "<group>"; };
+		0A4C46FB15555FC100C6FDCA /* BBDailyBonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDailyBonus.m; sourceTree = "<group>"; };
+		0A4C46FD15558C8300C6FDCA /* SessionMWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMWrapper.h; sourceTree = "<group>"; };
+		0A4C46FE15558C8300C6FDCA /* SessionMWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMWrapper.m; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.m; sourceTree = "<group>"; };
@@ -1161,6 +1170,8 @@
 				0A67AFD2151E84DF00CAA55B /* BBLogic.m */,
 				0A67AFD6151EB22100CAA55B /* BBChopper.h */,
 				0A67AFD7151EB22300CAA55B /* BBChopper.m */,
+				0A4C46F71551659200C6FDCA /* BBPowerupManager.h */,
+				0A4C46F81551659300C6FDCA /* BBPowerupManager.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -2116,6 +2127,10 @@
 				0AFF01FD1544690E000F9A2E /* PromoManager.m */,
 				0ABBDCFD14CBD58D001D36B7 /* ResolutionManager.h */,
 				0ABBDCFE14CBD58E001D36B7 /* ResolutionManager.m */,
+				0A4C46FA15555FC100C6FDCA /* BBDailyBonus.h */,
+				0A4C46FB15555FC100C6FDCA /* BBDailyBonus.m */,
+				0A4C46FD15558C8300C6FDCA /* SessionMWrapper.h */,
+				0A4C46FE15558C8300C6FDCA /* SessionMWrapper.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -2600,6 +2615,9 @@
 				0A9BA682153D111800BB356C /* BBMovingCoinManager.m in Sources */,
 				0AFF01F41543174B000F9A2E /* BBDialogQueue.m in Sources */,
 				0AFF01FE1544690E000F9A2E /* PromoManager.m in Sources */,
+				0A4C46F91551659400C6FDCA /* BBPowerupManager.m in Sources */,
+				0A4C46FC15555FC100C6FDCA /* BBDailyBonus.m in Sources */,
+				0A4C46FF15558C8400C6FDCA /* SessionMWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -99,6 +99,7 @@
 		// increment enemies killed
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalEnemies"];
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentEnemies"];
+		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyEnemies"];
 		[self die];
 		[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:self.dummyPosition];
 	}

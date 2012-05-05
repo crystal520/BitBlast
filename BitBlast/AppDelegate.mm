@@ -15,6 +15,8 @@
 #import "SettingsManager.h"
 #import "PromoManager.h"
 #import "ChartBoost.h"
+#import "BBDailyBonus.h"
+#import "SessionMWrapper.h"
 
 @implementation AppDelegate
 
@@ -53,6 +55,8 @@
 	[IAPManager sharedSingleton];
 	// load saved game data
 	[[SettingsManager sharedSingleton] loadFromFile:@"player.plist"];
+	// load SessionM queue. also, start SessionM!
+	[[SessionMWrapper sharedSingleton] loadQueue];
 	
 	// seed the random number generator
 	srandom(time(NULL));
@@ -133,11 +137,6 @@
 	// Override point for customization after application launch.
 	[[LocalyticsSession sharedLocalyticsSession] startSession:@"7f34f42eb738225af85f165-2d1da334-6f9f-11e1-200b-00a68a4c01fc"];
 	
-	// boot up SessionM
-	[SessionM initWithApplicationId:@"aacd562506d9942e340a244642bd929091de99f4"];
-	// lock to landscape mode
-	[SessionM config].orientation = SessionM_UIDisplayLandscape;
-	
 	// Configure ChartBoost
     ChartBoost *cb = [ChartBoost sharedChartBoost];
     cb.appId = @"4f98d76ef77659e64f000023";
@@ -161,6 +160,8 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+	// save sessionM queue
+	[[SessionMWrapper sharedSingleton] saveQueue];
 	// save game data first
 	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
 	
@@ -171,6 +172,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	[[CCDirector sharedDirector] resume];
 	[[PromoManager sharedSingleton] resume];
+	[[BBDailyBonus sharedSingleton] checkDailyStreak];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
@@ -197,6 +199,8 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+	// save sessionM queue
+	[[SessionMWrapper sharedSingleton] saveQueue];
 	// save game data first
 	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
     
