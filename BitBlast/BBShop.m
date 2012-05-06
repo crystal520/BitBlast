@@ -38,8 +38,8 @@
 		
 		// make player at 2x for shop
 		player = [BBPlayer new];
-		player.dummyPosition = ccp(winSize.width * 0.1, winSize.height * 0.1);
-		player.position = player.dummyPosition;
+		player.position = ccp(winSize.width * 0.1, winSize.height * 0.1);
+		player.dummyPosition = ccpMult(player.position, [ResolutionManager sharedSingleton].inversePositionScale);
 		[player setState:kPlayerShop];
 		[self addChild:player];
 		
@@ -177,6 +177,8 @@
 	[[BBWeaponManager sharedSingleton] setScale:2];
 	// enable weapons as they're disabled upon equipping
 	[[BBWeaponManager sharedSingleton] setEnabled:YES];
+	// make sure particles for new weapon show up on this screen
+	[[BBWeaponManager sharedSingleton] setNode:self];
 }
 
 @end
