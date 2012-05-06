@@ -81,9 +81,9 @@
 		[self addChild:playerCash];
 		
 		// create SessionM button
-		CCButton *sessionM = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_pressed.png"] target:[SessionMWrapper sharedSingleton] selector:@selector(openSessionM)];
+		CCButton *sessionM = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMUp.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMDown.png"] target:[SessionMWrapper sharedSingleton] selector:@selector(openSessionM)];
 		[sessionM setSpriteBatchNode:uiSpriteBatch];
-		sessionM.position = ccp(background.position.x, background.position.y - (180 * [ResolutionManager sharedSingleton].positionScale));
+		sessionM.position = ccp(background.position.x - (80 * [ResolutionManager sharedSingleton].positionScale), background.position.y - (261 * [ResolutionManager sharedSingleton].positionScale));
 		[self addChild:sessionM];
 		
 		// register for notifications
