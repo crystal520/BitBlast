@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BBActionInterval.h"
 
 @interface BBBehavior : NSObject {
 	// type of easing curve

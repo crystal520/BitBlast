@@ -143,7 +143,7 @@
 			// calculate amount to move by
 			float moveBy = (max + (-min));
 			// create up action
-			CCMoveBy *upAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
+			BBMoveBy *upAction = [BBMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return upAction
 			return upAction;
 		}
@@ -155,7 +155,7 @@
 			// calculate amount to move by
 			float moveBy = (min + (-max));
 			// create down action
-			CCMoveBy *downAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
+			BBMoveBy *downAction = [BBMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return downAction
 			return downAction;
 		}
@@ -170,7 +170,7 @@
 			// calculate amount to move by
 			float moveBy = (max + (-min));
 			// create right action
-			CCMoveBy *rightAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
+			BBMoveBy *rightAction = [BBMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return rightAction
 			return rightAction;
 		}
@@ -180,7 +180,7 @@
 			// calculate amount to move by
 			float moveBy = (min + (-max));
 			// create left action
-			CCMoveBy *leftAction = [CCMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
+			BBMoveBy *leftAction = [BBMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return leftAction
 			return leftAction;
 		}

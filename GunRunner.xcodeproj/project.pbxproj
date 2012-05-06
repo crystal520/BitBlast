@@ -90,6 +90,7 @@
 		0ABBDD0214CC62B1001D36B7 /* CCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDD0114CC62B1001D36B7 /* CCButton.m */; };
 		0ABBDD0514CCA1A0001D36B7 /* CCLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */; };
 		0AC2855D1555B23900DBF497 /* bounce.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2855C1555B23900DBF497 /* bounce.wav */; };
+		0AC2856015571B1F00DBF497 /* BBActionInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2855F15571B1E00DBF497 /* BBActionInterval.m */; };
 		0AC5ECB1152018CD001F7292 /* BBExplosion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB0152018CD001F7292 /* BBExplosion.m */; };
 		0AC5ECB515201BF6001F7292 /* BBExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB415201BF5001F7292 /* BBExplosionManager.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
@@ -546,6 +547,8 @@
 		0ABBDD0314CCA19E001D36B7 /* CCLabelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLabelButton.h; sourceTree = "<group>"; };
 		0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLabelButton.m; sourceTree = "<group>"; };
 		0AC2855C1555B23900DBF497 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bounce.wav; path = Resources/SFX/bounce.wav; sourceTree = "<group>"; };
+		0AC2855E15571B1E00DBF497 /* BBActionInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBActionInterval.h; sourceTree = "<group>"; };
+		0AC2855F15571B1E00DBF497 /* BBActionInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBActionInterval.m; sourceTree = "<group>"; };
 		0AC5ECAF152018CD001F7292 /* BBExplosion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosion.h; sourceTree = "<group>"; };
 		0AC5ECB0152018CD001F7292 /* BBExplosion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBExplosion.m; sourceTree = "<group>"; };
 		0AC5ECB315201BF5001F7292 /* BBExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosionManager.h; sourceTree = "<group>"; };
@@ -1122,8 +1125,6 @@
 				0ABBDD0114CC62B1001D36B7 /* CCButton.m */,
 				0ABBDD0314CCA19E001D36B7 /* CCLabelButton.h */,
 				0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */,
-				0A0DD3F21513A26300BD35E7 /* BBList.h */,
-				0A0DD3F31513A26300BD35E7 /* BBList.m */,
 			);
 			name = CocosSubclasses;
 			sourceTree = "<group>";
@@ -2120,6 +2121,12 @@
 		0AFF01FF1544691D000F9A2E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0AC2855E15571B1E00DBF497 /* BBActionInterval.h */,
+				0AC2855F15571B1E00DBF497 /* BBActionInterval.m */,
+				0A4C46FA15555FC100C6FDCA /* BBDailyBonus.h */,
+				0A4C46FB15555FC100C6FDCA /* BBDailyBonus.m */,
+				0A0DD3F21513A26300BD35E7 /* BBList.h */,
+				0A0DD3F31513A26300BD35E7 /* BBList.m */,
 				0A428305151440F100E35219 /* GameCenter.h */,
 				0A428306151440F200E35219 /* GameCenter.m */,
 				0AE7556A15029A5800E292ED /* Globals.h */,
@@ -2130,8 +2137,6 @@
 				0AFF01FD1544690E000F9A2E /* PromoManager.m */,
 				0ABBDCFD14CBD58D001D36B7 /* ResolutionManager.h */,
 				0ABBDCFE14CBD58E001D36B7 /* ResolutionManager.m */,
-				0A4C46FA15555FC100C6FDCA /* BBDailyBonus.h */,
-				0A4C46FB15555FC100C6FDCA /* BBDailyBonus.m */,
 				0A4C46FD15558C8300C6FDCA /* SessionMWrapper.h */,
 				0A4C46FE15558C8300C6FDCA /* SessionMWrapper.m */,
 			);
@@ -2622,6 +2627,7 @@
 				0A4C46F91551659400C6FDCA /* BBPowerupManager.m in Sources */,
 				0A4C46FC15555FC100C6FDCA /* BBDailyBonus.m in Sources */,
 				0A4C46FF15558C8400C6FDCA /* SessionMWrapper.m in Sources */,
+				0AC2856015571B1F00DBF497 /* BBActionInterval.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
