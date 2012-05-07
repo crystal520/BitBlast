@@ -155,6 +155,6 @@
 		<integer>60</integer>
 	</dict>
 	<key>damage</key>
-	<real>1.6666</real>
+	<real>0.001</real>
 </dict>
 </plist>
