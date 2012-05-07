@@ -35,15 +35,21 @@
 	lifetime = newLifetime;
 	self.visible = YES;
 	[self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:newGraphic]];
+	
+	[self setColor:ccc3(255, 255, 255)];
+	[self setBlendFunc:(ccBlendFunc){GL_ONE, GL_ONE_MINUS_SRC_ALPHA}];
+	[self setOpacity:255];
 }
 
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
 	// see if bullet is dead yet
-	lifeTimer += delta;
-	if(lifeTimer >= lifetime) {
-		[self setEnabled:NO];
+	if(enabled) {
+		lifeTimer += delta;
+		if(lifeTimer >= lifetime) {
+			[self setEnabled:NO];
+		}
 	}
 	// update if enabled
 	if(enabled) {

@@ -55,6 +55,7 @@
 		for(int i=0,j=[angles count];i<j;i++) {
 			BBBullet *laser = [[BulletManager sharedSingleton] getRecycledBullet];
 			[laser resetWithPosition:ccp(0,0) velocity:ccp(0,0) lifetime:100 graphic:sprite];
+			[laser setTexture:[[[CCTexture2D alloc] initWithImage:[UIImage imageNamed:sprite]] autorelease]];
 			laser.visible = NO;
 			laser.indestructible = YES;
 			// set tex params so it repeats horizontally
@@ -63,7 +64,7 @@
 			// set size equal to the width of the screen
 			CGRect texRect = laser.textureRect;
 			laser.textureRect = CGRectMake(texRect.origin.x, texRect.origin.y, [ResolutionManager sharedSingleton].size.width, texRect.size.height);
-			laser.boundingBox = CGRectMake(0, 0, [ResolutionManager sharedSingleton].size.width, texRect.size.height);
+			laser.boundingBox = CGRectMake(0, 0, [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].imageScale, texRect.size.height);
 			// set anchor point so it starts at the end of the gun
 			laser.anchorPoint = ccp(0, 0.5);
 			// set blend function if needed
@@ -79,6 +80,7 @@
 
 - (void) dealloc {
 	if(particles) {
+		[particles.parent removeChild:particles cleanup:YES];
 		[particles release];
 	}
 	[lasers release];
@@ -119,7 +121,7 @@
 - (void) setNode:(CCNode*)node {
 	if(particles) {
 		[particles.parent removeChild:particles cleanup:YES];
-		[node addChild:particles];
+		[node addChild:particles z:DEPTH_GAME_BULLETS];
 		// unschedule and reschedule update in case it has been unscheduled by a parent
 		[particles unscheduleUpdate];
 		[particles scheduleUpdateWithPriority:1];

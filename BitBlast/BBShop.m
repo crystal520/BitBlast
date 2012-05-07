@@ -175,6 +175,7 @@
 - (void) weaponEquipped {
 	// set weapon scale here in case a new weapon was equipped
 	[[BBWeaponManager sharedSingleton] setScale:2];
+	[[BulletManager sharedSingleton] setScale:2];
 	// enable weapons as they're disabled upon equipping
 	[[BBWeaponManager sharedSingleton] setEnabled:YES];
 	// make sure particles for new weapon show up on this screen
