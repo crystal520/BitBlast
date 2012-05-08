@@ -102,7 +102,9 @@
 }
 
 - (void) unequipAll {
-	[weapons removeAllObjects];
+	for(BBWeapon *w in weapons) {
+		[self unequip:w.identifier];
+	}
 }
 
 @end
