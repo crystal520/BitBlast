@@ -40,9 +40,9 @@
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>50</string>
+				<string>15</string>
 				<key>low</key>
-				<string>-50</string>
+				<string>-15</string>
 			</dict>
 			<key>minRange</key>
 			<dict>
@@ -60,7 +60,7 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<integer>3</integer>
+			<integer>4</integer>
 			<key>start</key>
 			<string>min</string>
 		</dict>
