@@ -74,4 +74,15 @@
 	return 1;
 }
 
+- (NSArray*) getAllPowerups {
+	NSArray *powerups = [NSArray arrayWithObjects:@"gunspeed", @"speedboost", @"3hearts", @"6xcoins", @"2hearts", @"4xcoins", @"1heart", @"2xcoins", nil];
+	NSMutableArray *allPowerups = [NSMutableArray array];
+	for(NSString *p in powerups) {
+		for(int i=0;i<[[SettingsManager sharedSingleton] getInt:p];i++) {
+			[allPowerups addObject:p];
+		}
+	}
+	return allPowerups;
+}
+
 @end

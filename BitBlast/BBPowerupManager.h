@@ -20,5 +20,6 @@
 - (int) getCoinMultPowerup;
 - (int) getGunPowerup;
 - (float) getSpeedPowerup;
+- (NSArray*) getAllPowerups;
 
 @end
