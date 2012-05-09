@@ -5,13 +5,13 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>0</string>
+		<string>4000</string>
 		<key>description</key>
-		<string>Extra Heart 3</string>
+		<string>3 Extra Hearts this run</string>
 		<key>icon</key>
-		<string>flamethrower.png</string>
+		<string>3heartshopicon.png</string>
 		<key>name</key>
-		<string>3 Hearts</string>
+		<string>3 Extra Hearts</string>
 		<key>identifier</key>
 		<string>3hearts</string>
 		<key>type</key>

@@ -129,7 +129,7 @@
 		[self sessionEvent:@"dropshipDestruction"];
 	}
 	[SessionM insertInteractable];
-}
+} 
 
 #pragma mark -
 #pragma mark SessionMDelegate

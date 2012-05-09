@@ -298,6 +298,12 @@
 		3428FF6114E9B09100184E31 /* flamethrower_bulletMedium.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */; };
 		3428FF6514E9B0F900184E31 /* flamesmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6414E9B0F900184E31 /* flamesmall.png */; };
 		3428FF6714E9B11800184E31 /* flamethrower_bulletSmall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3428FF6614E9B11800184E31 /* flamethrower_bulletSmall.plist */; };
+		34578873155A1913004777F7 /* 3heartshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578870155A1913004777F7 /* 3heartshopicon.png */; };
+		34578874155A1913004777F7 /* 2heartshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578871155A1913004777F7 /* 2heartshopicon.png */; };
+		34578875155A1913004777F7 /* 1heartshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578872155A1913004777F7 /* 1heartshopicon.png */; };
+		3457887A155A1BF4004777F7 /* 6xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578877155A1BF4004777F7 /* 6xcoinshopicon.png */; };
+		3457887B155A1BF4004777F7 /* 4xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578878155A1BF4004777F7 /* 4xcoinshopicon.png */; };
+		3457887C155A1BF4004777F7 /* 2xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578879155A1BF4004777F7 /* 2xcoinshopicon.png */; };
 		348AF0D915576CD80057A555 /* dropShip1HitParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 348AF0D815576CD80057A555 /* dropShip1HitParticle.plist */; };
 		348AF0DD15576E950057A555 /* dullthud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348AF0DC15576E950057A555 /* dullthud.wav */; };
 		34A0307B152408F60067AA4B /* ultralaserParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0307A152408F60067AA4B /* ultralaserParticle.plist */; };
@@ -938,6 +944,12 @@
 		3428FF6014E9B09100184E31 /* flamethrower_bulletMedium.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower_bulletMedium.plist; sourceTree = "<group>"; };
 		3428FF6414E9B0F900184E31 /* flamesmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flamesmall.png; path = Resources/flamesmall.png; sourceTree = "<group>"; };
 		3428FF6614E9B11800184E31 /* flamethrower_bulletSmall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamethrower_bulletSmall.plist; sourceTree = "<group>"; };
+		34578870155A1913004777F7 /* 3heartshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3heartshopicon.png; sourceTree = "<group>"; };
+		34578871155A1913004777F7 /* 2heartshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2heartshopicon.png; sourceTree = "<group>"; };
+		34578872155A1913004777F7 /* 1heartshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1heartshopicon.png; sourceTree = "<group>"; };
+		34578877155A1BF4004777F7 /* 6xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6xcoinshopicon.png; sourceTree = "<group>"; };
+		34578878155A1BF4004777F7 /* 4xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4xcoinshopicon.png; sourceTree = "<group>"; };
+		34578879155A1BF4004777F7 /* 2xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2xcoinshopicon.png; sourceTree = "<group>"; };
 		348AF0D815576CD80057A555 /* dropShip1HitParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dropShip1HitParticle.plist; path = Resources/Particles/dropShip1HitParticle.plist; sourceTree = "<group>"; };
 		348AF0DC15576E950057A555 /* dullthud.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dullthud.wav; path = Resources/SFX/dullthud.wav; sourceTree = "<group>"; };
 		34A0307A152408F60067AA4B /* ultralaserParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ultralaserParticle.plist; path = Resources/Particles/ultralaserParticle.plist; sourceTree = "<group>"; };
@@ -1572,6 +1584,12 @@
 				0AC28566155A0BB400DBF497 /* 1heart.plist */,
 				0AC28569155A0CE900DBF497 /* 2hearts.plist */,
 				0AC2856A155A0CE900DBF497 /* 3hearts.plist */,
+				34578870155A1913004777F7 /* 3heartshopicon.png */,
+				34578871155A1913004777F7 /* 2heartshopicon.png */,
+				34578872155A1913004777F7 /* 1heartshopicon.png */,
+				34578877155A1BF4004777F7 /* 6xcoinshopicon.png */,
+				34578878155A1BF4004777F7 /* 4xcoinshopicon.png */,
+				34578879155A1BF4004777F7 /* 2xcoinshopicon.png */,
 			);
 			name = Powerups;
 			path = Resources/Powerups;
@@ -2471,6 +2489,12 @@
 				0AC28572155A109400DBF497 /* 6xcoins.plist in Resources */,
 				0AC28575155A18B900DBF497 /* gunspeed.plist in Resources */,
 				0AC28576155A18B900DBF497 /* speedboost.plist in Resources */,
+				34578873155A1913004777F7 /* 3heartshopicon.png in Resources */,
+				34578874155A1913004777F7 /* 2heartshopicon.png in Resources */,
+				34578875155A1913004777F7 /* 1heartshopicon.png in Resources */,
+				3457887A155A1BF4004777F7 /* 6xcoinshopicon.png in Resources */,
+				3457887B155A1BF4004777F7 /* 4xcoinshopicon.png in Resources */,
+				3457887C155A1BF4004777F7 /* 2xcoinshopicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
