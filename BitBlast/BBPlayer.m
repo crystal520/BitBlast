@@ -139,6 +139,7 @@
 		// update torso position
 		[self updateTorso];
 		if(touchingPlatform) {
+			velocity = ccp(minVelocity.x * speedMultiplier, minVelocity.y);
 			introEnabled = NO;
 			[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
 			[[BBWeaponManager sharedSingleton] setEnabled:YES];
@@ -182,7 +183,7 @@
 		// reset the number of chunks
 		curNumChunks = 0;
 		// increment the player's speed
-		float speed = velocity.x + speedIncrement * velocity.x;
+		float speed = velocity.x + speedIncrement * velocity.x * speedMultiplier;
 		// make sure we don't go over the maximum speed allowed
 		speed = MIN(speed, maxVelocity.x);
 		velocity = ccp(speed, velocity.y);
@@ -369,8 +370,14 @@
 	offsetNode.position = ccp(0, 0);
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
+	
 	// get current coin multiplier powerup
 	coinMultiplier = [[BBPowerupManager sharedSingleton] getCoinMultPowerup];
+	// get current speed multiplier powerup
+	speedMultiplier = [[BBPowerupManager sharedSingleton] getSpeedPowerup];
+	// set the current gun multiplier powerup
+	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:[[BBPowerupManager sharedSingleton] getGunPowerup]];
+	
 	// reset health to starting value from plist
 	int startingHealth = [[dictionary objectForKey:@"health"] intValue] + [[BBPowerupManager sharedSingleton] getHealthPowerup];
 	[self setHealth:startingHealth];
@@ -383,6 +390,10 @@
 - (void) die:(NSString*)reason {
 	[self setState:kPlayerDead];
 	[[SettingsManager sharedSingleton] incrementInteger:[[SettingsManager sharedSingleton] getInt:@"currentDistance"] keyString:@"dailyDistance"];
+	
+	// reset the gun speed multiplier
+	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:1];
+	
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerDeadNotification object:nil]];
 }
 

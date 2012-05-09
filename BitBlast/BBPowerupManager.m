@@ -58,4 +58,20 @@
 	return 1;
 }
 
+- (int) getGunPowerup {
+	if([[SettingsManager sharedSingleton] getInt:@"gunspeed"]) {
+		[[SettingsManager sharedSingleton] incrementInteger:-1 keyString:@"gunspeed"];
+		return 2;
+	}
+	return 1;
+}
+
+- (float) getSpeedPowerup {
+	if([[SettingsManager sharedSingleton] getInt:@"speedboost"]) {
+		[[SettingsManager sharedSingleton] incrementInteger:-1 keyString:@"speedboost"];
+		return 1.5;
+	}
+	return 1;
+}
+
 @end

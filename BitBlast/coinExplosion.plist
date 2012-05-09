@@ -34,7 +34,7 @@
 		<integer>32</integer>
 	</dict>
 	<key>xMovementRange</key>
-	<string>{100,200}</string>
+	<string>{-150,-50}</string>
 	<key>yMovementRange</key>
 	<string>{500,800}</string>
 	<key>lifetime</key>

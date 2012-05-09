@@ -16,6 +16,7 @@
 	if((self = [super init])) {
 		identifier = [NSMutableString new];
 		scale = 1;
+		gunSpeedMultiplier = 1;
 	}
 	return self;
 }
@@ -154,6 +155,10 @@
 	}
 }
 
+- (void) setGunSpeedMultiplier:(float)multiplier {
+	gunSpeedMultiplier = multiplier;
+}
+
 #pragma mark -
 #pragma mark getters
 - (CGPoint) getPosition {
@@ -165,7 +170,7 @@
 - (void) update:(float)delta {
 	// update each shot
 	for(BBShot *s in shots) {
-		[s update:delta];
+		[s update:delta * gunSpeedMultiplier];
 	}
 	// update each laser
 	for(BBLaser *l in lasers) {

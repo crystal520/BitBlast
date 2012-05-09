@@ -97,6 +97,8 @@
 		0AC28570155A109400DBF497 /* 2xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2856D155A109200DBF497 /* 2xcoins.plist */; };
 		0AC28571155A109400DBF497 /* 4xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2856E155A109200DBF497 /* 4xcoins.plist */; };
 		0AC28572155A109400DBF497 /* 6xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2856F155A109300DBF497 /* 6xcoins.plist */; };
+		0AC28575155A18B900DBF497 /* gunspeed.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC28573155A18B500DBF497 /* gunspeed.plist */; };
+		0AC28576155A18B900DBF497 /* speedboost.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC28574155A18B700DBF497 /* speedboost.plist */; };
 		0AC5ECB1152018CD001F7292 /* BBExplosion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB0152018CD001F7292 /* BBExplosion.m */; };
 		0AC5ECB515201BF6001F7292 /* BBExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB415201BF5001F7292 /* BBExplosionManager.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
@@ -563,6 +565,8 @@
 		0AC2856D155A109200DBF497 /* 2xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 2xcoins.plist; sourceTree = "<group>"; };
 		0AC2856E155A109200DBF497 /* 4xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 4xcoins.plist; sourceTree = "<group>"; };
 		0AC2856F155A109300DBF497 /* 6xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 6xcoins.plist; sourceTree = "<group>"; };
+		0AC28573155A18B500DBF497 /* gunspeed.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gunspeed.plist; sourceTree = "<group>"; };
+		0AC28574155A18B700DBF497 /* speedboost.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = speedboost.plist; sourceTree = "<group>"; };
 		0AC5ECAF152018CD001F7292 /* BBExplosion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosion.h; sourceTree = "<group>"; };
 		0AC5ECB0152018CD001F7292 /* BBExplosion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBExplosion.m; sourceTree = "<group>"; };
 		0AC5ECB315201BF5001F7292 /* BBExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosionManager.h; sourceTree = "<group>"; };
@@ -1560,6 +1564,8 @@
 		0AC28565155A0BB400DBF497 /* Powerups */ = {
 			isa = PBXGroup;
 			children = (
+				0AC28573155A18B500DBF497 /* gunspeed.plist */,
+				0AC28574155A18B700DBF497 /* speedboost.plist */,
 				0AC2856D155A109200DBF497 /* 2xcoins.plist */,
 				0AC2856E155A109200DBF497 /* 4xcoins.plist */,
 				0AC2856F155A109300DBF497 /* 6xcoins.plist */,
@@ -2463,6 +2469,8 @@
 				0AC28570155A109400DBF497 /* 2xcoins.plist in Resources */,
 				0AC28571155A109400DBF497 /* 4xcoins.plist in Resources */,
 				0AC28572155A109400DBF497 /* 6xcoins.plist in Resources */,
+				0AC28575155A18B900DBF497 /* gunspeed.plist in Resources */,
+				0AC28576155A18B900DBF497 /* speedboost.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

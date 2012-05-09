@@ -22,6 +22,7 @@
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setScale:(float)scale;
 - (void) setNode:(CCNode*)node;
+- (void) setGunSpeedMultiplier:(float)multiplier;
 // actions
 - (void) equip:(NSString*)newWeapon;
 - (void) unequip:(NSString*)oldWeapon;

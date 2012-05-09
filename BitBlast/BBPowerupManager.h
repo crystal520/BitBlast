@@ -18,5 +18,7 @@
 // getters
 - (int) getHealthPowerup;
 - (int) getCoinMultPowerup;
+- (int) getGunPowerup;
+- (float) getSpeedPowerup;
 
 @end

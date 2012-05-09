@@ -48,8 +48,10 @@ typedef enum {
 	int previousTotalDistance;
 	// whether or not the player is in the intro
 	BOOL introEnabled;
-	// coin multiplier for the current round
+	// coin multiplier for the current run
 	int coinMultiplier;
+	// speed multiplier for the current run
+	float speedMultiplier;
 }
 
 @property (nonatomic, readonly) int health;

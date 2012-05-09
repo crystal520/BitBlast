@@ -68,6 +68,12 @@
 	}
 }
 
+- (void) setGunSpeedMultiplier:(float)multiplier {
+	for(BBWeapon *w in weapons) {
+		[w setGunSpeedMultiplier:multiplier];
+	}
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) equip:(NSString*)newWeapon {

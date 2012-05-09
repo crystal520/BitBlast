@@ -123,7 +123,7 @@
 - (void) resetWithPosition:(CGPoint)newPosition {
 	dummyPosition = newPosition;
 	// generate random x and y velocity
-	float xVel = CCRANDOM_MIN_MAX(xVelRange.x, xVelRange.y);
+	float xVel = CCRANDOM_MIN_MAX(xVelRange.x, xVelRange.y) + [Globals sharedSingleton].playerVelocity.x;
 	float yVel = CCRANDOM_MIN_MAX(yVelRange.x, yVelRange.y);
 	velocity = ccp(xVel, yVel);
 	lifeTimer = lifeTime;

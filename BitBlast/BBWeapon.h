@@ -22,6 +22,8 @@
 	CGPoint currentOffset, torsoOffset, torsoOffsetUp, torsoOffsetDown, position;
 	// angles for firing up, down, and straight
 	float upAngle, downAngle, straightAngle, scale;
+	// current gun speed multiplier
+	float gunSpeedMultiplier;
 }
 
 @property (nonatomic, readonly) NSString *identifier;
@@ -35,6 +37,7 @@
 - (void) setPosition:(CGPoint)newPosition;
 - (void) setScale:(float)newScale;
 - (void) setNode:(CCNode*)node;
+- (void) setGunSpeedMultiplier:(float)multiplier;
 // getters
 - (CGPoint) getPosition;
 // update
