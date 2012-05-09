@@ -5,13 +5,13 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>0</string>
+		<string>6000</string>
 		<key>description</key>
-		<string>6x Multiplier</string>
+		<string>6X the coins this run</string>
 		<key>icon</key>
-		<string>flamethrower.png</string>
+		<string>6xcoinshopicon.png</string>
 		<key>name</key>
-		<string>6x</string>
+		<string>6x Coin Bonus</string>
 		<key>identifier</key>
 		<string>6xcoins</string>
 		<key>type</key>
