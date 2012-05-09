@@ -44,9 +44,10 @@
 		
 		// create hearts based on player's starting health
 		hearts = [NSMutableArray new];
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<[Globals sharedSingleton].playerStartingHealth;i++) {
 			CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"heart.png"];
 			sprite.position = ccp(winSize.width * 0.05 + i * (sprite.contentSize.width + 10), winSize.height * 0.95);
+			[sprite setVisible:(i < [Globals sharedSingleton].playerStartingHealth)];
 			[hearts addObject:sprite];
 			[uiSpriteBatch addChild:sprite];
 		}

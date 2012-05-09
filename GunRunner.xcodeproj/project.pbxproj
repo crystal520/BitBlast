@@ -91,6 +91,12 @@
 		0ABBDD0514CCA1A0001D36B7 /* CCLabelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDD0414CCA19F001D36B7 /* CCLabelButton.m */; };
 		0AC2855D1555B23900DBF497 /* bounce.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2855C1555B23900DBF497 /* bounce.wav */; };
 		0AC2856015571B1F00DBF497 /* BBActionInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC2855F15571B1E00DBF497 /* BBActionInterval.m */; };
+		0AC28567155A0BB400DBF497 /* 1heart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC28566155A0BB400DBF497 /* 1heart.plist */; };
+		0AC2856B155A0CEA00DBF497 /* 2hearts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC28569155A0CE900DBF497 /* 2hearts.plist */; };
+		0AC2856C155A0CEA00DBF497 /* 3hearts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2856A155A0CE900DBF497 /* 3hearts.plist */; };
+		0AC28570155A109400DBF497 /* 2xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2856D155A109200DBF497 /* 2xcoins.plist */; };
+		0AC28571155A109400DBF497 /* 4xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2856E155A109200DBF497 /* 4xcoins.plist */; };
+		0AC28572155A109400DBF497 /* 6xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC2856F155A109300DBF497 /* 6xcoins.plist */; };
 		0AC5ECB1152018CD001F7292 /* BBExplosion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB0152018CD001F7292 /* BBExplosion.m */; };
 		0AC5ECB515201BF6001F7292 /* BBExplosionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5ECB415201BF5001F7292 /* BBExplosionManager.m */; };
 		0AC723A114985D9C000E9412 /* BBGameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC723A014985D9C000E9412 /* BBGameObject.m */; };
@@ -551,6 +557,12 @@
 		0AC2855C1555B23900DBF497 /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = bounce.wav; path = Resources/SFX/bounce.wav; sourceTree = "<group>"; };
 		0AC2855E15571B1E00DBF497 /* BBActionInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBActionInterval.h; sourceTree = "<group>"; };
 		0AC2855F15571B1E00DBF497 /* BBActionInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBActionInterval.m; sourceTree = "<group>"; };
+		0AC28566155A0BB400DBF497 /* 1heart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1heart.plist; sourceTree = "<group>"; };
+		0AC28569155A0CE900DBF497 /* 2hearts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 2hearts.plist; sourceTree = "<group>"; };
+		0AC2856A155A0CE900DBF497 /* 3hearts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3hearts.plist; sourceTree = "<group>"; };
+		0AC2856D155A109200DBF497 /* 2xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 2xcoins.plist; sourceTree = "<group>"; };
+		0AC2856E155A109200DBF497 /* 4xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 4xcoins.plist; sourceTree = "<group>"; };
+		0AC2856F155A109300DBF497 /* 6xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 6xcoins.plist; sourceTree = "<group>"; };
 		0AC5ECAF152018CD001F7292 /* BBExplosion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosion.h; sourceTree = "<group>"; };
 		0AC5ECB0152018CD001F7292 /* BBExplosion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBExplosion.m; sourceTree = "<group>"; };
 		0AC5ECB315201BF5001F7292 /* BBExplosionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBExplosionManager.h; sourceTree = "<group>"; };
@@ -1545,6 +1557,20 @@
 			name = Weapons;
 			sourceTree = "<group>";
 		};
+		0AC28565155A0BB400DBF497 /* Powerups */ = {
+			isa = PBXGroup;
+			children = (
+				0AC2856D155A109200DBF497 /* 2xcoins.plist */,
+				0AC2856E155A109200DBF497 /* 4xcoins.plist */,
+				0AC2856F155A109300DBF497 /* 6xcoins.plist */,
+				0AC28566155A0BB400DBF497 /* 1heart.plist */,
+				0AC28569155A0CE900DBF497 /* 2hearts.plist */,
+				0AC2856A155A0CE900DBF497 /* 3hearts.plist */,
+			);
+			name = Powerups;
+			path = Resources/Powerups;
+			sourceTree = "<group>";
+		};
 		0AC9623D15106E5200790570 /* Coins */ = {
 			isa = PBXGroup;
 			children = (
@@ -1629,6 +1655,7 @@
 		0AE417471496F5C400342D8E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0AC28565155A0BB400DBF497 /* Powerups */,
 				0A46C02F15167B4D003483BD /* Particles */,
 				0A46C01A1516655C003483BD /* Music */,
 				0A46C01915166551003483BD /* SFX */,
@@ -2430,6 +2457,12 @@
 				0AC2855D1555B23900DBF497 /* bounce.wav in Resources */,
 				348AF0D915576CD80057A555 /* dropShip1HitParticle.plist in Resources */,
 				348AF0DD15576E950057A555 /* dullthud.wav in Resources */,
+				0AC28567155A0BB400DBF497 /* 1heart.plist in Resources */,
+				0AC2856B155A0CEA00DBF497 /* 2hearts.plist in Resources */,
+				0AC2856C155A0CEA00DBF497 /* 3hearts.plist in Resources */,
+				0AC28570155A109400DBF497 /* 2xcoins.plist in Resources */,
+				0AC28571155A109400DBF497 /* 4xcoins.plist in Resources */,
+				0AC28572155A109400DBF497 /* 6xcoins.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

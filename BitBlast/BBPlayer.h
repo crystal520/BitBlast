@@ -16,6 +16,7 @@
 #import "BBWeaponManager.h"
 #import "EnemyManager.h"
 #import "SimpleAudioEngine.h"
+#import "BBPowerupManager.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -47,6 +48,8 @@ typedef enum {
 	int previousTotalDistance;
 	// whether or not the player is in the intro
 	BOOL introEnabled;
+	// coin multiplier for the current round
+	int coinMultiplier;
 }
 
 @property (nonatomic, readonly) int health;

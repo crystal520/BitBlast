@@ -108,6 +108,9 @@
 	else if([type isEqualToString:@"equipment"]) {
 		[[BBEquipmentManager sharedSingleton] equip:identifier];
 	}
+	else if([type isEqualToString:@"powerup"]) {
+		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:identifier];
+	}
 	else {
 		NSLog(@"ERROR: invalid type specified in item plist");
 	}

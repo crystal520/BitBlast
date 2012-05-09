@@ -279,10 +279,10 @@
 #pragma mark -
 #pragma mark actions
 - (void) addCoins:(int)coins {
-	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"currentCoins"];
-	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"totalCoins"];
-	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"allTimeCoins"];
-	[[SettingsManager sharedSingleton] incrementInteger:coins keyString:@"dailyCoins"];
+	[[SettingsManager sharedSingleton] incrementInteger:coins * coinMultiplier keyString:@"currentCoins"];
+	[[SettingsManager sharedSingleton] incrementInteger:coins * coinMultiplier keyString:@"totalCoins"];
+	[[SettingsManager sharedSingleton] incrementInteger:coins * coinMultiplier keyString:@"allTimeCoins"];
+	[[SettingsManager sharedSingleton] incrementInteger:coins * coinMultiplier keyString:@"dailyCoins"];
 }
 
 - (void) playIntro {
@@ -369,8 +369,12 @@
 	offsetNode.position = ccp(0, 0);
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
+	// get current coin multiplier powerup
+	coinMultiplier = [[BBPowerupManager sharedSingleton] getCoinMultPowerup];
 	// reset health to starting value from plist
-	[self setHealth:[[dictionary objectForKey:@"health"] intValue]];
+	int startingHealth = [[dictionary objectForKey:@"health"] intValue] + [[BBPowerupManager sharedSingleton] getHealthPowerup];
+	[self setHealth:startingHealth];
+	[Globals sharedSingleton].playerStartingHealth = startingHealth;
 	// keep track of previous total distance
 	previousTotalDistance = [[SettingsManager sharedSingleton] getInt:@"totalMeters"];
 	[self playIntro];

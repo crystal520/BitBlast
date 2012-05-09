@@ -16,9 +16,12 @@
 	CGPoint playerVelocity;
 	// camera offset (used to calculate when something is off screen to the left of the player)
 	CGPoint cameraOffset;
+	// player's starting health
+	int playerStartingHealth;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
+@property (nonatomic, assign) int playerStartingHealth;
 
 + (Globals*) sharedSingleton;
 

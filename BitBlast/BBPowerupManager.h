@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SettingsManager.h"
 
 @interface BBPowerupManager : NSObject {
 	
 }
 
 + (BBPowerupManager*) sharedSingleton;
+
+// getters
+- (int) getHealthPowerup;
+- (int) getCoinMultPowerup;
 
 @end

@@ -4,6 +4,12 @@
 <dict>
 	<key>items</key>
 	<array>
+		<string>1heart</string>
+		<string>2hearts</string>
+		<string>3hearts</string>
+		<string>2xcoins</string>
+		<string>4xcoins</string>
+		<string>6xcoins</string>
 		<string>pistol</string>
 		<string>highenergyshot</string>
 		<string>plasmapistol</string>
