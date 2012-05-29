@@ -14,7 +14,7 @@
 	// queue for events that may have been submitted while SessionM was not initialized
 	NSMutableArray *eventQueue;
 	// whether or not SessionM has been initialized
-	BOOL enabled;
+	BOOL initialized;
 }
 
 + (SessionMWrapper*) sharedSingleton;

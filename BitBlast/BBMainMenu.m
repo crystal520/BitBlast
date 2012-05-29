@@ -81,7 +81,7 @@
 		[self addChild:playerCash];
 		
 		// create SessionM button
-		CCButton *sessionM = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMUp.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMDown.png"] target:[SessionMWrapper sharedSingleton] selector:@selector(openSessionM)];
+		CCButton *sessionM = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMUp.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMDown.png"] target:self selector:@selector(gotoSessionM)];
 		[sessionM setSpriteBatchNode:uiSpriteBatch];
 		sessionM.position = ccp(background.position.x - (80 * [ResolutionManager sharedSingleton].positionScale), background.position.y - (261 * [ResolutionManager sharedSingleton].positionScale));
 		[self addChild:sessionM];
@@ -133,6 +133,23 @@
 
 - (void) gotoSyphus {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.syphus.net"]];
+}
+
+- (void) gotoSessionM {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
+    if([[SettingsManager sharedSingleton] getBool:@"sessionMEnabled"]) {
+        [[SessionMWrapper sharedSingleton] openSessionM];
+    }
+    else {
+        [[BBDialogQueue sharedSingleton] addDialog:[BBDialog dialogWithTitle:@"Cash Prizes!" text:@"Use Session M?" buttons:@"No,Yes" target:self selector:@selector(sessionMDialogDone:)]];
+    }
+}
+
+- (void) sessionMDialogDone:(BBDialog*)dialog {
+    if(dialog.buttonIndex == DIALOG_BUTTON_RIGHT) {
+        [[SettingsManager sharedSingleton] setBool:YES keyString:@"sessionMEnabled"];
+        [[SessionMWrapper sharedSingleton] openSessionM];
+    }
 }
 
 @end

@@ -26,7 +26,7 @@
 
 - (id) init {
 	if((self = [super init])) {
-		enabled = NO;
+		initialized = NO;
 		eventQueue = [NSMutableArray new];
 		[SessionM config].orientation = SessionM_UIDisplayLandscape;
 		[SessionM setDelegate:self];
@@ -47,7 +47,7 @@
 #pragma mark -
 #pragma mark actions
 - (void) sessionEvent:(NSString*)eventName {
-	if(enabled) {
+	if(initialized && [[SettingsManager sharedSingleton] getBool:@"sessionMEnabled"]) {
 		NSLog(@"SessionMWrapper logging event: %@", eventName);
 		[SessionM sessionEvent:eventName];
 	}
@@ -134,7 +134,7 @@
 #pragma mark -
 #pragma mark SessionMDelegate
 - (void) sessionMDidInitialize {
-	enabled = YES;
+	initialized = YES;
 	// attempt to clear out the queue
 	[self clearQueue];
 	// show an interactable
@@ -142,7 +142,7 @@
 }
 
 - (void) sessionMDidFail:(NSError *)error {
-	enabled = NO;
+	initialized = NO;
 }
 
 - (void) interactableWillShow:(BOOL)willDisplay {
