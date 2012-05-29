@@ -71,8 +71,10 @@
 	for(NSString *event in eventQueue) {
 		[queueString appendFormat:@"%@,", event];
 	}
-	// get rid of trailing comma
-	[queueString setString:[queueString substringToIndex:[queueString length]-1]];
+	// get rid of trailing comma if there are any events
+    if([eventQueue count] > 0) {
+        [queueString setString:[queueString substringToIndex:[queueString length]-1]];
+    }
 	// save it to device
 	[[SettingsManager sharedSingleton] setString:queueString keyString:@"SessionMQueue"];
 	// clear out queue so there aren't duplicate events when queue is loaded
