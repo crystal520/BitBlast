@@ -60,8 +60,10 @@
 - (void) clearQueue {
 	NSLog(@"SessionMWrapper clearing queue");
 	for(NSString *event in eventQueue) {
-		NSLog(@"SessionMWrapper logging event: %@", event);
-		[SessionM sessionEvent:event];
+		if(initialized && [[SettingsManager sharedSingleton] getBool:@"sessionMEnabled"]) {
+            NSLog(@"SessionMWrapper logging event: %@", event);
+            [SessionM sessionEvent:event];
+        }
 	}
 }
 
