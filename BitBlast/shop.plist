@@ -5,13 +5,13 @@
 	<key>items</key>
 	<array>
 		<string>gunspeed</string>
-		<string>speedboost</string>
 		<string>1heart</string>
 		<string>2hearts</string>
 		<string>3hearts</string>
 		<string>2xcoins</string>
 		<string>4xcoins</string>
 		<string>6xcoins</string>
+		<string>speedboost</string>
 		<string>pistol</string>
 		<string>highenergyshot</string>
 		<string>plasmapistol</string>

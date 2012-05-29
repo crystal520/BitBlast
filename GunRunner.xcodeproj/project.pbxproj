@@ -304,6 +304,8 @@
 		3457887A155A1BF4004777F7 /* 6xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578877155A1BF4004777F7 /* 6xcoinshopicon.png */; };
 		3457887B155A1BF4004777F7 /* 4xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578878155A1BF4004777F7 /* 4xcoinshopicon.png */; };
 		3457887C155A1BF4004777F7 /* 2xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578879155A1BF4004777F7 /* 2xcoinshopicon.png */; };
+		34578883155A2B50004777F7 /* weaponsuperchargestoreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578881155A2B50004777F7 /* weaponsuperchargestoreicon.png */; };
+		34578884155A2B50004777F7 /* playerspeedbooststoreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34578882155A2B50004777F7 /* playerspeedbooststoreicon.png */; };
 		348AF0D915576CD80057A555 /* dropShip1HitParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 348AF0D815576CD80057A555 /* dropShip1HitParticle.plist */; };
 		348AF0DD15576E950057A555 /* dullthud.wav in Resources */ = {isa = PBXBuildFile; fileRef = 348AF0DC15576E950057A555 /* dullthud.wav */; };
 		34A0307B152408F60067AA4B /* ultralaserParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34A0307A152408F60067AA4B /* ultralaserParticle.plist */; };
@@ -950,6 +952,8 @@
 		34578877155A1BF4004777F7 /* 6xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6xcoinshopicon.png; sourceTree = "<group>"; };
 		34578878155A1BF4004777F7 /* 4xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4xcoinshopicon.png; sourceTree = "<group>"; };
 		34578879155A1BF4004777F7 /* 2xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2xcoinshopicon.png; sourceTree = "<group>"; };
+		34578881155A2B50004777F7 /* weaponsuperchargestoreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weaponsuperchargestoreicon.png; sourceTree = "<group>"; };
+		34578882155A2B50004777F7 /* playerspeedbooststoreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerspeedbooststoreicon.png; sourceTree = "<group>"; };
 		348AF0D815576CD80057A555 /* dropShip1HitParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = dropShip1HitParticle.plist; path = Resources/Particles/dropShip1HitParticle.plist; sourceTree = "<group>"; };
 		348AF0DC15576E950057A555 /* dullthud.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dullthud.wav; path = Resources/SFX/dullthud.wav; sourceTree = "<group>"; };
 		34A0307A152408F60067AA4B /* ultralaserParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ultralaserParticle.plist; path = Resources/Particles/ultralaserParticle.plist; sourceTree = "<group>"; };
@@ -976,6 +980,7 @@
 		34A030BD1544A3740067AA4B /* plasmabullet_slowfire.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = plasmabullet_slowfire.plist; sourceTree = "<group>"; };
 		34A030BF1544A4D90067AA4B /* highenergyshopitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = highenergyshopitem.png; path = Resources/highenergyshopitem.png; sourceTree = "<group>"; };
 		34A030CA15490C410067AA4B /* libChartBoost.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libChartBoost.a; path = ../libChartBoost.a; sourceTree = "<group>"; };
+		34BA6CC715743FC900B73051 /* Gun Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Gun Runner.entitlements"; sourceTree = "<group>"; };
 		34BBABAD14EF725900154CE9 /* sky_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky_far.png; path = Resources/backgroundA4444/sky_far.png; sourceTree = "<group>"; };
 		34BBABAE14EF725900154CE9 /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud2.png; path = Resources/backgroundA4444/cloud2.png; sourceTree = "<group>"; };
 		34BBABAF14EF725900154CE9 /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud1.png; path = Resources/backgroundA4444/cloud1.png; sourceTree = "<group>"; };
@@ -1590,6 +1595,8 @@
 				34578877155A1BF4004777F7 /* 6xcoinshopicon.png */,
 				34578878155A1BF4004777F7 /* 4xcoinshopicon.png */,
 				34578879155A1BF4004777F7 /* 2xcoinshopicon.png */,
+				34578881155A2B50004777F7 /* weaponsuperchargestoreicon.png */,
+				34578882155A2B50004777F7 /* playerspeedbooststoreicon.png */,
 			);
 			name = Powerups;
 			path = Resources/Powerups;
@@ -1658,6 +1665,7 @@
 		0AE417461496F5C400342D8E /* BitBlast */ = {
 			isa = PBXGroup;
 			children = (
+				34BA6CC715743FC900B73051 /* Gun Runner.entitlements */,
 				34FB2A221513CE4F00623BB4 /* src */,
 				0A94930114FAECA400941321 /* Supporting Code */,
 				0A1EC4A2149E68D8005A7ED6 /* CocosSubclasses */,
@@ -2495,6 +2503,8 @@
 				3457887A155A1BF4004777F7 /* 6xcoinshopicon.png in Resources */,
 				3457887B155A1BF4004777F7 /* 4xcoinshopicon.png in Resources */,
 				3457887C155A1BF4004777F7 /* 2xcoinshopicon.png in Resources */,
+				34578883155A2B50004777F7 /* weaponsuperchargestoreicon.png in Resources */,
+				34578884155A2B50004777F7 /* playerspeedbooststoreicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2747,6 +2757,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "BitBlast/Gun Runner.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2774,6 +2785,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "BitBlast/Gun Runner.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Man Up Time, LLC";
 				COPY_PHASE_STRIP = YES;

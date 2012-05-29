@@ -20,7 +20,7 @@
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztjjEKgDAQBFMrIqegfkf9/5/cJs0RzBZWMgNDitvcXikAAAAAAOCyy1UecpaR3kVuKV+zrXnO9OZuTxS/M9K/Vv5vDHKU04f73nY5fW7mlJe8O1nnrgeohATW
+   eJztj0EKgDAMBHuuVq2C+hY9Wf//J7eHYggBK+JtB4ZCsk1a5wghhBBCCCG1LHCCK+xhVOcIZ5UvWauvM0/92j3R1e+M6p6Vf8Mm5u0f5vyJhw0Mqt65++3SQWSs/3ljVtkhDQ9960051woPmOBpzCu9ZGT0vly/ANdKCFg=
   </data>
  </layer>
  <layer name="Collision" width="60" height="15">
@@ -30,7 +30,7 @@
  </layer>
  <layer name="Backdrop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwSgYBaOAdqCRAH+4gYkE+IMZZJKpLwGLWAYR+rKIUIOcXrDZQwoIAOJ0JL4dheYhgwoizKsiwhxqp5dyAvIAuvgHzg==
+   eJxjYBgFo2AUjIJRMApGwSgYBaOAdqCRAB8ZFANxCRCX0s45NAcTCfCRQTMQtwBxK+2cQxLIJFNfAhaxDBxqpyCxs9DkOtDcAaKR00sCmjy6fkIgAIjTkfh2JOrHBypwmLcEiV2FJjcDSlci0djSC0weXT8xoJyAPACiUhCY
   </data>
  </layer>
  <layer name="Foreground" width="60" height="15">

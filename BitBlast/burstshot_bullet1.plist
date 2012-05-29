@@ -116,7 +116,7 @@
 	<key>sound</key>
 	<string>burstshot.wav</string>
 	<key>damage</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>boundingBox</key>
 	<dict>
 		<key>x</key>

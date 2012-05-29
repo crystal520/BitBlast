@@ -5,13 +5,13 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>0</string>
+		<string>500</string>
 		<key>description</key>
-		<string>Shoot faster!</string>
+		<string>Super for this run</string>
 		<key>icon</key>
-		<string>flamethrower.png</string>
+		<string>weaponsuperchargestoreicon.png</string>
 		<key>name</key>
-		<string>Gun Speed</string>
+		<string>Gun Supercharge</string>
 		<key>identifier</key>
 		<string>gunspeed</string>
 		<key>type</key>

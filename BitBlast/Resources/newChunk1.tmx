@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="128" tileheight="128">
  <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
-  <image source="tiles_aubrey.png" width="2048" height="768"/>
+  <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
  <layer name="Background2" width="60" height="15">
   <data encoding="base64" compression="zlib">
@@ -10,12 +10,12 @@
  </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztw7ENAAAEADAb/n+Y2QnSJo0AAADgs9x19h4QnAAx
+   eJxjYBgFo2AUjIJRMApGwSgYBaNgFIwC7IAdiDmgmBOLHDFipKqlpnoONIxL/3AHuMICACfvAPE=
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzLENACAIRFFqlaHU/XeSwsIQUXv/S67hABEAAAAA+EuyZBfdzDXY18uvaKda2kx/+BP1pzvfFZe1H8GfAxs=
+   eJztkTEOwCAMxJiheVTL///UDAzRiQgqdcOWvCQWAykFAAAAAAB2qW4b3u4T7K5Neu2+tn/2TdTmFLK/0LklvS3eypp4L73R6j51Yz7bXWLcvzYBCkI=
   </data>
  </layer>
 </map>

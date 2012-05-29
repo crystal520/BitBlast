@@ -5,17 +5,17 @@
  </tileset>
  <layer name="Background2" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAPBoDhAAAQ==
+   eJztzrENACAMA8E0BLH/wskEoUFUd9J3LhwBAADAS6vLy2Z358OXSQEdTAAc
   </data>
  </layer>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztzzsKACAMREHB//0vrKUsMaawfAMLFktiUgIAAAAAW90pTpp0sxHt6IxXx5vXd8Yl0/mb7mvH+/e9OXiv9qxuVPTeBaELAYQ=
+   eJztz0sKACAMQ0Ghfu9/YV1KqLUHeANBF6HaUgAAAADA105qkC5dc6IdnfHrRPPGyXxkBX/T9/p1/+3brjOzryX31Z7XzcruuwGptwGP
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztkkkKACAMA3t2+f939Rik290ZCCKEtBjNAAAAAACgy7iaiXbD63mWKMtZz1nN1Nxorpeh95/w+ui8ofbS6e71aJ+VN9ov+wdRvwcNqgQ1
+   eJzt0ssKwCAQQ1HXVv//d9tlkHlkUXf3wFAKYZSmYwAAAABwzW+eYraRjTJLptqzjmd3pu7Nzo126HvHyf+VuS3qw/mG2ovT3ZnRPrtsdr/qP8j6fQF7BgR6
   </data>
  </layer>
  <layer name="Collision" width="60" height="15">

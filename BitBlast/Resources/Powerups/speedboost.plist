@@ -5,11 +5,11 @@
 	<key>shop</key>
 	<dict>
 		<key>cost</key>
-		<string>0</string>
+		<string>1000</string>
 		<key>description</key>
-		<string>Speed Boost</string>
+		<string>Run extra fast this run</string>
 		<key>icon</key>
-		<string>flamethrower.png</string>
+		<string>playerspeedbooststoreicon.png</string>
 		<key>name</key>
 		<string>Speed Boost</string>
 		<key>identifier</key>
