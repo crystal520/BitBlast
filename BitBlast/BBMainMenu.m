@@ -141,7 +141,7 @@
         [[SessionMWrapper sharedSingleton] openSessionM];
     }
     else {
-        [[BBDialogQueue sharedSingleton] addDialog:[BBDialog dialogWithTitle:@"Cash Prizes!" text:@"Use Session M?" buttons:@"No,Yes" target:self selector:@selector(sessionMDialogDone:)]];
+        [[BBDialogQueue sharedSingleton] addDialog:[BBDialog dialogWithTitle:@"GET REWARDS!" text:@"Enable SessionM Achievements for real world rewards?" buttons:@"No Thanks,Enable" target:self selector:@selector(sessionMDialogDone:)]];
     }
 }
 
