@@ -53,7 +53,7 @@ typedef enum {
 
 //#define DEBUG_TEXTURES
 //#define DEBUG_NO_SOUND
-//#define DEBUG_NO_MUSIC
+#define DEBUG_NO_MUSIC
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartBoostDelegate> {
 	
