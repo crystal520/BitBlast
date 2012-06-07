@@ -47,7 +47,7 @@
 		[self addChild:desc];
 		
 		// create cost label
-		CCLabelBMFont *cost = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"cost"] fntFile:@"gamefont.fnt"];
+		cost = [CCLabelBMFont labelWithString:[itemDictionary objectForKey:@"cost"] fntFile:@"gamefont.fnt"];
 		cost.scale = 0.6;
 		cost.anchorPoint = ccp(1, 0.5);
 		cost.position = ccp(background.contentSize.width * 0.97, background.contentSize.height * 0.8);
@@ -59,6 +59,7 @@
 		if([[SettingsManager sharedSingleton] getBool:filename]) {
 			buyLabel = [CCLabelBMFont labelWithString:@"EQUIP" fntFile:@"gamefont.fnt"];
 			buyLabel.scale = 0.4;
+            cost.visible = NO;
 		}
 		else {
 			buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
@@ -70,12 +71,16 @@
 		[buy setSpriteBatchNode:uiSpriteBatch];
 		buy.position = ccp(background.contentSize.width * 0.865, background.contentSize.height * 0.435);
 		[self addChild:buy];
+        
+        // listen for notifications so we know if the item was purchased
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemPurchased:) name:kNavBuyItemNotification object:nil];
 	}
 	
 	return self;
 }
 
 - (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[itemDictionary release];
 	[super dealloc];
 }
@@ -111,6 +116,16 @@
 
 - (CGSize) contentSize {
 	return CGSizeMake(background.contentSize.width * [ResolutionManager sharedSingleton].imageScale, background.contentSize.height * [ResolutionManager sharedSingleton].imageScale);
+}
+
+- (void) itemPurchased:(NSNotification*)n {
+    NSDictionary *itemDict = [n userInfo];
+    if([[itemDict objectForKey:@"identifier"] isEqualToString:[itemDictionary objectForKey:@"identifier"]]) {
+        cost.visible = NO;
+        CCLabelBMFont *buyLabel = [CCLabelBMFont labelWithString:@"EQUIP" fntFile:@"gamefont.fnt"];
+        buyLabel.scale = 0.4;
+        [buy setLabel:buyLabel];
+    }
 }
 
 @end

@@ -18,6 +18,7 @@
 @interface BBShopItem : CCNode {
 	CCButton *background;
 	CCLabelButton *buy;
+    CCLabelBMFont *cost;
 	NSDictionary *itemDictionary;
 }
 
