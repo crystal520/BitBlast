@@ -32,6 +32,7 @@
 #import "BBMovingCoinManager.h"
 #import "BBDialogQueue.h"
 #import "ChartBoost.h"
+#import "BBInputController.h"
 
 typedef enum {
 	kStateUnknown,
@@ -53,9 +54,9 @@ typedef enum {
 
 //#define DEBUG_TEXTURES
 //#define DEBUG_NO_SOUND
-#define DEBUG_NO_MUSIC
+//#define DEBUG_NO_MUSIC
 
-@interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartBoostDelegate> {
+@interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartBoostDelegate, BBInputControllerDelegate> {
 	
 #ifdef DEBUG_TEXTURES
 	CCSprite *debugButton;
@@ -74,6 +75,7 @@ typedef enum {
 	BBChopper *chopper;
 	// node that the camera follows
 	CCNode *followNode;
+    BBInputController *inputController;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child

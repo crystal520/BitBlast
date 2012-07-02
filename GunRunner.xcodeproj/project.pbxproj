@@ -430,6 +430,7 @@
 		3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A014A3CE61005DC6CC /* chunk3.tmx */; };
 		3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */; };
 		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
+		91AFA8521597A17E009522D9 /* BBInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AFA8511597A17E009522D9 /* BBInputController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1084,6 +1085,8 @@
 		3BB112A014A3CE61005DC6CC /* chunk3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk3.tmx; path = Resources/chunk3.tmx; sourceTree = "<group>"; };
 		3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gamefont.fnt; path = Resources/gamefont.fnt; sourceTree = "<group>"; };
 		3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamefont.png; path = Resources/gamefont.png; sourceTree = "<group>"; };
+		91AFA8501597A17E009522D9 /* BBInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBInputController.h; sourceTree = "<group>"; };
+		91AFA8511597A17E009522D9 /* BBInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBInputController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2190,6 +2193,8 @@
 				0AC2855F15571B1E00DBF497 /* BBActionInterval.m */,
 				0A4C46FA15555FC100C6FDCA /* BBDailyBonus.h */,
 				0A4C46FB15555FC100C6FDCA /* BBDailyBonus.m */,
+				91AFA8501597A17E009522D9 /* BBInputController.h */,
+				91AFA8511597A17E009522D9 /* BBInputController.m */,
 				0A0DD3F21513A26300BD35E7 /* BBList.h */,
 				0A0DD3F31513A26300BD35E7 /* BBList.m */,
 				0A428305151440F100E35219 /* GameCenter.h */,
@@ -2711,6 +2716,7 @@
 				0A4C46FC15555FC100C6FDCA /* BBDailyBonus.m in Sources */,
 				0A4C46FF15558C8400C6FDCA /* SessionMWrapper.m in Sources */,
 				0AC2856015571B1F00DBF497 /* BBActionInterval.m in Sources */,
+				91AFA8521597A17E009522D9 /* BBInputController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

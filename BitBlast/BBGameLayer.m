@@ -8,6 +8,15 @@
 
 #import "BBGameLayer.h"
 
+#define kJumpUpTimeForSwipe 0.25
+#define kJumpUpDistanceForSwipe 50
+
+#define kJumpDownTimeForSwipe 0.25
+#define kJumpDownDistanceForSwipe 50
+
+#define kAimTimeForSwipe 0.25
+#define kAimDistanceForSwipe 20
+
 @implementation BBGameLayer
 
 +(CCScene *) scene
@@ -85,7 +94,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone) name:kPlayerOutOfChopperNotification object:nil];
 		
-		[[BBEquipmentManager sharedSingleton] equip:@"glider"];
+		//[[BBEquipmentManager sharedSingleton] equip:@"glider"];
 		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
 		
 		// set initial state
@@ -94,6 +103,9 @@
 		
 		// set ourselves as the ChartBoost delegate
 		[ChartBoost sharedChartBoost].delegate = self;
+        
+        inputController = [[BBInputController alloc] init];
+        inputController.delegate = self;
 		
 #ifdef DEBUG_TEXTURES
 		debugButton = [CCSprite spriteWithFile:@"white.png"];
@@ -113,6 +125,7 @@
 	[scrollingNode release];
 	[player release];
 	[parallax release];
+    [inputController release];
 	[super dealloc];
 }
 
@@ -397,54 +410,16 @@
 #pragma mark -
 #pragma mark touch input
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-	
-	CGSize winSize = [CCDirector sharedDirector].winSize;
-	
-	// get coordinates of touch
-	CGPoint touchPoint = [touch locationInView:[touch view]];
-	touchPoint = ccp(touchPoint.x, winSize.height - touchPoint.y);
-	
-	// right side of screen is jump
-	if(touchPoint.x > winSize.width * 0.5f) {
-		[player jump];
-	}
-	// left side controls shooting
-	else {
-		[player shoot:touchPoint];
-	}
-	
+	[inputController ccTouchBegan:touch withEvent:event];
 	return true;
 }
 
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
-	
-	CGSize winSize = [CCDirector sharedDirector].winSize;
-	
-	// get coordinates of touch
-	CGPoint touchPoint = [touch locationInView:[touch view]];
-	touchPoint = ccp(touchPoint.x, winSize.height - touchPoint.y);
-	
-	// left side of screen controls shooting
-	if(touchPoint.x <= winSize.width * 0.5f) {
-		[player shoot:touchPoint];
-	}
+    [inputController ccTouchMoved:touch withEvent:event];
 }
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-	
-	CGSize winSize = [CCDirector sharedDirector].winSize;
-	
-	// get coordinates of touch
-	CGPoint touchPoint = [touch locationInView:[touch view]];
-	touchPoint = ccp(touchPoint.x, winSize.height - touchPoint.y);
-	
-	// right side of screen is jump
-	if(touchPoint.x > winSize.width * 0.5f) {
-		[player endJump];
-	}
-	else {
-		[player endShoot];
-	}
+	[inputController ccTouchEnded:touch withEvent:event];
 	
 #ifdef DEBUG_TEXTURES
 	if(CGRectContainsPoint([debugButton boundingBox], ccpMult(touchPoint, 1/[ResolutionManager sharedSingleton].imageScale))) {
@@ -455,7 +430,31 @@
 }
 
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
-	
+	[inputController ccTouchCancelled:touch withEvent:event];
+}
+
+#pragma mark -
+#pragma mark BBInputControllerDelegate
+- (void) inputControllerTouchEnded {
+    // check to see if player swiped up to jump
+    if([inputController timeForLastTouch] < kJumpUpTimeForSwipe && [inputController distanceForLastTouch].y > kJumpUpDistanceForSwipe) {
+        [player jump];
+    }
+}
+
+- (void) inputControllerTouchMoved {
+    // check to see if player is swiping up or down from original location
+    if([inputController timeForLastTouch] > kAimTimeForSwipe) {
+        if([inputController distanceForLastTouch].y > kAimDistanceForSwipe) {
+            [player setWeaponAngle:1];
+        }
+        else if([inputController distanceForLastTouch].y < -kAimDistanceForSwipe) {
+            [player setWeaponAngle:-1];
+        }
+        else {
+            [player setWeaponAngle:0];
+        }
+    }
 }
 
 #pragma mark -
