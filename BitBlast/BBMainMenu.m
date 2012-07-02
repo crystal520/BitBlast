@@ -118,12 +118,35 @@
 		[sessionM setSpriteBatchNode:uiSpriteBatch];
 		sessionM.position = ccp(background.position.x + (380 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (-40 * [ResolutionManager sharedSingleton].positionScale));
 		[self addChild:sessionM];
+        
+        // create SessionM badge
+        sessionMBadge = [CCSprite spriteWithSpriteFrameName:@"redbullet.png"];
+        sessionMBadge.position = sessionM.position;
+        [uiSpriteBatch addChild:sessionMBadge];
+        
+        // create SessionM badge label
+        sessionMBadgeLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", [SessionMWrapper sharedSingleton].achievementCount] fntFile:@"gamefont.fnt"];
+        sessionMBadgeLabel.scale = 0.5;
+        sessionMBadgeLabel.position = sessionMBadge.position;
+        [self addChild:sessionMBadgeLabel];
+        
+        // hide the badge and label if needed
+        if([SessionMWrapper sharedSingleton].achievementCount == 0) {
+            sessionMBadge.visible = NO;
+            sessionMBadgeLabel.visible = NO;
+        }
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coinsUpdated) name:kEventPromoCoinsAwarded object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionMUserInfoUpdated) name:kEventSessionMUserInfoUpdated object:nil];
 	}
 	
 	return self;
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
 }
 
 - (void) onEnter {
@@ -142,6 +165,12 @@
 - (void) coinsUpdated {
 	// update player's money dollars
 	[playerCash setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
+}
+
+- (void) sessionMUserInfoUpdated {
+    [sessionMBadgeLabel setString:[NSString stringWithFormat:@"%i", [SessionMWrapper sharedSingleton].achievementCount]];
+    sessionMBadgeLabel.visible = ([SessionMWrapper sharedSingleton].achievementCount > 0);
+    sessionMBadge.visible = ([SessionMWrapper sharedSingleton].achievementCount > 0);
 }
 
 - (void) play {
@@ -170,19 +199,7 @@
 
 - (void) gotoSessionM {
     [[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
-    if([[SettingsManager sharedSingleton] getBool:@"sessionMEnabled"]) {
-        [[SessionMWrapper sharedSingleton] openSessionM];
-    }
-    else {
-        [[BBDialogQueue sharedSingleton] addDialog:[BBDialog dialogWithTitle:@"GET REWARDS!" text:@"Enable SessionM Achievements for real world rewards?" buttons:@"No Thanks,Enable" target:self selector:@selector(sessionMDialogDone:)]];
-    }
-}
-
-- (void) sessionMDialogDone:(BBDialog*)dialog {
-    if(dialog.buttonIndex == DIALOG_BUTTON_RIGHT) {
-        [[SettingsManager sharedSingleton] setBool:YES keyString:@"sessionMEnabled"];
-        [[SessionMWrapper sharedSingleton] openSessionM];
-    }
+    [[SessionMWrapper sharedSingleton] openSessionM];
 }
 
 @end

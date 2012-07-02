@@ -17,6 +17,8 @@
 
 @interface BBMainMenu : CCNodeColorBackground {
     CCLabelBMFont *playerCash;
+    CCLabelBMFont *sessionMBadgeLabel;
+    CCSprite *sessionMBadge;
 }
 
 - (void) coinsUpdated;

@@ -15,7 +15,11 @@
 	NSMutableArray *eventQueue;
 	// whether or not SessionM has been initialized
 	BOOL initialized;
+    // unclaimed achievement count
+    int achievementCount;
 }
+
+@property (nonatomic, readonly) int achievementCount;
 
 + (SessionMWrapper*) sharedSingleton;
 // actions

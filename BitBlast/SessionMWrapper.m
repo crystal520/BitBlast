@@ -10,6 +10,8 @@
 
 @implementation SessionMWrapper
 
+@synthesize achievementCount;
+
 + (SessionMWrapper*) sharedSingleton {
 	
 	static SessionMWrapper *sharedSingleton;
@@ -47,7 +49,7 @@
 #pragma mark -
 #pragma mark actions
 - (void) sessionEvent:(NSString*)eventName {
-	if(initialized && [[SettingsManager sharedSingleton] getBool:@"sessionMEnabled"]) {
+	if(initialized) {
 		NSLog(@"SessionMWrapper logging event: %@", eventName);
 		[SessionM sessionEvent:eventName];
 	}
@@ -60,7 +62,7 @@
 - (void) clearQueue {
 	NSLog(@"SessionMWrapper clearing queue");
 	for(NSString *event in eventQueue) {
-		if(initialized && [[SettingsManager sharedSingleton] getBool:@"sessionMEnabled"]) {
+		if(initialized) {
             NSLog(@"SessionMWrapper logging event: %@", event);
             [SessionM sessionEvent:event];
         }
@@ -132,7 +134,6 @@
 	if([[SettingsManager sharedSingleton] getInt:@"dailyDropships"] >= 100) {
 		[self sessionEvent:@"dropshipDestruction"];
 	}
-	[SessionM insertInteractable];
 } 
 
 #pragma mark -
@@ -141,8 +142,6 @@
 	initialized = YES;
 	// attempt to clear out the queue
 	[self clearQueue];
-	// show an interactable
-	[SessionM insertInteractable];
 }
 
 - (void) sessionMDidFail:(NSError *)error {
@@ -179,6 +178,8 @@
 
 - (void) userInfoDidChange:(NSDictionary *)userInfo {
 	NSLog(@"SessionMWrapper userInfoDidChange: %@", userInfo);
+    achievementCount = [[userInfo objectForKey:@"unclaimed_achievement_count"] intValue];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventSessionMUserInfoUpdated object:nil]];
 }
 
 @end
