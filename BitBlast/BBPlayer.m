@@ -416,6 +416,13 @@
 	jumping = NO;
 }
 
+- (void) jumpDown {
+    // make sure the player is touching a platform before adjusting their position
+    if(touchingPlatform) {
+        dummyPosition.y -= 1;
+    }
+}
+
 - (void) shoot:(CGPoint)touchPos {
 	
 	CGSize winSize = [CCDirector sharedDirector].winSize;

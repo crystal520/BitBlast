@@ -76,6 +76,7 @@ typedef enum {
 - (void) die:(NSString*)reason;
 - (void) jump;
 - (void) endJump;
+- (void) jumpDown;
 - (void) shoot:(CGPoint)touchPos;
 - (void) endShoot;
 

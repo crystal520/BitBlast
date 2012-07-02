@@ -440,6 +440,9 @@
     if([inputController timeForLastTouch] < kJumpUpTimeForSwipe && [inputController distanceForLastTouch].y > kJumpUpDistanceForSwipe) {
         [player jump];
     }
+    else if([inputController timeForLastTouch] < kJumpDownTimeForSwipe && [inputController distanceForLastTouch].y < -kJumpDownDistanceForSwipe) {
+        [player jumpDown];
+    }
 }
 
 - (void) inputControllerTouchMoved {
