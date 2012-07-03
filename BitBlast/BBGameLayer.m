@@ -443,6 +443,9 @@
     else if([inputController timeForLastTouch] < kJumpDownTimeForSwipe && [inputController distanceForLastTouch].y < -kJumpDownDistanceForSwipe) {
         [player jumpDown];
     }
+    else {
+        [player setWeaponAngle:0];
+    }
 }
 
 - (void) inputControllerTouchMoved {

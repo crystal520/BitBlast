@@ -418,7 +418,7 @@
 
 - (void) jumpDown {
     // make sure the player is touching a platform before adjusting their position
-    if(touchingPlatform) {
+    if(touchingPlatform && [[[ChunkManager sharedSingleton] getCurrentChunk] isPlatformBelowPosition:ccpSub(self.position, ccp([[ChunkManager sharedSingleton] getCurrentChunk].startPosition, 0))]) {
         dummyPosition.y -= 1;
     }
 }

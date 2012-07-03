@@ -140,4 +140,29 @@
 	return [[[levels allObjects] objectAtIndex:index] intValue];
 }
 
+- (BOOL) isPlatformBelowPosition:(CGPoint)position {
+    // get layer
+	CCTMXLayer *layer = [self layerNamed:@"CollisionTop"];
+	// get size of layer
+	CGSize layerSize = [layer layerSize];
+	// loop through and compile an array of good ground positions
+	for(int x=0;x<layerSize.width;x++) {
+		for(int y=0;y<layerSize.height;y++) {
+			CCSprite *tile = [layer tileAt:ccp(x,y)];
+			if(tile) {
+				// calculate this tile's position
+                CGPoint tilePos = ccpAdd(ccpMult(tile.position, [ResolutionManager sharedSingleton].inversePositionScale), ccp(tile.contentSize.width * 0.5, tile.contentSize.height * 0.5));
+                // check if the tile is below the given position
+                // check if it's greater than a tile height away
+                // check if the tile is to the right of the given position
+                // check if the tile is not too far to the right
+                if(tilePos.y < position.y && position.y - tilePos.y > tile.contentSize.height && tilePos.x > position.x && tilePos.x - position.x <= tile.contentSize.width) {
+                    return YES;
+                }
+			}
+		}
+	}
+    return NO;
+}
+
 @end
