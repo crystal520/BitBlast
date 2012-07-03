@@ -52,6 +52,8 @@ typedef enum {
 	int coinMultiplier;
 	// speed multiplier for the current run
 	float speedMultiplier;
+    // whether or not the player just fell off a platform
+    BOOL fellOffPlatform;
 }
 
 @property (nonatomic, readonly) int health;

@@ -96,8 +96,16 @@
 			}
 			velocity = ccp(velocity.x, jumpImpulse);
 		}
+        else if(touchingPlatform) {
+            fellOffPlatform = NO;
+        }
 		[super update:delta];
 		
+        // if player is no longer touching a platform and isn't jumping, then they fell!
+        if(!jumping && !fellOffPlatform) {
+            fellOffPlatform = YES;
+        }
+        
 		// check collisions
 		[self checkCollisions];
 		// update globals
@@ -400,9 +408,10 @@
 - (void) jump {
 	
 	// only jump if we're not jumping already
-	if(touchingPlatform || introEnabled) {
+	if(touchingPlatform || introEnabled || fellOffPlatform) {
 		[[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
 		touchingPlatform = NO;
+        fellOffPlatform = NO;
 		jumping = YES;
 		jumpTimer = 0;
 		[self setState:kPlayerBeginJump];
