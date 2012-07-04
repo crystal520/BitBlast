@@ -120,14 +120,15 @@
 		[self addChild:sessionM];
         
         // create SessionM badge
-        sessionMBadge = [CCSprite spriteWithSpriteFrameName:@"redbullet.png"];
-        sessionMBadge.position = sessionM.position;
+        sessionMBadge = [CCSprite spriteWithSpriteFrameName:@"sessionMBadge.png"];
+        sessionMBadge.position = ccp(background.position.x + (380 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (-10 * [ResolutionManager sharedSingleton].positionScale));
         [uiSpriteBatch addChild:sessionMBadge];
         
         // create SessionM badge label
         sessionMBadgeLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", [SessionMWrapper sharedSingleton].achievementCount] fntFile:@"gamefont.fnt"];
         sessionMBadgeLabel.scale = 0.5;
-        sessionMBadgeLabel.position = sessionMBadge.position;
+        sessionMBadgeLabel.position = ccp(background.position.x + (380 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (-1 * [ResolutionManager sharedSingleton].positionScale));
+
         [self addChild:sessionMBadgeLabel];
         
         // hide the badge and label if needed
