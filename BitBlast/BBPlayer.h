@@ -54,9 +54,12 @@ typedef enum {
 	float speedMultiplier;
     // whether or not the player just fell off a platform
     BOOL fellOffPlatform;
+    // whether or not double jump is enabled
+    BOOL doubleJumpEnabled;
 }
 
 @property (nonatomic, readonly) int health;
+@property (nonatomic, assign) BOOL doubleJumpEnabled;
 
 // initializers
 // setup

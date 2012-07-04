@@ -10,7 +10,7 @@
 
 @implementation BBPlayer
 
-@synthesize health;
+@synthesize health, doubleJumpEnabled;
 
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
@@ -86,11 +86,13 @@
 - (void) update:(float)delta {
 	
 	if(state != kPlayerDead && !introEnabled && state != kPlayerShop) {
+        BOOL prevTouchingPlatform = touchingPlatform;
 		// apply jump
 		if(jumping) {
 			jumpTimer += delta;
 			if(jumpTimer >= maxJumpTime) {
 				jumping = NO;
+                doubleJumpEnabled = NO;
 				[self setState:kPlayerMidJump];
 				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithoutTouchNotification object:self]];
 			}
@@ -102,7 +104,7 @@
 		[super update:delta];
 		
         // if player is no longer touching a platform and isn't jumping, then they fell!
-        if(!jumping && !fellOffPlatform) {
+        if(!touchingPlatform && prevTouchingPlatform && !jumping && !fellOffPlatform) {
             fellOffPlatform = YES;
         }
         
@@ -408,9 +410,10 @@
 - (void) jump {
 	
 	// only jump if we're not jumping already
-	if(touchingPlatform || introEnabled || fellOffPlatform) {
+	if(touchingPlatform || introEnabled || fellOffPlatform || doubleJumpEnabled) {
 		[[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
 		touchingPlatform = NO;
+        doubleJumpEnabled = NO;
         fellOffPlatform = NO;
 		jumping = YES;
 		jumpTimer = 0;
