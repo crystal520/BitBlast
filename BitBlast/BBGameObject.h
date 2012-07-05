@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+typedef enum {
+    ACTION_TAG_ANIMATION = 1
+} ActionTag;
+
 @interface BBGameObject : CCSprite {
     // dummy position for handling multiple resolutions
     CGPoint dummyPosition;

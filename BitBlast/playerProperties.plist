@@ -64,6 +64,8 @@
 	<integer>500</integer>
 	<key>maxJumpTime</key>
 	<real>0.45</real>
+	<key>invincibleTimeAfterLosingHealth</key>
+	<integer>1</integer>
 	<key>plist</key>
 	<string>uiatlas.plist</string>
 	<key>speedRamp</key>

@@ -39,6 +39,7 @@
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
 		tileOffset = ccp(0, [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale);
+		invincibleTime = [[dictionary objectForKey:@"invincibleTimeAfterLosingHealth"] floatValue];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
@@ -106,6 +107,14 @@
         // if player is no longer touching a platform and isn't jumping, then they fell!
         if(!touchingPlatform && prevTouchingPlatform && !jumping && !fellOffPlatform) {
             fellOffPlatform = YES;
+        }
+        
+        // if player is invincible, count down the timer
+        if(invincible) {
+            invincibleTimer -= delta;
+            if(invincibleTimer <= 0) {
+                invincible = NO;
+            }
         }
         
 		// check collisions
@@ -359,12 +368,17 @@
 	NSArray *activeEnemies = [[EnemyManager sharedSingleton] getActiveEnemies];
 	for(BBEnemy *e in activeEnemies) {
 		if([e getCollidesWith:self]) {
-			// flash player red so they know why they lost health
-			CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-			[legs runAction:action];
-			[torso runAction:action];
-			// update health
-			[self setHealth:health-1];
+            // check to see if player is invincible
+            if(!invincible) {
+                // flash player so they know they lost health
+                [self flashRed:255 green:0 blue:0 withTime:invincibleTime numberOfTimes:8 onSprite:torso];
+                [self flashRed:255 green:0 blue:0 withTime:invincibleTime numberOfTimes:8 onSprite:legs];
+                // update health
+                [self setHealth:health-1];
+                // player is invincible
+                invincible = YES;
+                invincibleTimer = invincibleTime;
+            }
 			// kill the enemy
 			[e die];
 			if(health <= 0) {
@@ -373,6 +387,13 @@
 			}
 		}
 	}
+}
+
+- (void) flashRed:(float)red green:(float)green blue:(float)blue withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite {
+    CCTintTo *flashAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:red green:green blue:blue];
+    CCTintTo *flashBackAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:sprite.color.r green:sprite.color.g blue:sprite.color.b];
+    CCActionInterval *finalAction = [CCRepeat actionWithAction:[CCSequence actions:flashAction, flashBackAction, nil] times:times];
+    [sprite runAction:finalAction];
 }
 
 - (void) reset {

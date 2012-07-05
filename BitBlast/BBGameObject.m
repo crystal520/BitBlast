@@ -67,7 +67,7 @@
 }
 
 - (void) repeatAnimation:(NSString *)animName startFrame:(int)frame {
-	[self stopAllActions];
+	[self stopActionByTag:ACTION_TAG_ANIMATION];
 	// get animation from dictionary
 	CCAnimation *anim = [[CCAnimationCache sharedAnimationCache] animationByName:animName];
 	// set sprite to first frame of the animation
@@ -78,28 +78,31 @@
 	}
 	// run it
 	CCAction *action = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO startFrame:frame]];
+    action.tag = ACTION_TAG_ANIMATION;
 	[self runAction:action];
 }
 
 - (void) playAnimation:(NSString *)animName {
-	[self stopAllActions];
+	[self stopActionByTag:ACTION_TAG_ANIMATION];
 	// get animation from dictionary
 	CCAnimation *anim = [[CCAnimationCache sharedAnimationCache] animationByName:animName];
 	// set sprite to first frame of the animation
 	[self setDisplayFrame:[anim.frames objectAtIndex:0]];
 	// run it
 	CCAnimate *action = [CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO];
+    action.tag = ACTION_TAG_ANIMATION;
 	[self runAction:action];
 }
 
 - (void) playAnimation:(NSString *)animName target:(id)target selector:(SEL)selector {
-	[self stopAllActions];
+	[self stopActionByTag:ACTION_TAG_ANIMATION];
 	// get animation from dictionary
 	CCAnimation *anim = [[CCAnimationCache sharedAnimationCache] animationByName:animName];
 	// set sprite to first frame of the animation
 	[self setDisplayFrame:[anim.frames objectAtIndex:0]];
 	// compose sequence with animate and selector
 	CCAction *action = [CCSequence actions:[CCAnimate actionWithAnimation:anim restoreOriginalFrame:NO], [CCCallFunc actionWithTarget:target selector:selector], nil];
+    action.tag = ACTION_TAG_ANIMATION;
 	[self runAction:action];
 }
 
