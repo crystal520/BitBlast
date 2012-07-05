@@ -18,7 +18,7 @@
 		<key>x</key>
 		<integer>40</integer>
 		<key>y</key>
-		<integer>0</integer>
+		<integer>-90</integer>
 	</dict>
 	<key>torsoOffset</key>
 	<dict>
@@ -32,7 +32,7 @@
 		<key>x</key>
 		<integer>40</integer>
 		<key>y</key>
-		<integer>-100</integer>
+		<integer>0</integer>
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>

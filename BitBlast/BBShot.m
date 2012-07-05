@@ -39,6 +39,8 @@
 		}
 		if([dict objectForKey:@"particles"]) {
 			particles = [[CCParticleSystemQuad particleWithFile:[dict objectForKey:@"particles"]] retain];
+            // make sure the particles follow the gun properly
+            particles.positionType = kCCPositionTypeGrouped;
 		}
 		
 		// add angles to fire bullets at
@@ -180,6 +182,7 @@
 	}
 	// reset particles if there are any
 	if(particles) {
+        particles.position = ccpMult(position, [ResolutionManager sharedSingleton].positionScale);
 		[particles resetSystem];
 	}
 }

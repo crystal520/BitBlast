@@ -156,7 +156,7 @@
                 // check if it's greater than a tile height away
                 // check if the tile is to the right of the given position
                 // check if the tile is not too far to the right
-                if(tilePos.y < position.y && position.y - tilePos.y > tile.contentSize.height && tilePos.x > position.x && tilePos.x - position.x <= tile.contentSize.width) {
+                if(tilePos.y < position.y && position.y - tilePos.y > (tile.contentSize.height * [ResolutionManager sharedSingleton].inversePositionScale) && tilePos.x > position.x && tilePos.x - position.x <= (tile.contentSize.width * [ResolutionManager sharedSingleton].inversePositionScale)) {
                     return YES;
                 }
 			}
