@@ -13,6 +13,8 @@
 
 @implementation GameCenter
 
+@synthesize friends;
+
 + (GameCenter*) sharedSingleton {
 	
 	static GameCenter *sharedSingleton;
@@ -29,6 +31,8 @@
 
 - (id) init {
 	if((self = [super init])) {
+        friends = [NSMutableArray new];
+        
 		if([GameCenter getIsGameCenterAvailable]) {
 			[self authenticateGameCenter];
 			
@@ -38,6 +42,11 @@
 		}
 	}
 	return self;
+}
+
+- (void) dealloc {
+    [friends release];
+    [super dealloc];
 }
 
 #pragma mark -
@@ -100,6 +109,56 @@
     return (gcClass && osVersionSupported && !isiPhone3G);
 }
 
+- (void) getScoresWithCategory:(NSString*)category withPlayerScope:(LeaderboardPlayerScope)playerScope withTimeScope:(LeaderboardTimeScope)timeScope withRange:(NSRange)range withTarget:(id)target withSelector:(SEL)selector {
+    // create leaderboard request
+    GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
+    // make sure it exists
+    if(leaderboardRequest) {
+        // set player scope
+        switch (playerScope) {
+            case LEADERBOARD_PLAYER_SCOPE_FRIENDS:
+                leaderboardRequest.playerScope = GKLeaderboardPlayerScopeFriendsOnly;
+                break;
+            case LEADERBOARD_PLAYER_SCOPE_GLOBAL:
+                leaderboardRequest.playerScope = GKLeaderboardPlayerScopeGlobal;
+                break;
+            default:
+                NSLog(@"Invalid player scope specified. Defaulting to friends.");
+                leaderboardRequest.playerScope = GKLeaderboardPlayerScopeFriendsOnly;
+                break;
+        }
+        // set time scope
+        switch (timeScope) {
+            case LEADERBOARD_TIME_SCOPE_ALLTIME:
+                leaderboardRequest.timeScope = GKLeaderboardTimeScopeAllTime;
+                break;
+            case LEADERBOARD_TIME_SCOPE_WEEK:
+                leaderboardRequest.timeScope = GKLeaderboardTimeScopeWeek;
+                break;
+            case LEADERBOARD_TIME_SCOPE_TODAY:
+                leaderboardRequest.timeScope = GKLeaderboardTimeScopeToday;
+                break;
+            default:
+                NSLog(@"Invalid time scope specified. Defaulting to all time.");
+                leaderboardRequest.timeScope = GKLeaderboardTimeScopeAllTime;
+                break;
+        }
+        // set other variables
+        leaderboardRequest.range = range;
+        leaderboardRequest.category = category;
+        // load the scores
+        [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
+            if(error) {
+                NSLog(@"Error retrieving leaderboard scores: %@", [error description]);
+            }
+            else {
+                [target performSelector:selector withObject:scores];
+            }
+        }];
+        [leaderboardRequest release];
+    }
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) authenticateGameCenter {
@@ -129,6 +188,20 @@
 			NSLog(@"Success resetting achievements");
 		}
 	}];
+}
+
+- (void) loadFriends {
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    if(localPlayer.authenticated) {
+        [localPlayer loadFriendsWithCompletionHandler:^(NSArray *localPlayerFriends, NSError *error) {
+            if(localPlayerFriends) {
+                [friends setArray:localPlayerFriends];
+            }
+            else if(error) {
+                NSLog(@"Error retrieving friends for local player: %@", [error description]);
+            }
+        }];
+    }
 }
 
 - (void) checkStatAchievements {
