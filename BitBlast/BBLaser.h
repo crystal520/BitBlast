@@ -28,6 +28,8 @@
 	BOOL blend;
 	// each laser is a bullet that stays on screen and follows the player
 	NSMutableArray *lasers;
+	// sound to loop while laser is active
+	CDSoundSource *sound;
 	// particle system
 	CCParticleSystemQuad *particles;
 	// scale of the lasers fired

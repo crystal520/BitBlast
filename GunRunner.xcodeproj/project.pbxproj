@@ -440,6 +440,7 @@
 		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
 		91AFA8521597A17E009522D9 /* BBInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AFA8511597A17E009522D9 /* BBInputController.m */; };
 		91ED1BFA15A76B3100A569F7 /* gameOverMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91ED1BF915A76B3100A569F7 /* gameOverMessages.plist */; };
+		91ED1BFD15A7A1BE00A569F7 /* laser.wav in Resources */ = {isa = PBXBuildFile; fileRef = 91ED1BFC15A7A1BE00A569F7 /* laser.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1105,6 +1106,7 @@
 		91AFA8501597A17E009522D9 /* BBInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBInputController.h; sourceTree = "<group>"; };
 		91AFA8511597A17E009522D9 /* BBInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBInputController.m; sourceTree = "<group>"; };
 		91ED1BF915A76B3100A569F7 /* gameOverMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gameOverMessages.plist; sourceTree = "<group>"; };
+		91ED1BFC15A7A1BE00A569F7 /* laser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = laser.wav; path = Resources/SFX/laser.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1331,6 +1333,7 @@
 		0A46C01915166551003483BD /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				91ED1BFC15A7A1BE00A569F7 /* laser.wav */,
 				348AF0DC15576E950057A555 /* dullthud.wav */,
 				0AC2855C1555B23900DBF497 /* bounce.wav */,
 				0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */,
@@ -2546,6 +2549,7 @@
 				34E3E72415A6B513002680B0 /* easyWall.plist in Resources */,
 				34E3E72615A6B52B002680B0 /* easyWallDropShip.plist in Resources */,
 				91ED1BFA15A76B3100A569F7 /* gameOverMessages.plist in Resources */,
+				91ED1BFD15A7A1BE00A569F7 /* laser.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

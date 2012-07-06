@@ -23,6 +23,7 @@
 		// get values from dictionary
 		sprite = [[dict objectForKey:@"sprite"] retain];
 		blend = [[dict objectForKey:@"blend"] boolValue];
+		sound = [[[SimpleAudioEngine sharedEngine] soundSourceForFile:[dict objectForKey:@"sound"]] retain];
 		
 		// check for particle system
 		if(particles) {
@@ -87,6 +88,8 @@
 	[sprite release];
 	[angles release];
 	[behaviors release];
+    [sound stop];
+	[sound release];
 	[super dealloc];
 }
 
@@ -101,6 +104,7 @@
 	for(BBBullet *b in lasers) {
 		b.visible = newEnable;
 	}
+    [self checkSound];
 }
 
 - (void) setPosition:(CGPoint)newPosition {
@@ -147,6 +151,7 @@
 		if(particles) {
 			[particles resetSystem];
 		}
+        [self checkSound];
 	}
 }
 
@@ -157,6 +162,15 @@
 		b.indestructible = NO;
 		[b setEnabled:NO];
 	}
+}
+
+- (void) checkSound {
+    if(enabled && sound && ![sound isPlaying]) {
+        [sound play];
+    }
+    else if(!enabled && sound && [sound isPlaying]) {
+        [sound stop];
+    }
 }
 
 @end

@@ -14,5 +14,7 @@
 	<string>ultralaser.png</string>
 	<key>particles</key>
 	<string>ultralaserParticle.plist</string>
+	<key>sound</key>
+	<string>laser.wav</string>
 </dict>
 </plist>
