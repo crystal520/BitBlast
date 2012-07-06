@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="15" tilewidth="128" tileheight="128">
+ <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
+  <image source="tiles_aubrey.png" width="2048" height="2048"/>
+ </tileset>
+ <layer name="Background" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztz8EJADAMA7GQ7r9zd6ihISDB/e0qAAB4d4J6oGRv2sa/E5v1rwtEdAIf
+  </data>
+ </layer>
+ <layer name="CollisionTop" width="60" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0bkNAAAIAzF69t+XJXgKbOkWSCIAAOiUz/rmem//zrree7sCPzYHvQ==
+  </data>
+ </layer>
+</map>

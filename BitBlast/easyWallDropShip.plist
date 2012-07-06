@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>health</key>
-	<integer>150</integer>
+	<integer>100</integer>
 	<key>animations</key>
 	<array>
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>dropship_1.png</string>
-				<string>dropship_1_2.png</string>
+				<string>dropship_2.png</string>
+				<string>dropship_2_2.png</string>
 			</array>
 			<key>name</key>
 			<string>walk</string>
@@ -19,15 +19,14 @@
 		</dict>
 	</array>
 	<key>spawnRate</key>
-	<real>0.8</real>
+	<real>1.5</real>
 	<key>image</key>
 	<string>uiatlas.png</string>
 	<key>plist</key>
 	<string>uiatlas.plist</string>
 	<key>enemyTypes</key>
 	<array>
-		<string>testEnemy</string>
-		<string>enemyBird</string>
+		<string>easyWall</string>
 	</array>
 	<key>boundingBox</key>
 	<dict>
@@ -36,9 +35,9 @@
 		<key>y</key>
 		<integer>0</integer>
 		<key>width</key>
-		<integer>427</integer>
+		<integer>298</integer>
 		<key>height</key>
-		<integer>304</integer>
+		<integer>216</integer>
 	</dict>
 	<key>offsetTop</key>
 	<dict>
@@ -62,7 +61,7 @@
 		<integer>100</integer>
 	</dict>
 	<key>coins</key>
-	<integer>35</integer>
+	<integer>25</integer>
 	<key>sounds</key>
 	<dict>
 		<key>hit</key>

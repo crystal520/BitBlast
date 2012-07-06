@@ -23,7 +23,6 @@
 		0A204EB014DF31B600171F71 /* flameShot.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAF14DF31B600171F71 /* flameShot.plist */; };
 		0A204EB214DF331600171F71 /* flame.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EB114DF331500171F71 /* flame.png */; };
 		0A2658A81503CFBB00DEA989 /* BBMovingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2658A71503CFBB00DEA989 /* BBMovingObject.m */; };
-		0A2C61F914F2C68F00D3F94B /* testEnemy3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */; };
 		0A2FC97B15197977005FDF5F /* BBPause.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FC97A15197977005FDF5F /* BBPause.m */; };
 		0A38407F1541A76900F9A96A /* coinExplosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A38407E1541A76900F9A96A /* coinExplosion.plist */; };
 		0A428307151440F300E35219 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A428306151440F200E35219 /* GameCenter.m */; };
@@ -366,6 +365,15 @@
 		34BBAC1A14FDDB0300154CE9 /* chunk5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1514FDDB0300154CE9 /* chunk5.tmx */; };
 		34BBAC1D14FE0CDE00154CE9 /* chunk10.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */; };
 		34D60382151FE63C00AF842F /* wavemotionparticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34D60381151FE63C00AF842F /* wavemotionparticle.plist */; };
+		34E3E71615A6A409002680B0 /* new3LevelChunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E71415A6A409002680B0 /* new3LevelChunk.tmx */; };
+		34E3E71715A6A409002680B0 /* newStartChunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E71515A6A409002680B0 /* newStartChunk.tmx */; };
+		34E3E71A15A6AD55002680B0 /* new3LevelChunk2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E71915A6AD55002680B0 /* new3LevelChunk2.tmx */; };
+		34E3E71C15A6AE17002680B0 /* birdDropShip.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E71B15A6AE16002680B0 /* birdDropShip.plist */; };
+		34E3E71E15A6B023002680B0 /* dropFromBelow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E71D15A6B023002680B0 /* dropFromBelow.plist */; };
+		34E3E72015A6B187002680B0 /* wall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E71F15A6B187002680B0 /* wall.plist */; };
+		34E3E72215A6B19F002680B0 /* wallDropShip.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E72115A6B19F002680B0 /* wallDropShip.plist */; };
+		34E3E72415A6B513002680B0 /* easyWall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E72315A6B513002680B0 /* easyWall.plist */; };
+		34E3E72615A6B52B002680B0 /* easyWallDropShip.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E3E72515A6B52A002680B0 /* easyWallDropShip.plist */; };
 		34FB2A1A1513C23900623BB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A171513C23900623BB4 /* Default@2x.png */; };
 		34FB2A1B1513C23900623BB4 /* Default-LandscapeLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A181513C23900623BB4 /* Default-LandscapeLeft.png */; };
 		34FB2A1C1513C23900623BB4 /* Default-LandscapeLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2A191513C23900623BB4 /* Default-LandscapeLeft@2x.png */; };
@@ -459,7 +467,6 @@
 		0A204EB114DF331500171F71 /* flame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flame.png; path = Resources/flame.png; sourceTree = "<group>"; };
 		0A2658A61503CFBB00DEA989 /* BBMovingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMovingObject.h; sourceTree = "<group>"; };
 		0A2658A71503CFBB00DEA989 /* BBMovingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMovingObject.m; sourceTree = "<group>"; };
-		0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy3.plist; sourceTree = "<group>"; };
 		0A2FC97915197976005FDF5F /* BBPause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPause.h; sourceTree = "<group>"; };
 		0A2FC97A15197977005FDF5F /* BBPause.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBPause.m; sourceTree = "<group>"; };
 		0A38407E1541A76900F9A96A /* coinExplosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = coinExplosion.plist; sourceTree = "<group>"; };
@@ -1016,6 +1023,15 @@
 		34BBAC1514FDDB0300154CE9 /* chunk5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk5.tmx; path = Resources/chunk5.tmx; sourceTree = "<group>"; };
 		34BBAC1C14FE0CDE00154CE9 /* chunk10.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk10.tmx; path = Resources/chunk10.tmx; sourceTree = "<group>"; };
 		34D60381151FE63C00AF842F /* wavemotionparticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = wavemotionparticle.plist; path = Resources/Particles/wavemotionparticle.plist; sourceTree = "<group>"; };
+		34E3E71415A6A409002680B0 /* new3LevelChunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = new3LevelChunk.tmx; path = Resources/new3LevelChunk.tmx; sourceTree = "<group>"; };
+		34E3E71515A6A409002680B0 /* newStartChunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = newStartChunk.tmx; path = Resources/newStartChunk.tmx; sourceTree = "<group>"; };
+		34E3E71915A6AD55002680B0 /* new3LevelChunk2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = new3LevelChunk2.tmx; path = Resources/new3LevelChunk2.tmx; sourceTree = "<group>"; };
+		34E3E71B15A6AE16002680B0 /* birdDropShip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = birdDropShip.plist; sourceTree = "<group>"; };
+		34E3E71D15A6B023002680B0 /* dropFromBelow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropFromBelow.plist; sourceTree = "<group>"; };
+		34E3E71F15A6B187002680B0 /* wall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wall.plist; sourceTree = "<group>"; };
+		34E3E72115A6B19F002680B0 /* wallDropShip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wallDropShip.plist; sourceTree = "<group>"; };
+		34E3E72315A6B513002680B0 /* easyWall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easyWall.plist; sourceTree = "<group>"; };
+		34E3E72515A6B52A002680B0 /* easyWallDropShip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easyWallDropShip.plist; sourceTree = "<group>"; };
 		34FB2A171513C23900623BB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		34FB2A181513C23900623BB4 /* Default-LandscapeLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-LandscapeLeft.png"; path = "Resources/Default-LandscapeLeft.png"; sourceTree = "<group>"; };
 		34FB2A191513C23900623BB4 /* Default-LandscapeLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-LandscapeLeft@2x.png"; path = "Resources/Default-LandscapeLeft@2x.png"; sourceTree = "<group>"; };
@@ -1140,13 +1156,18 @@
 		0A0366E514E4C99400313CCC /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				34E3E72515A6B52A002680B0 /* easyWallDropShip.plist */,
+				34E3E72315A6B513002680B0 /* easyWall.plist */,
+				34E3E72115A6B19F002680B0 /* wallDropShip.plist */,
+				34E3E71D15A6B023002680B0 /* dropFromBelow.plist */,
+				34E3E71B15A6AE16002680B0 /* birdDropShip.plist */,
 				0A8D310C1501D70E002F9B7B /* testDropship.plist */,
 				34FB2A5F15141D0200623BB4 /* dropShip1.plist */,
 				34FB2A6015141D0200623BB4 /* dropShip2.plist */,
-				0A2C61F814F2C68F00D3F94B /* testEnemy3.plist */,
 				0A77285F14ECB93B000CB457 /* testEnemy2.plist */,
 				34FB2A711515813600623BB4 /* enemyBird.plist */,
 				0A0366E614E4CC5F00313CCC /* testEnemy.plist */,
+				34E3E71F15A6B187002680B0 /* wall.plist */,
 				34FB2AAC1516884100623BB4 /* enemySoldier.plist */,
 				0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */,
 				0A67AFD4151E99F000CAA55B /* dropshipLevels.plist */,
@@ -1391,6 +1412,9 @@
 		0A5C35AD149984A90019C113 /* Jungle */ = {
 			isa = PBXGroup;
 			children = (
+				34E3E71915A6AD55002680B0 /* new3LevelChunk2.tmx */,
+				34E3E71415A6A409002680B0 /* new3LevelChunk.tmx */,
+				34E3E71515A6A409002680B0 /* newStartChunk.tmx */,
 				34FB2A5D151406AA00623BB4 /* startChunk.tmx */,
 				34FB2A5B1514006100623BB4 /* blank.tmx */,
 				34FB2A591513FF7C00623BB4 /* 4gapjump.tmx */,
@@ -2390,7 +2414,6 @@
 				34BBABE414F3209B00154CE9 /* mortor.plist in Resources */,
 				34BBABE514F3209B00154CE9 /* mortor_bullet.plist in Resources */,
 				34BBABE714F320C000154CE9 /* shell.png in Resources */,
-				0A2C61F914F2C68F00D3F94B /* testEnemy3.plist in Resources */,
 				34BBABF614F5FA9900154CE9 /* ripley.plist in Resources */,
 				34BBAC0114FC445500154CE9 /* chunk6.tmx in Resources */,
 				34BBAC1614FDDB0300154CE9 /* chunk9.tmx in Resources */,
@@ -2510,6 +2533,15 @@
 				3457887C155A1BF4004777F7 /* 2xcoinshopicon.png in Resources */,
 				34578883155A2B50004777F7 /* weaponsuperchargestoreicon.png in Resources */,
 				34578884155A2B50004777F7 /* playerspeedbooststoreicon.png in Resources */,
+				34E3E71615A6A409002680B0 /* new3LevelChunk.tmx in Resources */,
+				34E3E71715A6A409002680B0 /* newStartChunk.tmx in Resources */,
+				34E3E71A15A6AD55002680B0 /* new3LevelChunk2.tmx in Resources */,
+				34E3E71C15A6AE17002680B0 /* birdDropShip.plist in Resources */,
+				34E3E71E15A6B023002680B0 /* dropFromBelow.plist in Resources */,
+				34E3E72015A6B187002680B0 /* wall.plist in Resources */,
+				34E3E72215A6B19F002680B0 /* wallDropShip.plist in Resources */,
+				34E3E72415A6B513002680B0 /* easyWall.plist in Resources */,
+				34E3E72615A6B52B002680B0 /* easyWallDropShip.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

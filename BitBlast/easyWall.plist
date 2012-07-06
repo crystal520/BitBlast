@@ -14,6 +14,21 @@
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>explosion1.png</string>
+				<string>explosion2.png</string>
+				<string>explosion3.png</string>
+				<string>explosion4.png</string>
+				<string>explosion5.png</string>
+				<string>explosion6.png</string>
+			</array>
+			<key>name</key>
+			<string>death</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
 	</array>
 	<key>image</key>
 	<string>uiatlas.png</string>
@@ -22,9 +37,9 @@
 	<key>type</key>
 	<string>stationary</string>
 	<key>tileCenterOffset</key>
-	<integer>6</integer>
+	<integer>12</integer>
 	<key>health</key>
-	<real>0.1</real>
+	<integer>20</integer>
 	<key>gravity</key>
 	<integer>40</integer>
 	<key>speed</key>
@@ -36,5 +51,16 @@
 	</dict>
 	<key>coins</key>
 	<integer>3</integer>
+	<key>boundingBox</key>
+	<dict>
+		<key>x</key>
+		<integer>0</integer>
+		<key>y</key>
+		<integer>0</integer>
+		<key>width</key>
+		<integer>78</integer>
+		<key>height</key>
+		<integer>178</integer>
+	</dict>
 </dict>
 </plist>

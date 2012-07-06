@@ -8,33 +8,39 @@
 			<key>ships</key>
 			<array>
 				<string>dropShip2</string>
+				<string>easyWallDropShip</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>
 			<array>
 				<string>dropShip2</string>
+				<string>birdDropShip</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>
 			<array>
 				<string>dropShip1</string>
+				<string>dropFromBelow</string>
+				<string>wallDropShip</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>
 			<array>
 				<string>dropShip1</string>
+				<string>dropFromBelow</string>
+				<string>birdDropShip</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>
@@ -43,7 +49,7 @@
 				<string>dropShip2</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>
@@ -52,17 +58,7 @@
 				<string>dropShip1</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>ships</key>
-			<array>
-				<string>testDropship</string>
-				<string>dropShip1</string>
-				<string>dropShip2</string>
-			</array>
-			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>
@@ -72,7 +68,7 @@
 				<string>dropShip2</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>
@@ -82,7 +78,17 @@
 				<string>dropShip2</string>
 			</array>
 			<key>maxShipsOnScreen</key>
-			<integer>2</integer>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>ships</key>
+			<array>
+				<string>testDropship</string>
+				<string>dropShip1</string>
+				<string>dropShip2</string>
+			</array>
+			<key>maxShipsOnScreen</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>ships</key>

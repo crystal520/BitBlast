@@ -5,41 +5,39 @@
 	<key>chunks</key>
 	<array>
 		<array>
-			<string>aNewChunkIdea.tmx</string>
-			<string>aNewChunkIdea1.tmx</string>
+			<string>new3LevelChunk.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>newChunk1.tmx</string>
-			<string>newChunk2.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>chunk1.tmx</string>
-			<string>chunk7.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>4gapjump.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>newChunk3.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>chunk2.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>chunk3.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>chunk4.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>chunk5.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 		<array>
-			<string>chunk6.tmx</string>
+			<string>new3LevelChunk2.tmx</string>
 		</array>
 	</array>
 	<key>firstChunk</key>
-	<string>startChunk.tmx</string>
+	<string>newStartChunk.tmx</string>
 	<key>overrideChunk</key>
 	<string></string>
 	<key>backgroundColor</key>
@@ -63,21 +61,6 @@
 		<dict>
 			<key>images</key>
 			<array>
-				<string>cloud1.png</string>
-				<string>cloud2.png</string>
-			</array>
-			<key>imageWidth</key>
-			<integer>528</integer>
-			<key>ratio</key>
-			<real>0.25</real>
-			<key>y</key>
-			<integer>0</integer>
-			<key>seamless</key>
-			<false/>
-		</dict>
-		<dict>
-			<key>images</key>
-			<array>
 				<string>backbackrefinery.png</string>
 				<string>backbackpeak.png</string>
 				<string>backbackmountain.png</string>
@@ -89,6 +72,21 @@
 			<real>0.125</real>
 			<key>y</key>
 			<integer>0</integer>
+			<key>seamless</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>cloud1.png</string>
+				<string>cloud2.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>528</integer>
+			<key>ratio</key>
+			<real>0.25</real>
+			<key>y</key>
+			<integer>200</integer>
 			<key>seamless</key>
 			<false/>
 		</dict>

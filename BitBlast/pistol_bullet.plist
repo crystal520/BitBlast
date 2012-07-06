@@ -110,7 +110,7 @@
 	<key>minSpeed</key>
 	<integer>400</integer>
 	<key>rateOfFire</key>
-	<real>0.4</real>
+	<real>0.3</real>
 	<key>sprite</key>
 	<string>yellowbullet.png</string>
 	<key>sound</key>
