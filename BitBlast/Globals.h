@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BBPlayer.h"
 
 @interface Globals : NSObject {
     // player's position
@@ -18,10 +19,13 @@
 	CGPoint cameraOffset;
 	// player's starting health
 	int playerStartingHealth;
+    // reason that player died
+    ReasonForDeath playerReasonForDeath;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
 @property (nonatomic, assign) int playerStartingHealth;
+@property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 
 + (Globals*) sharedSingleton;
 

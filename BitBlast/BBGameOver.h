@@ -12,11 +12,13 @@
 #import "CCLabelButton.h"
 #import "SettingsManager.h"
 #import "SimpleAudioEngine.h"
+#import "BBPlayer.h"
 
 @interface BBGameOver : CCNodeColorBackground {
 	CCLabelBMFont *distanceLabel, *killLabel, *multiplierLabel, *scoreLabel;
 }
 
 - (void) updateFinalScore;
+- (NSString*) getRandomDeathMessage;
 
 @end

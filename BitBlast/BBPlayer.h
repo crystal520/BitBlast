@@ -28,6 +28,12 @@ typedef enum {
 	kPlayerDead
 } PlayerState;
 
+typedef enum {
+    kDeathUnknown,
+    kDeathEnemy,
+    kDeathFall
+} ReasonForDeath;
+
 @interface BBPlayer : BBMovingObject {
 	
 	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime, invincibleTime;
@@ -83,7 +89,7 @@ typedef enum {
 - (void) checkCollisions;
 - (void) flashRed:(float)red green:(float)green blue:(float)blue withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
 - (void) reset;
-- (void) die:(NSString*)reason;
+- (void) die:(ReasonForDeath)reason;
 - (void) jump;
 - (void) endJump;
 - (void) jumpDown;

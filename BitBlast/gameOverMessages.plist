@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>hearts</key>
+	<array>
+		<string>YOU SUCCUMBED TO YOUR ENEMIES</string>
+		<string>YOU WERE DESTROYED BY MUTANTS</string>
+		<string>YOU WERE OVERPOWERED</string>
+		<string>BEING TORN TO PIECES</string>
+		<string>DYING A HORRIBLE DEATH</string>
+	</array>
+	<key>fall</key>
+	<array>
+		<string>YOU FELL INTO A BLACK VOID</string>
+		<string>FALLING TO YOUR DOOM</string>
+		<string>SLIPPING THROUGH A CRACK</string>
+		<string>DISAPPEARING THROUGH A RABBIT HOLE</string>
+		<string>DROPPING TO THE DEEPEST DEPTHS</string>
+		<string>LOSING YOUR FOOTING</string>
+		<string>TRIPPING ON YOUR SHOELACES</string>
+	</array>
+</dict>
+</plist>

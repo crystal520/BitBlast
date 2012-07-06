@@ -131,7 +131,7 @@
 		
 		// check for falling death
 		if(dummyPosition.y + legs.contentSize.height + torso.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
-			[self die:@"fall"];
+			[self die:kDeathFall];
 		}
 		
 		// post player update notification
@@ -382,7 +382,7 @@
 			// kill the enemy
 			[e die];
 			if(health <= 0) {
-				[self die:@"enemy"];
+				[self die:kDeathEnemy];
 				break;
 			}
 		}
@@ -418,7 +418,8 @@
 	[self playIntro];
 }
 
-- (void) die:(NSString*)reason {
+- (void) die:(ReasonForDeath)reason {
+    [Globals sharedSingleton].playerReasonForDeath = reason;
 	[self setState:kPlayerDead];
 	[[SettingsManager sharedSingleton] incrementInteger:[[SettingsManager sharedSingleton] getInt:@"currentDistance"] keyString:@"dailyDistance"];
 	

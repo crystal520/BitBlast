@@ -439,6 +439,7 @@
 		3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */; };
 		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
 		91AFA8521597A17E009522D9 /* BBInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AFA8511597A17E009522D9 /* BBInputController.m */; };
+		91ED1BFA15A76B3100A569F7 /* gameOverMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91ED1BF915A76B3100A569F7 /* gameOverMessages.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1103,6 +1104,7 @@
 		3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamefont.png; path = Resources/gamefont.png; sourceTree = "<group>"; };
 		91AFA8501597A17E009522D9 /* BBInputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBInputController.h; sourceTree = "<group>"; };
 		91AFA8511597A17E009522D9 /* BBInputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBInputController.m; sourceTree = "<group>"; };
+		91ED1BF915A76B3100A569F7 /* gameOverMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gameOverMessages.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2206,6 +2208,7 @@
 			children = (
 				0AC723A214985F4F000E9412 /* playerProperties.plist */,
 				0A67AFD9151EB3AB00CAA55B /* chopper.plist */,
+				91ED1BF915A76B3100A569F7 /* gameOverMessages.plist */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -2542,6 +2545,7 @@
 				34E3E72215A6B19F002680B0 /* wallDropShip.plist in Resources */,
 				34E3E72415A6B513002680B0 /* easyWall.plist in Resources */,
 				34E3E72615A6B52B002680B0 /* easyWallDropShip.plist in Resources */,
+				91ED1BFA15A76B3100A569F7 /* gameOverMessages.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

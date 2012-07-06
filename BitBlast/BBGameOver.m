@@ -86,9 +86,26 @@
 }
 
 - (void) updateFinalScore {
-	[distanceLabel setString:[NSString stringWithFormat:@"YOU RAN: %i Meters", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
-	[killLabel setString:[NSString stringWithFormat:@"COLLECTED: %i COLD HARD CASH", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
-	[multiplierLabel setString:[NSString stringWithFormat:@"TOTAL COLD HARD CASH: %i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
+	[distanceLabel setString:[NSString stringWithFormat:@"YOU RAN %iM, COLLECTING", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
+	[killLabel setString:[NSString stringWithFormat:@"%i COINS BEFORE", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];
+	[multiplierLabel setString:[self getRandomDeathMessage]];
+}
+
+- (NSString*) getRandomDeathMessage {
+    // get dictionary from plist
+    NSDictionary *deathMessageDictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gameOverMessages" ofType:@"plist"]];
+    // determine which array we should grab based on how the player died
+    NSString *arrayToGrab;
+    if([Globals sharedSingleton].playerReasonForDeath == kDeathEnemy) {
+        arrayToGrab = @"hearts";
+    }
+    else if([Globals sharedSingleton].playerReasonForDeath == kDeathFall) {
+        arrayToGrab = @"fall";
+    }
+    // get the death messages
+    NSArray *messages = [deathMessageDictionary objectForKey:arrayToGrab];
+    // return a random one
+    return [messages objectAtIndex:CCRANDOM_MIN_MAX(0, [messages count])];
 }
 
 - (void) shop {

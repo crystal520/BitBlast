@@ -11,7 +11,7 @@
 
 @implementation Globals
 
-@synthesize playerPosition, playerVelocity, cameraOffset, playerStartingHealth;
+@synthesize playerPosition, playerVelocity, cameraOffset, playerStartingHealth, playerReasonForDeath;
 
 + (Globals*) sharedSingleton {
 	
