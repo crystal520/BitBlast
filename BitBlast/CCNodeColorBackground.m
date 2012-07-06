@@ -18,7 +18,7 @@
 		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		
 		// create faded background
-		CCSprite *background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
+		background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
 		background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 		background.color = color;
 		background.opacity = alpha * 255;

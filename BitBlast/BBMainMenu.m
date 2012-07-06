@@ -20,64 +20,42 @@
 		// create spritebatch with UI image
 		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
 		[self addChild:uiSpriteBatch];
-		
-		// create Turning this into the shell for the first small button.
-		CCSprite *background = [CCSprite spriteWithSpriteFrameName:@"sideButtonShell.png"];
-		background.position = ccp(winSize.width * 0.103, background.contentSize.height * 0.391);
-		[uiSpriteBatch addChild:background];
-       
-		// Bruce Attempts to Add a Gamelogo.  Not sure why it does not work.
-		CCSprite *gameLogo = [CCSprite spriteWithSpriteFrameName:@"gamelogo.png"];
-		gameLogo.position = ccp(winSize.width * 0.5, background.position.y + gameLogo.contentSize.height * 1.2);
-		[uiSpriteBatch addChild:gameLogo z:0];
         
-        // Bruce adds a new play button shell
-		CCSprite *playButtonShell = [CCSprite spriteWithSpriteFrameName:@"playButtonHolder.png"];
-		playButtonShell.position = ccp(winSize.width * 0.4995, background.position.y + playButtonShell.contentSize.height * 0.42);
-		[uiSpriteBatch addChild:playButtonShell z:0];
-        
-                
+        // create the shell for the first small button.
+		CCSprite *smallButtonShell1 = [CCSprite spriteWithSpriteFrameName:@"sideButtonShell.png"];
+		smallButtonShell1.position = ccp(winSize.width * 0.108, winSize.height * 0.1);
+		[uiSpriteBatch addChild:smallButtonShell1];
         
         // Bruce add The 2nd small shells for all the buttons.
 		CCSprite *smallButtonShell2 = [CCSprite spriteWithSpriteFrameName:@"sideButtonShell.png"];
-		smallButtonShell2.position = ccp(winSize.width * 0.102, background.position.y + smallButtonShell2.contentSize.height * 0.98);
+		smallButtonShell2.position = ccp(winSize.width * 0.108, smallButtonShell1.position.y + smallButtonShell2.contentSize.height * 0.977);
 		[uiSpriteBatch addChild:smallButtonShell2 z:0];
         
         // Bruce add The 3nd small shells for all the buttons.
 		CCSprite *smallButtonShell3 = [CCSprite spriteWithSpriteFrameName:@"sideButtonShell.png"];
-		smallButtonShell3.position = ccp(winSize.width * 0.102, background.position.y + smallButtonShell3.contentSize.height * 1.96);
+		smallButtonShell3.position = ccp(winSize.width * 0.108, smallButtonShell2.position.y + smallButtonShell3.contentSize.height * 0.977);
 		[uiSpriteBatch addChild:smallButtonShell3 z:0];
-        
         
         // Bruce add The 4th small shells for all the buttons.
 		CCSprite *smallButtonShell4 = [CCSprite spriteWithSpriteFrameName:@"sideButtonShell.png"];
-		smallButtonShell4.position = ccp(winSize.width * 0.898, background.position.y + smallButtonShell4.contentSize.height * 0.00);
+		smallButtonShell4.position = ccp(winSize.width * 0.892, winSize.height * 0.1);
 		[uiSpriteBatch addChild:smallButtonShell4 z:0];
         
         // Bruce add The 5th small shells for all the buttons.
 		CCSprite *smallButtonShell5 = [CCSprite spriteWithSpriteFrameName:@"sideButtonShell.png"];
-		smallButtonShell5.position = ccp(winSize.width * 0.898, background.position.y + smallButtonShell5.contentSize.height * 0.98);
+		smallButtonShell5.position = ccp(winSize.width * 0.892, smallButtonShell4.position.y + smallButtonShell5.contentSize.height * 0.977);
 		[uiSpriteBatch addChild:smallButtonShell5 z:0];
         
         // Bruce add The 6th small shells for all the buttons.
 		CCSprite *smallButtonShell6 = [CCSprite spriteWithSpriteFrameName:@"sideButtonShell.png"];
-		smallButtonShell6.position = ccp(winSize.width * 0.898, background.position.y + smallButtonShell6.contentSize.height * 1.96);
+		smallButtonShell6.position = ccp(winSize.width * 0.892, smallButtonShell5.position.y + smallButtonShell6.contentSize.height * 0.977);
 		[uiSpriteBatch addChild:smallButtonShell6 z:0];
         
         // Add Syphus Logo
-		CCButton *musicBySyphus = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"musicby.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"musicby.png"] target:self selector:@selector(gotoSyphus)];
+		CCButton *musicBySyphus = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"musicby.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"musicByPressed.png"] target:self selector:@selector(gotoSyphus)];
 		[musicBySyphus setSpriteBatchNode:uiSpriteBatch];
-		musicBySyphus.position = ccp(winSize.width * 0.104, winSize.height - musicBySyphus.contentSize.height * 5.45);
+		musicBySyphus.position = ccp(winSize.width * 0.108, smallButtonShell1.position.y + musicBySyphus.contentSize.height * 0.23);
 		[self addChild:musicBySyphus z:0];
-		
-		// create play text
-		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"RUN!" fntFile:@"gamefont.fnt"];
-		
-		// create play button
-		CCLabelButton *play = [CCLabelButton buttonWithLabel:playText normalSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_pressed.png"] target:self selector:@selector(play)];
-		[play setSpriteBatchNode:uiSpriteBatch];
-		play.position = ccp(background.position.x + (382.5 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (85.5 * [ResolutionManager sharedSingleton].positionScale));
-		[self addChild:play];
 		
 		// create shop label
 		CCLabelBMFont *shopText = [CCLabelBMFont labelWithString:@"GUNS" fntFile:@"gamefont.fnt"];
@@ -86,7 +64,7 @@
 		// create shop button
 		CCLabelButton *shop = [CCLabelButton buttonWithLabel:shopText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(shop)];
 		[shop setSpriteBatchNode:uiSpriteBatch];
-		shop.position = ccp(background.position.x + (764 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (380 * [ResolutionManager sharedSingleton].positionScale));
+		shop.position = ccp(winSize.width * 0.892, smallButtonShell6.position.y + shop.contentSize.height * 0.23);
 		[self addChild:shop];
 		
 		// create leaderboard label
@@ -96,13 +74,13 @@
 		// create leaderboard button
 		CCLabelButton *leaderboard = [CCLabelButton buttonWithLabel:leaderboardText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(leaderboards)];
 		[leaderboard setSpriteBatchNode:uiSpriteBatch];
-		leaderboard.position = ccp(background.position.x + (0.0 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (200.0 * [ResolutionManager sharedSingleton].positionScale));
+		leaderboard.position = ccp(winSize.width * 0.108, smallButtonShell2.position.y + leaderboard.contentSize.height * 0.23);
 		[self addChild:leaderboard];
 		
 		// create gamecenter button
 		CCButton *gamecenter = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"gamecenter_pressed.png"] target:self selector:@selector(gamecenter)];
 		[gamecenter setSpriteBatchNode:uiSpriteBatch];
-		gamecenter.position = ccp(background.position.x + (0.0 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (380.0 * [ResolutionManager sharedSingleton].positionScale));
+		gamecenter.position = ccp(winSize.width * 0.108, smallButtonShell3.position.y + gamecenter.contentSize.height * 0.23);
 		[self addChild:gamecenter];
 		
 		// create money label
@@ -116,18 +94,18 @@
 		// create SessionM button
 		CCButton *sessionM = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMUp.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"sessionMDown.png"] target:self selector:@selector(gotoSessionM)];
 		[sessionM setSpriteBatchNode:uiSpriteBatch];
-		sessionM.position = ccp(background.position.x + (380 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (-40 * [ResolutionManager sharedSingleton].positionScale));
+		sessionM.position = ccp(winSize.width * 0.5, sessionM.contentSize.height * 0.5);
 		[self addChild:sessionM];
         
         // create SessionM badge
         sessionMBadge = [CCSprite spriteWithSpriteFrameName:@"sessionMBadge.png"];
-        sessionMBadge.position = ccp(background.position.x + (380 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (-10 * [ResolutionManager sharedSingleton].positionScale));
+        sessionMBadge.position = ccp(winSize.width * 0.5, sessionM.position.y + sessionMBadge.contentSize.height * 0.7);
         [uiSpriteBatch addChild:sessionMBadge];
         
         // create SessionM badge label
         sessionMBadgeLabel = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%i", [SessionMWrapper sharedSingleton].achievementCount] fntFile:@"gamefont.fnt"];
         sessionMBadgeLabel.scale = 0.5;
-        sessionMBadgeLabel.position = ccp(background.position.x + (380 * [ResolutionManager sharedSingleton].positionScale), background.position.y + (-1 * [ResolutionManager sharedSingleton].positionScale));
+        sessionMBadgeLabel.position = ccp(winSize.width * 0.5, sessionMBadge.position.y + sessionMBadge.contentSize.height * 0.19);
 
         [self addChild:sessionMBadgeLabel];
         
@@ -136,6 +114,25 @@
             sessionMBadge.visible = NO;
             sessionMBadgeLabel.visible = NO;
         }
+        
+        // Bruce adds a new play button shell
+		CCSprite *playButtonShell = [CCSprite spriteWithSpriteFrameName:@"playButtonHolder.png"];
+		playButtonShell.position = ccp(winSize.width * 0.5, sessionMBadge.position.y + sessionMBadge.contentSize.height * 0.5 + playButtonShell.contentSize.height * 0.525);
+		[uiSpriteBatch addChild:playButtonShell z:0];
+        
+        // Bruce Attempts to Add a Gamelogo.  Not sure why it does not work.
+		CCSprite *gameLogo = [CCSprite spriteWithSpriteFrameName:@"gamelogo.png"];
+		gameLogo.position = ccp(winSize.width * 0.5, playButtonShell.position.y + playButtonShell.contentSize.height * 0.5 + gameLogo.contentSize.height * 0.525);
+		[uiSpriteBatch addChild:gameLogo z:0];
+        
+        // create play text
+		CCLabelBMFont *playText = [CCLabelBMFont labelWithString:@"RUN!" fntFile:@"gamefont.fnt"];
+		
+		// create play button
+		CCLabelButton *play = [CCLabelButton buttonWithLabel:playText normalSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"playbutton_pressed.png"] target:self selector:@selector(play)];
+		[play setSpriteBatchNode:uiSpriteBatch];
+		play.position = ccp(winSize.width * 0.5, playButtonShell.position.y);
+		[self addChild:play];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(coinsUpdated) name:kEventPromoCoinsAwarded object:nil];
