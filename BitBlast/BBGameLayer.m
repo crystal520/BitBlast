@@ -221,6 +221,7 @@
 		[(BBHud*)([self getChildByTag:TAG_MENU]) update:delta];
 	}
 	else if(state == kStateIntro) {
+        followNode.position = ccpAdd(followNode.position, ccpMult(player.minVelocity, delta * [ResolutionManager sharedSingleton].positionScale));
 		[chopper update:delta];
 		[[ChunkManager sharedSingleton] update:delta];
 		[player update:delta];
@@ -233,18 +234,21 @@
 	
 	// keep track of node's previous position
 	float prevPos = scrollingNode.position.x;
-	// convert player's y position to screen space
-	CGPoint currentPlayerScreenPosition = [followNode convertToWorldSpace:CGPointZero];
-	
-	float yOffset = 0;
-	// check to see if player is too close to the top of the screen
-	if(currentPlayerScreenPosition.y < cameraBounds.x) {
-		yOffset = currentPlayerScreenPosition.y - cameraBounds.x;
-	}
-	// check to see if player is too close to the bottom of the screen
-	else if(currentPlayerScreenPosition.y > cameraBounds.y) {
-		yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
-	}
+    float yOffset = 0;
+    
+    if(state != kStateIntro) {
+        // convert player's y position to screen space
+        CGPoint currentPlayerScreenPosition = [followNode convertToWorldSpace:CGPointZero];
+        
+        // check to see if player is too close to the top of the screen
+        if(currentPlayerScreenPosition.y < cameraBounds.x) {
+            yOffset = currentPlayerScreenPosition.y - cameraBounds.x;
+        }
+        // check to see if player is too close to the bottom of the screen
+        else if(currentPlayerScreenPosition.y > cameraBounds.y) {
+            yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
+        }
+    }
 	
 	//CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
     CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y - yOffset);
@@ -267,7 +271,7 @@
 	[scrollingNode addChild:chopper z:DEPTH_GAME_INTRO_CHOPPER];
 	
 	// reset level
-	scrollingNode.position = ccp(0, -cameraOffset.y);
+	scrollingNode.position = ccp(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0 : -45);
 	[parallax reset];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
 	[player reset];
@@ -280,8 +284,8 @@
 	followNode = [CCNode node];
 	[scrollingNode addChild:followNode];
 	followNode.position = ccpMult(ccp(258, 340), [ResolutionManager sharedSingleton].positionScale);
-	CCAction *move = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1 position:ccpMult(ccp((int)player.minVelocity.x, 0), [ResolutionManager sharedSingleton].positionScale)]];
-	[followNode runAction:move];
+	//CCAction *move = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1 position:ccpMult(ccp((int)player.minVelocity.x, 0), [ResolutionManager sharedSingleton].positionScale)]];
+	//[followNode runAction:move];
 	
 	// kill chopper after a certain amount of time
 	[[CCScheduler sharedScheduler] scheduleSelector:@selector(killChopper) forTarget:self interval:5 paused:NO];

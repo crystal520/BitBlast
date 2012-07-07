@@ -311,7 +311,7 @@
 	
 	// player is unaffected by gravity during the intro
 	gravity = ccp(0, 0);
-	velocity = ccp(500, 0);
+	velocity = ccp(600, 0);
 	
 	// set this so we can jump out of the chopper
 	needsPlatformCollisions = NO;
