@@ -26,7 +26,7 @@
 		int width = [[dict objectForKey:@"imageWidth"] intValue];
 		
 		// determine how many images we'll need based on image width and screen size
-		int numImages = ceil([CCDirector sharedDirector].winSize.width / width) + 1;
+		int numImages = floor([CCDirector sharedDirector].winSize.width / width) + 1;
 		if((int)([ResolutionManager sharedSingleton].size.width) % width > 0) {
 			numImages++;
 		}
