@@ -39,7 +39,7 @@
 	<key>firstChunk</key>
 	<string>newStartChunk.tmx</string>
 	<key>overrideChunk</key>
-	<string></string>
+	<string>newStartChunk.tmx</string>
 	<key>backgroundColor</key>
 	<string>170, 221, 238</string>
 	<key>parallax</key>
@@ -86,7 +86,7 @@
 			<key>ratio</key>
 			<real>0.25</real>
 			<key>y</key>
-			<integer>200</integer>
+			<integer>300</integer>
 			<key>seamless</key>
 			<false/>
 		</dict>
