@@ -39,7 +39,7 @@
 	<key>firstChunk</key>
 	<string>newStartChunk.tmx</string>
 	<key>overrideChunk</key>
-	<string>newStartChunk.tmx</string>
+	<string></string>
 	<key>backgroundColor</key>
 	<string>170, 221, 238</string>
 	<key>parallax</key>
