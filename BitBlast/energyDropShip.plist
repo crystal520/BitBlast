@@ -9,8 +9,7 @@
 		<dict>
 			<key>frames</key>
 			<array>
-				<string>dropship_2.png</string>
-				<string>dropship_2_2.png</string>
+				<string>energyGunShip.png</string>
 			</array>
 			<key>name</key>
 			<string>walk</string>
@@ -19,15 +18,14 @@
 		</dict>
 	</array>
 	<key>spawnRate</key>
-	<real>1.1</real>
+	<real>0.3</real>
 	<key>image</key>
 	<string>uiatlas.png</string>
 	<key>plist</key>
 	<string>uiatlas.plist</string>
 	<key>enemyTypes</key>
 	<array>
-		<string>enemySoldier</string>
-		<string>blankMonster</string>
+		<string>laserBlast</string>
 	</array>
 	<key>boundingBox</key>
 	<dict>
@@ -36,33 +34,33 @@
 		<key>y</key>
 		<integer>0</integer>
 		<key>width</key>
-		<integer>298</integer>
+		<integer>422</integer>
 		<key>height</key>
-		<integer>216</integer>
+		<integer>304</integer>
 	</dict>
 	<key>offsetTop</key>
 	<dict>
 		<key>x</key>
-		<integer>-350</integer>
+		<integer>-300</integer>
 		<key>y</key>
 		<integer>125</integer>
 	</dict>
 	<key>offsetMiddle</key>
 	<dict>
 		<key>x</key>
-		<integer>-350</integer>
+		<integer>-300</integer>
 		<key>y</key>
 		<integer>100</integer>
 	</dict>
 	<key>offsetBottom</key>
 	<dict>
 		<key>x</key>
-		<integer>-350</integer>
+		<integer>-300</integer>
 		<key>y</key>
 		<integer>100</integer>
 	</dict>
 	<key>coins</key>
-	<integer>20</integer>
+	<integer>25</integer>
 	<key>sounds</key>
 	<dict>
 		<key>hit</key>
