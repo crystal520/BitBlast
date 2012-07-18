@@ -129,6 +129,7 @@
 	else if(!enabled && newEnabled) {
 		self.visible = YES;
 		alive = YES;
+        [self hover];
 	}
 	if(!newEnabled) {
 		level = CHUNK_LEVEL_UNKNOWN;
@@ -186,6 +187,7 @@
             health -= bullet.damage;
             // if the dropship died, turn off all movement and play death animation
             if(health <= 0) {
+                [self stopActionByTag:DROPSHIP_ACTION_TAG_HOVER];
                 [self stopActionByTag:DROPSHIP_ACTION_TAG_HIT];
                 [self setColor:ccc3(255, 255, 255)];
                 [self die];
@@ -219,6 +221,16 @@
 	level = CHUNK_LEVEL_UNKNOWN;
 	// turn towards the ground and crash!
 	[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
+}
+
+- (void) hover {
+    // make dropship hover
+    float hoverTime = CCRANDOM_MIN_MAX(0.35, 0.45);
+    CCActionInterval *hoverUp = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(0.15, 0.25))]];
+    CCActionInterval *hoverDown = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(-0.25, -0.15))]];
+    CCAction *finalHover = [CCRepeatForever actionWithAction:[CCSequence actions:hoverUp, hoverDown, nil]];
+    finalHover.tag = DROPSHIP_ACTION_TAG_HOVER;
+    [self runAction:finalHover];
 }
 
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)newLevel {

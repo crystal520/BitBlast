@@ -14,6 +14,7 @@
 #import "SimpleAudioEngine.h"
 #import "BBMovingCoinManager.h"
 #import "BBExplosionManager.h"
+#import "BBActionInterval.h"
 
 typedef enum {
 	DROPSHIP_STATE_INTRO_MOVING_RIGHT,
@@ -22,7 +23,8 @@ typedef enum {
 } DropshipState;
 
 typedef enum {
-	DROPSHIP_ACTION_TAG_HIT
+	DROPSHIP_ACTION_TAG_HIT,
+    DROPSHIP_ACTION_TAG_HOVER
 } DropshipActions;
 
 @interface BBDropshipShape : BBGameObjectShape {}
@@ -72,6 +74,7 @@ typedef enum {
 - (void) spawnEnemy;
 - (void) hitByBullet:(BBBullet*)bullet withContact:(GB2Contact*)contact;
 - (void) die;
+- (void) hover;
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)newLevel;
 
 @end
