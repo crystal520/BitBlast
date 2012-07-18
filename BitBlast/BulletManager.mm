@@ -59,14 +59,9 @@
 #pragma mark update
 - (void) update:(float)delta {
 	// loop through bullets and update
-    int bulletCount = 0;
 	for(BBBullet *b in bullets) {
-        if(b.enabled) {
-            bulletCount++;
-        }
 		[b update:delta];
 	}
-    NSLog(@"ACTIVE BULLET COUNT: %i", bulletCount);
 }
 
 - (void) updateActiveBullets {
