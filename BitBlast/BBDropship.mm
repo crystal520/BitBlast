@@ -83,6 +83,7 @@
 			if(!alive) {
 				if(dummyPosition.y + self.contentSize.height * 0.5 < 0) {
 					[self setEnabled:NO];
+                    [explosionManager stopExploding:self];
 					[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventDropshipDestroyed object:nil]];
 				}
 			}

@@ -122,7 +122,7 @@
             [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentEnemies"];
             [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyEnemies"];
             [self die];
-            [[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:self.dummyPosition];
+            [[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:ccpAdd(self.dummyPosition, ccp(0, self.contentSize.height * 0.5))];
         }
         else {
             // TODO: play hit animation or something cooler. possibly blood particles

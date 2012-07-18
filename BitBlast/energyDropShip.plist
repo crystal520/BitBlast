@@ -27,17 +27,6 @@
 	<array>
 		<string>laserBlast</string>
 	</array>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>-50</integer>
-		<key>y</key>
-		<integer>0</integer>
-		<key>width</key>
-		<integer>422</integer>
-		<key>height</key>
-		<integer>304</integer>
-	</dict>
 	<key>offsetTop</key>
 	<dict>
 		<key>x</key>
@@ -70,5 +59,7 @@
 	</dict>
 	<key>particles</key>
 	<string>dropShip1HitParticle.plist</string>
+	<key>collisionShape</key>
+	<string>energyGunShip</string>
 </dict>
 </plist>

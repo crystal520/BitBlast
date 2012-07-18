@@ -29,10 +29,9 @@
 
 - (id) init {
 	if((self = [super init])) {
-		dropships = [NSMutableArray new];
         // explosions!
 		explosionManager = [BBExplosionManager new];
-		[explosionManager setNode:self];
+		dropships = [NSMutableArray new];
 		// create dropships
 		for(int i=0;i<MAX_DROPSHIPS;i++) {
 			BBDropship *d = [BBDropship new];
@@ -41,6 +40,7 @@
 			[dropships addObject:d];
 			[d release];
 		}
+		[explosionManager setNode:self];
 		// load dropship levels
 		dropshipLevels = [[NSArray alloc] initWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropshipLevels" ofType:@"plist"]] objectForKey:@"levels"]];
 		[self setDropshipLevel:0];
