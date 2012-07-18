@@ -119,16 +119,7 @@
 	<string>plasmapistolparticle.plist</string>
 	<key>damage</key>
 	<integer>10</integer>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>25</integer>
-		<key>height</key>
-		<integer>8</integer>
-	</dict>
+	<key>collisionShape</key>
+	<string>bluelaserbullet</string>
 </dict>
 </plist>

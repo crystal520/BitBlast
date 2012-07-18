@@ -115,18 +115,9 @@
 	<real>0.75</real>
 	<key>sprite</key>
 	<string>shell.png</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>52</integer>
-		<key>height</key>
-		<integer>20</integer>
-	</dict>
 	<key>damage</key>
 	<real>12.5</real>
+	<key>collisionShape</key>
+	<string>shell</string>
 </dict>
 </plist>

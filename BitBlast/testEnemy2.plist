@@ -52,18 +52,9 @@
 		<key>y</key>
 		<integer>0</integer>
 	</dict>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>18</integer>
-		<key>y</key>
-		<integer>1</integer>
-		<key>width</key>
-		<integer>62</integer>
-		<key>height</key>
-		<integer>102</integer>
-	</dict>
 	<key>coins</key>
 	<integer>8</integer>
+	<key>collisionShape</key>
+	<string>monster2_1</string>
 </dict>
 </plist>

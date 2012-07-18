@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "BBMovingCoin.h"
 
-#define MAX_MOVING_COINS 50
+#define MAX_MOVING_COINS 100
 
 @interface BBMovingCoinManager : CCNode {
     NSMutableArray *coins;

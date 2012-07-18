@@ -10,6 +10,9 @@
 #import "cocos2d.h"
 #import "BBMovingObject.h"
 
+@interface BBMovingCoinShape : BBGameObjectShape {}
+@end
+
 @interface BBMovingCoin : BBMovingObject {
     // bounciness of coins
 	float restitution;

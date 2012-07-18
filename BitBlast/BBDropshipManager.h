@@ -11,7 +11,6 @@
 #import "BBDropship.h"
 #import "BulletManager.h"
 #import "ChunkManager.h"
-#import "BBExplosionManager.h"
 
 #define MAX_DROPSHIPS 3
 
@@ -45,7 +44,6 @@
 // update
 - (void) update:(float)delta;
 // actions
-- (void) checkCollisions;
 - (void) tryToSpawnDropship;
 // notifications
 - (void) pause;

@@ -51,16 +51,7 @@
 	</dict>
 	<key>coins</key>
 	<integer>3</integer>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>0</integer>
-		<key>y</key>
-		<integer>0</integer>
-		<key>width</key>
-		<integer>78</integer>
-		<key>height</key>
-		<integer>178</integer>
-	</dict>
+	<key>collisionShape</key>
+	<string>spikewall</string>
 </dict>
 </plist>

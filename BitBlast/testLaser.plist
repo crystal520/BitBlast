@@ -16,5 +16,9 @@
 	<string>ultralaserParticle.plist</string>
 	<key>sound</key>
 	<string>laser.wav</string>
+	<key>damage</key>
+	<integer>1</integer>
+	<key>collisionShape</key>
+	<string>ultralaser</string>
 </dict>
 </plist>

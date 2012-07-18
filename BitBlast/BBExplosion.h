@@ -12,11 +12,15 @@
 
 @interface BBExplosion : BBGameObject {
     BBGameObject *explodingObject;
+    // whether or not the explosion is enabled
+    BOOL enabled;
 }
 
 @property (nonatomic, assign) BBGameObject *explodingObject;
 
 // actions
 - (void) explode;
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 
 @end

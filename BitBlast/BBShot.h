@@ -49,6 +49,8 @@
 	CCParticleSystemQuad *particles;
 	// scale of the bullets fired
 	float scale;
+    // collision shape to use for a bullet
+    NSString *collisionShapeString;
 }
 
 // initializers
@@ -64,5 +66,8 @@
 - (void) update:(float)delta;
 // actions
 - (void) fire:(int)updateBulletTime;
+- (void) pause;
+- (void) resume;
+- (void) gameOver;
 
 @end

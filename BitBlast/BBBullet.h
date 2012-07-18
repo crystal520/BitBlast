@@ -10,6 +10,15 @@
 #import "cocos2d.h"
 #import "BBMovingObject.h"
 
+typedef enum {
+    kBulletTypeUnknown,
+    kBulletTypeShot,
+    kBulletTypeLaser
+} BulletType;
+
+@interface BBBulletShape : BBGameObjectShape {}
+@end
+
 @interface BBBullet : BBMovingObject {
 	// how much damage the bullet does upon impact
 	float damage;
@@ -21,12 +30,16 @@
 	BOOL enabled;
 	// whether this bullet should always be alive
 	BOOL indestructible;
+    // type of bullet, set by subclasses
+    BulletType type;
+    // scale this bullet should be on resetting
+    float resetScale;
 }
 
 @property (nonatomic, readonly) BOOL recycle, enabled;
 @property (nonatomic, assign) BOOL indestructible;
-@property (nonatomic, assign) float lifeTimer;
-@property (nonatomic, assign) float damage;
+@property (nonatomic, assign) float lifeTimer, damage, resetScale;
+@property (nonatomic, assign) BulletType type;
 
 // actions
 - (void) resetWithPosition:(CGPoint)newPosition velocity:(CGPoint)newVelocity lifetime:(float)newLifetime graphic:(NSString*)newGraphic;
@@ -34,5 +47,6 @@
 - (void) update:(float)delta;
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
+- (void) setCollisionShape:(NSString*)shapeName;
 
 @end

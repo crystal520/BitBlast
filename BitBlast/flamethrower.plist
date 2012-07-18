@@ -22,7 +22,7 @@
 	<key>torsoOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>20</integer>
+		<integer>50</integer>
 		<key>y</key>
 		<integer>-48</integer>
 	</dict>

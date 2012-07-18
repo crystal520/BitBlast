@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import "BBBehavior.h"
 #import "BulletManager.h"
+#import "CocosDenshion.h"
+#import "SimpleAudioEngine.h"
 
 @interface BBLaser : NSObject {
 	// graphic that laser uses
@@ -48,5 +50,9 @@
 - (void) update:(float)delta;
 // actions
 - (void) clearBullets;
+- (void) checkSound;
+- (void) pause;
+- (void) resume;
+- (void) gameOver;
 
 @end

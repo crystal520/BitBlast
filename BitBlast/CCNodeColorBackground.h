@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 @interface CCNodeColorBackground : CCNode {
-    CCSprite *background;
+    
 }
 
 - (id) initWithColor:(ccColor3B)color withAlpha:(float)alpha;

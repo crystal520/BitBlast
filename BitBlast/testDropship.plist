@@ -30,17 +30,8 @@
 		<string>testEnemy2</string>
 		<string>enemyBird</string>
 	</array>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>-50</integer>
-		<key>y</key>
-		<integer>0</integer>
-		<key>width</key>
-		<integer>478</integer>
-		<key>height</key>
-		<integer>314</integer>
-	</dict>
+	<key>collisionShape</key>
+	<string>infected_dropship</string>
 	<key>offsetTop</key>
 	<dict>
 		<key>x</key>

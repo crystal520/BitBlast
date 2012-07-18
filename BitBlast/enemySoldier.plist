@@ -53,18 +53,9 @@
 		<key>y</key>
 		<integer>0</integer>
 	</dict>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>0</integer>
-		<key>y</key>
-		<integer>0</integer>
-		<key>width</key>
-		<integer>128</integer>
-		<key>height</key>
-		<integer>128</integer>
-	</dict>
 	<key>coins</key>
 	<integer>3</integer>
+	<key>collisionShape</key>
+	<string>enemy_soldier4</string>
 </dict>
 </plist>

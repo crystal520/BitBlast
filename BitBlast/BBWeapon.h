@@ -44,5 +44,8 @@
 - (void) update:(float)delta;
 // actions
 - (void) clearLasers;
+- (void) pause;
+- (void) resume;
+- (void) gameOver;
 
 @end

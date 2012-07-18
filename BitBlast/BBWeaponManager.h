@@ -27,5 +27,7 @@
 - (void) equip:(NSString*)newWeapon;
 - (void) unequip:(NSString*)oldWeapon;
 - (void) unequipAll;
+- (void) pause;
+- (void) resume;
 
 @end

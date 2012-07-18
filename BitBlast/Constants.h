@@ -31,6 +31,24 @@ typedef enum {
 	TOUCH_DEPTH_POPUP
 } TouchOrder;
 
+typedef enum {
+    kDeathUnknown,
+    kDeathEnemy,
+    kDeathFall
+} ReasonForDeath;
+
+typedef enum {
+	kStateUnknown,
+	kStateMainMenu,
+	kStateGameOver,
+	kStateIntro,
+	kStateGame,
+	kStateShop,
+	kStateConfirmBuy,
+	kStateLeaderboards,
+	kStatePause
+} GameState;
+
 #define kGameRestartNotification @"gameRestartNotification"
 #define kLoadLevelNotification @"loadLevelNotification"
 

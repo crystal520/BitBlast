@@ -9,10 +9,34 @@
 	<key>behaviors</key>
 	<array>
 		<dict>
+			<key>maxRange</key>
+			<dict>
+				<key>high</key>
+				<string>1</string>
+				<key>low</key>
+				<string>1</string>
+			</dict>
+			<key>minRange</key>
+			<dict>
+				<key>high</key>
+				<string>0.75</string>
+				<key>low</key>
+				<string>0.75</string>
+			</dict>
 			<key>curve</key>
-			<string>easeOutSine</string>
+			<string>ease</string>
 			<key>loop</key>
 			<true/>
+			<key>property</key>
+			<string>scale</string>
+			<key>repeat</key>
+			<true/>
+			<key>speed</key>
+			<real>0.25</real>
+			<key>start</key>
+			<string>min</string>
+		</dict>
+		<dict>
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
@@ -26,97 +50,17 @@
 				<string>0</string>
 				<key>low</key>
 				<string>0</string>
-			</dict>
-			<key>property</key>
-			<string>alpha</string>
-			<key>repeat</key>
-			<false/>
-			<key>speed</key>
-			<integer>1</integer>
-			<key>start</key>
-			<string>min</string>
-		</dict>
-		<dict>
-			<key>maxRange</key>
-			<dict>
-				<key>high</key>
-				<string>50</string>
-				<key>low</key>
-				<string>-50</string>
-			</dict>
-			<key>minRange</key>
-			<dict>
-				<key>high</key>
-				<string>0</string>
-				<key>low</key>
-				<string>0</string>
-			</dict>
-			<key>curve</key>
-			<string>easeInExpo</string>
-			<key>loop</key>
-			<false/>
-			<key>property</key>
-			<string>y</string>
-			<key>repeat</key>
-			<false/>
-			<key>speed</key>
-			<integer>3</integer>
-			<key>start</key>
-			<string>min</string>
-		</dict>
-		<dict>
-			<key>maxRange</key>
-			<dict>
-				<key>high</key>
-				<string>1, 1, 1</string>
-				<key>low</key>
-				<string>1, 1, 1</string>
-			</dict>
-			<key>minRange</key>
-			<dict>
-				<key>high</key>
-				<string>1, 1, 1</string>
-				<key>low</key>
-				<string>1, 1, 1</string>
-			</dict>
-			<key>curve</key>
-			<string>easeInExpo</string>
-			<key>loop</key>
-			<false/>
-			<key>property</key>
-			<string>color</string>
-			<key>repeat</key>
-			<false/>
-			<key>speed</key>
-			<real>0.5</real>
-			<key>start</key>
-			<string>min</string>
-		</dict>
-		<dict>
-			<key>maxRange</key>
-			<dict>
-				<key>high</key>
-				<string>3</string>
-				<key>low</key>
-				<string>3</string>
-			</dict>
-			<key>minRange</key>
-			<dict>
-				<key>high</key>
-				<string>0.2</string>
-				<key>low</key>
-				<string>0.2</string>
 			</dict>
 			<key>curve</key>
 			<string>ease</string>
 			<key>loop</key>
 			<false/>
 			<key>property</key>
-			<string>scale</string>
+			<string>alpha</string>
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<integer>1</integer>
+			<real>0.5</real>
 			<key>start</key>
 			<string>min</string>
 		</dict>
@@ -126,35 +70,26 @@
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
-	<integer>200</integer>
+	<integer>400</integer>
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
-	<integer>200</integer>
+	<integer>400</integer>
 	<key>rateOfFire</key>
-	<real>0.2</real>
+	<real>0.1</real>
 	<key>sprite</key>
-	<string>bluewave.png</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>64</integer>
-		<key>height</key>
-		<integer>60</integer>
-	</dict>
+	<string>bluewaveNEW.png</string>
 	<key>damage</key>
-	<real>1.6666</real>
+	<integer>2</integer>
+	<key>collisionShape</key>
+	<string>bluewaveNEW</string>
 </dict>
 </plist>
