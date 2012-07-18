@@ -13,6 +13,8 @@
 
 @interface BBWeaponManager : NSObject {
     NSMutableSet *weapons;
+    // last equipped item that player actually owns
+    NSMutableString *lastEquipped;
 }
 
 @property (nonatomic, readonly) NSMutableSet *weapons;

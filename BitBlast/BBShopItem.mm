@@ -61,10 +61,14 @@
 			buyLabel.scale = 0.4;
             cost.visible = NO;
 		}
-		else {
-			buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
-			buyLabel.scale = 0.4;
+		else if([[itemDictionary objectForKey:@"previewAvailable"] boolValue]) {
+			buyLabel = [CCLabelBMFont labelWithString:@"PREVIEW" fntFile:@"gamefont.fnt"];
+			buyLabel.scale = 0.3;
 		}
+        else {
+            buyLabel = [CCLabelBMFont labelWithString:@"BUY" fntFile:@"gamefont.fnt"];
+			buyLabel.scale = 0.4;
+        }
 		
 		// create buy button
 		buy = [CCLabelButton buttonWithLabel:buyLabel normalSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"buybutton_pressed.png"] target:self selector:@selector(buy)];
@@ -74,6 +78,7 @@
         
         // listen for notifications so we know if the item was purchased
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemPurchased:) name:kNavBuyItemNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemPreviewed) name:kEventPreviewWeapon object:nil];
 	}
 	
 	return self;
@@ -97,17 +102,14 @@
 	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	// if player already owns item, just equip it
 	if([[SettingsManager sharedSingleton] getBool:[itemDictionary objectForKey:@"identifier"]]) {
-		// equip based on type
-		NSString *type = [itemDictionary objectForKey:@"type"];
-		if([type isEqualToString:@"weapon"]) {
-			// for now, just have one weapon equipped
-			[[BBWeaponManager sharedSingleton] unequipAll];
-			[[BBWeaponManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
-		}
-		else if([type isEqualToString:@"equipment"]) {
-			[[BBEquipmentManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
-		}
+		[self equipItem];
 	}
+    // see if player is previewing it
+    else if([[buy.label string] isEqualToString:@"PREVIEW"]) {
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventPreviewWeapon object:nil]];
+        [buy setString:@"BUY"];
+        [self equipItem];
+    }
 	// otherwise try to buy it
 	else {
 		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavShopConfirmNotification object:nil userInfo:itemDictionary]];
@@ -125,6 +127,26 @@
         CCLabelBMFont *buyLabel = [CCLabelBMFont labelWithString:@"EQUIP" fntFile:@"gamefont.fnt"];
         buyLabel.scale = 0.4;
         [buy setLabel:buyLabel];
+    }
+}
+
+- (void) itemPreviewed {
+    // if player doesn't own this item, set label from BUY to PREVIEW
+    if(![[SettingsManager sharedSingleton] getBool:[itemDictionary objectForKey:@"type"]] && [[itemDictionary objectForKey:@"previewAvailable"] boolValue]) {
+        [buy setString:@"PREVIEW"];
+    }
+}
+
+- (void) equipItem {
+    // equip based on type
+    NSString *type = [itemDictionary objectForKey:@"type"];
+    if([type isEqualToString:@"weapon"]) {
+        // for now, just have one weapon equipped
+        [[BBWeaponManager sharedSingleton] unequipAll];
+        [[BBWeaponManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+    }
+    else if([type isEqualToString:@"equipment"]) {
+        [[BBEquipmentManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
     }
 }
 

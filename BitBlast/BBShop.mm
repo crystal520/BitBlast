@@ -151,6 +151,12 @@
 	[self setEnabled:YES];
 }
 
+- (void) onExit {
+    [super onExit];
+    [[BBWeaponManager sharedSingleton] unequipAll];
+    [[BBWeaponManager sharedSingleton] equip:[[SettingsManager sharedSingleton] getString:@"equippedWeapon"]];
+}
+
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {

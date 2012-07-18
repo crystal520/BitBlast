@@ -37,6 +37,7 @@
 			[self equip:[[SettingsManager sharedSingleton] getString:@"equippedWeapon"]];
 		}
 		else {
+            [[SettingsManager sharedSingleton] setBool:YES keyString:@"pistol"];
 			[self equip:@"pistol"];
 		}
         
@@ -87,14 +88,10 @@
 	[weapons addObject:w];
 	[w release];
 	
-	// if this weapon is newly purchased, increment number of weapons owned
-	if(![[SettingsManager sharedSingleton] getBool:newWeapon]) {
-		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalWeapons"];
-	}
-	// save the item to device
-	[[SettingsManager sharedSingleton] setBool:YES keyString:newWeapon];
-	// keep track of most recently equipped weapon
-	[[SettingsManager sharedSingleton] setString:newWeapon keyString:@"equippedWeapon"];
+	// keep track of most recently equipped OWNED weapon (for allowing shop previews)
+    if([[SettingsManager sharedSingleton] getBool:newWeapon]) {
+        [[SettingsManager sharedSingleton] setString:newWeapon keyString:@"equippedWeapon"];
+    }
 	
 	// post notification that weapon was equipped
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEquipWeaponNotification object:nil]];

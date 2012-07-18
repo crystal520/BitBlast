@@ -29,11 +29,15 @@
 		// intro sequence!
 		CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(hover)], nil];
 		[self runAction:action];
+        
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 	}
 	return self;
 }
 
 - (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }
 

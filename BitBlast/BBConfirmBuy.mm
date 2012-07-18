@@ -101,6 +101,10 @@
 	NSString *identifier = [itemDictionary objectForKey:@"identifier"];
 	
 	if([type isEqualToString:@"weapon"]) {
+        // increment number of weapons owned
+        [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalWeapons"];
+        // save the item to device
+        [[SettingsManager sharedSingleton] setBool:YES keyString:identifier];
 		// for now, just have one weapon equipped
 		[[BBWeaponManager sharedSingleton] unequipAll];
 		[[BBWeaponManager sharedSingleton] equip:identifier];

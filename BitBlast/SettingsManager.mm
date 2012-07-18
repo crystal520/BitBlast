@@ -110,7 +110,6 @@ static SettingsManager* _sharedSettingsManager = nil;
 	
 	settings = [NSMutableDictionary dictionaryWithContentsOfFile:fullPath];
 	
-    [settings setObject:[NSNumber numberWithInt:99999999] forKey:@"totalCoins"];
 	if (settings != nil)
 	{
 		CCLOG(@"settings read success");
