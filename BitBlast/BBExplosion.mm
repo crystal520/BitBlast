@@ -15,7 +15,6 @@
 
 - (id) init {
 	if((self = [super initWithFile:@"dropshipExplosion"])) {
-		[self loadAnimations];
         enabled = YES;
 		[self setEnabled:NO];
 		self.scale = 2;
@@ -34,7 +33,7 @@
 	int ranY = CCRANDOM_MIN_MAX(0, bounds.y) - bounds.y * 0.5 + explodingObject.position.y - 50;
 	self.position = ccp(ranX, ranY);
 	// delay, explode, repeat
-	[self playAnimation:@"death" target:self selector:@selector(explode)];
+	[self playAnimation:@"explosion" target:self selector:@selector(explode)];
 }
 
 #pragma mark -

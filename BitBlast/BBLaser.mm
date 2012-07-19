@@ -107,6 +107,11 @@
 
 - (void) setEnabled:(BOOL)newEnable {
 	enabled = newEnable;
+    // make sure all particles disappear
+    if(!newEnable) {
+        [particles resetSystem];
+        [particles update:0];
+    }
 	for(BBBullet *b in lasers) {
 		b.visible = newEnable;
 	}

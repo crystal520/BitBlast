@@ -67,8 +67,9 @@
 
 - (void) setCollisionShape:(NSString *)shapeName {
     if(collisionShape) {
-        if(![collisionShape.shapeName isEqualToString:shapeName]) {
+        if(![collisionShape.shapeString isEqualToString:shapeName]) {
             [collisionShape destroyBody];
+            [collisionShape release];
             collisionShape = [[BBEnemyShape alloc] initWithDynamicBody:shapeName node:self];
             [collisionShape setActive:NO];
         }
@@ -100,13 +101,13 @@
 - (void) resetWithPosition:(CGPoint)newPosition withType:(NSString *)enemyType {
 	// reset the enemy with new parameters
 	[self loadFromFile:enemyType];
-	[self loadAnimations];
 	[self setEnabled:YES];
-	[self repeatAnimation:@"walk"];
+	[self repeatAnimation:[dictionary objectForKey:@"animation"]];
 	self.anchorPoint = ccp(0.5, 0);
 	dummyPosition = ccpAdd(newPosition, ccp(0, -self.contentSize.height * 0.5));
 	// update once just to set correct position
 	[self update:0];
+    [self loadComplete];
 }
 
 - (void) hitByBullet:(BBBullet*)bullet {
@@ -122,7 +123,7 @@
             [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentEnemies"];
             [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyEnemies"];
             [self die];
-            [[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:ccpAdd(self.dummyPosition, ccp(0, self.contentSize.height * 0.5))];
+            [[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:ccpAdd(self.dummyPosition, ccp(0, self.contentSize.height))];
         }
         else {
             // TODO: play hit animation or something cooler. possibly blood particles
@@ -145,7 +146,7 @@
 	velocity = ccp(0, 0);
 	gravity = ccp(0, 0);
 	self.scale = 3;
-	[self playAnimation:@"death" target:self selector:@selector(deathAnimationOver)];
+	[self playAnimation:@"explosion" target:self selector:@selector(deathAnimationOver)];
 }
 
 - (void) deathAnimationOver {

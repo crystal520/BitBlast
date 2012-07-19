@@ -6,27 +6,5 @@
 	<string>{0,2}</string>
 	<key>scale</key>
 	<string>{1,1}</string>
-	<key>image</key>
-	<string>uiatlas.png</string>
-	<key>plist</key>
-	<string>uiatlas.plist</string>
-	<key>animations</key>
-	<array>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>explosion1.png</string>
-				<string>explosion2.png</string>
-				<string>explosion3.png</string>
-				<string>explosion4.png</string>
-				<string>explosion5.png</string>
-				<string>explosion6.png</string>
-			</array>
-			<key>name</key>
-			<string>death</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-	</array>
 </dict>
 </plist>

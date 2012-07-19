@@ -11,7 +11,7 @@
 
 @implementation BBDropshipManager
 
-@synthesize dropshipLevel;
+@synthesize dropshipLevel, frontNode, backNode;
 
 + (BBDropshipManager*) sharedSingleton {
 	
@@ -29,6 +29,9 @@
 
 - (id) init {
 	if((self = [super init])) {
+        // create nodes
+        backNode = [CCNode new];
+        frontNode = [CCNode new];
         // explosions!
 		explosionManager = [BBExplosionManager new];
 		dropships = [NSMutableArray new];
@@ -36,11 +39,12 @@
 		for(int i=0;i<MAX_DROPSHIPS;i++) {
 			BBDropship *d = [BBDropship new];
             d.explosionManager = explosionManager;
-			[self addChild:d];
+            d.switchNode = backNode;
+			[backNode addChild:d];
 			[dropships addObject:d];
 			[d release];
 		}
-		[explosionManager setNode:self];
+		[explosionManager setNode:backNode];
 		// load dropship levels
 		dropshipLevels = [[NSArray alloc] initWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropshipLevels" ofType:@"plist"]] objectForKey:@"levels"]];
 		[self setDropshipLevel:0];
@@ -59,6 +63,8 @@
 - (void) dealloc {
 	[dropshipLevels release];
 	[dropships release];
+    [frontNode removeFromParentAndCleanup:YES];
+    [backNode removeFromParentAndCleanup:YES];
 	[super dealloc];
 }
 
@@ -145,6 +151,8 @@
 		
 		if(numChecks > 0) {
 			[explosionManager stopExploding:newDropship];
+            [backNode removeChild:newDropship cleanup:NO];
+            [frontNode addChild:newDropship];
 			[newDropship resetWithPosition:ccp([ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
 			numDropshipsLeft++;
 		}
@@ -194,12 +202,14 @@
 	for(BBDropship *d in dropships) {
 		[d pause];
 	}
+    [explosionManager pause];
 }
 
 - (void) resume {
 	for(BBDropship *d in dropships) {
 		[d resume];
 	}
+    [explosionManager resume];
 }
 
 - (void) dropshipDestroyed {

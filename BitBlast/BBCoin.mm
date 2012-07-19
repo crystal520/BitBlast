@@ -20,8 +20,6 @@
 		recycle = YES;
 		self.visible = NO;
 		alive = YES;
-		[self loadFromFile:@"coin"];
-		[self loadAnimations];
         collisionShape = [[BBCoinShape alloc] initWithDynamicBody:@"oldCoin1" node:self];
         [collisionShape setActive:NO];
 	}
@@ -32,15 +30,14 @@
 #pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
+    self.visible = newEnabled;
 	if(newEnabled && !enabled) {
 		recycle = NO;
-		self.visible = YES;
         [collisionShape setActive:YES];
 		alive = YES;
 	}
 	else if(!newEnabled && enabled) {
 		recycle = YES;
-		self.visible = NO;
         [collisionShape setActive:NO];
 		alive = NO;
 	}
@@ -50,7 +47,7 @@
 - (void) resetWithPosition:(CGPoint)newPosition {
 	// reset the coin with new parameters
 	[self setEnabled:YES];
-	[self repeatAnimation:@"idle"];
+	[self repeatAnimation:@"coinIdle"];
 	dummyPosition = newPosition;
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 }

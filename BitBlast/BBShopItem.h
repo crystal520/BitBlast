@@ -26,5 +26,6 @@
 - (void) touch;
 - (void) buy;
 - (void) viewItem;
+- (void) equipItem;
 
 @end

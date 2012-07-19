@@ -143,17 +143,6 @@
 	<real>0.1</real>
 	<key>particles</key>
 	<string>bluechargeupparticle.plist</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>64</integer>
-		<key>height</key>
-		<integer>60</integer>
-	</dict>
 	<key>damage</key>
 	<real>0.001</real>
 </dict>

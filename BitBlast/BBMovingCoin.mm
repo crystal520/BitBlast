@@ -17,16 +17,15 @@
 
 - (id) init {
 	if((self = [super initWithFile:@"coinExplosion"])) {
-		[self loadAnimations];
-		[self repeatAnimation:@"coinExplosionIdle" startFrame:-1];
+		[self repeatAnimation:@"coinIdle" startFrame:-1];
 		enabled = NO;
 		recycle = YES;
 		self.visible = NO;
 		
 		// load extra variables from dictionary
-		gravity = ccpMult(CGPointFromString([dictionary objectForKey:@"gravity"]), [ResolutionManager sharedSingleton].positionScale);
-		xVelRange = ccpMult(CGPointFromString([dictionary objectForKey:@"xMovementRange"]), [ResolutionManager sharedSingleton].positionScale);
-		yVelRange = ccpMult(CGPointFromString([dictionary objectForKey:@"yMovementRange"]), [ResolutionManager sharedSingleton].positionScale);
+		gravity = CGPointFromString([dictionary objectForKey:@"gravity"]);
+		xVelRange = ccpMult(CGPointFromString([dictionary objectForKey:@"xMovementRange"]), [ResolutionManager sharedSingleton].inversePositionScale);
+		yVelRange = ccpMult(CGPointFromString([dictionary objectForKey:@"yMovementRange"]), [ResolutionManager sharedSingleton].inversePositionScale);
 		restitution = [[dictionary objectForKey:@"bounciness"] floatValue];
 		lifeTime = [[dictionary objectForKey:@"lifetime"] floatValue];
 		tileOffset = ccp(0, [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale);
@@ -48,17 +47,12 @@
 		if(lifeTimer <= 0) {
 			[self setEnabled:NO];
 		}
-		
-		// clamp X velocity if Y velocity is at or close to 0
-		if(abs(velocity.y) <= 1) {
-			velocity.x = 0;
-		}
 	}
 }
 
 #pragma mark -
 #pragma mark super
-- (void) checkPlatformCollisions {
+- (void) checkPlatformCollisions:(float)delta {
 	// special note about tile collisions: tiles' origin is at (0, 0) instead of the normal (0.5, 0.5) anchor
 	touchingPlatform = NO;
 	for(Chunk *c in [ChunkManager sharedSingleton].currentChunks) {
@@ -97,7 +91,7 @@
 			// if the lowest part of the sprite is less than the middle of the tile,
 			// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
 			float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
-			if(dummyPosition.y <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y && velocity.y < 0 && prevDummyPosition.y >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y) {
+			if(dummyPosition.y <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y && velocity.y < 0 && (prevDummyPosition.y - velocity.y * delta) >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y) {
 				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y);
 				touchingPlatform = YES;
 				velocity = ccp(velocity.x * restitution, restitution * -velocity.y);

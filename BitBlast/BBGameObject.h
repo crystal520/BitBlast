@@ -34,8 +34,8 @@ typedef enum {
 // initializers
 - (id) initWithFile:(NSString*)filename;
 - (void) loadFromFile:(NSString*)filename;
+- (void) loadComplete;
 // animations
-- (void) loadAnimations;
 - (void) repeatAnimation:(NSString*)animName;
 - (void) repeatAnimation:(NSString *)animName startFrame:(int)frame;
 - (void) playAnimation:(NSString*)animName;

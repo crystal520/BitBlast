@@ -40,7 +40,7 @@
 // update
 - (void) update:(float)delta;
 // actions
-- (void) checkPlatformCollisions;
+- (void) checkPlatformCollisions:(float)delta;
 // convenience
 - (CGPoint) positionInChunk:(Chunk*)chunk;
 

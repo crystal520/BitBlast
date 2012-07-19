@@ -27,37 +27,20 @@
 }
 
 - (void) dealloc {
-	[dictionary release];
     [collisionShape destroyBody];
 	[super dealloc];
 }
 
 - (void) loadFromFile:(NSString*)filename {
-	if(dictionary) {
-		[dictionary release];
-	}
 	dictionary = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
+}
+
+- (void) loadComplete {
+    [dictionary release];
 }
 
 #pragma mark -
 #pragma mark animations
-- (void) loadAnimations {
-	// get animations from dictionary
-	NSArray *dictAnimations = [NSArray arrayWithArray:[dictionary objectForKey:@"animations"]];
-	// loop through and create animations
-	for(NSDictionary *d in dictAnimations) {
-		// get the frames
-		NSMutableArray *frames = [NSMutableArray array];
-		for(int i=0,j=[[d objectForKey:@"frames"] count];i<j;i++) {
-			[frames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[[d objectForKey:@"frames"] objectAtIndex:i]]];
-		}
-		// create the animation object
-		CCAnimation *anim = [CCAnimation animationWithFrames:frames delay:[[d objectForKey:@"speed"] floatValue]];
-		// save animation in cache
-		[[CCAnimationCache sharedAnimationCache] addAnimation:anim name:[d objectForKey:@"name"]];
-	}
-}
-
 - (void) repeatAnimation:(NSString*)animName {
 	[self repeatAnimation:animName startFrame:0];
 }

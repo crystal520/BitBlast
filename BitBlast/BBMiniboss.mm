@@ -1,31 +1,28 @@
 //
-//  BBDropship.m
+//  BBMiniboss.m
 //  GunRunner
 //
-//  Created by Kristian Bauer on 3/2/12.
-//  Copyright 2012 Man Up Time Studios. All rights reserved.
+//  Created by Kristian Bauer on 7/18/12.
+//  Copyright (c) 2012 Man Up Time Studios. All rights reserved.
 //
 
-#import "BBDropship.h"
+#import "BBMiniboss.h"
 
+@implementation BBMiniboss
 
-@implementation BBDropship
-
-@synthesize enabled, alive, level, explosionManager, switchNode;
+@synthesize enabled, alive, explosionManager;
 
 - (id) init {
 	if((self = [super init])) {
-		enemyTypes = [NSMutableArray new];
 		[self setEnabled:NO];
 		alive = YES;
 		needsPlatformCollisions = NO;
-		level = CHUNK_LEVEL_UNKNOWN;
 	}
 	return self;
 }
 
 - (void) dealloc {
-	[enemyTypes release];
+    [particles release];
 	[super dealloc];
 }
 
@@ -37,26 +34,15 @@
 	// check for particle system
 	if(particles) {
 		[particles release];
-        particles = nil;
 	}
 	if([dictionary objectForKey:@"particles"]) {
 		particles = [[dictionary objectForKey:@"particles"] retain];
 	}
 	
 	// set values from dictionary
-	spawnRate = [[dictionary objectForKey:@"spawnRate"] floatValue];
-	spawnTimer = 0;
 	health = [[dictionary objectForKey:@"health"] floatValue];
-	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
 	coins = [[dictionary objectForKey:@"coins"] intValue];
-    if(sounds) {
-        [sounds release];
-        sounds = nil;
-    }
-    if([dictionary objectForKey:@"sounds"]) {
-        sounds = [[dictionary objectForKey:@"sounds"] retain];
-    }
-	[self repeatAnimation:[dictionary objectForKey:@"animation"]];
+	[self repeatAnimation:@"walk"];
     
     // check for collision shape
     [self setCollisionShape:[dictionary objectForKey:@"collisionShape"]];
@@ -72,18 +58,12 @@
 - (void) update:(float)delta {
 	// only update if enabled
 	if(enabled) {
-		if(state == DROPSHIP_STATE_ACTIVE) {
+		if(state == MINIBOSS_STATE_THINKING) {
             lastBulletHit = nil;
 			[super update:delta];
 			// get velocity from player
 			if(alive) {
 				velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);
-				// spawn enemies
-				spawnTimer += delta;
-				while(spawnTimer >= spawnRate) {
-					[self spawnEnemy];
-					spawnTimer -= spawnRate;
-				}
 			}
 			
 			// if dropship is dead and goes off screen, actually kill it
@@ -95,7 +75,7 @@
 				}
 			}
 		}
-		else if(state == DROPSHIP_STATE_INTRO_MOVING_RIGHT) {
+		else if(state == MINIBOSS_STATE_MOVE_RIGHT) {
 			[super update:delta];
 			
 			CGPoint shipScreenPos = [self convertToWorldSpace:CGPointZero];
@@ -103,44 +83,33 @@
 				velocity = ccp([Globals sharedSingleton].playerVelocity.x - 200, 0);
 				self.scale = 1;
 				self.scaleX = -1;
-				state = DROPSHIP_STATE_INTRO_MOVING_LEFT;
+				state = MINIBOSS_STATE_MOVE_LEFT;
 			}
 		}
-		else if(state == DROPSHIP_STATE_INTRO_MOVING_LEFT) {
+		else if(state == MINIBOSS_STATE_MOVE_LEFT) {
 			[super update:delta];
 			
 			if(dummyPosition.x < [Globals sharedSingleton].playerPosition.x + finalPos.x) {
-				state = DROPSHIP_STATE_ACTIVE;
+				state = MINIBOSS_STATE_THINKING;
 				alive = YES;
                 [collisionShape setActive:YES];
-                [self removeFromParentAndCleanup:NO];
-                [switchNode addChild:self];
 			}
 		}
 	}
-}
-
-#pragma mark -
-#pragma mark getters
-- (NSString*) getRandomEnemy {
-	int ran = CCRANDOM_MIN_MAX(0, [enemyTypes count]);
-	return [enemyTypes objectAtIndex:ran];
 }
 
 #pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
-    self.visible = newEnabled;
 	if(enabled && !newEnabled) {
+		self.visible = NO;
 		alive = NO;
         [collisionShape setActive:NO];
 	}
 	else if(!enabled && newEnabled) {
+		self.visible = YES;
 		alive = YES;
         [self hover];
-	}
-	if(!newEnabled) {
-		level = CHUNK_LEVEL_UNKNOWN;
 	}
 	enabled = newEnabled;
 }
@@ -150,27 +119,18 @@
         if(![collisionShape.shapeString isEqualToString:shapeName]) {
             [collisionShape destroyBody];
             [collisionShape release];
-            collisionShape = [[BBDropshipShape alloc] initWithDynamicBody:shapeName node:self];
+            collisionShape = [[BBMinibossShape alloc] initWithDynamicBody:shapeName node:self];
             [collisionShape setActive:NO];
         }
     }
     else {
-        collisionShape = [[BBDropshipShape alloc] initWithDynamicBody:shapeName node:self];
+        collisionShape = [[BBMinibossShape alloc] initWithDynamicBody:shapeName node:self];
         [collisionShape setActive:NO];
     }
 }
 
 #pragma mark -
 #pragma mark actions
-- (void) spawnEnemy {
-	if(alive && enabled) {
-		// get recycled enemy
-		BBEnemy *newEnemy = [[EnemyManager sharedSingleton] getRecycledEnemy];
-		// reset with position of dropship and random enemy type
-		[newEnemy resetWithPosition:dummyPosition withType:[self getRandomEnemy]];
-	}
-}
-
 - (void) hitByBullet:(BBBullet*)bullet withContact:(GB2Contact*)contact {
     if(bullet.enabled && bullet != lastBulletHit) {
         
@@ -190,14 +150,14 @@
         }
         
         // play sound for dropship getting hit by bullet
-        [[SimpleAudioEngine sharedEngine] playEffect:[sounds objectForKey:@"hit"]];
+        [[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"hit"]];
         
         if(health > 0) {
             health -= bullet.damage;
             // if the dropship died, turn off all movement and play death animation
             if(health <= 0) {
-                [self stopActionByTag:DROPSHIP_ACTION_TAG_HOVER];
-                [self stopActionByTag:DROPSHIP_ACTION_TAG_HIT];
+                //[self stopActionByTag:DROPSHIP_ACTION_TAG_HOVER];
+                //[self stopActionByTag:DROPSHIP_ACTION_TAG_HIT];
                 [self setColor:ccc3(255, 255, 255)];
                 [self die];
                 [explosionManager explodeInObject:self number:5];
@@ -205,7 +165,7 @@
             else {
                 // TODO: play hit animation or something cooler. possibly explosion particles
                 CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-                action.tag = DROPSHIP_ACTION_TAG_HIT;
+                action.tag = MINIBOSS_ACTION_TAG_HIT;
                 [self runAction:action];
             }
         }
@@ -220,14 +180,13 @@
 
 - (void) die {
 	[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:dummyPosition];
-	[[SimpleAudioEngine sharedEngine] playEffect:[sounds objectForKey:@"death"]];
+	[[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"death"]];
 	// increment dropships killed
-	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
-	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
-	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyDropships"];
+	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalMinibosses"];
+	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentMinibosses"];
+	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyMinibosses"];
 	alive = NO;
 	gravity = ccp(2, 5);
-	level = CHUNK_LEVEL_UNKNOWN;
 	// turn towards the ground and crash!
 	[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
 }
@@ -238,17 +197,17 @@
     CCActionInterval *hoverUp = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(0.15, 0.25))]];
     CCActionInterval *hoverDown = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(-0.25, -0.15))]];
     CCAction *finalHover = [CCRepeatForever actionWithAction:[CCSequence actions:hoverUp, hoverDown, nil]];
-    finalHover.tag = DROPSHIP_ACTION_TAG_HOVER;
+    //finalHover.tag = DROPSHIP_ACTION_TAG_HOVER;
     [self runAction:finalHover];
 }
 
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)newLevel {
 	[self loadFromFile:type];
-	state = DROPSHIP_STATE_INTRO_MOVING_RIGHT;
+	state = MINIBOSS_STATE_MOVE_RIGHT;
 	
 	// determine offset based on level type
 	CGPoint levelOffset = ccp(0, 0);
-	level = newLevel;
+	/*level = newLevel;
 	if(level == CHUNK_LEVEL_BOTTOM) {
 		levelOffset = ccp([[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"y"] floatValue]);
 	}
@@ -257,7 +216,7 @@
 	}
 	else {
 		levelOffset = ccp([[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetMiddle"] objectForKey:@"y"] floatValue]);
-	}
+	}*/
 	
 	// make dropship huge
 	self.scale = 2;
@@ -271,16 +230,15 @@
 	[self setEnabled:YES];
 	// make sure it can't get hit by bullets yet
 	alive = NO;
-    [self loadComplete];
 }
 
 @end
 
-@implementation BBDropshipShape
+@implementation BBMinibossShape
 
 - (void) postsolveContactWithBBBulletShape:(GB2Contact*)contact {
     contact.box2dContact->SetEnabled(NO);
-    [(BBDropship*)(self.ccNode) hitByBullet:(BBBullet*)(contact.otherObject.ccNode) withContact:contact];
+    [(BBMiniboss*)(self.ccNode) hitByBullet:(BBBullet*)(contact.otherObject.ccNode)];
 }
 
 @end

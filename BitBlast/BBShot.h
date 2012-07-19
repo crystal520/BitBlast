@@ -41,8 +41,6 @@
 	CGPoint position;
 	// whether this shot is alpha blended
 	BOOL blend;
-	// bounding box that the bullet will have
-	CGRect boundingBox;
 	// sound to play when bullet is fired
 	NSString *sound;
 	// particle system

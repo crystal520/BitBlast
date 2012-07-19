@@ -13,7 +13,6 @@
 
 - (id) init {
 	if((self = [super initWithFile:@"chopper"])) {
-		[self loadAnimations];
 		
 		// make hull image
 		CCSprite *hull = [CCSprite spriteWithSpriteFrameName:@"chopper.png"];
@@ -48,6 +47,7 @@
 	// load extra variables
 	velocity = ccp([[[dictionary objectForKey:@"speed"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"speed"] objectForKey:@"y"] floatValue]);
 	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
+    [self loadComplete];
 }
 
 - (void) hover {

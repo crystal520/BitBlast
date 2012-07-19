@@ -39,6 +39,7 @@
 - (void) setEnabled:(BOOL)newEnabled {
 	if(enabled && !newEnabled) {
 		enabled = newEnabled;
+        [NSObject cancelPreviousPerformRequestsWithTarget:self];
 	}
 	else if(!enabled && newEnabled) {
 		enabled = newEnabled;

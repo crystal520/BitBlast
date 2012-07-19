@@ -31,7 +31,7 @@
 
 @implementation GB2Node
 
-@synthesize ccNode, deleteLater, anchorPoint, visible, contentSize, parent, scale, position, scaleX, scaleY, rotation, shapeName;
+@synthesize ccNode, deleteLater, anchorPoint, visible, contentSize, parent, scale, position, scaleX, scaleY, rotation, shapeString;
 
 -(id) initWithShape:(NSString *)shape bodyType:(b2BodyType)bodyType node:(CCNode*)node;
 {
@@ -39,7 +39,7 @@
     
 	if( self ) 
     {
-        shapeName = [shape retain];
+        shapeString = [shape retain];
         world = [[GB2Engine sharedInstance] world];
         
         b2BodyDef bodyDef;
@@ -65,7 +65,7 @@
 }
 
 - (void) dealloc {
-    [shapeName release];
+    [shapeString release];
     [super dealloc];
 }
 

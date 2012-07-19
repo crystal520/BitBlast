@@ -28,8 +28,6 @@
 		lifetimeRestraints = ccp([[dict objectForKey:@"minLifetime"] floatValue], [[dict objectForKey:@"maxLifetime"] floatValue]);
 		numBulletsRestraints = ccp([[dict objectForKey:@"minNumBullets"] floatValue], [[dict objectForKey:@"maxNumBullets"] floatValue]);
 		blend = [[dict objectForKey:@"blend"] boolValue];
-		NSDictionary *bbDict = [dict objectForKey:@"boundingBox"];
-		boundingBox = CGRectMake([[bbDict objectForKey:@"x"] floatValue], [[bbDict objectForKey:@"y"] floatValue], [[bbDict objectForKey:@"width"] floatValue], [[bbDict objectForKey:@"height"] floatValue]);
 		damage = [[dict objectForKey:@"damage"] floatValue];
 		sound = [[dict objectForKey:@"sound"] retain];
         collisionShapeString = [[dict objectForKey:@"collisionShape"] retain];
@@ -87,6 +85,11 @@
 
 - (void) setEnabled:(BOOL)newEnable {
 	enabled = newEnable;
+    // make sure all particles disappear
+    if(!newEnable) {
+        [particles resetSystem];
+        [particles update:0];
+    }
 }
 
 - (void) setPlayerSpeed:(float)newPlayerSpeed {

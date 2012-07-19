@@ -75,6 +75,7 @@ typedef enum {
 - (void) setupICade;
 - (void) createBackground;
 - (void) loadImages;
+- (void) loadAnimations;
 - (void) loadCameraVariables;
 - (void) reset;
 - (void) resetSessionStats;

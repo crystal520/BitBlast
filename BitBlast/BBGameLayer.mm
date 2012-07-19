@@ -50,6 +50,7 @@
 		[self setScale:[ResolutionManager sharedSingleton].imageScale];
 		[self setPosition:[ResolutionManager sharedSingleton].position];
 		[self loadImages];
+        [self loadAnimations];
 		[self loadCameraVariables];
 		
 		// add dialog queue to layer
@@ -68,7 +69,8 @@
 		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
 		
 		// add dropships to scrollingNode
-		[scrollingNode addChild:[BBDropshipManager sharedSingleton] z:DEPTH_GAME_DROPSHIPS];
+		[scrollingNode addChild:[BBDropshipManager sharedSingleton].backNode z:DEPTH_GAME_DROPSHIPS];
+		[scrollingNode addChild:[BBDropshipManager sharedSingleton].frontNode z:DEPTH_GAME_DROPSHIPS_INTRO];
 		// add enemies to scrollingNode
 		[scrollingNode addChild:[EnemyManager sharedSingleton] z:DEPTH_GAME_ENEMIES];
 		// add coins to scrollingNode
@@ -159,6 +161,25 @@
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"uiatlas.plist"];
 }
 
+- (void) loadAnimations {
+    // get animation file
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"animations" ofType:@"plist"]];
+	// get animations from dictionary
+	NSArray *dictAnimations = [NSArray arrayWithArray:[dictionary objectForKey:@"animations"]];
+	// loop through and create animations
+	for(NSDictionary *d in dictAnimations) {
+		// get the frames
+		NSMutableArray *frames = [NSMutableArray array];
+		for(int i=0,j=[[d objectForKey:@"frames"] count];i<j;i++) {
+			[frames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[[d objectForKey:@"frames"] objectAtIndex:i]]];
+		}
+		// create the animation object
+		CCAnimation *anim = [CCAnimation animationWithFrames:frames delay:[[d objectForKey:@"speed"] floatValue]];
+		// save animation in cache
+		[[CCAnimationCache sharedAnimationCache] addAnimation:anim name:[d objectForKey:@"name"]];
+	}
+}
+
 - (void) loadCameraVariables {
 	
 	// get dictionary from plist
@@ -171,6 +192,8 @@
 }
 
 - (void) reset {
+    // clear unused textures
+    [[CCTextureCache sharedTextureCache] removeUnusedTextures];
 	// let everyone know that a new game is being started
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventNewGame object:nil]];
 	// reset session stats

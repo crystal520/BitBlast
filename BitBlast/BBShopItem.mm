@@ -102,6 +102,7 @@
 	[[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
 	// if player already owns item, just equip it
 	if([[SettingsManager sharedSingleton] getBool:[itemDictionary objectForKey:@"identifier"]]) {
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventPreviewWeapon object:nil]];
 		[self equipItem];
 	}
     // see if player is previewing it
@@ -132,7 +133,7 @@
 
 - (void) itemPreviewed {
     // if player doesn't own this item, set label from BUY to PREVIEW
-    if(![[SettingsManager sharedSingleton] getBool:[itemDictionary objectForKey:@"type"]] && [[itemDictionary objectForKey:@"previewAvailable"] boolValue]) {
+    if(![[SettingsManager sharedSingleton] getBool:[itemDictionary objectForKey:@"identifier"]] && [[itemDictionary objectForKey:@"previewAvailable"] boolValue]) {
         [buy setString:@"PREVIEW"];
     }
 }

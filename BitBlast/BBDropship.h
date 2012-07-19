@@ -57,11 +57,16 @@ typedef enum {
     BBExplosionManager *explosionManager;
     // reference to last bullet that hit this ship
     BBBullet *lastBulletHit;
+    // dictionary of sounds to play
+    NSDictionary *sounds;
+    // reference to BBDropshipManager's backNode
+    CCNode *switchNode;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;
 @property (nonatomic, readonly) ChunkLevel level;
 @property (nonatomic, assign) BBExplosionManager *explosionManager;
+@property (nonatomic, assign) CCNode *switchNode;
 
 // update
 - (void) update:(float)delta;

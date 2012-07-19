@@ -17,6 +17,7 @@
 	NSMutableArray *explosions;
 	// node that contains explosions
 	CCNode *node;
+    BOOL paused;
 }
 
 // setters
@@ -24,5 +25,7 @@
 // actions
 - (void) explodeInObject:(BBGameObject*)object number:(int)count;
 - (void) stopExploding:(BBGameObject*)object;
+- (void) pause;
+- (void) resume;
 
 @end

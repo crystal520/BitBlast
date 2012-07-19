@@ -21,8 +21,6 @@
 		introEnabled = NO;
 		self.anchorPoint = ccp(0.5, 0);
 		
-		[self loadAnimations];
-		
 		// setup torso
 		[self setupLegs];
 		[self setupTorso];
@@ -31,15 +29,17 @@
 		[self setState:kPlayerUnknown];
 		
 		// load values from plist
-		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
+		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale;
 		minVelocity = ccp([[[dictionary objectForKey:@"speedRamp"] objectForKey:@"minSpeed"] floatValue], -[[dictionary objectForKey:@"maxDownwardSpeed"] floatValue]);
 		maxVelocity = ccp([[[dictionary objectForKey:@"speedRamp"] objectForKey:@"maxSpeed"] floatValue], [[dictionary objectForKey:@"maxDownwardSpeed"] floatValue]);
 		speedIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"incrementPercent"] floatValue];
 		chunksToIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"numChunksToIncrement"] intValue];
 		maxJumpTime = [[dictionary objectForKey:@"maxJumpTime"] floatValue];
 		gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
+        initialGravity = gravity;
 		tileOffset = ccp(0, [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale);
 		invincibleTime = [[dictionary objectForKey:@"invincibleTimeAfterLosingHealth"] floatValue];
+        startingHealth = [[dictionary objectForKey:@"health"] intValue];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chunkCompleted) name:kChunkCompletedNotification object:nil];
@@ -49,6 +49,7 @@
 		// add legs and torso to player
 		[self addChild:legs];
 		[self addChild:torso];
+        [self loadComplete];
 	}
 	
 	return self;
@@ -60,7 +61,9 @@
 	[torso release];
 	[legs release];
     [torsoShape destroyBody];
+    [torsoShape release];
     [legsShape destroyBody];
+    [legsShape release];
 	[super dealloc];
 }
 
@@ -79,7 +82,7 @@
 
 - (void) setupLegs {
 	// create and position legs
-	legs = [[BBGameObject alloc] initWithFile:@"playerProperties"];
+	legs = [[BBGameObject alloc] init];
     // create collision shape for legs
     legsShape = [[BBPlayerShape alloc] initWithDynamicBody:@"run1" node:legs];
 }
@@ -227,19 +230,19 @@
 		//NSLog(@"Changing state from: %i --- to: %i", state, newState);
 		switch(newState) {
 			case kPlayerRunning:
-				[legs repeatAnimation:@"run"];
+				[legs repeatAnimation:@"playerRun"];
 				break;
 			case kPlayerBeginJump:
-				[legs playAnimation:@"beginJump"];
+				[legs playAnimation:@"playerBeginJump"];
 				break;
 			case kPlayerMidJump:
-				[legs playAnimation:@"middleJump"];
+				[legs playAnimation:@"playerMiddleJump"];
 				break;
 			case kPlayerEndJump:
-				[legs playAnimation:@"endJump" target:self selector:@selector(endJumpAnimation)];
+				[legs playAnimation:@"playerEndJump" target:self selector:@selector(endJumpAnimation)];
 				break;
 			case kPlayerShop:
-				[legs repeatAnimation:@"run"];
+				[legs repeatAnimation:@"playerRun"];
 				break;
 			case kPlayerDead:
 				[torso stopAllActions];
@@ -306,7 +309,7 @@
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	
 	// set the legs to the first frame of the run animation
-	CCAnimation *runAnim = [[CCAnimationCache sharedAnimationCache] animationByName:@"run"];
+	CCAnimation *runAnim = [[CCAnimationCache sharedAnimationCache] animationByName:@"playerRun"];
 	[legs setDisplayFrame:[runAnim.frames objectAtIndex:[runAnim.frames count]-1]];
 	
 	// jump out of the chopper after a certain amount of time
@@ -317,7 +320,7 @@
 - (void) jumpOutOfChopper {
 	velocity = minVelocity;
 	// re-enable gravity
-	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
+	gravity = initialGravity;
 	needsPlatformCollisions = YES;
 	[self jump];
 	// end the jump after a given amount of time
@@ -349,9 +352,8 @@
 	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:[[BBPowerupManager sharedSingleton] getGunPowerup]];
 	
 	// reset health to starting value from plist
-	int startingHealth = [[dictionary objectForKey:@"health"] intValue] + [[BBPowerupManager sharedSingleton] getHealthPowerup];
-	[self setHealth:startingHealth];
-	[Globals sharedSingleton].playerStartingHealth = startingHealth;
+	[self setHealth:startingHealth + [[BBPowerupManager sharedSingleton] getHealthPowerup]];
+	[Globals sharedSingleton].playerStartingHealth = startingHealth + [[BBPowerupManager sharedSingleton] getHealthPowerup];
 	// keep track of previous total distance
 	previousTotalDistance = [[SettingsManager sharedSingleton] getInt:@"totalMeters"];
 	[self playIntro];
@@ -392,7 +394,7 @@
 - (void) jumpDown {
     // make sure the player is touching a platform before adjusting their position
     if(touchingPlatform && [[[ChunkManager sharedSingleton] getCurrentChunk] isPlatformBelowPosition:ccpSub(self.position, [[ChunkManager sharedSingleton] getCurrentChunk].position)]) {
-        dummyPosition.y -= 1;
+        dummyPosition.y -= 5;
     }
 }
 
@@ -417,8 +419,8 @@
 
 #pragma mark -
 #pragma mark collisions
-- (void) checkPlatformCollisions {
-	[super checkPlatformCollisions];
+- (void) checkPlatformCollisions:(float)delta {
+	[super checkPlatformCollisions:delta];
 	
 	// set state based on whether or not player is touching a platform
 	if(touchingPlatform) {

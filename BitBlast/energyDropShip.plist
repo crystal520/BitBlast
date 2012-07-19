@@ -4,28 +4,11 @@
 <dict>
 	<key>health</key>
 	<integer>100</integer>
-	<key>animations</key>
-	<array>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>energyGunShip.png</string>
-			</array>
-			<key>name</key>
-			<string>walk</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-	</array>
 	<key>spawnRate</key>
-	<real>0.3</real>
-	<key>image</key>
-	<string>uiatlas.png</string>
-	<key>plist</key>
-	<string>uiatlas.plist</string>
+	<integer>2</integer>
 	<key>enemyTypes</key>
 	<array>
-		<string>laserBlast</string>
+		<string>easyWall</string>
 	</array>
 	<key>offsetTop</key>
 	<dict>
@@ -61,5 +44,7 @@
 	<string>dropShip1HitParticle.plist</string>
 	<key>collisionShape</key>
 	<string>energyGunShip</string>
+	<key>animation</key>
+	<string>dropshipBoss</string>
 </dict>
 </plist>

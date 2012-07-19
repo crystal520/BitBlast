@@ -13,6 +13,7 @@
 
 - (id) init {
 	if((self = [super init])) {
+        paused = YES;
 		// make explosion objects
 		explosions = [NSMutableArray new];
 		for(int i=0;i<MAX_NUM_EXPLOSIONS;i++) {
@@ -49,18 +50,20 @@
 #pragma mark -
 #pragma mark actions
 - (void) explodeInObject:(BBGameObject*)object number:(int)count {
-	int counter = 0;
-	for(BBExplosion *e in explosions) {
-		if(!e.explodingObject) {
-			e.explodingObject = object;
-			CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:CCRANDOM_0_1()], [CCCallFunc actionWithTarget:e selector:@selector(explode)], nil];
-			[e runAction:action];
-			counter++;
-			if(counter == count) {
-				break;
-			}
-		}
-	}
+    if(!paused) {
+        int counter = 0;
+        for(BBExplosion *e in explosions) {
+            if(!e.explodingObject) {
+                e.explodingObject = object;
+                CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:CCRANDOM_0_1()], [CCCallFunc actionWithTarget:e selector:@selector(explode)], nil];
+                [e runAction:action];
+                counter++;
+                if(counter == count) {
+                    break;
+                }
+            }
+        }
+    }
 }
 
 - (void) stopExploding:(BBGameObject*)object {
@@ -76,18 +79,21 @@
 #pragma mark -
 #pragma mark notifications
 - (void) pause {
+    paused = YES;
 	for(BBExplosion *e in explosions) {
 		[e pause];
 	}
 }
 
 - (void) resume {
+    paused = NO;
 	for(BBExplosion *e in explosions) {
 		[e resume];
 	}
 }
 
 - (void) newGame {
+    paused = NO;
     for(BBExplosion *e in explosions) {
         [e resume];
         [e setEnabled:NO];

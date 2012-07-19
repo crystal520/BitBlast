@@ -14,7 +14,7 @@
 
 #define MAX_DROPSHIPS 3
 
-@interface BBDropshipManager : CCNode {
+@interface BBDropshipManager : NSObject {
     // array of dropships
 	NSMutableArray *dropships;
 	// number of dropships that should be on screen
@@ -31,9 +31,12 @@
 	NSArray *dropshipLevels;
 	// explosions!
 	BBExplosionManager *explosionManager;
+    // parent nodes for dropships
+    CCNode *frontNode, *backNode;
 }
 
 @property (nonatomic, assign) int dropshipLevel;
+@property (nonatomic, assign) CCNode *frontNode, *backNode;
 
 + (BBDropshipManager*) sharedSingleton;
 

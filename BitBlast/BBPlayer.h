@@ -34,8 +34,9 @@ typedef enum {
 @interface BBPlayer : BBMovingObject {
 	
 	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime, invincibleTime;
+    CGPoint initialGravity;
 	CGSize prevSize;
-	int chunksToIncrement, curNumChunks, chunkOffset;
+	int chunksToIncrement, curNumChunks, startingHealth;
 	// player's current and previous states
 	PlayerState state, prevState;
 	// offsets for torso for each frame of running and jumping animation

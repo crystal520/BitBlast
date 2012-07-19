@@ -113,6 +113,7 @@
 #pragma mark -
 #pragma mark notifications
 - (void) levelWillLoad {
+    checkForCoinGroup = NO;
 	for(BBCoin *c in coins) {
 		[c setEnabled:NO];
 	}

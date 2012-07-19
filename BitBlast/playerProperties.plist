@@ -2,72 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>animations</key>
-	<array>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>run1.png</string>
-				<string>run2.png</string>
-				<string>run3.png</string>
-				<string>run4.png</string>
-				<string>run5.png</string>
-				<string>run6.png</string>
-				<string>run7.png</string>
-				<string>run8.png</string>
-			</array>
-			<key>name</key>
-			<string>run</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>jump1.png</string>
-				<string>jump2.png</string>
-			</array>
-			<key>name</key>
-			<string>beginJump</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>jump3.png</string>
-				<string>jump4.png</string>
-			</array>
-			<key>name</key>
-			<string>middleJump</string>
-			<key>speed</key>
-			<real>0.3</real>
-		</dict>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>jump5.png</string>
-			</array>
-			<key>name</key>
-			<string>endJump</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-	</array>
 	<key>gravity</key>
 	<integer>100</integer>
-	<key>image</key>
-	<string>uiatlas.png</string>
 	<key>jump</key>
-	<integer>20000</integer>
+	<integer>10000</integer>
 	<key>maxDownwardSpeed</key>
 	<integer>600</integer>
 	<key>maxJumpTime</key>
 	<real>0.45</real>
 	<key>invincibleTimeAfterLosingHealth</key>
 	<integer>1</integer>
-	<key>plist</key>
-	<string>uiatlas.plist</string>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
@@ -229,16 +173,5 @@
 			</dict>
 		</dict>
 	</array>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>5</integer>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>20</integer>
-		<key>height</key>
-		<integer>116</integer>
-	</dict>
 </dict>
 </plist>

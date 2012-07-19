@@ -82,8 +82,10 @@
 
 - (void) setCollisionShape:(NSString *)shapeName {
     if(collisionShape) {
-        if(![collisionShape.shapeName isEqualToString:shapeName]) {
+        if(![collisionShape.shapeString isEqualToString:shapeName]) {
             [collisionShape destroyBody];
+            [collisionShape release];
+            collisionShape = nil;
             collisionShape = [[BBBulletShape alloc] initWithDynamicBody:shapeName node:self];
             [collisionShape setActive:NO];
         }

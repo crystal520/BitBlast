@@ -38,11 +38,11 @@
     int objectTag;      //!< tag might be used to query an object
     CCNode *ccNode;     //!< reference to the ccNode, retained
     bool deleteLater;   //!< flag to delete the object on update phase
-    NSString *shapeName;
+    NSString *shapeString;
 @protected
 }
 
-@property (nonatomic, retain) NSString *shapeName;
+@property (nonatomic, retain) NSString *shapeString;
 @property (nonatomic, retain) CCNode *ccNode, *parent;
 @property (nonatomic, assign) bool deleteLater;
 @property (nonatomic, assign) CGPoint anchorPoint, position;

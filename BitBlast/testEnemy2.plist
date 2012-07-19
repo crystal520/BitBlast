@@ -2,41 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>animations</key>
-	<array>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>monster2_1.png</string>
-				<string>monster2_2.png</string>
-				<string>monster2_3.png</string>
-				<string>monster2_4.png</string>
-			</array>
-			<key>name</key>
-			<string>walk</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-		<dict>
-			<key>frames</key>
-			<array>
-				<string>explosion1.png</string>
-				<string>explosion2.png</string>
-				<string>explosion3.png</string>
-				<string>explosion4.png</string>
-				<string>explosion5.png</string>
-				<string>explosion6.png</string>
-			</array>
-			<key>name</key>
-			<string>death</string>
-			<key>speed</key>
-			<real>0.1</real>
-		</dict>
-	</array>
-	<key>image</key>
-	<string>uiatlas.png</string>
-	<key>plist</key>
-	<string>uiatlas.plist</string>
 	<key>type</key>
 	<string>stationary</string>
 	<key>tileCenterOffset</key>
@@ -56,5 +21,7 @@
 	<integer>8</integer>
 	<key>collisionShape</key>
 	<string>monster2_1</string>
+	<key>animation</key>
+	<string>enemy2</string>
 </dict>
 </plist>
