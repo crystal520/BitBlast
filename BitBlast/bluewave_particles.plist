@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>angles</key>
+	<array>
+		<integer>0</integer>
+	</array>
+	<key>behaviors</key>
+	<array/>
+	<key>blend</key>
+	<false/>
+	<key>maxAngleOffset</key>
+	<integer>0</integer>
+	<key>maxLifetime</key>
+	<integer>0</integer>
+	<key>maxNumBullets</key>
+	<integer>0</integer>
+	<key>maxSpeed</key>
+	<integer>0</integer>
+	<key>minAngleOffset</key>
+	<integer>0</integer>
+	<key>minLifetime</key>
+	<integer>0</integer>
+	<key>minNumBullets</key>
+	<integer>0</integer>
+	<key>minSpeed</key>
+	<integer>0</integer>
+	<key>rateOfFire</key>
+	<integer>-1</integer>
+	<key>sprite</key>
+	<string></string>
+	<key>damage</key>
+	<integer>0</integer>
+	<key>particles</key>
+	<string>bluewaveParticle.plist</string>
+</dict>
+</plist>

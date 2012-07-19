@@ -98,7 +98,7 @@
 	<key>maxAngleOffset</key>
 	<integer>10</integer>
 	<key>maxLifetime</key>
-	<integer>10</integer>
+	<integer>1</integer>
 	<key>maxNumBullets</key>
 	<integer>20</integer>
 	<key>maxSpeed</key>
@@ -106,7 +106,7 @@
 	<key>minAngleOffset</key>
 	<integer>-10</integer>
 	<key>minLifetime</key>
-	<integer>10</integer>
+	<integer>1</integer>
 	<key>minNumBullets</key>
 	<integer>18</integer>
 	<key>minSpeed</key>
@@ -115,22 +115,13 @@
 	<real>0.45</real>
 	<key>sprite</key>
 	<string>redbullet.png</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>20</integer>
-		<key>height</key>
-		<integer>20</integer>
-	</dict>
 	<key>damage</key>
 	<real>0.5</real>
 	<key>sound</key>
 	<string>shotgun.wav</string>
 	<key>particles</key>
 	<string>shotgunblast.plist</string>
+	<key>collisionShape</key>
+	<string>redbullet</string>
 </dict>
 </plist>

@@ -40,16 +40,16 @@
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>25</string>
+				<string>5</string>
 				<key>low</key>
-				<string>25</string>
+				<string>5</string>
 			</dict>
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>-25</string>
+				<string>-5</string>
 				<key>low</key>
-				<string>-25</string>
+				<string>-5</string>
 			</dict>
 			<key>curve</key>
 			<string>easeInOutSine</string>
@@ -112,25 +112,16 @@
 	<key>minSpeed</key>
 	<integer>550</integer>
 	<key>rateOfFire</key>
-	<real>0.5</real>
+	<real>0.3</real>
 	<key>sprite</key>
 	<string>blueglow.png</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>49</integer>
-		<key>height</key>
-		<integer>46</integer>
-	</dict>
 	<key>damage</key>
 	<real>4.1</real>
 	<key>sound</key>
 	<string>wavemotioncannon.wav</string>
 	<key>particles</key>
 	<string>wavemotionparticle.plist</string>
+	<key>collisionShape</key>
+	<string>blueglow</string>
 </dict>
 </plist>

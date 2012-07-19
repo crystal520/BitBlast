@@ -13,6 +13,8 @@
 #import "BBBullet.h"
 #import "SimpleAudioEngine.h"
 #import "BBMovingCoinManager.h"
+#import "BBExplosionManager.h"
+#import "BBActionInterval.h"
 
 typedef enum {
 	DROPSHIP_STATE_INTRO_MOVING_RIGHT,
@@ -21,12 +23,16 @@ typedef enum {
 } DropshipState;
 
 typedef enum {
-	DROPSHIP_ACTION_TAG_HIT
+	DROPSHIP_ACTION_TAG_HIT,
+    DROPSHIP_ACTION_TAG_HOVER
 } DropshipActions;
+
+@interface BBDropshipShape : BBGameObjectShape {}
+@end
 
 @interface BBDropship : BBMovingObject {
     // number of bullets it takes for the dropship to die
-	int health;
+	float health;
 	// rate at which enemies spawn from the dropship
 	float spawnRate;
 	// timer to spawn enemies based on spawnRate
@@ -47,10 +53,15 @@ typedef enum {
 	int coins;
 	// particles for when dropship is hit by bullet
 	NSString *particles;
+    // reference to a BBExplosionManager
+    BBExplosionManager *explosionManager;
+    // reference to last bullet that hit this ship
+    BBBullet *lastBulletHit;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;
 @property (nonatomic, readonly) ChunkLevel level;
+@property (nonatomic, assign) BBExplosionManager *explosionManager;
 
 // update
 - (void) update:(float)delta;
@@ -58,10 +69,12 @@ typedef enum {
 - (NSString*) getRandomEnemy;
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
+- (void) setCollisionShape:(NSString*)newShape;
 // actions
 - (void) spawnEnemy;
-- (void) hitByBullet:(BBBullet*)bullet;
+- (void) hitByBullet:(BBBullet*)bullet withContact:(GB2Contact*)contact;
 - (void) die;
+- (void) hover;
 - (void) resetWithPosition:(CGPoint)newPosition type:(NSString*)type level:(ChunkLevel)newLevel;
 
 @end

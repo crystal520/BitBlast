@@ -33,18 +33,7 @@
 #import "BBDialogQueue.h"
 #import "ChartBoost.h"
 #import "BBInputController.h"
-
-typedef enum {
-	kStateUnknown,
-	kStateMainMenu,
-	kStateGameOver,
-	kStateIntro,
-	kStateGame,
-	kStateShop,
-	kStateConfirmBuy,
-	kStateLeaderboards,
-	kStatePause
-} GameState;
+#import "GB2DebugDrawLayer.h"
 
 typedef enum {
 	TAG_MENU,
@@ -53,8 +42,9 @@ typedef enum {
 } SpriteTag;
 
 //#define DEBUG_TEXTURES
-//#define DEBUG_NO_SOUND
-//#define DEBUG_NO_MUSIC
+#define DEBUG_NO_SOUND
+#define DEBUG_NO_MUSIC
+//#define DEBUG_PHYSICS
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartBoostDelegate, BBInputControllerDelegate> {
 	

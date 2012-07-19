@@ -13,6 +13,8 @@
 
 @interface BBWeaponManager : NSObject {
     NSMutableSet *weapons;
+    // last equipped item that player actually owns
+    NSMutableString *lastEquipped;
 }
 
 @property (nonatomic, readonly) NSMutableSet *weapons;
@@ -27,5 +29,7 @@
 - (void) equip:(NSString*)newWeapon;
 - (void) unequip:(NSString*)oldWeapon;
 - (void) unequipAll;
+- (void) pause;
+- (void) resume;
 
 @end

@@ -51,6 +51,8 @@
 		<string>weapon</string>
 		<key>sound</key>
 		<string>shotgun.wav</string>
+		<key>previewAvailable</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

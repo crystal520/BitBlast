@@ -29,17 +29,8 @@
 		<string>testEnemy</string>
 		<string>enemyBird</string>
 	</array>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>-50</integer>
-		<key>y</key>
-		<integer>0</integer>
-		<key>width</key>
-		<integer>427</integer>
-		<key>height</key>
-		<integer>304</integer>
-	</dict>
+	<key>collisionShape</key>
+	<string>dropship_1_2</string>
 	<key>offsetTop</key>
 	<dict>
 		<key>x</key>

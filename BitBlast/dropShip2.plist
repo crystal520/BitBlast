@@ -29,17 +29,8 @@
 		<string>enemySoldier</string>
 		<string>blankMonster</string>
 	</array>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>-50</integer>
-		<key>y</key>
-		<integer>0</integer>
-		<key>width</key>
-		<integer>298</integer>
-		<key>height</key>
-		<integer>216</integer>
-	</dict>
+	<key>collisionShape</key>
+	<string>dropship_2_2</string>
 	<key>offsetTop</key>
 	<dict>
 		<key>x</key>

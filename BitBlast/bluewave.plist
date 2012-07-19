@@ -7,7 +7,7 @@
 	<key>shots</key>
 	<array>
 		<string>bluewave_bullet_new</string>
-		<string>plasmabullet_slowfire</string>
+		<string>bluewave_particles</string>
 	</array>
 	<key>sprite</key>
 	<string></string>
@@ -16,9 +16,9 @@
 	<key>torsoDownOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>40</integer>
+		<integer>45</integer>
 		<key>y</key>
-		<integer>-90</integer>
+		<integer>-75</integer>
 	</dict>
 	<key>torsoOffset</key>
 	<dict>
@@ -30,9 +30,9 @@
 	<key>torsoUpOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>40</integer>
+		<integer>45</integer>
 		<key>y</key>
-		<integer>0</integer>
+		<integer>-5</integer>
 	</dict>
 	<key>upAngle</key>
 	<integer>40</integer>
@@ -50,6 +50,8 @@
 		<string>bluewave</string>
 		<key>type</key>
 		<string>weapon</string>
+		<key>previewAvailable</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

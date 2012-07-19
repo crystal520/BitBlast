@@ -99,7 +99,7 @@
 	<key>maxAngleOffset</key>
 	<integer>3</integer>
 	<key>maxLifetime</key>
-	<integer>10</integer>
+	<real>1.5</real>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
@@ -107,7 +107,7 @@
 	<key>minAngleOffset</key>
 	<integer>-3</integer>
 	<key>minLifetime</key>
-	<integer>10</integer>
+	<real>1.5</real>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
@@ -116,22 +116,13 @@
 	<real>0.05</real>
 	<key>sprite</key>
 	<string>gattlingunbullet.png</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>103</integer>
-		<key>height</key>
-		<integer>5</integer>
-	</dict>
 	<key>damage</key>
 	<real>0.83</real>
 	<key>sound</key>
 	<string>gattlingun.wav</string>
 	<key>particles</key>
 	<string>gattlingunparticle.plist</string>
+	<key>collisionShape</key>
+	<string>gattlingunbullet</string>
 </dict>
 </plist>

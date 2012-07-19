@@ -110,7 +110,7 @@
 	<key>minSpeed</key>
 	<integer>800</integer>
 	<key>rateOfFire</key>
-	<real>1</real>
+	<real>0.5</real>
 	<key>sprite</key>
 	<string>highenergyshot.png</string>
 	<key>particles</key>
@@ -118,17 +118,8 @@
 	<key>sound</key>
 	<string>bounce.wav</string>
 	<key>damage</key>
-	<integer>25</integer>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>74</integer>
-		<key>height</key>
-		<integer>34</integer>
-	</dict>
+	<integer>20</integer>
+	<key>collisionShape</key>
+	<string>highenergyshot</string>
 </dict>
 </plist>

@@ -10,6 +10,9 @@
 #import "cocos2d.h"
 #import "BBGameObject.h"
 
+@interface BBCoinShape : BBGameObjectShape {}
+@end
+
 @interface BBCoin : BBGameObject {
     // whether or not the coin can be recycled
 	BOOL recycle;

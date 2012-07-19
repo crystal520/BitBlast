@@ -23,7 +23,7 @@
 	<key>torsoOffset</key>
 	<dict>
 		<key>x</key>
-		<integer>20</integer>
+		<integer>40</integer>
 		<key>y</key>
 		<integer>-48</integer>
 	</dict>
@@ -41,7 +41,7 @@
 		<key>cost</key>
 		<string>75000</string>
 		<key>description</key>
-		<string>Flame AND Machinegun</string>
+		<string>Flame AND Vulcan</string>
 		<key>icon</key>
 		<string>ripley.png</string>
 		<key>name</key>
@@ -50,6 +50,8 @@
 		<string>ripley</string>
 		<key>type</key>
 		<string>weapon</string>
+		<key>previewAvailable</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

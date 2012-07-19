@@ -23,9 +23,9 @@
 			<key>minRange</key>
 			<dict>
 				<key>high</key>
-				<string>0</string>
+				<string>0.25</string>
 				<key>low</key>
-				<string>0</string>
+				<string>0.25</string>
 			</dict>
 			<key>property</key>
 			<string>alpha</string>
@@ -40,9 +40,9 @@
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>15</string>
+				<string>5</string>
 				<key>low</key>
-				<string>-15</string>
+				<string>-5</string>
 			</dict>
 			<key>minRange</key>
 			<dict>
@@ -96,9 +96,9 @@
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>2</string>
+				<string>1</string>
 				<key>low</key>
-				<string>2</string>
+				<string>1</string>
 			</dict>
 			<key>minRange</key>
 			<dict>
@@ -116,7 +116,7 @@
 			<key>repeat</key>
 			<false/>
 			<key>speed</key>
-			<integer>1</integer>
+			<real>2.5</real>
 			<key>start</key>
 			<string>min</string>
 		</dict>
@@ -143,18 +143,9 @@
 	<real>0.1</real>
 	<key>sprite</key>
 	<string>flamesmall.png</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>64</integer>
-		<key>height</key>
-		<integer>60</integer>
-	</dict>
 	<key>damage</key>
 	<real>1.6666</real>
+	<key>collisionShape</key>
+	<string>flamesmall</string>
 </dict>
 </plist>

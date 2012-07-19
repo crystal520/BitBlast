@@ -96,7 +96,7 @@
 	<key>maxAngleOffset</key>
 	<integer>3</integer>
 	<key>maxLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
@@ -104,7 +104,7 @@
 	<key>minAngleOffset</key>
 	<integer>-3</integer>
 	<key>minLifetime</key>
-	<integer>10</integer>
+	<integer>2</integer>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
@@ -115,20 +115,11 @@
 	<string>yellowbullet.png</string>
 	<key>sound</key>
 	<string>machinegun.wav</string>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<real>0</real>
-		<key>y</key>
-		<real>0</real>
-		<key>width</key>
-		<integer>25</integer>
-		<key>height</key>
-		<integer>8</integer>
-	</dict>
 	<key>damage</key>
 	<real>2.5</real>
 	<key>particles</key>
 	<string>machinegunBlast.plist</string>
+	<key>collisionShape</key>
+	<string>yellowbullet</string>
 </dict>
 </plist>

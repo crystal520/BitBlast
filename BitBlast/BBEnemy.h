@@ -18,6 +18,9 @@ typedef enum {
 	ENEMY_ACTION_TAG_HIT
 } EnemyActions;
 
+@interface BBEnemyShape : BBGameObjectShape {}
+@end
+
 @interface BBEnemy : BBMovingObject {
 	// type of enemy
 	NSString* type;
@@ -31,12 +34,15 @@ typedef enum {
 	BOOL alive;
 	// number of coins enemy gives off when it is killed
 	int coins;
+    // reference to last bullet that hit this enemy
+    BBBullet *lastBulletHit;
 }
 
 @property (nonatomic, assign) BOOL recycle, enabled, alive;
 
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
+- (void) setCollisionShape:(NSString *)shapeName;
 // update
 - (void) update:(float)delta;
 // actions

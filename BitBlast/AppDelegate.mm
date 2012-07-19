@@ -192,7 +192,9 @@
 	[[CCDirector sharedDirector].runningScene onEnter];
 	
 	// let everything know that the game is pausing
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
+    if([Globals sharedSingleton].gameState == kStateGame) {
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
+    }
     
     [[LocalyticsSession sharedLocalyticsSession] resume];
     [[LocalyticsSession sharedLocalyticsSession] upload];

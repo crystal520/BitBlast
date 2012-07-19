@@ -28,11 +28,8 @@ typedef enum {
 	kPlayerDead
 } PlayerState;
 
-typedef enum {
-    kDeathUnknown,
-    kDeathEnemy,
-    kDeathFall
-} ReasonForDeath;
+@interface BBPlayerShape : BBGameObjectShape {}
+@end
 
 @interface BBPlayer : BBMovingObject {
 	
@@ -46,6 +43,9 @@ typedef enum {
 	// sprites for torso and legs
 	CCSprite *torso;
 	BBGameObject *legs;
+    // collision shapes for torso and legs
+    BBPlayerShape *torsoShape;
+    BBPlayerShape *legsShape;
 	// node that contains all pieces of player, to be offset in each chunk when switching between them
 	CCNode *offsetNode;
 	// number of times the player can get hit before dying
@@ -86,8 +86,7 @@ typedef enum {
 // actions
 - (void) addCoins:(int)coins;
 - (void) playIntro;
-- (void) checkCollisions;
-- (void) flashRed:(float)red green:(float)green blue:(float)blue withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
+- (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
 - (void) reset;
 - (void) die:(ReasonForDeath)reason;
 - (void) jump;
@@ -95,5 +94,8 @@ typedef enum {
 - (void) jumpDown;
 - (void) shoot:(CGPoint)touchPos;
 - (void) endShoot;
+// collisions
+- (void) collideWithCoin:(BBCoin*)coin;
+- (void) collideWithMovingCoin:(BBMovingCoin*)coin;
 
 @end

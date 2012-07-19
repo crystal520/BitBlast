@@ -44,7 +44,7 @@
 	<key>health</key>
 	<integer>5</integer>
 	<key>gravity</key>
-	<integer>40</integer>
+	<integer>20</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>
@@ -52,18 +52,9 @@
 		<key>y</key>
 		<integer>0</integer>
 	</dict>
-	<key>boundingBox</key>
-	<dict>
-		<key>x</key>
-		<integer>0</integer>
-		<key>y</key>
-		<integer>0</integer>
-		<key>width</key>
-		<integer>128</integer>
-		<key>height</key>
-		<integer>128</integer>
-	</dict>
 	<key>coins</key>
 	<integer>4</integer>
+	<key>collisionShape</key>
+	<string>flyer1</string>
 </dict>
 </plist>

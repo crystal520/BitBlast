@@ -26,7 +26,5 @@
 - (NSArray*) getActiveEnemies;
 // notifications
 - (void) levelWillLoad;
-// actions
-- (void) checkCollisions;
 
 @end
