@@ -153,6 +153,7 @@
 
 - (void) onExit {
     [super onExit];
+    // unequip all weapons and equip the last equipped weapon the player owns
     [[BBWeaponManager sharedSingleton] unequipAll];
     [[BBWeaponManager sharedSingleton] equip:[[SettingsManager sharedSingleton] getString:@"equippedWeapon"]];
 }

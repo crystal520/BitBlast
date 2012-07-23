@@ -44,6 +44,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kGameRestartNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kNavGameNotification object:nil];
 	}
 	
 	return self;
