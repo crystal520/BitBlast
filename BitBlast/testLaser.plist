@@ -16,6 +16,8 @@
 	<string>ultralaserParticle.plist</string>
 	<key>sound</key>
 	<string>laser.wav</string>
+	<key>volume</key>
+	<real>0.15</real>
 	<key>damage</key>
 	<integer>1</integer>
 	<key>collisionShape</key>

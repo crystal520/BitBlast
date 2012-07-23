@@ -117,8 +117,6 @@
 	<string>blueglow.png</string>
 	<key>damage</key>
 	<real>4.1</real>
-	<key>sound</key>
-	<string>wavemotioncannon.wav</string>
 	<key>particles</key>
 	<string>wavemotionparticle.plist</string>
 	<key>collisionShape</key>

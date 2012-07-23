@@ -119,6 +119,8 @@
 	<real>4.1</real>
 	<key>sound</key>
 	<string>wavemotioncannon.wav</string>
+	<key>volume</key>
+	<integer>1</integer>
 	<key>particles</key>
 	<string>wavemotionparticle.plist</string>
 	<key>collisionShape</key>

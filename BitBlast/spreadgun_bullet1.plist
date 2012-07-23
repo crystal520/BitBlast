@@ -121,6 +121,10 @@
 	<string>redbullet.png</string>
 	<key>damage</key>
 	<real>8.333</real>
+	<key>sound</key>
+	<string>spreadgun.wav</string>
+	<key>volume</key>
+	<integer>1</integer>
 	<key>particles</key>
 	<string>machinegunBlast.plist</string>
 	<key>collisionShape</key>

@@ -115,6 +115,8 @@
 	<string>yellowbullet.png</string>
 	<key>sound</key>
 	<string>machinegun.wav</string>
+	<key>volume</key>
+	<integer>1</integer>
 	<key>damage</key>
 	<real>2.5</real>
 	<key>particles</key>

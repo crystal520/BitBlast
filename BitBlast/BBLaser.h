@@ -32,6 +32,8 @@
 	NSMutableArray *lasers;
 	// sound to loop while laser is active
 	CDSoundSource *sound;
+    // volume of sound
+    float soundVolume;
 	// particle system
 	CCParticleSystemQuad *particles;
 	// scale of the lasers fired

@@ -43,6 +43,8 @@
 	BOOL blend;
 	// sound to play when bullet is fired
 	NSString *sound;
+    // volume of sound
+    float soundVolume;
 	// particle system
 	CCParticleSystemQuad *particles;
 	// scale of the bullets fired

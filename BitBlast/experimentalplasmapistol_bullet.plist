@@ -115,6 +115,8 @@
 	<string>bluelaserbullet.png</string>
 	<key>sound</key>
 	<string>bruce-effects-bounce.wavblast5.wav</string>
+	<key>volume</key>
+	<real>0.7</real>
 	<key>particles</key>
 	<string>experimentalplasmapistolparticle.plist</string>
 	<key>damage</key>

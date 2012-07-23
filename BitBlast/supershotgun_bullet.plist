@@ -119,6 +119,8 @@
 	<real>0.5</real>
 	<key>sound</key>
 	<string>shotgun.wav</string>
+	<key>volume</key>
+	<integer>1</integer>
 	<key>particles</key>
 	<string>shotgunblast.plist</string>
 	<key>collisionShape</key>

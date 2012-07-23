@@ -120,6 +120,8 @@
 	<real>0.83</real>
 	<key>sound</key>
 	<string>gattlingun.wav</string>
+	<key>volume</key>
+	<real>0.9</real>
 	<key>particles</key>
 	<string>gattlingunparticle.plist</string>
 	<key>collisionShape</key>

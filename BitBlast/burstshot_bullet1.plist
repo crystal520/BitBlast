@@ -115,6 +115,8 @@
 	<string>yellowbullet.png</string>
 	<key>sound</key>
 	<string>burstshot.wav</string>
+	<key>volume</key>
+	<integer>1</integer>
 	<key>damage</key>
 	<integer>2</integer>
 	<key>particles</key>

@@ -115,6 +115,8 @@
 	<string>yellowbullet.png</string>
 	<key>sound</key>
 	<string>pistol.wav</string>
+	<key>volume</key>
+	<real>0.6</real>
 	<key>particles</key>
 	<string>machinegunBlast.plist</string>
 	<key>damage</key>

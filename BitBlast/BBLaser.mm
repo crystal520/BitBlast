@@ -24,6 +24,8 @@
 		sprite = [[dict objectForKey:@"sprite"] retain];
 		blend = [[dict objectForKey:@"blend"] boolValue];
 		sound = [[[SimpleAudioEngine sharedEngine] soundSourceForFile:[dict objectForKey:@"sound"]] retain];
+        soundVolume = [[dict objectForKey:@"volume"] floatValue];
+        [sound setGain:soundVolume];
 		
 		// check for particle system
 		if(particles) {

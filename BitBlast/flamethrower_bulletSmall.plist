@@ -143,6 +143,10 @@
 	<real>0.1</real>
 	<key>sprite</key>
 	<string>flamesmall.png</string>
+	<key>sound</key>
+	<string>flamethrower.wav</string>
+	<key>volume</key>
+	<real>0.5</real>
 	<key>damage</key>
 	<real>1.6666</real>
 	<key>collisionShape</key>

@@ -30,6 +30,7 @@
 		blend = [[dict objectForKey:@"blend"] boolValue];
 		damage = [[dict objectForKey:@"damage"] floatValue];
 		sound = [[dict objectForKey:@"sound"] retain];
+        soundVolume = [[dict objectForKey:@"volume"] floatValue];
         collisionShapeString = [[dict objectForKey:@"collisionShape"] retain];
 		
 		// check for particle system
@@ -185,7 +186,7 @@
 	}
 	// play sound if there is any
 	if(sound) {
-		[[SimpleAudioEngine sharedEngine] playEffect:sound];
+		[[SimpleAudioEngine sharedEngine] playEffect:sound pitch:1.0 pan:0.0 gain:soundVolume];
 	}
 	// reset particles if there are any
 	if(particles) {

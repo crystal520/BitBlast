@@ -394,6 +394,7 @@
 - (void) jumpDown {
     // make sure the player is touching a platform before adjusting their position
     if(touchingPlatform && [[[ChunkManager sharedSingleton] getCurrentChunk] isPlatformBelowPosition:ccpSub(self.position, [[ChunkManager sharedSingleton] getCurrentChunk].position)]) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"jumpDown.wav"];
         dummyPosition.y -= 5;
     }
 }
@@ -420,8 +421,14 @@
 #pragma mark -
 #pragma mark collisions
 - (void) checkPlatformCollisions:(float)delta {
+    BOOL prevTouchingPlatform = touchingPlatform;
 	[super checkPlatformCollisions:delta];
 	
+    // play a sound when player collides with the ground
+    if(!prevTouchingPlatform && touchingPlatform) {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"land.wav" pitch:1.0 pan:0.0 gain:2.0];
+    }
+    
 	// set state based on whether or not player is touching a platform
 	if(touchingPlatform) {
 		if(state != kPlayerRunning) {

@@ -190,7 +190,7 @@
         }
         
         // play sound for dropship getting hit by bullet
-        [[SimpleAudioEngine sharedEngine] playEffect:[sounds objectForKey:@"hit"]];
+        [[SimpleAudioEngine sharedEngine] playEffect:[sounds objectForKey:@"hit"] pitch:1.0 pan:0.0 gain:0.6];
         
         if(health > 0) {
             health -= bullet.damage;

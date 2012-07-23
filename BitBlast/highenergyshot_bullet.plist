@@ -117,6 +117,8 @@
 	<string>highenergyshot_particle.plist</string>
 	<key>sound</key>
 	<string>bounce.wav</string>
+	<key>volume</key>
+	<real>0.4</real>
 	<key>damage</key>
 	<integer>20</integer>
 	<key>collisionShape</key>

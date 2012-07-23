@@ -115,6 +115,8 @@
 	<string>bluelaserbullet.png</string>
 	<key>sound</key>
 	<string>lasershot1-short2.wav</string>
+	<key>volume</key>
+	<integer>1</integer>
 	<key>particles</key>
 	<string>plasmapistolparticle.plist</string>
 	<key>damage</key>

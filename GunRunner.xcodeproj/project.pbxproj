@@ -41,7 +41,6 @@
 		0A46C02815166FDB003483BD /* burstshot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02615166FDA003483BD /* burstshot.wav */; };
 		0A46C0361516824E003483BD /* whitecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0341516824E003483BD /* whitecircle.png */; };
 		0A46C0371516824E003483BD /* shotgunblast.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0351516824E003483BD /* shotgunblast.plist */; };
-		0A4C46F5154F7BE900C6FDCA /* dropshipHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */; };
 		0A4C46F91551659400C6FDCA /* BBPowerupManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46F81551659300C6FDCA /* BBPowerupManager.mm */; };
 		0A4C46FC15555FC100C6FDCA /* BBDailyBonus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FB15555FC100C6FDCA /* BBDailyBonus.mm */; };
 		0A4C46FF15558C8400C6FDCA /* SessionMWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */; };
@@ -429,6 +428,10 @@
 		3BB112A114A3CE61005DC6CC /* chunk3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB112A014A3CE61005DC6CC /* chunk3.tmx */; };
 		3BD9BC7C14BD5C37002D5E39 /* gamefont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */; };
 		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
+		913B89C715B9AE62007258EC /* flamethrower.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89C615B9AE62007258EC /* flamethrower.wav */; };
+		913B89C915B9B7E7007258EC /* spreadgun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89C815B9B7E7007258EC /* spreadgun.wav */; };
+		913B89CB15B9B9D6007258EC /* jumpDown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89CA15B9B9D6007258EC /* jumpDown.wav */; };
+		913B89CD15B9BAA1007258EC /* land.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89CC15B9BAA1007258EC /* land.wav */; };
 		914E086B15B5D29000F3B598 /* enemySoldierInfected.plist in Resources */ = {isa = PBXBuildFile; fileRef = 914E086A15B5D29000F3B598 /* enemySoldierInfected.plist */; };
 		914E086D15B5DB1200F3B598 /* bluewaveParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 914E086C15B5DB1200F3B598 /* bluewaveParticle.plist */; };
 		914E086F15B5DB7F00F3B598 /* bluewave_particles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 914E086E15B5DB7E00F3B598 /* bluewave_particles.plist */; };
@@ -504,7 +507,6 @@
 		0A46C02615166FDA003483BD /* burstshot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burstshot.wav; sourceTree = "<group>"; };
 		0A46C0341516824E003483BD /* whitecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitecircle.png; path = Resources/Particles/whitecircle.png; sourceTree = "<group>"; };
 		0A46C0351516824E003483BD /* shotgunblast.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = shotgunblast.plist; path = Resources/Particles/shotgunblast.plist; sourceTree = "<group>"; };
-		0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dropshipHit.wav; path = Resources/SFX/dropshipHit.wav; sourceTree = "<group>"; };
 		0A4C46F71551659200C6FDCA /* BBPowerupManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPowerupManager.h; sourceTree = "<group>"; };
 		0A4C46F81551659300C6FDCA /* BBPowerupManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBPowerupManager.mm; sourceTree = "<group>"; };
 		0A4C46FA15555FC100C6FDCA /* BBDailyBonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDailyBonus.h; sourceTree = "<group>"; };
@@ -1100,6 +1102,10 @@
 		3BB112A014A3CE61005DC6CC /* chunk3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk3.tmx; path = Resources/chunk3.tmx; sourceTree = "<group>"; };
 		3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = gamefont.fnt; path = Resources/gamefont.fnt; sourceTree = "<group>"; };
 		3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamefont.png; path = Resources/gamefont.png; sourceTree = "<group>"; };
+		913B89C615B9AE62007258EC /* flamethrower.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flamethrower.wav; path = Resources/SFX/flamethrower.wav; sourceTree = "<group>"; };
+		913B89C815B9B7E7007258EC /* spreadgun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = spreadgun.wav; path = Resources/SFX/spreadgun.wav; sourceTree = "<group>"; };
+		913B89CA15B9B9D6007258EC /* jumpDown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = jumpDown.wav; path = Resources/SFX/jumpDown.wav; sourceTree = "<group>"; };
+		913B89CC15B9BAA1007258EC /* land.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = land.wav; path = Resources/SFX/land.wav; sourceTree = "<group>"; };
 		914E086A15B5D29000F3B598 /* enemySoldierInfected.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemySoldierInfected.plist; sourceTree = "<group>"; };
 		914E086C15B5DB1200F3B598 /* bluewaveParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bluewaveParticle.plist; path = Resources/Particles/bluewaveParticle.plist; sourceTree = "<group>"; };
 		914E086E15B5DB7E00F3B598 /* bluewave_particles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave_particles.plist; sourceTree = "<group>"; };
@@ -1356,10 +1362,13 @@
 		0A46C01915166551003483BD /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				913B89CC15B9BAA1007258EC /* land.wav */,
+				913B89CA15B9B9D6007258EC /* jumpDown.wav */,
+				913B89C815B9B7E7007258EC /* spreadgun.wav */,
+				913B89C615B9AE62007258EC /* flamethrower.wav */,
 				91ED1BFC15A7A1BE00A569F7 /* laser.wav */,
 				348AF0DC15576E950057A555 /* dullthud.wav */,
 				0AC2855C1555B23900DBF497 /* bounce.wav */,
-				0A4C46F4154F7BE900C6FDCA /* dropshipHit.wav */,
 				34A03094152FD2E90067AA4B /* lasershot1-short2.wav */,
 				34FB2AAA1516875600623BB4 /* shotgun.wav */,
 				34FB2A941516832900623BB4 /* coin.wav */,
@@ -2560,7 +2569,6 @@
 				0AFF01FB154463AD000F9A2E /* promo.plist in Resources */,
 				34A030BB1544A2760067AA4B /* bluewave_bullet_new.plist in Resources */,
 				34A030C01544A4D90067AA4B /* highenergyshopitem.png in Resources */,
-				0A4C46F5154F7BE900C6FDCA /* dropshipHit.wav in Resources */,
 				0AC2855D1555B23900DBF497 /* bounce.wav in Resources */,
 				348AF0D915576CD80057A555 /* dropShip1HitParticle.plist in Resources */,
 				348AF0DD15576E950057A555 /* dullthud.wav in Resources */,
@@ -2598,6 +2606,10 @@
 				34E3E72C15ABE28E002680B0 /* blankMonster.plist in Resources */,
 				34E3E72F15ABF1E8002680B0 /* energyDropShip.plist in Resources */,
 				9165DF7E15B8735D00FABC34 /* animations.plist in Resources */,
+				913B89C715B9AE62007258EC /* flamethrower.wav in Resources */,
+				913B89C915B9B7E7007258EC /* spreadgun.wav in Resources */,
+				913B89CB15B9B9D6007258EC /* jumpDown.wav in Resources */,
+				913B89CD15B9BAA1007258EC /* land.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

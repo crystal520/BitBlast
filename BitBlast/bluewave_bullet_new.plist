@@ -87,6 +87,10 @@
 	<real>0.1</real>
 	<key>sprite</key>
 	<string>bluewaveNEW.png</string>
+	<key>sound</key>
+	<string>sonicwave.wav</string>
+	<key>volume</key>
+	<real>0.7</real>
 	<key>damage</key>
 	<integer>2</integer>
 	<key>collisionShape</key>
