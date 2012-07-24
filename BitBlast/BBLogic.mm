@@ -30,6 +30,9 @@
 		// register for noticiations
 		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollDice) name:kEventDropshipsDestroyed object:nil];
 		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollDice) name:kEventCoinGroupDone object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kEventNewGame object:nil];
 	}
 	return self;
 }
@@ -43,7 +46,6 @@
 	}
 	else if(!enabled && newEnabled) {
 		enabled = newEnabled;
-		firstRun = YES;
 		[self performSelector:@selector(rollDice) withObject:nil afterDelay:0.5];
 	}
 }
@@ -76,6 +78,18 @@
 			[self performSelector:@selector(rollDice) withObject:nil afterDelay:1];
 		}
 	}
+}
+
+- (void) pause {
+    [self setEnabled:NO];
+}
+
+- (void) resume {
+    [self setEnabled:YES];
+}
+
+- (void) newGame {
+    firstRun = YES;
 }
 
 @end

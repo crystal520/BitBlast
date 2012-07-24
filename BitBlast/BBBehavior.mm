@@ -43,7 +43,7 @@
 
 #pragma mark -
 #pragma mark actions
-- (void) applyToNode:(CCNode*)node withAngle:(float)angle {
+- (void) applyToNode:(BBGameObject*)node withAngle:(float)angle {
 	
 	// action to perform
 	CCActionInterval *action;
@@ -124,7 +124,7 @@
 
 #pragma mark -
 #pragma mark convenience
-- (CCActionInterval*) generateAction:(CCNode*)node withAngle:(float)angle {
+- (CCActionInterval*) generateAction:(BBGameObject*)node withAngle:(float)angle {
 	// divide by 2 if the behavior is looping
 	float timeMult = 1;
 	if(loop) {
@@ -138,10 +138,10 @@
 		if([start isEqualToString:@"min"]) {
 			// modify angle since it's the y axis
 			angle = 90+angle;
-			// offset position of node by minValue
-			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// calculate amount to move by
 			float moveBy = (max + (-min));
+			// offset position of node by minValue
+			node.dummyPosition = ccp(node.dummyPosition.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.dummyPosition.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// create up action
 			BBMoveBy *upAction = [BBMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return upAction
@@ -150,10 +150,10 @@
 		else {
 			// modify angle since it's the y axis
 			angle = 90+angle;
-			// offset position of node by maxValue
-			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
-			// calculate amount to move by
+            // calculate amount to move by
 			float moveBy = (min + (-max));
+			// offset position of node by maxValue
+			node.dummyPosition = ccp(node.dummyPosition.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.dummyPosition.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
 			// create down action
 			BBMoveBy *downAction = [BBMoveBy actionWithDuration:speed * timeMult position:ccp(cos(CC_DEGREES_TO_RADIANS(angle)) * moveBy, sin(CC_DEGREES_TO_RADIANS(angle)) * moveBy)];
 			// return downAction
@@ -166,7 +166,7 @@
 		float max = CCRANDOM_MIN_MAX([[maxLowValue objectAtIndex:0] floatValue], [[maxHighValue objectAtIndex:0] floatValue]);
 		if([start isEqualToString:@"min"]) {
 			// offset position of node by minValue
-			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
+			node.dummyPosition = ccp(node.dummyPosition.x + cos(CC_DEGREES_TO_RADIANS(angle)) * min, node.dummyPosition.y + sin(CC_DEGREES_TO_RADIANS(angle)) * min);
 			// calculate amount to move by
 			float moveBy = (max + (-min));
 			// create right action
@@ -176,7 +176,7 @@
 		}
 		else {
 			// offset position of node by maxValue
-			node.position = ccp(node.position.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.position.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
+			node.dummyPosition = ccp(node.dummyPosition.x + cos(CC_DEGREES_TO_RADIANS(angle)) * max, node.dummyPosition.y + sin(CC_DEGREES_TO_RADIANS(angle)) * max);
 			// calculate amount to move by
 			float moveBy = (min + (-max));
 			// create left action

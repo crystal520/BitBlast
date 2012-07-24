@@ -71,10 +71,9 @@
 }
 
 -(void) update: (ccTime) t
-{	
-	[target_ setDummyPosition: ccp( ([target_ dummyPosition].x + delta_.x * t ), ([target_ dummyPosition].y + delta_.y * t ) )];
+{
+	[target_ setDummyPosition: ccp( (([target_ dummyPosition].x - startPosition_.x) + startPosition_.x + delta_.x * t ), (([target_ dummyPosition].y - startPosition_.y) + startPosition_.y + delta_.y * t ) )];
 }
-
 
 -(CCActionInterval*) reverse
 {

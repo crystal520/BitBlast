@@ -32,9 +32,9 @@
 // initializers
 - (id) initWithDictionary:(NSDictionary*)dict;
 // actions
-- (void) applyToNode:(CCNode*)node withAngle:(float)angle;
+- (void) applyToNode:(BBGameObject*)node withAngle:(float)angle;
 // convenience
-- (CCActionInterval*) generateAction:(CCNode*)node withAngle:(float)angle;
+- (CCActionInterval*) generateAction:(BBGameObject*)node withAngle:(float)angle;
 - (void) finishAction:(CCActionInterval*)action;
 
 @end
