@@ -395,7 +395,7 @@
     // make sure the player is touching a platform before adjusting their position
     if(touchingPlatform && [[[ChunkManager sharedSingleton] getCurrentChunk] isPlatformBelowPosition:ccpSub(self.position, [[ChunkManager sharedSingleton] getCurrentChunk].position)]) {
         [[SimpleAudioEngine sharedEngine] playEffect:@"jumpDown.wav"];
-        dummyPosition.y -= 5;
+        dummyPosition.y -= 10;
     }
 }
 

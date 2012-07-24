@@ -235,8 +235,8 @@
 - (void) hover {
     // make dropship hover
     float hoverTime = CCRANDOM_MIN_MAX(0.35, 0.45);
-    CCActionInterval *hoverUp = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(0.15, 0.25))]];
-    CCActionInterval *hoverDown = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(-0.25, -0.15))]];
+    CCActionInterval *hoverUp = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(0.6, 1) * [ResolutionManager sharedSingleton].positionScale)]];
+    CCActionInterval *hoverDown = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(-1, -0.6) * [ResolutionManager sharedSingleton].positionScale)]];
     CCAction *finalHover = [CCRepeatForever actionWithAction:[CCSequence actions:hoverUp, hoverDown, nil]];
     finalHover.tag = DROPSHIP_ACTION_TAG_HOVER;
     [self runAction:finalHover];

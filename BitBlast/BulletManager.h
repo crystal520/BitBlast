@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "BBBullet.h"
 
-#define MAX_BULLETS 100
+#define MAX_BULLETS 200
 
 @interface BulletManager : NSObject {
     NSMutableArray *bullets;

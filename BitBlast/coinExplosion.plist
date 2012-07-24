@@ -5,13 +5,13 @@
 	<key>xMovementRange</key>
 	<string>{-75,0}</string>
 	<key>yMovementRange</key>
-	<string>{300,500}</string>
+	<string>{300,400}</string>
 	<key>lifetime</key>
 	<integer>5</integer>
 	<key>gravity</key>
 	<string>{0,40}</string>
 	<key>bounciness</key>
-	<real>0.85</real>
+	<real>0.75</real>
 	<key>tileCenterOffset</key>
 	<integer>41</integer>
 </dict>

@@ -75,7 +75,7 @@
 		[scrollingNode addChild:[EnemyManager sharedSingleton] z:DEPTH_GAME_ENEMIES];
 		// add coins to scrollingNode
 		[scrollingNode addChild:[BBCoinManager sharedSingleton] z:DEPTH_GAME_COINS];
-		[scrollingNode addChild:[BBMovingCoinManager sharedSingleton] z:DEPTH_GAME_COINS];
+		[scrollingNode addChild:[BBMovingCoinManager sharedSingleton] z:DEPTH_GAME_MOVING_COINS];
 		
 		// create background sprite
 		[self createBackground];

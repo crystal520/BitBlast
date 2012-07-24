@@ -9,7 +9,7 @@
 	<key>health</key>
 	<integer>5</integer>
 	<key>gravity</key>
-	<integer>20</integer>
+	<integer>0</integer>
 	<key>speed</key>
 	<dict>
 		<key>x</key>

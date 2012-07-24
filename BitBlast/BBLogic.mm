@@ -28,8 +28,8 @@
 - (id) init {
 	if((self = [super init])) {
 		// register for noticiations
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollDice) name:kEventDropshipsDestroyed object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollDice) name:kEventCoinGroupDone object:nil];
+		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollDice) name:kEventDropshipsDestroyed object:nil];
+		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rollDice) name:kEventCoinGroupDone object:nil];
 	}
 	return self;
 }
@@ -64,14 +64,16 @@
 		if(ran < 0.25) {
 			NSLog(@"BBLogic: rollDice spawning coin group");
 			[[BBCoinManager sharedSingleton] spawnCoinGroup];
+			[self performSelector:@selector(rollDice) withObject:nil afterDelay:2];
 		}
 		else if(ran >= 0.25 && ran < 0.5 && [[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0) {
 			NSLog(@"BBLogic: rollDice spawning dropship");
 			[[BBDropshipManager sharedSingleton] tryToSpawnDropship];
+			[self performSelector:@selector(rollDice) withObject:nil afterDelay:2];
 		}
 		else {
 			NSLog(@"BBLogic: rollDice delay");
-			[self performSelector:@selector(rollDice) withObject:nil afterDelay:0.5];
+			[self performSelector:@selector(rollDice) withObject:nil afterDelay:1];
 		}
 	}
 }
