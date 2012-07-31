@@ -143,8 +143,8 @@
     NSString *type = [itemDictionary objectForKey:@"type"];
     if([type isEqualToString:@"weapon"]) {
         // for now, just have one weapon equipped
-        [[BBWeaponManager sharedSingleton] unequipAll];
-        [[BBWeaponManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];
+        [[BBWeaponManager sharedSingleton] unequipAllForType:WEAPON_INVENTORY_PLAYER];
+        [[BBWeaponManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"] forType:WEAPON_INVENTORY_PLAYER];
     }
     else if([type isEqualToString:@"equipment"]) {
         [[BBEquipmentManager sharedSingleton] equip:[itemDictionary objectForKey:@"identifier"]];

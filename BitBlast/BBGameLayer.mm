@@ -76,6 +76,9 @@
 		// add coins to scrollingNode
 		[scrollingNode addChild:[BBCoinManager sharedSingleton] z:DEPTH_GAME_COINS];
 		[scrollingNode addChild:[BBMovingCoinManager sharedSingleton] z:DEPTH_GAME_MOVING_COINS];
+        // add minibosses to scrollingNode
+        [scrollingNode addChild:[BBMinibossManager sharedSingleton].backNode z:DEPTH_GAME_MINIBOSSES];
+        [scrollingNode addChild:[BBMinibossManager sharedSingleton].frontNode z:DEPTH_GAME_MINIBOSSES_INTRO];
 		
 		// create background sprite
 		[self createBackground];
@@ -245,6 +248,7 @@
 		[[BulletManager sharedSingleton] update:delta];
 		[[EnemyManager sharedSingleton] update:delta];
 		[[BBDropshipManager sharedSingleton] update:delta];
+        [[BBMinibossManager sharedSingleton] update:delta];
 		[[BBCoinManager sharedSingleton] update:delta];
 		[[BBMovingCoinManager sharedSingleton] update:delta];
 		[self updateCamera];

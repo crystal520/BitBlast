@@ -44,15 +44,15 @@
 		[self addChild:player];
 		
 		// enable weapons so the player can see the currently equipped weapon being shot
-		[[BBWeaponManager sharedSingleton] setEnabled:YES];
-		[[BBWeaponManager sharedSingleton] setNode:self];
+		[[BBWeaponManager sharedSingleton] setEnabled:YES forType:WEAPON_INVENTORY_PLAYER];
+		[[BBWeaponManager sharedSingleton] setNode:self forType:WEAPON_INVENTORY_PLAYER];
 		// add BulletManager to the shop node
 		[[BulletManager sharedSingleton] setNode:self];
 		
 		// scale up player, bullets, and weapons scale
 		[[BulletManager sharedSingleton] setScale:2];
 		player.scale = 2;
-		[[BBWeaponManager sharedSingleton] setScale:2];
+		[[BBWeaponManager sharedSingleton] setScale:2 forType:WEAPON_INVENTORY_PLAYER];
 		
 		// create layer for all shop items
 		shopScroller = [[BBList alloc] init];
@@ -94,7 +94,7 @@
 
 - (void) dealloc {
 	// reset bullets and weapons to normal size
-	[[BBWeaponManager sharedSingleton] setScale:1];
+	[[BBWeaponManager sharedSingleton] setScale:1 forType:WEAPON_INVENTORY_PLAYER];
 	[[BulletManager sharedSingleton] setScale:1];
 	
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -132,7 +132,7 @@
 
 - (void) setEnabled:(BOOL)isEnabled {
 	[back setEnabled:isEnabled];
-	[[BBWeaponManager sharedSingleton] setEnabled:isEnabled];
+	[[BBWeaponManager sharedSingleton] setEnabled:isEnabled forType:WEAPON_INVENTORY_PLAYER];
 	enabled = isEnabled;
 	if(isEnabled && !shopScroller.isTouchEnabled) {
 		[shopScroller onEnter];
@@ -141,7 +141,7 @@
 		[shopScroller onExit];
 	}
 	// update current funds
-	[[BBWeaponManager sharedSingleton] setNode:self];
+	[[BBWeaponManager sharedSingleton] setNode:self forType:WEAPON_INVENTORY_PLAYER];
 	[coins setString:[NSString stringWithFormat:@"$%i", [[SettingsManager sharedSingleton] getInt:@"totalCoins"]]];
 }
 
@@ -154,8 +154,8 @@
 - (void) onExit {
     [super onExit];
     // unequip all weapons and equip the last equipped weapon the player owns
-    [[BBWeaponManager sharedSingleton] unequipAll];
-    [[BBWeaponManager sharedSingleton] equip:[[SettingsManager sharedSingleton] getString:@"equippedWeapon"]];
+    [[BBWeaponManager sharedSingleton] unequipAllForType:WEAPON_INVENTORY_PLAYER];
+    [[BBWeaponManager sharedSingleton] equip:[[SettingsManager sharedSingleton] getString:@"equippedWeapon"] forType:WEAPON_INVENTORY_PLAYER];
 }
 
 #pragma mark -
@@ -181,12 +181,12 @@
 
 - (void) weaponEquipped {
 	// set weapon scale here in case a new weapon was equipped
-	[[BBWeaponManager sharedSingleton] setScale:2];
+	[[BBWeaponManager sharedSingleton] setScale:2 forType:WEAPON_INVENTORY_PLAYER];
 	[[BulletManager sharedSingleton] setScale:2];
 	// enable weapons as they're disabled upon equipping
-	[[BBWeaponManager sharedSingleton] setEnabled:YES];
+	[[BBWeaponManager sharedSingleton] setEnabled:YES forType:WEAPON_INVENTORY_PLAYER];
 	// make sure particles for new weapon show up on this screen
-	[[BBWeaponManager sharedSingleton] setNode:self];
+	[[BBWeaponManager sharedSingleton] setNode:self forType:WEAPON_INVENTORY_PLAYER];
 }
 
 @end

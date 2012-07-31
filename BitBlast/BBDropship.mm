@@ -225,6 +225,7 @@
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyDropships"];
+    [Globals sharedSingleton].dropshipsDestroyedForMiniboss += 1;
 	alive = NO;
 	gravity = ccp(2, 5);
 	level = CHUNK_LEVEL_UNKNOWN;

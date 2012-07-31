@@ -13,7 +13,9 @@
 typedef enum {
     kBulletTypeUnknown,
     kBulletTypeShot,
-    kBulletTypeLaser
+    kBulletTypeLaser,
+    kBulletTypeEnemyShot,
+    kBulletTypeEnemyLaser
 } BulletType;
 
 @interface BBBulletShape : BBGameObjectShape {}

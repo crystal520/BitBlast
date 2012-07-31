@@ -10,10 +10,11 @@
 #import "cocos2d.h"
 
 typedef enum {
-	CHUNK_LEVEL_UNKNOWN,
-	CHUNK_LEVEL_TOP,
-	CHUNK_LEVEL_MIDDLE,
-	CHUNK_LEVEL_BOTTOM
+	CHUNK_LEVEL_UNKNOWN = -1,
+	CHUNK_LEVEL_TOP = 0,
+	CHUNK_LEVEL_MIDDLE = 1,
+	CHUNK_LEVEL_BOTTOM = 2,
+    CHUNK_LEVEL_COUNT = 3
 } ChunkLevel;
 
 @interface Chunk : CCTMXTiledMap {
@@ -23,9 +24,9 @@ typedef enum {
 	CGPoint dummyPosition;
 	CGSize dummySize;
 	// set of levels within chunk
-	NSMutableSet *levels;
+	NSMutableArray *levels;
 	// types of levels within chunk
-	NSMutableSet *levelTypes;
+	NSMutableArray *levelTypes;
 }
 
 @property (nonatomic, assign) CGPoint dummyPosition;

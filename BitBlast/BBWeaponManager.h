@@ -12,23 +12,26 @@
 #import "SettingsManager.h"
 
 @interface BBWeaponManager : NSObject {
-    NSMutableSet *weapons;
+    NSMutableDictionary *weapons;
     // last equipped item that player actually owns
     NSMutableString *lastEquipped;
 }
 
-@property (nonatomic, readonly) NSMutableSet *weapons;
+@property (nonatomic, readonly) NSMutableDictionary *weapons;
 
 + (BBWeaponManager*) sharedSingleton;
+// getters
+- (NSSet*) weaponsForType:(WeaponInventory)type;
 // setters
-- (void) setEnabled:(BOOL)newEnabled;
-- (void) setScale:(float)scale;
+- (void) setEnabled:(BOOL)newEnabled forType:(WeaponInventory)type;
+- (void) setScale:(float)scale forType:(WeaponInventory)type;
 - (void) setNode:(CCNode*)node;
-- (void) setGunSpeedMultiplier:(float)multiplier;
+- (void) setNode:(CCNode*)node forType:(WeaponInventory)type;
+- (void) setGunSpeedMultiplier:(float)multiplier forType:(WeaponInventory)type;
 // actions
-- (void) equip:(NSString*)newWeapon;
-- (void) unequip:(NSString*)oldWeapon;
-- (void) unequipAll;
+- (void) equip:(NSString*)newWeapon forType:(WeaponInventory)type;
+- (void) unequip:(NSString*)oldWeapon forType:(WeaponInventory)type;
+- (void) unequipAllForType:(WeaponInventory)type;
 - (void) pause;
 - (void) resume;
 

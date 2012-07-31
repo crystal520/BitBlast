@@ -106,8 +106,8 @@
         // save the item to device
         [[SettingsManager sharedSingleton] setBool:YES keyString:identifier];
 		// for now, just have one weapon equipped
-		[[BBWeaponManager sharedSingleton] unequipAll];
-		[[BBWeaponManager sharedSingleton] equip:identifier];
+		[[BBWeaponManager sharedSingleton] unequipAllForType:WEAPON_INVENTORY_PLAYER];
+		[[BBWeaponManager sharedSingleton] equip:identifier forType:WEAPON_INVENTORY_PLAYER];
 	}
 	else if([type isEqualToString:@"equipment"]) {
 		[[BBEquipmentManager sharedSingleton] equip:identifier];

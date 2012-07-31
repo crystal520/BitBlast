@@ -164,7 +164,7 @@
 			velocity = ccp(minVelocity.x * speedMultiplier, minVelocity.y);
 			introEnabled = NO;
 			[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
-			[[BBWeaponManager sharedSingleton] setEnabled:YES];
+			[[BBWeaponManager sharedSingleton] setEnabled:YES forType:WEAPON_INVENTORY_PLAYER];
 		}
 	}
 }
@@ -181,7 +181,7 @@
 
 - (void) updateWeapons:(float)delta {
 	// loop through weapons and update them
-	for(BBWeapon *w in [BBWeaponManager sharedSingleton].weapons) {
+	for(BBWeapon *w in [[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER]) {
 		[w setPlayerSpeed:velocity.x];
 		[w setPosition:ccpAdd(dummyPosition, ccpMult(torso.position, [ResolutionManager sharedSingleton].inversePositionScale * self.scale))];
 		[w update:delta];
@@ -258,7 +258,7 @@
 
 - (void) setWeaponAngle:(int)newAngle {
 	// update weapons with new angle
-	for(BBWeapon *w in [BBWeaponManager sharedSingleton].weapons) {
+	for(BBWeapon *w in [[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER]) {
 		[w setAngle:newAngle];
 	}
 	// update torso image based on new angle
@@ -294,7 +294,7 @@
 }
 
 - (void) playIntro {
-	[[BBWeaponManager sharedSingleton] setEnabled:NO];
+	[[BBWeaponManager sharedSingleton] setEnabled:NO forType:WEAPON_INVENTORY_PLAYER];
 	introEnabled = YES;
 	
 	// player is unaffected by gravity during the intro
@@ -349,7 +349,7 @@
 	// get current speed multiplier powerup
 	speedMultiplier = [[BBPowerupManager sharedSingleton] getSpeedPowerup];
 	// set the current gun multiplier powerup
-	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:[[BBPowerupManager sharedSingleton] getGunPowerup]];
+	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:[[BBPowerupManager sharedSingleton] getGunPowerup] forType:WEAPON_INVENTORY_PLAYER];
 	
 	// reset health to starting value from plist
 	[self setHealth:startingHealth + [[BBPowerupManager sharedSingleton] getHealthPowerup]];
@@ -365,7 +365,7 @@
 	[[SettingsManager sharedSingleton] incrementInteger:[[SettingsManager sharedSingleton] getInt:@"currentDistance"] keyString:@"dailyDistance"];
 	
 	// reset the gun speed multiplier
-	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:1];
+	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:1 forType:WEAPON_INVENTORY_PLAYER];
 	
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerDeadNotification object:nil]];
 }
@@ -418,6 +418,20 @@
 	[self setWeaponAngle:0];
 }
 
+- (void) attemptToLoseHealth {
+    // check to see if player is invincible
+    if(!invincible) {
+        // flash player so they know they lost health
+        [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:invincibleTime numberOfTimes:8 onSprite:torso];
+        [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:invincibleTime numberOfTimes:8 onSprite:legs];
+        // update health
+        [self setHealth:health-1];
+        // player is invincible
+        invincible = YES;
+        invincibleTimer = invincibleTime;
+    }
+}
+
 #pragma mark -
 #pragma mark collisions
 - (void) checkPlatformCollisions:(float)delta {
@@ -464,19 +478,22 @@
 - (void) collideWithEnemy:(BBEnemy*)enemy {
     // sanity check to make sure the enemy is enabled
     if(enemy.enabled && enemy.alive) {
-        // check to see if player is invincible
-        if(!invincible) {
-            // flash player so they know they lost health
-            [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:invincibleTime numberOfTimes:8 onSprite:torso];
-            [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:invincibleTime numberOfTimes:8 onSprite:legs];
-            // update health
-            [self setHealth:health-1];
-            // player is invincible
-            invincible = YES;
-            invincibleTimer = invincibleTime;
-        }
+        [self attemptToLoseHealth];
         // kill the enemy
         [enemy die];
+        if(health <= 0) {
+            [self die:kDeathEnemy];
+        }
+    }
+}
+
+- (void) hitByBullet:(BBBullet*)bullet {
+    if(bullet.enabled && health > 0) {
+        [self attemptToLoseHealth];
+        
+        // disable the bullet
+        [bullet setEnabled:NO];
+        
         if(health <= 0) {
             [self die:kDeathEnemy];
         }
@@ -500,6 +517,20 @@
 - (void) postsolveContactWithBBEnemyShape:(GB2Contact*)contact {
     contact.box2dContact->SetEnabled(NO);
     [(BBPlayer*)(self.ccNode.parent) collideWithEnemy:(BBEnemy*)(contact.otherObject.ccNode)];
+}
+
+- (void) postsolveContactWithBBBulletShape:(GB2Contact*)contact {
+    BBBullet *bullet = (BBBullet*)(contact.otherObject.ccNode);
+    // only collide with the bullet if it's coming from an enemy
+    if(bullet.type == kBulletTypeEnemyShot || bullet.type == kBulletTypeEnemyLaser) {
+        contact.box2dContact->SetEnabled(NO);
+        [(BBPlayer*)(self.ccNode.parent) hitByBullet:(BBBullet*)(contact.otherObject.ccNode)];
+    }
+}
+
+- (void) postsolveContactWithBBMinibossShape:(GB2Contact*)contact {
+    contact.box2dContact->SetEnabled(NO);
+    [(BBPlayer*)(self.ccNode.parent) attemptToLoseHealth];
 }
      
 @end

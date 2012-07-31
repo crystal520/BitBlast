@@ -48,6 +48,7 @@
 }
 
 - (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[enemies release];
 	[super dealloc];
 }
@@ -76,16 +77,6 @@
 		}
 	}
 	return nil;
-}
-
-- (NSArray*) getActiveEnemies {
-	NSMutableArray *activeEnemies = [NSMutableArray array];
-	for(BBEnemy *e in enemies) {
-		if(!e.recycle && e.enabled && e.alive) {
-			[activeEnemies addObject:e];
-		}
-	}
-	return activeEnemies;
 }
 
 #pragma mark -

@@ -55,7 +55,6 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kEventNewGame object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dropshipDestroyed) name:kEventDropshipDestroyed object:nil];
 	}
 	return self;
 }
@@ -84,7 +83,7 @@
 - (NSArray*) getActiveDropships {
 	NSMutableArray *activeDropships = [NSMutableArray array];
 	for(BBDropship *d in dropships) {
-		if(d.enabled && d.alive) {
+		if(d.enabled || d.alive) {
 			[activeDropships addObject:d];
 		}
 	}
@@ -151,10 +150,9 @@
 		
 		if(numChecks > 0) {
 			[explosionManager stopExploding:newDropship];
-            [backNode removeChild:newDropship cleanup:NO];
+            [newDropship removeFromParentAndCleanup:NO];
             [frontNode addChild:newDropship];
 			[newDropship resetWithPosition:ccp([ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
-			numDropshipsLeft++;
 		}
 	}
 }
@@ -167,10 +165,13 @@
 			numActiveDropships += 1;
 		}
 	}
-	
+    
+    // get random number of dropships to spawn
+    int numDropshipsToSpawn = CCRANDOM_MIN_MAX(1, targetDropships);
+    
 	// if there aren't enough active dropships, trigger a new one
-	if(numActiveDropships != targetDropships) {
-		for(int i=0;i<(targetDropships - numActiveDropships);i++) {
+	if(numActiveDropships != numDropshipsToSpawn) {
+		for(int i=0;i<(numDropshipsToSpawn - numActiveDropships);i++) {
 			[self performSelector:@selector(spawnDropship) withObject:nil afterDelay:1 + i];
 		}
 	}
@@ -186,7 +187,6 @@
 
 - (void) levelWillLoad {
 	enabled = YES;
-	numDropshipsLeft = 0;
 	// reset dropships
 	for(BBDropship *d in dropships) {
 		[d setEnabled:NO];
@@ -210,14 +210,6 @@
 		[d resume];
 	}
     [explosionManager resume];
-}
-
-- (void) dropshipDestroyed {
-	numDropshipsLeft--;
-	if(numDropshipsLeft <= 0) {
-		numDropshipsLeft = 0;
-		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventDropshipsDestroyed object:nil]];
-	}
 }
 
 @end

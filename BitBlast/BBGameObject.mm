@@ -104,4 +104,25 @@
 	[self resumeSchedulerAndActions];
 }
 
+#pragma mark -
+#pragma mark convenience
+- (NSDictionary*) randomDictionaryFromArray:(NSArray*)array {
+    // generate random number
+    float ran = CCRANDOM_0_1();
+    float curProbability = 0;
+    float prevProbability = 0;
+    
+    for(NSDictionary *d in array) {
+        prevProbability = curProbability;
+        curProbability += [[d objectForKey:@"probability"] floatValue];
+        if(ran >= prevProbability && ran < curProbability) {
+            return d;
+        }
+    }
+    if([array count] >= 1) {
+        return [array objectAtIndex:0];
+    }
+    return nil;
+}
+
 @end

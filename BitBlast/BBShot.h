@@ -51,7 +51,11 @@
 	float scale;
     // collision shape to use for a bullet
     NSString *collisionShapeString;
+    // whether this shot is friendly or enemy
+    WeaponType type;
 }
+
+@property (nonatomic, assign) WeaponType type;
 
 // initializers
 - (id) initWithFile:(NSString*)filename;

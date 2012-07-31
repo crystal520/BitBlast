@@ -29,16 +29,23 @@
 
 - (id) init {
 	if((self = [super init])) {
-		// create weapons set
-		weapons = [NSMutableSet new];
+		// create weapons dictionary
+		weapons = [NSMutableDictionary new];
+        
+        // create weapon inventories
+        for(int i=0;i<WEAPON_INVENTORY_COUNT;i++) {
+            NSMutableSet *inventory = [NSMutableSet new];
+            [weapons setObject:inventory forKey:[NSString stringWithFormat:@"%i", i]];
+            [inventory release];
+        }
 		
 		// see if player has an equipped weapon saved
 		if([[SettingsManager sharedSingleton] getString:@"equippedWeapon"]) {
-			[self equip:[[SettingsManager sharedSingleton] getString:@"equippedWeapon"]];
+			[self equip:[[SettingsManager sharedSingleton] getString:@"equippedWeapon"] forType:WEAPON_INVENTORY_PLAYER];
 		}
 		else {
             [[SettingsManager sharedSingleton] setBool:YES keyString:@"pistol"];
-			[self equip:@"pistol"];
+			[self equip:@"pistol" forType:WEAPON_INVENTORY_PLAYER];
 		}
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
@@ -54,81 +61,126 @@
 }
 
 #pragma mark -
+#pragma mark getters
+- (NSSet*) weaponsForType:(WeaponInventory)type {
+    return [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
+}
+
+#pragma mark -
 #pragma mark setters
-- (void) setEnabled:(BOOL)newEnabled {
-	for(BBWeapon *w in weapons) {
+- (void) setEnabled:(BOOL)newEnabled forType:(WeaponInventory)type {
+    NSSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
+	for(BBWeapon *w in inventory) {
 		[w setEnabled:newEnabled];
 	}
 }
 
-- (void) setScale:(float)scale {
-	for(BBWeapon *w in weapons) {
+- (void) setScale:(float)scale forType:(WeaponInventory)type {
+    NSSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
+	for(BBWeapon *w in inventory) {
 		[w setScale:scale];
 	}
 }
 
-- (void) setNode:(CCNode *)node {
-	for(BBWeapon *w in weapons) {
+- (void) setNode:(CCNode*)node {
+    for(int i=0;i<WEAPON_INVENTORY_COUNT;i++) {
+        [self setNode:node forType:(WeaponInventory)(i)];
+    }
+}
+
+- (void) setNode:(CCNode *)node forType:(WeaponInventory)type {
+    NSSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
+	for(BBWeapon *w in inventory) {
 		[w setNode:node];
 	}
 }
 
-- (void) setGunSpeedMultiplier:(float)multiplier {
-	for(BBWeapon *w in weapons) {
+- (void) setGunSpeedMultiplier:(float)multiplier forType:(WeaponInventory)type {
+    NSSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
+	for(BBWeapon *w in inventory) {
 		[w setGunSpeedMultiplier:multiplier];
 	}
 }
 
 #pragma mark -
 #pragma mark actions
-- (void) equip:(NSString*)newWeapon {
+- (void) equip:(NSString*)newWeapon forType:(WeaponInventory)type {
+    NSMutableSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
 	BBWeapon *w = [BBWeapon new];
+    
+    // set weapon type based on inventory
+    switch (type) {
+        case WEAPON_INVENTORY_PLAYER:
+            w.type = WEAPON_TYPE_PLAYER;
+            break;
+        default:
+            w.type = WEAPON_TYPE_ENEMY;
+            break;
+    }
+    
 	[w loadFromFile:newWeapon];
-	//[w setEnabled:YES];
-	[weapons addObject:w];
-	[w release];
+	[inventory addObject:w];
+    [w release];
 	
 	// keep track of most recently equipped OWNED weapon (for allowing shop previews)
-    if([[SettingsManager sharedSingleton] getBool:newWeapon]) {
-        [[SettingsManager sharedSingleton] setString:newWeapon keyString:@"equippedWeapon"];
+    if(type == WEAPON_INVENTORY_PLAYER) {
+        if([[SettingsManager sharedSingleton] getBool:newWeapon]) {
+            [[SettingsManager sharedSingleton] setString:newWeapon keyString:@"equippedWeapon"];
+        }
+        
+        // post notification that weapon was equipped
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEquipWeaponNotification object:nil]];
     }
-	
-	// post notification that weapon was equipped
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEquipWeaponNotification object:nil]];
 }
 
-- (void) unequip:(NSString*)oldWeapon {
-	for(BBWeapon *w in weapons) {
+- (void) unequip:(NSString*)oldWeapon forType:(WeaponInventory)type {
+    NSMutableSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
+	for(BBWeapon *w in inventory) {
 		if([w.identifier isEqualToString:oldWeapon]) {
 			[w setEnabled:NO];
 			[w clearLasers];
-			[weapons removeObject:w];
+			[inventory removeObject:w];
 			break;
 		}
 	}
 }
 
-- (void) unequipAll {
-	for(BBWeapon *w in weapons) {
-		[self unequip:w.identifier];
+- (void) unequipAllForType:(WeaponInventory)type {
+    NSSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
+	for(BBWeapon *w in inventory) {
+		[self unequip:w.identifier forType:type];
 	}
 }
 
+#pragma mark -
+#pragma mark notifications
 - (void) pause {
-    for(BBWeapon *w in weapons) {
-        [w pause];
+    NSArray *keys = [weapons allKeys];
+    for(NSString *k in keys) {
+        NSSet *inventory = [weapons objectForKey:k];
+        for(BBWeapon *w in inventory) {
+            [w pause];
+        }
     }
 }
 
 - (void) resume {
-    for(BBWeapon *w in weapons) {
-        [w resume];
+    NSArray *keys = [weapons allKeys];
+    for(NSString *k in keys) {
+        NSSet *inventory = [weapons objectForKey:k];
+        for(BBWeapon *w in inventory) {
+            [w resume];
+        }
     }
 }
 
 - (void) gameOver {
-    for(BBWeapon *w in weapons) {
-        [w gameOver];
+    NSArray *keys = [weapons allKeys];
+    for(NSString *k in keys) {
+        NSSet *inventory = [weapons objectForKey:k];
+        for(BBWeapon *w in inventory) {
+            [w gameOver];
+        }
     }
 }
 

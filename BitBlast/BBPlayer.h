@@ -95,8 +95,10 @@ typedef enum {
 - (void) jumpDown;
 - (void) shoot:(CGPoint)touchPos;
 - (void) endShoot;
+- (void) attemptToLoseHealth;
 // collisions
 - (void) collideWithCoin:(BBCoin*)coin;
 - (void) collideWithMovingCoin:(BBMovingCoin*)coin;
+- (void) hitByBullet:(BBBullet*)bullet;
 
 @end

@@ -24,9 +24,12 @@
 	float upAngle, downAngle, straightAngle, scale;
 	// current gun speed multiplier
 	float gunSpeedMultiplier;
+    // whether this weapon is friendly or enemy
+    WeaponType type;
 }
 
 @property (nonatomic, readonly) NSString *identifier;
+@property (nonatomic, assign) WeaponType type;
 
 // setup
 - (void) loadFromFile:(NSString*)filename;

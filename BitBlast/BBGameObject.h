@@ -43,5 +43,7 @@ typedef enum {
 // actions
 - (void) pause;
 - (void) resume;
+// convenience
+- (NSDictionary*) randomDictionaryFromArray:(NSArray*)array;
 
 @end

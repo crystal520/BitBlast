@@ -9,31 +9,14 @@
 		<string>highenergyshot_bullet</string>
 		<string>buildupparticle_bullet</string>
 	</array>
-	<key>sprite</key>
-	<string></string>
 	<key>straightAngle</key>
 	<integer>0</integer>
 	<key>torsoDownOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>50</integer>
-		<key>y</key>
-		<integer>-72</integer>
-	</dict>
+	<string>{50,-72}</string>
 	<key>torsoOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>50</integer>
-		<key>y</key>
-		<integer>-48</integer>
-	</dict>
+	<string>{50,-48}</string>
 	<key>torsoUpOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>50</integer>
-		<key>y</key>
-		<integer>-2</integer>
-	</dict>
+	<string>{50,-2}</string>
 	<key>upAngle</key>
 	<integer>40</integer>
 	<key>shop</key>
@@ -41,7 +24,7 @@
 		<key>cost</key>
 		<string>500</string>
 		<key>description</key>
-		<string>HIgh Energy Bolt</string>
+		<string>High Energy Bolt</string>
 		<key>icon</key>
 		<string>highenergyshopitem.png</string>
 		<key>name</key>

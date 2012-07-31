@@ -10,31 +10,14 @@
 	<array>
 		<string>testLaser</string>
 	</array>
-	<key>sprite</key>
-	<string></string>
 	<key>straightAngle</key>
 	<integer>0</integer>
 	<key>torsoDownOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>36</integer>
-		<key>y</key>
-		<integer>-72</integer>
-	</dict>
+	<string>{36,-72}</string>
 	<key>torsoOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>40</integer>
-		<key>y</key>
-		<integer>-48</integer>
-	</dict>
+	<string>{40,-48}</string>
 	<key>torsoUpOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>36</integer>
-		<key>y</key>
-		<integer>-2</integer>
-	</dict>
+	<string>{36,-2}</string>
 	<key>upAngle</key>
 	<integer>40</integer>
 	<key>shop</key>

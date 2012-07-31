@@ -62,8 +62,12 @@
 #pragma mark setup
 - (void) generateLevels {
 	// make set
-	levels = [NSMutableSet new];
-	levelTypes = [NSMutableSet new];
+	levels = [[NSMutableArray alloc] initWithCapacity:CHUNK_LEVEL_COUNT];
+	levelTypes = [[NSMutableArray alloc] initWithCapacity:CHUNK_LEVEL_COUNT];
+    for(int i=0;i<CHUNK_LEVEL_COUNT;i++) {
+        [levels addObject:[NSNumber numberWithInt:CHUNK_LEVEL_UNKNOWN]];
+        [levelTypes addObject:[NSNumber numberWithInt:CHUNK_LEVEL_UNKNOWN]];
+    }
 	// get layer
 	CCTMXLayer *layer = [self layerNamed:@"CollisionTop"];
 	// get size of layer
@@ -83,8 +87,12 @@
 					type = CHUNK_LEVEL_BOTTOM;
 				}
 				// keep track of this tile's y position
-				[levels addObject:[NSNumber numberWithInt:(tile.position.y + tile.contentSize.height * 0.5) * [ResolutionManager sharedSingleton].inversePositionScale]];
-				[levelTypes addObject:[NSNumber numberWithInt:type]];
+                [levels replaceObjectAtIndex:(int)type withObject:[NSNumber numberWithFloat:(tile.position.y + tile.contentSize.height * 0.5) * [ResolutionManager sharedSingleton].inversePositionScale]];
+                [levelTypes replaceObjectAtIndex:(int)type withObject:[NSNumber numberWithInt:type]];
+                // if we have all possible levelTypes, stop looking for them
+                if(![levelTypes containsObject:[NSNumber numberWithInt:CHUNK_LEVEL_UNKNOWN]]) {
+                    return;
+                }
 			}
 		}
 	}
@@ -133,11 +141,11 @@
 }
 
 - (ChunkLevel) getLevelType:(int)index {
-	return (ChunkLevel)([[[levelTypes allObjects] objectAtIndex:index] intValue]);
+	return (ChunkLevel)([[levelTypes objectAtIndex:index] intValue]);
 }
 
 - (int) getLevel:(int)index {
-	return [[[levels allObjects] objectAtIndex:index] intValue];
+	return [[levels objectAtIndex:index] intValue];
 }
 
 - (BOOL) isPlatformBelowPosition:(CGPoint)position {

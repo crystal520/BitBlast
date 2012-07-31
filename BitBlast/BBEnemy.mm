@@ -158,8 +158,12 @@
 @implementation BBEnemyShape
 
 - (void) postsolveContactWithBBBulletShape:(GB2Contact*)contact {
-    contact.box2dContact->SetEnabled(NO);
-    [(BBEnemy*)(self.ccNode) hitByBullet:(BBBullet*)(contact.otherObject.ccNode)];
+    BBBullet *bullet = (BBBullet*)(contact.otherObject.ccNode);
+    // only collide with the bullet if it's coming from the player
+    if(bullet.type == kBulletTypeShot || bullet.type == kBulletTypeLaser) {
+        contact.box2dContact->SetEnabled(NO);
+        [(BBEnemy*)(self.ccNode) hitByBullet:(BBBullet*)(contact.otherObject.ccNode)];
+    }
 }
 
 @end

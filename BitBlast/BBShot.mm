@@ -11,6 +11,8 @@
 
 @implementation BBShot
 
+@synthesize type;
+
 #pragma mark -
 #pragma mark initializers
 - (id) initWithFile:(NSString *)filename {
@@ -19,6 +21,7 @@
 		// get dictionary from plist file
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
 		scale = 1;
+        type = WEAPON_TYPE_UNKNOWN;
 		
 		// get values from dictionary
 		sprite = [[dict objectForKey:@"sprite"] retain];
@@ -164,7 +167,17 @@
 				float ySpeed = sin(CC_DEGREES_TO_RADIANS(fireAngle)) * ranSpeed;
 				// get bullet and reset it with new variables
 				BBBullet *bullet = [[BulletManager sharedSingleton] getRecycledBullet];
-                bullet.type = kBulletTypeShot;
+                // determine whether this is an enemy shot or not
+                if(type == WEAPON_TYPE_ENEMY) {
+                    bullet.type = kBulletTypeEnemyShot;
+                    xSpeed -= playerSpeed;
+                    xSpeed *= -1.0f;
+                    fireAngle += 180;
+                    ySpeed *= -1.0f;
+                }
+                else {
+                    bullet.type = kBulletTypeShot;
+                }
                 [bullet setCollisionShape:collisionShapeString];
 				[bullet resetWithPosition:position velocity:ccp(xSpeed, ySpeed) lifetime:ranLifetime graphic:sprite];
 				// loop through behaviors and apply to bullet

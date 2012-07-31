@@ -51,8 +51,9 @@
 
 -(id) initWithDuration: (ccTime) t position: (CGPoint) p
 {
-	if( (self=[super initWithDuration: t]) )
+	if( (self=[super initWithDuration: t]) ) {
 		delta_ = p;
+    }
 	
 	return self;
 }
@@ -68,11 +69,13 @@
 	CGPoint dTmp = delta_;
 	[super startWithTarget:aTarget];
 	delta_ = dTmp;
+    endPosition_ = ccp(0,0);
 }
 
 -(void) update: (ccTime) t
 {
-	[target_ setDummyPosition: ccp( (([target_ dummyPosition].x - startPosition_.x) + startPosition_.x + delta_.x * t ), (([target_ dummyPosition].y - startPosition_.y) + startPosition_.y + delta_.y * t ) )];
+	[target_ setDummyPosition: ccp( (([target_ dummyPosition].x - startPosition_.x) + startPosition_.x + (delta_.x * t - endPosition_.x) ), (([target_ dummyPosition].y - startPosition_.y) + startPosition_.y + (delta_.y * t - endPosition_.y) ) )];
+    endPosition_ = ccpMult(delta_, t);
 }
 
 -(CCActionInterval*) reverse

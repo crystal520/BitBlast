@@ -7,7 +7,7 @@
 		<dict>
 			<key>ships</key>
 			<array>
-				<string>energyDropShip</string>
+				<string>dropShip1</string>
 			</array>
 			<key>maxShipsOnScreen</key>
 			<integer>3</integer>

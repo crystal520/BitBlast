@@ -12,34 +12,6 @@
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>1, 1, 1</string>
-				<key>low</key>
-				<string>1, 1, 1</string>
-			</dict>
-			<key>minRange</key>
-			<dict>
-				<key>high</key>
-				<string>1, 1, 1</string>
-				<key>low</key>
-				<string>1, 1, 1</string>
-			</dict>
-			<key>curve</key>
-			<string>ease</string>
-			<key>loop</key>
-			<true/>
-			<key>property</key>
-			<string>color</string>
-			<key>repeat</key>
-			<true/>
-			<key>speed</key>
-			<real>0.5</real>
-			<key>start</key>
-			<string>max</string>
-		</dict>
-		<dict>
-			<key>maxRange</key>
-			<dict>
-				<key>high</key>
 				<string>200</string>
 				<key>low</key>
 				<string>200</string>
@@ -63,34 +35,6 @@
 			<real>1</real>
 			<key>start</key>
 			<string>min</string>
-		</dict>
-		<dict>
-			<key>maxRange</key>
-			<dict>
-				<key>high</key>
-				<string>1</string>
-				<key>low</key>
-				<string>1</string>
-			</dict>
-			<key>minRange</key>
-			<dict>
-				<key>high</key>
-				<string>1</string>
-				<key>low</key>
-				<string>1</string>
-			</dict>
-			<key>curve</key>
-			<string>ease</string>
-			<key>loop</key>
-			<false/>
-			<key>property</key>
-			<string>alpha</string>
-			<key>repeat</key>
-			<false/>
-			<key>speed</key>
-			<integer>1</integer>
-			<key>start</key>
-			<string>max</string>
 		</dict>
 	</array>
 	<key>blend</key>

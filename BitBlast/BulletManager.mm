@@ -32,7 +32,6 @@
 	if((self = [super init])) {
 		
 		bullets = [NSMutableArray new];
-		activeBullets = [NSMutableArray new];
 		for(int i=0;i<MAX_BULLETS;i++) {
 			BBBullet *bullet = [BBBullet new];
 			[bullets addObject:bullet];
@@ -51,7 +50,6 @@
 }
 
 - (void) dealloc {
-	[activeBullets release];
 	[bullets release];
 	[super dealloc];
 }
@@ -65,10 +63,6 @@
 	}
 }
 
-- (void) updateActiveBullets {
-	[activeBullets setArray:[self getActiveBullets]];
-}
-
 #pragma mark -
 #pragma mark getters
 - (BBBullet*) getRecycledBullet {
@@ -78,16 +72,6 @@
 		}
 	}
 	return nil;
-}
-
-- (NSArray*) getActiveBullets {
-	NSMutableArray *newActiveBullets = [NSMutableArray array];
-	for(BBBullet *b in bullets) {
-		if(!b.recycle) {
-			[newActiveBullets addObject:b];
-		}
-	}
-	return newActiveBullets;
 }
 
 #pragma mark -

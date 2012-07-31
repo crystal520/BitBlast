@@ -68,34 +68,6 @@
 			<key>maxRange</key>
 			<dict>
 				<key>high</key>
-				<string>1, 1, 1</string>
-				<key>low</key>
-				<string>1, 1, 1</string>
-			</dict>
-			<key>minRange</key>
-			<dict>
-				<key>high</key>
-				<string>1, 1, 1</string>
-				<key>low</key>
-				<string>1, 1, 1</string>
-			</dict>
-			<key>curve</key>
-			<string>easeInExpo</string>
-			<key>loop</key>
-			<false/>
-			<key>property</key>
-			<string>color</string>
-			<key>repeat</key>
-			<false/>
-			<key>speed</key>
-			<real>0.5</real>
-			<key>start</key>
-			<string>min</string>
-		</dict>
-		<dict>
-			<key>maxRange</key>
-			<dict>
-				<key>high</key>
 				<string>2</string>
 				<key>low</key>
 				<string>2</string>

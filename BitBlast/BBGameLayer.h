@@ -34,6 +34,7 @@
 #import "ChartBoost.h"
 #import "BBInputController.h"
 #import "GB2DebugDrawLayer.h"
+#import "BBMinibossManager.h"
 
 typedef enum {
 	TAG_MENU,
@@ -42,8 +43,8 @@ typedef enum {
 } SpriteTag;
 
 //#define DEBUG_TEXTURES
-//#define DEBUG_NO_SOUND
-//#define DEBUG_NO_MUSIC
+#define DEBUG_NO_SOUND
+#define DEBUG_NO_MUSIC
 //#define DEBUG_PHYSICS
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartBoostDelegate, BBInputControllerDelegate> {

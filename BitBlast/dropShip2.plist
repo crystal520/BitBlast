@@ -9,7 +9,6 @@
 	<key>enemyTypes</key>
 	<array>
 		<string>enemySoldier</string>
-		<string>blankMonster</string>
 	</array>
 	<key>collisionShape</key>
 	<string>dropship_2_2</string>

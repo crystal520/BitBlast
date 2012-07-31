@@ -10,13 +10,14 @@
 
 @implementation BBWeapon
 
-@synthesize identifier;
+@synthesize identifier, type;
 
 - (id) init {
 	if((self = [super init])) {
 		identifier = [NSMutableString new];
 		scale = 1;
 		gunSpeedMultiplier = 1;
+        type = WEAPON_TYPE_UNKNOWN;
 	}
 	return self;
 }
@@ -29,9 +30,9 @@
 	NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
 	
 	// get values from dictionary
-	torsoOffset = ccp([[[dict objectForKey:@"torsoOffset"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"torsoOffset"] objectForKey:@"y"] floatValue]);
-	torsoOffsetUp = ccp([[[dict objectForKey:@"torsoUpOffset"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"torsoUpOffset"] objectForKey:@"y"] floatValue]);
-	torsoOffsetDown = ccp([[[dict objectForKey:@"torsoDownOffset"] objectForKey:@"x"] floatValue], [[[dict objectForKey:@"torsoDownOffset"] objectForKey:@"y"] floatValue]);
+	torsoOffset = CGPointFromString([dict objectForKey:@"torsoOffset"]);
+	torsoOffsetUp = CGPointFromString([dict objectForKey:@"torsoUpOffset"]);
+	torsoOffsetDown = CGPointFromString([dict objectForKey:@"torsoDownOffset"]);
 	straightAngle = [[dict objectForKey:@"straightAngle"] floatValue];
 	upAngle = [[dict objectForKey:@"upAngle"] floatValue];
 	downAngle = [[dict objectForKey:@"downAngle"] floatValue];
@@ -47,6 +48,7 @@
 	NSArray *dictShots = [NSArray arrayWithArray:[dict objectForKey:@"shots"]];
 	for(NSString *plist in dictShots) {
 		BBShot *shot = [[BBShot alloc] initWithFile:plist];
+        shot.type = type;
 		[shots addObject:shot];
 		[shot release];
 	}
@@ -61,9 +63,6 @@
 		[lasers addObject:laser];
 		[laser release];
 	}
-	
-	// load image from dictionary
-	//sprite = [CCSprite spriteWithFile:[dict objectForKey:@"sprite"]];
 }
 
 - (void) dealloc {

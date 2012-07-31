@@ -9,31 +9,14 @@
 		<string>bluewave_bullet_new</string>
 		<string>bluewave_particles</string>
 	</array>
-	<key>sprite</key>
-	<string></string>
 	<key>straightAngle</key>
 	<integer>0</integer>
 	<key>torsoDownOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>45</integer>
-		<key>y</key>
-		<integer>-75</integer>
-	</dict>
+	<string>{45,-75}</string>
 	<key>torsoOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>40</integer>
-		<key>y</key>
-		<integer>-48</integer>
-	</dict>
+	<string>{40,-48}</string>
 	<key>torsoUpOffset</key>
-	<dict>
-		<key>x</key>
-		<integer>45</integer>
-		<key>y</key>
-		<integer>-5</integer>
-	</dict>
+	<string>{45,-5}</string>
 	<key>upAngle</key>
 	<integer>40</integer>
 	<key>shop</key>

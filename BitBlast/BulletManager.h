@@ -15,7 +15,6 @@
 @interface BulletManager : NSObject {
     NSMutableArray *bullets;
 	CCNode *node;
-	NSMutableArray *activeBullets;
 }
 
 @property (nonatomic, assign) CCNode *node;
@@ -24,10 +23,8 @@
 
 // update
 - (void) update:(float)delta;
-- (void) updateActiveBullets;
 // getters
 - (BBBullet*) getRecycledBullet;
-- (NSArray*) getActiveBullets;
 // setters
 - (void) setNode:(CCNode*)newNode;
 - (void) setScale:(float)scale;

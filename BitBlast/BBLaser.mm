@@ -11,6 +11,8 @@
 
 @implementation BBLaser
 
+@synthesize type;
+
 #pragma mark -
 #pragma mark initializers
 - (id) initWithFile:(NSString *)filename {
@@ -19,6 +21,7 @@
 		// get dictionary from plist file
 		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]];
 		scale = 1;
+        type = WEAPON_TYPE_UNKNOWN;
 		
 		// get values from dictionary
 		sprite = [[dict objectForKey:@"sprite"] retain];
@@ -146,6 +149,18 @@
 		[particles unscheduleUpdate];
 		[particles scheduleUpdateWithPriority:1];
 	}
+}
+
+- (void) setType:(WeaponType)newType {
+    type = newType;
+    for(BBBullet *l in lasers) {
+        if(type == WEAPON_TYPE_ENEMY) {
+            l.type = kBulletTypeEnemyLaser;
+        }
+        else {
+            l.type = kBulletTypeLaser;
+        }
+    }
 }
 
 #pragma mark -

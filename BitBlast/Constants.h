@@ -19,10 +19,12 @@ typedef enum {
 	DEPTH_GAME_PLAYER,
 	DEPTH_GAME_COINS,
     DEPTH_GAME_DROPSHIPS,
+    DEPTH_GAME_MINIBOSSES,
 	DEPTH_GAME_ENEMIES,
 	DEPTH_GAME_BULLETS,
 	DEPTH_GAME_MOVING_COINS,
 	DEPTH_GAME_DROPSHIPS_INTRO,
+    DEPTH_GAME_MINIBOSSES_INTRO,
 	DEPTH_MENU_POPUP
 } DepthOrder;
 
@@ -51,6 +53,18 @@ typedef enum {
 	kStatePause
 } GameState;
 
+typedef enum {
+    WEAPON_TYPE_UNKNOWN,
+    WEAPON_TYPE_PLAYER,
+    WEAPON_TYPE_ENEMY
+} WeaponType;
+
+typedef enum {
+    WEAPON_INVENTORY_PLAYER,
+    WEAPON_INVENTORY_MINIBOSS,
+    WEAPON_INVENTORY_COUNT
+} WeaponInventory;
+
 #define kGameRestartNotification @"gameRestartNotification"
 #define kLoadLevelNotification @"loadLevelNotification"
 
@@ -74,7 +88,6 @@ typedef enum {
 #define kEventDropshipDestroyed @"eventDropshipDestroyed"
 #define kEventCoinGroupDone @"eventCoinGroupDone"
 #define kEventNewGame @"eventNewGame"
-#define kEventDropshipsDestroyed @"eventDropshipsDestroyed"
 #define kEventPromoCoinsAwarded @"eventPromoCoinsAwarded"
 #define kEventSessionMUserInfoUpdated @"eventSessionMUserInfoUpdated"
 #define kEventPreviewWeapon @"eventPreviewWeapon"

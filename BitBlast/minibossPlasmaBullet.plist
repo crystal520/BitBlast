@@ -2,30 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>angles</key>
-	<array>
-		<integer>0</integer>
-	</array>
-	<key>behaviors</key>
-	<array/>
 	<key>maxAngleOffset</key>
-	<integer>3</integer>
+	<integer>0</integer>
 	<key>maxLifetime</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
-	<integer>1000</integer>
+	<integer>200</integer>
 	<key>minAngleOffset</key>
-	<integer>-3</integer>
+	<integer>0</integer>
 	<key>minLifetime</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>
-	<integer>800</integer>
+	<integer>200</integer>
 	<key>rateOfFire</key>
-	<real>0.45</real>
+	<integer>1</integer>
 	<key>sprite</key>
 	<string>bluelaserbullet.png</string>
 	<key>sound</key>
@@ -35,8 +29,16 @@
 	<key>particles</key>
 	<string>plasmapistolparticle.plist</string>
 	<key>damage</key>
-	<integer>10</integer>
+	<integer>1</integer>
 	<key>collisionShape</key>
 	<string>bluelaserbullet</string>
+	<key>angles</key>
+	<array>
+		<integer>0</integer>
+		<integer>20</integer>
+		<integer>-20</integer>
+	</array>
+	<key>behaviors</key>
+	<array/>
 </dict>
 </plist>

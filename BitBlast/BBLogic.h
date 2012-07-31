@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "BBDropshipManager.h"
 #import "BBCoinManager.h"
+#import "BBMinibossManager.h"
 
 @interface BBLogic : NSObject {
     BOOL enabled;

@@ -38,7 +38,11 @@
 	CCParticleSystemQuad *particles;
 	// scale of the lasers fired
 	float scale;
+    // whether this shot is friendly or enemy
+    WeaponType type;
 }
+
+@property (nonatomic, assign) WeaponType type;
 
 // initializers
 - (id) initWithFile:(NSString*)filename;

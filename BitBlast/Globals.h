@@ -22,10 +22,12 @@
     ReasonForDeath playerReasonForDeath;
     // current game state
     GameState gameState;
+    // number of dropships destroyed - for determining whether to spawn a miniboss or not
+    int dropshipsDestroyedForMiniboss;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
-@property (nonatomic, assign) int playerStartingHealth;
+@property (nonatomic, assign) int playerStartingHealth, dropshipsDestroyedForMiniboss;
 @property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 @property (nonatomic, assign) GameState gameState;
 
