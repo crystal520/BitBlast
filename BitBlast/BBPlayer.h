@@ -17,6 +17,7 @@
 #import "EnemyManager.h"
 #import "SimpleAudioEngine.h"
 #import "BBPowerupManager.h"
+#import "BBMinibossManager.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -87,7 +88,6 @@ typedef enum {
 // actions
 - (void) addCoins:(int)coins;
 - (void) playIntro;
-- (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
 - (void) reset;
 - (void) die:(ReasonForDeath)reason;
 - (void) jump;
@@ -100,5 +100,6 @@ typedef enum {
 - (void) collideWithCoin:(BBCoin*)coin;
 - (void) collideWithMovingCoin:(BBMovingCoin*)coin;
 - (void) hitByBullet:(BBBullet*)bullet;
+- (void) collideWithMiniboss:(BBMiniboss*)miniboss;
 
 @end

@@ -53,6 +53,10 @@
     NSString *collisionShapeString;
     // whether this shot is friendly or enemy
     WeaponType type;
+    // interval timer for shooting in intervals
+    float intervalTimer, intervalTime;
+    // number of shots to take during an interval
+    int numShotsInInterval, numShotsFiredInInterval;
 }
 
 @property (nonatomic, assign) WeaponType type;

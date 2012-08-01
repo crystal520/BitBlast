@@ -4,8 +4,8 @@
 <dict>
 	<key>hearts</key>
 	<array>
-		<string>YOU SUCCUMBED TO YOUR ENEMIES</string>
-		<string>YOU WERE DESTROYED BY MUTANTS</string>
+		<string>SUCCUMBING TO YOUR ENEMIES</string>
+		<string>BEING DESTROYED BY MUTANTS</string>
 		<string>YOU WERE OVERPOWERED</string>
 		<string>BEING TORN TO PIECES</string>
 		<string>DYING A HORRIBLE DEATH</string>
@@ -15,10 +15,19 @@
 		<string>YOU FELL INTO A BLACK VOID</string>
 		<string>FALLING TO YOUR DOOM</string>
 		<string>SLIPPING THROUGH A CRACK</string>
-		<string>DISAPPEARING THROUGH A RABBIT HOLE</string>
+		<string>DISAPPEARING DOWN A RABBIT HOLE</string>
 		<string>DROPPING TO THE DEEPEST DEPTHS</string>
 		<string>LOSING YOUR FOOTING</string>
 		<string>TRIPPING ON YOUR SHOELACES</string>
+	</array>
+	<key>default</key>
+	<array>
+		<string>DYING</string>
+	</array>
+	<key>miniboss</key>
+	<array>
+		<string>BEING CRUSHED</string>
+		<string>GETTING ANNIHILATED</string>
 	</array>
 </dict>
 </plist>

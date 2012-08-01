@@ -36,5 +36,7 @@
 	<real>5.83</real>
 	<key>collisionShape</key>
 	<string>yellowbullet</string>
+	<key>particles</key>
+	<string>machinegunBlast.plist</string>
 </dict>
 </plist>

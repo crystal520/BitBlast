@@ -197,16 +197,13 @@
             // if the dropship died, turn off all movement and play death animation
             if(health <= 0) {
                 [self stopActionByTag:DROPSHIP_ACTION_TAG_HOVER];
-                [self stopActionByTag:DROPSHIP_ACTION_TAG_HIT];
+                [self stopActionByTag:ACTION_TAG_FLASH];
                 [self setColor:ccc3(255, 255, 255)];
                 [self die];
                 [explosionManager explodeInObject:self number:5];
             }
             else {
-                // TODO: play hit animation or something cooler. possibly explosion particles
-                CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-                action.tag = DROPSHIP_ACTION_TAG_HIT;
-                [self runAction:action];
+                [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:1 onSprite:self];
             }
         }
         // only disable if the bullet is a shot (lasers go through everything!)

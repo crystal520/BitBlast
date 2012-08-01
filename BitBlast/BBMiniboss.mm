@@ -120,7 +120,7 @@
 }
 
 - (void) checkDeath {
-    // if dropship is dead and goes off screen, actually kill it
+    // if miniboss is dead and goes off screen, actually kill it
     if(!alive) {
         if(dummyPosition.y + self.contentSize.height * 0.5 < 0) {
             [self setEnabled:NO];
@@ -134,9 +134,11 @@
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
 	if(enabled && !newEnabled) {
+        [[BBWeaponManager sharedSingleton] unequipAllForType:WEAPON_INVENTORY_MINIBOSS];
 		self.visible = NO;
 		alive = NO;
         [collisionShape setActive:NO];
+        [self stopAllActions];
 	}
 	else if(!enabled && newEnabled) {
 		self.visible = YES;
@@ -220,7 +222,7 @@
 - (void) hitByBullet:(BBBullet*)bullet {
     if(bullet.enabled && bullet != lastBulletHit) {
         
-        // play particles where ship was hit
+        // play particles where miniboss was hit
         if(particles) {
             CCParticleSystemQuad *hitParticles = [CCParticleSystemQuad particleWithFile:particles];
             hitParticles.autoRemoveOnFinish = YES;
@@ -235,15 +237,14 @@
             }
         }
         
-        // play sound for dropship getting hit by bullet
+        // play sound for miniboss getting hit by bullet
         [[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"hit"]];
         
         if(health > 0) {
             health -= bullet.damage;
-            // if the dropship died, turn off all movement and play death animation
+            // if the miniboss died, turn off all movement and play death animation
             if(health <= 0) {
-                //[self stopActionByTag:DROPSHIP_ACTION_TAG_HOVER];
-                //[self stopActionByTag:DROPSHIP_ACTION_TAG_HIT];
+                [self stopActionByTag:ACTION_TAG_FLASH];
                 [self setColor:ccc3(255, 255, 255)];
                 [self die];
                 [explosionManager explodeInObject:self number:5];
@@ -254,18 +255,14 @@
                 if(health < initialHealth - [[aiStage objectForKey:@"health"] floatValue] * initialHealth) {
                     self.currentAIStage++;
                 }
-                
-                // TODO: play hit animation or something cooler. possibly explosion particles
-                CCActionInterval *action = [CCSequence actions:[CCTintTo actionWithDuration:0.05 red:255 green:0 blue:0], [CCTintTo actionWithDuration:0.05 red:255 green:255 blue:255], nil];
-                action.tag = MINIBOSS_ACTION_TAG_HIT;
-                [self runAction:action];
+                [self showHealth];
             }
         }
         // only disable if the bullet is a shot (lasers go through everything!)
         if(bullet.type == kBulletTypeShot) {
             [bullet setEnabled:NO];
         }
-        // keep track of the last bullet that hit this dropship (for laser penetration)
+        // keep track of the last bullet that hit this miniboss (for laser penetration)
         lastBulletHit = bullet;
     }
 }
@@ -273,7 +270,7 @@
 - (void) die {
 	[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:dummyPosition];
 	[[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"death"]];
-	// increment dropships killed
+	// increment minibosses killed
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalMinibosses"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentMinibosses"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyMinibosses"];
@@ -284,7 +281,7 @@
 }
 
 - (void) hover {
-    // make dropship hover
+    // make miniboss hover
     float hoverTime = CCRANDOM_MIN_MAX(0.35, 0.45);
     CCActionInterval *hoverUp = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(0.15, 0.25))]];
     CCActionInterval *hoverDown = [CCEaseInOut actionWithAction:[BBMoveBy actionWithDuration:hoverTime position:ccp(0, CCRANDOM_MIN_MAX(-0.25, -0.15))]];
@@ -300,13 +297,13 @@
 	// determine offset based on level type
 	CGPoint levelOffset = [self getLevelOffset:newLevel];
 	
-	// make dropship huge
+	// make miniboss huge
 	self.scale = 2;
 	// save final position for later
 	finalPos = ccpAdd(newPosition, levelOffset);
 	// set velocity to more than the player so it flies past him
 	velocity = ccp([Globals sharedSingleton].playerVelocity.x + 2000, 0);
-	// start dropship off screen, to the left of the player
+	// start miniboss off screen, to the left of the player
 	dummyPosition = ccpAdd(ccpAdd(newPosition, ccp(-800, 0)), levelOffset);
 	dummyPosition.x = dummyPosition.x + [Globals sharedSingleton].playerPosition.x;
 	[self setEnabled:YES];
@@ -321,7 +318,7 @@
         NSDictionary *ranEnemy = [self randomDictionaryFromArray:enemies];
 		// get recycled enemy
 		BBEnemy *newEnemy = [[EnemyManager sharedSingleton] getRecycledEnemy];
-		// reset with position of dropship and random enemy type
+		// reset with position of miniboss and random enemy type
 		[newEnemy resetWithPosition:dummyPosition withType:[ranEnemy objectForKey:@"type"]];
         
         // spawn enemy after random amount of time
@@ -348,7 +345,10 @@
         [self stopActionByTag:MINIBOSS_ACTION_TAG_CHASE];
         CCActionInterval *chasePlayer = [BBMoveBy actionWithDuration:CCRANDOM_MIN_MAX(speedRange.x, speedRange.y) position:ccp(0, playerMinibossDif.y)];
         chasePlayer.tag = MINIBOSS_ACTION_TAG_CHASE;
-        [self runAction:chasePlayer];
+        // make sure we're not charging
+        if(state == MINIBOSS_STATE_ACTIVE) {
+            [self runAction:chasePlayer];
+        }
         
         // chase after a random amount of time
         CGPoint chaseFrequency = CGPointFromString([chaseInfo objectForKey:@"checkPlayerPositionFrequency"]);
@@ -428,6 +428,18 @@
             default:
                 break;
         }
+    }
+}
+
+- (void) showHealth {
+    // only flash if alive and enabled
+    if(alive && enabled) {
+        [self stopActionByTag:MINIBOSS_ACTION_TAG_CALL_SHOW_HEALTH];
+        [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:1 onSprite:self];
+        // make sequence to call this function again. gets faster as health depletes
+        CCSequence *showHealthSequence = [CCSequence actions:[CCDelayTime actionWithDuration:0.25 + 5 * health / initialHealth], [CCCallFunc actionWithTarget:self selector:@selector(showHealth)], nil];
+        showHealthSequence.tag = MINIBOSS_ACTION_TAG_CALL_SHOW_HEALTH;
+        [self runAction:showHealthSequence];
     }
 }
 

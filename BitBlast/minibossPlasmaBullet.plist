@@ -40,5 +40,9 @@
 	</array>
 	<key>behaviors</key>
 	<array/>
+	<key>shotsPerInterval</key>
+	<integer>3</integer>
+	<key>intervalTime</key>
+	<integer>2</integer>
 </dict>
 </plist>

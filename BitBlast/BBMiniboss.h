@@ -35,7 +35,8 @@ typedef enum {
     MINIBOSS_ACTION_TAG_CALL_SPAWN_ENEMY,
     MINIBOSS_ACTION_TAG_CALL_CHANGE_WEAPON,
     MINIBOSS_ACTION_TAG_CALL_CHASE,
-    MINIBOSS_ACTION_TAG_CALL_CHARGE
+    MINIBOSS_ACTION_TAG_CALL_CHARGE,
+    MINIBOSS_ACTION_TAG_CALL_SHOW_HEALTH
 } MinibossActionTags;
 
 @interface BBMinibossShape : BBGameObjectShape {}
@@ -97,5 +98,6 @@ typedef enum {
 - (void) chase:(NSDictionary*)chaseInfo;
 - (void) changeWeapon:(NSDictionary*)weaponInfo;
 - (void) charge;
+- (void) showHealth;
 
 @end

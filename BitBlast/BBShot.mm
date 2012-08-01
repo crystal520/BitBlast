@@ -35,6 +35,10 @@
 		sound = [[dict objectForKey:@"sound"] retain];
         soundVolume = [[dict objectForKey:@"volume"] floatValue];
         collisionShapeString = [[dict objectForKey:@"collisionShape"] retain];
+        numShotsInInterval = [[dict objectForKey:@"shotsPerInterval"] intValue];
+        intervalTime = [[dict objectForKey:@"intervalTime"] floatValue];
+        intervalTimer = 0;
+        numShotsFiredInInterval = 0;
 		
 		// check for particle system
 		if(particles) {
@@ -129,15 +133,24 @@
 #pragma mark update
 - (void) update:(float)delta {
 	if(enabled && rateOfFire > 0) {
-		fireTimer += delta;
-		// keep count of fire calls this update
-		int fireCounter = 0;
-		// fire bullets if the timer is greater than the rate of fire
-		while(fireTimer > rateOfFire) {
-			[self fire:fireCounter];
-			fireTimer -= rateOfFire;
-			fireCounter++;
-		}
+        // see if we should be waiting before firing again
+        if(intervalTimer > 0) {
+            intervalTimer -= delta;
+            if(intervalTimer <= 0) {
+                numShotsFiredInInterval = 0;
+            }
+        }
+        else {
+            fireTimer += delta;
+            // keep count of fire calls this update
+            int fireCounter = 0;
+            // fire bullets if the timer is greater than the rate of fire
+            while(fireTimer > rateOfFire) {
+                [self fire:fireCounter];
+                fireTimer -= rateOfFire;
+                fireCounter++;
+            }
+        }
 	}
 }
 
@@ -146,6 +159,13 @@
 - (void) fire:(int)updateBulletTime {
 	// make sure there's a sprite
 	if(sprite) {
+        // increment number of shots fired in the interval
+        if(intervalTime > 0) {
+            numShotsFiredInInterval++;
+            if(numShotsFiredInInterval >= numShotsInInterval) {
+                intervalTimer = intervalTime;
+            }
+        }
 		// generate random number of bullets
 		int ranNumBullets = CCRANDOM_MIN_MAX(numBulletsRestraints.x, numBulletsRestraints.y);
 		// loop through possible angles
@@ -197,7 +217,7 @@
 			}
 		}
 	}
-	// play sound if there is any
+    // play sound if there is any
 	if(sound) {
 		[[SimpleAudioEngine sharedEngine] playEffect:sound pitch:1.0 pan:0.0 gain:soundVolume];
 	}

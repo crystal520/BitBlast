@@ -13,7 +13,8 @@
 #import "GB2Sprite.h"
 
 typedef enum {
-    ACTION_TAG_ANIMATION = 1
+    ACTION_TAG_ANIMATION = 1,
+    ACTION_TAG_FLASH
 } ActionTag;
 
 @interface BBGameObjectShape : GB2Node {}
@@ -45,5 +46,6 @@ typedef enum {
 - (void) resume;
 // convenience
 - (NSDictionary*) randomDictionaryFromArray:(NSArray*)array;
+- (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
 
 @end

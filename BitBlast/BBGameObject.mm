@@ -125,4 +125,18 @@
     return nil;
 }
 
+- (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite {
+    CCTintTo *flashAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:toColor.r green:toColor.g blue:toColor.b];
+    CCTintTo *flashBackAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:fromColor.r green:fromColor.g blue:fromColor.b];
+    CCActionInterval *finalAction;
+    if(times > 0) {
+        finalAction = [CCRepeat actionWithAction:[CCSequence actions:flashAction, flashBackAction, nil] times:times];
+    }
+    else {
+        finalAction = [CCRepeatForever actionWithAction:[CCSequence actions:flashAction, flashBackAction, nil]];
+    }
+    finalAction.tag = ACTION_TAG_FLASH;
+    [sprite runAction:finalAction];
+}
+
 @end

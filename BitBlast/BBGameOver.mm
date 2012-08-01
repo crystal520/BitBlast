@@ -108,6 +108,12 @@
     else if([Globals sharedSingleton].playerReasonForDeath == kDeathFall) {
         arrayToGrab = @"fall";
     }
+    else if([Globals sharedSingleton].playerReasonForDeath == kDeathMiniboss) {
+        arrayToGrab = @"miniboss";
+    }
+    else {
+        arrayToGrab = @"default";
+    }
     // get the death messages
     NSArray *messages = [deathMessageDictionary objectForKey:arrayToGrab];
     // return a random one

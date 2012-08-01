@@ -38,6 +38,7 @@ typedef enum {
 typedef enum {
     kDeathUnknown,
     kDeathEnemy,
+    kDeathMiniboss,
     kDeathFall
 } ReasonForDeath;
 

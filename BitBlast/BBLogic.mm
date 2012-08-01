@@ -8,12 +8,12 @@
 
 #import "BBLogic.h"
 
-#define kNumberOfDropshipsToBeatForMinibossPossibility 5
+#define kNumberOfDropshipsToBeatForMinibossPossibility 0 // 10
 // these must add up to no greater than 1, but can be less than 1
 // the remaining percentage will cause a 1 second delay where nothing will spawn
-#define kChanceCoin 0.25
-#define kChanceDropship 0.25
-#define kChanceMiniboss 0.05
+#define kChanceCoin 0 // 0.25
+#define kChanceDropship 0 // 0.25
+#define kChanceMiniboss 0.50 //0.05
 
 @implementation BBLogic
 

@@ -328,13 +328,6 @@
 	[self runAction:action];
 }
 
-- (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite {
-    CCTintTo *flashAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:toColor.r green:toColor.g blue:toColor.b];
-    CCTintTo *flashBackAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:fromColor.r green:fromColor.g blue:fromColor.b];
-    CCActionInterval *finalAction = [CCRepeat actionWithAction:[CCSequence actions:flashAction, flashBackAction, nil] times:times];
-    [sprite runAction:finalAction];
-}
-
 - (void) reset {
 	// set initial values
 	curNumChunks = 0;
@@ -487,6 +480,16 @@
     }
 }
 
+- (void) collideWithMiniboss:(BBMiniboss*)miniboss {
+    // make sure miniboss is enabled and alive
+    if(miniboss.alive && miniboss.enabled) {
+        [self attemptToLoseHealth];
+        if(health <= 0) {
+            [self die:kDeathMiniboss];
+        }
+    }
+}
+
 - (void) hitByBullet:(BBBullet*)bullet {
     if(bullet.enabled && health > 0) {
         [self attemptToLoseHealth];
@@ -530,7 +533,7 @@
 
 - (void) postsolveContactWithBBMinibossShape:(GB2Contact*)contact {
     contact.box2dContact->SetEnabled(NO);
-    [(BBPlayer*)(self.ccNode.parent) attemptToLoseHealth];
+    [(BBPlayer*)(self.ccNode.parent) collideWithMiniboss:(BBMiniboss*)(contact.otherObject.ccNode)];
 }
      
 @end
