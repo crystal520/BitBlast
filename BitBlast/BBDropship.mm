@@ -49,13 +49,20 @@
 	health = [[dictionary objectForKey:@"health"] floatValue];
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
 	coins = [[dictionary objectForKey:@"coins"] intValue];
+    minibossChance = [[dictionary objectForKey:@"minibossChance"] floatValue];
+    
     if(sounds) {
         [sounds release];
         sounds = nil;
     }
+    if(hitSound) {
+        [hitSound release];
+    }
     if([dictionary objectForKey:@"sounds"]) {
         sounds = [[dictionary objectForKey:@"sounds"] retain];
+        hitSound = [[[SimpleAudioEngine sharedEngine] soundSourceForFile:[sounds objectForKey:@"hit"]] retain];
     }
+    
 	[self repeatAnimation:[dictionary objectForKey:@"animation"]];
     
     // check for collision shape
@@ -189,8 +196,9 @@
             }
         }
         
-        // play sound for dropship getting hit by bullet
-        [[SimpleAudioEngine sharedEngine] playEffect:[sounds objectForKey:@"hit"] pitch:1.0 pan:0.0 gain:0.6];
+        if(![hitSound isPlaying]) {
+            [hitSound play];
+        }
         
         if(health > 0) {
             health -= bullet.damage;
@@ -202,7 +210,7 @@
                 [self die];
                 [explosionManager explodeInObject:self number:5];
             }
-            else {
+            else if([[self getActionByTag:ACTION_TAG_FLASH] isDone] || ![self getActionByTag:ACTION_TAG_FLASH]) {
                 [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:1 onSprite:self];
             }
         }
@@ -216,13 +224,19 @@
 }
 
 - (void) die {
-	[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:dummyPosition];
+    // see if we should spawn a miniboss trigger
+    float ran = CCRANDOM_0_1();
+    if(ran < minibossChance && [[SettingsManager sharedSingleton] getInt:@"totalKeys"] < [Globals sharedSingleton].numKeysForMiniboss) {
+        [[BBMovingCoinManager sharedSingleton] spawnKeyAtPosition:dummyPosition];
+    }
+    else {
+        [[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:dummyPosition];
+    }
 	[[SimpleAudioEngine sharedEngine] playEffect:[sounds objectForKey:@"death"]];
 	// increment dropships killed
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyDropships"];
-    [Globals sharedSingleton].dropshipsDestroyedForMiniboss += 1;
 	alive = NO;
 	gravity = ccp(2, 5);
 	level = CHUNK_LEVEL_UNKNOWN;

@@ -14,9 +14,8 @@
     NSMutableArray *nodes;
 }
 
-- (id) initWithFile:(NSString*)file;
-
-- (void) reset;
+- (void) loadWithFile:(NSString*)file;
+- (void) resetWithFile:(NSString*)file;
 - (void) update:(float)changeInPos;
 
 @end

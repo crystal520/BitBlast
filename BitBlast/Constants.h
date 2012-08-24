@@ -81,6 +81,8 @@ typedef enum {
 #define kPlayerLevelIncreaseNotification @"playerLevelIncreaseNotification"
 #define kPlayerOutOfChopperNotification @"playerOutOfChopperNotification"
 #define kPlayerEquipWeaponNotification @"playerEquipWeaponNotification"
+#define kPlayerKeyNotification @"playerKeyNotification"
+#define kPlayerTriforceNotification @"playerTriforceNotification"
 
 #define kChunkAddedNotification @"chunkAddedNotification"
 #define kChunkCompletedNotification @"chunkCompletedNotification"

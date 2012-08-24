@@ -13,7 +13,7 @@
 
 @implementation BBMovingCoin
 
-@synthesize recycle, enabled;
+@synthesize recycle, enabled, type;
 
 - (id) init {
 	if((self = [super initWithFile:@"coinExplosion"])) {
@@ -119,6 +119,7 @@
 #pragma mark -
 #pragma mark actions
 - (void) resetWithPosition:(CGPoint)newPosition {
+    [self repeatAnimation:@"coinIdle" startFrame:-1];
 	dummyPosition = newPosition;
     self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	// generate random x and y velocity
@@ -127,6 +128,7 @@
 	velocity = ccp(xVel, yVel);
 	lifeTimer = lifeTime;
 	[self setEnabled:YES];
+    type = MOVING_COIN_TYPE_COIN;
 }
 
 #pragma mark -

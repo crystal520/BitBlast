@@ -47,5 +47,7 @@
 	<string>dropShip1HitParticle.plist</string>
 	<key>animation</key>
 	<string>dropship1</string>
+	<key>minibossChance</key>
+	<real>0.1</real>
 </dict>
 </plist>

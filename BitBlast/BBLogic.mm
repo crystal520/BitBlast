@@ -8,13 +8,6 @@
 
 #import "BBLogic.h"
 
-#define kNumberOfDropshipsToBeatForMinibossPossibility 0 // 10
-// these must add up to no greater than 1, but can be less than 1
-// the remaining percentage will cause a 1 second delay where nothing will spawn
-#define kChanceCoin 0 // 0.25
-#define kChanceDropship 0 // 0.25
-#define kChanceMiniboss 0.50 //0.05
-
 @implementation BBLogic
 
 + (BBLogic*) sharedSingleton {
@@ -33,12 +26,24 @@
 
 - (id) init {
 	if((self = [super init])) {
+        // load variables from plist
+        NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dice" ofType:@"plist"]];
+        [Globals sharedSingleton].numKeysForMiniboss = [[plist objectForKey:@"numKeysToSummonMiniboss"] intValue];
+        [Globals sharedSingleton].numPiecesForFinalBoss = [[plist objectForKey:@"numPiecesForFinalBoss"] intValue];
+        levels = [[NSArray alloc] initWithArray:[plist objectForKey:@"levels"]];
+        
 		// register for noticiations
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kEventNewGame object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelIncrease) name:kPlayerLevelIncreaseNotification object:nil];
 	}
 	return self;
+}
+
+- (void) dealloc {
+    [levels release];
+    [super dealloc];
 }
 
 #pragma mark -
@@ -59,38 +64,45 @@
 - (void) rollDice {
 	NSLog(@"BBLogic: rollDice - %i", enabled);
 	if(enabled) {
-		// TODO: make this way cooler. for now, just determine whether to wait, spawn a dropship, or spawn some coins
-		float ran = CCRANDOM_0_1();
+        
+        // determine whether a dropship or miniboss can be spawned
+        BOOL canSpawn = ([[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0 && [[[BBMinibossManager sharedSingleton] getActiveMinibosses] count] == 0 && !firstRun);
+        
+		NSDictionary *diceResult;
 		// automatically generate a coin group on first run
 		if(firstRun) {
 			firstRun = NO;
-			ran = 0;
+			diceResult = [BBGameObject randomDictionaryFromArray:[levels objectAtIndex:currentLevel] overrideRandom:0];
 		}
-        // determine whether a dropship or miniboss can be spawned
-        BOOL canSpawn = ([[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0 && [[[BBMinibossManager sharedSingleton] getActiveMinibosses] count] == 0);
+        else {
+            diceResult = [BBGameObject randomDictionaryFromArray:[levels objectAtIndex:currentLevel]];
+        }
+        
+        // spawn a random number of minibosses
+        if(canSpawn && [[SettingsManager sharedSingleton] getInt:@"totalKeys"] >= [Globals sharedSingleton].numKeysForMiniboss) {
+            NSLog(@"BBLogic: rollDice spawning miniboss");
+            [[BBMinibossManager sharedSingleton] tryToSpawnMiniboss];
+            [self performSelector:@selector(rollDice) withObject:nil afterDelay:5];
+            return;
+        }
+        
 		// spawn a coin group
-		if(ran < kChanceCoin) {
+		if([[diceResult objectForKey:@"type"] isEqualToString:@"coinGroup"]) {
 			NSLog(@"BBLogic: rollDice spawning coin group");
 			[[BBCoinManager sharedSingleton] spawnCoinGroup];
 			[self performSelector:@selector(rollDice) withObject:nil afterDelay:2];
 		}
         // spawn a random number of dropships
-		else if(ran >= kChanceCoin && ran < kChanceCoin + kChanceDropship && canSpawn) {
+		else if([[diceResult objectForKey:@"type"] isEqualToString:@"dropship"] && canSpawn) {
 			NSLog(@"BBLogic: rollDice spawning dropship");
 			[[BBDropshipManager sharedSingleton] tryToSpawnDropship];
 			[self performSelector:@selector(rollDice) withObject:nil afterDelay:2];
 		}
-        // spawn a random number of minibosses
-        else if(ran >= kChanceCoin + kChanceDropship && ran < kChanceCoin + kChanceDropship + kChanceMiniboss && canSpawn && [Globals sharedSingleton].dropshipsDestroyedForMiniboss >= kNumberOfDropshipsToBeatForMinibossPossibility) {
-            NSLog(@"BBLogic: rollDice spawning miniboss");
-            [Globals sharedSingleton].dropshipsDestroyedForMiniboss = 0;
-            [[BBMinibossManager sharedSingleton] tryToSpawnMiniboss];
-            [self performSelector:@selector(rollDice) withObject:nil afterDelay:5];
-        }
         // delay for a bit
 		else {
 			NSLog(@"BBLogic: rollDice delay");
-			[self performSelector:@selector(rollDice) withObject:nil afterDelay:1];
+            CGPoint delayRange = CGPointFromString([diceResult objectForKey:@"range"]);
+			[self performSelector:@selector(rollDice) withObject:nil afterDelay:CCRANDOM_MIN_MAX(delayRange.x, delayRange.y)];
 		}
 	}
 }
@@ -105,7 +117,15 @@
 
 - (void) newGame {
     firstRun = YES;
-    [Globals sharedSingleton].dropshipsDestroyedForMiniboss = 0;
+    currentLevel = 0;
+}
+
+- (void) levelIncrease {
+    currentLevel++;
+    // make sure we don't go out of range of the levels array
+    if(currentLevel >= [levels count]) {
+        currentLevel = [levels count]-1;
+    }
 }
 
 @end

@@ -57,7 +57,7 @@
 		[self addChild:[BBDialogQueue sharedSingleton] z:DEPTH_MENU_POPUP];
 		
 		// create parallax scrolling background
-		parallax = [[ParallaxManager alloc] initWithFile:@"jungleLevel"];
+		parallax = [[ParallaxManager alloc] init];
 		[self addChild:parallax z:DEPTH_PARALLAX];
 		
 		// for objects that need to scroll
@@ -82,7 +82,6 @@
 		
 		// create background sprite
 		[self createBackground];
-		[self setBackgroundColorWithFile:@"jungleLevel"];
 		
 		// create player
 		player = [[BBPlayer alloc] init];
@@ -307,7 +306,8 @@
 	
 	// reset level
 	scrollingNode.position = ccp(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0 : -45);
-	[parallax reset];
+    [self setBackgroundColorWithFile:@"jungleLevel"];
+	[parallax resetWithFile:@"jungleLevel"];
 	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
 	[player reset];
 #ifndef DEBUG_NO_MUSIC

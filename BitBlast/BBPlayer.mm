@@ -293,6 +293,18 @@
 	[[SettingsManager sharedSingleton] incrementInteger:coins * coinMultiplier keyString:@"dailyCoins"];
 }
 
+- (void) addKeys:(int)keys {
+    [[SettingsManager sharedSingleton] incrementInteger:keys keyString:@"totalKeys"];
+    [[SettingsManager sharedSingleton] incrementInteger:keys keyString:@"allTimeKeys"];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerKeyNotification object:nil]];
+}
+
+- (void) addTriforce:(int)triforce {
+    [[SettingsManager sharedSingleton] incrementInteger:triforce keyString:@"totalTriforce"];
+    [[SettingsManager sharedSingleton] incrementInteger:triforce keyString:@"allTimeTriforce"];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerTriforceNotification object:nil]];
+}
+
 - (void) playIntro {
 	[[BBWeaponManager sharedSingleton] setEnabled:NO forType:WEAPON_INVENTORY_PLAYER];
 	introEnabled = YES;
@@ -346,7 +358,7 @@
 	
 	// reset health to starting value from plist
 	[self setHealth:startingHealth + [[BBPowerupManager sharedSingleton] getHealthPowerup]];
-	[Globals sharedSingleton].playerStartingHealth = startingHealth + [[BBPowerupManager sharedSingleton] getHealthPowerup];
+	[Globals sharedSingleton].playerStartingHealth = health;
 	// keep track of previous total distance
 	previousTotalDistance = [[SettingsManager sharedSingleton] getInt:@"totalMeters"];
 	[self playIntro];
@@ -462,9 +474,21 @@
 - (void) collideWithMovingCoin:(BBMovingCoin*)coin {
     // sanity check to make sure the coin is enabled
     if(coin.enabled) {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"coin.wav"];
-        [self addCoins:1];
-        [coin setEnabled:NO];
+        if(coin.type == MOVING_COIN_TYPE_COIN) {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"coin.wav"];
+            [self addCoins:1];
+            [coin setEnabled:NO];
+        }
+        else if(coin.type == MOVING_COIN_TYPE_KEY) {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"key.wav"];
+            [self addKeys:1];
+            [coin setEnabled:NO];
+        }
+        else {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"triforce.wav"];
+            [self addTriforce:1];
+            [coin setEnabled:NO];
+        }
     }
 }
 

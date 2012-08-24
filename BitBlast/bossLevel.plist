@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>chunks</key>
+	<array>
+		<array>
+			<string>bossLevel1.tmx</string>
+		</array>
+	</array>
+	<key>firstChunk</key>
+	<string>bossLevel1.tmx</string>
+	<key>overrideChunk</key>
+	<string></string>
+	<key>backgroundColor</key>
+	<string>145, 33, 158</string>
+	<key>parallax</key>
+	<array/>
+</dict>
+</plist>

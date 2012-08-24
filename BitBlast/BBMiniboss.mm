@@ -237,13 +237,13 @@
             }
         }
         
-        // play sound for miniboss getting hit by bullet
-        [[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"hit"]];
-        
         if(health > 0) {
             health -= bullet.damage;
             // if the miniboss died, turn off all movement and play death animation
             if(health <= 0) {
+                // clear miniboss keys
+                [[SettingsManager sharedSingleton] setInteger:0 keyString:@"totalKeys"];
+                [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerKeyNotification object:nil]];
                 [self stopActionByTag:ACTION_TAG_FLASH];
                 [self setColor:ccc3(255, 255, 255)];
                 [self die];
@@ -254,6 +254,10 @@
                 NSDictionary *aiStage = [self getAIStage];
                 if(health < initialHealth - [[aiStage objectForKey:@"health"] floatValue] * initialHealth) {
                     self.currentAIStage++;
+                }
+                // play sound for miniboss getting hit by bullet
+                if([[self getActionByTag:ACTION_TAG_FLASH] isDone] || ![self getActionByTag:ACTION_TAG_FLASH]) {
+                    [[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"hit"]];
                 }
                 [self showHealth];
             }
@@ -268,7 +272,7 @@
 }
 
 - (void) die {
-	[[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:dummyPosition];
+	[[BBMovingCoinManager sharedSingleton] spawnTriforceAtPosition:dummyPosition];
 	[[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"death"]];
 	// increment minibosses killed
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalMinibosses"];
@@ -315,7 +319,7 @@
 	if(alive && enabled) {
         // get array of possible enemies
         NSArray *enemies = [enemyInfo objectForKey:@"enemyTypes"];
-        NSDictionary *ranEnemy = [self randomDictionaryFromArray:enemies];
+        NSDictionary *ranEnemy = [BBGameObject randomDictionaryFromArray:enemies];
 		// get recycled enemy
 		BBEnemy *newEnemy = [[EnemyManager sharedSingleton] getRecycledEnemy];
 		// reset with position of miniboss and random enemy type
@@ -367,7 +371,7 @@
         NSArray *weapons = [weaponInfo objectForKey:@"weapons"];
         
         // get a random weapon to equip from this miniboss's arsenal
-        NSDictionary *ranWeapon = [self randomDictionaryFromArray:weapons];
+        NSDictionary *ranWeapon = [BBGameObject randomDictionaryFromArray:weapons];
         [[BBWeaponManager sharedSingleton] equip:[ranWeapon objectForKey:@"type"] forType:WEAPON_INVENTORY_MINIBOSS];
         [[BBWeaponManager sharedSingleton] setEnabled:YES forType:WEAPON_INVENTORY_MINIBOSS];
         [[BBWeaponManager sharedSingleton] setNode:switchNode.parent forType:WEAPON_INVENTORY_MINIBOSS];

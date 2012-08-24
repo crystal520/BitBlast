@@ -41,12 +41,36 @@
 		coins.position = ccp(winSize.width * 0.98, winSize.height * 0.9);
 		coins.color = ccc3(255, 215, 0);
 		[self addChild:coins];
-		
-		// create hearts based on player's starting health
+        
+        // create keys based on player's current keys
+        float startY = [[CCSprite spriteWithSpriteFrameName:@"key.png"] contentSize].height * 0.5 + 2;
+        keys = [NSMutableArray new];
+        for(int i=0;i<[Globals sharedSingleton].numKeysForMiniboss;i++) {
+            CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"key.png"];
+            sprite.position = ccp(sprite.contentSize.width * 0.65 + i * (sprite.contentSize.width + 5), startY);
+            sprite.opacity = (i < [[SettingsManager sharedSingleton] getInt:@"totalKeys"]) ? 255 : 128;
+            [keys addObject:sprite];
+            [uiSpriteBatch addChild:sprite];
+        }
+        
+        // update start Y for triforce pieces
+        startY += [[CCSprite spriteWithSpriteFrameName:@"key.png"] contentSize].height * 0.5;
+        startY += [[CCSprite spriteWithSpriteFrameName:@"triforceFilled.png"] contentSize].height * 0.5 + 2;
+        
+        // create triforce pieces based on player's current triforce pieces
+        triforce = [NSMutableArray new];
+        for(int i=0;i<[Globals sharedSingleton].numPiecesForFinalBoss;i++) {
+            CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:(i < [[SettingsManager sharedSingleton] getInt:@"totalTriforce"]) ?@"triforceFilled.png" : @"triforceEmpty.png"];
+            sprite.position = ccp(sprite.contentSize.width * 0.65 + i * (sprite.contentSize.width + 5), startY);
+            [triforce addObject:sprite];
+            [uiSpriteBatch addChild:sprite];
+        }
+        
+        // create hearts based on player's starting health
 		hearts = [NSMutableArray new];
 		for(int i=0;i<[Globals sharedSingleton].playerStartingHealth;i++) {
 			CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"heart.png"];
-			sprite.position = ccp(winSize.width * 0.05 + i * (sprite.contentSize.width + 10), winSize.height * 0.95);
+			sprite.position = ccp(sprite.contentSize.width * 0.65 + i * (sprite.contentSize.width + 10), winSize.height - sprite.contentSize.height * 0.5 - 2);
 			[sprite setVisible:(i < [Globals sharedSingleton].playerStartingHealth)];
 			[hearts addObject:sprite];
 			[uiSpriteBatch addChild:sprite];
@@ -56,6 +80,8 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(healthUpdate:) name:kPlayerHealthNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameStart) name:kNavGameNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyUpdate:) name:kPlayerKeyNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(triforceUpdate:) name:kPlayerTriforceNotification object:nil];
 	}
 	
 	return self;
@@ -90,6 +116,22 @@
 		CCSprite *heart = [hearts objectAtIndex:i];
 		[heart setVisible:(i < newHealth)];
 	}
+}
+
+- (void) keyUpdate:(NSNotification*)n {
+    // display number of keys equal to new keys
+    for(int i=0,j=[keys count];i<j;i++) {
+        CCSprite *key = [keys objectAtIndex:i];
+        key.opacity = (i < [[SettingsManager sharedSingleton] getInt:@"totalKeys"]) ? 255 : 128;
+    }
+}
+
+- (void) triforceUpdate:(NSNotification*)n {
+    // display number of triforce equal to new number of triforce pieces
+    for(int i=0,j=[triforce count];i<j;i++) {
+        CCSprite *tri = [triforce objectAtIndex:i];
+        [tri setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:(i < [[SettingsManager sharedSingleton] getInt:@"totalTriforce"]) ?@"triforceFilled.png" : @"triforceEmpty.png"]];
+    }
 }
 
 - (void) gameOver {

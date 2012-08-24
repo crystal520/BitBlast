@@ -24,5 +24,7 @@
 - (NSArray*) getActiveCoins;
 // actions
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position;
+- (void) spawnKeyAtPosition:(CGPoint)position;
+- (void) spawnTriforceAtPosition:(CGPoint)position;
 
 @end

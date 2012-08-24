@@ -92,6 +92,20 @@
 	}
 }
 
+- (void) spawnKeyAtPosition:(CGPoint)position {
+    BBMovingCoin *key = [self getRecycledCoin];
+    [key resetWithPosition:position];
+    [key playAnimation:@"key"];
+    key.type = MOVING_COIN_TYPE_KEY;
+}
+
+- (void) spawnTriforceAtPosition:(CGPoint)position {
+    BBMovingCoin *triforce = [self getRecycledCoin];
+    [triforce resetWithPosition:position];
+    [triforce repeatAnimation:@"triforceFlashing"];
+    triforce.type = MOVING_COIN_TYPE_TRIFORCE;
+}
+
 #pragma mark -
 #pragma mark notifications
 - (void) pause {

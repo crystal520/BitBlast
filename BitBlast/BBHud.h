@@ -20,6 +20,10 @@
 	CCButton *pause;
 	// keeps track of player coins during game
 	CCLabelBMFont *coins;
+    // array of keys
+    NSMutableArray *keys;
+    // array of triforce pieces that the player has
+    NSMutableArray *triforce;
 }
 
 - (void) update:(float)delta;

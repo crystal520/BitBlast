@@ -106,16 +106,20 @@
 
 #pragma mark -
 #pragma mark convenience
-- (NSDictionary*) randomDictionaryFromArray:(NSArray*)array {
++ (NSDictionary*) randomDictionaryFromArray:(NSArray*)array {
     // generate random number
     float ran = CCRANDOM_0_1();
+    return [BBGameObject randomDictionaryFromArray:array overrideRandom:ran];
+}
+
++ (NSDictionary*) randomDictionaryFromArray:(NSArray *)array overrideRandom:(float)override {
     float curProbability = 0;
     float prevProbability = 0;
     
     for(NSDictionary *d in array) {
         prevProbability = curProbability;
         curProbability += [[d objectForKey:@"probability"] floatValue];
-        if(ran >= prevProbability && ran < curProbability) {
+        if(override >= prevProbability && override < curProbability) {
             return d;
         }
     }

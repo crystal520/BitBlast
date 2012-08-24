@@ -16,6 +16,10 @@
     BOOL enabled;
 	// make sure the first dice roll results in a coin group
 	BOOL firstRun;
+    // array of probability levels
+    NSArray *levels;
+    // current level within the probability levels, based on player's distance
+    int currentLevel;
 }
 
 + (BBLogic*) sharedSingleton;

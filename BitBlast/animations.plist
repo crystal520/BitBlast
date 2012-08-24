@@ -211,6 +211,47 @@
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>key.png</string>
+			</array>
+			<key>name</key>
+			<string>key</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>triforceEmpty.png</string>
+			</array>
+			<key>name</key>
+			<string>triforce</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>triforceFilled.png</string>
+			</array>
+			<key>name</key>
+			<string>triforceFill</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>triforceFilled.png</string>
+				<string>triforceEmpty.png</string>
+			</array>
+			<key>name</key>
+			<string>triforceFlashing</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
 	</array>
 </dict>
 </plist>

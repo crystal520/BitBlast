@@ -22,12 +22,14 @@
     ReasonForDeath playerReasonForDeath;
     // current game state
     GameState gameState;
-    // number of dropships destroyed - for determining whether to spawn a miniboss or not
-    int dropshipsDestroyedForMiniboss;
+    // number of keys needed to summon a miniboss
+    int numKeysForMiniboss;
+    // number of triforce pieces needed to summon the final boss
+    int numPiecesForFinalBoss;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
-@property (nonatomic, assign) int playerStartingHealth, dropshipsDestroyedForMiniboss;
+@property (nonatomic, assign) int playerStartingHealth, numKeysForMiniboss, numPiecesForFinalBoss;
 @property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 @property (nonatomic, assign) GameState gameState;
 

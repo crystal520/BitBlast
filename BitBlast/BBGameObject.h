@@ -45,7 +45,8 @@ typedef enum {
 - (void) pause;
 - (void) resume;
 // convenience
-- (NSDictionary*) randomDictionaryFromArray:(NSArray*)array;
++ (NSDictionary*) randomDictionaryFromArray:(NSArray*)array;
++ (NSDictionary*) randomDictionaryFromArray:(NSArray *)array overrideRandom:(float)override;
 - (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
 
 @end

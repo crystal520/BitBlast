@@ -61,6 +61,10 @@ typedef enum {
     NSDictionary *sounds;
     // reference to BBDropshipManager's backNode
     CCNode *switchNode;
+    // chance to drop miniboss trigger
+    float minibossChance;
+    // sound when dropship is hit by bullet
+    CDSoundSource *hitSound;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;

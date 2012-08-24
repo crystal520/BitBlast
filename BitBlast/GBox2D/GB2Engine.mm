@@ -118,14 +118,10 @@ float PTM_RATIO = 32.0f;
 
 
 - (void)update:(ccTime)dt 
-{            
-    const float32 timeStep = 1.0f / 30.0f;
+{
     const int32 velocityIterations = 0;
     const int32 positionIterations = 1;
     
-    // step the world
-	world->Step(timeStep, velocityIterations, positionIterations);
-
     [self iterateObjectsWithBlock:^(GB2Node *o) {
         // update position, rotation
         [o updatePhysicsFromCC];
@@ -136,6 +132,9 @@ float PTM_RATIO = 32.0f;
             [o deleteNow];
         }
     }];
+    
+    // step the world
+	world->Step(0.1f, velocityIterations, positionIterations);
 }
 
 - (void) iterateObjectsWithBlock:(GB2NodeCallBack)callback
