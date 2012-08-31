@@ -373,6 +373,7 @@
 	[[BBWeaponManager sharedSingleton] setGunSpeedMultiplier:1 forType:WEAPON_INVENTORY_PLAYER];
 	
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerDeadNotification object:nil]];
+    [TestFlight passCheckpoint:@"finishARun"];
 }
 
 - (void) jump {

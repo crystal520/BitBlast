@@ -119,6 +119,8 @@ static SettingsManager* _sharedSettingsManager = nil;
 		CCLOG(@"settings read failure");
 		settings = [[[NSMutableDictionary alloc] initWithCapacity:5] autorelease];
 	}
+    [settings setObject:[NSNumber numberWithInt:7] forKey:@"totalKeys"];
+    [settings setObject:[NSNumber numberWithInt:3] forKey:@"totalTriforce"];
 	
 	[settings retain];
 }

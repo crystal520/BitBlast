@@ -100,6 +100,7 @@
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone) name:kPlayerOutOfChopperNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(spawnFinalBoss) name:kEventSpawnFinalBoss object:nil];
 		
 		//[[BBEquipmentManager sharedSingleton] equip:@"glider"];
 		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
@@ -586,6 +587,13 @@
 
 - (void) introDone {
 	[self setState:kStateGame];
+}
+
+- (void) spawnFinalBoss {
+    state = kStatePause;
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
+    state = kStateGame;
+    [self pauseSchedulerAndActions];
 }
 
 #pragma mark -

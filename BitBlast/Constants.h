@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TestFlight.h"
 
 typedef enum {
 	DEPTH_BACKGROUND,
@@ -66,6 +67,8 @@ typedef enum {
     WEAPON_INVENTORY_COUNT
 } WeaponInventory;
 
+#define TESTING 1
+
 #define kGameRestartNotification @"gameRestartNotification"
 #define kLoadLevelNotification @"loadLevelNotification"
 
@@ -94,6 +97,7 @@ typedef enum {
 #define kEventPromoCoinsAwarded @"eventPromoCoinsAwarded"
 #define kEventSessionMUserInfoUpdated @"eventSessionMUserInfoUpdated"
 #define kEventPreviewWeapon @"eventPreviewWeapon"
+#define kEventSpawnFinalBoss @"eventSpawnFinalBoss"
 
 #define kNavMainNotification @"navMainNotification"
 #define kNavGameNotification @"navGameNotification"

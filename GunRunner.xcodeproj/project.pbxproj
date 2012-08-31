@@ -416,6 +416,7 @@
 		3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */; };
 		9120F6D515E71FCA00E61E54 /* bossLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9120F6D415E71FCA00E61E54 /* bossLevel.plist */; };
 		9120F6D915E720DF00E61E54 /* bossLevel1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 9120F6D815E720DF00E61E54 /* bossLevel1.tmx */; };
+		9120F6DD15E726A900E61E54 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120F6DB15E726A900E61E54 /* libTestFlight.a */; };
 		913B89C715B9AE62007258EC /* flamethrower.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89C615B9AE62007258EC /* flamethrower.wav */; };
 		913B89C915B9B7E7007258EC /* spreadgun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89C815B9B7E7007258EC /* spreadgun.wav */; };
 		913B89CB15B9B9D6007258EC /* jumpDown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89CA15B9B9D6007258EC /* jumpDown.wav */; };
@@ -1087,6 +1088,8 @@
 		3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gamefont.png; path = Resources/gamefont.png; sourceTree = "<group>"; };
 		9120F6D415E71FCA00E61E54 /* bossLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bossLevel.plist; sourceTree = "<group>"; };
 		9120F6D815E720DF00E61E54 /* bossLevel1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bossLevel1.tmx; path = Resources/bossLevel1.tmx; sourceTree = "<group>"; };
+		9120F6DB15E726A900E61E54 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = SOURCE_ROOT; };
+		9120F6DC15E726A900E61E54 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = SOURCE_ROOT; };
 		913B89C615B9AE62007258EC /* flamethrower.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flamethrower.wav; path = Resources/SFX/flamethrower.wav; sourceTree = "<group>"; };
 		913B89C815B9B7E7007258EC /* spreadgun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = spreadgun.wav; path = Resources/SFX/spreadgun.wav; sourceTree = "<group>"; };
 		913B89CA15B9B9D6007258EC /* jumpDown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = jumpDown.wav; path = Resources/SFX/jumpDown.wav; sourceTree = "<group>"; };
@@ -1161,6 +1164,7 @@
 				0AE417431496F5C400342D8E /* Foundation.framework in Frameworks */,
 				0AE417451496F5C400342D8E /* CoreGraphics.framework in Frameworks */,
 				0AFF020215447E68000F9A2E /* libSessionM.a in Frameworks */,
+				9120F6DD15E726A900E61E54 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1518,6 +1522,7 @@
 		0A94930114FAECA400941321 /* Supporting Code */ = {
 			isa = PBXGroup;
 			children = (
+				9120F6DA15E7269900E61E54 /* TestFlight */,
 				91EDC3D315AB77FB00C31CE5 /* GBox2D */,
 				34A030C5154908500067AA4B /* Chartboost */,
 				0AFF020315447E6F000F9A2E /* SessionM */,
@@ -2270,6 +2275,15 @@
 				9120F6D815E720DF00E61E54 /* bossLevel1.tmx */,
 			);
 			name = Boss;
+			sourceTree = "<group>";
+		};
+		9120F6DA15E7269900E61E54 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				9120F6DB15E726A900E61E54 /* libTestFlight.a */,
+				9120F6DC15E726A900E61E54 /* TestFlight.h */,
+			);
+			name = TestFlight;
 			sourceTree = "<group>";
 		};
 		9189485015BF7F76002B5593 /* Minibosses */ = {

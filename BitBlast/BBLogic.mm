@@ -37,6 +37,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newGame) name:kEventNewGame object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(levelIncrease) name:kPlayerLevelIncreaseNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(triforceCollected) name:kPlayerTriforceNotification object:nil];
 	}
 	return self;
 }
@@ -125,6 +126,13 @@
     // make sure we don't go out of range of the levels array
     if(currentLevel >= [levels count]) {
         currentLevel = [levels count]-1;
+    }
+}
+
+- (void) triforceCollected {
+    // check to see if we should spawn the final boss
+    if([[SettingsManager sharedSingleton] getInt:@"totalTriforce"] >= [Globals sharedSingleton].numPiecesForFinalBoss) {
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventSpawnFinalBoss object:nil]];
     }
 }
 

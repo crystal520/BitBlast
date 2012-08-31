@@ -147,6 +147,14 @@
     
     // Show an interstitial
     [cb showInterstitial];
+    
+    // start the TestFlight session
+    [TestFlight takeOff:@"0062c6fa2e325ad3ac0770b55f750df5_MTExNjM5MjAxMi0wOC0yMyAyMzowNzozMi43ODA3NDU"];
+    
+    // keep track of device ID
+#ifdef TESTING
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+#endif
 	
 	self.window.rootViewController = viewController;
 	[self.window makeKeyAndVisible];
