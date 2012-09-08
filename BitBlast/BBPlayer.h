@@ -14,7 +14,7 @@
 #import "BBCoinManager.h"
 #import "SettingsManager.h"
 #import "BBWeaponManager.h"
-#import "EnemyManager.h"
+#import "BBEnemyManager.h"
 #import "SimpleAudioEngine.h"
 #import "BBPowerupManager.h"
 #import "BBMinibossManager.h"

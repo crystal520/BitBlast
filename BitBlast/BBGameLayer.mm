@@ -66,19 +66,21 @@
 		
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton] z:DEPTH_GAME_LEVEL];
-		[[ChunkManager sharedSingleton] loadChunksForLevel:@"jungleLevel"];
+		[self resetLevel:@"jungleLevel"];
 		
 		// add dropships to scrollingNode
 		[scrollingNode addChild:[BBDropshipManager sharedSingleton].backNode z:DEPTH_GAME_DROPSHIPS];
 		[scrollingNode addChild:[BBDropshipManager sharedSingleton].frontNode z:DEPTH_GAME_DROPSHIPS_INTRO];
 		// add enemies to scrollingNode
-		[scrollingNode addChild:[EnemyManager sharedSingleton] z:DEPTH_GAME_ENEMIES];
+		[scrollingNode addChild:[BBEnemyManager sharedSingleton] z:DEPTH_GAME_ENEMIES];
 		// add coins to scrollingNode
 		[scrollingNode addChild:[BBCoinManager sharedSingleton] z:DEPTH_GAME_COINS];
 		[scrollingNode addChild:[BBMovingCoinManager sharedSingleton] z:DEPTH_GAME_MOVING_COINS];
         // add minibosses to scrollingNode
         [scrollingNode addChild:[BBMinibossManager sharedSingleton].backNode z:DEPTH_GAME_MINIBOSSES];
         [scrollingNode addChild:[BBMinibossManager sharedSingleton].frontNode z:DEPTH_GAME_MINIBOSSES_INTRO];
+        boss = [[BBBoss alloc] initWithFile:@"boss"];
+        [scrollingNode addChild:boss z:DEPTH_GAME_MINIBOSSES];
 		
 		// create background sprite
 		[self createBackground];
@@ -87,19 +89,19 @@
 		player = [[BBPlayer alloc] init];
 		[scrollingNode addChild:player z:DEPTH_GAME_PLAYER];
 		
-		// register for notifications
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartGame) name:kGameRestartNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startGame) name:kNavGameNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoShop) name:kNavShopNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMain) name:kNavMainNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoConfirmBuy:) name:kNavShopConfirmNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
-		//[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone) name:kPlayerOutOfChopperNotification object:nil];
+        // register for notifications
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartGame) name:kGameRestartNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startGame) name:kNavGameNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoShop) name:kNavShopNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMain) name:kNavMainNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoConfirmBuy:) name:kNavShopConfirmNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone) name:kPlayerOutOfChopperNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(spawnFinalBoss) name:kEventSpawnFinalBoss object:nil];
 		
 		//[[BBEquipmentManager sharedSingleton] equip:@"glider"];
@@ -241,12 +243,13 @@
 - (void) update:(float)delta {
 	
 	// update game
+    boss.position = player.position;
 	if(state == kStateGame) {
 		[chopper update:delta];
 		[[ChunkManager sharedSingleton] update:delta];
 		[player update:delta];
 		[[BulletManager sharedSingleton] update:delta];
-		[[EnemyManager sharedSingleton] update:delta];
+		[[BBEnemyManager sharedSingleton] update:delta];
 		[[BBDropshipManager sharedSingleton] update:delta];
         [[BBMinibossManager sharedSingleton] update:delta];
 		[[BBCoinManager sharedSingleton] update:delta];
@@ -306,10 +309,7 @@
 	[scrollingNode addChild:chopper z:DEPTH_GAME_INTRO_CHOPPER];
 	
 	// reset level
-	scrollingNode.position = ccp(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0 : -45);
-    [self setBackgroundColorWithFile:@"jungleLevel"];
-	[parallax resetWithFile:@"jungleLevel"];
-	[[ChunkManager sharedSingleton] resetWithLevel:@"jungleLevel"];
+	[self resetLevel:@"jungleLevel"];
 	[player reset];
 #ifndef DEBUG_NO_MUSIC
 	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
@@ -325,6 +325,13 @@
 	
 	// kill chopper after a certain amount of time
 	[[CCScheduler sharedScheduler] scheduleSelector:@selector(killChopper) forTarget:self interval:5 paused:NO];
+}
+
+- (void) resetLevel:(NSString*)levelName {
+    scrollingNode.position = ccp(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0 : -45);
+    [self setBackgroundColorWithFile:levelName];
+	[parallax resetWithFile:levelName];
+	[[ChunkManager sharedSingleton] resetWithLevel:levelName];
 }
 
 - (void) killChopper {
@@ -590,10 +597,11 @@
 }
 
 - (void) spawnFinalBoss {
-    state = kStatePause;
+    /*state = kStatePause;
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
     state = kStateGame;
-    [self pauseSchedulerAndActions];
+    [self pauseSchedulerAndActions];*/
+    [self resetLevel:@"bossLevel"];
 }
 
 #pragma mark -

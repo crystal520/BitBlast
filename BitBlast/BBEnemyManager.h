@@ -1,5 +1,5 @@
 //
-//  EnemyManager.h
+//  BBEnemyManager.h
 //  BitBlast
 //
 //  Created by Kristian Bauer on 2/9/12.
@@ -14,11 +14,11 @@
 
 #define MAX_ENEMIES 10
 
-@interface EnemyManager : CCNode {
+@interface BBEnemyManager : CCNode {
     NSMutableArray *enemies;
 }
 
-+ (EnemyManager*) sharedSingleton;
++ (BBEnemyManager*) sharedSingleton;
 // update
 - (void) update:(float)delta;
 // getters

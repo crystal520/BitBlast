@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "BBMovingObject.h"
-#import "EnemyManager.h"
+#import "BBEnemyManager.h"
 #import "BBBullet.h"
 #import "SimpleAudioEngine.h"
 #import "BBMovingCoinManager.h"

@@ -1,24 +1,24 @@
 //
-//  EnemyManager.m
+//  BBEnemyManager.m
 //  BitBlast
 //
 //  Created by Kristian Bauer on 2/9/12.
 //  Copyright 2012 Bauerkraut. All rights reserved.
 //
 
-#import "EnemyManager.h"
+#import "BBEnemyManager.h"
 
 
-@implementation EnemyManager
+@implementation BBEnemyManager
 
-+ (EnemyManager*) sharedSingleton {
++ (BBEnemyManager*) sharedSingleton {
 	
-	static EnemyManager *sharedSingleton;
+	static BBEnemyManager *sharedSingleton;
 	
 	@synchronized(self)
 	{
 		if (!sharedSingleton)
-			sharedSingleton = [[EnemyManager alloc] init];
+			sharedSingleton = [[BBEnemyManager alloc] init];
 		
 		return sharedSingleton;
 	}

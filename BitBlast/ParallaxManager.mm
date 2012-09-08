@@ -38,6 +38,9 @@
 }
 
 - (void) resetWithFile:(NSString*)file {
+    for(ParallaxNode *p in nodes) {
+        [self removeChild:p cleanup:YES];
+    }
 	[nodes removeAllObjects];
     [self loadWithFile:file];
 }

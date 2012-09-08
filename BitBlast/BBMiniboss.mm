@@ -321,7 +321,7 @@
         NSArray *enemies = [enemyInfo objectForKey:@"enemyTypes"];
         NSDictionary *ranEnemy = [BBGameObject randomDictionaryFromArray:enemies];
 		// get recycled enemy
-		BBEnemy *newEnemy = [[EnemyManager sharedSingleton] getRecycledEnemy];
+		BBEnemy *newEnemy = [[BBEnemyManager sharedSingleton] getRecycledEnemy];
 		// reset with position of miniboss and random enemy type
 		[newEnemy resetWithPosition:dummyPosition withType:[ranEnemy objectForKey:@"type"]];
         

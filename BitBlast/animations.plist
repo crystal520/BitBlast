@@ -252,6 +252,30 @@
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>boss1.png</string>
+				<string>boss2.png</string>
+				<string>boss3.png</string>
+			</array>
+			<key>name</key>
+			<string>bossMouthOpen</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>boss3.png</string>
+				<string>boss2.png</string>
+				<string>boss1.png</string>
+			</array>
+			<key>name</key>
+			<string>bossMouthClose</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
 	</array>
 </dict>
 </plist>

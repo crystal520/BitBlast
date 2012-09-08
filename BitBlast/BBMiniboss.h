@@ -13,7 +13,7 @@
 #import "BBExplosionManager.h"
 #import "BBActionInterval.h"
 #import "SettingsManager.h"
-#import "EnemyManager.h"
+#import "BBEnemyManager.h"
 #import "ChunkManager.h"
 #import "BBWeapon.h"
 #import "BBWeaponManager.h"

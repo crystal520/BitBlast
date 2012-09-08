@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A0366D914E21EA100313CCC /* BBLaser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A0366D814E21EA100313CCC /* BBLaser.mm */; };
 		0A0366DC14E4B68200313CCC /* testLaser.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0366DB14E4B68100313CCC /* testLaser.plist */; };
-		0A0366E014E4C55900313CCC /* EnemyManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A0366DF14E4C55900313CCC /* EnemyManager.mm */; };
+		0A0366E014E4C55900313CCC /* BBEnemyManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A0366DF14E4C55900313CCC /* BBEnemyManager.mm */; };
 		0A0366E414E4C78800313CCC /* BBEnemy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A0366E314E4C78800313CCC /* BBEnemy.mm */; };
 		0A0366E714E4CC5F00313CCC /* testEnemy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0366E614E4CC5F00313CCC /* testEnemy.plist */; };
 		0A0402461516A6DA008D179E /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A0402451516A6DA008D179E /* particleTexture.png */; };
@@ -417,6 +417,10 @@
 		9120F6D515E71FCA00E61E54 /* bossLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9120F6D415E71FCA00E61E54 /* bossLevel.plist */; };
 		9120F6D915E720DF00E61E54 /* bossLevel1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 9120F6D815E720DF00E61E54 /* bossLevel1.tmx */; };
 		9120F6DD15E726A900E61E54 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9120F6DB15E726A900E61E54 /* libTestFlight.a */; };
+		9135090315F96B5D00414446 /* BBBoss.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9135090215F96B5C00414446 /* BBBoss.mm */; };
+		9135090715F96B9F00414446 /* BBBossManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9135090615F96B9F00414446 /* BBBossManager.mm */; };
+		9135090B15F976D500414446 /* boss.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9135090A15F976D500414446 /* boss.plist */; };
+		9135090E15F977A200414446 /* BBBossPiece.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9135090D15F977A100414446 /* BBBossPiece.mm */; };
 		913B89C715B9AE62007258EC /* flamethrower.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89C615B9AE62007258EC /* flamethrower.wav */; };
 		913B89C915B9B7E7007258EC /* spreadgun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89C815B9B7E7007258EC /* spreadgun.wav */; };
 		913B89CB15B9B9D6007258EC /* jumpDown.wav in Resources */ = {isa = PBXBuildFile; fileRef = 913B89CA15B9B9D6007258EC /* jumpDown.wav */; };
@@ -455,8 +459,8 @@
 		0A0366D714E21EA100313CCC /* BBLaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLaser.h; sourceTree = "<group>"; };
 		0A0366D814E21EA100313CCC /* BBLaser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBLaser.mm; sourceTree = "<group>"; };
 		0A0366DB14E4B68100313CCC /* testLaser.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testLaser.plist; sourceTree = "<group>"; };
-		0A0366DE14E4C55900313CCC /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyManager.h; sourceTree = "<group>"; };
-		0A0366DF14E4C55900313CCC /* EnemyManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EnemyManager.mm; sourceTree = "<group>"; };
+		0A0366DE14E4C55900313CCC /* BBEnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEnemyManager.h; sourceTree = "<group>"; };
+		0A0366DF14E4C55900313CCC /* BBEnemyManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBEnemyManager.mm; sourceTree = "<group>"; };
 		0A0366E214E4C78800313CCC /* BBEnemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEnemy.h; sourceTree = "<group>"; };
 		0A0366E314E4C78800313CCC /* BBEnemy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBEnemy.mm; sourceTree = "<group>"; };
 		0A0366E614E4CC5F00313CCC /* testEnemy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy.plist; sourceTree = "<group>"; };
@@ -1090,6 +1094,13 @@
 		9120F6D815E720DF00E61E54 /* bossLevel1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bossLevel1.tmx; path = Resources/bossLevel1.tmx; sourceTree = "<group>"; };
 		9120F6DB15E726A900E61E54 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = SOURCE_ROOT; };
 		9120F6DC15E726A900E61E54 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = SOURCE_ROOT; };
+		9135090115F96B5C00414446 /* BBBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBoss.h; sourceTree = "<group>"; };
+		9135090215F96B5C00414446 /* BBBoss.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBBoss.mm; sourceTree = "<group>"; };
+		9135090515F96B9F00414446 /* BBBossManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBossManager.h; sourceTree = "<group>"; };
+		9135090615F96B9F00414446 /* BBBossManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBBossManager.mm; sourceTree = "<group>"; };
+		9135090A15F976D500414446 /* boss.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = boss.plist; sourceTree = "<group>"; };
+		9135090C15F977A100414446 /* BBBossPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBossPiece.h; sourceTree = "<group>"; };
+		9135090D15F977A100414446 /* BBBossPiece.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBBossPiece.mm; sourceTree = "<group>"; };
 		913B89C615B9AE62007258EC /* flamethrower.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = flamethrower.wav; path = Resources/SFX/flamethrower.wav; sourceTree = "<group>"; };
 		913B89C815B9B7E7007258EC /* spreadgun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = spreadgun.wav; path = Resources/SFX/spreadgun.wav; sourceTree = "<group>"; };
 		913B89CA15B9B9D6007258EC /* jumpDown.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = jumpDown.wav; path = Resources/SFX/jumpDown.wav; sourceTree = "<group>"; };
@@ -1174,14 +1185,20 @@
 		0A0366DD14E4C54600313CCC /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				9135090115F96B5C00414446 /* BBBoss.h */,
+				9135090215F96B5C00414446 /* BBBoss.mm */,
+				9135090515F96B9F00414446 /* BBBossManager.h */,
+				9135090615F96B9F00414446 /* BBBossManager.mm */,
+				9135090C15F977A100414446 /* BBBossPiece.h */,
+				9135090D15F977A100414446 /* BBBossPiece.mm */,
 				0A8D31081501D27B002F9B7B /* BBDropship.h */,
 				0A8D31091501D27B002F9B7B /* BBDropship.mm */,
 				0A8D310E1501D76E002F9B7B /* BBDropshipManager.h */,
 				0A8D310F1501D76F002F9B7B /* BBDropshipManager.mm */,
 				0A0366E214E4C78800313CCC /* BBEnemy.h */,
 				0A0366E314E4C78800313CCC /* BBEnemy.mm */,
-				0A0366DE14E4C55900313CCC /* EnemyManager.h */,
-				0A0366DF14E4C55900313CCC /* EnemyManager.mm */,
+				0A0366DE14E4C55900313CCC /* BBEnemyManager.h */,
+				0A0366DF14E4C55900313CCC /* BBEnemyManager.mm */,
 				9165DF7615B764BC00FABC34 /* BBMiniboss.h */,
 				9165DF7715B764BC00FABC34 /* BBMiniboss.mm */,
 				9165DF7A15B764D000FABC34 /* BBMinibossManager.h */,
@@ -1193,8 +1210,9 @@
 		0A0366E514E4C99400313CCC /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
-				9189485315BF7F92002B5593 /* Enemies */,
+				9135090915F976BB00414446 /* Bosses */,
 				9189485215BF7F82002B5593 /* Dropships */,
+				9189485315BF7F92002B5593 /* Enemies */,
 				9189485015BF7F76002B5593 /* Minibosses */,
 			);
 			name = Enemies;
@@ -2286,6 +2304,14 @@
 			name = TestFlight;
 			sourceTree = "<group>";
 		};
+		9135090915F976BB00414446 /* Bosses */ = {
+			isa = PBXGroup;
+			children = (
+				9135090A15F976D500414446 /* boss.plist */,
+			);
+			name = Bosses;
+			sourceTree = "<group>";
+		};
 		9189485015BF7F76002B5593 /* Minibosses */ = {
 			isa = PBXGroup;
 			children = (
@@ -2660,6 +2686,7 @@
 				91C75AC215D07C4D008F3FF1 /* triforce.wav in Resources */,
 				9120F6D515E71FCA00E61E54 /* bossLevel.plist in Resources */,
 				9120F6D915E720DF00E61E54 /* bossLevel1.tmx in Resources */,
+				9135090B15F976D500414446 /* boss.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2833,7 +2860,7 @@
 				0A6DD3B014D8FE8A00D6DB6D /* BBShot.mm in Sources */,
 				0A6DD3B314DA409A00D6DB6D /* BBBehavior.mm in Sources */,
 				0A0366D914E21EA100313CCC /* BBLaser.mm in Sources */,
-				0A0366E014E4C55900313CCC /* EnemyManager.mm in Sources */,
+				0A0366E014E4C55900313CCC /* BBEnemyManager.mm in Sources */,
 				0A0366E414E4C78800313CCC /* BBEnemy.mm in Sources */,
 				0A94930714FAECD400941321 /* iCadeReaderView.m in Sources */,
 				0A8D310A1501D27B002F9B7B /* BBDropship.mm in Sources */,
@@ -2875,6 +2902,9 @@
 				91EDC3EA15AB77FB00C31CE5 /* GB2WorldContactListener.mm in Sources */,
 				9165DF7815B764BC00FABC34 /* BBMiniboss.mm in Sources */,
 				9165DF7C15B764D100FABC34 /* BBMinibossManager.mm in Sources */,
+				9135090315F96B5D00414446 /* BBBoss.mm in Sources */,
+				9135090715F96B9F00414446 /* BBBossManager.mm in Sources */,
+				9135090E15F977A200414446 /* BBBossPiece.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

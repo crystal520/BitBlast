@@ -20,7 +20,7 @@
 #import "BBConfirmBuy.h"
 #import "BBLeaderboards.h"
 #import "BBEquipmentManager.h"
-#import "EnemyManager.h"
+#import "BBEnemyManager.h"
 #import "BBDropshipManager.h"
 #import "iCadeReaderView.h"
 #import "BBCoinManager.h"
@@ -35,6 +35,7 @@
 #import "BBInputController.h"
 #import "GB2DebugDrawLayer.h"
 #import "BBMinibossManager.h"
+#import "BBBossManager.h"
 
 typedef enum {
 	TAG_MENU,
@@ -67,6 +68,8 @@ typedef enum {
 	// node that the camera follows
 	CCNode *followNode;
     BBInputController *inputController;
+    //TODO:remove this
+    BBBoss *boss;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child
@@ -82,6 +85,7 @@ typedef enum {
 - (void) resetSessionStats;
 // actions
 - (void) playIntro;
+- (void) resetLevel:(NSString*)level;
 - (void) killChopper;
 - (void) finishGame;
 - (void) clearMenuWithTag:(SpriteTag)tag;
