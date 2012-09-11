@@ -68,8 +68,6 @@ typedef enum {
 	// node that the camera follows
 	CCNode *followNode;
     BBInputController *inputController;
-    //TODO:remove this
-    BBBoss *boss;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child

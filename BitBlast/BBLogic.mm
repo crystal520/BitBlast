@@ -67,7 +67,7 @@
 	if(enabled) {
         
         // determine whether a dropship or miniboss can be spawned
-        BOOL canSpawn = ([[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0 && [[[BBMinibossManager sharedSingleton] getActiveMinibosses] count] == 0 && !firstRun);
+        BOOL canSpawn = ([[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0 && [[[BBMinibossManager sharedSingleton] getActiveMinibosses] count] == 0 && !firstRun && [[[BBBossManager sharedSingleton] getActiveBosses] count] == 0);
         
 		NSDictionary *diceResult;
 		// automatically generate a coin group on first run
@@ -132,6 +132,7 @@
 - (void) triforceCollected {
     // check to see if we should spawn the final boss
     if([[SettingsManager sharedSingleton] getInt:@"totalTriforce"] >= [Globals sharedSingleton].numPiecesForFinalBoss) {
+        [[BBBossManager sharedSingleton] tryToSpawnBoss];
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventSpawnFinalBoss object:nil]];
     }
 }

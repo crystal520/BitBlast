@@ -1185,24 +1185,10 @@
 		0A0366DD14E4C54600313CCC /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
-				9135090115F96B5C00414446 /* BBBoss.h */,
-				9135090215F96B5C00414446 /* BBBoss.mm */,
-				9135090515F96B9F00414446 /* BBBossManager.h */,
-				9135090615F96B9F00414446 /* BBBossManager.mm */,
-				9135090C15F977A100414446 /* BBBossPiece.h */,
-				9135090D15F977A100414446 /* BBBossPiece.mm */,
-				0A8D31081501D27B002F9B7B /* BBDropship.h */,
-				0A8D31091501D27B002F9B7B /* BBDropship.mm */,
-				0A8D310E1501D76E002F9B7B /* BBDropshipManager.h */,
-				0A8D310F1501D76F002F9B7B /* BBDropshipManager.mm */,
-				0A0366E214E4C78800313CCC /* BBEnemy.h */,
-				0A0366E314E4C78800313CCC /* BBEnemy.mm */,
-				0A0366DE14E4C55900313CCC /* BBEnemyManager.h */,
-				0A0366DF14E4C55900313CCC /* BBEnemyManager.mm */,
-				9165DF7615B764BC00FABC34 /* BBMiniboss.h */,
-				9165DF7715B764BC00FABC34 /* BBMiniboss.mm */,
-				9165DF7A15B764D000FABC34 /* BBMinibossManager.h */,
-				9165DF7B15B764D000FABC34 /* BBMinibossManager.mm */,
+				0A1D34B615FD0F1600AD32C7 /* Minion */,
+				0A1D34B515FD0F0F00AD32C7 /* Miniboss */,
+				0A1D34B415FD0F0500AD32C7 /* Dropship */,
+				0A1D34B215FD0DFE00AD32C7 /* Boss */,
 			);
 			name = Enemies;
 			sourceTree = "<group>";
@@ -1216,6 +1202,52 @@
 				9189485015BF7F76002B5593 /* Minibosses */,
 			);
 			name = Enemies;
+			sourceTree = "<group>";
+		};
+		0A1D34B215FD0DFE00AD32C7 /* Boss */ = {
+			isa = PBXGroup;
+			children = (
+				9135090115F96B5C00414446 /* BBBoss.h */,
+				9135090215F96B5C00414446 /* BBBoss.mm */,
+				9135090515F96B9F00414446 /* BBBossManager.h */,
+				9135090615F96B9F00414446 /* BBBossManager.mm */,
+				9135090C15F977A100414446 /* BBBossPiece.h */,
+				9135090D15F977A100414446 /* BBBossPiece.mm */,
+			);
+			name = Boss;
+			sourceTree = "<group>";
+		};
+		0A1D34B415FD0F0500AD32C7 /* Dropship */ = {
+			isa = PBXGroup;
+			children = (
+				0A8D31081501D27B002F9B7B /* BBDropship.h */,
+				0A8D31091501D27B002F9B7B /* BBDropship.mm */,
+				0A8D310E1501D76E002F9B7B /* BBDropshipManager.h */,
+				0A8D310F1501D76F002F9B7B /* BBDropshipManager.mm */,
+			);
+			name = Dropship;
+			sourceTree = "<group>";
+		};
+		0A1D34B515FD0F0F00AD32C7 /* Miniboss */ = {
+			isa = PBXGroup;
+			children = (
+				9165DF7615B764BC00FABC34 /* BBMiniboss.h */,
+				9165DF7715B764BC00FABC34 /* BBMiniboss.mm */,
+				9165DF7A15B764D000FABC34 /* BBMinibossManager.h */,
+				9165DF7B15B764D000FABC34 /* BBMinibossManager.mm */,
+			);
+			name = Miniboss;
+			sourceTree = "<group>";
+		};
+		0A1D34B615FD0F1600AD32C7 /* Minion */ = {
+			isa = PBXGroup;
+			children = (
+				0A0366E214E4C78800313CCC /* BBEnemy.h */,
+				0A0366E314E4C78800313CCC /* BBEnemy.mm */,
+				0A0366DE14E4C55900313CCC /* BBEnemyManager.h */,
+				0A0366DF14E4C55900313CCC /* BBEnemyManager.mm */,
+			);
+			name = Minion;
 			sourceTree = "<group>";
 		};
 		0A1EC4A2149E68D8005A7ED6 /* CocosSubclasses */ = {

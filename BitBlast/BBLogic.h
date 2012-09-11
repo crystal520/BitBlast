@@ -11,6 +11,7 @@
 #import "BBDropshipManager.h"
 #import "BBCoinManager.h"
 #import "BBMinibossManager.h"
+#import "BBBossManager.h"
 
 @interface BBLogic : NSObject {
     BOOL enabled;

@@ -12,6 +12,17 @@
 @interface BBBoss : BBMovingObject {
     // different pieces of the boss
     NSMutableArray *pieces;
+    // laser blast flash
+    BBGameObject *laserFlash;
+    // whether or not this boss is enabled
+    BOOL enabled;
+    // reference to a BBExplosionManager
+    BBExplosionManager *explosionManager;
+    // whether the boss is alive or not
+    BOOL alive;
 }
+
+@property (nonatomic, assign) BBExplosionManager *explosionManager;
+@property (nonatomic, assign) BOOL enabled;
 
 @end

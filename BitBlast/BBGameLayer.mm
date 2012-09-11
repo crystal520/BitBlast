@@ -79,8 +79,7 @@
         // add minibosses to scrollingNode
         [scrollingNode addChild:[BBMinibossManager sharedSingleton].backNode z:DEPTH_GAME_MINIBOSSES];
         [scrollingNode addChild:[BBMinibossManager sharedSingleton].frontNode z:DEPTH_GAME_MINIBOSSES_INTRO];
-        boss = [[BBBoss alloc] initWithFile:@"boss"];
-        [scrollingNode addChild:boss z:DEPTH_GAME_MINIBOSSES];
+        [scrollingNode addChild:[BBBossManager sharedSingleton] z:DEPTH_GAME_BOSS];
 		
 		// create background sprite
 		[self createBackground];
@@ -243,7 +242,6 @@
 - (void) update:(float)delta {
 	
 	// update game
-    boss.position = player.position;
 	if(state == kStateGame) {
 		[chopper update:delta];
 		[[ChunkManager sharedSingleton] update:delta];
@@ -252,6 +250,7 @@
 		[[BBEnemyManager sharedSingleton] update:delta];
 		[[BBDropshipManager sharedSingleton] update:delta];
         [[BBMinibossManager sharedSingleton] update:delta];
+		[[BBBossManager sharedSingleton] update:delta];
 		[[BBCoinManager sharedSingleton] update:delta];
 		[[BBMovingCoinManager sharedSingleton] update:delta];
 		[self updateCamera];
