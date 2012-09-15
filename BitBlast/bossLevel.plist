@@ -13,8 +13,37 @@
 	<key>overrideChunk</key>
 	<string></string>
 	<key>backgroundColor</key>
-	<string>145, 33, 158</string>
+	<string>211, 72, 71</string>
 	<key>parallax</key>
-	<array/>
+	<array>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>aliensky.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<real>0.05</real>
+			<key>y</key>
+			<integer>0</integer>
+			<key>seamless</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>alienplanet.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>1024</integer>
+			<key>ratio</key>
+			<real>0.005</real>
+			<key>y</key>
+			<integer>100</integer>
+			<key>seamless</key>
+			<false/>
+		</dict>
+	</array>
 </dict>
 </plist>
