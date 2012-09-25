@@ -407,6 +407,10 @@
 		34FB2AC915199F1B00623BB4 /* 499IAPicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2AC615199F1B00623BB4 /* 499IAPicon.png */; };
 		34FB2ACA15199F1B00623BB4 /* 99centIAP.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2AC715199F1B00623BB4 /* 99centIAP.png */; };
 		34FB2ACC1519A8C300623BB4 /* IAPatip.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FB2ACB1519A8C200623BB4 /* IAPatip.png */; };
+		34FC4250160403A700CFCF04 /* alienbranch.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FC424C160403A700CFCF04 /* alienbranch.png */; };
+		34FC4251160403A700CFCF04 /* alienmountains.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FC424D160403A700CFCF04 /* alienmountains.png */; };
+		34FC4252160403A700CFCF04 /* alienplanet.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FC424E160403A700CFCF04 /* alienplanet.png */; };
+		34FC4253160403A700CFCF04 /* aliensky.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FC424F160403A700CFCF04 /* aliensky.png */; };
 		3B1952AC14BAD22B00C72B95 /* contrachunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */; };
 		3B1952AF14BAD27300C72B95 /* tiles_aubrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */; };
 		3BB1129B14A30130005DC6CC /* chunk1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3BB1129A14A30130005DC6CC /* chunk1.tmx */; };
@@ -1083,6 +1087,10 @@
 		34FB2AC615199F1B00623BB4 /* 499IAPicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 499IAPicon.png; path = Resources/499IAPicon.png; sourceTree = "<group>"; };
 		34FB2AC715199F1B00623BB4 /* 99centIAP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 99centIAP.png; path = Resources/99centIAP.png; sourceTree = "<group>"; };
 		34FB2ACB1519A8C200623BB4 /* IAPatip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IAPatip.png; path = Resources/IAPatip.png; sourceTree = "<group>"; };
+		34FC424C160403A700CFCF04 /* alienbranch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alienbranch.png; path = Resources/backgroundA4444/alienbranch.png; sourceTree = "<group>"; };
+		34FC424D160403A700CFCF04 /* alienmountains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alienmountains.png; path = Resources/backgroundA4444/alienmountains.png; sourceTree = "<group>"; };
+		34FC424E160403A700CFCF04 /* alienplanet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alienplanet.png; path = Resources/backgroundA4444/alienplanet.png; sourceTree = "<group>"; };
+		34FC424F160403A700CFCF04 /* aliensky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aliensky.png; path = Resources/backgroundA4444/aliensky.png; sourceTree = "<group>"; };
 		3B1952AB14BAD22B00C72B95 /* contrachunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = contrachunk.tmx; path = Resources/contrachunk.tmx; sourceTree = "<group>"; };
 		3B1952AE14BAD27300C72B95 /* tiles_aubrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tiles_aubrey.png; path = Resources/tiles_aubrey.png; sourceTree = "<group>"; };
 		3BB1129A14A30130005DC6CC /* chunk1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = chunk1.tmx; path = Resources/chunk1.tmx; sourceTree = "<group>"; };
@@ -1513,6 +1521,10 @@
 				34BBABAE14EF725900154CE9 /* cloud2.png */,
 				34BBABAF14EF725900154CE9 /* cloud1.png */,
 				34BBABB014EF725900154CE9 /* backfog.png */,
+				34FC424C160403A700CFCF04 /* alienbranch.png */,
+				34FC424D160403A700CFCF04 /* alienmountains.png */,
+				34FC424E160403A700CFCF04 /* alienplanet.png */,
+				34FC424F160403A700CFCF04 /* aliensky.png */,
 				34BBABB114EF725900154CE9 /* frontforest6.png */,
 				34BBABB214EF725900154CE9 /* frontforest5.png */,
 				34BBABB314EF725900154CE9 /* frontforest4.png */,
@@ -2719,6 +2731,10 @@
 				9120F6D515E71FCA00E61E54 /* bossLevel.plist in Resources */,
 				9120F6D915E720DF00E61E54 /* bossLevel1.tmx in Resources */,
 				9135090B15F976D500414446 /* boss.plist in Resources */,
+				34FC4250160403A700CFCF04 /* alienbranch.png in Resources */,
+				34FC4251160403A700CFCF04 /* alienmountains.png in Resources */,
+				34FC4252160403A700CFCF04 /* alienplanet.png in Resources */,
+				34FC4253160403A700CFCF04 /* aliensky.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
