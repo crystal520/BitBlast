@@ -45,7 +45,7 @@
     [self loadWithFile:file];
 }
 
-- (void) update:(float)changeInPos {
+- (void) update:(CGPoint)changeInPos {
 	for(ParallaxNode *p in nodes) {
 		[p update:changeInPos];
 	}

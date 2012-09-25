@@ -44,7 +44,7 @@
         [p setEnabled:newEnabled];
     }
     
-    self.visible = YES;
+    self.visible = newEnabled;
 	if(enabled && !newEnabled) {
 		alive = NO;
 	}
@@ -64,8 +64,6 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-    //self.position = ccp([Globals sharedSingleton].playerPosition.x, 0);
-    
     // get right side position in world coordinates
     float right = [Globals sharedSingleton].playerPosition.x - [Globals sharedSingleton].cameraOffset.x + [ResolutionManager sharedSingleton].size.width;
     float bottom = MAX([Globals sharedSingleton].playerPosition.y - 311, 0);

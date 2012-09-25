@@ -24,7 +24,7 @@
 			<key>imageWidth</key>
 			<integer>960</integer>
 			<key>ratio</key>
-			<real>0.05</real>
+			<string>{0.05,0.05}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
@@ -38,7 +38,7 @@
 			<key>imageWidth</key>
 			<integer>1024</integer>
 			<key>ratio</key>
-			<real>0.005</real>
+			<string>{0.005,0.005}</string>
 			<key>y</key>
 			<integer>100</integer>
 			<key>seamless</key>

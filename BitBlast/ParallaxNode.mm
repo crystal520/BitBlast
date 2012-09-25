@@ -20,7 +20,7 @@
 		sprites = [NSMutableArray new];
 		
 		// grab ratio from dictionary
-		ratio = [[dict objectForKey:@"ratio"] floatValue];
+		ratio = CGPointFromString([dict objectForKey:@"ratio"]);
 		
 		// grab image info from dictionary
 		int width = [[dict objectForKey:@"imageWidth"] intValue];
@@ -87,11 +87,11 @@
 
 #pragma mark -
 #pragma mark update
-- (void) update:(float)changeInPos {
+- (void) update:(CGPoint)changeInPos {
 	
 	// update first sprite based on the changeInPos
 	CCSprite *firstSprite = [sprites objectAtIndex:0];
-	firstSprite.position = ccp(firstSprite.position.x + (changeInPos * ratio), firstSprite.position.y);
+	firstSprite.position = ccp(firstSprite.position.x + (changeInPos.x * ratio.x), firstSprite.position.y + (changeInPos.y * ratio.y));
 	// update other sprite positions based on first sprite
 	[self updatePositions];
 	
@@ -100,7 +100,7 @@
 		// swap images so we re-use sprite objects
 		[self swapImages];
 		// reset first sprite's position
-		firstSprite.position = ccp([firstSprite displayedFrame].rect.size.width * 0.5, [firstSprite displayedFrame].rect.size.height * 0.5);
+		firstSprite.position = ccp([firstSprite displayedFrame].rect.size.width * 0.5, firstSprite.position.y);
 		// update other sprite positions based on first sprite
 		[self updatePositions];
 		// position the sprite offscreen somewhere if not seamless
@@ -118,7 +118,7 @@
 		CCSprite *sprite = [sprites objectAtIndex:i];
 		CCSprite *prevSprite = [sprites objectAtIndex:i-1];
 		
-		sprite.position = ccp(prevSprite.position.x + ([prevSprite displayedFrame].rect.size.width + [sprite displayedFrame].rect.size.width) * 0.5, [sprite displayedFrame].rect.size.height * 0.5);
+		sprite.position = ccp(prevSprite.position.x + ([prevSprite displayedFrame].rect.size.width + [sprite displayedFrame].rect.size.width) * 0.5, prevSprite.position.y);
 	}
 }
 

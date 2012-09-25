@@ -16,6 +16,6 @@
 
 - (void) loadWithFile:(NSString*)file;
 - (void) resetWithFile:(NSString*)file;
-- (void) update:(float)changeInPos;
+- (void) update:(CGPoint)changeInPos;
 
 @end

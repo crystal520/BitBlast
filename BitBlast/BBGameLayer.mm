@@ -270,7 +270,7 @@
 - (void) updateCamera {
 	
 	// keep track of node's previous position
-	float prevPos = scrollingNode.position.x;
+	CGPoint prevPos = scrollingNode.position;
     float yOffset = 0;
     
     if(state != kStateIntro) {
@@ -285,10 +285,13 @@
         else if(currentPlayerScreenPosition.y > cameraBounds.y) {
             yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
         }
+        if(yOffset > 5) {
+            NSLog(@"POOP");
+        }
     }
 	
 	//CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
-    CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y - yOffset);
+    CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y - yOffset / [ResolutionManager sharedSingleton].imageScale);
     
     // make sure newPos's y coordinate is not less than the current chunk's lowest point
     if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
@@ -296,7 +299,7 @@
 	}
 	[scrollingNode setPosition:newPos];
 	
-	[parallax update:scrollingNode.position.x - prevPos];
+	[parallax update:ccpSub(scrollingNode.position, prevPos)];
 }
 
 #pragma mark -

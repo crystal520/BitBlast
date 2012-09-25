@@ -11,7 +11,7 @@
 
 @interface ParallaxNode : CCNode {
 	// speed at which node moves
-    float ratio;
+    CGPoint ratio;
 	// sprites that scroll sideways with the node
 	NSMutableArray *sprites;
 	// possible images that the sprites can use
@@ -20,7 +20,7 @@
 	BOOL seamless;
 }
 
-@property (nonatomic) float ratio;
+@property (nonatomic) CGPoint ratio;
 
 - (id) initWithDictionary:(NSDictionary*)dict;
 // setup
@@ -28,7 +28,7 @@
 // getters
 - (NSString*) getRandomImage;
 // update
-- (void) update:(float)changeInPos;
+- (void) update:(CGPoint)changeInPos;
 - (void) updatePositions;
 // actions
 - (void) swapImages;

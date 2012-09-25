@@ -64,7 +64,7 @@
 #pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
-    self.visible = YES;
+    self.visible = newEnabled;
     [collisionShape setActive:newEnabled];
     if(newEnabled && !enabled) {
         alive = YES;

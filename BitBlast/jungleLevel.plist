@@ -52,7 +52,7 @@
 			<key>imageWidth</key>
 			<integer>960</integer>
 			<key>ratio</key>
-			<real>0.05</real>
+			<string>{0.05,0.05}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
@@ -69,7 +69,7 @@
 			<key>imageWidth</key>
 			<integer>910</integer>
 			<key>ratio</key>
-			<real>0.125</real>
+			<string>{0.125,0.125}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
@@ -84,7 +84,7 @@
 			<key>imageWidth</key>
 			<integer>528</integer>
 			<key>ratio</key>
-			<real>0.25</real>
+			<string>{0.25,0.25}</string>
 			<key>y</key>
 			<integer>300</integer>
 			<key>seamless</key>
@@ -100,7 +100,7 @@
 			<key>imageWidth</key>
 			<integer>960</integer>
 			<key>ratio</key>
-			<real>0.2</real>
+			<string>{0.2,0.2}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
@@ -119,7 +119,7 @@
 			<key>imageWidth</key>
 			<integer>960</integer>
 			<key>ratio</key>
-			<real>0.35</real>
+			<string>{0.35,0.35}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
@@ -133,7 +133,7 @@
 			<key>imageWidth</key>
 			<integer>960</integer>
 			<key>ratio</key>
-			<real>0.55</real>
+			<string>{0.55,0.55}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
