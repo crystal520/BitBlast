@@ -101,8 +101,8 @@
 - (void) setCurrentAIStage:(int)newCurrentAIStage {
     currentAIStage = newCurrentAIStage;
     
-    // first unequip all weapons
-    [[BBWeaponManager sharedSingleton] unequipAllForType:WEAPON_INVENTORY_MINIBOSS];
+    // clear the weapons out so boss stops shooting
+    [self clearWeapons];
     
     // see if only one weapon should be equipped
     if([[[self getAIStage] objectForKey:@"chooseOnlyOne"] boolValue]) {

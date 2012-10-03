@@ -71,7 +71,7 @@
 		<string>dropshipexplosion.wav</string>
 	</dict>
 	<key>health</key>
-	<integer>1</integer>
+	<integer>5000</integer>
 	<key>size</key>
 	<string>{493,640}</string>
 	<key>aiStages</key>
