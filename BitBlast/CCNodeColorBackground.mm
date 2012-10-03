@@ -18,10 +18,11 @@
 		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		
 		// create faded background
-		CCSprite *background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
+		CCSprite *background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, winSize.width * 2, winSize.height * 2)];
 		background.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
 		background.color = color;
 		background.opacity = alpha * 255;
+        background.tag = SPRITE_TAG_BACKGROUND;
 		ccTexParams params = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
 		[background.texture setTexParameters:&params];
 		[self addChild:background];

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>maxAngleOffset</key>
+	<integer>0</integer>
+	<key>maxLifetime</key>
+	<integer>3</integer>
+	<key>maxNumBullets</key>
+	<integer>2</integer>
+	<key>maxSpeed</key>
+	<integer>350</integer>
+	<key>minAngleOffset</key>
+	<integer>0</integer>
+	<key>minLifetime</key>
+	<integer>3</integer>
+	<key>minNumBullets</key>
+	<integer>2</integer>
+	<key>minSpeed</key>
+	<integer>350</integer>
+	<key>rateOfFire</key>
+	<real>0.15</real>
+	<key>sprite</key>
+	<string>bossBullet.png</string>
+	<key>sound</key>
+	<string>lasershot1-short2.wav</string>
+	<key>volume</key>
+	<integer>1</integer>
+	<key>damage</key>
+	<integer>1</integer>
+	<key>collisionShape</key>
+	<string>bossBullet</string>
+	<key>angles</key>
+	<array>
+		<integer>-10</integer>
+		<integer>10</integer>
+	</array>
+	<key>shotsPerInterval</key>
+	<integer>8</integer>
+	<key>intervalTime</key>
+	<integer>3</integer>
+</dict>
+</plist>

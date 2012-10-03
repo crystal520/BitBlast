@@ -126,9 +126,12 @@
 }
 
 - (void) resume {
-	for(BBCoin *c in coins) {
-		[c resume];
-	}
+    // only resume if we're not in the end boss sequence
+    if(![Globals sharedSingleton].endBossSequence) {
+        for(BBCoin *c in coins) {
+            [c resume];
+        }
+    }
 }
 
 - (void) newGame {

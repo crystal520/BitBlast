@@ -164,6 +164,32 @@
 	return position;
 }
 
+- (BOOL) getIsFiring {
+    for(BBShot *s in shots) {
+        if([s getIsFiring]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (float) getMinTimeToFire {
+    float minTime = 10000;
+    for(BBShot *s in shots) {
+        minTime = MIN(minTime, s.intervalTimer);
+    }
+    return minTime;
+}
+
+- (BOOL) getDidFireBullet {
+    for(BBShot *s in shots) {
+        if(s.shotFired) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 #pragma mark - 
 #pragma mark update
 - (void) update:(float)delta {

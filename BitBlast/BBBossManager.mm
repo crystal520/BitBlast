@@ -10,7 +10,7 @@
 
 @implementation BBBossManager
 
-@synthesize bossLevel;
+@synthesize bossLevel, isSpawningBoss;
 
 + (BBBossManager*) sharedSingleton {
     
@@ -34,11 +34,12 @@
         bosses = [NSMutableArray new];
         for(int i=0;i<MAX_BOSSES;i++) {
             BBBoss *boss = [[BBBoss alloc] initWithFile:@"boss"];
-            boss.explosionManager = explosionManager;
+            [boss setExplosionManager:explosionManager];
             [bosses addObject:boss];
             [self addChild:boss];
             [boss release];
         }
+		[explosionManager setNode:self];
         targetBosses = 1;
         enabled = YES;
         
@@ -82,6 +83,10 @@
     return nil;
 }
 
+- (BOOL) isActive {
+    return ([[self getActiveBosses] count] > 0 || isSpawningBoss);
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) spawnBoss {
@@ -89,6 +94,11 @@
     if(enabled) {
         BBBoss *b = [self getInactiveBoss];
         [b setEnabled:YES];
+        
+        // check to see if we're still spawning bosses
+        if(isSpawningBoss && [[self getActiveBosses] count] == targetBosses) {
+            isSpawningBoss = NO;
+        }
     }
 }
 
@@ -107,7 +117,9 @@
 	// if there aren't enough active bosses, trigger a new one
 	if(numActiveBosses != numBossesToSpawn) {
 		for(int i=0;i<(numBossesToSpawn - numActiveBosses);i++) {
-			[self performSelector:@selector(spawnBoss) withObject:nil afterDelay:1 + i];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1 + i], [CCCallFunc actionWithTarget:self selector:@selector(spawnBoss)], nil]];
+            // trip flag for letting other classes know that a boss is going to be spawned
+            isSpawningBoss = YES;
 		}
 	}
 }

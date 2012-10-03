@@ -28,6 +28,8 @@
 - (NSArray*) getRandomCoinGroup;
 // notifications
 - (void) levelWillLoad;
+- (void) pause;
+- (void) resume;
 // actions
 - (void) spawnCoinGroup;
 

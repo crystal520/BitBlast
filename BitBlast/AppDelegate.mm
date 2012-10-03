@@ -14,7 +14,7 @@
 #import "RootViewController.h"
 #import "SettingsManager.h"
 #import "PromoManager.h"
-#import "ChartBoost.h"
+#import "Chartboost.h"
 #import "BBDailyBonus.h"
 #import "SessionMWrapper.h"
 
@@ -24,24 +24,7 @@
 
 - (void) removeStartupFlicker
 {
-	//
-	// THIS CODE REMOVES THE STARTUP FLICKER
-	//
-	// Uncomment the following code if you Application only supports landscape mode
-	//
-#if GAME_AUTOROTATION == kGameAutorotationUIViewController
-	
-		CC_ENABLE_DEFAULT_GL_STATES();
-		CCDirector *director = [CCDirector sharedDirector];
-		CGSize size = [director winSize];
-		CCSprite *sprite = [CCSprite spriteWithFile:@"Default.png"];
-		sprite.position = ccp(size.width/2, size.height/2);
-		sprite.rotation = -90;
-		[sprite visit];
-		[[director openGLView] swapBuffers];
-		CC_ENABLE_DEFAULT_GL_STATES();
-	
-#endif // GAME_AUTOROTATION == kGameAutorotationUIViewController	
+
 }
 
 - (void) applicationDidFinishLaunching:(UIApplication*)application
@@ -119,7 +102,8 @@
 	[viewController setView:glView];
 	
 	// make the View Controller a child of the main window
-	[window addSubview: viewController.view];
+    window.rootViewController = viewController;
+	//[window addSubview: viewController.view];
 	
 	[window makeKeyAndVisible];
 	
@@ -137,8 +121,8 @@
 	// Override point for customization after application launch.
 	[[LocalyticsSession sharedLocalyticsSession] startSession:@"7f34f42eb738225af85f165-2d1da334-6f9f-11e1-200b-00a68a4c01fc"];
 	
-	// Configure ChartBoost
-    ChartBoost *cb = [ChartBoost sharedChartBoost];
+	// Configure Chartboost
+    Chartboost *cb = [Chartboost sharedChartboost];
     cb.appId = @"4f98d76ef77659e64f000023";
     cb.appSignature = @"9d0624026bada35dc30be246e209880b0848f681";
     
@@ -238,6 +222,14 @@
 	[[CCDirector sharedDirector] end];
 	[window release];
 	[super dealloc];
+}
+
+-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        return UIInterfaceOrientationMaskAll;
+    else  /* iphone */
+        return UIInterfaceOrientationMaskAllButUpsideDown;
 }
 
 @end

@@ -7,24 +7,15 @@
 //
 
 #import "BBBossPiece.h"
+#import "BBBoss.h"
 
 @implementation BBBossPiece
 
-@synthesize explosionManager, enabled;
+@synthesize enabled, type;
 
 - (id) initWithDictionary:(NSDictionary *)initDict {
     if((self = [super init])) {
-        coins = [[initDict objectForKey:@"coins"] intValue];
         type = [[initDict objectForKey:@"type"] retain];
-        
-        // check for health (laser flash can't take damage)
-        if([initDict objectForKey:@"health"]) {
-            curHealth = [[initDict objectForKey:@"health"] floatValue];
-        }
-        else {
-            curHealth = -1;
-        }
-        maxHealth = curHealth;
         
         // either set the display frame or play an animation
         if([initDict objectForKey:@"image"]) {
@@ -54,25 +45,23 @@
         }
         
         // set piece's position
-        dummyPosition = ccpAdd(CGPointFromString([initDict objectForKey:@"position"]), ccp([self displayedFrame].rect.size.width * self.anchorPoint.x, [self displayedFrame].rect.size.height * self.anchorPoint.y));
-        self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
+        dummyPosition = ccpAdd(ccpMult(CGPointFromString([initDict objectForKey:@"position"]), [ResolutionManager sharedSingleton].positionScale), ccp([self displayedFrame].rect.size.width * self.anchorPoint.x, [self displayedFrame].rect.size.height * self.anchorPoint.y));
+        self.position = dummyPosition;
     }
     
     return self;
 }
 
 #pragma mark -
+#pragma mark update
+- (void) update:(float)delta {
+    lastBulletHit = nil;
+}
+
+#pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
-    self.visible = newEnabled;
     [collisionShape setActive:newEnabled];
-    if(newEnabled && !enabled) {
-        alive = YES;
-    }
-    else if(enabled && !newEnabled) {
-        alive = NO;
-    }
-    enabled = newEnabled;
 }
 
 - (void) setCollisionShape:(NSString *)shapeName {
@@ -110,24 +99,8 @@
             }
         }
         
-        if(![hitSound isPlaying]) {
-            [hitSound play];
-        }
+        [(BBBoss*)(self.parent) hitByBullet:bullet];
         
-        if(curHealth > 0) {
-            curHealth -= bullet.damage;
-            // if the dropship died, turn off all movement and play death animation
-            if(curHealth <= 0) {
-                //[self stopActionByTag:DROPSHIP_ACTION_TAG_HOVER];
-                [self stopActionByTag:ACTION_TAG_FLASH];
-                [self setColor:ccc3(255, 255, 255)];
-                //[self die];
-                //[explosionManager explodeInObject:self number:5];
-            }
-            else if([[self getActionByTag:ACTION_TAG_FLASH] isDone] || ![self getActionByTag:ACTION_TAG_FLASH]) {
-                [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:1 onSprite:self];
-            }
-        }
         // only disable if the bullet is a shot (lasers go through everything!)
         if(bullet.type == kBulletTypeShot) {
             [bullet setEnabled:NO];
@@ -135,6 +108,20 @@
         // keep track of the last bullet that hit this dropship (for laser penetration)
         lastBulletHit = bullet;
     }
+}
+
+- (void) flash {
+    if([[self getActionByTag:ACTION_TAG_FLASH] isDone] || ![self getActionByTag:ACTION_TAG_FLASH]) {
+        [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:1 onSprite:self];
+    }
+}
+
+- (void) die {
+    // stop flashing and revert to original color
+    [self stopActionByTag:ACTION_TAG_FLASH];
+    [self setColor:ccc3(255, 255, 255)];
+    // start flashing on repeat because boss is dead
+    [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:0 onSprite:self];
 }
 
 @end

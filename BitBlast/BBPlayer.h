@@ -18,6 +18,7 @@
 #import "SimpleAudioEngine.h"
 #import "BBPowerupManager.h"
 #import "BBMinibossManager.h"
+#import "Debug.h"
 
 typedef enum {
 	kPlayerUnknown,
@@ -34,7 +35,7 @@ typedef enum {
 
 @interface BBPlayer : BBMovingObject {
 	
-	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime, invincibleTime;
+	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime, invincibleTime, jumpDownTime;
     CGPoint initialGravity;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, startingHealth;

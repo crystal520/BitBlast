@@ -83,6 +83,15 @@
 	return activeCoins;
 }
 
+-(BOOL) isTriforceActive {
+    for(BBMovingCoin *c in coins) {
+        if(c.type == MOVING_COIN_TYPE_TRIFORCE) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position {

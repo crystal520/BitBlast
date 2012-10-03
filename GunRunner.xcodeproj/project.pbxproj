@@ -15,11 +15,42 @@
 		0A0402461516A6DA008D179E /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A0402451516A6DA008D179E /* particleTexture.png */; };
 		0A0DA445153A2C8800A420E8 /* BBDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A0DA444153A2C8800A420E8 /* BBDialog.mm */; };
 		0A0DD3F41513A26300BD35E7 /* BBList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A0DD3F31513A26300BD35E7 /* BBList.mm */; };
+		0A180B541614EAF800AB32B2 /* bossTop 1-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A180B531614EAF800AB32B2 /* bossTop 1-1.plist */; };
+		0A180B561614ECB200AB32B2 /* bossBottom 1-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A180B551614ECB200AB32B2 /* bossBottom 1-1.plist */; };
 		0A1EC4A5149E6934005A7ED6 /* CCFollowOffset.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.mm */; };
 		0A1EC4AB14A02CC8005A7ED6 /* BBBullet.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A1EC4AA14A02CC8005A7ED6 /* BBBullet.mm */; };
 		0A204EAE14DF319400171F71 /* flamethrower.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A204EAD14DF319400171F71 /* flamethrower.plist */; };
 		0A2658A81503CFBB00DEA989 /* BBMovingObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A2658A71503CFBB00DEA989 /* BBMovingObject.mm */; };
 		0A2FC97B15197977005FDF5F /* BBPause.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A2FC97A15197977005FDF5F /* BBPause.mm */; };
+		0A3465601617B6AE0054BD7E /* bossBottom 1-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34655E1617B6AE0054BD7E /* bossBottom 1-2.plist */; };
+		0A3465611617B6AE0054BD7E /* bossTop 1-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34655F1617B6AE0054BD7E /* bossTop 1-2.plist */; };
+		0A3465641617B6B60054BD7E /* bossBottomBullet 1-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465621617B6B60054BD7E /* bossBottomBullet 1-2.plist */; };
+		0A3465651617B6B60054BD7E /* bossTopBullet 1-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465631617B6B60054BD7E /* bossTopBullet 1-2.plist */; };
+		0A3465681617CB850054BD7E /* bossBottom 1-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465661617CB850054BD7E /* bossBottom 1-3.plist */; };
+		0A3465691617CB850054BD7E /* bossTop 1-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465671617CB850054BD7E /* bossTop 1-3.plist */; };
+		0A34656C1617CBA60054BD7E /* bossBottomBullet 1-3-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34656A1617CBA60054BD7E /* bossBottomBullet 1-3-1.plist */; };
+		0A34656D1617CBA60054BD7E /* bossTopBullet 1-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34656B1617CBA60054BD7E /* bossTopBullet 1-3.plist */; };
+		0A3465701617DE590054BD7E /* bossBottomBullet 1-3-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34656E1617DE590054BD7E /* bossBottomBullet 1-3-2.plist */; };
+		0A34657D1617EA8A0054BD7E /* bossBottom 2-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34657B1617EA8A0054BD7E /* bossBottom 2-1.plist */; };
+		0A34657E1617EA8A0054BD7E /* bossTop 2-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34657C1617EA8A0054BD7E /* bossTop 2-1.plist */; };
+		0A3465811617EAF20054BD7E /* bossBottomBullet 2-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34657F1617EAF20054BD7E /* bossBottomBullet 2-1.plist */; };
+		0A3465821617EAF20054BD7E /* bossTopBullet 2-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465801617EAF20054BD7E /* bossTopBullet 2-1.plist */; };
+		0A3465851617F1200054BD7E /* bossBottomBullet 2-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465831617F1200054BD7E /* bossBottomBullet 2-2.plist */; };
+		0A3465861617F1200054BD7E /* bossTopBullet 2-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465841617F1200054BD7E /* bossTopBullet 2-2.plist */; };
+		0A3465891617F12B0054BD7E /* bossBottom 2-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465871617F12B0054BD7E /* bossBottom 2-2.plist */; };
+		0A34658A1617F12B0054BD7E /* bossTop 2-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465881617F12B0054BD7E /* bossTop 2-2.plist */; };
+		0A34658D1617F7430054BD7E /* bossBottomBullet 2-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34658B1617F7430054BD7E /* bossBottomBullet 2-3.plist */; };
+		0A34658E1617F7430054BD7E /* bossTopBullet 2-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34658C1617F7430054BD7E /* bossTopBullet 2-3.plist */; };
+		0A3465911617F74D0054BD7E /* bossBottom 2-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34658F1617F74D0054BD7E /* bossBottom 2-3.plist */; };
+		0A3465921617F74D0054BD7E /* bossTop 2-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465901617F74D0054BD7E /* bossTop 2-3.plist */; };
+		0A346598161803C00054BD7E /* bossTopBullet 3-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A346595161803C00054BD7E /* bossTopBullet 3-1.plist */; };
+		0A346599161803C00054BD7E /* bossTopBullet 3-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A346596161803C00054BD7E /* bossTopBullet 3-2.plist */; };
+		0A34659A161803C00054BD7E /* bossTopBullet 3-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A346597161803C00054BD7E /* bossTopBullet 3-3.plist */; };
+		0A34659E161803C90054BD7E /* bossTop 3-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34659B161803C90054BD7E /* bossTop 3-1.plist */; };
+		0A34659F161803C90054BD7E /* bossTop 3-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34659C161803C90054BD7E /* bossTop 3-2.plist */; };
+		0A3465A0161803C90054BD7E /* bossTop 3-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A34659D161803C90054BD7E /* bossTop 3-3.plist */; };
+		0A3465A21618048A0054BD7E /* bossBottomBullet 3-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465A11618048A0054BD7E /* bossBottomBullet 3-1.plist */; };
+		0A3465A4161804920054BD7E /* bossBottom 3-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A3465A3161804920054BD7E /* bossBottom 3-1.plist */; };
 		0A38407F1541A76900F9A96A /* coinExplosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A38407E1541A76900F9A96A /* coinExplosion.plist */; };
 		0A428307151440F300E35219 /* GameCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A428306151440F200E35219 /* GameCenter.mm */; };
 		0A4283091514445800E35219 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4283081514445800E35219 /* GameKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -28,14 +59,9 @@
 		0A42831015164DD300E35219 /* iap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A42830F15164DD300E35219 /* iap.plist */; };
 		0A4283131516505100E35219 /* BBIAPItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4283121516504E00E35219 /* BBIAPItem.mm */; };
 		0A42D14314C4C7CF00DD55CA /* BBConfirmBuy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.mm */; };
-		0A42D14B14C4CA1900DD55CA /* leaderboardEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D14514C4CA1900DD55CA /* leaderboardEntryBackground.png */; };
-		0A42D14C14C4CA1900DD55CA /* leaderboardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D14614C4CA1900DD55CA /* leaderboardBackground.png */; };
 		0A42D15214C51E7700DD55CA /* BBLeaderboards.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15114C51E7500DD55CA /* BBLeaderboards.mm */; };
 		0A42D15514C5214200DD55CA /* BBLeaderboardEntry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15414C5214100DD55CA /* BBLeaderboardEntry.mm */; };
 		0A42D15714C521A200DD55CA /* leaderboards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D15614C521A100DD55CA /* leaderboards.plist */; };
-		0A42D15B14C7B2E000DD55CA /* BBEquipment.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15A14C7B2E000DD55CA /* BBEquipment.mm */; };
-		0A42D15E14C7B60500DD55CA /* BBDoubleJump.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15D14C7B60500DD55CA /* BBDoubleJump.mm */; };
-		0A42D16414C7BFE900DD55CA /* BBEquipmentManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D16314C7BFE900DD55CA /* BBEquipmentManager.mm */; };
 		0A46C0211516656A003483BD /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01C1516656A003483BD /* jump.wav */; };
 		0A46C02815166FDB003483BD /* burstshot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02615166FDA003483BD /* burstshot.wav */; };
 		0A46C0361516824E003483BD /* whitecircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C0341516824E003483BD /* whitecircle.png */; };
@@ -43,6 +69,7 @@
 		0A4C46F91551659400C6FDCA /* BBPowerupManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46F81551659300C6FDCA /* BBPowerupManager.mm */; };
 		0A4C46FC15555FC100C6FDCA /* BBDailyBonus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FB15555FC100C6FDCA /* BBDailyBonus.mm */; };
 		0A4C46FF15558C8400C6FDCA /* SessionMWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */; };
+		0A50C350161CAE6D00C11668 /* BBGameWin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A50C34F161CAE6D00C11668 /* BBGameWin.mm */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.mm */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.mm */; };
@@ -64,6 +91,10 @@
 		0A8D310A1501D27B002F9B7B /* BBDropship.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D31091501D27B002F9B7B /* BBDropship.mm */; };
 		0A8D310D1501D70E002F9B7B /* testDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D310C1501D70E002F9B7B /* testDropship.plist */; };
 		0A8D31101501D76F002F9B7B /* BBDropshipManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D310F1501D76F002F9B7B /* BBDropshipManager.mm */; };
+		0A93ED721614FC1400086831 /* bossBottomBullet 1-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A93ED711614FC1400086831 /* bossBottomBullet 1-1.plist */; };
+		0A93ED7516150CC800086831 /* bossParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A93ED7316150CC800086831 /* bossParticle.plist */; };
+		0A93ED7616150CC800086831 /* bossParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A93ED7416150CC800086831 /* bossParticle.png */; };
+		0A93ED781615D92F00086831 /* bossTopBullet 1-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A93ED771615D92F00086831 /* bossTopBullet 1-1.plist */; };
 		0A9463561511A4B700353C4B /* SettingsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A9463551511A4B600353C4B /* SettingsManager.mm */; };
 		0A94930714FAECD400941321 /* iCadeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A94930514FAECD400941321 /* iCadeReaderView.m */; };
 		0A9A7B3A14B29AA3003A1DB1 /* BBHud.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A7B3914B29AA3003A1DB1 /* BBHud.mm */; };
@@ -74,7 +105,6 @@
 		0AA27155153BA378003659A8 /* BBMovingCoin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AA27154153BA378003659A8 /* BBMovingCoin.mm */; };
 		0AB8BC4414B6A3AF0045491C /* BulletManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4314B6A3AF0045491C /* BulletManager.mm */; };
 		0AB8BC4914B8C90C0045491C /* BBWeapon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AB8BC4814B8C90C0045491C /* BBWeapon.mm */; };
-		0ABBDCEF14CB69A1001D36B7 /* BBGlider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDCEE14CB69A1001D36B7 /* BBGlider.mm */; };
 		0ABBDCF314CB9F96001D36B7 /* uiatlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ABBDCF114CB9F96001D36B7 /* uiatlas.plist */; };
 		0ABBDCF414CB9F96001D36B7 /* uiatlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 0ABBDCF214CB9F96001D36B7 /* uiatlas.png */; };
 		0ABBDCFF14CBD58F001D36B7 /* ResolutionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0ABBDCFE14CBD58E001D36B7 /* ResolutionManager.mm */; };
@@ -96,6 +126,7 @@
 		0AC9623B15106D8D00790570 /* coinPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC9623A15106D8D00790570 /* coinPatterns.plist */; };
 		0AC9624015106E6800790570 /* BBCoinManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9623F15106E6800790570 /* BBCoinManager.mm */; };
 		0AC9624315106E7400790570 /* BBCoin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9624215106E7400790570 /* BBCoin.mm */; };
+		0ACD5F70161384AE00388AC7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ACD5F6F161384AE00388AC7 /* AdSupport.framework */; };
 		0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */; };
 		0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417361496F5C400342D8E /* QuartzCore.framework */; };
 		0AE417391496F5C400342D8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417381496F5C400342D8E /* OpenGLES.framework */; };
@@ -252,6 +283,12 @@
 		0AE4192E1496FEF300342D8E /* BBPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AE4192D1496FEF300342D8E /* BBPlayer.mm */; };
 		0AE7556C15029A5900E292ED /* Globals.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7556B15029A5800E292ED /* Globals.mm */; };
 		0AE7A03914B54A2500BC5C73 /* ParallaxNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AE7A03814B54A2500BC5C73 /* ParallaxNode.mm */; };
+		0AEB8E07161A0CDF00E6F6FC /* bossBottomBullet 3-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AEB8E05161A0CDF00E6F6FC /* bossBottomBullet 3-2.plist */; };
+		0AEB8E08161A0CDF00E6F6FC /* bossBottomBullet 3-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AEB8E06161A0CDF00E6F6FC /* bossBottomBullet 3-3.plist */; };
+		0AEB8E0C161A0CEB00E6F6FC /* bossBottom 3-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AEB8E0A161A0CEB00E6F6FC /* bossBottom 3-2.plist */; };
+		0AEB8E0D161A0CEB00E6F6FC /* bossBottom 3-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AEB8E0B161A0CEB00E6F6FC /* bossBottom 3-3.plist */; };
+		0AEB8E19161A278B00E6F6FC /* ultralaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AEB8E18161A278900E6F6FC /* ultralaser.png */; };
+		0AEB8E1C161B79F300E6F6FC /* CCShake.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB8E1B161B79F200E6F6FC /* CCShake.m */; };
 		0AFF01F41543174B000F9A2E /* BBDialogQueue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF01F31543174B000F9A2E /* BBDialogQueue.mm */; };
 		0AFF01FB154463AD000F9A2E /* promo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AFF01FA154463AD000F9A2E /* promo.plist */; };
 		0AFF01FE1544690E000F9A2E /* PromoManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF01FD1544690E000F9A2E /* PromoManager.mm */; };
@@ -264,7 +301,6 @@
 		0AFF020F15447EF0000F9A2E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFF020E15447EEF000F9A2E /* CoreMedia.framework */; };
 		0AFF021115447EFB000F9A2E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFF021015447EFA000F9A2E /* SystemConfiguration.framework */; };
 		0AFF021315447F15000F9A2E /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFF021215447F14000F9A2E /* libz.1.2.5.dylib */; };
-		0AFF021515447F23000F9A2E /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFF021415447F22000F9A2E /* libxml2.2.7.3.dylib */; };
 		342435091510590800FAC64A /* newChunk3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 342435051510590800FAC64A /* newChunk3.tmx */; };
 		3424350A1510590800FAC64A /* startingChunk.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 342435061510590800FAC64A /* startingChunk.tmx */; };
 		3424350B1510590800FAC64A /* newChunk2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 342435071510590800FAC64A /* newChunk2.tmx */; };
@@ -473,6 +509,9 @@
 		0A0DA444153A2C8800A420E8 /* BBDialog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBDialog.mm; sourceTree = "<group>"; };
 		0A0DD3F21513A26300BD35E7 /* BBList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBList.h; sourceTree = "<group>"; };
 		0A0DD3F31513A26300BD35E7 /* BBList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBList.mm; sourceTree = "<group>"; };
+		0A180B531614EAF800AB32B2 /* bossTop 1-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 1-1.plist"; sourceTree = "<group>"; };
+		0A180B551614ECB200AB32B2 /* bossBottom 1-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 1-1.plist"; sourceTree = "<group>"; };
+		0A180B571614EE5A00AB32B2 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
 		0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCFollowOffset.mm; sourceTree = "<group>"; };
 		0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFollowOffset.h; sourceTree = "<group>"; };
 		0A1EC4A914A02CC8005A7ED6 /* BBBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBullet.h; sourceTree = "<group>"; };
@@ -483,6 +522,35 @@
 		0A2658A71503CFBB00DEA989 /* BBMovingObject.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBMovingObject.mm; sourceTree = "<group>"; };
 		0A2FC97915197976005FDF5F /* BBPause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBPause.h; sourceTree = "<group>"; };
 		0A2FC97A15197977005FDF5F /* BBPause.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBPause.mm; sourceTree = "<group>"; };
+		0A34655E1617B6AE0054BD7E /* bossBottom 1-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 1-2.plist"; sourceTree = "<group>"; };
+		0A34655F1617B6AE0054BD7E /* bossTop 1-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 1-2.plist"; sourceTree = "<group>"; };
+		0A3465621617B6B60054BD7E /* bossBottomBullet 1-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 1-2.plist"; sourceTree = "<group>"; };
+		0A3465631617B6B60054BD7E /* bossTopBullet 1-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 1-2.plist"; sourceTree = "<group>"; };
+		0A3465661617CB850054BD7E /* bossBottom 1-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 1-3.plist"; sourceTree = "<group>"; };
+		0A3465671617CB850054BD7E /* bossTop 1-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 1-3.plist"; sourceTree = "<group>"; };
+		0A34656A1617CBA60054BD7E /* bossBottomBullet 1-3-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 1-3-1.plist"; sourceTree = "<group>"; };
+		0A34656B1617CBA60054BD7E /* bossTopBullet 1-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 1-3.plist"; sourceTree = "<group>"; };
+		0A34656E1617DE590054BD7E /* bossBottomBullet 1-3-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 1-3-2.plist"; sourceTree = "<group>"; };
+		0A34657B1617EA8A0054BD7E /* bossBottom 2-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 2-1.plist"; sourceTree = "<group>"; };
+		0A34657C1617EA8A0054BD7E /* bossTop 2-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 2-1.plist"; sourceTree = "<group>"; };
+		0A34657F1617EAF20054BD7E /* bossBottomBullet 2-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 2-1.plist"; sourceTree = "<group>"; };
+		0A3465801617EAF20054BD7E /* bossTopBullet 2-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 2-1.plist"; sourceTree = "<group>"; };
+		0A3465831617F1200054BD7E /* bossBottomBullet 2-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 2-2.plist"; sourceTree = "<group>"; };
+		0A3465841617F1200054BD7E /* bossTopBullet 2-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 2-2.plist"; sourceTree = "<group>"; };
+		0A3465871617F12B0054BD7E /* bossBottom 2-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 2-2.plist"; sourceTree = "<group>"; };
+		0A3465881617F12B0054BD7E /* bossTop 2-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 2-2.plist"; sourceTree = "<group>"; };
+		0A34658B1617F7430054BD7E /* bossBottomBullet 2-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 2-3.plist"; sourceTree = "<group>"; };
+		0A34658C1617F7430054BD7E /* bossTopBullet 2-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 2-3.plist"; sourceTree = "<group>"; };
+		0A34658F1617F74D0054BD7E /* bossBottom 2-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 2-3.plist"; sourceTree = "<group>"; };
+		0A3465901617F74D0054BD7E /* bossTop 2-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 2-3.plist"; sourceTree = "<group>"; };
+		0A346595161803C00054BD7E /* bossTopBullet 3-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 3-1.plist"; sourceTree = "<group>"; };
+		0A346596161803C00054BD7E /* bossTopBullet 3-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 3-2.plist"; sourceTree = "<group>"; };
+		0A346597161803C00054BD7E /* bossTopBullet 3-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 3-3.plist"; sourceTree = "<group>"; };
+		0A34659B161803C90054BD7E /* bossTop 3-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 3-1.plist"; sourceTree = "<group>"; };
+		0A34659C161803C90054BD7E /* bossTop 3-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 3-2.plist"; sourceTree = "<group>"; };
+		0A34659D161803C90054BD7E /* bossTop 3-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 3-3.plist"; sourceTree = "<group>"; };
+		0A3465A11618048A0054BD7E /* bossBottomBullet 3-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 3-1.plist"; sourceTree = "<group>"; };
+		0A3465A3161804920054BD7E /* bossBottom 3-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 3-1.plist"; sourceTree = "<group>"; };
 		0A38407E1541A76900F9A96A /* coinExplosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = coinExplosion.plist; sourceTree = "<group>"; };
 		0A428305151440F100E35219 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
 		0A428306151440F200E35219 /* GameCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameCenter.mm; sourceTree = "<group>"; };
@@ -495,19 +563,11 @@
 		0A4283121516504E00E35219 /* BBIAPItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBIAPItem.mm; sourceTree = "<group>"; };
 		0A42D14114C4C7CC00DD55CA /* BBConfirmBuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConfirmBuy.h; sourceTree = "<group>"; };
 		0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBConfirmBuy.mm; sourceTree = "<group>"; };
-		0A42D14514C4CA1900DD55CA /* leaderboardEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leaderboardEntryBackground.png; path = Resources/leaderboardEntryBackground.png; sourceTree = "<group>"; };
-		0A42D14614C4CA1900DD55CA /* leaderboardBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leaderboardBackground.png; path = Resources/leaderboardBackground.png; sourceTree = "<group>"; };
 		0A42D15014C51E7300DD55CA /* BBLeaderboards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeaderboards.h; sourceTree = "<group>"; };
 		0A42D15114C51E7500DD55CA /* BBLeaderboards.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBLeaderboards.mm; sourceTree = "<group>"; };
 		0A42D15314C5214000DD55CA /* BBLeaderboardEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeaderboardEntry.h; sourceTree = "<group>"; };
 		0A42D15414C5214100DD55CA /* BBLeaderboardEntry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBLeaderboardEntry.mm; sourceTree = "<group>"; };
 		0A42D15614C521A100DD55CA /* leaderboards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = leaderboards.plist; sourceTree = "<group>"; };
-		0A42D15914C7B2E000DD55CA /* BBEquipment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEquipment.h; sourceTree = "<group>"; };
-		0A42D15A14C7B2E000DD55CA /* BBEquipment.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBEquipment.mm; sourceTree = "<group>"; };
-		0A42D15C14C7B60500DD55CA /* BBDoubleJump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDoubleJump.h; sourceTree = "<group>"; };
-		0A42D15D14C7B60500DD55CA /* BBDoubleJump.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBDoubleJump.mm; sourceTree = "<group>"; };
-		0A42D16214C7BFE800DD55CA /* BBEquipmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBEquipmentManager.h; sourceTree = "<group>"; };
-		0A42D16314C7BFE900DD55CA /* BBEquipmentManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBEquipmentManager.mm; sourceTree = "<group>"; };
 		0A46C01C1516656A003483BD /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		0A46C02615166FDA003483BD /* burstshot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burstshot.wav; sourceTree = "<group>"; };
 		0A46C0341516824E003483BD /* whitecircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whitecircle.png; path = Resources/Particles/whitecircle.png; sourceTree = "<group>"; };
@@ -518,6 +578,8 @@
 		0A4C46FB15555FC100C6FDCA /* BBDailyBonus.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBDailyBonus.mm; sourceTree = "<group>"; };
 		0A4C46FD15558C8300C6FDCA /* SessionMWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMWrapper.h; sourceTree = "<group>"; };
 		0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SessionMWrapper.mm; sourceTree = "<group>"; };
+		0A50C34E161CAE6D00C11668 /* BBGameWin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameWin.h; sourceTree = "<group>"; };
+		0A50C34F161CAE6D00C11668 /* BBGameWin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBGameWin.mm; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.mm; sourceTree = "<group>"; };
@@ -552,6 +614,10 @@
 		0A8D310C1501D70E002F9B7B /* testDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testDropship.plist; sourceTree = "<group>"; };
 		0A8D310E1501D76E002F9B7B /* BBDropshipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDropshipManager.h; sourceTree = "<group>"; };
 		0A8D310F1501D76F002F9B7B /* BBDropshipManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBDropshipManager.mm; sourceTree = "<group>"; };
+		0A93ED711614FC1400086831 /* bossBottomBullet 1-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 1-1.plist"; sourceTree = "<group>"; };
+		0A93ED7316150CC800086831 /* bossParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bossParticle.plist; path = Resources/Particles/bossParticle.plist; sourceTree = "<group>"; };
+		0A93ED7416150CC800086831 /* bossParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bossParticle.png; path = Resources/Particles/bossParticle.png; sourceTree = "<group>"; };
+		0A93ED771615D92F00086831 /* bossTopBullet 1-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTopBullet 1-1.plist"; sourceTree = "<group>"; };
 		0A9463541511A4B600353C4B /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		0A9463551511A4B600353C4B /* SettingsManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SettingsManager.mm; sourceTree = "<group>"; };
 		0A94930414FAECD400941321 /* iCadeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCadeReaderView.h; sourceTree = "<group>"; };
@@ -572,8 +638,6 @@
 		0AB8BC4314B6A3AF0045491C /* BulletManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BulletManager.mm; sourceTree = "<group>"; };
 		0AB8BC4714B8C90C0045491C /* BBWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBWeapon.h; sourceTree = "<group>"; };
 		0AB8BC4814B8C90C0045491C /* BBWeapon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBWeapon.mm; sourceTree = "<group>"; };
-		0ABBDCED14CB69A1001D36B7 /* BBGlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGlider.h; sourceTree = "<group>"; };
-		0ABBDCEE14CB69A1001D36B7 /* BBGlider.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBGlider.mm; sourceTree = "<group>"; };
 		0ABBDCF114CB9F96001D36B7 /* uiatlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = uiatlas.plist; path = Resources/UI/uiatlas.plist; sourceTree = "<group>"; };
 		0ABBDCF214CB9F96001D36B7 /* uiatlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = uiatlas.png; path = Resources/UI/uiatlas.png; sourceTree = "<group>"; };
 		0ABBDCFD14CBD58D001D36B7 /* ResolutionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResolutionManager.h; sourceTree = "<group>"; };
@@ -604,6 +668,7 @@
 		0AC9623F15106E6800790570 /* BBCoinManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBCoinManager.mm; sourceTree = "<group>"; };
 		0AC9624115106E7400790570 /* BBCoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCoin.h; sourceTree = "<group>"; };
 		0AC9624215106E7400790570 /* BBCoin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBCoin.mm; sourceTree = "<group>"; };
+		0ACD5F6F161384AE00388AC7 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cameraProperties.plist; sourceTree = "<group>"; };
 		0AD96B6114A948FA00C9DAE9 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0AE417321496F5C400342D8E /* Gun Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gun Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -923,6 +988,13 @@
 		0AE7556B15029A5800E292ED /* Globals.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Globals.mm; sourceTree = "<group>"; };
 		0AE7A03714B54A2500BC5C73 /* ParallaxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxNode.h; sourceTree = "<group>"; };
 		0AE7A03814B54A2500BC5C73 /* ParallaxNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = ParallaxNode.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		0AEB8E05161A0CDF00E6F6FC /* bossBottomBullet 3-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 3-2.plist"; sourceTree = "<group>"; };
+		0AEB8E06161A0CDF00E6F6FC /* bossBottomBullet 3-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 3-3.plist"; sourceTree = "<group>"; };
+		0AEB8E0A161A0CEB00E6F6FC /* bossBottom 3-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 3-2.plist"; sourceTree = "<group>"; };
+		0AEB8E0B161A0CEB00E6F6FC /* bossBottom 3-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottom 3-3.plist"; sourceTree = "<group>"; };
+		0AEB8E18161A278900E6F6FC /* ultralaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ultralaser.png; path = Resources/ultralaser.png; sourceTree = "<group>"; };
+		0AEB8E1A161B79F100E6F6FC /* CCShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCShake.h; path = libs/cocos2d/CCShake.h; sourceTree = "<group>"; };
+		0AEB8E1B161B79F200E6F6FC /* CCShake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CCShake.m; path = libs/cocos2d/CCShake.m; sourceTree = "<group>"; };
 		0AFF01F21543174B000F9A2E /* BBDialogQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDialogQueue.h; sourceTree = "<group>"; };
 		0AFF01F31543174B000F9A2E /* BBDialogQueue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBDialogQueue.mm; sourceTree = "<group>"; };
 		0AFF01FA154463AD000F9A2E /* promo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = promo.plist; sourceTree = "<group>"; };
@@ -938,7 +1010,6 @@
 		0AFF020E15447EEF000F9A2E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		0AFF021015447EFA000F9A2E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0AFF021215447F14000F9A2E /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		0AFF021415447F22000F9A2E /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		342435051510590800FAC64A /* newChunk3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = newChunk3.tmx; path = Resources/newChunk3.tmx; sourceTree = "<group>"; };
 		342435061510590800FAC64A /* startingChunk.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = startingChunk.tmx; path = Resources/startingChunk.tmx; sourceTree = "<group>"; };
 		342435071510590800FAC64A /* newChunk2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = newChunk2.tmx; path = Resources/newChunk2.tmx; sourceTree = "<group>"; };
@@ -1160,9 +1231,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ACD5F70161384AE00388AC7 /* AdSupport.framework in Frameworks */,
 				91EDC3C915AB713500C31CE5 /* libstdc++.dylib in Frameworks */,
 				34A030CB15490C410067AA4B /* libChartBoost.a in Frameworks */,
-				0AFF021515447F23000F9A2E /* libxml2.2.7.3.dylib in Frameworks */,
 				0AFF021315447F15000F9A2E /* libz.1.2.5.dylib in Frameworks */,
 				0AFF021115447EFB000F9A2E /* SystemConfiguration.framework in Frameworks */,
 				0AFF020F15447EF0000F9A2E /* CoreMedia.framework in Frameworks */,
@@ -1210,6 +1281,38 @@
 				9189485015BF7F76002B5593 /* Minibosses */,
 			);
 			name = Enemies;
+			sourceTree = "<group>";
+		};
+		0A180B511614DEFF00AB32B2 /* Guns */ = {
+			isa = PBXGroup;
+			children = (
+				34A0309C1536985C0067AA4B /* highenergyshot.plist */,
+				34A0308C152FCEA90067AA4B /* experimentalplasmapistol.plist */,
+				34A03088152FCA320067AA4B /* plasmapistol.plist */,
+				3428FF2914E639F500184E31 /* pistol.plist */,
+				34FB2A351513DFF600623BB4 /* burstshot.plist */,
+				3428FF2D14E63CDD00184E31 /* machinegun.plist */,
+				3428FF3214E6440300184E31 /* gattlingun.plist */,
+				34A0307D152FC4220067AA4B /* supershotgun.plist */,
+				3428FF3614E645DA00184E31 /* shotgun.plist */,
+				3428FF3A14E648BE00184E31 /* spreadgun.plist */,
+				3428FF4014E64EDF00184E31 /* bluewave.plist */,
+				34BBABF514F5FA9900154CE9 /* ripley.plist */,
+				0A204EAD14DF319400171F71 /* flamethrower.plist */,
+				34BBABDB14F312F200154CE9 /* wavegun.plist */,
+				34FB2A551513FCB900623BB4 /* ultraLaser.plist */,
+			);
+			name = Guns;
+			sourceTree = "<group>";
+		};
+		0A180B521614EABF00AB32B2 /* Weapons */ = {
+			isa = PBXGroup;
+			children = (
+				0A3465721617E9D10054BD7E /* Lvl 1 */,
+				0A3465761617EA590054BD7E /* Lvl 2 */,
+				0A346593161801CB0054BD7E /* Lvl 3 */,
+			);
+			name = Weapons;
 			sourceTree = "<group>";
 		};
 		0A1D34B215FD0DFE00AD32C7 /* Boss */ = {
@@ -1307,7 +1410,6 @@
 				0A1EC4A6149E7E41005A7ED6 /* Chunks */,
 				0A0366DD14E4C54600313CCC /* Enemies */,
 				0A6DD3A814D8D77300D6DB6D /* Bullets */,
-				0A42D15814C7B2B300DD55CA /* Equipment */,
 				0AB8BC4614B8C8E10045491C /* Weapons */,
 				0AE4192C1496FEF300342D8E /* BBPlayer.h */,
 				0AE4192D1496FEF300342D8E /* BBPlayer.mm */,
@@ -1321,50 +1423,92 @@
 			name = "Game Objects";
 			sourceTree = "<group>";
 		};
-		0A1EC4AC14A02EEC005A7ED6 /* Equipment */ = {
-			isa = PBXGroup;
-			children = (
-				0A1EC4AD14A02EFD005A7ED6 /* Guns */,
-			);
-			name = Equipment;
-			sourceTree = "<group>";
-		};
-		0A1EC4AD14A02EFD005A7ED6 /* Guns */ = {
+		0A1EC4AD14A02EFD005A7ED6 /* Weapons */ = {
 			isa = PBXGroup;
 			children = (
 				9189485C15C078B4002B5593 /* Bullets */,
-				34A0309C1536985C0067AA4B /* highenergyshot.plist */,
-				34A0308C152FCEA90067AA4B /* experimentalplasmapistol.plist */,
-				34A03088152FCA320067AA4B /* plasmapistol.plist */,
-				3428FF2914E639F500184E31 /* pistol.plist */,
-				34FB2A351513DFF600623BB4 /* burstshot.plist */,
-				3428FF2D14E63CDD00184E31 /* machinegun.plist */,
-				3428FF3214E6440300184E31 /* gattlingun.plist */,
-				34A0307D152FC4220067AA4B /* supershotgun.plist */,
-				3428FF3614E645DA00184E31 /* shotgun.plist */,
-				3428FF3A14E648BE00184E31 /* spreadgun.plist */,
-				3428FF4014E64EDF00184E31 /* bluewave.plist */,
-				34BBABF514F5FA9900154CE9 /* ripley.plist */,
-				0A204EAD14DF319400171F71 /* flamethrower.plist */,
-				34BBABDB14F312F200154CE9 /* wavegun.plist */,
-				34FB2A551513FCB900623BB4 /* ultraLaser.plist */,
+				0A180B511614DEFF00AB32B2 /* Guns */,
 			);
-			name = Guns;
+			name = Weapons;
 			sourceTree = "<group>";
 		};
-		0A42D15814C7B2B300DD55CA /* Equipment */ = {
+		0A3465721617E9D10054BD7E /* Lvl 1 */ = {
 			isa = PBXGroup;
 			children = (
-				0A42D15914C7B2E000DD55CA /* BBEquipment.h */,
-				0A42D15A14C7B2E000DD55CA /* BBEquipment.mm */,
-				0A42D15C14C7B60500DD55CA /* BBDoubleJump.h */,
-				0A42D15D14C7B60500DD55CA /* BBDoubleJump.mm */,
-				0A42D16214C7BFE800DD55CA /* BBEquipmentManager.h */,
-				0A42D16314C7BFE900DD55CA /* BBEquipmentManager.mm */,
-				0ABBDCED14CB69A1001D36B7 /* BBGlider.h */,
-				0ABBDCEE14CB69A1001D36B7 /* BBGlider.mm */,
+				0A3465661617CB850054BD7E /* bossBottom 1-3.plist */,
+				0A3465671617CB850054BD7E /* bossTop 1-3.plist */,
+				0A34655E1617B6AE0054BD7E /* bossBottom 1-2.plist */,
+				0A34655F1617B6AE0054BD7E /* bossTop 1-2.plist */,
+				0A180B551614ECB200AB32B2 /* bossBottom 1-1.plist */,
+				0A180B531614EAF800AB32B2 /* bossTop 1-1.plist */,
 			);
-			name = Equipment;
+			name = "Lvl 1";
+			sourceTree = "<group>";
+		};
+		0A3465731617E9DE0054BD7E /* Lvl 1 */ = {
+			isa = PBXGroup;
+			children = (
+				0A34656E1617DE590054BD7E /* bossBottomBullet 1-3-2.plist */,
+				0A34656A1617CBA60054BD7E /* bossBottomBullet 1-3-1.plist */,
+				0A34656B1617CBA60054BD7E /* bossTopBullet 1-3.plist */,
+				0A3465621617B6B60054BD7E /* bossBottomBullet 1-2.plist */,
+				0A3465631617B6B60054BD7E /* bossTopBullet 1-2.plist */,
+				0A93ED771615D92F00086831 /* bossTopBullet 1-1.plist */,
+				0A93ED711614FC1400086831 /* bossBottomBullet 1-1.plist */,
+			);
+			name = "Lvl 1";
+			sourceTree = "<group>";
+		};
+		0A3465741617EA450054BD7E /* Lvl 2 */ = {
+			isa = PBXGroup;
+			children = (
+				0A34658B1617F7430054BD7E /* bossBottomBullet 2-3.plist */,
+				0A34658C1617F7430054BD7E /* bossTopBullet 2-3.plist */,
+				0A3465831617F1200054BD7E /* bossBottomBullet 2-2.plist */,
+				0A3465841617F1200054BD7E /* bossTopBullet 2-2.plist */,
+				0A34657F1617EAF20054BD7E /* bossBottomBullet 2-1.plist */,
+				0A3465801617EAF20054BD7E /* bossTopBullet 2-1.plist */,
+			);
+			name = "Lvl 2";
+			sourceTree = "<group>";
+		};
+		0A3465761617EA590054BD7E /* Lvl 2 */ = {
+			isa = PBXGroup;
+			children = (
+				0A34658F1617F74D0054BD7E /* bossBottom 2-3.plist */,
+				0A3465901617F74D0054BD7E /* bossTop 2-3.plist */,
+				0A3465871617F12B0054BD7E /* bossBottom 2-2.plist */,
+				0A3465881617F12B0054BD7E /* bossTop 2-2.plist */,
+				0A34657B1617EA8A0054BD7E /* bossBottom 2-1.plist */,
+				0A34657C1617EA8A0054BD7E /* bossTop 2-1.plist */,
+			);
+			name = "Lvl 2";
+			sourceTree = "<group>";
+		};
+		0A346593161801CB0054BD7E /* Lvl 3 */ = {
+			isa = PBXGroup;
+			children = (
+				0A3465A3161804920054BD7E /* bossBottom 3-1.plist */,
+				0AEB8E0A161A0CEB00E6F6FC /* bossBottom 3-2.plist */,
+				0AEB8E0B161A0CEB00E6F6FC /* bossBottom 3-3.plist */,
+				0A34659B161803C90054BD7E /* bossTop 3-1.plist */,
+				0A34659C161803C90054BD7E /* bossTop 3-2.plist */,
+				0A34659D161803C90054BD7E /* bossTop 3-3.plist */,
+			);
+			name = "Lvl 3";
+			sourceTree = "<group>";
+		};
+		0A346594161801D10054BD7E /* Lvl 3 */ = {
+			isa = PBXGroup;
+			children = (
+				0A3465A11618048A0054BD7E /* bossBottomBullet 3-1.plist */,
+				0AEB8E05161A0CDF00E6F6FC /* bossBottomBullet 3-2.plist */,
+				0AEB8E06161A0CDF00E6F6FC /* bossBottomBullet 3-3.plist */,
+				0A346595161803C00054BD7E /* bossTopBullet 3-1.plist */,
+				0A346596161803C00054BD7E /* bossTopBullet 3-2.plist */,
+				0A346597161803C00054BD7E /* bossTopBullet 3-3.plist */,
+			);
+			name = "Lvl 3";
 			sourceTree = "<group>";
 		};
 		0A46C01915166551003483BD /* SFX */ = {
@@ -1410,6 +1554,8 @@
 		0A46C02F15167B4D003483BD /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				0A93ED7316150CC800086831 /* bossParticle.plist */,
+				0A93ED7416150CC800086831 /* bossParticle.png */,
 				9189485A15BF8D62002B5593 /* minibossHitParticle.plist */,
 				914E086C15B5DB1200F3B598 /* bluewaveParticle.plist */,
 				348AF0D815576CD80057A555 /* dropShip1HitParticle.plist */,
@@ -1513,9 +1659,10 @@
 			name = Bullets;
 			sourceTree = "<group>";
 		};
-		0A7D52D114C4865700066390 /* UI */ = {
+		0A7D52D114C4865700066390 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0AEB8E18161A278900E6F6FC /* ultralaser.png */,
 				0ABBDCF114CB9F96001D36B7 /* uiatlas.plist */,
 				34BBABAD14EF725900154CE9 /* sky_far.png */,
 				34BBABAE14EF725900154CE9 /* cloud2.png */,
@@ -1539,10 +1686,8 @@
 				34BBABBC14EF725900154CE9 /* backforest2.png */,
 				34BBABBD14EF725900154CE9 /* backforest1.png */,
 				0ABBDCF214CB9F96001D36B7 /* uiatlas.png */,
-				0A42D14514C4CA1900DD55CA /* leaderboardEntryBackground.png */,
-				0A42D14614C4CA1900DD55CA /* leaderboardBackground.png */,
 			);
-			name = UI;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		0A7D52D214C4869600066390 /* Shop */ = {
@@ -1570,6 +1715,16 @@
 				0A42830F15164DD300E35219 /* iap.plist */,
 			);
 			name = Shop;
+			sourceTree = "<group>";
+		};
+		0A93ED6F1614FBF300086831 /* Bullets */ = {
+			isa = PBXGroup;
+			children = (
+				0A3465731617E9DE0054BD7E /* Lvl 1 */,
+				0A3465741617EA450054BD7E /* Lvl 2 */,
+				0A346594161801D10054BD7E /* Lvl 3 */,
+			);
+			name = Bullets;
 			sourceTree = "<group>";
 		};
 		0A946350151180B100353C4B /* Coins */ = {
@@ -1610,6 +1765,8 @@
 			children = (
 				0A9A7B3C14B33D10003A1DB1 /* BBGameOver.h */,
 				0A9A7B3D14B33D10003A1DB1 /* BBGameOver.mm */,
+				0A50C34E161CAE6D00C11668 /* BBGameWin.h */,
+				0A50C34F161CAE6D00C11668 /* BBGameWin.mm */,
 				0AE419281496FDC100342D8E /* BBGameLayer.h */,
 				0AE419291496FDC200342D8E /* BBGameLayer.mm */,
 				0A9A7B3814B29AA2003A1DB1 /* BBHud.h */,
@@ -1712,8 +1869,8 @@
 		0AE417351496F5C400342D8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ACD5F6F161384AE00388AC7 /* AdSupport.framework */,
 				91EDC3C815AB713500C31CE5 /* libstdc++.dylib */,
-				0AFF021415447F22000F9A2E /* libxml2.2.7.3.dylib */,
 				0AFF021215447F14000F9A2E /* libz.1.2.5.dylib */,
 				0AFF021015447EFA000F9A2E /* SystemConfiguration.framework */,
 				0AFF020E15447EEF000F9A2E /* CoreMedia.framework */,
@@ -1770,12 +1927,12 @@
 				0A946350151180B100353C4B /* Coins */,
 				0A5C35AB1499848E0019C113 /* Chunks */,
 				0A0366E514E4C99400313CCC /* Enemies */,
-				0A1EC4AC14A02EEC005A7ED6 /* Equipment */,
+				0A1EC4AD14A02EFD005A7ED6 /* Weapons */,
 				3BD9BC7914BD5C18002D5E39 /* Font */,
 				0A5C35A8149981A50019C113 /* Levels */,
 				0AE4192F1496FF7900342D8E /* Player */,
 				0A7D52D214C4869600066390 /* Shop */,
-				0A7D52D114C4865700066390 /* UI */,
+				0A7D52D114C4865700066390 /* Images */,
 				9165DF7D15B8735D00FABC34 /* animations.plist */,
 				91EDC3EB15AB793E00C31CE5 /* collisionShapes.plist */,
 				0A9A7B4114B3E668003A1DB1 /* white.png */,
@@ -1906,6 +2063,8 @@
 				0AE417D31496F5C600342D8E /* CCScene.m */,
 				0AE417D51496F5C600342D8E /* CCScheduler.h */,
 				0AE417D61496F5C600342D8E /* CCScheduler.m */,
+				0AEB8E1A161B79F100E6F6FC /* CCShake.h */,
+				0AEB8E1B161B79F200E6F6FC /* CCShake.m */,
 				0AE417D81496F5C600342D8E /* CCSprite.h */,
 				0AE417D91496F5C600342D8E /* CCSprite.m */,
 				0AE417DB1496F5C600342D8E /* CCSpriteBatchNode.h */,
@@ -2249,6 +2408,7 @@
 				0A1EC4A814A02C9F005A7ED6 /* Game Objects */,
 				0A1EC4A7149E7E4D005A7ED6 /* Basic Objects */,
 				0AD96B6114A948FA00C9DAE9 /* Constants.h */,
+				0A180B571614EE5A00AB32B2 /* Debug.h */,
 			);
 			name = Code;
 			sourceTree = "<group>";
@@ -2351,6 +2511,8 @@
 		9135090915F976BB00414446 /* Bosses */ = {
 			isa = PBXGroup;
 			children = (
+				0A93ED6F1614FBF300086831 /* Bullets */,
+				0A180B521614EABF00AB32B2 /* Weapons */,
 				9135090A15F976D500414446 /* boss.plist */,
 			);
 			name = Bosses;
@@ -2359,6 +2521,8 @@
 		9189485015BF7F76002B5593 /* Minibosses */ = {
 			isa = PBXGroup;
 			children = (
+				919E1C9215C1EC5800EA5AAD /* Bullets */,
+				919E1C8C15C1DB6F00EA5AAD /* Weapons */,
 				9189485815BF872D002B5593 /* minibossLevels.plist */,
 				34E3E72E15ABF1E8002680B0 /* minibossFlames.plist */,
 			);
@@ -2368,8 +2532,6 @@
 		9189485215BF7F82002B5593 /* Dropships */ = {
 			isa = PBXGroup;
 			children = (
-				919E1C9215C1EC5800EA5AAD /* Bullets */,
-				919E1C8C15C1DB6F00EA5AAD /* Weapons */,
 				0A67AFCD151E6F2300CAA55B /* dropshipExplosion.plist */,
 				0A67AFD4151E99F000CAA55B /* dropshipLevels.plist */,
 				34E3E72515A6B52A002680B0 /* easyWallDropShip.plist */,
@@ -2540,8 +2702,6 @@
 				3BD9BC7E14BD5C4B002D5E39 /* gamefont.png in Resources */,
 				0A7D52DD14C4882800066390 /* shopItem1.png in Resources */,
 				0A7D52F114C4950D00066390 /* shop.plist in Resources */,
-				0A42D14B14C4CA1900DD55CA /* leaderboardEntryBackground.png in Resources */,
-				0A42D14C14C4CA1900DD55CA /* leaderboardBackground.png in Resources */,
 				0A42D15714C521A200DD55CA /* leaderboards.plist in Resources */,
 				0ABBDCF314CB9F96001D36B7 /* uiatlas.plist in Resources */,
 				0ABBDCF414CB9F96001D36B7 /* uiatlas.png in Resources */,
@@ -2735,6 +2895,46 @@
 				34FC4251160403A700CFCF04 /* alienmountains.png in Resources */,
 				34FC4252160403A700CFCF04 /* alienplanet.png in Resources */,
 				34FC4253160403A700CFCF04 /* aliensky.png in Resources */,
+				0A180B541614EAF800AB32B2 /* bossTop 1-1.plist in Resources */,
+				0A180B561614ECB200AB32B2 /* bossBottom 1-1.plist in Resources */,
+				0A93ED721614FC1400086831 /* bossBottomBullet 1-1.plist in Resources */,
+				0A93ED7516150CC800086831 /* bossParticle.plist in Resources */,
+				0A93ED7616150CC800086831 /* bossParticle.png in Resources */,
+				0A93ED781615D92F00086831 /* bossTopBullet 1-1.plist in Resources */,
+				0A3465601617B6AE0054BD7E /* bossBottom 1-2.plist in Resources */,
+				0A3465611617B6AE0054BD7E /* bossTop 1-2.plist in Resources */,
+				0A3465641617B6B60054BD7E /* bossBottomBullet 1-2.plist in Resources */,
+				0A3465651617B6B60054BD7E /* bossTopBullet 1-2.plist in Resources */,
+				0A3465681617CB850054BD7E /* bossBottom 1-3.plist in Resources */,
+				0A3465691617CB850054BD7E /* bossTop 1-3.plist in Resources */,
+				0A34656C1617CBA60054BD7E /* bossBottomBullet 1-3-1.plist in Resources */,
+				0A34656D1617CBA60054BD7E /* bossTopBullet 1-3.plist in Resources */,
+				0A3465701617DE590054BD7E /* bossBottomBullet 1-3-2.plist in Resources */,
+				0A34657D1617EA8A0054BD7E /* bossBottom 2-1.plist in Resources */,
+				0A34657E1617EA8A0054BD7E /* bossTop 2-1.plist in Resources */,
+				0A3465811617EAF20054BD7E /* bossBottomBullet 2-1.plist in Resources */,
+				0A3465821617EAF20054BD7E /* bossTopBullet 2-1.plist in Resources */,
+				0A3465851617F1200054BD7E /* bossBottomBullet 2-2.plist in Resources */,
+				0A3465861617F1200054BD7E /* bossTopBullet 2-2.plist in Resources */,
+				0A3465891617F12B0054BD7E /* bossBottom 2-2.plist in Resources */,
+				0A34658A1617F12B0054BD7E /* bossTop 2-2.plist in Resources */,
+				0A34658D1617F7430054BD7E /* bossBottomBullet 2-3.plist in Resources */,
+				0A34658E1617F7430054BD7E /* bossTopBullet 2-3.plist in Resources */,
+				0A3465911617F74D0054BD7E /* bossBottom 2-3.plist in Resources */,
+				0A3465921617F74D0054BD7E /* bossTop 2-3.plist in Resources */,
+				0A346598161803C00054BD7E /* bossTopBullet 3-1.plist in Resources */,
+				0A346599161803C00054BD7E /* bossTopBullet 3-2.plist in Resources */,
+				0A34659A161803C00054BD7E /* bossTopBullet 3-3.plist in Resources */,
+				0A34659E161803C90054BD7E /* bossTop 3-1.plist in Resources */,
+				0A34659F161803C90054BD7E /* bossTop 3-2.plist in Resources */,
+				0A3465A0161803C90054BD7E /* bossTop 3-3.plist in Resources */,
+				0A3465A21618048A0054BD7E /* bossBottomBullet 3-1.plist in Resources */,
+				0A3465A4161804920054BD7E /* bossBottom 3-1.plist in Resources */,
+				0AEB8E07161A0CDF00E6F6FC /* bossBottomBullet 3-2.plist in Resources */,
+				0AEB8E08161A0CDF00E6F6FC /* bossBottomBullet 3-3.plist in Resources */,
+				0AEB8E0C161A0CEB00E6F6FC /* bossBottom 3-2.plist in Resources */,
+				0AEB8E0D161A0CEB00E6F6FC /* bossBottom 3-3.plist in Resources */,
+				0AEB8E19161A278B00E6F6FC /* ultralaser.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2898,10 +3098,6 @@
 				0A42D14314C4C7CF00DD55CA /* BBConfirmBuy.mm in Sources */,
 				0A42D15214C51E7700DD55CA /* BBLeaderboards.mm in Sources */,
 				0A42D15514C5214200DD55CA /* BBLeaderboardEntry.mm in Sources */,
-				0A42D15B14C7B2E000DD55CA /* BBEquipment.mm in Sources */,
-				0A42D15E14C7B60500DD55CA /* BBDoubleJump.mm in Sources */,
-				0A42D16414C7BFE900DD55CA /* BBEquipmentManager.mm in Sources */,
-				0ABBDCEF14CB69A1001D36B7 /* BBGlider.mm in Sources */,
 				0ABBDCFF14CBD58F001D36B7 /* ResolutionManager.mm in Sources */,
 				0ABBDD0214CC62B1001D36B7 /* CCButton.mm in Sources */,
 				0ABBDD0514CCA1A0001D36B7 /* CCLabelButton.mm in Sources */,
@@ -2953,6 +3149,8 @@
 				9135090315F96B5D00414446 /* BBBoss.mm in Sources */,
 				9135090715F96B9F00414446 /* BBBossManager.mm in Sources */,
 				9135090E15F977A200414446 /* BBBossPiece.mm in Sources */,
+				0AEB8E1C161B79F300E6F6FC /* CCShake.m in Sources */,
+				0A50C350161CAE6D00C11668 /* BBGameWin.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3018,7 +3216,6 @@
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Gun Runner";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = BitBlast/libs;
@@ -3048,7 +3245,6 @@
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "Gun Runner";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = BitBlast/libs;

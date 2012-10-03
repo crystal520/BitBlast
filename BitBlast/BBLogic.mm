@@ -63,11 +63,18 @@
 #pragma mark -
 #pragma mark notifications
 - (void) rollDice {
-	NSLog(@"BBLogic: rollDice - %i", enabled);
+	//NSLog(@"BBLogic: rollDice - %i", enabled);
 	if(enabled) {
         
         // determine whether a dropship or miniboss can be spawned
-        BOOL canSpawn = ([[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0 && [[[BBMinibossManager sharedSingleton] getActiveMinibosses] count] == 0 && !firstRun && [[[BBBossManager sharedSingleton] getActiveBosses] count] == 0);
+        BOOL canSpawn = ([[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0 && [[[BBMinibossManager sharedSingleton] getActiveMinibosses] count] == 0 && !firstRun && ![[BBBossManager sharedSingleton] isActive] && ![[BBMovingCoinManager sharedSingleton] isTriforceActive]);
+        
+#if DEBUG_SPAWN_BOSS
+        if(canSpawn) {
+            [self triforceCollected];
+            canSpawn = NO;
+        }
+#endif
         
 		NSDictionary *diceResult;
 		// automatically generate a coin group on first run
@@ -81,7 +88,7 @@
         
         // spawn a random number of minibosses
         if(canSpawn && [[SettingsManager sharedSingleton] getInt:@"totalKeys"] >= [Globals sharedSingleton].numKeysForMiniboss) {
-            NSLog(@"BBLogic: rollDice spawning miniboss");
+            //NSLog(@"BBLogic: rollDice spawning miniboss");
             [[BBMinibossManager sharedSingleton] tryToSpawnMiniboss];
             [self performSelector:@selector(rollDice) withObject:nil afterDelay:5];
             return;
@@ -89,19 +96,19 @@
         
 		// spawn a coin group
 		if([[diceResult objectForKey:@"type"] isEqualToString:@"coinGroup"]) {
-			NSLog(@"BBLogic: rollDice spawning coin group");
+			//NSLog(@"BBLogic: rollDice spawning coin group");
 			[[BBCoinManager sharedSingleton] spawnCoinGroup];
 			[self performSelector:@selector(rollDice) withObject:nil afterDelay:2];
 		}
         // spawn a random number of dropships
 		else if([[diceResult objectForKey:@"type"] isEqualToString:@"dropship"] && canSpawn) {
-			NSLog(@"BBLogic: rollDice spawning dropship");
+			//NSLog(@"BBLogic: rollDice spawning dropship");
 			[[BBDropshipManager sharedSingleton] tryToSpawnDropship];
 			[self performSelector:@selector(rollDice) withObject:nil afterDelay:2];
 		}
         // delay for a bit
 		else {
-			NSLog(@"BBLogic: rollDice delay");
+			//NSLog(@"BBLogic: rollDice delay");
             CGPoint delayRange = CGPointFromString([diceResult objectForKey:@"range"]);
 			[self performSelector:@selector(rollDice) withObject:nil afterDelay:CCRANDOM_MIN_MAX(delayRange.x, delayRange.y)];
 		}
@@ -131,7 +138,11 @@
 
 - (void) triforceCollected {
     // check to see if we should spawn the final boss
+#if DEBUG_SPAWN_BOSS
+    if(1) {
+#else
     if([[SettingsManager sharedSingleton] getInt:@"totalTriforce"] >= [Globals sharedSingleton].numPiecesForFinalBoss) {
+#endif
         [[BBBossManager sharedSingleton] tryToSpawnBoss];
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventSpawnFinalBoss object:nil]];
     }

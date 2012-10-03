@@ -109,9 +109,6 @@
 		[[BBWeaponManager sharedSingleton] unequipAllForType:WEAPON_INVENTORY_PLAYER];
 		[[BBWeaponManager sharedSingleton] equip:identifier forType:WEAPON_INVENTORY_PLAYER];
 	}
-	else if([type isEqualToString:@"equipment"]) {
-		[[BBEquipmentManager sharedSingleton] equip:identifier];
-	}
 	else if([type isEqualToString:@"powerup"]) {
 		[[SettingsManager sharedSingleton] incrementInteger:1 keyString:identifier];
 	}

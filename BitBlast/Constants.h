@@ -53,7 +53,8 @@ typedef enum {
 	kStateShop,
 	kStateConfirmBuy,
 	kStateLeaderboards,
-	kStatePause
+	kStatePause,
+    kStateGameWin
 } GameState;
 
 typedef enum {
@@ -67,6 +68,30 @@ typedef enum {
     WEAPON_INVENTORY_MINIBOSS,
     WEAPON_INVENTORY_COUNT
 } WeaponInventory;
+
+typedef enum {
+    ACTION_TAG_SCREEN_SHAKE = 1,
+    ACTION_TAG_ANIMATION,
+    ACTION_TAG_FLASH,
+    ACTION_TAG_FLASH_ALPHA,
+    ACTION_TAG_FADE,
+    ACTION_TAG_FADE_ALPHA,
+    MINIBOSS_ACTION_TAG_HIT,
+    MINIBOSS_ACTION_TAG_HOVER,
+    MINIBOSS_ACTION_TAG_CHASE,
+    MINIBOSS_ACTION_TAG_CALL_SPAWN_ENEMY,
+    MINIBOSS_ACTION_TAG_CALL_CHANGE_WEAPON,
+    MINIBOSS_ACTION_TAG_CALL_CHASE,
+    MINIBOSS_ACTION_TAG_CALL_CHARGE,
+    MINIBOSS_ACTION_TAG_CALL_SHOW_HEALTH
+} ActionTag;
+
+typedef enum {
+    SPRITE_TAG_BACKGROUND = 1,
+    SPRITE_TAG_MENU,
+    SPRITE_TAG_OVERLAY,
+	SPRITE_TAG_POPUP
+} SpriteTag;
 
 #define TESTING 1
 
@@ -99,6 +124,8 @@ typedef enum {
 #define kEventSessionMUserInfoUpdated @"eventSessionMUserInfoUpdated"
 #define kEventPreviewWeapon @"eventPreviewWeapon"
 #define kEventSpawnFinalBoss @"eventSpawnFinalBoss"
+#define kEventFinalBossDead @"eventFinalBossDead"
+#define kEventGameWin @"eventGameWin"
 
 #define kNavMainNotification @"navMainNotification"
 #define kNavGameNotification @"navGameNotification"
@@ -111,3 +138,4 @@ typedef enum {
 #define kNavCancelBuyItemNotification @"navCancelBuyItemNotification"
 #define kNavPauseNotification @"navPauseNotification"
 #define kNavResumeNotification @"navResumeNotification"
+#define kNavGameWinNotification @"navGameWinNotification"

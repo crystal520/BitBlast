@@ -20,6 +20,7 @@
 // update
 - (void) update:(float)delta;
 // getters
+-(BOOL) isTriforceActive;
 - (BBMovingCoin*) getRecycledCoin;
 - (NSArray*) getActiveCoins;
 // actions

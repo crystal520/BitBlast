@@ -11,7 +11,6 @@
 #import "CCLabelButton.h"
 #import "CCButton.h"
 #import "SettingsManager.h"
-#import "BBEquipmentManager.h"
 #import "BBWeaponManager.h"
 #import "SimpleAudioEngine.h"
 

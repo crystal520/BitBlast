@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>shots</key>
+	<array>
+		<string>bossBottomBullet 3-2</string>
+	</array>
+	<key>downAngle</key>
+	<integer>0</integer>
+	<key>straightAngle</key>
+	<integer>0</integer>
+	<key>upAngle</key>
+	<integer>0</integer>
+	<key>torsoDownOffset</key>
+	<string>{0,0}</string>
+	<key>torsoUpOffset</key>
+	<string>{0,0}</string>
+	<key>torsoOffset</key>
+	<string>{120,220}</string>
+</dict>
+</plist>

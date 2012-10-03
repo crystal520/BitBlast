@@ -22,8 +22,11 @@
 
 // setters
 - (void) setNode:(CCNode*)newNode;
+// update
+- (void) update:(float)delta;
 // actions
 - (void) explodeInObject:(BBGameObject*)object number:(int)count;
+- (void) explodeInObject:(BBGameObject*)object withOffset:(CGRect)offset number:(int)count;
 - (void) stopExploding:(BBGameObject*)object;
 - (void) pause;
 - (void) resume;

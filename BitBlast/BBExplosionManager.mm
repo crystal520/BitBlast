@@ -48,14 +48,27 @@
 }
 
 #pragma mark -
+#pragma mark update
+- (void) update:(float)delta {
+    for(BBExplosion *e in explosions) {
+        [e update:delta];
+    }
+}
+
+#pragma mark -
 #pragma mark actions
 - (void) explodeInObject:(BBGameObject*)object number:(int)count {
+    [self explodeInObject:object withOffset:CGRectZero number:5];
+}
+
+- (void) explodeInObject:(BBGameObject*)object withOffset:(CGRect)offset number:(int)count {
     if(!paused) {
         int counter = 0;
         for(BBExplosion *e in explosions) {
             if(!e.explodingObject) {
                 e.explodingObject = object;
-                CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:CCRANDOM_0_1()], [CCCallFunc actionWithTarget:e selector:@selector(explode)], nil];
+                e.offset = offset;
+                CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:CCRANDOM_0_1() * 2], [CCCallFunc actionWithTarget:e selector:@selector(explode)], nil];
                 [e runAction:action];
                 counter++;
                 if(counter == count) {

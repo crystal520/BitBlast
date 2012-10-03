@@ -37,7 +37,7 @@
 - (id) init {
 	if((self = [super init])) {
 		
-#ifdef DEBUG_NO_SOUND
+#if DEBUG_NO_SOUND
 		[[SimpleAudioEngine sharedEngine] setMute:YES];
 #endif
         
@@ -95,37 +95,28 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoShop) name:kNavShopNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMain) name:kNavMainNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoConfirmBuy:) name:kNavShopConfirmNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoGameWin) name:kNavGameWinNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoLeaderboards) name:kNavLeaderboardsNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone) name:kPlayerOutOfChopperNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(spawnFinalBoss) name:kEventSpawnFinalBoss object:nil];
-		
-		//[[BBEquipmentManager sharedSingleton] equip:@"glider"];
-		[[BBEquipmentManager sharedSingleton] equip:@"doublejump"];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finalBossDead) name:kEventFinalBossDead object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameWin) name:kEventGameWin object:nil];
 		
 		// set initial state
 		state = kStateUnknown;
 		[self setState:kStateMainMenu];
 		
-		// set ourselves as the ChartBoost delegate
-		[ChartBoost sharedChartBoost].delegate = self;
+		// set ourselves as the Chartboost delegate
+		[Chartboost sharedChartboost].delegate = self;
         
         inputController = [[BBInputController alloc] init];
         inputController.delegate = self;
         
-#ifdef DEBUG_PHYSICS
+#if DEBUG_PHYSICS
         [self addChild:[[GB2DebugDrawLayer alloc] init] z:30];
-#endif
-		
-#ifdef DEBUG_TEXTURES
-		debugButton = [CCSprite spriteWithFile:@"white.png"];
-		debugButton.color = ccc3(0, 0, 0);
-		[debugButton setTextureRect:CGRectMake(0, 0, 50, 50)];
-		debugButton.position = ccp(25, [ResolutionManager sharedSingleton].size.height - 25);
-		[self addChild:debugButton z:DEPTH_DEBUG];
 #endif
 	}
 	
@@ -230,7 +221,7 @@
 
 - (void) createBackground {
 	// create colorable background
-	background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(0, 0, [ResolutionManager sharedSingleton].size.width, [ResolutionManager sharedSingleton].size.height)];
+	background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(-[ResolutionManager sharedSingleton].size.width, -[ResolutionManager sharedSingleton].size.height, [ResolutionManager sharedSingleton].size.width * 2, [ResolutionManager sharedSingleton].size.height * 2)];
 	background.anchorPoint = ccp(0, 0);
 	ccTexParams params = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
 	[background.texture setTexParameters:&params];
@@ -255,7 +246,7 @@
 		[[BBMovingCoinManager sharedSingleton] update:delta];
 		[self updateCamera];
         [[GB2Engine sharedInstance] update:delta];
-		[(BBHud*)([self getChildByTag:TAG_MENU]) update:delta];
+		[(BBHud*)([self getChildByTag:SPRITE_TAG_MENU]) update:delta];
 	}
 	else if(state == kStateIntro) {
         followNode.position = ccpAdd(followNode.position, ccpMult(player.minVelocity, delta * [ResolutionManager sharedSingleton].positionScale));
@@ -269,42 +260,45 @@
 
 - (void) updateCamera {
 	
-	// keep track of node's previous position
-	CGPoint prevPos = scrollingNode.position;
-    float yOffset = 0;
-    
-    if(state != kStateIntro) {
-        // convert player's y position to screen space
-        CGPoint currentPlayerScreenPosition = [followNode convertToWorldSpace:CGPointZero];
+    // only update if the game isn't paused
+    if(!paused && ![Globals sharedSingleton].endBossSequence) {
+        // keep track of node's previous position
+        CGPoint prevPos = scrollingNode.position;
+        float yOffset = 0;
         
-        // check to see if player is too close to the top of the screen
-        if(currentPlayerScreenPosition.y < cameraBounds.x) {
-            yOffset = currentPlayerScreenPosition.y - cameraBounds.x;
+        if(state != kStateIntro) {
+            // convert player's y position to screen space
+            CGPoint currentPlayerScreenPosition = [followNode convertToWorldSpace:CGPointZero];
+            
+            // check to see if player is too close to the top of the screen
+            if(currentPlayerScreenPosition.y < cameraBounds.x) {
+                yOffset = currentPlayerScreenPosition.y - cameraBounds.x;
+            }
+            // check to see if player is too close to the bottom of the screen
+            else if(currentPlayerScreenPosition.y > cameraBounds.y) {
+                yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
+            }
         }
-        // check to see if player is too close to the bottom of the screen
-        else if(currentPlayerScreenPosition.y > cameraBounds.y) {
-            yOffset = currentPlayerScreenPosition.y - cameraBounds.y;
+        
+        CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y - yOffset / [ResolutionManager sharedSingleton].imageScale);
+        
+        // make sure newPos's y coordinate is not less than the current chunk's lowest point
+        if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+            newPos.y = [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition;
         }
-        if(yOffset > 5) {
-            NSLog(@"POOP");
-        }
+        [scrollingNode setPosition:newPos];
+        
+        [parallax update:ccpSub(scrollingNode.position, prevPos)];
     }
-	
-	//CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y + cameraOffset.y - yOffset);
-    CGPoint newPos = ccp(-1 * followNode.position.x + cameraOffset.x, scrollingNode.position.y - yOffset / [ResolutionManager sharedSingleton].imageScale);
-    
-    // make sure newPos's y coordinate is not less than the current chunk's lowest point
-    if(newPos.y > [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
-		newPos.y = [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition;
-	}
-	[scrollingNode setPosition:newPos];
-	
-	[parallax update:ccpSub(scrollingNode.position, prevPos)];
 }
 
 #pragma mark -
 #pragma mark actions
 - (void) playIntro {
+    // make sure end boss sequence is disabled
+    [Globals sharedSingleton].endBossSequence = NO;
+    // make sure the game is resumed, or else weirdness occurs (camera not following player, etc.)
+    [self resume];
 	// create chopper for intro animation
 	[self killChopper];
 	chopper = [BBChopper new];
@@ -313,7 +307,7 @@
 	// reset level
 	[self resetLevel:@"jungleLevel"];
 	[player reset];
-#ifndef DEBUG_NO_MUSIC
+#if !DEBUG_NO_MUSIC
 	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
 #endif
 	[self scheduleUpdate];
@@ -356,17 +350,45 @@
 	[[GameCenter sharedSingleton] submitLeaderboards];
 	// stop listening for touches
 	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
-	// remove hud
-	//[self removeChild:hud cleanup:YES];
 	[self unscheduleUpdate];
 }
 
 - (void) clearMenuWithTag:(SpriteTag)tag {
 	// clean up old menu node
 	CCNode *oldMenu = [self getChildByTag:tag];
-	[self removeChild:oldMenu cleanup:YES];
-	[oldMenu release];
-	oldMenu = nil;
+    if(oldMenu) {
+        [self removeChild:oldMenu cleanup:YES];
+        [oldMenu release];
+        oldMenu = nil;
+    }
+}
+
+- (void) pause {
+    paused = YES;
+    [self pauseSchedulerAndActions];
+    // stop screen shaking for now
+    [self stopActionByTag:ACTION_TAG_SCREEN_SHAKE];
+}
+
+- (void) resume {
+    paused = NO;
+    [self resumeSchedulerAndActions];
+    // if we're still in the end boss sequence, start shaking the screen again
+    if([Globals sharedSingleton].endBossSequence) {
+        [self shakeScreen];
+    }
+    else {
+        // resume normal player activity
+        [player resume];
+        // resume normal coin activity
+        [[BBCoinManager sharedSingleton] resume];
+    }
+}
+
+- (void) shakeScreen {
+    CCAction *shakeAction = [CCRepeatForever actionWithAction:[CCShake actionWithDuration:0.1 amplitude:ccp(5,5) dampening:YES]];
+    shakeAction.tag = ACTION_TAG_SCREEN_SHAKE;
+    [self runAction:shakeAction];
 }
 
 #pragma mark -
@@ -386,72 +408,85 @@
 		CCNode *newMenu = nil;
 		switch (newState) {
 			case kStateMainMenu:
-				if(state == kStatePause) {
+				if(state == kStatePause || state == kStateGameWin) {
 					[self finishGame];
-					[self clearMenuWithTag:TAG_POPUP];
+					[self clearMenuWithTag:SPRITE_TAG_POPUP];
+					[self clearMenuWithTag:SPRITE_TAG_OVERLAY];
 				}
-#ifndef DEBUG_NO_MUSIC
+#if !DEBUG_NO_MUSIC
 				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
 #endif
-				[self clearMenuWithTag:TAG_MENU];
+				[self clearMenuWithTag:SPRITE_TAG_MENU];
 				newMenu = [[BBMainMenu alloc] init];
-				newMenu.tag = TAG_MENU;
+				newMenu.tag = SPRITE_TAG_MENU;
 				break;
 			case kStateGame:
 				if(state == kStatePause) {
-					[self clearMenuWithTag:TAG_POPUP];
+					[self clearMenuWithTag:SPRITE_TAG_POPUP];
 				}
 				else {
 					[self reset];
-					[self clearMenuWithTag:TAG_MENU];
+					[self clearMenuWithTag:SPRITE_TAG_MENU];
 					newMenu = [[BBHud alloc] init];
-					newMenu.tag = TAG_MENU;
+					newMenu.tag = SPRITE_TAG_MENU;
 				}
 				break;
 			case kStateShop:
 				if(state == kStateConfirmBuy) {
-					[self clearMenuWithTag:TAG_POPUP];
+					[self clearMenuWithTag:SPRITE_TAG_POPUP];
 				}
 				else {
-					[self clearMenuWithTag:TAG_POPUP];
-					[self clearMenuWithTag:TAG_MENU];
+					[self clearMenuWithTag:SPRITE_TAG_POPUP];
+					[self clearMenuWithTag:SPRITE_TAG_MENU];
 					newMenu = [[BBShop alloc] init];
-					newMenu.tag = TAG_MENU;
+					newMenu.tag = SPRITE_TAG_MENU;
 				}
 				break;
 			case kStateConfirmBuy:
 				newMenu = [[BBConfirmBuy alloc] init];
-				newMenu.tag = TAG_POPUP;
+				newMenu.tag = SPRITE_TAG_POPUP;
 				break;
 			case kStatePause:
-				if(state == kStateGame) {
+				if(state == kStateGame || state == kStateGameWin) {
 					newMenu = [[BBPause alloc] init];
-					newMenu.tag = TAG_POPUP;
+					newMenu.tag = SPRITE_TAG_POPUP;
 				}
 				break;
 			case kStateIntro:
 				if(state == kStatePause) {
 					[self finishGame];
 				}
-				[self clearMenuWithTag:TAG_POPUP];
-				[self clearMenuWithTag:TAG_MENU];
+				[self clearMenuWithTag:SPRITE_TAG_POPUP];
+				[self clearMenuWithTag:SPRITE_TAG_MENU];
 				[self playIntro];
 				break;
 			case kStateGameOver:
 				[self finishGame];
-#ifndef DEBUG_NO_MUSIC
+#if !DEBUG_NO_MUSIC
 				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"gameOver.mp3" loop:YES];
 #endif
 				newMenu = [[BBGameOver alloc] init];
-				newMenu.tag = TAG_POPUP;
+				newMenu.tag = SPRITE_TAG_POPUP;
 				[(BBGameOver*)(newMenu) updateFinalScore];
 				break;
+            case kStateGameWin:
+                if(state == kStateGame) {
+                    newMenu = [[BBGameWin alloc] init];
+                    newMenu.tag = SPRITE_TAG_OVERLAY;
+                }
+                else if(state == kStatePause) {
+                    [self clearMenuWithTag:SPRITE_TAG_POPUP];
+                }
+                break;
 			default:
 				break;
 		}
+        prevState = state;
 		state = newState;
         [Globals sharedSingleton].gameState = newState;
 		if(newMenu) {
+            // set offset if camera is shaking
+            [self setPosition:[ResolutionManager sharedSingleton].position];
 			[self addChild:newMenu z:DEPTH_MENU];
 		}
 	}
@@ -470,13 +505,6 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
 	[inputController ccTouchEnded:touch withEvent:event];
-	
-#ifdef DEBUG_TEXTURES
-	if(CGRectContainsPoint([debugButton boundingBox], ccpMult(touchPoint, 1/[ResolutionManager sharedSingleton].imageScale))) {
-		// print out all textures currently in memory
-		[[CCTextureCache sharedTextureCache] dumpCachedTextureInfo];
-	}
-#endif
 }
 
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -557,7 +585,8 @@
 }
 
 - (void) resumeGame {
-	[self setState:kStateGame];
+    [self resume];
+	[self setState:prevState];
 }
 
 - (void) gotoShop {
@@ -578,11 +607,12 @@
 
 - (void) gotoPause {
 	[self setState:kStatePause];
+    [self pause];
 }
 
 - (void) gotoConfirmBuy:(NSNotification*)n {
 	[self setState:kStateConfirmBuy];
-	BBConfirmBuy *confirmBuy = (BBConfirmBuy*)([self getChildByTag:TAG_POPUP]);
+	BBConfirmBuy *confirmBuy = (BBConfirmBuy*)([self getChildByTag:SPRITE_TAG_POPUP]);
 	[confirmBuy updateWithInfo:[n userInfo]];
 }
 
@@ -606,9 +636,31 @@
     [self resetLevel:@"bossLevel"];
 }
 
+- (void) finalBossDead {
+    // set global variable so other classes can use it
+    [Globals sharedSingleton].endBossSequence = YES;
+    // pause the player, which effectively pauses the game (scrolling, bullets, etc.)
+    [player pause];
+    // also pause the coins so they stop spinning
+    [[BBCoinManager sharedSingleton] pause];
+    // shake the screen
+    [self shakeScreen];
+}
+
+- (void) gotoGameWin {
+    [self setState:kStateGameWin];
+}
+
+- (void) gameWin {
+    // stop screen shaking
+    [self stopActionByTag:ACTION_TAG_SCREEN_SHAKE];
+    // stop boss flashing and exploding
+    [[BBBossManager sharedSingleton] gameOver];
+}
+
 #pragma mark -
-#pragma mark ChartBoostDelegate
-- (BOOL) shouldDisplayInterstitial:(UIView *)interstitialView {
+#pragma mark ChartboostDelegate
+- (BOOL) shouldDisplayInterstitial:(NSString *)interstitialView {
 	if(state == kStateMainMenu) {
 		return YES;
 	}

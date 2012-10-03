@@ -22,6 +22,7 @@
 + (BBWeaponManager*) sharedSingleton;
 // getters
 - (NSSet*) weaponsForType:(WeaponInventory)type;
+- (BBWeapon*) weaponWithID:(NSString*)weaponID forType:(WeaponInventory)type;
 // setters
 - (void) setEnabled:(BOOL)newEnabled forType:(WeaponInventory)type;
 - (void) setScale:(float)scale forType:(WeaponInventory)type;

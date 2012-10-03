@@ -10,7 +10,6 @@
 #import "cocos2d.h"
 #import "CCNodeColorBackground.h"
 #import "SettingsManager.h"
-#import "BBEquipmentManager.h"
 #import "BBWeaponManager.h"
 #import "CCLabelButton.h"
 #import "GameCenter.h"

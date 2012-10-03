@@ -43,6 +43,9 @@
 - (void) setGunSpeedMultiplier:(float)multiplier;
 // getters
 - (CGPoint) getPosition;
+- (BOOL) getIsFiring;
+- (float) getMinTimeToFire;
+- (BOOL) getDidFireBullet;
 // update
 - (void) update:(float)delta;
 // actions

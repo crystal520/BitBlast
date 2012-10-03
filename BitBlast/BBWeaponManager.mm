@@ -66,6 +66,15 @@
     return [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
 }
 
+- (BBWeapon*) weaponWithID:(NSString*)weaponID forType:(WeaponInventory)type {
+    for(BBWeapon *w in [self weaponsForType:type]) {
+        if([w.identifier isEqualToString:weaponID]) {
+            return w;
+        }
+    }
+    return nil;
+}
+
 #pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled forType:(WeaponInventory)type {
@@ -146,8 +155,9 @@
 }
 
 - (void) unequipAllForType:(WeaponInventory)type {
-    NSSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];
-	for(BBWeapon *w in inventory) {
+    NSSet *inventory = [weapons objectForKey:[NSString stringWithFormat:@"%i", type]];    
+	while([inventory count] > 0) {
+        BBWeapon *w = [inventory anyObject];
 		[self unequip:w.identifier forType:type];
 	}
 }

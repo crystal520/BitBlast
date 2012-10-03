@@ -260,7 +260,7 @@
 				<string>boss3.png</string>
 			</array>
 			<key>name</key>
-			<string>bossMouthOpen</string>
+			<string>bossOpenMouth</string>
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>
@@ -272,7 +272,7 @@
 				<string>boss1.png</string>
 			</array>
 			<key>name</key>
-			<string>bossMouthClose</string>
+			<string>bossCloseMouth</string>
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>

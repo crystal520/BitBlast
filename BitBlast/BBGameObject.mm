@@ -13,7 +13,7 @@
 
 @implementation BBGameObject
 
-@synthesize dummyPosition, prevDummyPosition;
+@synthesize dummyPosition, prevDummyPosition, paused;
 
 - (id) initWithFile:(NSString *)filename {
 	
@@ -97,10 +97,12 @@
 #pragma mark -
 #pragma mark actions
 - (void) pause {
+    paused = YES;
 	[self pauseSchedulerAndActions];
 }
 
 - (void) resume {
+    paused = NO;
 	[self resumeSchedulerAndActions];
 }
 
@@ -130,9 +132,9 @@
 }
 
 - (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite {
-    CCTintTo *flashAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:toColor.r green:toColor.g blue:toColor.b];
-    CCTintTo *flashBackAction = [CCTintTo actionWithDuration:time / (times * 2.0f) red:fromColor.r green:fromColor.g blue:fromColor.b];
-    CCActionInterval *finalAction;
+    CCTintTo *flashAction = [CCTintTo actionWithDuration:(times > 0) ? time / (times * 2.0f) : time * 0.5f red:toColor.r green:toColor.g blue:toColor.b];
+    CCTintTo *flashBackAction = [CCTintTo actionWithDuration:(times > 0) ? time / (times * 2.0f) : time * 0.5f red:fromColor.r green:fromColor.g blue:fromColor.b];
+    CCAction *finalAction;
     if(times > 0) {
         finalAction = [CCRepeat actionWithAction:[CCSequence actions:flashAction, flashBackAction, nil] times:times];
     }
@@ -141,6 +143,40 @@
     }
     finalAction.tag = ACTION_TAG_FLASH;
     [sprite runAction:finalAction];
+}
+
+- (void) flashAlphaFrom:(float)fromAlpha to:(float)toAlpha withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite {
+    CCFadeTo *flashAlphaAction = [CCFadeTo actionWithDuration:(times > 0) ? time / (times * 2.0f) : time * 0.5f opacity:toAlpha];
+    CCFadeTo *flashAlphaBackAction = [CCFadeTo actionWithDuration:(times > 0) ? time / (times * 2.0f) : time * 0.5f opacity:fromAlpha];
+    CCAction *finalAction;
+    if(times > 0) {
+        finalAction = [CCRepeat actionWithAction:[CCSequence actions:flashAlphaAction, flashAlphaBackAction, nil] times:times];
+    }
+    else {
+        finalAction = [CCRepeatForever actionWithAction:[CCSequence actions:flashAlphaAction, flashAlphaBackAction, nil]];
+    }
+    finalAction.tag = ACTION_TAG_FLASH_ALPHA;
+    [sprite runAction:finalAction];
+}
+
+- (void) fadeFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time onSprite:(CCSprite*)sprite target:(id)target selector:(SEL)selector {
+    sprite.color = fromColor;
+    CCSequence *fadeAction = [CCSequence actions:[CCTintTo actionWithDuration:time red:toColor.r green:toColor.g blue:toColor.b], nil];
+    if(target && selector && [target respondsToSelector:selector]) {
+        fadeAction = [CCSequence actions:[CCTintTo actionWithDuration:time red:toColor.r green:toColor.g blue:toColor.b], [CCCallFunc actionWithTarget:target selector:selector], nil];
+    }
+    fadeAction.tag = ACTION_TAG_FADE;
+    [sprite runAction:fadeAction];
+}
+
+- (void) fadeAlphaFrom:(float)fromAlpha to:(float)toAlpha withTime:(float)time onSprite:(CCSprite*)sprite target:(id)target selector:(SEL)selector {
+    sprite.opacity = fromAlpha;
+    CCSequence *fadeAlphaAction = [CCSequence actions:[CCFadeTo actionWithDuration:time opacity:toAlpha], nil];
+    if(target && selector && [target respondsToSelector:selector]) {
+        fadeAlphaAction = [CCSequence actions:[CCFadeTo actionWithDuration:time opacity:toAlpha], [CCCallFunc actionWithTarget:self selector:selector], nil];
+    }
+    fadeAlphaAction.tag = ACTION_TAG_FADE_ALPHA;
+    [sprite runAction:fadeAlphaAction];
 }
 
 @end

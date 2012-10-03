@@ -47,7 +47,7 @@ static SettingsManager* _sharedSettingsManager = nil;
 }
 
 -(void) setDouble:(double)value keyString:(NSString*)keyString {
-	[settings setObject:[NSString stringWithFormat:@"%d",value] forKey:keyString];
+	[settings setObject:[NSString stringWithFormat:@"%f",value] forKey:keyString];
 }
 
 -(void) setCGPoint:(CGPoint)value keyString:(NSString*)keyString {
@@ -119,8 +119,42 @@ static SettingsManager* _sharedSettingsManager = nil;
 		CCLOG(@"settings read failure");
 		settings = [[[NSMutableDictionary alloc] initWithCapacity:5] autorelease];
 	}
-    [settings setObject:[NSNumber numberWithInt:7] forKey:@"totalKeys"];
-    [settings setObject:[NSNumber numberWithInt:3] forKey:@"totalTriforce"];
+#if DEBUG_OVERRIDE_KEYS
+    [settings setObject:[NSNumber numberWithInt:DEBUG_OVERRIDE_KEYS] forKey:@"totalKeys"];
+#endif
+#if DEBUG_OVERRIDE_TRIFORCE
+    [settings setObject:[NSNumber numberWithInt:DEBUG_OVERRIDE_TRIFORCE] forKey:@"totalTriforce"];
+#endif
+#if DEBUG_ALL_GUNS
+    [self setBool:YES keyString:@"highenergyshot"];
+    [self setBool:YES keyString:@"ultraLaser"];
+    [self setBool:YES keyString:@"wavegun"];
+    [self setBool:YES keyString:@"flamethrower"];
+    [self setBool:YES keyString:@"ripley"];
+    [self setBool:YES keyString:@"bluewave"];
+    [self setBool:YES keyString:@"spreadgun"];
+    [self setBool:YES keyString:@"shotgun"];
+    [self setBool:YES keyString:@"supershotgun"];
+    [self setBool:YES keyString:@"gattlingun"];
+    [self setBool:YES keyString:@"machinegun"];
+    [self setBool:YES keyString:@"burstshot"];
+    [self setBool:YES keyString:@"plasmapistol"];
+#endif
+#if DEBUG_PISTOL_ONLY
+    [self setBool:NO keyString:@"highenergyshot"];
+    [self setBool:NO keyString:@"ultraLaser"];
+    [self setBool:NO keyString:@"wavegun"];
+    [self setBool:NO keyString:@"flamethrower"];
+    [self setBool:NO keyString:@"ripley"];
+    [self setBool:NO keyString:@"bluewave"];
+    [self setBool:NO keyString:@"spreadgun"];
+    [self setBool:NO keyString:@"shotgun"];
+    [self setBool:NO keyString:@"supershotgun"];
+    [self setBool:NO keyString:@"gattlingun"];
+    [self setBool:NO keyString:@"machinegun"];
+    [self setBool:NO keyString:@"burstshot"];
+    [self setBool:NO keyString:@"plasmapistol"];
+#endif
 	
 	[settings retain];
 }

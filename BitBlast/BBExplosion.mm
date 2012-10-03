@@ -11,13 +11,14 @@
 
 @implementation BBExplosion
 
-@synthesize explodingObject;
+@synthesize explodingObject, offset;
 
 - (id) init {
 	if((self = [super initWithFile:@"dropshipExplosion"])) {
         enabled = YES;
 		[self setEnabled:NO];
 		self.scale = 2;
+        followObject = YES;
 	}
 	return self;
 }
@@ -28,12 +29,22 @@
     // make sure it's visible
     [self setEnabled:YES];
 	// generate random position within object to explode in
-	CGPoint bounds = ccpMult(ccp(explodingObject.contentSize.width, explodingObject.contentSize.height), [ResolutionManager sharedSingleton].positionScale);
-	int ranX = CCRANDOM_MIN_MAX(0, bounds.x) - bounds.x * 0.5 + explodingObject.position.x + 50;
-	int ranY = CCRANDOM_MIN_MAX(0, bounds.y) - bounds.y * 0.5 + explodingObject.position.y - 50;
+	CGPoint bounds = ccpAdd(ccpMult(ccp(explodingObject.contentSize.width, explodingObject.contentSize.height), [ResolutionManager sharedSingleton].positionScale), ccp(offset.size.width, offset.size.height));
+	int ranX = CCRANDOM_MIN_MAX(0, bounds.x) - bounds.x * explodingObject.anchorPoint.x + explodingObject.position.x + 50 + offset.origin.x;
+	int ranY = CCRANDOM_MIN_MAX(0, bounds.y) - bounds.y * explodingObject.anchorPoint.y + explodingObject.position.y - 50 + offset.origin.y;
 	self.position = ccp(ranX, ranY);
+    // keep track of final offset in case this explosion should follow the explodingObject
+    finalOffset = ccpSub(self.position, explodingObject.position);
 	// delay, explode, repeat
 	[self playAnimation:@"explosion" target:self selector:@selector(explode)];
+}
+
+#pragma mark -
+#pragma mark update
+- (void) update:(float)delta {
+    if(followObject) {
+        self.position = ccpAdd(explodingObject.position, finalOffset);
+    }
 }
 
 #pragma mark -

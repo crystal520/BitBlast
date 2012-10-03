@@ -12,6 +12,7 @@
 #import "BBCoinManager.h"
 #import "BBMinibossManager.h"
 #import "BBBossManager.h"
+#import "BBMovingCoinManager.h"
 
 @interface BBLogic : NSObject {
     BOOL enabled;
@@ -28,5 +29,6 @@
 - (void) setEnabled:(BOOL)newEnabled;
 // notifications
 - (void) rollDice;
+- (void) triforceCollected;
 
 @end

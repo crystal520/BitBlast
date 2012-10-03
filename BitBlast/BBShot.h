@@ -12,7 +12,7 @@
 #import "BulletManager.h"
 #import "SimpleAudioEngine.h"
 
-@interface BBShot : NSObject {
+@interface BBShot : BBGameObject {
 	// graphic that bullets use
 	NSString *sprite;
     // array of angles to shoot bullets from
@@ -57,9 +57,15 @@
     float intervalTimer, intervalTime;
     // number of shots to take during an interval
     int numShotsInInterval, numShotsFiredInInterval;
+    // array of behaviors to apply to the shot itself
+    NSMutableArray *shotBehaviors;
+    // whether or not a shot was fired in the update call
+    BOOL shotFired;
 }
 
 @property (nonatomic, assign) WeaponType type;
+@property (nonatomic, readonly) float intervalTimer;
+@property (nonatomic, readonly) BOOL shotFired;
 
 // initializers
 - (id) initWithFile:(NSString*)filename;
@@ -70,6 +76,8 @@
 - (void) setPosition:(CGPoint)newPosition;
 - (void) setScale:(float)newScale;
 - (void) setNode:(CCNode*)node;
+// getters
+- (BOOL) getIsFiring;
 // update
 - (void) update:(float)delta;
 // actions

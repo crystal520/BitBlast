@@ -26,6 +26,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "Debug.h"
 
 //#define RESET_SAVED_DATA
 

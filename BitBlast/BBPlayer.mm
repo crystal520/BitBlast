@@ -29,7 +29,7 @@
 		[self setState:kPlayerUnknown];
 		
 		// load values from plist
-		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale;
+		jumpImpulse = [[dictionary objectForKey:@"jump"] floatValue];
 		minVelocity = ccp([[[dictionary objectForKey:@"speedRamp"] objectForKey:@"minSpeed"] floatValue], -[[dictionary objectForKey:@"maxDownwardSpeed"] floatValue]);
 		maxVelocity = ccp([[[dictionary objectForKey:@"speedRamp"] objectForKey:@"maxSpeed"] floatValue], [[dictionary objectForKey:@"maxDownwardSpeed"] floatValue]);
 		speedIncrement = [[[dictionary objectForKey:@"speedRamp"] objectForKey:@"incrementPercent"] floatValue];
@@ -90,83 +90,89 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	
-	if(state != kPlayerDead && !introEnabled && state != kPlayerShop) {
-        BOOL prevTouchingPlatform = touchingPlatform;
-		// apply jump
-		if(jumping) {
-			jumpTimer += delta;
-			if(jumpTimer >= maxJumpTime) {
-				jumping = NO;
-                doubleJumpEnabled = NO;
-				[self setState:kPlayerMidJump];
-				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithoutTouchNotification object:self]];
-			}
-			velocity = ccp(velocity.x, jumpImpulse);
-		}
-        else if(touchingPlatform) {
-            fellOffPlatform = NO;
-        }
-		[super update:delta];
-		
-        // if player is no longer touching a platform and isn't jumping, then they fell!
-        if(!touchingPlatform && prevTouchingPlatform && !jumping && !fellOffPlatform) {
-            fellOffPlatform = YES;
-        }
-        
-        // if player is invincible, count down the timer
-        if(invincible) {
-            invincibleTimer -= delta;
-            if(invincibleTimer <= 0) {
-                invincible = NO;
+    if(!paused) {
+        if(state != kPlayerDead && !introEnabled && state != kPlayerShop) {
+            BOOL prevTouchingPlatform = touchingPlatform;
+            // apply jump
+            if(jumping) {
+                jumpTimer += delta;
+                if(jumpTimer >= maxJumpTime) {
+                    jumping = NO;
+                    doubleJumpEnabled = NO;
+                    [self setState:kPlayerMidJump];
+                }
+                velocity = ccp(velocity.x, jumpImpulse);
+            }
+            else if(touchingPlatform) {
+                fellOffPlatform = NO;
+            }
+            
+            // see if player is jumping down through a platform
+            if(jumpDownTime > 0) {
+                jumpDownTime -= delta;
+                // if the timer is up, start colliding with platforms again
+                if(jumpDownTime <= 0) {
+                    needsPlatformCollisions = YES;
+                }
+            }
+            
+            [super update:delta];
+            
+            // if player is no longer touching a platform and isn't jumping, then they fell!
+            if(!touchingPlatform && prevTouchingPlatform && !jumping && !fellOffPlatform) {
+                fellOffPlatform = YES;
+            }
+            
+            // if player is invincible, count down the timer
+            if(invincible) {
+                invincibleTimer -= delta;
+                if(invincibleTimer <= 0) {
+                    invincible = NO;
+                }
+            }
+            
+            // update globals
+            [self updateGlobals];
+            // update score
+            [[SettingsManager sharedSingleton] setInteger:floor(dummyPosition.x / [[ChunkManager sharedSingleton] getCurrentChunk].tileSize.width) keyString:@"currentMeters"];
+            [[SettingsManager sharedSingleton] setInteger:previousTotalDistance + [[SettingsManager sharedSingleton] getInt:@"currentMeters"] keyString:@"totalMeters"];
+            // update torso position
+            [self updateTorso];
+            // update weapons
+            [self updateWeapons:delta];
+            
+            // check for falling death
+            if(dummyPosition.y + legs.contentSize.height + torso.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
+                [self die:kDeathFall];
             }
         }
-        
-		// update globals
-		[self updateGlobals];
-		// update score
-		[[SettingsManager sharedSingleton] setInteger:floor(dummyPosition.x / [[ChunkManager sharedSingleton] getCurrentChunk].tileSize.width) keyString:@"currentMeters"];
-		[[SettingsManager sharedSingleton] setInteger:previousTotalDistance + [[SettingsManager sharedSingleton] getInt:@"currentMeters"] keyString:@"totalMeters"];
-		// update torso position
-		[self updateTorso];
-		// update weapons
-		[self updateWeapons:delta];
-		
-		// check for falling death
-		if(dummyPosition.y + legs.contentSize.height + torso.contentSize.height < [[ChunkManager sharedSingleton] getCurrentChunk].lowestPosition) {
-			[self die:kDeathFall];
-		}
-		
-		// post player update notification
-		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerUpdateNotification object:self userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithFloat:delta] forKey:@"delta"]]];
-	}
-	else if(state == kPlayerShop) {
-		// update torso position and graphic
-		[self updateTorso];
-		// update weapons
-		[self updateWeapons:delta];
-	}
-	else if(introEnabled) {
-		// apply jump
-		if(jumping) {
-			jumpTimer += delta;
-			if(jumpTimer >= maxJumpTime) {
-				jumping = NO;
-				[self setState:kPlayerMidJump];
-				[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithoutTouchNotification object:self]];
-			}
-			velocity = ccp(velocity.x, jumpImpulse);
-		}
-		[super update:delta];
-		// update torso position
-		[self updateTorso];
-		if(touchingPlatform) {
-			velocity = ccp(minVelocity.x * speedMultiplier, minVelocity.y);
-			introEnabled = NO;
-			[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
-			[[BBWeaponManager sharedSingleton] setEnabled:YES forType:WEAPON_INVENTORY_PLAYER];
-		}
-	}
+        else if(state == kPlayerShop) {
+            // update torso position and graphic
+            [self updateTorso];
+            // update weapons
+            [self updateWeapons:delta];
+        }
+        else if(introEnabled) {
+            // apply jump
+            if(jumping) {
+                jumpTimer += delta;
+                if(jumpTimer >= maxJumpTime) {
+                    jumping = NO;
+                    [self setState:kPlayerMidJump];
+                }
+                velocity = ccp(velocity.x, jumpImpulse);
+            }
+            [super update:delta];
+            // update torso position
+            [self updateTorso];
+            if(touchingPlatform) {
+                velocity = ccp(minVelocity.x * speedMultiplier, minVelocity.y);
+                introEnabled = NO;
+                [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerOutOfChopperNotification object:nil]];
+                [[BBWeaponManager sharedSingleton] setEnabled:YES forType:WEAPON_INVENTORY_PLAYER];
+            }
+        }
+    }
 }
 
 - (void) updateTorso {
@@ -214,13 +220,16 @@
 }
 
 - (void) pause {
-	[self pauseSchedulerAndActions];
+	[super pause];
 	[legs pauseSchedulerAndActions];
 }
 
 - (void) resume {
-	[self resumeSchedulerAndActions];
-	[legs resumeSchedulerAndActions];
+    // make sure we're not in the end boss sequence
+    if(![Globals sharedSingleton].endBossSequence) {
+        [super resume];
+        [legs resumeSchedulerAndActions];
+    }
 }
 
 #pragma mark -
@@ -257,20 +266,23 @@
 }
 
 - (void) setWeaponAngle:(int)newAngle {
-	// update weapons with new angle
-	for(BBWeapon *w in [[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER]) {
-		[w setAngle:newAngle];
-	}
-	// update torso image based on new angle
-	if(newAngle > 0) {
-		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_up.png"]];
-	}
-	else if(newAngle < 0) {
-		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_down.png"]];
-	}
-	else {
-		[torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso.png"]];
-	}
+    // make sure player isn't paused
+    if(!paused) {
+        // update weapons with new angle
+        for(BBWeapon *w in [[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER]) {
+            [w setAngle:newAngle];
+        }
+        // update torso image based on new angle
+        if(newAngle > 0) {
+            [torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_up.png"]];
+        }
+        else if(newAngle < 0) {
+            [torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_down.png"]];
+        }
+        else {
+            [torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso.png"]];
+        }
+    }
 }
 
 - (void) setHealth:(int)newHealth {
@@ -378,30 +390,39 @@
 
 - (void) jump {
 	
-	// only jump if we're not jumping already
-	if(touchingPlatform || introEnabled || fellOffPlatform || doubleJumpEnabled) {
-		[[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
-		touchingPlatform = NO;
-        doubleJumpEnabled = NO;
-        fellOffPlatform = NO;
-		jumping = YES;
-		jumpTimer = 0;
-		[self setState:kPlayerBeginJump];
-	}
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerJumpNotification object:self]];
+    // make sure player isn't paused
+    if(!paused) {
+        // only jump if we're not jumping already
+        if(touchingPlatform || introEnabled || fellOffPlatform || doubleJumpEnabled) {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
+            touchingPlatform = NO;
+            doubleJumpEnabled = NO;
+            fellOffPlatform = NO;
+            jumping = YES;
+            jumpTimer = 0;
+            [self setState:kPlayerBeginJump];
+        }
+    }
 }
 
 - (void) endJump {
 	[self setState:kPlayerMidJump];
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerEndJumpWithTouchNotification object:self]];
 	jumping = NO;
 }
 
 - (void) jumpDown {
-    // make sure the player is touching a platform before adjusting their position
-    if(touchingPlatform && [[[ChunkManager sharedSingleton] getCurrentChunk] isPlatformBelowPosition:ccpSub(self.position, [[ChunkManager sharedSingleton] getCurrentChunk].position)]) {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"jumpDown.wav"];
-        dummyPosition.y -= 10;
+    // make sure player isn't paused
+    if(!paused) {
+        // make sure the player is touching a platform before adjusting their position
+        if(touchingPlatform && [[[ChunkManager sharedSingleton] getCurrentChunk] isPlatformBelowPosition:ccpSub(self.position, [[ChunkManager sharedSingleton] getCurrentChunk].position)]) {
+            // play the jump down sound effect
+            [[SimpleAudioEngine sharedEngine] playEffect:@"jumpDown.wav"];
+            // allow the player to fall through the current platform
+            needsPlatformCollisions = NO;
+            // set the fall through timer to allow collisions again
+            jumpDownTime = 0.2;
+            [self setState:kPlayerEndJump];
+        }
     }
 }
 
@@ -425,6 +446,7 @@
 }
 
 - (void) attemptToLoseHealth {
+#if !DEBUG_GOD_MODE
     // check to see if player is invincible
     if(!invincible) {
         // flash player so they know they lost health
@@ -436,6 +458,7 @@
         invincible = YES;
         invincibleTimer = invincibleTime;
     }
+#endif
 }
 
 #pragma mark -
@@ -454,7 +477,6 @@
 		if(state != kPlayerRunning) {
 			[self setState:kPlayerEndJump];
 		}
-		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerCollidePlatformNotification object:self]];
 	}
 	else {
 		if(state == kPlayerRunning) {

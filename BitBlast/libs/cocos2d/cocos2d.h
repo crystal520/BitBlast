@@ -62,6 +62,7 @@
 #import "CCActionGrid.h"
 #import "CCActionProgressTimer.h"
 #import "CCActionPageTurn3D.h"
+#import "CCShake.h"
 
 #import "CCAnimation.h"
 #import "CCAnimationCache.h"

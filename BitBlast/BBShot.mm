@@ -11,7 +11,7 @@
 
 @implementation BBShot
 
-@synthesize type;
+@synthesize type, intervalTimer, shotFired;
 
 #pragma mark -
 #pragma mark initializers
@@ -37,7 +37,7 @@
         collisionShapeString = [[dict objectForKey:@"collisionShape"] retain];
         numShotsInInterval = [[dict objectForKey:@"shotsPerInterval"] intValue];
         intervalTime = [[dict objectForKey:@"intervalTime"] floatValue];
-        intervalTimer = 0;
+        intervalTimer = intervalTime;
         numShotsFiredInInterval = 0;
 		
 		// check for particle system
@@ -66,6 +66,16 @@
 			[behaviors addObject:behavior];
 			[behavior release];
 		}
+        
+        // add shot behaviors
+        shotBehaviors = [NSMutableArray new];
+        NSArray *dictShotBehaviors = [NSArray arrayWithArray:[dict objectForKey:@"shotBehaviors"]];
+        for(NSDictionary *d in dictShotBehaviors) {
+            // create behavior
+            BBBehavior *b = [[BBBehavior alloc] initWithDictionary:d];
+            [shotBehaviors addObject:b];
+            [b release];
+        }
 	}
 	
 	return self;
@@ -80,6 +90,7 @@
 	[sprite release];
 	[angles release];
 	[behaviors release];
+    [shotBehaviors release];
 	[sound release];
 	[super dealloc];
 }
@@ -97,6 +108,12 @@
     if(!newEnable) {
         [particles resetSystem];
         [particles update:0];
+    }
+    else {
+        [super onEnter];
+        for(BBBehavior *b in shotBehaviors) {
+            [b applyToNode:self withAngle:self.rotation];
+        }
     }
 }
 
@@ -130,9 +147,16 @@
 }
 
 #pragma mark -
+#pragma mark getters
+- (BOOL) getIsFiring {
+    return (intervalTimer <= 0);
+}
+
+#pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
 	if(enabled && rateOfFire > 0) {
+        shotFired = NO;
         // see if we should be waiting before firing again
         if(intervalTimer > 0) {
             intervalTimer -= delta;
@@ -150,6 +174,7 @@
                 fireTimer -= rateOfFire;
                 fireCounter++;
             }
+            shotFired = (fireCounter > 0);
         }
 	}
 }
@@ -181,7 +206,7 @@
 				// generate random lifetime
 				float ranLifetime = CCRANDOM_MIN_MAX(lifetimeRestraints.x, lifetimeRestraints.y);
 				// create actual fire angle by adding random angle and current angle to fireAngle
-				fireAngle = fireAngle + ranAngle + angle;
+				fireAngle = fireAngle + ranAngle + angle + self.rotation;
 				// create x speed and y speed based on fireAngle and random speed
 				float xSpeed = playerSpeed + cos(CC_DEGREES_TO_RADIANS(fireAngle)) * ranSpeed;
 				float ySpeed = sin(CC_DEGREES_TO_RADIANS(fireAngle)) * ranSpeed;
@@ -190,8 +215,7 @@
                 // determine whether this is an enemy shot or not
                 if(type == WEAPON_TYPE_ENEMY) {
                     bullet.type = kBulletTypeEnemyShot;
-                    xSpeed -= playerSpeed;
-                    xSpeed *= -1.0f;
+                    xSpeed = playerSpeed - (xSpeed - playerSpeed);
                     fireAngle += 180;
                     ySpeed *= -1.0f;
                 }

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>health</key>
-	<integer>1</integer>
+	<integer>1000</integer>
 	<key>offsetMiddle</key>
 	<string>{-350,125}</string>
 	<key>offsetTop</key>

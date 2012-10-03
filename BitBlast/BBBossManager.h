@@ -21,9 +21,12 @@
     BOOL enabled;
     // maximum number of bosses that can spawn at a time
     int targetBosses;
+    // whether a boss has been triggered to spawn or not
+    BOOL isSpawningBoss;
 }
 
 @property (nonatomic, assign) int bossLevel;
+@property (nonatomic, assign) BOOL isSpawningBoss;
 
 + (BBBossManager*) sharedSingleton;
 // update
@@ -31,10 +34,12 @@
 // getters
 - (BBBoss*) getInactiveBoss;
 - (NSArray*) getActiveBosses;
+- (BOOL) isActive;
 // actions
 - (void) tryToSpawnBoss;
 - (void) spawnBoss;
 // notifications
+- (void) gameOver;
 - (void) pause;
 
 @end

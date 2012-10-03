@@ -19,7 +19,6 @@
 #import "BBShop.h"
 #import "BBConfirmBuy.h"
 #import "BBLeaderboards.h"
-#import "BBEquipmentManager.h"
 #import "BBEnemyManager.h"
 #import "BBDropshipManager.h"
 #import "iCadeReaderView.h"
@@ -31,34 +30,20 @@
 #import "BBChopper.h"
 #import "BBMovingCoinManager.h"
 #import "BBDialogQueue.h"
-#import "ChartBoost.h"
+#import "Chartboost.h"
 #import "BBInputController.h"
 #import "GB2DebugDrawLayer.h"
 #import "BBMinibossManager.h"
 #import "BBBossManager.h"
+#import "Debug.h"
+#import "BBGameWin.h"
 
-typedef enum {
-	TAG_MENU,
-	TAG_HUD,
-	TAG_POPUP
-} SpriteTag;
-
-//#define DEBUG_TEXTURES
-#define DEBUG_NO_SOUND
-#define DEBUG_NO_MUSIC
-//#define DEBUG_PHYSICS
-
-@interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartBoostDelegate, BBInputControllerDelegate> {
-	
-#ifdef DEBUG_TEXTURES
-	CCSprite *debugButton;
-#endif
-	
+@interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartboostDelegate, BBInputControllerDelegate> {
 	ParallaxManager *parallax;
     BBPlayer *player;
 	CCNode *scrollingNode;
 	CGPoint cameraOffset, cameraBounds;
-	GameState state;
+	GameState state, prevState;
 	// colored background sprite
 	CCSprite *background;
 	// iCade support view
@@ -68,6 +53,8 @@ typedef enum {
 	// node that the camera follows
 	CCNode *followNode;
     BBInputController *inputController;
+    // whether or not the game is paused
+    BOOL paused;
 }
 
 // returns a CCScene that contains the BBGameLayer as the only child
@@ -87,6 +74,9 @@ typedef enum {
 - (void) killChopper;
 - (void) finishGame;
 - (void) clearMenuWithTag:(SpriteTag)tag;
+- (void) pause;
+- (void) resume;
+- (void) shakeScreen;
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
 - (void) setState:(GameState)newState;

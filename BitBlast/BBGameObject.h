@@ -12,11 +12,6 @@
 #import "GB2Contact.h"
 #import "GB2Sprite.h"
 
-typedef enum {
-    ACTION_TAG_ANIMATION = 1,
-    ACTION_TAG_FLASH
-} ActionTag;
-
 @interface BBGameObjectShape : GB2Node {}
 @end
 
@@ -28,9 +23,12 @@ typedef enum {
 	NSDictionary *dictionary;
     // Box2D shape for collision detection
     BBGameObjectShape *collisionShape;
+    // whether or not this game object is paused
+    BOOL paused;
 }
 
 @property (nonatomic, assign) CGPoint dummyPosition, prevDummyPosition;
+@property (nonatomic, assign) BOOL paused;
 
 // initializers
 - (id) initWithFile:(NSString*)filename;
@@ -48,5 +46,8 @@ typedef enum {
 + (NSDictionary*) randomDictionaryFromArray:(NSArray*)array;
 + (NSDictionary*) randomDictionaryFromArray:(NSArray *)array overrideRandom:(float)override;
 - (void) flashFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
+- (void) flashAlphaFrom:(float)fromAlpha to:(float)toAlpha withTime:(float)time numberOfTimes:(int)times onSprite:(CCSprite*)sprite;
+- (void) fadeFrom:(ccColor3B)fromColor to:(ccColor3B)toColor withTime:(float)time onSprite:(CCSprite*)sprite target:(id)target selector:(SEL)selector;
+- (void) fadeAlphaFrom:(float)fromAlpha to:(float)toAlpha withTime:(float)time onSprite:(CCSprite*)sprite target:(id)target selector:(SEL)selector;
 
 @end

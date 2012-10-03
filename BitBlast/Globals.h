@@ -26,12 +26,15 @@
     int numKeysForMiniboss;
     // number of triforce pieces needed to summon the final boss
     int numPiecesForFinalBoss;
+    // whether we're in the end boss sequence or not
+    BOOL endBossSequence;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
 @property (nonatomic, assign) int playerStartingHealth, numKeysForMiniboss, numPiecesForFinalBoss;
 @property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 @property (nonatomic, assign) GameState gameState;
+@property (nonatomic, assign) BOOL endBossSequence;
 
 + (Globals*) sharedSingleton;
 

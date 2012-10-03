@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>gravity</key>
-	<integer>100</integer>
+	<integer>120</integer>
 	<key>jump</key>
-	<integer>10000</integer>
+	<integer>6000</integer>
 	<key>maxDownwardSpeed</key>
 	<integer>600</integer>
 	<key>maxJumpTime</key>
-	<real>0.45</real>
+	<real>0.35</real>
 	<key>invincibleTimeAfterLosingHealth</key>
 	<integer>1</integer>
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
-		<real>0.1</real>
+		<real>0.025</real>
 		<key>maxSpeed</key>
 		<integer>1000</integer>
 		<key>minSpeed</key>
-		<integer>400</integer>
+		<integer>800</integer>
 		<key>numChunksToIncrement</key>
 		<integer>1</integer>
 	</dict>

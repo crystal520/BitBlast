@@ -57,10 +57,13 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	// loop through bullets and update
-	for(BBBullet *b in bullets) {
-		[b update:delta];
-	}
+    // make sure we're not in the end boss sequence
+    if(![Globals sharedSingleton].endBossSequence) {
+        // loop through bullets and update
+        for(BBBullet *b in bullets) {
+            [b update:delta];
+        }
+    }
 }
 
 #pragma mark -
