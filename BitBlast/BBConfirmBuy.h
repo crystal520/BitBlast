@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "CCNodeColorBackground.h"
+#import "BBColorRectSprite.h"
 #import "SettingsManager.h"
 #import "BBWeaponManager.h"
 #import "CCLabelButton.h"
 #import "GameCenter.h"
 #import "SimpleAudioEngine.h"
 
-@interface BBConfirmBuy : CCNodeColorBackground {
+@interface BBConfirmBuy : CCNode {
     CCLabelBMFont *buyLabel, *cost;
 	CCLabelButton *buyIt;
 	NSMutableDictionary *itemDictionary;

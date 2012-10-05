@@ -18,7 +18,6 @@
 #import "BBMainMenu.h"
 #import "BBShop.h"
 #import "BBConfirmBuy.h"
-#import "BBLeaderboards.h"
 #import "BBEnemyManager.h"
 #import "BBDropshipManager.h"
 #import "iCadeReaderView.h"
@@ -77,6 +76,7 @@
 - (void) pause;
 - (void) resume;
 - (void) shakeScreen;
+- (void) freeze;
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
 - (void) setState:(GameState)newState;

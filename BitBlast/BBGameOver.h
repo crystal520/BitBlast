@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "CCNodeColorBackground.h"
 #import "CCLabelButton.h"
 #import "SettingsManager.h"
 #import "SimpleAudioEngine.h"
 #import "BBPlayer.h"
+#import "BBColorRectSprite.h"
 
-@interface BBGameOver : CCNodeColorBackground {
+@interface BBGameOver : CCNode {
 	CCLabelBMFont *distanceLabel, *killLabel, *multiplierLabel, *scoreLabel;
 }
 

@@ -55,11 +55,14 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	for(BBMovingCoin *c in coins) {
-		if(!c.recycle) {
-			[c update:delta];
-		}
-	}
+    // only update if not paused
+    if(!paused) {
+        for(BBMovingCoin *c in coins) {
+            if(!c.recycle) {
+                [c update:delta];
+            }
+        }
+    }
 }
 
 #pragma mark -
@@ -118,15 +121,20 @@
 #pragma mark -
 #pragma mark notifications
 - (void) pause {
+    paused = YES;
 	for(BBMovingCoin *c in coins) {
 		[c pause];
 	}
 }
 
 - (void) resume {
-	for(BBMovingCoin *c in coins) {
-		[c resume];
-	}
+    // only resume if we're not in the end or intro boss sequence
+    if(![Globals sharedSingleton].endBossSequence && ![Globals sharedSingleton].introBossSequence) {
+        paused = NO;
+        for(BBMovingCoin *c in coins) {
+            [c resume];
+        }
+    }
 }
 
 @end

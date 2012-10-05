@@ -111,8 +111,8 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	// only update if enabled
-	if(enabled) {
+	// only update if enabled and not paused
+	if(enabled && !paused) {
 		for(BBDropship *d in dropships) {
 			[d update:delta];
 		}
@@ -199,6 +199,7 @@
 }
 
 - (void) pause {
+    paused = YES;
 	for(BBDropship *d in dropships) {
 		[d pause];
 	}
@@ -206,10 +207,14 @@
 }
 
 - (void) resume {
-	for(BBDropship *d in dropships) {
-		[d resume];
-	}
-    [explosionManager resume];
+    // only resume if we're not in the end or intro boss sequence
+    if(![Globals sharedSingleton].endBossSequence && ![Globals sharedSingleton].introBossSequence) {
+        paused = NO;
+        for(BBDropship *d in dropships) {
+            [d resume];
+        }
+        [explosionManager resume];
+    }
 }
 
 @end

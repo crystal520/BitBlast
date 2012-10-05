@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "CCNodeColorBackground.h"
+#import "BBColorRectSprite.h"
 #import "BBShopItem.h"
 #import "CCLabelButton.h"
 #import "BBList.h"
@@ -17,7 +17,7 @@
 #import "SimpleAudioEngine.h"
 #import "BBPlayer.h"
 
-@interface BBShop : CCNodeColorBackground {
+@interface BBShop : CCNode {
 	// size of each cell in the table of items
 	CGSize cellSize;
 	// array of items in the store

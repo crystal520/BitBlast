@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "CCNodeColorBackground.h"
+#import "BBColorRectSprite.h"
 #import "CCLabelButton.h"
 #import "SimpleAudioEngine.h"
 #import "SettingsManager.h"
 #import "BBDialogQueue.h"
 #import "SessionMWrapper.h"
 
-@interface BBMainMenu : CCNodeColorBackground {
+@interface BBMainMenu : CCNode {
     CCLabelBMFont *playerCash;
     CCLabelBMFont *sessionMBadgeLabel;
     CCSprite *sessionMBadge;

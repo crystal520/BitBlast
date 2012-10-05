@@ -50,6 +50,11 @@
     
     // check for collision shape
     [self setCollisionShape:[dictionary objectForKey:@"collisionShape"]];
+    
+#if DEBUG_OVERRIDE_MINIBOSS_HEALTH
+    health = DEBUG_OVERRIDE_MINIBOSS_HEALTH;
+    initialHealth = health;
+#endif
 	
 	// reset variables
 	self.rotation = 0;

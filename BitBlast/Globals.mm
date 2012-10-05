@@ -11,7 +11,7 @@
 
 @implementation Globals
 
-@synthesize playerPosition, playerVelocity, cameraOffset, playerStartingHealth, playerReasonForDeath, gameState, numKeysForMiniboss, numPiecesForFinalBoss, endBossSequence;
+@synthesize playerPosition, playerVelocity, cameraOffset, playerStartingHealth, playerReasonForDeath, gameState, numKeysForMiniboss, numPiecesForFinalBoss, endBossSequence, introBossSequence;
 
 + (Globals*) sharedSingleton {
 	

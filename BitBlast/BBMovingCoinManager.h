@@ -14,6 +14,8 @@
 
 @interface BBMovingCoinManager : CCNode {
     NSMutableArray *coins;
+    // whether or not the moving coin manager is paused
+    BOOL paused;
 }
 
 + (BBMovingCoinManager*) sharedSingleton;
@@ -27,5 +29,7 @@
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position;
 - (void) spawnKeyAtPosition:(CGPoint)position;
 - (void) spawnTriforceAtPosition:(CGPoint)position;
+// notifications
+- (void) pause;
 
 @end

@@ -13,7 +13,9 @@
 
 - (id) init {
 	
-	if((self = [super initWithColor:ccc3(0, 0, 0) withAlpha:0.5f])) {
+	if((self = [super init])) {
+        
+        [self addChild:[BBColorRectSprite spriteWithColor:ccc3(0,0,0) alpha:0.5f]];
 		
 		CGSize winSize = [ResolutionManager sharedSingleton].size;
 		

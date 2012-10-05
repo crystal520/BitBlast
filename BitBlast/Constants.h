@@ -27,6 +27,8 @@ typedef enum {
 	DEPTH_GAME_MOVING_COINS,
 	DEPTH_GAME_DROPSHIPS_INTRO,
     DEPTH_GAME_MINIBOSSES_INTRO,
+    DEPTH_GAME_BOSS_INTRO,
+    DEPTH_GAME_PLAYER_BOSS_INTRO,
 	DEPTH_MENU_POPUP
 } DepthOrder;
 
@@ -118,7 +120,6 @@ typedef enum {
 #define kChunkWillRemoveNotification @"chunkWillRemoveNotification"
 
 #define kEventDropshipDestroyed @"eventDropshipDestroyed"
-#define kEventCoinGroupDone @"eventCoinGroupDone"
 #define kEventNewGame @"eventNewGame"
 #define kEventPromoCoinsAwarded @"eventPromoCoinsAwarded"
 #define kEventSessionMUserInfoUpdated @"eventSessionMUserInfoUpdated"

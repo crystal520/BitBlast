@@ -11,7 +11,9 @@
 @implementation BBGameWin
 
 - (id) init {
-    if(([super initWithColor:ccc3(255, 255, 255) withAlpha:0])) {
+    if(([super init])) {
+        
+        [self addChild:[BBColorRectSprite spriteWithColor:ccc3(255,255,255) alpha:0]];
         // fade in a completely white screen
         CCAction *fadeAction = [CCSequence actions:[CCFadeTo actionWithDuration:3 opacity:255], [CCCallFunc actionWithTarget:self selector:@selector(showText)], nil];
         [[self getChildByTag:SPRITE_TAG_BACKGROUND] runAction:fadeAction];

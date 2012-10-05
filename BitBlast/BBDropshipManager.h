@@ -29,6 +29,8 @@
 	BBExplosionManager *explosionManager;
     // parent nodes for dropships
     CCNode *frontNode, *backNode;
+    // whether or not the dropship manager is paused
+    BOOL paused;
 }
 
 @property (nonatomic, assign) int dropshipLevel;

@@ -57,8 +57,8 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-    // make sure we're not in the end boss sequence
-    if(![Globals sharedSingleton].endBossSequence) {
+    // make sure we're not in the end or intro boss sequence
+    if(![Globals sharedSingleton].endBossSequence && ![Globals sharedSingleton].introBossSequence) {
         // loop through bullets and update
         for(BBBullet *b in bullets) {
             [b update:delta];

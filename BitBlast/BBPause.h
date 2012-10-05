@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "CCNodeColorBackground.h"
+#import "BBColorRectSprite.h"
 #import "CCLabelButton.h"
 #import "SimpleAudioEngine.h"
 
-@interface BBPause : CCNodeColorBackground {
+@interface BBPause : CCNode {
     
 }
 

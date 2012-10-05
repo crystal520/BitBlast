@@ -97,7 +97,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoConfirmBuy:) name:kNavShopConfirmNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoGameWin) name:kNavGameWinNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil]; 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeGame) name:kNavResumeNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(introDone) name:kPlayerOutOfChopperNotification object:nil];
@@ -261,7 +261,7 @@
 - (void) updateCamera {
 	
     // only update if the game isn't paused
-    if(!paused && ![Globals sharedSingleton].endBossSequence) {
+    if(!paused && ![Globals sharedSingleton].endBossSequence && ![Globals sharedSingleton].introBossSequence) {
         // keep track of node's previous position
         CGPoint prevPos = scrollingNode.position;
         float yOffset = 0;
@@ -297,6 +297,8 @@
 - (void) playIntro {
     // make sure end boss sequence is disabled
     [Globals sharedSingleton].endBossSequence = NO;
+    // make sure intro boss sequence is disabled
+    [Globals sharedSingleton].introBossSequence = NO;
     // make sure the game is resumed, or else weirdness occurs (camera not following player, etc.)
     [self resume];
 	// create chopper for intro animation
@@ -377,6 +379,9 @@
     if([Globals sharedSingleton].endBossSequence) {
         [self shakeScreen];
     }
+    // if we're still in the intro boss sequence, don't do anything
+    else if([Globals sharedSingleton].introBossSequence) {
+    }
     else {
         // resume normal player activity
         [player resume];
@@ -389,6 +394,19 @@
     CCAction *shakeAction = [CCRepeatForever actionWithAction:[CCShake actionWithDuration:0.1 amplitude:ccp(5,5) dampening:YES]];
     shakeAction.tag = ACTION_TAG_SCREEN_SHAKE;
     [self runAction:shakeAction];
+}
+
+- (void) freeze {
+    // pause the player, which effectively pauses the game (scrolling, bullets, etc.)
+    [player pause];
+    // also pause the coins so they stop spinning
+    [[BBCoinManager sharedSingleton] pause];
+    // pause dropships
+    [[BBDropshipManager sharedSingleton] pause];
+    // pause minibosses
+    [[BBMinibossManager sharedSingleton] pause];
+    // pause moving coins
+    [[BBMovingCoinManager sharedSingleton] pause];
 }
 
 #pragma mark -
@@ -629,20 +647,30 @@
 }
 
 - (void) spawnFinalBoss {
-    /*state = kStatePause;
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavPauseNotification object:nil]];
-    state = kStateGame;
-    [self pauseSchedulerAndActions];*/
-    [self resetLevel:@"bossLevel"];
+    // set global variable so other classes can use it
+    [Globals sharedSingleton].introBossSequence = YES;
+    // freeze the game
+    [self freeze];
+    // create black color rectangle to fade in on top of everything but the player and the HUD
+    [scrollingNode addChild:[BBColorRectSprite spriteWithColor:ccc3(0, 0, 0) alpha:0] z:DEPTH_GAME_BOSS_INTRO];
+    // make sure rectangle is on screen
+    [[scrollingNode getChildByTag:SPRITE_TAG_BACKGROUND] setPosition:[Globals sharedSingleton].playerPosition];
+    // swap player depth to be above everything
+    [scrollingNode reorderChild:player z:DEPTH_GAME_PLAYER_BOSS_INTRO];
+    // start fading in color rect
+    CCAction *fadeAction = [CCSequence actions:[CCFadeTo actionWithDuration:3 opacity:255], [CCCallFunc actionWithTarget:self selector:@selector(finishSpawnFinalBoss)], nil];
+    [[scrollingNode getChildByTag:SPRITE_TAG_BACKGROUND] runAction:fadeAction];
+}
+
+- (void) finishSpawnFinalBoss {
+    NSLog(@"FINISH SPAWN BOSS");
 }
 
 - (void) finalBossDead {
     // set global variable so other classes can use it
     [Globals sharedSingleton].endBossSequence = YES;
-    // pause the player, which effectively pauses the game (scrolling, bullets, etc.)
-    [player pause];
-    // also pause the coins so they stop spinning
-    [[BBCoinManager sharedSingleton] pause];
+    // freeze the game
+    [self freeze];
     // shake the screen
     [self shakeScreen];
 }

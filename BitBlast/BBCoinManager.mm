@@ -58,25 +58,18 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-	// check to see how many active coins are on screen
-	int numActiveCoins = 0;
-	// update active coins
-	for(BBCoin *c in coins) {
-		if(!c.recycle) {
-			// see if coin has gone off screen
-			if(c.dummyPosition.x < [Globals sharedSingleton].playerPosition.x - [Globals sharedSingleton].cameraOffset.x) {
-				[c setEnabled:NO];
-			}
-			else {
-				numActiveCoins++;
-			}
-		}
-	}
-	// see if a coin group has been collected
-	if(checkForCoinGroup && numActiveCoins == 0) {
-		checkForCoinGroup = NO;
-		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventCoinGroupDone object:nil]];
-	}
+    // only update if not paused
+    if(!paused) {
+        // update active coins
+        for(BBCoin *c in coins) {
+            if(!c.recycle) {
+                // see if coin has gone off screen
+                if(c.dummyPosition.x < [Globals sharedSingleton].playerPosition.x - [Globals sharedSingleton].cameraOffset.x) {
+                    [c setEnabled:NO];
+                }
+            }
+        }
+    }
 }
 
 #pragma mark -
@@ -113,21 +106,22 @@
 #pragma mark -
 #pragma mark notifications
 - (void) levelWillLoad {
-    checkForCoinGroup = NO;
 	for(BBCoin *c in coins) {
 		[c setEnabled:NO];
 	}
 }
 
 - (void) pause {
+    paused = YES;
 	for(BBCoin *c in coins) {
 		[c pause];
 	}
 }
 
 - (void) resume {
-    // only resume if we're not in the end boss sequence
-    if(![Globals sharedSingleton].endBossSequence) {
+    // only resume if we're not in the end or intro boss sequence
+    if(![Globals sharedSingleton].endBossSequence && ![Globals sharedSingleton].introBossSequence) {
+        paused = NO;
         for(BBCoin *c in coins) {
             [c resume];
         }
@@ -158,8 +152,6 @@
 		// reset coin with new position
 		[c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
 	}
-	// start checking for when there are no coin groups
-	checkForCoinGroup = YES;
 }
 
 @end

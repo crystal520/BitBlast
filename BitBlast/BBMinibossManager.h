@@ -27,6 +27,8 @@
     int minibossLevel;
     // miniboss levels obtained from plist to spawn different minibosses based on player's distance
     NSArray *minibossLevels;
+    // whether or not the miniboss manager is paused
+    BOOL paused;
 }
 
 @property (nonatomic, readonly) CCNode *frontNode, *backNode;
@@ -42,5 +44,7 @@
 // actions
 - (void) tryToSpawnMiniboss;
 - (void) spawnMiniboss;
+// notifications
+- (void) pause;
 
 @end

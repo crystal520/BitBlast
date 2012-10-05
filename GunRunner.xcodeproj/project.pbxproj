@@ -59,8 +59,6 @@
 		0A42831015164DD300E35219 /* iap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A42830F15164DD300E35219 /* iap.plist */; };
 		0A4283131516505100E35219 /* BBIAPItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4283121516504E00E35219 /* BBIAPItem.mm */; };
 		0A42D14314C4C7CF00DD55CA /* BBConfirmBuy.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.mm */; };
-		0A42D15214C51E7700DD55CA /* BBLeaderboards.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15114C51E7500DD55CA /* BBLeaderboards.mm */; };
-		0A42D15514C5214200DD55CA /* BBLeaderboardEntry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A42D15414C5214100DD55CA /* BBLeaderboardEntry.mm */; };
 		0A42D15714C521A200DD55CA /* leaderboards.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A42D15614C521A100DD55CA /* leaderboards.plist */; };
 		0A46C0211516656A003483BD /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C01C1516656A003483BD /* jump.wav */; };
 		0A46C02815166FDB003483BD /* burstshot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A46C02615166FDA003483BD /* burstshot.wav */; };
@@ -70,6 +68,7 @@
 		0A4C46FC15555FC100C6FDCA /* BBDailyBonus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FB15555FC100C6FDCA /* BBDailyBonus.mm */; };
 		0A4C46FF15558C8400C6FDCA /* SessionMWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */; };
 		0A50C350161CAE6D00C11668 /* BBGameWin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A50C34F161CAE6D00C11668 /* BBGameWin.mm */; };
+		0A50C363161E20B800C11668 /* BBColorRectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50C362161E20B800C11668 /* BBColorRectSprite.m */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.mm */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.mm */; };
@@ -83,7 +82,6 @@
 		0A6E3BFD1513CEC8007D64B8 /* BBWeaponManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E3BFC1513CEC8007D64B8 /* BBWeaponManager.mm */; };
 		0A77286014ECB93B000CB457 /* testEnemy2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A77285F14ECB93B000CB457 /* testEnemy2.plist */; };
 		0A7D52B514BFC15F00066390 /* BBMainMenu.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52B414BFC15F00066390 /* BBMainMenu.mm */; };
-		0A7D52C314C22C3800066390 /* CCNodeColorBackground.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52C214C22C3800066390 /* CCNodeColorBackground.mm */; };
 		0A7D52CA14C2317700066390 /* BBShop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52C914C2317600066390 /* BBShop.mm */; };
 		0A7D52D014C4844600066390 /* BBShopItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D52CF14C4844500066390 /* BBShopItem.mm */; };
 		0A7D52DD14C4882800066390 /* shopItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7D52D914C4882800066390 /* shopItem1.png */; };
@@ -563,10 +561,6 @@
 		0A4283121516504E00E35219 /* BBIAPItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBIAPItem.mm; sourceTree = "<group>"; };
 		0A42D14114C4C7CC00DD55CA /* BBConfirmBuy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBConfirmBuy.h; sourceTree = "<group>"; };
 		0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBConfirmBuy.mm; sourceTree = "<group>"; };
-		0A42D15014C51E7300DD55CA /* BBLeaderboards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeaderboards.h; sourceTree = "<group>"; };
-		0A42D15114C51E7500DD55CA /* BBLeaderboards.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBLeaderboards.mm; sourceTree = "<group>"; };
-		0A42D15314C5214000DD55CA /* BBLeaderboardEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBLeaderboardEntry.h; sourceTree = "<group>"; };
-		0A42D15414C5214100DD55CA /* BBLeaderboardEntry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBLeaderboardEntry.mm; sourceTree = "<group>"; };
 		0A42D15614C521A100DD55CA /* leaderboards.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = leaderboards.plist; sourceTree = "<group>"; };
 		0A46C01C1516656A003483BD /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		0A46C02615166FDA003483BD /* burstshot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = burstshot.wav; sourceTree = "<group>"; };
@@ -580,6 +574,8 @@
 		0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SessionMWrapper.mm; sourceTree = "<group>"; };
 		0A50C34E161CAE6D00C11668 /* BBGameWin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBGameWin.h; sourceTree = "<group>"; };
 		0A50C34F161CAE6D00C11668 /* BBGameWin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBGameWin.mm; sourceTree = "<group>"; };
+		0A50C361161E20B800C11668 /* BBColorRectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBColorRectSprite.h; sourceTree = "<group>"; };
+		0A50C362161E20B800C11668 /* BBColorRectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBColorRectSprite.m; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.mm; sourceTree = "<group>"; };
@@ -601,8 +597,6 @@
 		0A77285F14ECB93B000CB457 /* testEnemy2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy2.plist; sourceTree = "<group>"; };
 		0A7D52B314BFC15F00066390 /* BBMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMainMenu.h; sourceTree = "<group>"; };
 		0A7D52B414BFC15F00066390 /* BBMainMenu.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = BBMainMenu.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		0A7D52C114C22C3700066390 /* CCNodeColorBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNodeColorBackground.h; sourceTree = "<group>"; };
-		0A7D52C214C22C3800066390 /* CCNodeColorBackground.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCNodeColorBackground.mm; sourceTree = "<group>"; };
 		0A7D52C814C2317500066390 /* BBShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShop.h; sourceTree = "<group>"; };
 		0A7D52C914C2317600066390 /* BBShop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBShop.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		0A7D52CE14C4844400066390 /* BBShopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShopItem.h; sourceTree = "<group>"; };
@@ -1366,8 +1360,6 @@
 			children = (
 				0A1EC4A4149E6934005A7ED6 /* CCFollowOffset.h */,
 				0A1EC4A3149E6934005A7ED6 /* CCFollowOffset.mm */,
-				0A7D52C114C22C3700066390 /* CCNodeColorBackground.h */,
-				0A7D52C214C22C3800066390 /* CCNodeColorBackground.mm */,
 				0ABBDD0014CC62B0001D36B7 /* CCButton.h */,
 				0ABBDD0114CC62B1001D36B7 /* CCButton.mm */,
 				0ABBDD0314CCA19E001D36B7 /* CCLabelButton.h */,
@@ -1781,10 +1773,6 @@
 				0A4283121516504E00E35219 /* BBIAPItem.mm */,
 				0A42D14114C4C7CC00DD55CA /* BBConfirmBuy.h */,
 				0A42D14214C4C7CE00DD55CA /* BBConfirmBuy.mm */,
-				0A42D15014C51E7300DD55CA /* BBLeaderboards.h */,
-				0A42D15114C51E7500DD55CA /* BBLeaderboards.mm */,
-				0A42D15314C5214000DD55CA /* BBLeaderboardEntry.h */,
-				0A42D15414C5214100DD55CA /* BBLeaderboardEntry.mm */,
 				0A2FC97915197976005FDF5F /* BBPause.h */,
 				0A2FC97A15197977005FDF5F /* BBPause.mm */,
 				0A0DA443153A2C8700A420E8 /* BBDialog.h */,
@@ -2446,6 +2434,8 @@
 				0ABBDCFE14CBD58E001D36B7 /* ResolutionManager.mm */,
 				0A4C46FD15558C8300C6FDCA /* SessionMWrapper.h */,
 				0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */,
+				0A50C361161E20B800C11668 /* BBColorRectSprite.h */,
+				0A50C362161E20B800C11668 /* BBColorRectSprite.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -3092,12 +3082,9 @@
 				0AB8BC4414B6A3AF0045491C /* BulletManager.mm in Sources */,
 				0AB8BC4914B8C90C0045491C /* BBWeapon.mm in Sources */,
 				0A7D52B514BFC15F00066390 /* BBMainMenu.mm in Sources */,
-				0A7D52C314C22C3800066390 /* CCNodeColorBackground.mm in Sources */,
 				0A7D52CA14C2317700066390 /* BBShop.mm in Sources */,
 				0A7D52D014C4844600066390 /* BBShopItem.mm in Sources */,
 				0A42D14314C4C7CF00DD55CA /* BBConfirmBuy.mm in Sources */,
-				0A42D15214C51E7700DD55CA /* BBLeaderboards.mm in Sources */,
-				0A42D15514C5214200DD55CA /* BBLeaderboardEntry.mm in Sources */,
 				0ABBDCFF14CBD58F001D36B7 /* ResolutionManager.mm in Sources */,
 				0ABBDD0214CC62B1001D36B7 /* CCButton.mm in Sources */,
 				0ABBDD0514CCA1A0001D36B7 /* CCLabelButton.mm in Sources */,
@@ -3151,6 +3138,7 @@
 				9135090E15F977A200414446 /* BBBossPiece.mm in Sources */,
 				0AEB8E1C161B79F300E6F6FC /* CCShake.m in Sources */,
 				0A50C350161CAE6D00C11668 /* BBGameWin.mm in Sources */,
+				0A50C363161E20B800C11668 /* BBColorRectSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

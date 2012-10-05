@@ -143,7 +143,6 @@
 #else
     if([[SettingsManager sharedSingleton] getInt:@"totalTriforce"] >= [Globals sharedSingleton].numPiecesForFinalBoss) {
 #endif
-        [[BBBossManager sharedSingleton] tryToSpawnBoss];
         [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventSpawnFinalBoss object:nil]];
     }
 }

@@ -225,8 +225,8 @@
 }
 
 - (void) resume {
-    // make sure we're not in the end boss sequence
-    if(![Globals sharedSingleton].endBossSequence) {
+    // make sure we're not in the end or intro boss sequence
+    if(![Globals sharedSingleton].endBossSequence && ![Globals sharedSingleton].introBossSequence) {
         [super resume];
         [legs resumeSchedulerAndActions];
     }

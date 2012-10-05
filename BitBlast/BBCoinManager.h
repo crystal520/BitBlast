@@ -16,7 +16,8 @@
 @interface BBCoinManager : CCNode {
     NSMutableArray *coins;
 	NSArray *patterns;
-	BOOL checkForCoinGroup;
+    // whether or not the coin manager is paused
+    BOOL paused;
 }
 
 + (BBCoinManager*) sharedSingleton;

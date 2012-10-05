@@ -7,8 +7,8 @@
 //
 
 #import "cocos2d.h"
-#import "CCNodeColorBackground.h"
+#import "BBColorRectSprite.h"
 
-@interface BBGameWin : CCNodeColorBackground
+@interface BBGameWin : CCNode
 
 @end

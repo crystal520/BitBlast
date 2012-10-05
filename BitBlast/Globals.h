@@ -28,13 +28,15 @@
     int numPiecesForFinalBoss;
     // whether we're in the end boss sequence or not
     BOOL endBossSequence;
+    // whether we're in the intro boss sequence or not
+    BOOL introBossSequence;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
 @property (nonatomic, assign) int playerStartingHealth, numKeysForMiniboss, numPiecesForFinalBoss;
 @property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 @property (nonatomic, assign) GameState gameState;
-@property (nonatomic, assign) BOOL endBossSequence;
+@property (nonatomic, assign) BOOL endBossSequence, introBossSequence;
 
 + (Globals*) sharedSingleton;
 

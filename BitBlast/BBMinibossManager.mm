@@ -73,15 +73,19 @@
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
-    // update all minibosses
-    for(BBMiniboss *b in minibosses) {
-        [b update:delta];
+    // only update if not paused
+    if(!paused) {
+        // update all minibosses
+        for(BBMiniboss *b in minibosses) {
+            [b update:delta];
+        }
     }
 }
 
 #pragma mark -
 #pragma mark notifications
 - (void) pause {
+    paused = YES;
     // pause all minibosses
     for(BBMiniboss *b in minibosses) {
         [b pause];
@@ -90,11 +94,15 @@
 }
 
 - (void) resume {
-    // resume all minibosses
-    for(BBMiniboss *b in minibosses) {
-        [b resume];
+    // only resume if we're not in the end or intro boss sequence
+    if(![Globals sharedSingleton].endBossSequence && ![Globals sharedSingleton].introBossSequence) {
+        paused = NO;
+        // resume all minibosses
+        for(BBMiniboss *b in minibosses) {
+            [b resume];
+        }
+        [explosionManager resume];
     }
-    [explosionManager resume];
 }
 
 - (void) increaseLevel {
