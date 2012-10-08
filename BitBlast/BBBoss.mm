@@ -239,6 +239,11 @@
     [self stopActionByTag:ACTION_TAG_FLASH];
     // reset health
     curHealth = [[SettingsManager sharedSingleton] getFloat:@"bossHealth"];
+    
+#if DEBUG_OVERRIDE_BOSS_HEALTH
+    curHealth = DEBUG_OVERRIDE_BOSS_HEALTH;
+#endif
+    
     // start out with the boss's mouth closed
     [[self getPieceWithType:@"head"] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"boss1.png"]];
 }

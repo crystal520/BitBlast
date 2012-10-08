@@ -69,6 +69,13 @@
 		0A4C46FF15558C8400C6FDCA /* SessionMWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */; };
 		0A50C350161CAE6D00C11668 /* BBGameWin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A50C34F161CAE6D00C11668 /* BBGameWin.mm */; };
 		0A50C363161E20B800C11668 /* BBColorRectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50C362161E20B800C11668 /* BBColorRectSprite.m */; };
+		0A50C39616232FA400C11668 /* large.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 0A50C39216232FA200C11668 /* large.fnt */; };
+		0A50C39716232FA400C11668 /* large.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50C39316232FA200C11668 /* large.png */; };
+		0A50C39816232FA400C11668 /* small.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 0A50C39416232FA300C11668 /* small.fnt */; };
+		0A50C39916232FA400C11668 /* small.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50C39516232FA300C11668 /* small.png */; };
+		0A50C3A01623428300C11668 /* BBMedals.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A50C39F1623428200C11668 /* BBMedals.m */; };
+		0A50C3A316235F9B00C11668 /* medium.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 0A50C3A116235F9900C11668 /* medium.fnt */; };
+		0A50C3A416235F9B00C11668 /* medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A50C3A216235F9A00C11668 /* medium.png */; };
 		0A5C35AA149981C20019C113 /* jungleLevel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5C35A9149981C20019C113 /* jungleLevel.plist */; };
 		0A5C35B3149988A40019C113 /* Chunk.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B2149988A40019C113 /* Chunk.mm */; };
 		0A5C35B6149988AE0019C113 /* ChunkManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C35B5149988AE0019C113 /* ChunkManager.mm */; };
@@ -576,6 +583,14 @@
 		0A50C34F161CAE6D00C11668 /* BBGameWin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBGameWin.mm; sourceTree = "<group>"; };
 		0A50C361161E20B800C11668 /* BBColorRectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBColorRectSprite.h; sourceTree = "<group>"; };
 		0A50C362161E20B800C11668 /* BBColorRectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBColorRectSprite.m; sourceTree = "<group>"; };
+		0A50C39216232FA200C11668 /* large.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = large.fnt; path = Resources/Fonts/large.fnt; sourceTree = "<group>"; };
+		0A50C39316232FA200C11668 /* large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = large.png; path = Resources/Fonts/large.png; sourceTree = "<group>"; };
+		0A50C39416232FA300C11668 /* small.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = small.fnt; path = Resources/Fonts/small.fnt; sourceTree = "<group>"; };
+		0A50C39516232FA300C11668 /* small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = small.png; path = Resources/Fonts/small.png; sourceTree = "<group>"; };
+		0A50C39E1623428100C11668 /* BBMedals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBMedals.h; sourceTree = "<group>"; };
+		0A50C39F1623428200C11668 /* BBMedals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBMedals.m; sourceTree = "<group>"; };
+		0A50C3A116235F9900C11668 /* medium.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = medium.fnt; path = Resources/Fonts/medium.fnt; sourceTree = "<group>"; };
+		0A50C3A216235F9A00C11668 /* medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = medium.png; path = Resources/Fonts/medium.png; sourceTree = "<group>"; };
 		0A5C35A9149981C20019C113 /* jungleLevel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = jungleLevel.plist; sourceTree = "<group>"; };
 		0A5C35B1149988A30019C113 /* Chunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chunk.h; sourceTree = "<group>"; };
 		0A5C35B2149988A40019C113 /* Chunk.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Chunk.mm; sourceTree = "<group>"; };
@@ -1765,6 +1780,8 @@
 				0A9A7B3914B29AA3003A1DB1 /* BBHud.mm */,
 				0A7D52B314BFC15F00066390 /* BBMainMenu.h */,
 				0A7D52B414BFC15F00066390 /* BBMainMenu.mm */,
+				0A50C39E1623428100C11668 /* BBMedals.h */,
+				0A50C39F1623428200C11668 /* BBMedals.m */,
 				0A7D52C814C2317500066390 /* BBShop.h */,
 				0A7D52C914C2317600066390 /* BBShop.mm */,
 				0A7D52CE14C4844400066390 /* BBShopItem.h */,
@@ -2475,6 +2492,12 @@
 		3BD9BC7914BD5C18002D5E39 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				0A50C3A116235F9900C11668 /* medium.fnt */,
+				0A50C3A216235F9A00C11668 /* medium.png */,
+				0A50C39216232FA200C11668 /* large.fnt */,
+				0A50C39316232FA200C11668 /* large.png */,
+				0A50C39416232FA300C11668 /* small.fnt */,
+				0A50C39516232FA300C11668 /* small.png */,
 				3BD9BC7B14BD5C37002D5E39 /* gamefont.fnt */,
 				3BD9BC7D14BD5C4B002D5E39 /* gamefont.png */,
 			);
@@ -2925,6 +2948,12 @@
 				0AEB8E0C161A0CEB00E6F6FC /* bossBottom 3-2.plist in Resources */,
 				0AEB8E0D161A0CEB00E6F6FC /* bossBottom 3-3.plist in Resources */,
 				0AEB8E19161A278B00E6F6FC /* ultralaser.png in Resources */,
+				0A50C39616232FA400C11668 /* large.fnt in Resources */,
+				0A50C39716232FA400C11668 /* large.png in Resources */,
+				0A50C39816232FA400C11668 /* small.fnt in Resources */,
+				0A50C39916232FA400C11668 /* small.png in Resources */,
+				0A50C3A316235F9B00C11668 /* medium.fnt in Resources */,
+				0A50C3A416235F9B00C11668 /* medium.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3139,6 +3168,7 @@
 				0AEB8E1C161B79F300E6F6FC /* CCShake.m in Sources */,
 				0A50C350161CAE6D00C11668 /* BBGameWin.mm in Sources */,
 				0A50C363161E20B800C11668 /* BBColorRectSprite.m in Sources */,
+				0A50C3A01623428300C11668 /* BBMedals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

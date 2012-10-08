@@ -35,6 +35,7 @@ typedef enum {
 typedef enum {
 	TOUCH_DEPTH_LIST,
 	TOUCH_DEPTH_BUTTON,
+    TOUCH_DEPTH_MENU,
 	TOUCH_DEPTH_GAME,
 	TOUCH_DEPTH_POPUP
 } TouchOrder;
@@ -56,7 +57,8 @@ typedef enum {
 	kStateConfirmBuy,
 	kStateLeaderboards,
 	kStatePause,
-    kStateGameWin
+    kStateGameWin,
+    kStateMedals
 } GameState;
 
 typedef enum {
@@ -85,7 +87,8 @@ typedef enum {
     MINIBOSS_ACTION_TAG_CALL_CHANGE_WEAPON,
     MINIBOSS_ACTION_TAG_CALL_CHASE,
     MINIBOSS_ACTION_TAG_CALL_CHARGE,
-    MINIBOSS_ACTION_TAG_CALL_SHOW_HEALTH
+    MINIBOSS_ACTION_TAG_CALL_SHOW_HEALTH,
+    ACTION_TAG_TYPE
 } ActionTag;
 
 typedef enum {
@@ -140,3 +143,4 @@ typedef enum {
 #define kNavPauseNotification @"navPauseNotification"
 #define kNavResumeNotification @"navResumeNotification"
 #define kNavGameWinNotification @"navGameWinNotification"
+#define kNavMedalsNotification @"navMedalsNotification"

@@ -96,6 +96,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMain) name:kNavMainNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoConfirmBuy:) name:kNavShopConfirmNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoGameWin) name:kNavGameWinNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMedals) name:kNavMedalsNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(buyItem:) name:kNavBuyItemNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelBuyItem) name:kNavCancelBuyItemNotification object:nil]; 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoPause) name:kNavPauseNotification object:nil];
@@ -507,10 +508,19 @@
                 if(state == kStateGame) {
                     newMenu = [[BBGameWin alloc] init];
                     newMenu.tag = SPRITE_TAG_OVERLAY;
+                    [self finishGame];
                 }
                 else if(state == kStatePause) {
                     [self clearMenuWithTag:SPRITE_TAG_POPUP];
                 }
+                break;
+            case kStateMedals:
+                if(state == kStateGameWin) {
+                    [self clearMenuWithTag:SPRITE_TAG_OVERLAY];
+                }
+                [self clearMenuWithTag:SPRITE_TAG_MENU];
+                newMenu = [[BBMedals alloc] init];
+                newMenu.tag = SPRITE_TAG_MENU;
                 break;
 			default:
 				break;
@@ -706,6 +716,8 @@
 }
 
 - (void) bossStart {
+    // remove the faded background
+    [scrollingNode removeChildByTag:SPRITE_TAG_BACKGROUND cleanup:YES];
     // no longer in the boss intro sequence
     [Globals sharedSingleton].introBossSequence = NO;
     // unfreeze everything
@@ -725,6 +737,10 @@
 
 - (void) gotoGameWin {
     [self setState:kStateGameWin];
+}
+
+- (void) gotoMedals {
+    [self setState:kStateMedals];
 }
 
 - (void) gameWin {

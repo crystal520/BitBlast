@@ -76,6 +76,16 @@
 		[shop setSpriteBatchNode:uiSpriteBatch];
 		shop.position = ccp(winSize.width * 0.892, smallButtonShell6.position.y + shop.contentSize.height * 0.23);
 		[self addChild:shop];
+        
+        // create medals label
+		CCLabelBMFont *medalsText = [CCLabelBMFont labelWithString:@"MEDALS" fntFile:@"gamefont.fnt"];
+        medalsText.scale = 0.30;
+		
+		// create medals button
+		CCLabelButton *medals = [CCLabelButton buttonWithLabel:medalsText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(gotoMedals)];
+		[medals setSpriteBatchNode:uiSpriteBatch];
+		medals.position = ccp(winSize.width * 0.892, smallButtonShell4.position.y + medals.contentSize.height * 0.23);
+		[self addChild:medals];
 		
 		// create leaderboard label
 		CCLabelBMFont *leaderboardText = [CCLabelBMFont labelWithString:@"LEADER\nBOARDS" fntFile:@"gamefont.fnt"];
@@ -200,6 +210,11 @@
 - (void) gotoSessionM {
     [[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
     [[SessionMWrapper sharedSingleton] openSessionM];
+}
+
+- (void) gotoMedals {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMedalsNotification object:nil]];
 }
 
 @end

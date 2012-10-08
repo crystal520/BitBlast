@@ -36,6 +36,7 @@
 #import "BBBossManager.h"
 #import "Debug.h"
 #import "BBGameWin.h"
+#import "BBMedals.h"
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartboostDelegate, BBInputControllerDelegate> {
 	ParallaxManager *parallax;
@@ -81,6 +82,8 @@
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
 - (void) setState:(GameState)newState;
+// getters
+- (NSString*) getCurrentLevel;
 // update
 - (void) updateCamera;
 
