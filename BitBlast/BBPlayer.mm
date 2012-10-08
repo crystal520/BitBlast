@@ -10,7 +10,7 @@
 
 @implementation BBPlayer
 
-@synthesize health, doubleJumpEnabled;
+@synthesize health;
 
 - (id) init {
 	if((self = [super initWithFile:@"playerProperties"])) {
@@ -98,7 +98,6 @@
                 jumpTimer += delta;
                 if(jumpTimer >= maxJumpTime) {
                     jumping = NO;
-                    doubleJumpEnabled = NO;
                     [self setState:kPlayerMidJump];
                 }
                 velocity = ccp(velocity.x, jumpImpulse);
@@ -121,6 +120,10 @@
             // if player is no longer touching a platform and isn't jumping, then they fell!
             if(!touchingPlatform && prevTouchingPlatform && !jumping && !fellOffPlatform) {
                 fellOffPlatform = YES;
+            }
+            // if player wasn't touching a platform and now they are, reset the number of jumps they've done
+            if(!prevTouchingPlatform && touchingPlatform) {
+                numJumps = 0;
             }
             
             // if player is invincible, count down the timer
@@ -393,13 +396,13 @@
     // make sure player isn't paused
     if(!paused) {
         // only jump if we're not jumping already
-        if(touchingPlatform || introEnabled || fellOffPlatform || doubleJumpEnabled) {
+        if((touchingPlatform || introEnabled || fellOffPlatform || !jumping) && numJumps < 2) {
             [[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
             touchingPlatform = NO;
-            doubleJumpEnabled = NO;
             fellOffPlatform = NO;
             jumping = YES;
             jumpTimer = 0;
+            numJumps++;
             [self setState:kPlayerBeginJump];
         }
     }

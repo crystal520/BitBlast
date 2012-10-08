@@ -36,6 +36,8 @@ typedef enum {
 @interface BBPlayer : BBMovingObject {
 	
 	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime, invincibleTime, jumpDownTime;
+    // number of jumps the player has taken (for double jumping)
+    int numJumps;
     CGPoint initialGravity;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, startingHealth;
@@ -63,8 +65,6 @@ typedef enum {
 	float speedMultiplier;
     // whether or not the player just fell off a platform
     BOOL fellOffPlatform;
-    // whether or not double jump is enabled
-    BOOL doubleJumpEnabled;
     // whether or not the player is invincible
     BOOL invincible;
     // timer to count down player being invincible
@@ -72,7 +72,6 @@ typedef enum {
 }
 
 @property (nonatomic, readonly) int health;
-@property (nonatomic, assign) BOOL doubleJumpEnabled;
 
 // initializers
 // setup
