@@ -12,7 +12,8 @@
 #import "BBWeaponManager.h"
 
 typedef enum {
-    BOSS_STATE_INTRO = 0,
+    BOSS_STATE_INTRO_WAIT = 0,
+    BOSS_STATE_INTRO_APPEAR,
     BOSS_STATE_BATTLE,
     BOSS_STATE_DEAD
 } BossState;
@@ -60,6 +61,7 @@ typedef enum {
 - (void) reset;
 - (void) equipTopWeapon;
 - (void) equipBottomWeapon;
+- (void) equipFromSave;
 - (void) clearWeapons;
 - (void) hitByBullet:(BBBullet*)bullet;
 - (void) flash;

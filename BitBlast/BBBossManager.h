@@ -38,6 +38,7 @@
 // actions
 - (void) tryToSpawnBoss;
 - (void) spawnBoss;
+- (void) triggerBoss;
 // notifications
 - (void) gameOver;
 - (void) pause;

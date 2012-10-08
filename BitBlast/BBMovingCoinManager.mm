@@ -96,6 +96,14 @@
 }
 
 #pragma mark -
+#pragma mark setters
+- (void) setEnabled:(BOOL)newEnabled {
+    for(BBMovingCoin *c in coins) {
+        [c setEnabled:newEnabled];
+    }
+}
+
+#pragma mark -
 #pragma mark actions
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position {
 	for(int i=0;i<numCoins;i++) {

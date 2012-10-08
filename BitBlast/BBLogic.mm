@@ -61,6 +61,24 @@
 }
 
 #pragma mark -
+#pragma mark getters
+- (BOOL) getCanSpawnBoss {
+    return ([[SettingsManager sharedSingleton] getInt:@"totalTriforce"] >= [Globals sharedSingleton].numPiecesForFinalBoss);
+}
+
+#pragma mark -
+#pragma mark actions
+- (void) checkQuickSpawnBoss {
+    // see if player was fighting boss
+    if([self getCanSpawnBoss]) {
+        // spawn the boss
+        [[BBBossManager sharedSingleton] tryToSpawnBoss];
+        // trigger the boss
+        [[BBBossManager sharedSingleton] triggerBoss];
+    }
+}
+
+#pragma mark -
 #pragma mark notifications
 - (void) rollDice {
 	//NSLog(@"BBLogic: rollDice - %i", enabled);

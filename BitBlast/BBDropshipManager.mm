@@ -78,6 +78,12 @@
 	targetDropships = [[[dropshipLevels objectAtIndex:dropshipLevel] objectForKey:@"maxShipsOnScreen"] intValue];
 }
 
+- (void) setEnabled:(BOOL)newEnabled {
+    for(BBDropship *d in dropships) {
+        [d setEnabled:newEnabled];
+    }
+}
+
 #pragma mark -
 #pragma mark getters
 - (NSArray*) getActiveDropships {

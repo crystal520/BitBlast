@@ -104,6 +104,14 @@
 }
 
 #pragma mark -
+#pragma mark setters
+- (void) setEnabled:(BOOL)newEnabled {
+    for(BBCoin *c in coins) {
+        [c setEnabled:newEnabled];
+    }
+}
+
+#pragma mark -
 #pragma mark notifications
 - (void) levelWillLoad {
 	for(BBCoin *c in coins) {

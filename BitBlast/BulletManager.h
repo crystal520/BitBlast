@@ -28,6 +28,7 @@
 // setters
 - (void) setNode:(CCNode*)newNode;
 - (void) setScale:(float)scale;
+- (void) setEnabled:(BOOL)newEnabled;
 // actions
 - (void) pause;
 - (void) resume;

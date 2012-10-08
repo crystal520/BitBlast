@@ -144,6 +144,7 @@
 		alive = NO;
         [collisionShape setActive:NO];
         [self stopAllActions];
+        [explosionManager stopExploding:self];
 	}
 	else if(!enabled && newEnabled) {
 		self.visible = YES;

@@ -204,6 +204,9 @@
 	[scrollingNode removeChild:followNode cleanup:YES];
 	followNode = player;
 	[self updateCamera];
+    
+    // spawn boss to start the game if player was in the middle of a boss fight
+    [[BBLogic sharedSingleton] checkQuickSpawnBoss];
 	
 	// start up game logic
 	[[BBLogic sharedSingleton] setEnabled:YES];
@@ -305,9 +308,10 @@
 	[self killChopper];
 	chopper = [BBChopper new];
 	[scrollingNode addChild:chopper z:DEPTH_GAME_INTRO_CHOPPER];
-	
+	// reset scrolling node position
+    scrollingNode.position = ccp(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0 : -45);
 	// reset level
-	[self resetLevel:@"jungleLevel"];
+	[self resetLevel:[self getCurrentLevel]];
 	[player reset];
 #if !DEBUG_NO_MUSIC
 	[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game.mp3" loop:YES];
@@ -326,7 +330,6 @@
 }
 
 - (void) resetLevel:(NSString*)levelName {
-    scrollingNode.position = ccp(0, UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? 0 : -45);
     [self setBackgroundColorWithFile:levelName];
 	[parallax resetWithFile:levelName];
 	[[ChunkManager sharedSingleton] resetWithLevel:levelName];
@@ -407,6 +410,19 @@
     [[BBMinibossManager sharedSingleton] pause];
     // pause moving coins
     [[BBMovingCoinManager sharedSingleton] pause];
+}
+
+- (void) unfreeze {
+    // resume the player, which effectively resumes the game (scrolling, bullets, etc.)
+    [player resume];
+    // also resume the coins so they stop spinning
+    [[BBCoinManager sharedSingleton] resume];
+    // resume dropships
+    [[BBDropshipManager sharedSingleton] resume];
+    // resume minibosses
+    [[BBMinibossManager sharedSingleton] resume];
+    // resume moving coins
+    [[BBMovingCoinManager sharedSingleton] resume];
 }
 
 #pragma mark -
@@ -508,6 +524,16 @@
 			[self addChild:newMenu z:DEPTH_MENU];
 		}
 	}
+}
+
+#pragma mark -
+#pragma mark getters
+- (NSString*) getCurrentLevel {
+    // see if the player should be in the boss level
+    if([[BBLogic sharedSingleton] getCanSpawnBoss]) {
+        return @"bossLevel";
+    }
+    return @"jungleLevel";
 }
 
 #pragma mark -
@@ -663,7 +689,29 @@
 }
 
 - (void) finishSpawnFinalBoss {
-    NSLog(@"FINISH SPAWN BOSS");
+    // switch to boss level
+    [self resetLevel:@"bossLevel"];
+    // unload everything (minibosses, dropships, minions, coins, moving coins)
+    [[BBMinibossManager sharedSingleton] setEnabled:NO];
+    [[BBDropshipManager sharedSingleton] setEnabled:NO];
+    [[BBEnemyManager sharedSingleton] setEnabled:NO];
+    [[BBCoinManager sharedSingleton] setEnabled:NO];
+    [[BBMovingCoinManager sharedSingleton] setEnabled:NO];
+    [[BulletManager sharedSingleton] setEnabled:NO];
+    // spawn boss
+    [[BBBossManager sharedSingleton] tryToSpawnBoss];
+    // fade color rect out
+    CCAction *fadeAction = [CCSequence actions:[CCFadeTo actionWithDuration:3 opacity:0], [CCCallFunc actionWithTarget:self selector:@selector(bossStart)], nil];
+    [[scrollingNode getChildByTag:SPRITE_TAG_BACKGROUND] runAction:fadeAction];
+}
+
+- (void) bossStart {
+    // no longer in the boss intro sequence
+    [Globals sharedSingleton].introBossSequence = NO;
+    // unfreeze everything
+    [self unfreeze];
+    // trigger the boss intro
+    [[BBBossManager sharedSingleton] triggerBoss];
 }
 
 - (void) finalBossDead {

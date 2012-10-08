@@ -42,11 +42,14 @@
 - (NSArray*) getActiveDropships;
 - (BBDropship*) getInactiveDropship;
 - (NSString*) getRandomDropshipType;
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 // update
 - (void) update:(float)delta;
 // actions
 - (void) tryToSpawnDropship;
 // notifications
 - (void) pause;
+- (void) resume;
 
 @end

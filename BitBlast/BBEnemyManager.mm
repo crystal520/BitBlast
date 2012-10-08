@@ -80,6 +80,14 @@
 }
 
 #pragma mark -
+#pragma mark setters
+- (void) setEnabled:(BOOL)newEnabled {
+    for(BBEnemy *e in enemies) {
+        [e setEnabled:newEnabled];
+    }
+}
+
+#pragma mark -
 #pragma mark notifications
 - (void) levelWillLoad {
 	for(BBEnemy *e in enemies) {

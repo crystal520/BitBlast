@@ -102,6 +102,12 @@
     }
 }
 
+- (void) triggerBoss {
+    for(BBBoss *b in bosses) {
+        [b setState:BOSS_STATE_INTRO_APPEAR];
+    }
+}
+
 - (void) tryToSpawnBoss {
     // make sure there are enough active bosses
 	int numActiveBosses = 0;
@@ -117,7 +123,7 @@
 	// if there aren't enough active bosses, trigger a new one
 	if(numActiveBosses != numBossesToSpawn) {
 		for(int i=0;i<(numBossesToSpawn - numActiveBosses);i++) {
-            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1 + i], [CCCallFunc actionWithTarget:self selector:@selector(spawnBoss)], nil]];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:i], [CCCallFunc actionWithTarget:self selector:@selector(spawnBoss)], nil]];
             // trip flag for letting other classes know that a boss is going to be spawned
             isSpawningBoss = YES;
 		}

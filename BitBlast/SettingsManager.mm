@@ -34,6 +34,14 @@ static SettingsManager* _sharedSettingsManager = nil;
 	return [[settings objectForKey:keyString] CGPointValue];
 }
 
+- (BOOL) doesExist:(NSString *)keyString {
+    return ([settings objectForKey:keyString] != nil);
+}
+
+- (void) clear:(NSString *)keyString {
+    [settings removeObjectForKey:keyString];
+}
+
 -(void) setString:(NSString*)value keyString:(NSString *)keyString {
 	[settings setObject:value forKey:keyString];
 }
@@ -119,11 +127,12 @@ static SettingsManager* _sharedSettingsManager = nil;
 		CCLOG(@"settings read failure");
 		settings = [[[NSMutableDictionary alloc] initWithCapacity:5] autorelease];
 	}
+    
 #if DEBUG_OVERRIDE_KEYS
-    [settings setObject:[NSNumber numberWithInt:DEBUG_OVERRIDE_KEYS] forKey:@"totalKeys"];
+    [self setInteger:DEBUG_OVERRIDE_KEYS keyString:@"totalKeys"];
 #endif
 #if DEBUG_OVERRIDE_TRIFORCE
-    [settings setObject:[NSNumber numberWithInt:DEBUG_OVERRIDE_TRIFORCE] forKey:@"totalTriforce"];
+    [self setInteger:DEBUG_OVERRIDE_TRIFORCE keyString:@"totalTriforce"];
 #endif
 #if DEBUG_ALL_GUNS
     [self setBool:YES keyString:@"highenergyshot"];

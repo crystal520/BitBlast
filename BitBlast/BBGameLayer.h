@@ -77,6 +77,7 @@
 - (void) resume;
 - (void) shakeScreen;
 - (void) freeze;
+- (void) unfreeze;
 // setters
 - (void) setBackgroundColorWithFile:(NSString*)file;
 - (void) setState:(GameState)newState;

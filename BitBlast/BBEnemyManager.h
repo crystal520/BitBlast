@@ -23,6 +23,8 @@
 - (void) update:(float)delta;
 // getters
 - (BBEnemy*) getRecycledEnemy;
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 // notifications
 - (void) levelWillLoad;
 

@@ -27,6 +27,8 @@
 - (BBCoin*) getRecycledCoin;
 - (NSArray*) getActiveCoins;
 - (NSArray*) getRandomCoinGroup;
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 // notifications
 - (void) levelWillLoad;
 - (void) pause;

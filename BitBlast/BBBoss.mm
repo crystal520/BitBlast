@@ -39,6 +39,14 @@
         // set content size from dictionary
         self.contentSize = CGSizeFromString([dictionary objectForKey:@"size"]);
         self.anchorPoint = ccp(0, 0);
+        
+        // set defaults in case they don't exist
+        if(![[SettingsManager sharedSingleton] doesExist:@"bossHealth"]) {
+            [[SettingsManager sharedSingleton] setFloat:maxHealth keyString:@"bossHealth"];
+        }
+        if(![[SettingsManager sharedSingleton] doesExist:@"bossStage"]) {
+            [[SettingsManager sharedSingleton] setInteger:0 keyString:@"bossStage"];
+        }
     }
     
     return self;
@@ -55,7 +63,7 @@
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
     if(newEnabled) {
-        [self setState:BOSS_STATE_INTRO];
+        [self setState:BOSS_STATE_INTRO_WAIT];
     }
     else {
         [self reset];
@@ -72,16 +80,25 @@
 
 - (void) setState:(BossState)newState {
     switch(newState) {
-        case BOSS_STATE_INTRO:
-            alive = YES;
+        case BOSS_STATE_INTRO_WAIT:
             [self setColor:ccc3(0, 0, 0)];
-            [self fadeInColor];
             // hide the laser blast initially
             [[self getPieceWithType:@"laserblast"] setVisible:NO];
             break;
+        case BOSS_STATE_INTRO_APPEAR:
+            alive = YES;
+            [self fadeInColor];
+            break;
         case BOSS_STATE_BATTLE:
-            // load weapons and start the boss battle!
-            self.currentAIStage = 0;
+            // see if we need to use weapons from save
+            if([[SettingsManager sharedSingleton] getInt:@"bossStage"] > 0 || [[SettingsManager sharedSingleton] getFloat:@"bossHealth"] < maxHealth) {
+                currentAIStage = [[SettingsManager sharedSingleton] getInt:@"bossStage"];
+                [self equipFromSave];
+            }
+            else {
+                // load weapons and start the boss battle!
+                self.currentAIStage = [[SettingsManager sharedSingleton] getInt:@"bossStage"];
+            }
             // make sure collision shapes for boss pieces are active
             for(BBBossPiece *p in pieces) {
                 [p setEnabled:YES];
@@ -221,7 +238,7 @@
     // stop flashing
     [self stopActionByTag:ACTION_TAG_FLASH];
     // reset health
-    curHealth = maxHealth;
+    curHealth = [[SettingsManager sharedSingleton] getFloat:@"bossHealth"];
     // start out with the boss's mouth closed
     [[self getPieceWithType:@"head"] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"boss1.png"]];
 }
@@ -232,6 +249,7 @@
     if(ran < [topWeapons count]) {
         [currentTopWeapon setString:[topWeapons objectAtIndex:ran]];
         [[BBWeaponManager sharedSingleton] equip:[topWeapons objectAtIndex:ran] forType:WEAPON_INVENTORY_MINIBOSS];
+        [[SettingsManager sharedSingleton] setString:currentTopWeapon keyString:@"bossTopWeapon"];
     }
 }
 
@@ -241,6 +259,19 @@
     if(ran < [bottomWeapons count]) {
         [currentBottomWeapon setString:[bottomWeapons objectAtIndex:ran]];
         [[BBWeaponManager sharedSingleton] equip:[bottomWeapons objectAtIndex:ran] forType:WEAPON_INVENTORY_MINIBOSS];
+        [[SettingsManager sharedSingleton] setString:currentBottomWeapon keyString:@"bossBottomWeapon"];
+    }
+}
+
+- (void) equipFromSave {
+    // make sure the weapons exist before equipping them
+    if([[SettingsManager sharedSingleton] doesExist:@"bossTopWeapon"]) {
+        [currentTopWeapon setString:[[SettingsManager sharedSingleton] getString:@"bossTopWeapon"]];
+        [[BBWeaponManager sharedSingleton] equip:currentTopWeapon forType:WEAPON_INVENTORY_MINIBOSS];
+    }
+    if([[SettingsManager sharedSingleton] doesExist:@"bossBottomWeapon"]) {
+        [currentBottomWeapon setString:[[SettingsManager sharedSingleton] getString:@"bossBottomWeapon"]];
+        [[BBWeaponManager sharedSingleton] equip:currentBottomWeapon forType:WEAPON_INVENTORY_MINIBOSS];
     }
 }
 
@@ -248,6 +279,10 @@
     [[BBWeaponManager sharedSingleton] unequipAllForType:WEAPON_INVENTORY_MINIBOSS];
     [currentBottomWeapon setString:@""];
     [currentTopWeapon setString:@""];
+    
+    // clear saved weapons
+    [[SettingsManager sharedSingleton] clear:@"bossTopWeapon"];
+    [[SettingsManager sharedSingleton] clear:@"bossBottomWeapon"];
 }
 
 - (void) hitByBullet:(BBBullet*)bullet {
@@ -260,8 +295,14 @@
     // make sure the boss has health before dealing damage to it
     if(curHealth > 0) {
         curHealth -= bullet.damage;
+        
+        // update saved boss health
+        [[SettingsManager sharedSingleton] setFloat:curHealth keyString:@"bossHealth"];
+        
         // if the boss died, turn off all movement and play death animation
         if(curHealth <= 0) {
+            // clear boss triforce
+            [[SettingsManager sharedSingleton] setInteger:0 keyString:@"totalTriforce"];
             [self setState:BOSS_STATE_DEAD];
         }
         else {
@@ -290,6 +331,9 @@
     }
     // clear the weapons out so boss stops shooting
     [self clearWeapons];
+    // reset saved info for boss
+    [[SettingsManager sharedSingleton] setFloat:maxHealth keyString:@"bossHealth"];
+    [[SettingsManager sharedSingleton] setInteger:0 keyString:@"bossStage"];
     // post a notification that the boss has been killed
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventFinalBossDead object:nil]];
     // completely destroy boss after 3 seconds

@@ -40,6 +40,8 @@
 -(double) getDouble:(NSString*)keyString;
 -(CGPoint) getCGPoint:(NSString*)keyString;
 -(bool) getBool:(NSString*)keyString;
+- (BOOL) doesExist:(NSString*)keyString;
+- (void) clear:(NSString*)keyString;
 
 -(void) setString:(NSString*)value keyString:(NSString *)keyString;
 -(void) setInteger:(int)value keyString:(NSString*)keyString;

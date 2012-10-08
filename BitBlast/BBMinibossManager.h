@@ -41,10 +41,13 @@
 - (NSString*) getRandomMinibossType;
 - (BBMiniboss*) getInactiveMiniboss;
 - (NSArray*) getActiveMinibosses;
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 // actions
 - (void) tryToSpawnMiniboss;
 - (void) spawnMiniboss;
 // notifications
 - (void) pause;
+- (void) resume;
 
 @end

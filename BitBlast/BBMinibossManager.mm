@@ -165,6 +165,12 @@
 	targetMinibosses = [[[minibossLevels objectAtIndex:minibossLevel] objectForKey:@"maxMinibossesOnScreen"] intValue];
 }
 
+- (void) setEnabled:(BOOL)newEnabled {
+    for(BBMiniboss *b in minibosses) {
+        [b setEnabled:newEnabled];
+    }
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) tryToSpawnMiniboss {

@@ -27,6 +27,10 @@
 + (BBLogic*) sharedSingleton;
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
+// getters
+- (BOOL) getCanSpawnBoss;
+// actions
+- (void) checkQuickSpawnBoss;
 // notifications
 - (void) rollDice;
 - (void) triforceCollected;

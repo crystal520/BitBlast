@@ -93,6 +93,12 @@
 	}
 }
 
+- (void) setEnabled:(BOOL)newEnabled {
+    for(BBBullet *b in bullets) {
+        [b setEnabled:newEnabled];
+    }
+}
+
 #pragma mark -
 #pragma mark notifications
 - (void) gameOver {
@@ -105,10 +111,8 @@
 }
 
 - (void) newGame {
-	// loop through bullets and kill them all
-	for(BBBullet *b in bullets) {
-		[b setEnabled:NO];
-	}
+	// kill all the bullets
+    [self setEnabled:NO];
 }
 
 #pragma mark -

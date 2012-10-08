@@ -25,11 +25,14 @@
 -(BOOL) isTriforceActive;
 - (BBMovingCoin*) getRecycledCoin;
 - (NSArray*) getActiveCoins;
+// setters
+- (void) setEnabled:(BOOL)newEnabled;
 // actions
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position;
 - (void) spawnKeyAtPosition:(CGPoint)position;
 - (void) spawnTriforceAtPosition:(CGPoint)position;
 // notifications
 - (void) pause;
+- (void) resume;
 
 @end
