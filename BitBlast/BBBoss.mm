@@ -306,6 +306,8 @@
         
         // if the boss died, turn off all movement and play death animation
         if(curHealth <= 0) {
+            // log testflight event
+            [TestFlight passCheckpoint:@"killBoss"];
             // clear boss triforce
             [[SettingsManager sharedSingleton] setInteger:0 keyString:@"totalTriforce"];
             [self setState:BOSS_STATE_DEAD];

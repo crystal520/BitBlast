@@ -247,6 +247,8 @@
             health -= bullet.damage;
             // if the miniboss died, turn off all movement and play death animation
             if(health <= 0) {
+                // log testflight event
+                [TestFlight passCheckpoint:@"killMiniboss"];
                 // clear miniboss keys
                 [[SettingsManager sharedSingleton] setInteger:0 keyString:@"totalKeys"];
                 [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerKeyNotification object:nil]];
