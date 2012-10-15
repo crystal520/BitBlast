@@ -5,12 +5,12 @@
  </tileset>
  <layer name="Background" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJztz8EJADAMA7GQ7r9zd6ihISDB/e0qAAB4d4J6oGRv2sa/E5v1rwtEdAIf
+   eJztz7ENACAMA8EIxP4rQ8MCLkjBnfS9XQUAALl1mmGjoXTr7be/HZv1rg1RlAIj
   </data>
  </layer>
  <layer name="CollisionTop" width="60" height="15">
   <data encoding="base64" compression="zlib">
-   eJzt0bkNAAAIAzF69t+XJXgKbOkWSCIAAOiUz/rmem//zrree7sCPzYHvQ==
+   eJzt0bERADAIAzHqZP99YYgECqS7X8COAADgpVPdRW0zvbd//5reu7sEOoYHvA==
   </data>
  </layer>
 </map>

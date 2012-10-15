@@ -86,12 +86,6 @@
 	return self;
 }
 
-- (void) onEnter {
-    [super onEnter];
-    // save game data
-	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
-}
-
 - (void) updateFinalScore {
 	[distanceLabel setString:[NSString stringWithFormat:@"YOU RAN %iM, COLLECTING", [[SettingsManager sharedSingleton] getInt:@"currentMeters"]]];
 	[killLabel setString:[NSString stringWithFormat:@"%i COINS BEFORE", [[SettingsManager sharedSingleton] getInt:@"currentCoins"]]];

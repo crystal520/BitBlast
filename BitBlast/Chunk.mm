@@ -77,13 +77,13 @@
 		for(int y=0;y<layerSize.height;y++) {
 			CCSprite *tile = [layer tileAt:ccp(x,y)];
 			// restrict levels to 3 levels. all extra tiles are fluff
-			if(tile && (y == 12 || y == 10 || y == 14)) {
+			if(tile && (y == layerSize.height-1 || y == layerSize.height-3 || y == layerSize.height-5)) {
 				// keep track of this tile's type
 				ChunkLevel type = CHUNK_LEVEL_TOP;
-				if(y == 12) {
+				if(y == layerSize.height-3) {
 					type = CHUNK_LEVEL_MIDDLE;
 				}
-				else if(y == 14) {
+				else if(y == layerSize.height-1) {
 					type = CHUNK_LEVEL_BOTTOM;
 				}
 				// keep track of this tile's y position

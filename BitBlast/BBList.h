@@ -28,8 +28,11 @@
 	BOOL touchDown;
 	// size of each item in the list
 	CGSize itemSize;
-	
+	// position for moving properly on retina devices
+    CGPoint dummyPosition;
 }
+
+@property (nonatomic, assign) CGPoint dummyPosition;
 
 // getters
 - (CCNode*) getItemAtIndex:(int)index;

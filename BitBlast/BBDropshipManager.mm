@@ -44,7 +44,7 @@
 			[dropships addObject:d];
 			[d release];
 		}
-		[explosionManager setNode:backNode];
+		[explosionManager setNode:frontNode];
 		// load dropship levels
 		dropshipLevels = [[NSArray alloc] initWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropshipLevels" ofType:@"plist"]] objectForKey:@"levels"]];
 		[self setDropshipLevel:0];

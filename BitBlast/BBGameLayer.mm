@@ -63,6 +63,9 @@
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
 		[self addChild:scrollingNode z:DEPTH_LEVEL];
+        
+        // create background sprite
+		[self createBackground];
 		
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton] z:DEPTH_GAME_LEVEL];
@@ -80,9 +83,6 @@
         [scrollingNode addChild:[BBMinibossManager sharedSingleton].backNode z:DEPTH_GAME_MINIBOSSES];
         [scrollingNode addChild:[BBMinibossManager sharedSingleton].frontNode z:DEPTH_GAME_MINIBOSSES_INTRO];
         [scrollingNode addChild:[BBBossManager sharedSingleton] z:DEPTH_GAME_BOSS];
-		
-		// create background sprite
-		[self createBackground];
 		
 		// create player
 		player = [[BBPlayer alloc] init];
@@ -188,27 +188,18 @@
 }
 
 - (void) reset {
-    // clear unused textures
-    [[CCTextureCache sharedTextureCache] removeUnusedTextures];
-	// let everyone know that a new game is being started
-	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventNewGame object:nil]];
 	// reset session stats
 	[self resetSessionStats];
-	
 	// listen for touches
 	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:TOUCH_DEPTH_GAME swallowsTouches:YES];
 	self.isTouchEnabled = YES;
-	
-	// add hud to screen
-	//[self addChild:hud z:DEPTH_MENU];
+    // stop following the chopper for the intro
 	[followNode stopAllActions];
 	[scrollingNode removeChild:followNode cleanup:YES];
 	followNode = player;
 	[self updateCamera];
-    
     // spawn boss to start the game if player was in the middle of a boss fight
     [[BBLogic sharedSingleton] checkQuickSpawnBoss];
-	
 	// start up game logic
 	[[BBLogic sharedSingleton] setEnabled:YES];
 	// add BulletManager to the scrolling node
@@ -225,7 +216,7 @@
 
 - (void) createBackground {
 	// create colorable background
-	background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(-[ResolutionManager sharedSingleton].size.width, -[ResolutionManager sharedSingleton].size.height, [ResolutionManager sharedSingleton].size.width * 2, [ResolutionManager sharedSingleton].size.height * 2)];
+	background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(-[ResolutionManager sharedSingleton].size.width * 0.5, -[ResolutionManager sharedSingleton].size.height * 0.5, [ResolutionManager sharedSingleton].size.width * 2, [ResolutionManager sharedSingleton].size.height * 2)];
 	background.anchorPoint = ccp(0, 0);
 	ccTexParams params = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
 	[background.texture setTexParameters:&params];
@@ -253,7 +244,7 @@
 		[(BBHud*)([self getChildByTag:SPRITE_TAG_MENU]) update:delta];
 	}
 	else if(state == kStateIntro) {
-        followNode.position = ccpAdd(followNode.position, ccpMult(player.minVelocity, delta * [ResolutionManager sharedSingleton].positionScale));
+        followNode.position = ccpAdd(player.position, [chopper getOffset]);
 		[chopper update:delta];
 		[[ChunkManager sharedSingleton] update:delta];
 		[player update:delta];
@@ -299,6 +290,10 @@
 #pragma mark -
 #pragma mark actions
 - (void) playIntro {
+    // let everyone know that a new game is being started
+	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventNewGame object:nil]];
+    // clear unused textures
+    [[CCTextureCache sharedTextureCache] removeUnusedTextures];
     // make sure end boss sequence is disabled
     [Globals sharedSingleton].endBossSequence = NO;
     // make sure intro boss sequence is disabled
@@ -357,6 +352,8 @@
 	// stop listening for touches
 	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
 	[self unscheduleUpdate];
+    // save player info
+    [[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
 }
 
 - (void) clearMenuWithTag:(SpriteTag)tag {
@@ -449,7 +446,9 @@
 					[self clearMenuWithTag:SPRITE_TAG_OVERLAY];
 				}
 #if !DEBUG_NO_MUSIC
-				[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
+                if(![[SimpleAudioEngine sharedEngine] isBackgroundMusicPlaying:@"menu.mp3"]) {
+                    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu.mp3" loop:YES];
+                }
 #endif
 				[self clearMenuWithTag:SPRITE_TAG_MENU];
 				newMenu = [[BBMainMenu alloc] init];
@@ -461,9 +460,7 @@
 				}
 				else {
 					[self reset];
-					[self clearMenuWithTag:SPRITE_TAG_MENU];
-					newMenu = [[BBHud alloc] init];
-					newMenu.tag = SPRITE_TAG_MENU;
+                    [self getChildByTag:SPRITE_TAG_MENU].visible = YES;
 				}
 				break;
 			case kStateShop:
@@ -494,6 +491,9 @@
 				[self clearMenuWithTag:SPRITE_TAG_POPUP];
 				[self clearMenuWithTag:SPRITE_TAG_MENU];
 				[self playIntro];
+                newMenu = [[BBHud alloc] init];
+                newMenu.tag = SPRITE_TAG_MENU;
+                newMenu.visible = NO;
 				break;
 			case kStateGameOver:
 				[self finishGame];
@@ -516,6 +516,7 @@
                 break;
             case kStateMedals:
                 if(state == kStateGameWin) {
+                    [self finishGame];
                     [self clearMenuWithTag:SPRITE_TAG_OVERLAY];
                 }
                 [self clearMenuWithTag:SPRITE_TAG_MENU];

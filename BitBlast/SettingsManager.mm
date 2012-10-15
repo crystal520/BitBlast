@@ -42,6 +42,52 @@ static SettingsManager* _sharedSettingsManager = nil;
     [settings removeObjectForKey:keyString];
 }
 
+- (void) clearWeapons {
+    [self setBool:NO keyString:@"highenergyshot"];
+    [self setBool:NO keyString:@"ultraLaser"];
+    [self setBool:NO keyString:@"wavegun"];
+    [self setBool:NO keyString:@"flamethrower"];
+    [self setBool:NO keyString:@"ripley"];
+    [self setBool:NO keyString:@"bluewave"];
+    [self setBool:NO keyString:@"spreadgun"];
+    [self setBool:NO keyString:@"shotgun"];
+    [self setBool:NO keyString:@"supershotgun"];
+    [self setBool:NO keyString:@"gattlingun"];
+    [self setBool:NO keyString:@"machinegun"];
+    [self setBool:NO keyString:@"burstshot"];
+    [self setBool:NO keyString:@"plasmapistol"];
+    [self setBool:NO keyString:@"experimentalplasmapistol"];
+}
+
+- (void) awardMedal {
+    // get medals as an array
+    NSMutableArray *medals = [NSMutableArray arrayWithArray:[[self getString:@"medals"] componentsSeparatedByString:@","]];
+    // get random medal to unlock
+    int ran = MIN(CCRANDOM_MIN_MAX(0, [medals count]), [medals count]-1);
+    int medalToUnlock = [[medals objectAtIndex:ran] intValue];
+    // remove medal from medals string so we don't unlock it twice
+    [medals removeObjectAtIndex:ran];
+    // reconstruct medals string using the rest of the medals in the array
+    NSMutableString *medalsString = [NSMutableString stringWithString:@""];
+    for(NSString *s in medals) {
+        [medalsString appendFormat:@"%@,", s];
+    }
+    [medalsString setString:[medalsString substringToIndex:[medalsString length]-1]];
+    // save medal
+    if([self doesExist:@"unlockedMedals"]) {
+        [self setString:[NSString stringWithFormat:@"%@,%i", [self getString:@"unlockedMedals"], medalToUnlock] keyString:@"unlockedMedals"];
+    }
+    else {
+        [self setString:[NSString stringWithFormat:@"%i", medalToUnlock] keyString:@"unlockedMedals"];
+    }
+    // also save to most recently unlocked
+    [self setInteger:medalToUnlock keyString:@"newMedal"];
+}
+
+- (BOOL) hasMedalsLeft {
+    return (![[self getString:@"medals"] isEqualToString:@""]);
+}
+
 -(void) setString:(NSString*)value keyString:(NSString *)keyString {
 	[settings setObject:value forKey:keyString];
 }
@@ -148,22 +194,16 @@ static SettingsManager* _sharedSettingsManager = nil;
     [self setBool:YES keyString:@"machinegun"];
     [self setBool:YES keyString:@"burstshot"];
     [self setBool:YES keyString:@"plasmapistol"];
+    [self setBool:YES keyString:@"experimentalplasmapistol"];
 #endif
 #if DEBUG_PISTOL_ONLY
-    [self setBool:NO keyString:@"highenergyshot"];
-    [self setBool:NO keyString:@"ultraLaser"];
-    [self setBool:NO keyString:@"wavegun"];
-    [self setBool:NO keyString:@"flamethrower"];
-    [self setBool:NO keyString:@"ripley"];
-    [self setBool:NO keyString:@"bluewave"];
-    [self setBool:NO keyString:@"spreadgun"];
-    [self setBool:NO keyString:@"shotgun"];
-    [self setBool:NO keyString:@"supershotgun"];
-    [self setBool:NO keyString:@"gattlingun"];
-    [self setBool:NO keyString:@"machinegun"];
-    [self setBool:NO keyString:@"burstshot"];
-    [self setBool:NO keyString:@"plasmapistol"];
+    [self clearWeapons];
 #endif
+    
+    // check to see if medals exist
+    if(![self doesExist:@"medals"]) {
+        [self setString:@"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20" keyString:@"medals"];
+    }
 	
 	[settings retain];
 }
@@ -217,7 +257,7 @@ static SettingsManager* _sharedSettingsManager = nil;
 		settings = [[NSMutableDictionary alloc] initWithCapacity:5];
 	}
 	
-#ifdef RESET_SAVED_DATA
+#if DEBUG_RESET_SAVED_DATA
 	[self purgeSettings];
 	[self saveToFile:@"player.plist"];
 	[self loadFromFile:@"player.plist"];

@@ -11,6 +11,8 @@
 
 @implementation BBList
 
+@synthesize dummyPosition;
+
 - (id) init {
 	if((self = [super init])) {
 		velocity = lastTouch = 0;
@@ -34,8 +36,8 @@
 }
 
 - (CCNode*) getChildWithTouchPosition:(CGPoint)pos {
-	pos.x -= (self.position.x * [ResolutionManager sharedSingleton].imageScale);
-	pos.y -= (self.position.y * [ResolutionManager sharedSingleton].imageScale);
+	pos.x -= (dummyPosition.x);
+	pos.y -= (dummyPosition.y);
 	for(int i=0,j=[children_ count];i<j;i++) {
 		CCNode *child = [children_ objectAtIndex:i];
 		CGRect bb = CGRectMake(child.position.x * [ResolutionManager sharedSingleton].imageScale, child.position.y * [ResolutionManager sharedSingleton].imageScale, child.contentSize.width, child.contentSize.height);
@@ -56,13 +58,13 @@
 #pragma mark actions
 - (void) addItem:(CCNode*)newItem {
 	// update top bounds
-	topBounds = self.position.y;
+	topBounds = dummyPosition.y;
 	// add item with new position
 	int position = -itemSize.height * [children_ count];
 	[newItem setPosition:ccp(0, position)];
 	[self addChild:newItem];
 	// update bottom bounds
-	bottomBounds = [children_ count] * itemSize.height - itemSize.height;
+	bottomBounds = ([children_ count] * itemSize.height - itemSize.height) * [ResolutionManager sharedSingleton].inversePositionScale;
 }
 
 - (void) onEnter {
@@ -86,18 +88,20 @@
 		velocity = 0;
 	}
 	// update position with velocity
-	[self setPosition:ccp(self.position.x, self.position.y - velocity)];
+	dummyPosition = ccp(dummyPosition.x, dummyPosition.y - velocity);
 	
 	// top snap
-	if(!dragging && self.position.y < topBounds) {
-		float newY = self.position.y + (topBounds - self.position.y) / 3;
-		[self setPosition:ccp(self.position.x, newY)];
+	if(!dragging && dummyPosition.y < topBounds) {
+		float newY = dummyPosition.y + (topBounds - dummyPosition.y) / 3;
+		dummyPosition = ccp(dummyPosition.x, newY);
 	}
 	// bottom snap
-	else if(!dragging && self.position.y > bottomBounds) {
-		float newY = self.position.y + (bottomBounds - self.position.y) / 3;
-		[self setPosition:ccp(self.position.x, newY)];
+	else if(!dragging && dummyPosition.y > bottomBounds) {
+		float newY = dummyPosition.y + (bottomBounds - dummyPosition.y) / 3;
+		dummyPosition = ccp(dummyPosition.x, newY);
 	}
+    
+    self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
 	[super draw];
 }
 
@@ -116,9 +120,6 @@
 	// make sure touch is within the list
 	CCNode *child = [self getChildWithTouchPosition:touchPoint];
 	if(child) {
-		//TODO: any buttons within the child should have touch down states
-		// let child know that touches have begun
-		//[child 
 		return YES;
 	}
 	else {
@@ -137,7 +138,7 @@
 	lastTouch = touchPoint.y;
 	totalDrag += abs(lastLastTouch - lastTouch);
 	// update position
-	[self setPosition:ccp(self.position.x, self.position.y - (lastLastTouch - lastTouch))];
+	dummyPosition = ccp(dummyPosition.x, dummyPosition.y - (lastLastTouch - lastTouch));
 }
 
 - (void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {

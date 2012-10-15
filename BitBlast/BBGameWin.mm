@@ -17,6 +17,10 @@
         
         [self addChild:[BBColorRectSprite spriteWithColor:ccc3(255,255,255) alpha:0]];
         
+        // create spritebatch with UI image
+		CCSpriteBatchNode *uiSpriteBatch = [CCSpriteBatchNode batchNodeWithFile:@"uiatlas.png"];
+		[self addChild:uiSpriteBatch];
+        
         // fade in a completely white screen
         CCAction *fadeAction = [CCSequence actions:[CCFadeTo actionWithDuration:3 opacity:255], [CCCallFunc actionWithTarget:self selector:@selector(showText)], nil];
         [[self getChildByTag:SPRITE_TAG_BACKGROUND] runAction:fadeAction];
@@ -95,6 +99,34 @@
     tapToContinueLabel.visible = !tapToContinueLabel.visible;
 }
 
+- (void) gotoTradeIn:(BBDialog*)dialog {
+    // player selected LATER
+    if(dialog.buttonIndex == DIALOG_BUTTON_LEFT) {
+        // keep track of whether player can trade in or not
+        [[SettingsManager sharedSingleton] setBool:YES keyString:@"tradeIn"];
+        // save settings just in case
+        [[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+        // go to main menu
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
+    }
+    // player wants to TRADE IN
+    else {
+        // award new medal
+        [[SettingsManager sharedSingleton] awardMedal];
+        // clear out all guns except pistol
+        [[SettingsManager sharedSingleton] clearWeapons];
+        // save settings just in case
+        [[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+        // go to medals screen
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMedalsNotification object:nil]];
+    }
+}
+
+- (void) gotoMain {
+    // go to main menu
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
+}
+
 #pragma mark -
 #pragma mark notifications
 - (void) gotoPause {
@@ -117,10 +149,44 @@
         typeCounter = [typeText length];
         [self updateText];
     }
-    // otherwise advance to medal screen
+    // otherwise show trade in text and buttons
     else {
-        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMedalsNotification object:nil]];
+        // stop flashing tap to continue
+        [self stopActionByTag:ACTION_TAG_FLASH];
+        // enable dialog queue so we can show dialog boxes
+        [[BBDialogQueue sharedSingleton] setEnabled:YES];
+        // show trade in dialog if player still has medals to unlock
+        if([[SettingsManager sharedSingleton] hasMedalsLeft]) {
+            [[BBDialogQueue sharedSingleton] addDialog:[BBDialog dialogWithTitle:@"" text:@"trade in your guns and start the fun again! you will receive a unique medal of honor for your outstanding service!" buttons:@"later,trade in" target:self selector:@selector(gotoTradeIn:)]];
+        }
+        else {
+            // submit score to leaderboard
+            [self submitFinalScore];
+            // show dialog for completing the entire game
+            [[BBDialogQueue sharedSingleton] addDialog:[BBDialog dialogWithTitle:@"" text:@"You have obtained all the medals! Your outstanding service has been recognized in the leaderboards!" buttons:@"awesome" target:self selector:@selector(gotoMain)]];
+        }
+        // disable dialog queue so no more dialog boxes are shown
+        [[BBDialogQueue sharedSingleton] setEnabled:NO];
     }
+}
+
+- (void) submitFinalScore {
+    // create date formatter for checking last played date
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setFormatterBehavior:NSDateFormatterBehaviorDefault];
+	[formatter setDateStyle:NSDateFormatterFullStyle];
+    // grab current date and format into an integer with YYYYMMDD
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[formatter dateFromString:[[SettingsManager sharedSingleton] getString:@"lastPlayed"]]];
+    int year = [components year];
+    int month = [components month];
+    int day = [components day];
+    // construct string from year, month, and day
+    NSString *finalString = [NSString stringWithFormat:@"%04i%02i%02i", year, month, day];
+    // turn string back into an integer
+    int finalScore = [finalString intValue];
+    // submit final score to leaderboards
+    [[GameCenter sharedSingleton] submitLeaderboard:@"medalWinners" withValue:finalScore];
+    [formatter release];
 }
 
 @end

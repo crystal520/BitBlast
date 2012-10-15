@@ -6,6 +6,8 @@
 	<string>walking</string>
 	<key>tileCenterOffset</key>
 	<integer>50</integer>
+	<key>startOffset</key>
+	<string>{0,-20}</string>
 	<key>health</key>
 	<integer>5</integer>
 	<key>gravity</key>
@@ -13,7 +15,7 @@
 	<key>speed</key>
 	<dict>
 		<key>x</key>
-		<integer>-100</integer>
+		<integer>400</integer>
 		<key>y</key>
 		<integer>0</integer>
 	</dict>

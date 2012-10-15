@@ -39,4 +39,51 @@
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMainNotification object:nil]];
 }
 
+- (void) onEnter {
+    [super onEnter];
+    // check to see if player can trade in
+    if([[SettingsManager sharedSingleton] getBool:@"tradeIn"]) {
+        [[BBDialogQueue sharedSingleton] setEnabled:YES];
+        [[BBDialogQueue sharedSingleton] addDialog:[BBDialog dialogWithTitle:@"" text:@"trade in your guns and start the fun again! you will receive a unique medal of honor for your outstanding service!" buttons:@"later,trade in" target:self selector:@selector(gotoTradeIn:)]];
+        [[BBDialogQueue sharedSingleton] setEnabled:NO];
+    }
+    else {
+        // check for a new medal
+        [self checkNewMedal];
+    }
+}
+
+- (void) gotoTradeIn:(BBDialog*)dialog {
+    // player selected LATER
+    if(dialog.buttonIndex == DIALOG_BUTTON_LEFT) {
+        // don't do anything
+    }
+    // player wants to TRADE IN
+    else {
+        // player can no longer trade in
+        [[SettingsManager sharedSingleton] setBool:NO keyString:@"tradeIn"];
+        // award new medal
+        [[SettingsManager sharedSingleton] awardMedal];
+        // clear out all guns except pistol
+        [[SettingsManager sharedSingleton] clearWeapons];
+        // save settings just in case
+        [[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+        // play new medal animation
+        [self checkNewMedal];
+    }
+}
+
+- (void) checkNewMedal {
+    // see if there's a new medal to award
+    if([[SettingsManager sharedSingleton] doesExist:@"newMedal"]) {
+        // get the new medal to award
+        int newMedal = [[SettingsManager sharedSingleton] getInt:@"newMedal"];
+        // clear the medal so it doesn't get awarded again
+        [[SettingsManager sharedSingleton] clear:@"newMedal"];
+        // save settings
+        [[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
+        NSLog(@"award medal: %i", newMedal);
+    }
+}
+
 @end

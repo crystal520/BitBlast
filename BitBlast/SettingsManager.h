@@ -28,8 +28,6 @@
 #import <Foundation/Foundation.h>
 #import "Debug.h"
 
-//#define RESET_SAVED_DATA
-
 @interface SettingsManager : NSObject {
 	NSMutableDictionary* settings;
 }
@@ -42,6 +40,10 @@
 -(bool) getBool:(NSString*)keyString;
 - (BOOL) doesExist:(NSString*)keyString;
 - (void) clear:(NSString*)keyString;
+
+- (void) clearWeapons;
+- (void) awardMedal;
+- (BOOL) hasMedalsLeft;
 
 -(void) setString:(NSString*)value keyString:(NSString *)keyString;
 -(void) setInteger:(int)value keyString:(NSString*)keyString;

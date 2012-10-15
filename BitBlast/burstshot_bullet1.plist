@@ -11,7 +11,7 @@
 	<key>maxAngleOffset</key>
 	<integer>0</integer>
 	<key>maxLifetime</key>
-	<integer>2</integer>
+	<real>2.5</real>
 	<key>maxNumBullets</key>
 	<integer>1</integer>
 	<key>maxSpeed</key>
@@ -19,7 +19,7 @@
 	<key>minAngleOffset</key>
 	<integer>0</integer>
 	<key>minLifetime</key>
-	<integer>2</integer>
+	<real>2.5</real>
 	<key>minNumBullets</key>
 	<integer>1</integer>
 	<key>minSpeed</key>

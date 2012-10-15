@@ -10,7 +10,11 @@
 #import "BBColorRectSprite.h"
 #import "CCLabelButton.h"
 #import "SimpleAudioEngine.h"
+#import "BBDialogQueue.h"
+#import "SettingsManager.h"
 
 @interface BBMedals : CCNode
+
+- (void) checkNewMedal;
 
 @end

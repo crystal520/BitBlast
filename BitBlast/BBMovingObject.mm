@@ -97,8 +97,9 @@
 			// if the lowest part of the sprite is less than the middle of the tile,
 			// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
 			float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
-			if(dummyPosition.y <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y && velocity.y < 0 && (prevDummyPosition.y - velocity.y * delta) >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y) {
-				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y);
+            float tileMid = actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y;
+			if(dummyPosition.y <= tileMid && velocity.y < 0 && prevDummyPosition.y >= tileMid) {
+				dummyPosition = ccp(dummyPosition.x + tileOffset.x, tileMid);
 				touchingPlatform = YES;
 				velocity = ccp(velocity.x, 0);
 				break;

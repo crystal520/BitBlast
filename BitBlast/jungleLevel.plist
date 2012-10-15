@@ -39,7 +39,7 @@
 	<key>firstChunk</key>
 	<string>newStartChunk.tmx</string>
 	<key>overrideChunk</key>
-	<string></string>
+	<string>newStartChunk.tmx</string>
 	<key>backgroundColor</key>
 	<string>170, 221, 238</string>
 	<key>parallax</key>
@@ -67,7 +67,7 @@
 				<string>backbackspires.png</string>
 			</array>
 			<key>imageWidth</key>
-			<integer>910</integer>
+			<integer>960</integer>
 			<key>ratio</key>
 			<string>{0.125,0.125}</string>
 			<key>y</key>
@@ -82,7 +82,7 @@
 				<string>cloud2.png</string>
 			</array>
 			<key>imageWidth</key>
-			<integer>528</integer>
+			<integer>960</integer>
 			<key>ratio</key>
 			<string>{0.25,0.25}</string>
 			<key>y</key>
@@ -138,6 +138,40 @@
 			<integer>0</integer>
 			<key>seamless</key>
 			<true/>
+		</dict>
+	</array>
+	<key>newParallax</key>
+	<array>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>sky_far.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<string>{0.05,0.25}</string>
+			<key>y</key>
+			<integer>0</integer>
+			<key>seamless</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>backbackrefinery.png</string>
+				<string>backbackpeak.png</string>
+				<string>backbackmountain.png</string>
+				<string>backbackspires.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<string>{0.125,0.5}</string>
+			<key>y</key>
+			<integer>0</integer>
+			<key>seamless</key>
+			<false/>
 		</dict>
 	</array>
 </dict>

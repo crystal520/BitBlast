@@ -82,6 +82,7 @@
 		if(state == DROPSHIP_STATE_ACTIVE) {
             lastBulletHit = nil;
 			[super update:delta];
+            [explosionManager update:delta];
 			// get velocity from player
 			if(alive) {
 				velocity = ccp([Globals sharedSingleton].playerVelocity.x, 0);

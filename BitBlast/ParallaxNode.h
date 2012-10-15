@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "BBParallaxSprite.h"
 
 @interface ParallaxNode : CCNode {
 	// speed at which node moves
@@ -18,6 +19,8 @@
 	NSMutableArray *spriteImages;
 	// whether the images come one right after the other
 	BOOL seamless;
+    // width of the sprites in this parallax node
+    int spriteWidth;
 }
 
 @property (nonatomic) CGPoint ratio;
@@ -27,10 +30,8 @@
 - (void) reset;
 // getters
 - (NSString*) getRandomImage;
+- (int) getSpriteWidth;
 // update
 - (void) update:(CGPoint)changeInPos;
-- (void) updatePositions;
-// actions
-- (void) swapImages;
 
 @end

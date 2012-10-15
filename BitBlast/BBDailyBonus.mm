@@ -37,7 +37,7 @@
 	[formatter setFormatterBehavior:NSDateFormatterBehaviorDefault];
 	[formatter setDateStyle:NSDateFormatterFullStyle];
 	NSDate *lastPlayed = [formatter dateFromString:[[SettingsManager sharedSingleton] getString:@"lastPlayed"]];
-	NSDate *today = [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];
+	NSDate *today = [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];    
 	NSLog(@"BBDailyBonus last played: %@ --- today: %@", [lastPlayed description], [today description]);
 	NSLog(@"BBDailyBonus difference: %i", (NSInteger)([today timeIntervalSinceDate:lastPlayed]));
 	
@@ -58,9 +58,14 @@
 		[self resetDailyStreakStats];
 	}
 	NSLog(@"BBDailyBonus current streak: %i", [[SettingsManager sharedSingleton] getInt:@"dailyStreak"]);
+    
+    // make sure today is either the same day as the last played date or in the future
+    if([today timeIntervalSinceDate:lastPlayed] < 0) {
+        today = lastPlayed;
+    }
 	
 	// set a new previous day played
-	[[SettingsManager sharedSingleton] setString:[formatter stringFromDate:[NSDate date]] keyString:@"lastPlayed"];
+	[[SettingsManager sharedSingleton] setString:[formatter stringFromDate:today] keyString:@"lastPlayed"];
     [formatter release];
 }
 

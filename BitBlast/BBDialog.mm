@@ -36,8 +36,10 @@
 	CCLabelBMFont *titleLabel = [CCLabelBMFont labelWithString:title fntFile:@"gamefont.fnt"];
 	
 	// create text
-	CCLabelBMFont *textLabel = [CCLabelBMFont labelWithString:text fntFile:@"gamefont.fnt" width:1200 * [ResolutionManager sharedSingleton].positionScale alignment:UITextAlignmentCenter];
+	CCLabelBMFont *textLabel = [CCLabelBMFont labelWithString:text fntFile:@"gamefont.fnt" width:1228 * [ResolutionManager sharedSingleton].positionScale alignment:UITextAlignmentCenter];
 	textLabel.scale = 0.4;
+    textLabel.anchorPoint = ccp(0.5, 0);
+    textLabel.position = ccp(0, -65 * [ResolutionManager sharedSingleton].positionScale);
 	
 	if((self = [self initWithTitleLabel:titleLabel textLabel:textLabel buttonLabels:[NSArray arrayWithObjects:leftButtonLabel, rightButtonLabel, nil] target:t selector:s])) {
 	}

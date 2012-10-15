@@ -115,7 +115,11 @@ static CDBufferManager *bufferManager = nil;
 
 -(BOOL) isBackgroundMusicPlaying {
 	return [am isBackgroundMusicPlaying];
-}	
+}
+
+- (BOOL) isBackgroundMusicPlaying:(NSString*)file {
+    return [am.backgroundMusic.audioSourceFilePath isEqualToString:file];
+}
 
 -(BOOL) willPlayBackgroundMusic {
 	return [am willPlayBackgroundMusic];

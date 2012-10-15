@@ -360,9 +360,13 @@
 	curNumChunks = 0;
 	jumpTimer = 0.0f;
     jumping = NO;
+    numJumps = 0;
     [self setWeaponAngle:0];
     [legs setColor:ccc3(255, 255, 255)];
     [torso setColor:ccc3(255, 255, 255)];
+    
+    // make sure the legs don't change to a running frame
+    [legs stopAllActions];
 	
 	// get current coin multiplier powerup
 	coinMultiplier = [[BBPowerupManager sharedSingleton] getCoinMultPowerup];

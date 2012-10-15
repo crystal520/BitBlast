@@ -68,6 +68,7 @@
 	// only update if enabled
 	if(enabled) {
         [super update:delta];
+        [explosionManager update:delta];
 		if(state == MINIBOSS_STATE_MOVE_RIGHT) {
 			
 			CGPoint shipScreenPos = [self convertToWorldSpace:CGPointZero];

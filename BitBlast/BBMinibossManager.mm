@@ -43,7 +43,7 @@
             [minibosses addObject:miniboss];
             [miniboss release];
         }
-        [explosionManager setNode:backNode];
+        [explosionManager setNode:frontNode];
         
         // load miniboss levels
 		minibossLevels = [[NSArray alloc] initWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"minibossLevels" ofType:@"plist"]] objectForKey:@"levels"]];

@@ -8,6 +8,10 @@
 
 #import "cocos2d.h"
 #import "BBColorRectSprite.h"
+#import "CCLabelButton.h"
+#import "BBDialogQueue.h"
+#import "SettingsManager.h"
+#import "GameCenter.h"
 
 @interface BBGameWin : CCNode <CCTargetedTouchDelegate> {
     // the text that needs to be typed out
@@ -19,5 +23,7 @@
     // tap to continue label
     CCLabelBMFont *tapToContinueLabel;
 }
+
+- (void) submitFinalScore;
 
 @end

@@ -156,8 +156,6 @@
 	[[SessionMWrapper sharedSingleton] saveQueue];
 	// save game data first
 	[[SettingsManager sharedSingleton] saveToFile:@"player.plist"];
-	
-	[[CCDirector sharedDirector].runningScene onExit];
 	[[CCDirector sharedDirector] pause];
 }
 
@@ -174,6 +172,7 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application {
 	[[CCDirector sharedDirector] stopAnimation];
+    [[CCDirector sharedDirector].runningScene onExit];
     
     [[LocalyticsSession sharedLocalyticsSession] close];
     [[LocalyticsSession sharedLocalyticsSession] upload];

@@ -19,7 +19,7 @@
 			<key>name</key>
 			<string>playerRun</string>
 			<key>speed</key>
-			<real>0.1</real>
+			<real>0.075</real>
 		</dict>
 		<dict>
 			<key>frames</key>

@@ -58,7 +58,7 @@
 #pragma mark -
 #pragma mark actions
 - (void) explodeInObject:(BBGameObject*)object number:(int)count {
-    [self explodeInObject:object withOffset:CGRectZero number:5];
+    [self explodeInObject:object withOffset:CGRectZero number:count];
 }
 
 - (void) explodeInObject:(BBGameObject*)object withOffset:(CGRect)offset number:(int)count {

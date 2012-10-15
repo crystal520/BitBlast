@@ -11,7 +11,9 @@
 #import "BBMovingObject.h"
 
 @interface BBChopper : BBMovingObject {
-	
+	CCNode *offsetNode;
 }
+
+- (CGPoint) getOffset;
 
 @end

@@ -62,8 +62,8 @@
 	promoID = [[promoDictionary objectForKey:@"id"] retain];
 	
 	BOOL override = NO;
-#ifdef TARGET_IPHONE_SIMULATOR
-	override = NO;
+#if DEBUG_ALWAYS_SHOW_PROMO
+	override = YES;
 #endif
 	
 	// make sure player hasn't seen this promo

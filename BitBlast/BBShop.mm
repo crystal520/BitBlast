@@ -59,7 +59,7 @@
 		// create layer for all shop items
 		shopScroller = [[BBList alloc] init];
 		[shopScroller setItemSize:cellSize];
-		shopScroller.position = ccp(winSize.width - cellSize.width, winSize.height - cellSize.height);
+		shopScroller.dummyPosition = ccpMult(ccp(winSize.width - cellSize.width, winSize.height - cellSize.height), [ResolutionManager sharedSingleton].inversePositionScale);
 		[self addChild:shopScroller z:100];
 		
 		// load shop items

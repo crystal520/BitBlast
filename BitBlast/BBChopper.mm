@@ -24,6 +24,13 @@
 		// start copter off screen
 		dummyPosition = ccp(-170, 750);
 		needsPlatformCollisions = NO;
+        
+        // create offset node for following the chopper
+        offsetNode = [CCNode node];
+        offsetNode.position = ccp(300,0);
+        CCAction *moveAction = [CCMoveTo actionWithDuration:2 position:ccp(0, 0)];
+        [offsetNode runAction:moveAction];
+        [self addChild:offsetNode];
 		
 		// intro sequence!
 		CCAction *action = [CCSequence actions:[CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(hover)], nil];
@@ -38,6 +45,10 @@
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
+}
+
+- (CGPoint) getOffset {
+    return offsetNode.position;
 }
 
 #pragma mark -

@@ -104,7 +104,7 @@
 	[self setEnabled:YES];
 	[self repeatAnimation:[dictionary objectForKey:@"animation"]];
 	self.anchorPoint = ccp(0.5, 0);
-	dummyPosition = ccpAdd(newPosition, ccp(0, -self.contentSize.height * 0.5));
+	dummyPosition = ccpAdd(ccpAdd(newPosition, ccp(0, -self.contentSize.height * 0.5)), CGPointFromString([dictionary objectForKey:@"startOffset"]));
 	// update once just to set correct position
 	[self update:0];
     [self loadComplete];
