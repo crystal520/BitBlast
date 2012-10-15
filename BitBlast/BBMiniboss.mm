@@ -41,9 +41,17 @@
 	if([dictionary objectForKey:@"particles"]) {
 		particles = [[dictionary objectForKey:@"particles"] retain];
 	}
+    
+    // set defaults in case they don't exist
+    if(![[SettingsManager sharedSingleton] doesExist:@"minibossHealth"]) {
+        [[SettingsManager sharedSingleton] setFloat:[[dictionary objectForKey:@"health"] floatValue] keyString:@"minibossHealth"];
+    }
+    if(![[SettingsManager sharedSingleton] doesExist:@"minibossStage"]) {
+        [[SettingsManager sharedSingleton] setInteger:0 keyString:@"minibossStage"];
+    }
 	
 	// set values from dictionary
-	health = [[dictionary objectForKey:@"health"] floatValue];
+	health = [[SettingsManager sharedSingleton] getFloat:@"minibossHealth"];
     initialHealth = health;
 	coins = [[dictionary objectForKey:@"coins"] intValue];
 	[self repeatAnimation:[dictionary objectForKey:@"animation"]];
@@ -88,7 +96,7 @@
                 [self removeFromParentAndCleanup:NO];
                 [switchNode addChild:self];
                 // trigger AI loops
-                self.currentAIStage = 0;
+                self.currentAIStage = [[SettingsManager sharedSingleton] getInt:@"minibossStage"];
 			}
 		}
         else {
@@ -173,6 +181,9 @@
 - (void) setCurrentAIStage:(int)newCurrentAIStage {
     currentAIStage = newCurrentAIStage;
     
+    // save miniboss's current stage
+    [[SettingsManager sharedSingleton] setInteger:currentAIStage keyString:@"minibossStage"];
+    
     // then start running actions for current stage
     NSArray *actions = [[self getAIStage] objectForKey:@"actions"];
     for(NSDictionary *d in actions) {
@@ -246,6 +257,10 @@
         
         if(health > 0) {
             health -= bullet.damage;
+            
+            // update saved miniboss health
+            [[SettingsManager sharedSingleton] setFloat:health keyString:@"minibossHealth"];
+            
             // if the miniboss died, turn off all movement and play death animation
             if(health <= 0) {
                 // log testflight event
@@ -281,7 +296,11 @@
 }
 
 - (void) die {
+    // reset saved variables
+    [[SettingsManager sharedSingleton] setInteger:0 keyString:@"minibossStage"];
+    // spawn a piece of the triforce
 	[[BBMovingCoinManager sharedSingleton] spawnTriforceAtPosition:dummyPosition];
+    // play this miniboss's death sound
 	[[SimpleAudioEngine sharedEngine] playEffect:[[dictionary objectForKey:@"sounds"] objectForKey:@"death"]];
 	// increment minibosses killed
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalMinibosses"];

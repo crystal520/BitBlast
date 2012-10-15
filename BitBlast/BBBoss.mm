@@ -118,6 +118,8 @@
 - (void) setCurrentAIStage:(int)newCurrentAIStage {
     currentAIStage = newCurrentAIStage;
     
+    // save boss's current stage
+    [[SettingsManager sharedSingleton] setInteger:currentAIStage keyString:@"bossStage"];
     // clear the weapons out so boss stops shooting
     [self clearWeapons];
     
