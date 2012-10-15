@@ -14,7 +14,38 @@
 	<string></string>
 	<key>backgroundColor</key>
 	<string>211, 72, 71</string>
-	<key>parallax</key>
+	<key>lowMemParallax</key>
+	<array>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>aliensky.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<string>{0.05,0.05}</string>
+			<key>y</key>
+			<integer>0</integer>
+			<key>seamless</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>alienplanet.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>1024</integer>
+			<key>ratio</key>
+			<string>{0.005,0.005}</string>
+			<key>y</key>
+			<integer>100</integer>
+			<key>seamless</key>
+			<false/>
+		</dict>
+	</array>
+	<key>highMemParallax</key>
 	<array>
 		<dict>
 			<key>images</key>

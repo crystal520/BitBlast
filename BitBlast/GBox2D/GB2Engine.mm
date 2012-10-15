@@ -134,7 +134,7 @@ float PTM_RATIO = 32.0f;
     }];
     
     // step the world
-	world->Step(0.1f, velocityIterations, positionIterations);
+	world->Step(1.0f, velocityIterations, positionIterations);
 }
 
 - (void) iterateObjectsWithBlock:(GB2NodeCallBack)callback

@@ -117,16 +117,14 @@
 			}
 		}
 	}
-	while(true) {
-		// generate a random number from the array
-		int ran = CCRANDOM_MIN_MAX(0, [groundPositions count]);
-		// make sure this is a valid number
-		if(ran >= 0 && ran < [groundPositions count]) {
-			CGPoint point;
-			[[groundPositions objectAtIndex:ran] getValue:&point];
-			return point;
-		}
-	}
+    // generate a random number from the array
+    int ran = MIN(CCRANDOM_MIN_MAX(0, [groundPositions count]), [groundPositions count]-1);
+    // make sure this is a valid number
+    if(ran >= 0 && ran < [groundPositions count]) {
+        CGPoint point;
+        [[groundPositions objectAtIndex:ran] getValue:&point];
+        return point;
+    }
 	return ccp(0,0);
 }
 

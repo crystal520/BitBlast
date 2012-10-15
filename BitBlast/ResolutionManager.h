@@ -13,11 +13,14 @@
     float imageScale, positionScale, inversePositionScale;
 	CGPoint position;
 	CGSize size;
+    // whether or not the device is an older, lower memory device
+    BOOL lowMemDevice;
 }
 
 @property (nonatomic, readonly) float imageScale, positionScale, inversePositionScale;
 @property (nonatomic, readonly) CGPoint position;
 @property (nonatomic, readonly) CGSize size;
+@property (nonatomic, readonly) BOOL lowMemDevice;
 
 + (ResolutionManager*) sharedSingleton;
 

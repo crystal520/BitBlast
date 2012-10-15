@@ -28,7 +28,7 @@
     // grab dictionary from file and load in nodes using this info
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:file ofType:@"plist"]];
     
-    NSArray *parallaxNodes = [dict objectForKey:@"parallax"];
+    NSArray *parallaxNodes = [dict objectForKey:[ResolutionManager sharedSingleton].lowMemDevice ? @"lowMemParallax" : @"highMemParallax"];
     for(NSDictionary *d in parallaxNodes) {
         ParallaxNode *p = [[ParallaxNode alloc] initWithDictionary:d];
         [self addChild:p];

@@ -42,7 +42,7 @@
 	<string>newStartChunk.tmx</string>
 	<key>backgroundColor</key>
 	<string>170, 221, 238</string>
-	<key>parallax</key>
+	<key>highMemParallax</key>
 	<array>
 		<dict>
 			<key>images</key>
@@ -140,7 +140,7 @@
 			<true/>
 		</dict>
 	</array>
-	<key>newParallax</key>
+	<key>lowMemParallax</key>
 	<array>
 		<dict>
 			<key>images</key>
@@ -150,7 +150,7 @@
 			<key>imageWidth</key>
 			<integer>960</integer>
 			<key>ratio</key>
-			<string>{0.05,0.25}</string>
+			<string>{0.05,0.05}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
@@ -159,19 +159,37 @@
 		<dict>
 			<key>images</key>
 			<array>
-				<string>backbackrefinery.png</string>
-				<string>backbackpeak.png</string>
-				<string>backbackmountain.png</string>
-				<string>backbackspires.png</string>
+				<string>backforest1.png</string>
+				<string>backforest2.png</string>
+				<string>backforest3.png</string>
 			</array>
 			<key>imageWidth</key>
 			<integer>960</integer>
 			<key>ratio</key>
-			<string>{0.125,0.5}</string>
+			<string>{0.2,0.2}</string>
 			<key>y</key>
 			<integer>0</integer>
 			<key>seamless</key>
-			<false/>
+			<true/>
+		</dict>
+		<dict>
+			<key>images</key>
+			<array>
+				<string>frontforest1.png</string>
+				<string>frontforest2.png</string>
+				<string>frontforest3.png</string>
+				<string>frontforest4.png</string>
+				<string>frontforest5.png</string>
+				<string>frontforest6.png</string>
+			</array>
+			<key>imageWidth</key>
+			<integer>960</integer>
+			<key>ratio</key>
+			<string>{0.35,0.35}</string>
+			<key>y</key>
+			<integer>0</integer>
+			<key>seamless</key>
+			<true/>
 		</dict>
 	</array>
 </dict>

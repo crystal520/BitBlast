@@ -11,7 +11,7 @@
 
 @implementation ResolutionManager
 
-@synthesize imageScale, positionScale, position, size, inversePositionScale;
+@synthesize imageScale, positionScale, position, size, inversePositionScale, lowMemDevice;
 
 + (ResolutionManager*) sharedSingleton {
 	
@@ -35,6 +35,7 @@
 		positionScale = 0.5;
 		position = ccp(0, 0);
 		size = [CCDirector sharedDirector].winSize;
+        lowMemDevice = YES;
 		if(![[CCDirector sharedDirector] enableRetinaDisplay:YES]) {
 			
 			// iPhone, non-retina
@@ -50,6 +51,7 @@
 			}
 		}
 		else if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            lowMemDevice = NO;
 			imageScale = 2;
 			positionScale = 0.5;
 			size = CGSizeMake([CCDirector sharedDirector].winSize.width * 0.5, [CCDirector sharedDirector].winSize.height * 0.5);
