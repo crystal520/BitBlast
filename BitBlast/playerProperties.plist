@@ -7,7 +7,7 @@
 	<key>jump</key>
 	<integer>20000</integer>
 	<key>maxDownwardSpeed</key>
-	<integer>1200</integer>
+	<integer>1300</integer>
 	<key>maxJumpTime</key>
 	<real>0.17</real>
 	<key>invincibleTimeAfterLosingHealth</key>

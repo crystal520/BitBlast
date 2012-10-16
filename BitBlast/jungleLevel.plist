@@ -5,41 +5,15 @@
 	<key>chunks</key>
 	<array>
 		<array>
-			<string>new3LevelChunk.tmx</string>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
-		</array>
-		<array>
-			<string>new3LevelChunk2.tmx</string>
+			<string>1-1.tmx</string>
+			<string>1-2.tmx</string>
+			<string>1-3.tmx</string>
 		</array>
 	</array>
 	<key>firstChunk</key>
-	<string>newStartChunk.tmx</string>
+	<string>start.tmx</string>
 	<key>overrideChunk</key>
-	<string>newStartChunk.tmx</string>
+	<string></string>
 	<key>backgroundColor</key>
 	<string>170, 221, 238</string>
 	<key>highMemParallax</key>
