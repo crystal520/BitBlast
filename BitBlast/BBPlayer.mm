@@ -421,7 +421,7 @@
     // make sure player isn't paused
     if(!paused) {
         // make sure the player is touching a platform before adjusting their position
-        if(touchingPlatform && [[[ChunkManager sharedSingleton] getCurrentChunk] isPlatformBelowPosition:ccpSub(self.position, [[ChunkManager sharedSingleton] getCurrentChunk].position)]) {
+        if(touchingPlatform && ![[[ChunkManager sharedSingleton] getCurrentChunk] isLowestLevel:ccpSub(self.position, [[ChunkManager sharedSingleton] getCurrentChunk].position)]) {
             // play the jump down sound effect
             [[SimpleAudioEngine sharedEngine] playEffect:@"jumpDown.wav"];
             // allow the player to fall through the current platform

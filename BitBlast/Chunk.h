@@ -42,6 +42,6 @@ typedef enum {
 - (int) getRandomLevel;
 - (ChunkLevel) getLevelType:(int)index;
 - (int) getLevel:(int)index;
-- (BOOL) isPlatformBelowPosition:(CGPoint)position;
+- (BOOL) isLowestLevel:(CGPoint)position;
 
 @end
