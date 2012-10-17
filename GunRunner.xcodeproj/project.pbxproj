@@ -96,6 +96,7 @@
 		0A8D310A1501D27B002F9B7B /* BBDropship.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D31091501D27B002F9B7B /* BBDropship.mm */; };
 		0A8D310D1501D70E002F9B7B /* testDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A8D310C1501D70E002F9B7B /* testDropship.plist */; };
 		0A8D31101501D76F002F9B7B /* BBDropshipManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D310F1501D76F002F9B7B /* BBDropshipManager.mm */; };
+		0A90BD84162F11AA0001312A /* BBDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90BD83162F11AA0001312A /* BBDeviceManager.m */; };
 		0A93ED721614FC1400086831 /* bossBottomBullet 1-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A93ED711614FC1400086831 /* bossBottomBullet 1-1.plist */; };
 		0A93ED7516150CC800086831 /* bossParticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A93ED7316150CC800086831 /* bossParticle.plist */; };
 		0A93ED7616150CC800086831 /* bossParticle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A93ED7416150CC800086831 /* bossParticle.png */; };
@@ -137,7 +138,7 @@
 		0AC9623B15106D8D00790570 /* coinPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AC9623A15106D8D00790570 /* coinPatterns.plist */; };
 		0AC9624015106E6800790570 /* BBCoinManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9623F15106E6800790570 /* BBCoinManager.mm */; };
 		0AC9624315106E7400790570 /* BBCoin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0AC9624215106E7400790570 /* BBCoin.mm */; };
-		0ACD5F70161384AE00388AC7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ACD5F6F161384AE00388AC7 /* AdSupport.framework */; };
+		0ACD5F70161384AE00388AC7 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ACD5F6F161384AE00388AC7 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0AD96B3C14A7944000C9DAE9 /* cameraProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AD96B3B14A7944000C9DAE9 /* cameraProperties.plist */; };
 		0AE417371496F5C400342D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417361496F5C400342D8E /* QuartzCore.framework */; };
 		0AE417391496F5C400342D8E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE417381496F5C400342D8E /* OpenGLES.framework */; };
@@ -604,6 +605,8 @@
 		0A8D310C1501D70E002F9B7B /* testDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testDropship.plist; sourceTree = "<group>"; };
 		0A8D310E1501D76E002F9B7B /* BBDropshipManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDropshipManager.h; sourceTree = "<group>"; };
 		0A8D310F1501D76F002F9B7B /* BBDropshipManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBDropshipManager.mm; sourceTree = "<group>"; };
+		0A90BD82162F11AA0001312A /* BBDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBDeviceManager.h; sourceTree = "<group>"; };
+		0A90BD83162F11AA0001312A /* BBDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBDeviceManager.m; sourceTree = "<group>"; };
 		0A93ED711614FC1400086831 /* bossBottomBullet 1-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossBottomBullet 1-1.plist"; sourceTree = "<group>"; };
 		0A93ED7316150CC800086831 /* bossParticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bossParticle.plist; path = Resources/Particles/bossParticle.plist; sourceTree = "<group>"; };
 		0A93ED7416150CC800086831 /* bossParticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bossParticle.png; path = Resources/Particles/bossParticle.png; sourceTree = "<group>"; };
@@ -2399,6 +2402,8 @@
 				0A4C46FE15558C8300C6FDCA /* SessionMWrapper.mm */,
 				0A50C361161E20B800C11668 /* BBColorRectSprite.h */,
 				0A50C362161E20B800C11668 /* BBColorRectSprite.m */,
+				0A90BD82162F11AA0001312A /* BBDeviceManager.h */,
+				0A90BD83162F11AA0001312A /* BBDeviceManager.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -3095,6 +3100,7 @@
 				0A50C363161E20B800C11668 /* BBColorRectSprite.m in Sources */,
 				0A50C3A01623428300C11668 /* BBMedals.m in Sources */,
 				0A98A3C516279F8A00B0359E /* BBParallaxSprite.m in Sources */,
+				0A90BD84162F11AA0001312A /* BBDeviceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

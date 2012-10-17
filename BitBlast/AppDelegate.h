@@ -12,6 +12,7 @@
 #import "GameCenter.h"
 #import "IAPManager.h"
 #import "SimpleAudioEngine.h"
+#import "BBDeviceManager.h"
 
 @class RootViewController;
 

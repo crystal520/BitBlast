@@ -102,8 +102,12 @@
 	[viewController setView:glView];
 	
 	// make the View Controller a child of the main window
-    window.rootViewController = viewController;
-	//[window addSubview: viewController.view];
+    if([BBDeviceManager iOSVersionGreaterThan:@"6.0"]) {
+        window.rootViewController = viewController;
+    }
+    else {
+        [window addSubview: viewController.view];
+    }
 	
 	[window makeKeyAndVisible];
 	
