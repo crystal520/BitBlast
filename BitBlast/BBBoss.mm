@@ -94,6 +94,7 @@
             if([[SettingsManager sharedSingleton] getInt:@"bossStage"] > 0 || [[SettingsManager sharedSingleton] getFloat:@"bossHealth"] < maxHealth) {
                 currentAIStage = [[SettingsManager sharedSingleton] getInt:@"bossStage"];
                 [self equipFromSave];
+                [[BBWeaponManager sharedSingleton] setEnabled:YES forType:WEAPON_INVENTORY_MINIBOSS];
             }
             else {
                 // load weapons and start the boss battle!

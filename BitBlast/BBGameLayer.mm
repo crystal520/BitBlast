@@ -689,14 +689,16 @@
     // freeze the game
     [self freeze];
     // create black color rectangle to fade in on top of everything but the player and the HUD
-    [scrollingNode addChild:[BBColorRectSprite spriteWithColor:ccc3(0, 0, 0) alpha:0] z:DEPTH_GAME_BOSS_INTRO];
+    BBColorRectSprite *bg = [BBColorRectSprite spriteWithColor:ccc3(0, 0, 0) alpha:0];
+    bg.tag = SPRITE_TAG_BOSS_OVERLAY;
+    [scrollingNode addChild:bg z:DEPTH_GAME_BOSS_INTRO];
     // make sure rectangle is on screen
-    [[scrollingNode getChildByTag:SPRITE_TAG_BACKGROUND] setPosition:[Globals sharedSingleton].playerPosition];
+    [[scrollingNode getChildByTag:SPRITE_TAG_BOSS_OVERLAY] setPosition:ccpMult([Globals sharedSingleton].playerPosition, [ResolutionManager sharedSingleton].positionScale)];
     // swap player depth to be above everything
     [scrollingNode reorderChild:player z:DEPTH_GAME_PLAYER_BOSS_INTRO];
     // start fading in color rect
     CCAction *fadeAction = [CCSequence actions:[CCFadeTo actionWithDuration:3 opacity:255], [CCCallFunc actionWithTarget:self selector:@selector(finishSpawnFinalBoss)], nil];
-    [[scrollingNode getChildByTag:SPRITE_TAG_BACKGROUND] runAction:fadeAction];
+    [[scrollingNode getChildByTag:SPRITE_TAG_BOSS_OVERLAY] runAction:fadeAction];
 }
 
 - (void) finishSpawnFinalBoss {
@@ -713,12 +715,12 @@
     [[BBBossManager sharedSingleton] tryToSpawnBoss];
     // fade color rect out
     CCAction *fadeAction = [CCSequence actions:[CCFadeTo actionWithDuration:3 opacity:0], [CCCallFunc actionWithTarget:self selector:@selector(bossStart)], nil];
-    [[scrollingNode getChildByTag:SPRITE_TAG_BACKGROUND] runAction:fadeAction];
+    [[scrollingNode getChildByTag:SPRITE_TAG_BOSS_OVERLAY] runAction:fadeAction];
 }
 
 - (void) bossStart {
     // remove the faded background
-    [scrollingNode removeChildByTag:SPRITE_TAG_BACKGROUND cleanup:YES];
+    [scrollingNode removeChildByTag:SPRITE_TAG_BOSS_OVERLAY cleanup:YES];
     // no longer in the boss intro sequence
     [Globals sharedSingleton].introBossSequence = NO;
     // unfreeze everything

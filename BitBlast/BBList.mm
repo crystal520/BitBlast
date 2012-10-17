@@ -8,7 +8,6 @@
 
 #import "BBList.h"
 
-
 @implementation BBList
 
 @synthesize dummyPosition;
@@ -36,8 +35,8 @@
 }
 
 - (CCNode*) getChildWithTouchPosition:(CGPoint)pos {
-	pos.x -= (dummyPosition.x);
-	pos.y -= (dummyPosition.y);
+	pos.x -= self.position.x;
+	pos.y -= self.position.y;
 	for(int i=0,j=[children_ count];i<j;i++) {
 		CCNode *child = [children_ objectAtIndex:i];
 		CGRect bb = CGRectMake(child.position.x * [ResolutionManager sharedSingleton].imageScale, child.position.y * [ResolutionManager sharedSingleton].imageScale, child.contentSize.width, child.contentSize.height);

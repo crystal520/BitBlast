@@ -10,11 +10,10 @@
 
 @implementation BBColorRectSprite
 
-- (id) initWithColor:(ccColor3B)color alpha:(float)alpha {
-    CGSize winSize = [ResolutionManager sharedSingleton].size;
+- (id) initWithColor:(ccColor3B)color alpha:(float)alpha size:(CGSize)size {
     
-    if((self = [super initWithFile:@"white.png" rect:CGRectMake(0, 0, winSize.width * 2, winSize.height * 2)])) {
-		self.position = ccp(winSize.width * 0.5, winSize.height * 0.5);
+    if((self = [super initWithFile:@"white.png" rect:CGRectMake(0, 0, size.width, size.height)])) {
+		self.position = ccp(size.width * 0.5, size.height * 0.5);
 		self.color = color;
 		self.opacity = alpha * 255;
         self.tag = SPRITE_TAG_BACKGROUND;
@@ -25,7 +24,12 @@
 }
 
 + (id) spriteWithColor:(ccColor3B)color alpha:(float)alpha {
-    return [[[BBColorRectSprite alloc] initWithColor:color alpha:alpha] autorelease];
+    CGSize winSize = [ResolutionManager sharedSingleton].size;
+    return [BBColorRectSprite spriteWithColor:color alpha:alpha size:CGSizeMake(winSize.width * 2, winSize.height * 2)];
+}
+
++ (id) spriteWithColor:(ccColor3B)color alpha:(float)alpha size:(CGSize)size {
+    return [[[BBColorRectSprite alloc] initWithColor:color alpha:alpha size:size] autorelease];
 }
 
 @end

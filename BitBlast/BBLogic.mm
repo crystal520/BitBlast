@@ -88,7 +88,7 @@
         BOOL canSpawn = ([[[BBDropshipManager sharedSingleton] getActiveDropships] count] == 0 && [[[BBMinibossManager sharedSingleton] getActiveMinibosses] count] == 0 && !firstRun && ![[BBBossManager sharedSingleton] isActive] && ![[BBMovingCoinManager sharedSingleton] isTriforceActive]);
         
 #if DEBUG_SPAWN_BOSS
-        if(canSpawn) {
+        if(canSpawn && ![Globals sharedSingleton].introBossSequence) {
             [self triforceCollected];
             canSpawn = NO;
         }

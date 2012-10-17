@@ -10,7 +10,8 @@
 
 @interface BBColorRectSprite : CCSprite
 
-- (id) initWithColor:(ccColor3B)color alpha:(float)alpha;
+- (id) initWithColor:(ccColor3B)color alpha:(float)alpha size:(CGSize)size;
 + (id) spriteWithColor:(ccColor3B)color alpha:(float)alpha;
++ (id) spriteWithColor:(ccColor3B)color alpha:(float)alpha size:(CGSize)size;
 
 @end
