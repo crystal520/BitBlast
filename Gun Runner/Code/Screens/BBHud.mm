@@ -62,6 +62,7 @@
         for(int i=0;i<[Globals sharedSingleton].numPiecesForFinalBoss;i++) {
             CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:(i < [[SettingsManager sharedSingleton] getInt:@"totalTriforce"]) ?@"triforceFilled.png" : @"triforceEmpty.png"];
             sprite.position = ccp(sprite.contentSize.width * 0.65 + i * (sprite.contentSize.width + 5), startY);
+            sprite.opacity = (i < [[SettingsManager sharedSingleton] getInt:@"totalTriforce"]) ? 255 : 128;
             [triforce addObject:sprite];
             [uiSpriteBatch addChild:sprite];
         }
