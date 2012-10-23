@@ -5,17 +5,17 @@
  </tileset>
  <layer name="Terrain Background" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2D4AlYgZiIRsw0h9yGLs5BhFq0wzI0D7Q5C7gMA5agA7Q==
+   eJxjYBgFo2DgABMVMRuV3cY6xNzHQmX3UuoXaocfLdwHACe3APM=
   </data>
  </layer>
  <layer name="CollisionTop" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B8wAXE3EDMQwLNOyAuJQ+Q4i960kMlDAdDWOELOwAH5wQa
+   eJxjYBgFwxlwAzEPlIax0fnI4ugYWQ0vld3GRWXzaAHQw4BeNLXDeqAAtnQ0GGgYGwCyiwQn
   </data>
  </layer>
  <layer name="Background" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJy9UG0OglAM223fAdDwtwl6AuQEyD2tLC8Z+zD6Q5Y0dFvX0Cfy/xqIC3F1XPQL9hgUh91ZNRE34u646BfsMSkOu3d9m63Kaefer1cjHsSiHJYv2mMmrO7XbFVOO/d+vUbiSWzKYfmmPVbC6nrNdTbp2WzOlt/smsTPviEkzvwuaNY6m/RsNueY3+yaxM++ISTO/C5okkxZTmR6q/l0U/iHfUs8/f8WOZHpfc7qpvAP+zHxfAHw3ntf
+   eJytUkEOwyAMy295AJu4Rur2gq0v2PrPuWJUxlDaQyNZdeIEKpNoZjfgnuHgHgGkFkljbtKrc1fGBDyAZ4aD+/S/hzXmJr06d2W8gDcQcPYMgDtqHvJ30wqfc27Sa4WPfF5z1Y/iA3yBhPkFAHfUPOXvphW+5Nyk1wof+bzmqp+JQO8S6npT4/7enPisb1Lpe/utnie6J9F/pE6N+3tz4rO+SaXv7Td7Th6xFw0f9YnnrB+ezTvNvhfPySP2ouGjPvGc9cOzeafZ9+L5D5cLjZM=
   </data>
  </layer>
 </map>

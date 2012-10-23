@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A5E8D5C1631EC5800B3DA5B /* tutorial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D5B1631EC5800B3DA5B /* tutorial.plist */; };
+		0A5E8D68163210E000B3DA5B /* tutorial-doubleJump.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D60163210E000B3DA5B /* tutorial-doubleJump.tmx */; };
+		0A5E8D69163210E000B3DA5B /* tutorial-dropship.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D61163210E000B3DA5B /* tutorial-dropship.tmx */; };
+		0A5E8D6A163210E000B3DA5B /* tutorial-finish.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D62163210E000B3DA5B /* tutorial-finish.tmx */; };
+		0A5E8D6B163210E000B3DA5B /* tutorial-jumpUp.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D63163210E000B3DA5B /* tutorial-jumpUp.tmx */; };
+		0A5E8D6C163210E000B3DA5B /* tutorial-postJumpDown.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D64163210E000B3DA5B /* tutorial-postJumpDown.tmx */; };
+		0A5E8D6D163210E000B3DA5B /* tutorial-postJumpUp.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D65163210E000B3DA5B /* tutorial-postJumpUp.tmx */; };
+		0A5E8D6E163210E000B3DA5B /* tutorial-start.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D66163210E000B3DA5B /* tutorial-start.tmx */; };
 		0A90C112162F43D50001312A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A90C111162F43D50001312A /* QuartzCore.framework */; };
 		0A90C114162F43D50001312A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A90C113162F43D50001312A /* OpenGLES.framework */; };
 		0A90C116162F43D50001312A /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A90C115162F43D50001312A /* OpenAL.framework */; };
@@ -504,6 +512,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A5E8D5B1631EC5800B3DA5B /* tutorial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorial.plist; sourceTree = "<group>"; };
+		0A5E8D60163210E000B3DA5B /* tutorial-doubleJump.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-doubleJump.tmx"; sourceTree = "<group>"; };
+		0A5E8D61163210E000B3DA5B /* tutorial-dropship.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-dropship.tmx"; sourceTree = "<group>"; };
+		0A5E8D62163210E000B3DA5B /* tutorial-finish.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-finish.tmx"; sourceTree = "<group>"; };
+		0A5E8D63163210E000B3DA5B /* tutorial-jumpUp.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-jumpUp.tmx"; sourceTree = "<group>"; };
+		0A5E8D64163210E000B3DA5B /* tutorial-postJumpDown.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-postJumpDown.tmx"; sourceTree = "<group>"; };
+		0A5E8D65163210E000B3DA5B /* tutorial-postJumpUp.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-postJumpUp.tmx"; sourceTree = "<group>"; };
+		0A5E8D66163210E000B3DA5B /* tutorial-start.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-start.tmx"; sourceTree = "<group>"; };
 		0A90C10D162F43D50001312A /* Gun Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gun Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A90C111162F43D50001312A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0A90C113162F43D50001312A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1309,6 +1325,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A5E8D5E163210E000B3DA5B /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				0A5E8D60163210E000B3DA5B /* tutorial-doubleJump.tmx */,
+				0A5E8D61163210E000B3DA5B /* tutorial-dropship.tmx */,
+				0A5E8D62163210E000B3DA5B /* tutorial-finish.tmx */,
+				0A5E8D63163210E000B3DA5B /* tutorial-jumpUp.tmx */,
+				0A5E8D64163210E000B3DA5B /* tutorial-postJumpDown.tmx */,
+				0A5E8D65163210E000B3DA5B /* tutorial-postJumpUp.tmx */,
+				0A5E8D66163210E000B3DA5B /* tutorial-start.tmx */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		0A90C102162F43D50001312A = {
 			isa = PBXGroup;
 			children = (
@@ -1933,6 +1963,7 @@
 			children = (
 				0A90C512162F5A830001312A /* Boss */,
 				0A90C514162F5A830001312A /* Jungle */,
+				0A5E8D5E163210E000B3DA5B /* Tutorial */,
 			);
 			name = Chunks;
 			path = Resources/Chunks;
@@ -2137,6 +2168,7 @@
 			children = (
 				0A90C574162F5A840001312A /* bossLevel.plist */,
 				0A90C575162F5A840001312A /* jungleLevel.plist */,
+				0A5E8D5B1631EC5800B3DA5B /* tutorial.plist */,
 			);
 			name = Levels;
 			path = Resources/Levels;
@@ -3000,6 +3032,14 @@
 				0A90C6FC162F5A850001312A /* ultraLaser.plist in Resources */,
 				0A90C6FD162F5A850001312A /* wavegun.plist in Resources */,
 				0A90C75E162F98390001312A /* white.png in Resources */,
+				0A5E8D5C1631EC5800B3DA5B /* tutorial.plist in Resources */,
+				0A5E8D68163210E000B3DA5B /* tutorial-doubleJump.tmx in Resources */,
+				0A5E8D69163210E000B3DA5B /* tutorial-dropship.tmx in Resources */,
+				0A5E8D6A163210E000B3DA5B /* tutorial-finish.tmx in Resources */,
+				0A5E8D6B163210E000B3DA5B /* tutorial-jumpUp.tmx in Resources */,
+				0A5E8D6C163210E000B3DA5B /* tutorial-postJumpDown.tmx in Resources */,
+				0A5E8D6D163210E000B3DA5B /* tutorial-postJumpUp.tmx in Resources */,
+				0A5E8D6E163210E000B3DA5B /* tutorial-start.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

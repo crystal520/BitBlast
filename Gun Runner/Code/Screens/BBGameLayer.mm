@@ -293,6 +293,11 @@
 #pragma mark -
 #pragma mark actions
 - (void) playIntro {
+    // see if we should enable the tutorial
+#if DEBUG_ENABLE_TUTORIAL
+    [[SettingsManager sharedSingleton] setBool:YES keyString:@"tutorial"];
+    [[SettingsManager sharedSingleton] setInteger:TUTORIAL_STATE_JUMP_UP keyString:@"tutorialState"];
+#endif
     // let everyone know that a new game is being started
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventNewGame object:nil]];
     // clear unused textures
@@ -301,6 +306,9 @@
     [Globals sharedSingleton].endBossSequence = NO;
     // make sure intro boss sequence is disabled
     [Globals sharedSingleton].introBossSequence = NO;
+    // set global tutorial values
+    [Globals sharedSingleton].tutorial = [[SettingsManager sharedSingleton] getBool:@"tutorial"];
+    [Globals sharedSingleton].tutorialState = (TutorialState)([[SettingsManager sharedSingleton] getInt:@"tutorialState"]);
     // make sure the game is resumed, or else weirdness occurs (camera not following player, etc.)
     [self resume];
 	// create chopper for intro animation
@@ -546,6 +554,10 @@
     // see if the player should be in the boss level
     if([[BBLogic sharedSingleton] getCanSpawnBoss]) {
         return @"bossLevel";
+    }
+    // see if the player should be in the tutorial level
+    else if([Globals sharedSingleton].tutorial) {
+        return @"tutorial";
     }
     return @"jungleLevel";
 }

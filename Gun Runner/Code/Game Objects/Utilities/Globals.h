@@ -30,13 +30,18 @@
     BOOL endBossSequence;
     // whether we're in the intro boss sequence or not
     BOOL introBossSequence;
+    // whether or not the tutorial is active
+    BOOL tutorial;
+    // current state of the tutorial
+    TutorialState tutorialState;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
 @property (nonatomic, assign) int playerStartingHealth, numKeysForMiniboss, numPiecesForFinalBoss;
 @property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 @property (nonatomic, assign) GameState gameState;
-@property (nonatomic, assign) BOOL endBossSequence, introBossSequence;
+@property (nonatomic, assign) TutorialState tutorialState;
+@property (nonatomic, assign) BOOL endBossSequence, introBossSequence, tutorial;
 
 + (Globals*) sharedSingleton;
 + (UIViewController*) getAppViewController;

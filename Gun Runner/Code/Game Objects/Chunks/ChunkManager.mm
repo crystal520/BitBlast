@@ -80,10 +80,20 @@
 
 - (void) addChunk:(NSString *)chunkName withOffset:(CGPoint)offset {
 	
-	// see if there is an override chunk. if there is, only display that one
-	if(![overrideChunk isEqualToString:@""]) {
-		chunkName = overrideChunk;
-	}
+    // check to see if this is the first chunk
+    if([currentChunks count] != 0) {
+        // see if there is an override chunk. if there is, only display that one
+        if(![overrideChunk isEqualToString:@""]) {
+            chunkName = overrideChunk;
+        }
+        // see if the tutorial is enabled
+        if([Globals sharedSingleton].tutorial) {
+            // make sure we don't go outside the bounds of the chunks array
+            int chunkLevel = MIN([Globals sharedSingleton].tutorialState, [chunks count]);
+            // set chunk to load based on current state of tutorial
+            chunkName = [[chunks objectAtIndex:chunkLevel] objectAtIndex:0];
+        }
+    }
 	
 	Chunk *newChunk = [[Chunk alloc] initWithFile:chunkName withOffset:offset];
 	[currentChunks addObject:newChunk];

@@ -203,6 +203,11 @@ static SettingsManager* _sharedSettingsManager = nil;
     if(![self doesExist:@"medals"]) {
         [self setString:@"0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20" keyString:@"medals"];
     }
+    // check to see if tutorial exists
+    if(![self doesExist:@"tutorial"]) {
+        [self setBool:YES keyString:@"tutorial"];
+        [self setInteger:TUTORIAL_STATE_JUMP_UP keyString:@"tutorialState"];
+    }
 	
 	[settings retain];
 }

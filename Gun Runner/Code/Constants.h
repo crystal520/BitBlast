@@ -98,6 +98,16 @@ typedef enum {
     SPRITE_TAG_BOSS_OVERLAY
 } SpriteTag;
 
+typedef enum {
+    TUTORIAL_STATE_JUMP_UP = 0,
+    TUTORIAL_STATE_POST_JUMP_UP,
+    TUTORIAL_STATE_DOUBLE_JUMP,
+    TUTORIAL_STATE_JUMP_DOWN,
+    TUTORIAL_STATE_POST_JUMP_DOWN,
+    TUTORIAL_STATE_DROPSHIP,
+    TUTORIAL_STATE_FINISH
+} TutorialState;
+
 #define TESTING 1
 
 #define kGameRestartNotification @"gameRestartNotification"
