@@ -28,7 +28,7 @@
 		itemDictionary = [[NSDictionary alloc] initWithDictionary:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:@"plist"]] objectForKey:@"shop"]];
 		
 		// create icon sprite
-		CCSprite *icon = [CCSprite spriteWithFile:[itemDictionary objectForKey:@"icon"]];
+		CCSprite *icon = [CCSprite spriteWithSpriteFrameName:[itemDictionary objectForKey:@"icon"]];
 		icon.position = ccp(background.contentSize.width * 0.1, background.contentSize.height * 0.65);
 		[self addChild:icon];
 		

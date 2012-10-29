@@ -34,6 +34,8 @@
     BOOL tutorial;
     // current state of the tutorial
     TutorialState tutorialState;
+    // whether the tutorial state can change
+    BOOL tutorialStateCanChange;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
@@ -41,7 +43,7 @@
 @property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 @property (nonatomic, assign) GameState gameState;
 @property (nonatomic, assign) TutorialState tutorialState;
-@property (nonatomic, assign) BOOL endBossSequence, introBossSequence, tutorial;
+@property (nonatomic, assign) BOOL endBossSequence, introBossSequence, tutorial, tutorialStateCanChange;
 
 + (Globals*) sharedSingleton;
 + (UIViewController*) getAppViewController;

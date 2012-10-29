@@ -35,5 +35,7 @@
 - (void) resume;
 // actions
 - (void) spawnCoinGroup;
+- (void) spawnCoinGroupWithLevel:(ChunkLevel)chunkLevel;
+- (void) spawnCoinGroupWithString:(NSString*)coinString withLevel:(ChunkLevel)chunkLevel;
 
 @end

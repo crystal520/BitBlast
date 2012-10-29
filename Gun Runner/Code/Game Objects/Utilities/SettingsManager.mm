@@ -206,7 +206,7 @@ static SettingsManager* _sharedSettingsManager = nil;
     // check to see if tutorial exists
     if(![self doesExist:@"tutorial"]) {
         [self setBool:YES keyString:@"tutorial"];
-        [self setInteger:TUTORIAL_STATE_JUMP_UP keyString:@"tutorialState"];
+        [self setInteger:TUTORIAL_STATE_START keyString:@"tutorialState"];
     }
 	
 	[settings retain];

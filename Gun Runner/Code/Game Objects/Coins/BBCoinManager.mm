@@ -147,9 +147,12 @@
 #pragma mark actions
 - (void) spawnCoinGroup {
 	// get random level from current chunk
-	Chunk *currentChunk = [[ChunkManager sharedSingleton] getCurrentChunk];
-	int level = [currentChunk getLevel:[currentChunk getRandomLevel]] + 50;
-	// get a random coin group
+	[self spawnCoinGroupWithLevel:((ChunkLevel)([[[ChunkManager sharedSingleton] getCurrentChunk] getRandomLevel]))];
+}
+
+- (void) spawnCoinGroupWithLevel:(ChunkLevel)chunkLevel {
+	int level = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:chunkLevel];
+    // get a random coin group
 	NSArray *coinGroup = [self getRandomCoinGroup];
 	// loop through and position coins
 	for(NSString *s in coinGroup) {
@@ -160,6 +163,41 @@
 		// reset coin with new position
 		[c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
 	}
+}
+
+- (void) spawnCoinGroupWithString:(NSString*)coinString withLevel:(ChunkLevel)chunkLevel {
+    // get the y level that the coin group will start at
+	int level = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:chunkLevel];
+    // convert the string to all lowercase
+    coinString = [coinString lowercaseString];
+    // get the letter dictionary, which contains coin positions for each character
+    NSDictionary *letterDictionary = [NSDictionary dictionaryWithDictionary:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"coinPatterns" ofType:@"plist"]] objectForKey:@"letters"]];
+    // keep track of the last x position of each letter
+    int lastX = 0;
+    // loop through each character in the string
+    for(int i=0;i<[coinString length];i++) {
+        // get the character at the given index
+        NSString *letter = [coinString substringWithRange:NSMakeRange(i, 1)];
+        // get the string of coin positions using the letter
+        NSString *coinPositionString = [letterDictionary objectForKey:letter];
+        // split the string up into coin positions
+        NSArray *coinPositions = [coinPositionString componentsSeparatedByString:@"|"];
+        // keep track of the maximum x position of the coins in the current letter
+        int maxX = 0;
+        // loop through coin positions
+        for(NSString *s in coinPositions) {
+            // get a recycled coin that can be used
+            BBCoin *c = [self getRecycledCoin];
+            // convert the string to a point for positioning the coin
+            CGPoint p = ccpMult(CGPointFromString(s), 32);
+            // keep track of the maximum x position for this letter
+            maxX = MAX(maxX, p.x);
+            // reset coin with new position
+            [c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + lastX + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
+        }
+        // space the letters out by their width and two coin widths
+        lastX += (maxX + 64);
+    }
 }
 
 @end

@@ -31,8 +31,10 @@ typedef enum {
 @end
 
 @interface BBDropship : BBMovingObject {
-    // number of bullets it takes for the dropship to die
+    // current health of the dropship
 	float health;
+    // starting health of the dropship
+    float maxHealth;
 	// rate at which enemies spawn from the dropship
 	float spawnRate;
 	// timer to spawn enemies based on spawnRate
@@ -76,6 +78,7 @@ typedef enum {
 - (void) update:(float)delta;
 // getters
 - (NSString*) getRandomEnemy;
+- (BOOL) isAtFullHealth;
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setCollisionShape:(NSString*)newShape;

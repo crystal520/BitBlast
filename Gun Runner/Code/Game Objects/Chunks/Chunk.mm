@@ -70,37 +70,10 @@
 	levels = [[NSMutableArray alloc] initWithCapacity:CHUNK_LEVEL_COUNT];
 	levelTypes = [[NSMutableArray alloc] initWithCapacity:CHUNK_LEVEL_COUNT];
     for(int i=0;i<CHUNK_LEVEL_COUNT;i++) {
-        [levels addObject:[NSNumber numberWithInt:CHUNK_LEVEL_UNKNOWN]];
-        [levelTypes addObject:[NSNumber numberWithInt:CHUNK_LEVEL_UNKNOWN]];
+        int level = CHUNK_LEVEL_COUNT-(i+1);
+        [levels addObject:[NSNumber numberWithInt:self.tileSize.height * ((level * 2) + 0.5)]];
+        [levelTypes addObject:[NSNumber numberWithInt:i]];
     }
-	// get layer
-	CCTMXLayer *layer = [self layerNamed:@"CollisionTop"];
-	// get size of layer
-	CGSize layerSize = [layer layerSize];
-	// loop through and compile an array of good ground positions
-	for(int x=0;x<layerSize.width;x++) {
-		for(int y=0;y<layerSize.height;y++) {
-			CCSprite *tile = [layer tileAt:ccp(x,y)];
-			// restrict levels to 3 levels. all extra tiles are fluff
-			if(tile && (y == layerSize.height-1 || y == layerSize.height-3 || y == layerSize.height-5)) {
-				// keep track of this tile's type
-				ChunkLevel type = CHUNK_LEVEL_TOP;
-				if(y == layerSize.height-3) {
-					type = CHUNK_LEVEL_MIDDLE;
-				}
-				else if(y == layerSize.height-1) {
-					type = CHUNK_LEVEL_BOTTOM;
-				}
-				// keep track of this tile's y position
-                [levels replaceObjectAtIndex:(int)type withObject:[NSNumber numberWithFloat:(tile.position.y + tile.contentSize.height * 0.5) * [ResolutionManager sharedSingleton].inversePositionScale]];
-                [levelTypes replaceObjectAtIndex:(int)type withObject:[NSNumber numberWithInt:type]];
-                // if we have all possible levelTypes, stop looking for them
-                if(![levelTypes containsObject:[NSNumber numberWithInt:CHUNK_LEVEL_UNKNOWN]]) {
-                    return;
-                }
-			}
-		}
-	}
 }
 
 #pragma mark -

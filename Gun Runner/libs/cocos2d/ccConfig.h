@@ -172,7 +172,7 @@
  To enable set it to 1. Enabled by default.
  */
 #ifndef CC_NODE_RENDER_SUBPIXEL
-#define CC_NODE_RENDER_SUBPIXEL 0
+#define CC_NODE_RENDER_SUBPIXEL 1
 #endif
 
 /** @def CC_SPRITEBATCHNODE_RENDER_SUBPIXEL
@@ -182,7 +182,7 @@
  To enable set it to 1. Enabled by default.
  */
 #ifndef CC_SPRITEBATCHNODE_RENDER_SUBPIXEL
-#define CC_SPRITEBATCHNODE_RENDER_SUBPIXEL	0
+#define CC_SPRITEBATCHNODE_RENDER_SUBPIXEL	1
 #endif
 
 /** @def CC_TEXTURE_ATLAS_USE_TRIANGLE_STRIP

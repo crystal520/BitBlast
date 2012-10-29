@@ -68,6 +68,8 @@ typedef enum {
     BOOL invincible;
     // timer to count down player being invincible
     float invincibleTimer;
+    // the last known platform level that the player was on (y-coordinate)
+    int lastKnownLevel;
 }
 
 @property (nonatomic, readonly) int health;

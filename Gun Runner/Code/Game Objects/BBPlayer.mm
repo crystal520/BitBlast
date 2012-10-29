@@ -115,7 +115,35 @@
                 }
             }
             
+            // keep track of current player's y position
+            if(touchingPlatform) {
+                lastKnownLevel = dummyPosition.y;
+            }
+            
             [super update:delta];
+            
+            // if the tutorial is enabled and the player's y position is different than the last known y position when the player was on a platform
+            if(!prevTouchingPlatform && touchingPlatform && [Globals sharedSingleton].tutorial && [Globals sharedSingleton].tutorialStateCanChange && lastKnownLevel != 0 && lastKnownLevel != dummyPosition.y) {
+                // if the player jumped up
+                if(lastKnownLevel < dummyPosition.y) {
+                    if([Globals sharedSingleton].tutorialState == TUTORIAL_STATE_JUMP_UP) {
+                        [Globals sharedSingleton].tutorialState = TUTORIAL_STATE_POST_JUMP_UP;
+                        [TestFlight passCheckpoint:@"doneTutorial_JumpUp"];
+                    }
+                    else if([Globals sharedSingleton].tutorialState == TUTORIAL_STATE_DOUBLE_JUMP && dummyPosition.y - lastKnownLevel > 500) {
+                        [Globals sharedSingleton].tutorialState = TUTORIAL_STATE_JUMP_DOWN;
+                        [Globals sharedSingleton].tutorialStateCanChange = YES;
+                        [TestFlight passCheckpoint:@"doneTutorial_DoubleJump"];
+                    }
+                }
+                // if the player jumped down
+                if(lastKnownLevel > dummyPosition.y) {
+                    if([Globals sharedSingleton].tutorialState == TUTORIAL_STATE_JUMP_DOWN) {
+                        [Globals sharedSingleton].tutorialState = TUTORIAL_STATE_POST_JUMP_DOWN;
+                        [TestFlight passCheckpoint:@"doneTutorial_JumpDown"];
+                    }
+                }
+            }
             
             // if player is no longer touching a platform and isn't jumping, then they fell!
             if(!touchingPlatform && prevTouchingPlatform && !jumping && !fellOffPlatform) {

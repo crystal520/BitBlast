@@ -44,8 +44,6 @@
 	CCNode *scrollingNode;
 	CGPoint cameraOffset, cameraBounds;
 	GameState state, prevState;
-	// colored background sprite
-	CCSprite *background;
 	// iCade support view
 	iCadeReaderView *iCadeView;
 	// chopper for intro

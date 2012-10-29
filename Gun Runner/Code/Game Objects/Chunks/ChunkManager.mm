@@ -7,11 +7,11 @@
 //
 
 #import "ChunkManager.h"
-
+#import "BBDropshipManager.h"
 
 @implementation ChunkManager
 
-@synthesize currentChunks, curSpeedLevel;
+@synthesize currentChunks, curSpeedLevel, chunkCount;
 
 + (ChunkManager*) sharedSingleton {
 	
@@ -92,6 +92,22 @@
             int chunkLevel = MIN([Globals sharedSingleton].tutorialState, [chunks count]);
             // set chunk to load based on current state of tutorial
             chunkName = [[chunks objectAtIndex:chunkLevel] objectAtIndex:0];
+            // see if we should advance to the next tutorial step
+            switch([Globals sharedSingleton].tutorialState) {
+                case TUTORIAL_STATE_START:
+                    [Globals sharedSingleton].tutorialStateCanChange = YES;
+                    break;
+                case TUTORIAL_STATE_POST_JUMP_UP:
+                    [Globals sharedSingleton].tutorialState = TUTORIAL_STATE_DOUBLE_JUMP;
+                    [Globals sharedSingleton].tutorialStateCanChange = YES;
+                    break;
+                case TUTORIAL_STATE_POST_JUMP_DOWN:
+                    [Globals sharedSingleton].tutorialState = TUTORIAL_STATE_DROPSHIP;
+                    [Globals sharedSingleton].tutorialStateCanChange = YES;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 	
@@ -108,6 +124,16 @@
 	else {
 		[self addChild:newChunk];
 	}
+    
+    // increment total number of chunks
+    chunkCount++;
+    
+    // see if tutorial needs to end
+    if([Globals sharedSingleton].tutorial && [Globals sharedSingleton].tutorialState == TUTORIAL_STATE_FINISH) {
+        [self replaceChunksWithLevel:@"jungleLevel"];
+        [Globals sharedSingleton].tutorial = NO;
+        [BBDropshipManager sharedSingleton].dropshipLevel = 0;
+    }
 }
 
 - (void) addRandomChunk {
@@ -204,6 +230,24 @@
 	else {
 		NSLog(@"ERROR: Failed to load chunks for level \"%@\" because it doesn't exist", levelName);
 	}
+}
+
+- (void) replaceChunksWithLevel:(NSString*)levelName {
+    // grab plist from bundle
+	NSDictionary *levelPlist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"]];
+    
+    // make sure it exists
+    if(levelPlist) {
+        // reset speed level
+        curSpeedLevel = 0;
+        // grab array of chunks
+		[chunks setArray:[levelPlist objectForKey:@"chunks"]];
+        // grab override chunk
+		[overrideChunk setString:[levelPlist objectForKey:@"overrideChunk"]];
+    }
+    else {
+        NSLog(@"ERROR: Failed to replace chunks with level \"%@\" because the file doesn't exist", levelName);
+    }
 }
 
 #pragma mark -

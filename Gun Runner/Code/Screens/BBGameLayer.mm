@@ -65,9 +65,6 @@
 		// for objects that need to scroll
 		scrollingNode = [[CCNode alloc] init];
 		[self addChild:scrollingNode z:DEPTH_LEVEL];
-        
-        // create background sprite
-		[self createBackground];
 		
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton] z:DEPTH_GAME_LEVEL];
@@ -214,15 +211,6 @@
 	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentCoins"];
 	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentMeters"];
 	[[SettingsManager sharedSingleton] setInteger:0 keyString:@"currentDropships"];
-}
-
-- (void) createBackground {
-	// create colorable background
-	background = [CCSprite spriteWithFile:@"white.png" rect:CGRectMake(-[ResolutionManager sharedSingleton].size.width * 0.5, -[ResolutionManager sharedSingleton].size.height * 0.5, [ResolutionManager sharedSingleton].size.width * 2, [ResolutionManager sharedSingleton].size.height * 2)];
-	background.anchorPoint = ccp(0, 0);
-	ccTexParams params = {GL_LINEAR,GL_LINEAR,GL_REPEAT,GL_REPEAT};
-	[background.texture setTexParameters:&params];
-	[self addChild:background z:DEPTH_BACKGROUND];
 }
 
 #pragma mark -
@@ -442,8 +430,12 @@
 	NSArray *colorArray = [[dict objectForKey:@"backgroundColor"] componentsSeparatedByString:@", "];
 	// make color
 	ccColor3B bgColor = ccc3([[colorArray objectAtIndex:0] floatValue], [[colorArray objectAtIndex:1] floatValue], [[colorArray objectAtIndex:2] floatValue]);
-	// set color
-	background.color = bgColor;
+    // remove background from screen
+    [self removeChildByTag:SPRITE_TAG_BACKGROUND cleanup:YES];
+	// create background with new color
+	BBColorRectSprite *background = [BBColorRectSprite spriteWithColor:bgColor alpha:1];
+    background.tag = SPRITE_TAG_BACKGROUND;
+	[self addChild:background z:DEPTH_BACKGROUND];
 }
 
 - (void) setState:(GameState)newState {
@@ -551,13 +543,13 @@
 #pragma mark -
 #pragma mark getters
 - (NSString*) getCurrentLevel {
-    // see if the player should be in the boss level
-    if([[BBLogic sharedSingleton] getCanSpawnBoss]) {
-        return @"bossLevel";
-    }
-    // see if the player should be in the tutorial level
-    else if([Globals sharedSingleton].tutorial) {
+    // check for tutorial
+    if([Globals sharedSingleton].tutorial) {
         return @"tutorial";
+    }
+    // see if the player should be in the boss level
+    else if([[BBLogic sharedSingleton] getCanSpawnBoss]) {
+        return @"bossLevel";
     }
     return @"jungleLevel";
 }

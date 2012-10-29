@@ -299,21 +299,13 @@
 		0A90C69F162F5A850001312A /* gameOverMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B0162F5A840001312A /* gameOverMessages.plist */; };
 		0A90C6A0162F5A850001312A /* playerProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B1162F5A840001312A /* playerProperties.plist */; };
 		0A90C6A1162F5A850001312A /* 1heart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B3162F5A840001312A /* 1heart.plist */; };
-		0A90C6A2162F5A850001312A /* 1heartshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B4162F5A840001312A /* 1heartshopicon.png */; };
 		0A90C6A3162F5A850001312A /* 2hearts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B5162F5A840001312A /* 2hearts.plist */; };
-		0A90C6A4162F5A850001312A /* 2heartshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B6162F5A840001312A /* 2heartshopicon.png */; };
 		0A90C6A5162F5A850001312A /* 2xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B7162F5A840001312A /* 2xcoins.plist */; };
-		0A90C6A6162F5A850001312A /* 2xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B8162F5A840001312A /* 2xcoinshopicon.png */; };
 		0A90C6A7162F5A850001312A /* 3hearts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5B9162F5A840001312A /* 3hearts.plist */; };
-		0A90C6A8162F5A850001312A /* 3heartshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5BA162F5A840001312A /* 3heartshopicon.png */; };
 		0A90C6A9162F5A850001312A /* 4xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5BB162F5A840001312A /* 4xcoins.plist */; };
-		0A90C6AA162F5A850001312A /* 4xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5BC162F5A840001312A /* 4xcoinshopicon.png */; };
 		0A90C6AB162F5A850001312A /* 6xcoins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5BD162F5A840001312A /* 6xcoins.plist */; };
-		0A90C6AC162F5A850001312A /* 6xcoinshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5BE162F5A840001312A /* 6xcoinshopicon.png */; };
 		0A90C6AD162F5A850001312A /* gunspeed.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5BF162F5A840001312A /* gunspeed.plist */; };
-		0A90C6AE162F5A850001312A /* playerspeedbooststoreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5C0162F5A840001312A /* playerspeedbooststoreicon.png */; };
 		0A90C6AF162F5A850001312A /* speedboost.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5C1162F5A840001312A /* speedboost.plist */; };
-		0A90C6B0162F5A850001312A /* weaponsuperchargestoreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5C2162F5A840001312A /* weaponsuperchargestoreicon.png */; };
 		0A90C6B1162F5A850001312A /* bounce.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5C4162F5A840001312A /* bounce.wav */; };
 		0A90C6B2162F5A850001312A /* bruce-effects-bounce.wavblast5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5C5162F5A840001312A /* bruce-effects-bounce.wavblast5.wav */; };
 		0A90C6B3162F5A850001312A /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5C6162F5A840001312A /* coin.wav */; };
@@ -336,26 +328,8 @@
 		0A90C6C4162F5A850001312A /* spreadgun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5D7162F5A840001312A /* spreadgun.wav */; };
 		0A90C6C5162F5A850001312A /* triforce.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5D8162F5A840001312A /* triforce.wav */; };
 		0A90C6C6162F5A850001312A /* wavemotioncannon.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5D9162F5A840001312A /* wavemotioncannon.wav */; };
-		0A90C6C7162F5A850001312A /* 499IAPicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5DB162F5A840001312A /* 499IAPicon.png */; };
-		0A90C6C8162F5A850001312A /* 99centIAP.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5DC162F5A840001312A /* 99centIAP.png */; };
-		0A90C6C9162F5A850001312A /* bluewaveicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5DD162F5A840001312A /* bluewaveicon.png */; };
-		0A90C6CA162F5A850001312A /* burstshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5DE162F5A840001312A /* burstshot.png */; };
-		0A90C6CB162F5A850001312A /* experimentalshopicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5DF162F5A840001312A /* experimentalshopicon.png */; };
-		0A90C6CC162F5A850001312A /* flamethrower.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E0162F5A840001312A /* flamethrower.png */; };
-		0A90C6CD162F5A850001312A /* gatlingunicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E1162F5A840001312A /* gatlingunicon.png */; };
-		0A90C6CE162F5A850001312A /* highenergyshopitem.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E2162F5A840001312A /* highenergyshopitem.png */; };
 		0A90C6CF162F5A850001312A /* iap.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E3162F5A840001312A /* iap.plist */; };
-		0A90C6D0162F5A850001312A /* IAPatip.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E4162F5A840001312A /* IAPatip.png */; };
-		0A90C6D1162F5A850001312A /* largeIAPicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E5162F5A840001312A /* largeIAPicon.png */; };
-		0A90C6D2162F5A850001312A /* machinegun.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E6162F5A840001312A /* machinegun.png */; };
-		0A90C6D3162F5A850001312A /* plasmapistolstoreicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E7162F5A840001312A /* plasmapistolstoreicon.png */; };
-		0A90C6D4162F5A850001312A /* ripley.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E8162F5A840001312A /* ripley.png */; };
 		0A90C6D5162F5A850001312A /* shop.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5E9162F5A840001312A /* shop.plist */; };
-		0A90C6D6162F5A850001312A /* shopItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5EA162F5A840001312A /* shopItem1.png */; };
-		0A90C6D7162F5A850001312A /* shotgun.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5EB162F5A840001312A /* shotgun.png */; };
-		0A90C6D8162F5A850001312A /* spreadgun.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5EC162F5A840001312A /* spreadgun.png */; };
-		0A90C6D9162F5A850001312A /* ultralasericon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5ED162F5A840001312A /* ultralasericon.png */; };
-		0A90C6DA162F5A850001312A /* wavemotioncannon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5EE162F5A840001312A /* wavemotioncannon.png */; };
 		0A90C6DB162F5A850001312A /* bluewave_bullet_new.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5F1162F5A840001312A /* bluewave_bullet_new.plist */; };
 		0A90C6DC162F5A850001312A /* bluewave_particles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5F2162F5A840001312A /* bluewave_particles.plist */; };
 		0A90C6DD162F5A850001312A /* buildupparticle_bullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C5F3162F5A840001312A /* buildupparticle_bullet.plist */; };
@@ -509,6 +483,7 @@
 		0A90C880163084950001312A /* ZipUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C82A163084950001312A /* ZipUtils.m */; };
 		0A90C884163085720001312A /* CCActionsExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C8831630856F0001312A /* CCActionsExtended.m */; };
 		0A90CAD51630B76B0001312A /* GB2DebugDrawLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A90CAD41630B7680001312A /* GB2DebugDrawLayer.mm */; };
+		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -941,21 +916,13 @@
 		0A90C5B0162F5A840001312A /* gameOverMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gameOverMessages.plist; sourceTree = "<group>"; };
 		0A90C5B1162F5A840001312A /* playerProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = playerProperties.plist; sourceTree = "<group>"; };
 		0A90C5B3162F5A840001312A /* 1heart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1heart.plist; sourceTree = "<group>"; };
-		0A90C5B4162F5A840001312A /* 1heartshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1heartshopicon.png; sourceTree = "<group>"; };
 		0A90C5B5162F5A840001312A /* 2hearts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 2hearts.plist; sourceTree = "<group>"; };
-		0A90C5B6162F5A840001312A /* 2heartshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2heartshopicon.png; sourceTree = "<group>"; };
 		0A90C5B7162F5A840001312A /* 2xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 2xcoins.plist; sourceTree = "<group>"; };
-		0A90C5B8162F5A840001312A /* 2xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2xcoinshopicon.png; sourceTree = "<group>"; };
 		0A90C5B9162F5A840001312A /* 3hearts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3hearts.plist; sourceTree = "<group>"; };
-		0A90C5BA162F5A840001312A /* 3heartshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3heartshopicon.png; sourceTree = "<group>"; };
 		0A90C5BB162F5A840001312A /* 4xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 4xcoins.plist; sourceTree = "<group>"; };
-		0A90C5BC162F5A840001312A /* 4xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4xcoinshopicon.png; sourceTree = "<group>"; };
 		0A90C5BD162F5A840001312A /* 6xcoins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 6xcoins.plist; sourceTree = "<group>"; };
-		0A90C5BE162F5A840001312A /* 6xcoinshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6xcoinshopicon.png; sourceTree = "<group>"; };
 		0A90C5BF162F5A840001312A /* gunspeed.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gunspeed.plist; sourceTree = "<group>"; };
-		0A90C5C0162F5A840001312A /* playerspeedbooststoreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playerspeedbooststoreicon.png; sourceTree = "<group>"; };
 		0A90C5C1162F5A840001312A /* speedboost.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = speedboost.plist; sourceTree = "<group>"; };
-		0A90C5C2162F5A840001312A /* weaponsuperchargestoreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weaponsuperchargestoreicon.png; sourceTree = "<group>"; };
 		0A90C5C4162F5A840001312A /* bounce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bounce.wav; sourceTree = "<group>"; };
 		0A90C5C5162F5A840001312A /* bruce-effects-bounce.wavblast5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "bruce-effects-bounce.wavblast5.wav"; sourceTree = "<group>"; };
 		0A90C5C6162F5A840001312A /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
@@ -978,26 +945,8 @@
 		0A90C5D7162F5A840001312A /* spreadgun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spreadgun.wav; sourceTree = "<group>"; };
 		0A90C5D8162F5A840001312A /* triforce.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = triforce.wav; sourceTree = "<group>"; };
 		0A90C5D9162F5A840001312A /* wavemotioncannon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wavemotioncannon.wav; sourceTree = "<group>"; };
-		0A90C5DB162F5A840001312A /* 499IAPicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 499IAPicon.png; sourceTree = "<group>"; };
-		0A90C5DC162F5A840001312A /* 99centIAP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 99centIAP.png; sourceTree = "<group>"; };
-		0A90C5DD162F5A840001312A /* bluewaveicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluewaveicon.png; sourceTree = "<group>"; };
-		0A90C5DE162F5A840001312A /* burstshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = burstshot.png; sourceTree = "<group>"; };
-		0A90C5DF162F5A840001312A /* experimentalshopicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = experimentalshopicon.png; sourceTree = "<group>"; };
-		0A90C5E0162F5A840001312A /* flamethrower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flamethrower.png; sourceTree = "<group>"; };
-		0A90C5E1162F5A840001312A /* gatlingunicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gatlingunicon.png; sourceTree = "<group>"; };
-		0A90C5E2162F5A840001312A /* highenergyshopitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highenergyshopitem.png; sourceTree = "<group>"; };
 		0A90C5E3162F5A840001312A /* iap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iap.plist; sourceTree = "<group>"; };
-		0A90C5E4162F5A840001312A /* IAPatip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IAPatip.png; sourceTree = "<group>"; };
-		0A90C5E5162F5A840001312A /* largeIAPicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = largeIAPicon.png; sourceTree = "<group>"; };
-		0A90C5E6162F5A840001312A /* machinegun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = machinegun.png; sourceTree = "<group>"; };
-		0A90C5E7162F5A840001312A /* plasmapistolstoreicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plasmapistolstoreicon.png; sourceTree = "<group>"; };
-		0A90C5E8162F5A840001312A /* ripley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ripley.png; sourceTree = "<group>"; };
 		0A90C5E9162F5A840001312A /* shop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shop.plist; sourceTree = "<group>"; };
-		0A90C5EA162F5A840001312A /* shopItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopItem1.png; sourceTree = "<group>"; };
-		0A90C5EB162F5A840001312A /* shotgun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shotgun.png; sourceTree = "<group>"; };
-		0A90C5EC162F5A840001312A /* spreadgun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spreadgun.png; sourceTree = "<group>"; };
-		0A90C5ED162F5A840001312A /* ultralasericon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ultralasericon.png; sourceTree = "<group>"; };
-		0A90C5EE162F5A840001312A /* wavemotioncannon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wavemotioncannon.png; sourceTree = "<group>"; };
 		0A90C5F1162F5A840001312A /* bluewave_bullet_new.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave_bullet_new.plist; sourceTree = "<group>"; };
 		0A90C5F2162F5A840001312A /* bluewave_particles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluewave_particles.plist; sourceTree = "<group>"; };
 		0A90C5F3162F5A840001312A /* buildupparticle_bullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = buildupparticle_bullet.plist; sourceTree = "<group>"; };
@@ -1289,6 +1238,7 @@
 		0A90C8831630856F0001312A /* CCActionsExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionsExtended.m; sourceTree = "<group>"; };
 		0A90CAD31630B7660001312A /* GB2DebugDrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2DebugDrawLayer.h; sourceTree = "<group>"; };
 		0A90CAD41630B7680001312A /* GB2DebugDrawLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2DebugDrawLayer.mm; sourceTree = "<group>"; };
+		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2084,6 +2034,7 @@
 				0A90C54E162F5A840001312A /* dropshipLevels.plist */,
 				0A90C54F162F5A840001312A /* easyWallDropShip.plist */,
 				0A90C550162F5A840001312A /* testDropship.plist */,
+				91C720031639997500754EC4 /* tutorialDropship.plist */,
 				0A90C551162F5A840001312A /* wallDropShip.plist */,
 			);
 			path = Dropships;
@@ -2273,21 +2224,13 @@
 			isa = PBXGroup;
 			children = (
 				0A90C5B3162F5A840001312A /* 1heart.plist */,
-				0A90C5B4162F5A840001312A /* 1heartshopicon.png */,
 				0A90C5B5162F5A840001312A /* 2hearts.plist */,
-				0A90C5B6162F5A840001312A /* 2heartshopicon.png */,
 				0A90C5B7162F5A840001312A /* 2xcoins.plist */,
-				0A90C5B8162F5A840001312A /* 2xcoinshopicon.png */,
 				0A90C5B9162F5A840001312A /* 3hearts.plist */,
-				0A90C5BA162F5A840001312A /* 3heartshopicon.png */,
 				0A90C5BB162F5A840001312A /* 4xcoins.plist */,
-				0A90C5BC162F5A840001312A /* 4xcoinshopicon.png */,
 				0A90C5BD162F5A840001312A /* 6xcoins.plist */,
-				0A90C5BE162F5A840001312A /* 6xcoinshopicon.png */,
 				0A90C5BF162F5A840001312A /* gunspeed.plist */,
-				0A90C5C0162F5A840001312A /* playerspeedbooststoreicon.png */,
 				0A90C5C1162F5A840001312A /* speedboost.plist */,
-				0A90C5C2162F5A840001312A /* weaponsuperchargestoreicon.png */,
 			);
 			name = Powerups;
 			path = Resources/Powerups;
@@ -2326,26 +2269,8 @@
 		0A90C5DA162F5A840001312A /* Shop */ = {
 			isa = PBXGroup;
 			children = (
-				0A90C5DB162F5A840001312A /* 499IAPicon.png */,
-				0A90C5DC162F5A840001312A /* 99centIAP.png */,
-				0A90C5DD162F5A840001312A /* bluewaveicon.png */,
-				0A90C5DE162F5A840001312A /* burstshot.png */,
-				0A90C5DF162F5A840001312A /* experimentalshopicon.png */,
-				0A90C5E0162F5A840001312A /* flamethrower.png */,
-				0A90C5E1162F5A840001312A /* gatlingunicon.png */,
-				0A90C5E2162F5A840001312A /* highenergyshopitem.png */,
 				0A90C5E3162F5A840001312A /* iap.plist */,
-				0A90C5E4162F5A840001312A /* IAPatip.png */,
-				0A90C5E5162F5A840001312A /* largeIAPicon.png */,
-				0A90C5E6162F5A840001312A /* machinegun.png */,
-				0A90C5E7162F5A840001312A /* plasmapistolstoreicon.png */,
-				0A90C5E8162F5A840001312A /* ripley.png */,
 				0A90C5E9162F5A840001312A /* shop.plist */,
-				0A90C5EA162F5A840001312A /* shopItem1.png */,
-				0A90C5EB162F5A840001312A /* shotgun.png */,
-				0A90C5EC162F5A840001312A /* spreadgun.png */,
-				0A90C5ED162F5A840001312A /* ultralasericon.png */,
-				0A90C5EE162F5A840001312A /* wavemotioncannon.png */,
 			);
 			name = Shop;
 			path = Resources/Shop;
@@ -2939,21 +2864,13 @@
 				0A90C69F162F5A850001312A /* gameOverMessages.plist in Resources */,
 				0A90C6A0162F5A850001312A /* playerProperties.plist in Resources */,
 				0A90C6A1162F5A850001312A /* 1heart.plist in Resources */,
-				0A90C6A2162F5A850001312A /* 1heartshopicon.png in Resources */,
 				0A90C6A3162F5A850001312A /* 2hearts.plist in Resources */,
-				0A90C6A4162F5A850001312A /* 2heartshopicon.png in Resources */,
 				0A90C6A5162F5A850001312A /* 2xcoins.plist in Resources */,
-				0A90C6A6162F5A850001312A /* 2xcoinshopicon.png in Resources */,
 				0A90C6A7162F5A850001312A /* 3hearts.plist in Resources */,
-				0A90C6A8162F5A850001312A /* 3heartshopicon.png in Resources */,
 				0A90C6A9162F5A850001312A /* 4xcoins.plist in Resources */,
-				0A90C6AA162F5A850001312A /* 4xcoinshopicon.png in Resources */,
 				0A90C6AB162F5A850001312A /* 6xcoins.plist in Resources */,
-				0A90C6AC162F5A850001312A /* 6xcoinshopicon.png in Resources */,
 				0A90C6AD162F5A850001312A /* gunspeed.plist in Resources */,
-				0A90C6AE162F5A850001312A /* playerspeedbooststoreicon.png in Resources */,
 				0A90C6AF162F5A850001312A /* speedboost.plist in Resources */,
-				0A90C6B0162F5A850001312A /* weaponsuperchargestoreicon.png in Resources */,
 				0A90C6B1162F5A850001312A /* bounce.wav in Resources */,
 				0A90C6B2162F5A850001312A /* bruce-effects-bounce.wavblast5.wav in Resources */,
 				0A90C6B3162F5A850001312A /* coin.wav in Resources */,
@@ -2976,26 +2893,8 @@
 				0A90C6C4162F5A850001312A /* spreadgun.wav in Resources */,
 				0A90C6C5162F5A850001312A /* triforce.wav in Resources */,
 				0A90C6C6162F5A850001312A /* wavemotioncannon.wav in Resources */,
-				0A90C6C7162F5A850001312A /* 499IAPicon.png in Resources */,
-				0A90C6C8162F5A850001312A /* 99centIAP.png in Resources */,
-				0A90C6C9162F5A850001312A /* bluewaveicon.png in Resources */,
-				0A90C6CA162F5A850001312A /* burstshot.png in Resources */,
-				0A90C6CB162F5A850001312A /* experimentalshopicon.png in Resources */,
-				0A90C6CC162F5A850001312A /* flamethrower.png in Resources */,
-				0A90C6CD162F5A850001312A /* gatlingunicon.png in Resources */,
-				0A90C6CE162F5A850001312A /* highenergyshopitem.png in Resources */,
 				0A90C6CF162F5A850001312A /* iap.plist in Resources */,
-				0A90C6D0162F5A850001312A /* IAPatip.png in Resources */,
-				0A90C6D1162F5A850001312A /* largeIAPicon.png in Resources */,
-				0A90C6D2162F5A850001312A /* machinegun.png in Resources */,
-				0A90C6D3162F5A850001312A /* plasmapistolstoreicon.png in Resources */,
-				0A90C6D4162F5A850001312A /* ripley.png in Resources */,
 				0A90C6D5162F5A850001312A /* shop.plist in Resources */,
-				0A90C6D6162F5A850001312A /* shopItem1.png in Resources */,
-				0A90C6D7162F5A850001312A /* shotgun.png in Resources */,
-				0A90C6D8162F5A850001312A /* spreadgun.png in Resources */,
-				0A90C6D9162F5A850001312A /* ultralasericon.png in Resources */,
-				0A90C6DA162F5A850001312A /* wavemotioncannon.png in Resources */,
 				0A90C6DB162F5A850001312A /* bluewave_bullet_new.plist in Resources */,
 				0A90C6DC162F5A850001312A /* bluewave_particles.plist in Resources */,
 				0A90C6DD162F5A850001312A /* buildupparticle_bullet.plist in Resources */,
@@ -3040,6 +2939,7 @@
 				0A5E8D6C163210E000B3DA5B /* tutorial-postJumpDown.tmx in Resources */,
 				0A5E8D6D163210E000B3DA5B /* tutorial-postJumpUp.tmx in Resources */,
 				0A5E8D6E163210E000B3DA5B /* tutorial-start.tmx in Resources */,
+				91C720041639997500754EC4 /* tutorialDropship.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

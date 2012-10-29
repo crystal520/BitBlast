@@ -17,10 +17,12 @@
 	NSMutableString *overrideChunk;
 	// which array within the chunks array in the level plist is currently being used
 	int curSpeedLevel;
+    // number of chunks added within the current tutorial state
+    int chunkCount;
 }
 
 @property (nonatomic, readonly) NSMutableArray *currentChunks;
-@property (nonatomic, assign) int curSpeedLevel;
+@property (nonatomic, assign) int curSpeedLevel, chunkCount;
 
 + (ChunkManager*) sharedSingleton;
 // update
@@ -38,5 +40,6 @@
 - (Chunk*) getLastChunk;
 // setup
 - (void) loadChunksForLevel:(NSString*)levelName;
+- (void) replaceChunksWithLevel:(NSString*)levelName;
 
 @end

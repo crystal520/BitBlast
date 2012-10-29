@@ -37,7 +37,7 @@
 		}
 		
 		// create icon sprite
-		CCSprite *icon = [CCSprite spriteWithFile:[dictionary objectForKey:@"icon"]];
+		CCSprite *icon = [CCSprite spriteWithSpriteFrameName:[dictionary objectForKey:@"icon"]];
 		icon.position = ccp(background.contentSize.width * 0.1, background.contentSize.height * 0.65);
 		[self addChild:icon];
 		

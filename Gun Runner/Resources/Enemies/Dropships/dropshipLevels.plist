@@ -7,14 +7,6 @@
 		<dict>
 			<key>ships</key>
 			<array>
-				<string>dropShip1</string>
-			</array>
-			<key>maxShipsOnScreen</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>ships</key>
-			<array>
 				<string>dropShip2</string>
 				<string>birdDropShip</string>
 			</array>

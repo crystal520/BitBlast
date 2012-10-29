@@ -10,6 +10,8 @@
 #import "cocos2d.h"
 #import "CCButton.h"
 #import "SimpleAudioEngine.h"
+#import "ChunkManager.h"
+#import "BBDropshipManager.h"
 
 @interface BBHud : CCNode {
     CCLabelBMFont *score;
@@ -23,8 +25,16 @@
     NSMutableArray *keys;
     // array of triforce pieces that the player has
     NSMutableArray *triforce;
+    // flashing label for tutorial
+    CCLabelBMFont *tutorial;
+    // tutorial state that the tutorial string was triggered for
+    TutorialState tutorialState;
 }
 
+// actions
+- (void) flash;
+- (void) showTutorialString:(NSString*)tutorialString;
+// update
 - (void) update:(float)delta;
 
 @end

@@ -5,25 +5,25 @@
 	<key>chunks</key>
 	<array>
 		<array>
-			<string>tutorial-jumpUp</string>
+			<string>tutorial-jumpUp.tmx</string>
 		</array>
 		<array>
-			<string>tutorial-postJumpUp</string>
+			<string>tutorial-postJumpUp.tmx</string>
 		</array>
 		<array>
-			<string>tutorial-doubleJump</string>
+			<string>tutorial-doubleJump.tmx</string>
 		</array>
 		<array>
-			<string>tutorial-doubleJump</string>
+			<string>tutorial-doubleJump.tmx</string>
 		</array>
 		<array>
-			<string>tutorial-postJumpDown</string>
+			<string>tutorial-postJumpDown.tmx</string>
 		</array>
 		<array>
-			<string>tutorial-dropship</string>
+			<string>tutorial-dropship.tmx</string>
 		</array>
 		<array>
-			<string>tutorial-finish</string>
+			<string>tutorial-finish.tmx</string>
 		</array>
 	</array>
 	<key>firstChunk</key>

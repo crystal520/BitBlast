@@ -38,7 +38,11 @@
 	director_.wantsFullScreenLayout = YES;
 	
 	// Display FSP and SPF
+#if DEBUG_SHOW_FPS
 	[director_ setDisplayStats:YES];
+#else
+    [director_ setDisplayStats:NO];
+#endif
 	
 	// set FPS at 60
 	[director_ setAnimationInterval:1.0/60];
@@ -60,7 +64,7 @@
 	// Default texture format for PNG/BMP/TIFF/JPEG/GIF images
 	// It can be RGBA8888, RGBA4444, RGB5_A1, RGB565
 	// You can change anytime.
-	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA8888];
+	[CCTexture2D setDefaultAlphaPixelFormat:kCCTexture2DPixelFormat_RGBA4444];
 	
 	// If the 1st suffix is not found and if fallback is enabled then fallback suffixes are going to searched. If none is found, it will try with the name without suffix.
 	// On iPad HD  : "-ipadhd", "-ipad",  "-hd"
@@ -162,9 +166,9 @@
 -(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        return UIInterfaceOrientationMaskAll;
+        return UIInterfaceOrientationMaskLandscape;
     else  /* iphone */
-        return UIInterfaceOrientationMaskAllButUpsideDown;
+        return UIInterfaceOrientationMaskLandscape;
 }
 
 @end

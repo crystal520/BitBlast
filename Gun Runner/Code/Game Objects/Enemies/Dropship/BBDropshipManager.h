@@ -31,6 +31,8 @@
     CCNode *frontNode, *backNode;
     // whether or not the dropship manager is paused
     BOOL paused;
+    // the level that a dropship will be spawned at
+    ChunkLevel overrideLevel;
 }
 
 @property (nonatomic, assign) int dropshipLevel;
@@ -48,6 +50,7 @@
 - (void) update:(float)delta;
 // actions
 - (void) tryToSpawnDropship;
+- (void) tryToSpawnDropshipWithOverrideLevel:(ChunkLevel)newOverrideLevel;
 // notifications
 - (void) pause;
 - (void) resume;

@@ -70,12 +70,16 @@
 #pragma mark -
 #pragma mark setters
 - (void) setDropshipLevel:(int)newDropshipLevel {
-	dropshipLevel = newDropshipLevel;
+    dropshipLevel = newDropshipLevel;
 	if(dropshipLevel >= [dropshipLevels count]) {
 		dropshipLevel = [dropshipLevels count]-1;
 	}
 	// update target dropships
 	targetDropships = [[[dropshipLevels objectAtIndex:dropshipLevel] objectForKey:@"maxShipsOnScreen"] intValue];
+    // make sure to only spawn 1 dropship if we're in the tutorial
+    if([Globals sharedSingleton].tutorial) {
+        targetDropships = 1;
+    }
 }
 
 - (void) setEnabled:(BOOL)newEnabled {
@@ -106,6 +110,11 @@
 }
 
 - (NSString*) getRandomDropshipType {
+    // return tutorial ship if player is in tutorial
+    if([Globals sharedSingleton]) {
+        return @"tutorialDropship";
+    }
+    
 	NSArray *currentShips = [[dropshipLevels objectAtIndex:dropshipLevel] objectForKey:@"ships"];
 	int ran = CCRANDOM_MIN_MAX(0, [currentShips count]);
 	if(ran < [currentShips count]) {
@@ -137,8 +146,14 @@
 		// generate a random level and make sure it's not on the same level as another ship
 		int numChecks = 5;
 		while(true) {
-			// get a random level for dropship to be on
-			ranLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getRandomLevel];
+            // see if there is an override level to use
+            if(overrideLevel != CHUNK_LEVEL_UNKNOWN) {
+                ranLevel = overrideLevel;
+            }
+            else {
+                // get a random level for dropship to be on
+                ranLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getRandomLevel];
+            }
 			typeLevel = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevelType:ranLevel];
 			// check other ships
 			BOOL breakOut = YES;
@@ -153,6 +168,9 @@
 				break;
 			}
 		}
+        
+        // reset overrideLevel
+        overrideLevel = CHUNK_LEVEL_UNKNOWN;
 		
 		if(numChecks > 0) {
 			[explosionManager stopExploding:newDropship];
@@ -181,6 +199,11 @@
 			[self performSelector:@selector(spawnDropship) withObject:nil afterDelay:1 + i];
 		}
 	}
+}
+
+- (void) tryToSpawnDropshipWithOverrideLevel:(ChunkLevel)newOverrideLevel {
+    overrideLevel = newOverrideLevel;
+    [self tryToSpawnDropship];
 }
 
 #pragma mark -

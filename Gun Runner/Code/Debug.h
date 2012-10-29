@@ -30,7 +30,9 @@
 // if enabled, player's saved data will be reset
 #define DEBUG_RESET_SAVED_DATA 0
 // if enabled, player will start every run with the tutorial
-#define DEBUG_ENABLE_TUTORIAL 1
+#define DEBUG_ENABLE_TUTORIAL 0
+// if enabled, will show fps, as well as some other stats
+#define DEBUG_SHOW_FPS 0
 
 // ENEMY VARIABLES
 // if enabled, boss will be spawned at the start of every run

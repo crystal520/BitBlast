@@ -47,6 +47,7 @@
 	spawnRate = [[dictionary objectForKey:@"spawnRate"] floatValue];
 	spawnTimer = 0;
 	health = [[dictionary objectForKey:@"health"] floatValue];
+    maxHealth = health;
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
 	coins = [[dictionary objectForKey:@"coins"] intValue];
     minibossChance = [[dictionary objectForKey:@"minibossChance"] floatValue];
@@ -135,6 +136,10 @@
 	return [enemyTypes objectAtIndex:ran];
 }
 
+- (BOOL) isAtFullHealth {
+    return (health == maxHealth);
+}
+
 #pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {
@@ -210,6 +215,12 @@
                 [self setColor:ccc3(255, 255, 255)];
                 [self die];
                 [explosionManager explodeInObject:self number:5];
+                
+                // advance to the last stage of the tutorial
+                if([Globals sharedSingleton].tutorial && [Globals sharedSingleton].tutorialStateCanChange) {
+                    [Globals sharedSingleton].tutorialState = TUTORIAL_STATE_FINISH;
+                    [TestFlight passCheckpoint:@"doneTutorial_Aim"];
+                }
             }
             else if([[self getActionByTag:ACTION_TAG_FLASH] isDone] || ![self getActionByTag:ACTION_TAG_FLASH]) {
                 [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:1 onSprite:self];
