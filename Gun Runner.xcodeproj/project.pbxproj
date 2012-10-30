@@ -483,6 +483,13 @@
 		0A90C880163084950001312A /* ZipUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C82A163084950001312A /* ZipUtils.m */; };
 		0A90C884163085720001312A /* CCActionsExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C8831630856F0001312A /* CCActionsExtended.m */; };
 		0A90CAD51630B76B0001312A /* GB2DebugDrawLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A90CAD41630B7680001312A /* GB2DebugDrawLayer.mm */; };
+		914977BC163ED9AF000C0543 /* 1-4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977BA163ED9AF000C0543 /* 1-4.tmx */; };
+		914977BD163ED9AF000C0543 /* 1-5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977BB163ED9AF000C0543 /* 1-5.tmx */; };
+		914977C2163EF115000C0543 /* 2-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977BE163EF115000C0543 /* 2-2.tmx */; };
+		914977C3163EF115000C0543 /* 2-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977BF163EF115000C0543 /* 2-3.tmx */; };
+		914977C4163EF115000C0543 /* 3-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C0163EF115000C0543 /* 3-1.tmx */; };
+		914977C5163EF115000C0543 /* 3-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C1163EF115000C0543 /* 3-2.tmx */; };
+		914977C7163EFA87000C0543 /* 3-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C6163EFA87000C0543 /* 3-3.tmx */; };
 		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
 /* End PBXBuildFile section */
 
@@ -1238,6 +1245,13 @@
 		0A90C8831630856F0001312A /* CCActionsExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionsExtended.m; sourceTree = "<group>"; };
 		0A90CAD31630B7660001312A /* GB2DebugDrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2DebugDrawLayer.h; sourceTree = "<group>"; };
 		0A90CAD41630B7680001312A /* GB2DebugDrawLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2DebugDrawLayer.mm; sourceTree = "<group>"; };
+		914977BA163ED9AF000C0543 /* 1-4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-4.tmx"; sourceTree = "<group>"; };
+		914977BB163ED9AF000C0543 /* 1-5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-5.tmx"; sourceTree = "<group>"; };
+		914977BE163EF115000C0543 /* 2-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2-2.tmx"; sourceTree = "<group>"; };
+		914977BF163EF115000C0543 /* 2-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2-3.tmx"; sourceTree = "<group>"; };
+		914977C0163EF115000C0543 /* 3-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-1.tmx"; sourceTree = "<group>"; };
+		914977C1163EF115000C0543 /* 3-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-2.tmx"; sourceTree = "<group>"; };
+		914977C6163EFA87000C0543 /* 3-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-3.tmx"; sourceTree = "<group>"; };
 		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1933,7 +1947,14 @@
 				0A90C515162F5A830001312A /* 1-1.tmx */,
 				0A90C516162F5A830001312A /* 1-2.tmx */,
 				0A90C517162F5A830001312A /* 1-3.tmx */,
+				914977BA163ED9AF000C0543 /* 1-4.tmx */,
+				914977BB163ED9AF000C0543 /* 1-5.tmx */,
 				0A90C518162F5A830001312A /* 2-1.tmx */,
+				914977BE163EF115000C0543 /* 2-2.tmx */,
+				914977BF163EF115000C0543 /* 2-3.tmx */,
+				914977C0163EF115000C0543 /* 3-1.tmx */,
+				914977C1163EF115000C0543 /* 3-2.tmx */,
+				914977C6163EFA87000C0543 /* 3-3.tmx */,
 				0A90C519162F5A830001312A /* start.tmx */,
 				0A90C51A162F5A830001312A /* tiles_aubrey.png */,
 			);
@@ -2940,6 +2961,13 @@
 				0A5E8D6D163210E000B3DA5B /* tutorial-postJumpUp.tmx in Resources */,
 				0A5E8D6E163210E000B3DA5B /* tutorial-start.tmx in Resources */,
 				91C720041639997500754EC4 /* tutorialDropship.plist in Resources */,
+				914977BC163ED9AF000C0543 /* 1-4.tmx in Resources */,
+				914977BD163ED9AF000C0543 /* 1-5.tmx in Resources */,
+				914977C2163EF115000C0543 /* 2-2.tmx in Resources */,
+				914977C3163EF115000C0543 /* 2-3.tmx in Resources */,
+				914977C4163EF115000C0543 /* 3-1.tmx in Resources */,
+				914977C5163EF115000C0543 /* 3-2.tmx in Resources */,
+				914977C7163EFA87000C0543 /* 3-3.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

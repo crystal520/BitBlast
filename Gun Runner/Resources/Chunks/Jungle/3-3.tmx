@@ -5,22 +5,22 @@
  </tileset>
  <layer name="Terrain Background 2" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIKRCQAFAAAB
+   eJxjYBgFo2AUUAqYqKSGEsCBRwybHDa1MDxSAAA9eAA1
   </data>
  </layer>
  <layer name="Terrain Background" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BgASsQM5GI2ahkDjHmsgMxB4mYk0rmEGMuNkCNsCA2fMgB1AgLSsIHBgC7ngI8
+   eJxjYBgFo2BgASsQMxGJ2ZD0KZJoBhuaPnYg5sCCOclwHwMR7mPAog+f+4gFMH9gcycbVE4RyW8w8xUZUMMCxiYlPvDFDzrA5T50P2NzH7I4Nd0HAKkJAxo=
   </data>
  </layer>
  <layer name="CollisionTop" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFwx1wATEPEHOTQPMSYQ6MjY7R5ZD52MwdigAUFrj8iy6GTuPTM1zCBwZgaQaX39HlSPU/svm4zMVnBwAicgOw
+   eJxjYBgFwx34A7E7ELtBsTsSdkOT8wBiTyj2QmK7IqlxQ9MHM8sDTZ8rmjxMnwttvUszAApHdP+j+5kYNnq4YIsb9HiBiQ+1sOMCYm4o5sFBgzAvBeYjm4OMedDYMD6yXQB6TBTt
   </data>
  </layer>
  <layer name="Background" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJydUkEOgzAM82/b+5josdLYC2AvgP1zgbSVlwYJYSmisZyWugaAJ5AHqYcWBuUO2J61cHBFbzVnXMVbZieplxYm5Q7YnrXe/13RW80ZV/GR2UUqynqWWpQD96Foo/Z5drwG6WPpQ9mb50mz8925Fl/RbFJJ1qvUphy4H4s2aZ9Xx2uQPpV+LHvzPGl2vjuXwR54fkR6l3pf60MgHfvmcN2ZDC+r7IHnRyJtva/1YSQd++Zw3ZkML6ucF84A+fTnwR1EdH5mzjjQ3qBlu85yXjgD5FP93kZC52fmjAPtDVq26+wPrYuFqQ==
+   eJylUkEOwyAM62/TezfRY6RuL9j6gq3/XFAIMoGCplqyShQTjMs0KRbhTXhPtXxZal6URe8MvRktve/3ztmED+Ez1fJlqXlTFr0z9Ga09L7fO2cWvoW7rpm05pfQejTwF/clHcNMm1F53FWfzyDw4LEKv8JD1xy05o/QemHgL+5LOoaZNqPyd6g+nxHAg8G/ActuHngZYYYMCfKjUpORNBX8G7Ds1ov+VsgwQH6h1GQkTQV7A5gZ3j2CGv/mH1BjHubpsi5gbwAzw7tHhIv+QmMe5umyLvADFUlsDw==
   </data>
  </layer>
 </map>

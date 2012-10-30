@@ -15,13 +15,13 @@
 	<key>speedRamp</key>
 	<dict>
 		<key>incrementPercent</key>
-		<real>0.025</real>
+		<real>0.01</real>
 		<key>maxSpeed</key>
 		<integer>1000</integer>
 		<key>minSpeed</key>
 		<integer>800</integer>
 		<key>numChunksToIncrement</key>
-		<integer>1</integer>
+		<integer>10</integer>
 	</dict>
 	<key>tileCenterOffset</key>
 	<integer>25</integer>
