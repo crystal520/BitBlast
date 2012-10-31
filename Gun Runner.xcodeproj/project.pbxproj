@@ -491,6 +491,7 @@
 		914977C5163EF115000C0543 /* 3-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C1163EF115000C0543 /* 3-2.tmx */; };
 		914977C7163EFA87000C0543 /* 3-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C6163EFA87000C0543 /* 3-3.tmx */; };
 		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
+		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1253,6 +1254,8 @@
 		914977C1163EF115000C0543 /* 3-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-2.tmx"; sourceTree = "<group>"; };
 		914977C6163EFA87000C0543 /* 3-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-3.tmx"; sourceTree = "<group>"; };
 		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
+		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
+		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1695,6 +1698,8 @@
 				0A90C456162F5A6E0001312A /* BBGameObject.mm */,
 				0A90C457162F5A6E0001312A /* BBMovingObject.h */,
 				0A90C458162F5A6E0001312A /* BBMovingObject.mm */,
+				91E1B3B71641830D00F61E9C /* BBNavigationController.h */,
+				91E1B3B81641830D00F61E9C /* BBNavigationController.m */,
 			);
 			path = "Basic Objects";
 			sourceTree = "<group>";
@@ -3204,6 +3209,7 @@
 				0A90C880163084950001312A /* ZipUtils.m in Sources */,
 				0A90C884163085720001312A /* CCActionsExtended.m in Sources */,
 				0A90CAD51630B76B0001312A /* GB2DebugDrawLayer.mm in Sources */,
+				91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

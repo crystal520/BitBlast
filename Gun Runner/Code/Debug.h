@@ -10,9 +10,9 @@
 #define GunRunner_Debug_h
 
 // if enabled, all SFX will be muted
-#define DEBUG_NO_SOUND 0
+#define DEBUG_NO_SOUND 1
 // if enabled, all music will be muted
-#define DEBUG_NO_MUSIC 0
+#define DEBUG_NO_MUSIC 1
 // if enabled, all phsyics objects will draw their debug info
 #define DEBUG_PHYSICS 0
 
