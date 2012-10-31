@@ -15,12 +15,12 @@
  </layer>
  <layer name="CollisionTop" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFIwFwATE3FPNAMTIfWZwHTQ02Pjb13FjMRZfjpbVHaQBAYYfuZ0JhSaw/YWbjC1tuNDyUwhA53ZEbRtSyGzlMYXYDALnuA5A=
+   eJxjYBgFIwFwATE3FPNAMTIfWZwHTQ02Pjb13FjMRZfjpbVHaQBAYYfuZ0JhSaw/YWbjC1tuNDyUwhA53ZETRujhQ0o6QrcbOUxh+gHUYgPh
   </data>
  </layer>
  <layer name="Background" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJy1UEEKwzAM02/3gHXkGlj3grYvaPPPCeoQV01Cx6hAWIkUOxg44gXEgXySXpMYdh8t3cprX/XURwcf+iP5Jr0mMe4+WrqV177qqd/734P+TLJiMT3ZeTZ/Mr2UfNbQfL5fSt/Te53V+1+gv5GsSKZXO2/mr6ZTyWcNzef7VPqe3uus1t6swlfVPnsV0ivWdG2OR7BsKGfvVbNXIb1iTdfmZPiduT3+9Id/IDs9we/M7TFWordAdnrAF6mxdHE=
+   eJyVUkEOwyAM82/7gHXiWmndC1pe0PLPBTWI4BK0Woow2AlRFKDFG1hmiZeE5RKYLx0e9/xclzXWMcBX9FXiI2G5BNZLh8c9P9dljfVRf5Pou4SciMo3ve+qb8pj9RcO9pf3WOve8vmvUX9B9FNCTiTlh95P1Q/lqfoLB/vLe6p1b/n8lzc3PWFP5tab4e0f+bu508DHCOoN9W61rjfD2z/yd3PDwNfre0Izx8WxNyi7lP1mxx6BZnqDnZmZ41/9lV3KfrNjj0AzbfADPcqG3Q==
   </data>
  </layer>
 </map>

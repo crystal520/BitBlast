@@ -45,7 +45,7 @@
 - (void) setTutorial:(BOOL)newTutorial {
     tutorial = newTutorial;
     // save current tutorial
-    [[SettingsManager sharedSingleton] setBool:tutorial keyString:@"tutorial"];
+    [[SettingsManager sharedSingleton] setBool:tutorial keyString:@"needsTutorial"];
 }
 
 @end

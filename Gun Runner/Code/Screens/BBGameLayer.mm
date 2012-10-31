@@ -283,7 +283,7 @@
 - (void) playIntro {
     // see if we should enable the tutorial
 #if DEBUG_ENABLE_TUTORIAL
-    [[SettingsManager sharedSingleton] setBool:YES keyString:@"tutorial"];
+    [[SettingsManager sharedSingleton] setBool:YES keyString:@"needsTutorial"];
     [[SettingsManager sharedSingleton] setInteger:TUTORIAL_STATE_JUMP_UP keyString:@"tutorialState"];
 #endif
     // let everyone know that a new game is being started
@@ -295,7 +295,7 @@
     // make sure intro boss sequence is disabled
     [Globals sharedSingleton].introBossSequence = NO;
     // set global tutorial values
-    [Globals sharedSingleton].tutorial = [[SettingsManager sharedSingleton] getBool:@"tutorial"];
+    [Globals sharedSingleton].tutorial = [[SettingsManager sharedSingleton] getBool:@"needsTutorial"];
     [Globals sharedSingleton].tutorialState = (TutorialState)([[SettingsManager sharedSingleton] getInt:@"tutorialState"]);
     // make sure the game is resumed, or else weirdness occurs (camera not following player, etc.)
     [self resume];

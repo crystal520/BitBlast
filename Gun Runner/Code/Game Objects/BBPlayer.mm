@@ -234,20 +234,22 @@
 #pragma mark -
 #pragma mark notifications
 - (void) chunkCompleted {
-	
-	// increment the number of chunks completed
-	curNumChunks++;
-	// see if we've reached the amount of chunks completed to increment the player's speed
-	if(curNumChunks >= chunksToIncrement) {
-		// reset the number of chunks
-		curNumChunks = 0;
-		// increment the player's speed
-		float speed = velocity.x + speedIncrement * velocity.x * speedMultiplier;
-		// make sure we don't go over the maximum speed allowed
-		speed = MIN(speed, maxVelocity.x);
-		velocity = ccp(speed, velocity.y);
-		[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerLevelIncreaseNotification object:nil]];
-	}
+	// only increment if player isn't in the tutorial
+    if(![Globals sharedSingleton].tutorial) {
+        // increment the number of chunks completed
+        curNumChunks++;
+        // see if we've reached the amount of chunks completed to increment the player's speed
+        if(curNumChunks >= chunksToIncrement) {
+            // reset the number of chunks
+            curNumChunks = 0;
+            // increment the player's speed
+            float speed = velocity.x + speedIncrement * velocity.x * speedMultiplier;
+            // make sure we don't go over the maximum speed allowed
+            speed = MIN(speed, maxVelocity.x);
+            velocity = ccp(speed, velocity.y);
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerLevelIncreaseNotification object:nil]];
+        }
+    }
 }
 
 - (void) pause {

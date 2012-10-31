@@ -111,7 +111,7 @@
 
 - (NSString*) getRandomDropshipType {
     // return tutorial ship if player is in tutorial
-    if([Globals sharedSingleton]) {
+    if([Globals sharedSingleton].tutorial) {
         return @"tutorialDropship";
     }
     

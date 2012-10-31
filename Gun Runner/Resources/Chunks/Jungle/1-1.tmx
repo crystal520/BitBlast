@@ -10,7 +10,7 @@
  </layer>
  <layer name="CollisionTop" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B8wAXE3EDMQwLNOyAupR8AhQkp4UEOPVTCkB5hQUnYAQD6TQOC
+   eJxjYBgFo4B8wAXE3EDMQwLNOyAupR8AhQkp4UEOPVTCkB5hQUnaAwD50QN3
   </data>
  </layer>
  <layer name="Background" width="40" height="8">

@@ -496,6 +496,10 @@
 		91E1B3C4164187D300F61E9C /* LocalyticsSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BF164187D300F61E9C /* LocalyticsSession.m */; };
 		91E1B3C5164187D300F61E9C /* LocalyticsUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3C1164187D300F61E9C /* LocalyticsUploader.m */; };
 		91E1B3C71641885000F61E9C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E1B3C61641885000F61E9C /* libsqlite3.0.dylib */; };
+		91E1B3CA16418B7A00F61E9C /* 1-1_dropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91E1B3C816418B7A00F61E9C /* 1-1_dropship.plist */; };
+		91E1B3CB16418B7A00F61E9C /* 1-2_dropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91E1B3C916418B7A00F61E9C /* 1-2_dropship.plist */; };
+		91E1B3CD16418CC500F61E9C /* 1-1_soldier.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91E1B3CC16418CC500F61E9C /* 1-1_soldier.plist */; };
+		91E1B3CF16418D2800F61E9C /* 1-1_soldierInfected.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91E1B3CE16418D2800F61E9C /* 1-1_soldierInfected.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1268,6 +1272,10 @@
 		91E1B3C1164187D300F61E9C /* LocalyticsUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsUploader.m; sourceTree = "<group>"; };
 		91E1B3C2164187D300F61E9C /* WebserviceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceConstants.h; sourceTree = "<group>"; };
 		91E1B3C61641885000F61E9C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		91E1B3C816418B7A00F61E9C /* 1-1_dropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "1-1_dropship.plist"; sourceTree = "<group>"; };
+		91E1B3C916418B7A00F61E9C /* 1-2_dropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "1-2_dropship.plist"; sourceTree = "<group>"; };
+		91E1B3CC16418CC500F61E9C /* 1-1_soldier.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "1-1_soldier.plist"; sourceTree = "<group>"; };
+		91E1B3CE16418D2800F61E9C /* 1-1_soldierInfected.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "1-1_soldierInfected.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2067,6 +2075,8 @@
 		0A90C548162F5A840001312A /* Dropships */ = {
 			isa = PBXGroup;
 			children = (
+				91E1B3C816418B7A00F61E9C /* 1-1_dropship.plist */,
+				91E1B3C916418B7A00F61E9C /* 1-2_dropship.plist */,
 				0A90C549162F5A840001312A /* birdDropShip.plist */,
 				0A90C54A162F5A840001312A /* dropFromBelow.plist */,
 				0A90C54B162F5A840001312A /* dropShip1.plist */,
@@ -2113,6 +2123,8 @@
 		0A90C55B162F5A840001312A /* Minions */ = {
 			isa = PBXGroup;
 			children = (
+				91E1B3CC16418CC500F61E9C /* 1-1_soldier.plist */,
+				91E1B3CE16418D2800F61E9C /* 1-1_soldierInfected.plist */,
 				0A90C55C162F5A840001312A /* easyWall.plist */,
 				0A90C55D162F5A840001312A /* enemyBird.plist */,
 				0A90C55E162F5A840001312A /* enemySoldier.plist */,
@@ -3003,6 +3015,10 @@
 				914977C4163EF115000C0543 /* 3-1.tmx in Resources */,
 				914977C5163EF115000C0543 /* 3-2.tmx in Resources */,
 				914977C7163EFA87000C0543 /* 3-3.tmx in Resources */,
+				91E1B3CA16418B7A00F61E9C /* 1-1_dropship.plist in Resources */,
+				91E1B3CB16418B7A00F61E9C /* 1-2_dropship.plist in Resources */,
+				91E1B3CD16418CC500F61E9C /* 1-1_soldier.plist in Resources */,
+				91E1B3CF16418D2800F61E9C /* 1-1_soldierInfected.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
