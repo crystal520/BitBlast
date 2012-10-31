@@ -115,6 +115,7 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ pause];
+    [navController_ applicationWillResignActive];
 }
 
 // call got rejected
@@ -122,30 +123,35 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
+    [navController_ applicationDidBecomeActive];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ stopAnimation];
+    [navController_ applicationDidEnterBackground];
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ startAnimation];
+    [navController_ applicationWillEnterForeground];
 }
 
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
 	CC_DIRECTOR_END();
+    [navController_ applicationWillTerminate];
 }
 
 // purge memory
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
 	[[CCDirector sharedDirector] purgeCachedData];
+    [navController_ applicationDidReceiveMemoryWarning];
 }
 
 // next delta time will be zero

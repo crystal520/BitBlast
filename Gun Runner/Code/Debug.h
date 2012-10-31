@@ -33,6 +33,8 @@
 #define DEBUG_ENABLE_TUTORIAL 0
 // if enabled, will show fps, as well as some other stats
 #define DEBUG_SHOW_FPS 0
+// if enabled, will allow testing data to be associated with a tester's device
+#define DEBUG_TEST_FLIGHT_DEVICE 1
 
 // ENEMY VARIABLES
 // if enabled, boss will be spawned at the start of every run

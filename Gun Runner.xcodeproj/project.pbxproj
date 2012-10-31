@@ -492,6 +492,10 @@
 		914977C7163EFA87000C0543 /* 3-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C6163EFA87000C0543 /* 3-3.tmx */; };
 		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
 		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
+		91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */; };
+		91E1B3C4164187D300F61E9C /* LocalyticsSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BF164187D300F61E9C /* LocalyticsSession.m */; };
+		91E1B3C5164187D300F61E9C /* LocalyticsUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3C1164187D300F61E9C /* LocalyticsUploader.m */; };
+		91E1B3C71641885000F61E9C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E1B3C61641885000F61E9C /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1256,6 +1260,14 @@
 		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
 		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
+		91E1B3BC164187D300F61E9C /* LocalyticsDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsDatabase.h; sourceTree = "<group>"; };
+		91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsDatabase.m; sourceTree = "<group>"; };
+		91E1B3BE164187D300F61E9C /* LocalyticsSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsSession.h; sourceTree = "<group>"; };
+		91E1B3BF164187D300F61E9C /* LocalyticsSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsSession.m; sourceTree = "<group>"; };
+		91E1B3C0164187D300F61E9C /* LocalyticsUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsUploader.h; sourceTree = "<group>"; };
+		91E1B3C1164187D300F61E9C /* LocalyticsUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalyticsUploader.m; sourceTree = "<group>"; };
+		91E1B3C2164187D300F61E9C /* WebserviceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebserviceConstants.h; sourceTree = "<group>"; };
+		91E1B3C61641885000F61E9C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1263,6 +1275,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91E1B3C71641885000F61E9C /* libsqlite3.0.dylib in Frameworks */,
 				0A90C754162F6F110001312A /* AdSupport.framework in Frameworks */,
 				0A90C752162F6F050001312A /* libxml2.2.dylib in Frameworks */,
 				0A90C750162F6EFB0001312A /* libz.1.2.5.dylib in Frameworks */,
@@ -1331,6 +1344,7 @@
 		0A90C110162F43D50001312A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91E1B3C61641885000F61E9C /* libsqlite3.0.dylib */,
 				0A90C753162F6F110001312A /* AdSupport.framework */,
 				0A90C751162F6F050001312A /* libxml2.2.dylib */,
 				0A90C74F162F6EFB0001312A /* libz.1.2.5.dylib */,
@@ -1412,6 +1426,7 @@
 				0A90C264162F43D90001312A /* LICENSE_CocosDenshion.txt */,
 				0A90C296162F43D90001312A /* LICENSE_Kazmath.txt */,
 				0A90C329162F43DA0001312A /* LICENSE_Box2D.txt */,
+				91E1B3BB164187D300F61E9C /* Localytics */,
 				0A90C256162F43D80001312A /* CocosDenshion */,
 				0A90C265162F43D90001312A /* kazmath */,
 				0A90C297162F43D90001312A /* Box2D */,
@@ -2688,6 +2703,21 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		91E1B3BB164187D300F61E9C /* Localytics */ = {
+			isa = PBXGroup;
+			children = (
+				91E1B3BC164187D300F61E9C /* LocalyticsDatabase.h */,
+				91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */,
+				91E1B3BE164187D300F61E9C /* LocalyticsSession.h */,
+				91E1B3BF164187D300F61E9C /* LocalyticsSession.m */,
+				91E1B3C0164187D300F61E9C /* LocalyticsUploader.h */,
+				91E1B3C1164187D300F61E9C /* LocalyticsUploader.m */,
+				91E1B3C2164187D300F61E9C /* WebserviceConstants.h */,
+			);
+			name = Localytics;
+			path = libs/Localytics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3210,6 +3240,9 @@
 				0A90C884163085720001312A /* CCActionsExtended.m in Sources */,
 				0A90CAD51630B76B0001312A /* GB2DebugDrawLayer.mm in Sources */,
 				91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */,
+				91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */,
+				91E1B3C4164187D300F61E9C /* LocalyticsSession.m in Sources */,
+				91E1B3C5164187D300F61E9C /* LocalyticsUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
