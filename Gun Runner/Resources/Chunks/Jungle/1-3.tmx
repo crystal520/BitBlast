@@ -10,7 +10,7 @@
  </layer>
  <layer name="Terrain Background" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUUBuwEamOlaauwA1G3QcBACSwACI=
+   eJxjYBgFo2AUUBswUVkdtQEbkepYaeoK3IBe7gMAGZAAGw==
   </data>
  </layer>
  <layer name="CollisionTop" width="40" height="8">
