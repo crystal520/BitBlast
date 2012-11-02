@@ -16,6 +16,7 @@
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset {
 	
+    NSLog(@"LOADING CHUNK: %@", chunkName);
 	if((self = [super initWithTMXFile:chunkName])) {
 		
 		dummyPosition = offset;
@@ -46,7 +47,7 @@
 		lowestPosition = offset.y;
         
         // loop through layers and set texture parameters
-        for(CCTMXLayer *t in self.children) {
+        for(HKTMXLayer *t in self.children) {
             [t.texture setAliasTexParameters];
         }
 		
@@ -78,34 +79,6 @@
 
 #pragma mark -
 #pragma mark getters
-- (CGPoint) getGroundPositionWithLayer:(NSString *)layerName {
-	// get layer
-	CCTMXLayer *layer = [self layerNamed:layerName];
-	// get size of layer
-	CGSize layerSize = [layer layerSize];
-	// create array to keep track of ground positions
-	NSMutableArray *groundPositions = [NSMutableArray array];
-	// loop through and compile an array of good ground positions
-	for(int x=0;x<layerSize.width;x++) {
-		for(int y=0;y<layerSize.height;y++) {
-			CCSprite *tile = [layer tileAt:ccp(x,y)];
-			if(tile) {
-				// keep track of this tile's position
-				[groundPositions addObject:[NSValue valueWithCGPoint:ccpAdd(ccpMult(tile.position, [ResolutionManager sharedSingleton].inversePositionScale), ccp(tile.contentSize.width * 0.5, tile.contentSize.height * 0.5))]];
-			}
-		}
-	}
-    // generate a random number from the array
-    int ran = MIN(CCRANDOM_MIN_MAX(0, [groundPositions count]), [groundPositions count]-1);
-    // make sure this is a valid number
-    if(ran >= 0 && ran < [groundPositions count]) {
-        CGPoint point;
-        [[groundPositions objectAtIndex:ran] getValue:&point];
-        return point;
-    }
-	return ccp(0,0);
-}
-
 - (int) getRandomLevel {
 	// generate a random number from the array
 	int ran = CCRANDOM_MIN_MAX(0, [levels count]);

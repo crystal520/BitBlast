@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "cocos2d-extensions.h"
 
 typedef enum {
 	CHUNK_LEVEL_UNKNOWN = -1,
@@ -17,7 +18,7 @@ typedef enum {
     CHUNK_LEVEL_COUNT = 3
 } ChunkLevel;
 
-@interface Chunk : CCTMXTiledMap {
+@interface Chunk : HKTMXTiledMap {
     
 	int width, height, playerZ;
 	float endPosition, startPosition, lowestPosition, dummyStartPosition;
@@ -38,7 +39,6 @@ typedef enum {
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset;
 - (void) generateLevels;
 // getters
-- (CGPoint) getGroundPositionWithLayer:(NSString*)layerName;
 - (int) getRandomLevel;
 - (ChunkLevel) getLevelType:(int)index;
 - (int) getLevel:(int)index;

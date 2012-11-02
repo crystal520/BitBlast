@@ -3,11 +3,6 @@
  <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
   <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
- <layer name="Terrain Background" width="9" height="8">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgF+AAAASAAAQ==
-  </data>
- </layer>
  <layer name="CollisionTop" width="9" height="8">
   <data encoding="base64" compression="zlib">
    eJxjYBi5gAeKuXHQIAwACVQAag==

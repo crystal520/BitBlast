@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>gravity</key>
-	<integer>300</integer>
+	<integer>200</integer>
 	<key>jump</key>
-	<integer>20000</integer>
+	<integer>15000</integer>
 	<key>maxDownwardSpeed</key>
 	<integer>1300</integer>
 	<key>maxJumpTime</key>
@@ -19,9 +19,9 @@
 		<key>maxSpeed</key>
 		<integer>1000</integer>
 		<key>minSpeed</key>
-		<integer>800</integer>
+		<integer>700</integer>
 		<key>numChunksToIncrement</key>
-		<integer>10</integer>
+		<integer>8</integer>
 	</dict>
 	<key>tileCenterOffset</key>
 	<integer>25</integer>

@@ -57,12 +57,10 @@
 	touchingPlatform = NO;
 	for(Chunk *c in [ChunkManager sharedSingleton].currentChunks) {
 		
-		//NSSet *playerVerts = [self positionsInChunk:c];
-		
-		//for(NSValue *v in playerVerts) {
 		// get tile position from player's current position
 		CGPoint playerTilePos = [self positionInChunk:c];
-		//[v getValue:&playerTilePos];
+        // get tile size
+        CGSize tileSize = [c layerNamed:@"CollisionTop"].mapTileSize;
 		
 		// return if player's tile position is invalid
 		if(playerTilePos.y >= c.mapSize.height || playerTilePos.y < 0 || playerTilePos.x < 0 || playerTilePos.x >= c.mapSize.width) {
@@ -72,12 +70,12 @@
 		// check for normal collision layer
 		uint gid = [[c layerNamed:@"Collision"] tileGIDAt:playerTilePos];
 		if(gid) {
-			CCSprite *tile = [[c layerNamed:@"Collision"] tileAt:playerTilePos];
+            CGPoint tilePos = [[c layerNamed:@"Collision"] positionAt:playerTilePos];
 			// if the lowest part of the sprite is less than the middle of the tile
 			// set its position so the lowest part of the sprite is at the middle of the tile
-			float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
-			if(dummyPosition.y <= actualTilePos + tile.contentSize.height * 0.5 + tileOffset.y) {
-				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y);
+			float actualTilePos = tilePos.y * [ResolutionManager sharedSingleton].inversePositionScale;
+			if(dummyPosition.y <= actualTilePos + tileSize.height * 0.5 + tileOffset.y) {
+				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tileSize.height * 0.5) + tileOffset.y);
 				touchingPlatform = YES;
 				velocity = ccp(velocity.x * restitution, restitution * -velocity.y);
 				break;
@@ -87,12 +85,13 @@
 		// check for collision top layer
 		gid = [[c layerNamed:@"CollisionTop"] tileGIDAt:playerTilePos];
 		if(gid) {
-			CCSprite *tile = [[c layerNamed:@"CollisionTop"] tileAt:playerTilePos];
+            CGPoint tilePos = [[c layerNamed:@"CollisionTop"] positionAt:playerTilePos];
 			// if the lowest part of the sprite is less than the middle of the tile,
 			// the sprite is moving downwards, and previous lowest part of the sprite is greater than the middle of the tile
-			float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
-			if(dummyPosition.y <= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y && velocity.y < 0 && (prevDummyPosition.y - velocity.y * delta) >= actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y) {
-				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tile.contentSize.height * 0.5) + tileOffset.y);
+			float actualTilePos = tilePos.y * [ResolutionManager sharedSingleton].inversePositionScale;
+            int tileMid = actualTilePos + (tileSize.height * 0.5) + tileOffset.y;
+			if(dummyPosition.y <= tileMid && velocity.y < 0 && prevDummyPosition.y >= tileMid) {
+				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + (tileSize.height * 0.5) + tileOffset.y);
 				touchingPlatform = YES;
 				velocity = ccp(velocity.x * restitution, restitution * -velocity.y);
 				break;
@@ -102,10 +101,10 @@
 		// check for collision bottom layer
 		gid = [[c layerNamed:@"CollisionBottom"] tileGIDAt:playerTilePos];
 		if(gid) {
-			CCSprite *tile = [[c layerNamed:@"CollisionBottom"] tileAt:playerTilePos];
+            CGPoint tilePos = [[c layerNamed:@"CollisionBottom"] positionAt:playerTilePos];
 			// if the highest part of the sprite is greater than the lowest part of the tile,
 			// the sprite is moving upwards, and the previous highest part of the sprite is less than the lowest part of the tile
-			float actualTilePos = tile.position.y * [ResolutionManager sharedSingleton].inversePositionScale;
+			float actualTilePos = tilePos.y * [ResolutionManager sharedSingleton].inversePositionScale;
 			if(dummyPosition.y >= actualTilePos + tileOffset.y && velocity.y > 0 && prevDummyPosition.y <= actualTilePos) {
 				dummyPosition = ccp(dummyPosition.x + tileOffset.x, actualTilePos + tileOffset.y);
 				velocity = ccp(velocity.x * restitution, restitution * -velocity.y);

@@ -490,6 +490,9 @@
 		914977C4163EF115000C0543 /* 3-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C0163EF115000C0543 /* 3-1.tmx */; };
 		914977C5163EF115000C0543 /* 3-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C1163EF115000C0543 /* 3-2.tmx */; };
 		914977C7163EFA87000C0543 /* 3-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 914977C6163EFA87000C0543 /* 3-3.tmx */; };
+		91689212164305D70004FE94 /* HKTMXLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168920D164305D70004FE94 /* HKTMXLayer.m */; };
+		91689213164305D70004FE94 /* HKTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168920F164305D70004FE94 /* HKTMXTiledMap.m */; };
+		91689214164305D70004FE94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 91689210164305D70004FE94 /* README.md */; };
 		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
 		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
 		91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */; };
@@ -1261,6 +1264,12 @@
 		914977C0163EF115000C0543 /* 3-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-1.tmx"; sourceTree = "<group>"; };
 		914977C1163EF115000C0543 /* 3-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-2.tmx"; sourceTree = "<group>"; };
 		914977C6163EFA87000C0543 /* 3-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "3-3.tmx"; sourceTree = "<group>"; };
+		9168920C164305D70004FE94 /* HKTMXLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTMXLayer.h; sourceTree = "<group>"; };
+		9168920D164305D70004FE94 /* HKTMXLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTMXLayer.m; sourceTree = "<group>"; };
+		9168920E164305D70004FE94 /* HKTMXTiledMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKTMXTiledMap.h; sourceTree = "<group>"; };
+		9168920F164305D70004FE94 /* HKTMXTiledMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTMXTiledMap.m; sourceTree = "<group>"; };
+		91689210164305D70004FE94 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		91689216164306180004FE94 /* cocos2d-extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "cocos2d-extensions.h"; sourceTree = "<group>"; };
 		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
 		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
@@ -1425,6 +1434,7 @@
 			isa = PBXGroup;
 			children = (
 				0A90C760163084930001312A /* cocos2d */,
+				91689208164305D70004FE94 /* cocos2d-extensions */,
 				0A90C736162F6A570001312A /* iCade */,
 				0A90C71B162F645C0001312A /* Chartboost */,
 				0A90C71F162F645C0001312A /* SessionM */,
@@ -2715,6 +2725,28 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		91689208164305D70004FE94 /* cocos2d-extensions */ = {
+			isa = PBXGroup;
+			children = (
+				91689209164305D70004FE94 /* HKTMXTiledMap */,
+				91689216164306180004FE94 /* cocos2d-extensions.h */,
+			);
+			name = "cocos2d-extensions";
+			path = "libs/cocos2d-extensions";
+			sourceTree = "<group>";
+		};
+		91689209164305D70004FE94 /* HKTMXTiledMap */ = {
+			isa = PBXGroup;
+			children = (
+				9168920C164305D70004FE94 /* HKTMXLayer.h */,
+				9168920D164305D70004FE94 /* HKTMXLayer.m */,
+				9168920E164305D70004FE94 /* HKTMXTiledMap.h */,
+				9168920F164305D70004FE94 /* HKTMXTiledMap.m */,
+				91689210164305D70004FE94 /* README.md */,
+			);
+			path = HKTMXTiledMap;
+			sourceTree = "<group>";
+		};
 		91E1B3BB164187D300F61E9C /* Localytics */ = {
 			isa = PBXGroup;
 			children = (
@@ -3019,6 +3051,7 @@
 				91E1B3CB16418B7A00F61E9C /* 1-2_dropship.plist in Resources */,
 				91E1B3CD16418CC500F61E9C /* 1-1_soldier.plist in Resources */,
 				91E1B3CF16418D2800F61E9C /* 1-1_soldierInfected.plist in Resources */,
+				91689214164305D70004FE94 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3259,6 +3292,8 @@
 				91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */,
 				91E1B3C4164187D300F61E9C /* LocalyticsSession.m in Sources */,
 				91E1B3C5164187D300F61E9C /* LocalyticsUploader.m in Sources */,
+				91689212164305D70004FE94 /* HKTMXLayer.m in Sources */,
+				91689213164305D70004FE94 /* HKTMXTiledMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
