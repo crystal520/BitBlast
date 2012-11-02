@@ -29,9 +29,9 @@
     // make sure it's visible
     [self setEnabled:YES];
 	// generate random position within object to explode in
-	CGPoint bounds = ccpAdd(ccpMult(ccp(explodingObject.contentSize.width, explodingObject.contentSize.height), [ResolutionManager sharedSingleton].positionScale), ccp(offset.size.width, offset.size.height));
-	int ranX = CCRANDOM_MIN_MAX(0, bounds.x) - bounds.x * explodingObject.anchorPoint.x + explodingObject.position.x + 50 + offset.origin.x;
-	int ranY = CCRANDOM_MIN_MAX(0, bounds.y) - bounds.y * explodingObject.anchorPoint.y + explodingObject.position.y - 50 + offset.origin.y;
+	CGPoint bounds = ccpAdd(ccp(explodingObject.contentSize.width, explodingObject.contentSize.height), ccp(offset.size.width, offset.size.height));
+	int ranX = CCRANDOM_MIN_MAX(0, bounds.x) - bounds.x * explodingObject.anchorPoint.x + explodingObject.position.x + offset.origin.x;
+	int ranY = CCRANDOM_MIN_MAX(0, bounds.y) - bounds.y * explodingObject.anchorPoint.y + explodingObject.position.y - offset.origin.y;
 	self.position = ccp(ranX, ranY);
     // keep track of final offset in case this explosion should follow the explodingObject
     finalOffset = ccpSub(self.position, explodingObject.position);
