@@ -93,14 +93,10 @@
 	return activeCoins;
 }
 
-- (NSArray*) getRandomCoinGroup {
+- (NSDictionary*) getRandomCoinGroup {
 	// generate random number from array
-	int ran = CCRANDOM_MIN_MAX(0, [patterns count]);
-	// make sure it exists
-	if(ran < [patterns count]) {
-		return [patterns objectAtIndex:ran];
-	}
-	return [patterns objectAtIndex:0];
+	int ran = MIN(CCRANDOM_MIN_MAX(0, [patterns count]), [patterns count]-1);
+	return [patterns objectAtIndex:ran];
 }
 
 #pragma mark -
@@ -151,23 +147,19 @@
 }
 
 - (void) spawnCoinGroupWithLevel:(ChunkLevel)chunkLevel {
-	int level = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:chunkLevel];
     // get a random coin group
-	NSArray *coinGroup = [self getRandomCoinGroup];
-	// loop through and position coins
-	for(NSString *s in coinGroup) {
-		// get an inactive coin
-		BBCoin *c = [self getRecycledCoin];
-		// make string into a point
-		CGPoint p = CGPointFromString(s);
-		// reset coin with new position
-		[c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
-	}
+	NSDictionary *coinGroup = [self getRandomCoinGroup];
+    // determine whether spacing should be enabled
+    spacing = YES;
+    if([coinGroup objectForKey:@"spacing"] != nil) {
+        spacing = [[coinGroup objectForKey:@"spacing"] boolValue];
+    }
+    [self spawnCoinGroupWithString:[coinGroup objectForKey:@"string"] withLevel:chunkLevel];
 }
 
 - (void) spawnCoinGroupWithString:(NSString*)coinString withLevel:(ChunkLevel)chunkLevel {
     // get the y level that the coin group will start at
-	int level = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:chunkLevel];
+	int level = [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:chunkLevel] + 32;
     // convert the string to all lowercase
     coinString = [coinString lowercaseString];
     // get the letter dictionary, which contains coin positions for each character
@@ -195,8 +187,14 @@
             // reset coin with new position
             [c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + lastX + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
         }
-        // space the letters out by their width and two coin widths
-        lastX += (maxX + 64);
+        if(spacing) {
+            // space the letters out by their width and two coin widths
+            lastX += (maxX + 64);
+        }
+        else {
+            // space the letters out by their width and one coin width, so that they appear right next to each other
+            lastX += (maxX + 32);
+        }
     }
 }
 

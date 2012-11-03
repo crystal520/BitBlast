@@ -18,6 +18,8 @@
 	NSArray *patterns;
     // whether or not the coin manager is paused
     BOOL paused;
+    // whether or not the characters in a pattern string need to be spaced out or not
+    BOOL spacing;
 }
 
 + (BBCoinManager*) sharedSingleton;
@@ -26,7 +28,7 @@
 // getters
 - (BBCoin*) getRecycledCoin;
 - (NSArray*) getActiveCoins;
-- (NSArray*) getRandomCoinGroup;
+- (NSDictionary*) getRandomCoinGroup;
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
 // notifications
