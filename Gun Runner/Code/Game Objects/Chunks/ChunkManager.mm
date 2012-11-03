@@ -130,9 +130,14 @@
     
     // see if tutorial needs to end
     if([Globals sharedSingleton].tutorial && [Globals sharedSingleton].tutorialState == TUTORIAL_STATE_FINISH) {
+        // load jungle level chunks
         [self replaceChunksWithLevel:@"jungleLevel"];
+        // no longer in the tutorial
         [Globals sharedSingleton].tutorial = NO;
+        // reset the dropship level
         [BBDropshipManager sharedSingleton].dropshipLevel = 0;
+        // post notification so other classes know that the tutorial is over
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kEventTutorialOver object:nil]];
     }
 }
 

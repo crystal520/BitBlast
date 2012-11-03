@@ -95,7 +95,8 @@ typedef enum {
     SPRITE_TAG_MENU,
     SPRITE_TAG_OVERLAY,
 	SPRITE_TAG_POPUP,
-    SPRITE_TAG_BOSS_OVERLAY
+    SPRITE_TAG_BOSS_OVERLAY,
+    SPRITE_TAG_HUD_TUTORIAL
 } SpriteTag;
 
 typedef enum {
@@ -108,8 +109,6 @@ typedef enum {
     TUTORIAL_STATE_DROPSHIP,
     TUTORIAL_STATE_FINISH
 } TutorialState;
-
-#define TESTING 1
 
 #define kGameRestartNotification @"gameRestartNotification"
 #define kLoadLevelNotification @"loadLevelNotification"
@@ -141,6 +140,7 @@ typedef enum {
 #define kEventSpawnFinalBoss @"eventSpawnFinalBoss"
 #define kEventFinalBossDead @"eventFinalBossDead"
 #define kEventGameWin @"eventGameWin"
+#define kEventTutorialOver @"eventTutorialOver"
 
 #define kNavMainNotification @"navMainNotification"
 #define kNavGameNotification @"navGameNotification"

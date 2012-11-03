@@ -155,7 +155,7 @@
             }
             
             // if player is invincible, count down the timer
-            if(invincible) {
+            if(invincible && ![Globals sharedSingleton].tutorial) {
                 invincibleTimer -= delta;
                 if(invincibleTimer <= 0) {
                     invincible = NO;
@@ -164,8 +164,12 @@
             
             // update globals
             [self updateGlobals];
+            // keep track of separate tutorial distance
+            if([Globals sharedSingleton].tutorial) {
+                tutorialDistance = dummyPosition.x;
+            }
             // update score
-            [[SettingsManager sharedSingleton] setInteger:floor(dummyPosition.x / [[ChunkManager sharedSingleton] getCurrentChunk].tileSize.width) keyString:@"currentMeters"];
+            [[SettingsManager sharedSingleton] setInteger:floor((dummyPosition.x - tutorialDistance) / [[ChunkManager sharedSingleton] getCurrentChunk].tileSize.width) keyString:@"currentMeters"];
             [[SettingsManager sharedSingleton] setInteger:previousTotalDistance + [[SettingsManager sharedSingleton] getInt:@"currentMeters"] keyString:@"totalMeters"];
             // update torso position
             [self updateTorso];
@@ -391,6 +395,7 @@
 	jumpTimer = 0.0f;
     jumping = NO;
     numJumps = 0;
+    tutorialDistance = 0;
     [self setWeaponAngle:0];
     [legs setColor:ccc3(255, 255, 255)];
     [torso setColor:ccc3(255, 255, 255)];
@@ -496,6 +501,11 @@
         invincibleTimer = invincibleTime;
     }
 #endif
+}
+
+- (void) tutorialOver {
+    // player is no longer invincible
+    invincible = NO;
 }
 
 #pragma mark -

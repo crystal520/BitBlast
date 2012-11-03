@@ -46,6 +46,7 @@
         // create tutorial label
         tutorial = [[CCLabelBMFont alloc] initWithString:@"Swipe up to jump" fntFile:@"gamefont.fnt"];
         tutorial.scale = 0.7;
+        tutorial.tag = SPRITE_TAG_HUD_TUTORIAL;
         tutorial.position = ccp(winSize.width * 0.5, winSize.height * 0.25);
         [self addChild:tutorial];
         // hide it to start
@@ -162,6 +163,16 @@
                 [self showTutorialString:@"Tap and drag to aim"];
                 [TestFlight passCheckpoint:@"showTutorial_Aim"];
             }
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark setters
+- (void) setVisible:(BOOL)newVisible {
+    for(CCNode *c in self.children) {
+        if(c.tag != SPRITE_TAG_HUD_TUTORIAL) {
+            c.visible = newVisible;
         }
     }
 }

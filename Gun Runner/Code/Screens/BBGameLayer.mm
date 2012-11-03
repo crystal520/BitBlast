@@ -104,6 +104,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(spawnFinalBoss) name:kEventSpawnFinalBoss object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finalBossDead) name:kEventFinalBossDead object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameWin) name:kEventGameWin object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tutorialOver) name:kEventTutorialOver object:nil];
 		
 		// set initial state
 		state = kStateUnknown;
@@ -463,7 +464,10 @@
 				}
 				else {
 					[self reset];
-                    [self getChildByTag:SPRITE_TAG_MENU].visible = YES;
+                    // only show HUD if not in the tutorial
+                    if(![Globals sharedSingleton].tutorial) {
+                        [self getChildByTag:SPRITE_TAG_MENU].visible = YES;
+                    }
 				}
 				break;
 			case kStateShop:
@@ -758,6 +762,13 @@
     [self stopActionByTag:ACTION_TAG_SCREEN_SHAKE];
     // stop boss flashing and exploding
     [[BBBossManager sharedSingleton] gameOver];
+}
+
+- (void) tutorialOver {
+    // show HUD
+    [self getChildByTag:SPRITE_TAG_MENU].visible = YES;
+    // let player know that the tutorial is over
+    [player tutorialOver];
 }
 
 #pragma mark -

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="40" height="8" tilewidth="128" tileheight="128">
+<map version="1.0" orientation="orthogonal" width="28" height="8" tilewidth="128" tileheight="128">
  <tileset firstgid="1" name="tiles_aubrey" tilewidth="128" tileheight="128">
   <image source="tiles_aubrey.png" width="2048" height="2048"/>
  </tileset>
- <layer name="Terrain Background" width="40" height="8">
+ <layer name="Terrain Background" width="28" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2D4AlYgZqIAD3b3IWMWKpo1UjAA5AgA6Q==
+   eJxjYBgFowA3YAViJiRMb/uQMQseuaGKAVAYAIk=
   </data>
  </layer>
- <layer name="CollisionTop" width="40" height="8">
+ <layer name="CollisionTop" width="28" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4B8wAXE3EDMQyINYw92QKq/6EkPhfAb6DDCF3YgDABLQwRR
+   eJxjYBgFQwlwATE3EPNAaXoDmL30oukN6Ok3EA0A/ecCsQ==
   </data>
  </layer>
- <layer name="Background" width="40" height="8">
+ <layer name="Background" width="28" height="8">
   <data encoding="base64" compression="zlib">
-   eJy9UEEOwzAI82/zgG7q1VK3F3R9Qdd/jgZFohCq7rAhWQFjUAzw+xgEN8Hd5dCXUnNQHHr/iknwEDxdDn0pNSfFobfHVW+ZT8v7fS2K4CVYNKfNF605C5zuK2+ZT8v7fS1GwVuwaU6bb1pzFThdjTn3hubN+iz9marp7LM3JCLne/T8mntD82Z97nxnpmoQe/aGROR8jz3+gk/iWMNrzmaS/aFfEG9q/9vzYDmvt5qzmWR/6I+It/sA6jB/+Q==
+   eJy9kFEOgkAMRPe2HkCMv5MoJ1BPgNyT6RKSl1r4k00mnU6ntKW1/7+rMRi3E2bFexhPY0yz8x6Oci7rIqeP+t4tF+NtfNJs8rZGOZd1kdNHPd+yvbvxNWbjhdneQ+ARI1fo4FVP97TfGm/s9QmzvYfAI0au0MGrnu4pvscbxf+b96i07KfnqCf7qj32dmONnqMe6guD01LV
   </data>
  </layer>
 </map>

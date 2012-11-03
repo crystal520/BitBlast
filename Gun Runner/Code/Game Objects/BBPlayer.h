@@ -56,6 +56,8 @@ typedef enum {
 	int health;
 	// total player distance prior to the current run. for calculating total distance
 	int previousTotalDistance;
+    // how far the player ran in the tutorial. keep track of this so that player can't run in tutorial forever and get a high score
+    int tutorialDistance;
 	// whether or not the player is in the intro
 	BOOL introEnabled;
 	// coin multiplier for the current run
@@ -97,6 +99,7 @@ typedef enum {
 - (void) shoot:(CGPoint)touchPos;
 - (void) endShoot;
 - (void) attemptToLoseHealth;
+- (void) tutorialOver;
 // collisions
 - (void) collideWithCoin:(BBCoin*)coin;
 - (void) collideWithMovingCoin:(BBMovingCoin*)coin;
