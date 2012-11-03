@@ -11,6 +11,8 @@
 
 @implementation CCButton
 
+@synthesize boundingBoxPadding = boundingBoxPadding_;
+
 +(id) buttonFromNormalSprite:(CCNode<CCRGBAProtocol>*)normalSprite selectedSprite:(CCNode<CCRGBAProtocol>*)selectedSprite {
 	return [self buttonFromNormalSprite:normalSprite selectedSprite:selectedSprite disabledSprite:nil target:nil selector:nil];
 }
@@ -39,6 +41,8 @@
 		if(disabledImage) {
 			[self addChild:disabledImage];
 		}
+        
+        self.boundingBoxPadding = CGRectZero;
 		
 		NSMethodSignature *sig = nil;
 		if(target && selector) {
@@ -175,7 +179,8 @@
 - (CGRect) scaledBoundingBox {
 	CGRect b = [self boundingBox];
 	b.origin = [self convertToWorldSpace:CGPointZero];
-	return CGRectMake(b.origin.x, b.origin.y, b.size.width * [ResolutionManager sharedSingleton].imageScale, b.size.height * [ResolutionManager sharedSingleton].imageScale);
+    CGRect newB = CGRectMake(b.origin.x + self.boundingBoxPadding.origin.x * [ResolutionManager sharedSingleton].imageScale, b.origin.y, (b.size.width + self.boundingBoxPadding.size.width) * [ResolutionManager sharedSingleton].imageScale, (b.size.height + self.boundingBoxPadding.size.height) * [ResolutionManager sharedSingleton].imageScale);
+	return newB;
 }
 
 @end

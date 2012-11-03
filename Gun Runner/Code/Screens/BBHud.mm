@@ -24,6 +24,7 @@
 		pause = [CCButton buttonFromNormalSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"pause.png"] target:self selector:@selector(pause)];
 		[pause setSpriteBatchNode:uiSpriteBatch];
 		pause.position = ccp(winSize.width - pause.contentSize.width * 0.5, pause.contentSize.height * 0.5);
+        pause.boundingBoxPadding = CGRectMake(-40, 0, 40, 40);
 		[self addChild:pause];
 		
 		// create score label

@@ -21,7 +21,11 @@ typedef enum {
 	NSInvocation *invocation;
 	// whether or not this button will react to input
 	BOOL enabled;
+    // extra padding for button bounding box
+    CGRect boundingBoxPadding_;
 }
+
+@property (nonatomic, assign) CGRect boundingBoxPadding;
 
 /** creates a button with a normal and selected image*/
 +(id) buttonFromNormalSprite:(CCNode<CCRGBAProtocol>*)normalSprite selectedSprite:(CCNode<CCRGBAProtocol>*)selectedSprite;
