@@ -68,12 +68,26 @@
 			<key>frames</key>
 			<array>
 				<string>oldCoin1.png</string>
-				<string>oldCoin2.png</string>
-				<string>oldCoin3.png</string>
 				<string>oldCoin4.png</string>
+				<string>oldCoin3.png</string>
+				<string>oldCoin2.png</string>
 			</array>
 			<key>name</key>
 			<string>coinIdle</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
+				<string>oldCoin1.png</string>
+				<string>oldCoin4.png</string>
+				<string>oldCoin3.png</string>
+				<string>oldCoin2.png</string>
+				<string>oldCoin1.png</string>
+			</array>
+			<key>name</key>
+			<string>coinSpin</string>
 			<key>speed</key>
 			<real>0.1</real>
 		</dict>

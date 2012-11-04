@@ -20,6 +20,8 @@
     BOOL paused;
     // whether or not the characters in a pattern string need to be spaced out or not
     BOOL spacing;
+    // the last coin group that was spawned. so there aren't 2 in a row of the same kind
+    int lastSpawned;
 }
 
 + (BBCoinManager*) sharedSingleton;

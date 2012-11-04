@@ -37,6 +37,7 @@
 		alive = YES;
 	}
 	else if(!e && enabled) {
+        [self stopActionByTag:COIN_ACTION_DELAY_ANIMATION];
 		recycle = YES;
         [collisionShape setActive:NO];
 		alive = NO;
@@ -44,12 +45,26 @@
 	enabled = e;
 }
 
-- (void) resetWithPosition:(CGPoint)newPosition {
+- (void) resetWithPosition:(CGPoint)newPosition delayAnimation:(float)delay {
+    // delay first coin animation
+    CCSequence *coinAnimAction = [CCSequence actions:[CCDelayTime actionWithDuration:delay], [CCCallFunc actionWithTarget:self selector:@selector(playCoinAnimation)], nil];
+    coinAnimAction.tag = COIN_ACTION_DELAY_ANIMATION;
+    [self runAction:coinAnimAction];
 	// reset the coin with new parameters
 	[self setEnabled:YES];
-	[self repeatAnimation:@"coinIdle"];
+    // set initial frame of animation
+    [self setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"oldCoin1.png"]];
 	dummyPosition = newPosition;
 	self.position = ccpMult(dummyPosition, [ResolutionManager sharedSingleton].positionScale);
+}
+
+- (void) playCoinAnimation {
+    // make action to space out coin animations
+    CCSequence *coinAnimAction = [CCSequence actions:[CCDelayTime actionWithDuration:1.5], [CCCallFunc actionWithTarget:self selector:@selector(playCoinAnimation)], nil];
+    coinAnimAction.tag = COIN_ACTION_DELAY_ANIMATION;
+    [self runAction:coinAnimAction];
+    // play the coin animation
+    [self playAnimation:@"coinSpin"];
 }
 
 @end

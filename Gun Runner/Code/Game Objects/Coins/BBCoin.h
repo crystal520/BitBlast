@@ -27,6 +27,6 @@
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
 // actions
-- (void) resetWithPosition:(CGPoint)newPosition;
+- (void) resetWithPosition:(CGPoint)newPosition delayAnimation:(float)delay;
 
 @end

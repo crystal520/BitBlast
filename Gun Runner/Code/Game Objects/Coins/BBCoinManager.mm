@@ -95,7 +95,14 @@
 
 - (NSDictionary*) getRandomCoinGroup {
 	// generate random number from array
-	int ran = MIN(CCRANDOM_MIN_MAX(0, [patterns count]), [patterns count]-1);
+	int ran = lastSpawned;
+    do {
+        ran = MIN(CCRANDOM_MIN_MAX(0, [patterns count]), [patterns count]-1);
+    } while(ran == lastSpawned);
+    lastSpawned = ran;
+#ifdef DEBUG_COIN_GROUP
+    ran = DEBUG_COIN_GROUP;
+#endif
 	return [patterns objectAtIndex:ran];
 }
 
@@ -174,6 +181,8 @@
         NSString *coinPositionString = [letterDictionary objectForKey:letter];
         // split the string up into coin positions
         NSArray *coinPositions = [coinPositionString componentsSeparatedByString:@"|"];
+        // see if the coin animation should be flipped so the coins animate starting from the top left corner
+        BOOL flip = [letter isEqualToString:@"\\"];
         // keep track of the maximum x position of the coins in the current letter
         int maxX = 0;
         // loop through coin positions
@@ -181,19 +190,26 @@
             // get a recycled coin that can be used
             BBCoin *c = [self getRecycledCoin];
             // convert the string to a point for positioning the coin
-            CGPoint p = ccpMult(CGPointFromString(s), 32);
+            CGPoint p = CGPointFromString(s);
             // keep track of the maximum x position for this letter
             maxX = MAX(maxX, p.x);
+            // calculate delay based on maxX, current X, and Y
+            float delay = 0.25 + (lastX + p.y + maxX) * 0.05;
+            if(flip) {
+                delay = 0.25 + (lastX + (4 - p.y) + maxX) * 0.05;
+            }
+            // multiply by coin's size for actual position
+            p = ccpMult(p, 32);
             // reset coin with new position
-            [c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + lastX + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level))];
+            [c resetWithPosition:ccpAdd(p, ccp([Globals sharedSingleton].playerPosition.x + (lastX * 32) + [ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, level)) delayAnimation:delay];
         }
         if(spacing) {
             // space the letters out by their width and two coin widths
-            lastX += (maxX + 64);
+            lastX += (maxX + 2);
         }
         else {
             // space the letters out by their width and one coin width, so that they appear right next to each other
-            lastX += (maxX + 32);
+            lastX += (maxX + 1);
         }
     }
 }
