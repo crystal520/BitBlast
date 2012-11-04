@@ -21,6 +21,11 @@
 			<string>3-2.tmx</string>
 			<string>3-3.tmx</string>
 		</array>
+		<array>
+			<string>4-1.tmx</string>
+			<string>4-2.tmx</string>
+			<string>4-3.tmx</string>
+		</array>
 	</array>
 	<key>firstChunk</key>
 	<string>start.tmx</string>

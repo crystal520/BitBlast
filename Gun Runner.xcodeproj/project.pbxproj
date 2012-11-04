@@ -493,6 +493,9 @@
 		91689212164305D70004FE94 /* HKTMXLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168920D164305D70004FE94 /* HKTMXLayer.m */; };
 		91689213164305D70004FE94 /* HKTMXTiledMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 9168920F164305D70004FE94 /* HKTMXTiledMap.m */; };
 		91689214164305D70004FE94 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 91689210164305D70004FE94 /* README.md */; };
+		918E7E251646C75B0047B4AE /* 4-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E221646C75B0047B4AE /* 4-1.tmx */; };
+		918E7E261646C75B0047B4AE /* 4-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E231646C75B0047B4AE /* 4-2.tmx */; };
+		918E7E271646C75B0047B4AE /* 4-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E241646C75B0047B4AE /* 4-3.tmx */; };
 		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
 		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
 		91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */; };
@@ -1270,6 +1273,9 @@
 		9168920F164305D70004FE94 /* HKTMXTiledMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKTMXTiledMap.m; sourceTree = "<group>"; };
 		91689210164305D70004FE94 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		91689216164306180004FE94 /* cocos2d-extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "cocos2d-extensions.h"; sourceTree = "<group>"; };
+		918E7E221646C75B0047B4AE /* 4-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "4-1.tmx"; sourceTree = "<group>"; };
+		918E7E231646C75B0047B4AE /* 4-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "4-2.tmx"; sourceTree = "<group>"; };
+		918E7E241646C75B0047B4AE /* 4-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "4-3.tmx"; sourceTree = "<group>"; };
 		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
 		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
@@ -1993,6 +1999,9 @@
 				914977C0163EF115000C0543 /* 3-1.tmx */,
 				914977C1163EF115000C0543 /* 3-2.tmx */,
 				914977C6163EFA87000C0543 /* 3-3.tmx */,
+				918E7E221646C75B0047B4AE /* 4-1.tmx */,
+				918E7E231646C75B0047B4AE /* 4-2.tmx */,
+				918E7E241646C75B0047B4AE /* 4-3.tmx */,
 				0A90C519162F5A830001312A /* start.tmx */,
 				0A90C51A162F5A830001312A /* tiles_aubrey.png */,
 			);
@@ -3052,6 +3061,9 @@
 				91E1B3CD16418CC500F61E9C /* 1-1_soldier.plist in Resources */,
 				91E1B3CF16418D2800F61E9C /* 1-1_soldierInfected.plist in Resources */,
 				91689214164305D70004FE94 /* README.md in Resources */,
+				918E7E251646C75B0047B4AE /* 4-1.tmx in Resources */,
+				918E7E261646C75B0047B4AE /* 4-2.tmx in Resources */,
+				918E7E271646C75B0047B4AE /* 4-3.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

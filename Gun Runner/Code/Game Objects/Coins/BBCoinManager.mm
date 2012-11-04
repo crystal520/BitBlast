@@ -100,7 +100,7 @@
         ran = MIN(CCRANDOM_MIN_MAX(0, [patterns count]), [patterns count]-1);
     } while(ran == lastSpawned);
     lastSpawned = ran;
-#ifdef DEBUG_COIN_GROUP
+#if DEBUG_COIN_GROUP
     ran = DEBUG_COIN_GROUP;
 #endif
 	return [patterns objectAtIndex:ran];
