@@ -98,13 +98,16 @@
     // determine which array we should grab based on how the player died
     NSString *arrayToGrab;
     if([Globals sharedSingleton].playerReasonForDeath == kDeathEnemy) {
-        arrayToGrab = @"hearts";
+        arrayToGrab = @"minion";
     }
     else if([Globals sharedSingleton].playerReasonForDeath == kDeathFall) {
         arrayToGrab = @"fall";
     }
     else if([Globals sharedSingleton].playerReasonForDeath == kDeathMiniboss) {
         arrayToGrab = @"miniboss";
+    }
+    else if([Globals sharedSingleton].playerReasonForDeath == kDeathBullet) {
+        arrayToGrab = @"bullet";
     }
     else {
         arrayToGrab = @"default";

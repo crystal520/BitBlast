@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>hearts</key>
+	<key>minion</key>
 	<array>
 		<string>SUCCUMBING TO YOUR ENEMIES</string>
 		<string>BEING DESTROYED BY MUTANTS</string>
@@ -28,6 +28,22 @@
 	<array>
 		<string>BEING CRUSHED</string>
 		<string>GETTING ANNIHILATED</string>
+		<string>LOSING YOUR HEAD</string>
+		<string>COLLIDING WITH A 10 TON SHIP</string>
+		<string>SPLATTERING ON THAT SHIP&apos;S WINDSHIELD</string>
+	</array>
+	<key>bullet</key>
+	<array>
+		<string>EATING A SLICE OF BULLET PIE</string>
+		<string>EATING A BULLET PIZZA</string>
+		<string>EATING A BULLET BREAKFAST SANDWICH</string>
+		<string>EATING A SLICE OF BULLET CAKE</string>
+		<string>EATING A BASKET OF BULLETS</string>
+		<string>EATING A BUSHEL OF BULLETS</string>
+		<string>DRINKING A LITER OF BULLETS</string>
+		<string>EATING A BULLET SUNDAE</string>
+		<string>EATING A BULLET SALAD</string>
+		<string>EATING SOME BULLET SOUP</string>
 	</array>
 </dict>
 </plist>

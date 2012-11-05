@@ -593,7 +593,7 @@
         [bullet setEnabled:NO];
         
         if(health <= 0) {
-            [self die:kDeathEnemy];
+            [self die:kDeathBullet];
         }
     }
 }
