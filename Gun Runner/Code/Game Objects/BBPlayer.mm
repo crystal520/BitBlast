@@ -553,6 +553,7 @@
             [[SimpleAudioEngine sharedEngine] playEffect:@"key.wav"];
             [self addKeys:1];
             [coin setEnabled:NO];
+            [[SettingsManager sharedSingleton] setInteger:0 keyString:@"numDropshipsWithoutKey"];
         }
         else {
             [[SimpleAudioEngine sharedEngine] playEffect:@"triforce.wav"];

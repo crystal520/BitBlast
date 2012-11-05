@@ -30,6 +30,7 @@
         NSDictionary *plist = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dice" ofType:@"plist"]];
         [Globals sharedSingleton].numKeysForMiniboss = [[plist objectForKey:@"numKeysToSummonMiniboss"] intValue];
         [Globals sharedSingleton].numPiecesForFinalBoss = [[plist objectForKey:@"numPiecesForFinalBoss"] intValue];
+        [Globals sharedSingleton].numDropshipsForceKey = [[plist objectForKey:@"numDropshipsForceKey"] intValue];
         levels = [[NSArray alloc] initWithArray:[plist objectForKey:@"levels"]];
         
 		// register for noticiations

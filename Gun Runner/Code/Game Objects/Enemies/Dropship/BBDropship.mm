@@ -238,7 +238,7 @@
 - (void) die {
     // see if we should spawn a miniboss trigger
     float ran = CCRANDOM_0_1();
-    if(ran < minibossChance && [[SettingsManager sharedSingleton] getInt:@"totalKeys"] < [Globals sharedSingleton].numKeysForMiniboss) {
+    if((ran < minibossChance || [[SettingsManager sharedSingleton] getInt:@"numDropshipsWithoutKey"] >= [Globals sharedSingleton].numDropshipsForceKey) && [[SettingsManager sharedSingleton] getInt:@"totalKeys"] < [Globals sharedSingleton].numKeysForMiniboss) {
         [[BBMovingCoinManager sharedSingleton] spawnKeyAtPosition:dummyPosition];
     }
     else {
@@ -249,6 +249,7 @@
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"totalDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentDropships"];
 	[[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyDropships"];
+    [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"numDropshipsWithoutKey"];
 	alive = NO;
 	gravity = ccp(2, 5);
 	level = CHUNK_LEVEL_UNKNOWN;

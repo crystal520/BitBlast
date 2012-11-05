@@ -53,5 +53,7 @@
 	<integer>7</integer>
 	<key>numPiecesForFinalBoss</key>
 	<integer>4</integer>
+	<key>numDropshipsForceKey</key>
+	<integer>9</integer>
 </dict>
 </plist>
