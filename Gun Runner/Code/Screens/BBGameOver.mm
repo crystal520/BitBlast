@@ -47,7 +47,7 @@
 		[self addChild:killLabel];
 		
 		// create multiplier label
-		multiplierLabel = [CCLabelBMFont labelWithString:@"MULTIPLIER: 4x" fntFile:@"gamefont.fnt"];
+		multiplierLabel = [CCLabelBMFont labelWithString:@"MULTIPLIER: 4x" fntFile:@"gamefont.fnt" width:1228 * [ResolutionManager sharedSingleton].positionScale alignment:kCCTextAlignmentLeft];
 		multiplierLabel.position = ccp(background.position.x - 275 * [ResolutionManager sharedSingleton].positionScale, background.position.y - 25 * [ResolutionManager sharedSingleton].positionScale);
 		multiplierLabel.scale = 0.4;
 		multiplierLabel.anchorPoint = ccp(0, 0.5);
