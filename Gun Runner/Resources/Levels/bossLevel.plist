@@ -5,11 +5,13 @@
 	<key>chunks</key>
 	<array>
 		<array>
-			<string>bossLevel1.tmx</string>
+			<string>boss 1-1.tmx</string>
+			<string>boss 1-2.tmx</string>
+			<string>boss 1-3.tmx</string>
 		</array>
 	</array>
 	<key>firstChunk</key>
-	<string>bossLevel1.tmx</string>
+	<string>boss start.tmx</string>
 	<key>overrideChunk</key>
 	<string></string>
 	<key>backgroundColor</key>

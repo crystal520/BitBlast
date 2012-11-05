@@ -158,7 +158,6 @@
 		0A90C50E162F5A6F0001312A /* BBPause.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C4D2162F5A6E0001312A /* BBPause.mm */; };
 		0A90C50F162F5A6F0001312A /* BBShop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C4D4162F5A6E0001312A /* BBShop.mm */; };
 		0A90C510162F5A6F0001312A /* BBShopItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A90C4D6162F5A6E0001312A /* BBShopItem.mm */; };
-		0A90C615162F5A850001312A /* bossLevel1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C513162F5A830001312A /* bossLevel1.tmx */; };
 		0A90C616162F5A850001312A /* 1-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C515162F5A830001312A /* 1-1.tmx */; };
 		0A90C617162F5A850001312A /* 1-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C516162F5A830001312A /* 1-2.tmx */; };
 		0A90C618162F5A850001312A /* 1-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C517162F5A830001312A /* 1-3.tmx */; };
@@ -502,6 +501,10 @@
 		918E7E3216483B510047B4AE /* 6-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E2F16483B510047B4AE /* 6-1.tmx */; };
 		918E7E3316483B510047B4AE /* 6-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3016483B510047B4AE /* 6-2.tmx */; };
 		918E7E3416483B510047B4AE /* 6-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3116483B510047B4AE /* 6-3.tmx */; };
+		918E7E3E164855520047B4AE /* boss 1-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3B164855520047B4AE /* boss 1-1.tmx */; };
+		918E7E3F164855520047B4AE /* boss 1-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3C164855520047B4AE /* boss 1-2.tmx */; };
+		918E7E40164855520047B4AE /* boss 1-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3D164855520047B4AE /* boss 1-3.tmx */; };
+		918E7E421648568B0047B4AE /* boss start.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E411648568B0047B4AE /* boss start.tmx */; };
 		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
 		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
 		91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */; };
@@ -803,7 +806,6 @@
 		0A90C4D4162F5A6E0001312A /* BBShop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBShop.mm; sourceTree = "<group>"; };
 		0A90C4D5162F5A6E0001312A /* BBShopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBShopItem.h; sourceTree = "<group>"; };
 		0A90C4D6162F5A6E0001312A /* BBShopItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BBShopItem.mm; sourceTree = "<group>"; };
-		0A90C513162F5A830001312A /* bossLevel1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = bossLevel1.tmx; sourceTree = "<group>"; };
 		0A90C515162F5A830001312A /* 1-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-1.tmx"; sourceTree = "<group>"; };
 		0A90C516162F5A830001312A /* 1-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-2.tmx"; sourceTree = "<group>"; };
 		0A90C517162F5A830001312A /* 1-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-3.tmx"; sourceTree = "<group>"; };
@@ -1288,6 +1290,10 @@
 		918E7E2F16483B510047B4AE /* 6-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "6-1.tmx"; sourceTree = "<group>"; };
 		918E7E3016483B510047B4AE /* 6-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "6-2.tmx"; sourceTree = "<group>"; };
 		918E7E3116483B510047B4AE /* 6-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "6-3.tmx"; sourceTree = "<group>"; };
+		918E7E3B164855520047B4AE /* boss 1-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss 1-1.tmx"; sourceTree = "<group>"; };
+		918E7E3C164855520047B4AE /* boss 1-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss 1-2.tmx"; sourceTree = "<group>"; };
+		918E7E3D164855520047B4AE /* boss 1-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss 1-3.tmx"; sourceTree = "<group>"; };
+		918E7E411648568B0047B4AE /* boss start.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss start.tmx"; sourceTree = "<group>"; };
 		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
 		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
@@ -1992,7 +1998,10 @@
 		0A90C512162F5A830001312A /* Boss */ = {
 			isa = PBXGroup;
 			children = (
-				0A90C513162F5A830001312A /* bossLevel1.tmx */,
+				918E7E3B164855520047B4AE /* boss 1-1.tmx */,
+				918E7E3C164855520047B4AE /* boss 1-2.tmx */,
+				918E7E3D164855520047B4AE /* boss 1-3.tmx */,
+				918E7E411648568B0047B4AE /* boss start.tmx */,
 			);
 			path = Boss;
 			sourceTree = "<group>";
@@ -2850,7 +2859,6 @@
 				0A90C44C162F57160001312A /* Default@2x.png in Resources */,
 				0A90C44E162F571B0001312A /* Default-568h@2x.png in Resources */,
 				0A90C450162F57380001312A /* Icon@2x.png in Resources */,
-				0A90C615162F5A850001312A /* bossLevel1.tmx in Resources */,
 				0A90C616162F5A850001312A /* 1-1.tmx in Resources */,
 				0A90C617162F5A850001312A /* 1-2.tmx in Resources */,
 				0A90C618162F5A850001312A /* 1-3.tmx in Resources */,
@@ -3088,6 +3096,10 @@
 				918E7E3216483B510047B4AE /* 6-1.tmx in Resources */,
 				918E7E3316483B510047B4AE /* 6-2.tmx in Resources */,
 				918E7E3416483B510047B4AE /* 6-3.tmx in Resources */,
+				918E7E3E164855520047B4AE /* boss 1-1.tmx in Resources */,
+				918E7E3F164855520047B4AE /* boss 1-2.tmx in Resources */,
+				918E7E40164855520047B4AE /* boss 1-3.tmx in Resources */,
+				918E7E421648568B0047B4AE /* boss start.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
