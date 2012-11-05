@@ -496,6 +496,12 @@
 		918E7E251646C75B0047B4AE /* 4-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E221646C75B0047B4AE /* 4-1.tmx */; };
 		918E7E261646C75B0047B4AE /* 4-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E231646C75B0047B4AE /* 4-2.tmx */; };
 		918E7E271646C75B0047B4AE /* 4-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E241646C75B0047B4AE /* 4-3.tmx */; };
+		918E7E2A1648292F0047B4AE /* 5-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E291648292F0047B4AE /* 5-1.tmx */; };
+		918E7E2D164832E70047B4AE /* 5-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E2B164832E70047B4AE /* 5-2.tmx */; };
+		918E7E2E164832E70047B4AE /* 5-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E2C164832E70047B4AE /* 5-3.tmx */; };
+		918E7E3216483B510047B4AE /* 6-1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E2F16483B510047B4AE /* 6-1.tmx */; };
+		918E7E3316483B510047B4AE /* 6-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3016483B510047B4AE /* 6-2.tmx */; };
+		918E7E3416483B510047B4AE /* 6-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3116483B510047B4AE /* 6-3.tmx */; };
 		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
 		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
 		91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */; };
@@ -1276,6 +1282,12 @@
 		918E7E221646C75B0047B4AE /* 4-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "4-1.tmx"; sourceTree = "<group>"; };
 		918E7E231646C75B0047B4AE /* 4-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "4-2.tmx"; sourceTree = "<group>"; };
 		918E7E241646C75B0047B4AE /* 4-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "4-3.tmx"; sourceTree = "<group>"; };
+		918E7E291648292F0047B4AE /* 5-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "5-1.tmx"; sourceTree = "<group>"; };
+		918E7E2B164832E70047B4AE /* 5-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "5-2.tmx"; sourceTree = "<group>"; };
+		918E7E2C164832E70047B4AE /* 5-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "5-3.tmx"; sourceTree = "<group>"; };
+		918E7E2F16483B510047B4AE /* 6-1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "6-1.tmx"; sourceTree = "<group>"; };
+		918E7E3016483B510047B4AE /* 6-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "6-2.tmx"; sourceTree = "<group>"; };
+		918E7E3116483B510047B4AE /* 6-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "6-3.tmx"; sourceTree = "<group>"; };
 		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
 		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
@@ -2002,6 +2014,12 @@
 				918E7E221646C75B0047B4AE /* 4-1.tmx */,
 				918E7E231646C75B0047B4AE /* 4-2.tmx */,
 				918E7E241646C75B0047B4AE /* 4-3.tmx */,
+				918E7E291648292F0047B4AE /* 5-1.tmx */,
+				918E7E2B164832E70047B4AE /* 5-2.tmx */,
+				918E7E2C164832E70047B4AE /* 5-3.tmx */,
+				918E7E2F16483B510047B4AE /* 6-1.tmx */,
+				918E7E3016483B510047B4AE /* 6-2.tmx */,
+				918E7E3116483B510047B4AE /* 6-3.tmx */,
 				0A90C519162F5A830001312A /* start.tmx */,
 				0A90C51A162F5A830001312A /* tiles_aubrey.png */,
 			);
@@ -3064,6 +3082,12 @@
 				918E7E251646C75B0047B4AE /* 4-1.tmx in Resources */,
 				918E7E261646C75B0047B4AE /* 4-2.tmx in Resources */,
 				918E7E271646C75B0047B4AE /* 4-3.tmx in Resources */,
+				918E7E2A1648292F0047B4AE /* 5-1.tmx in Resources */,
+				918E7E2D164832E70047B4AE /* 5-2.tmx in Resources */,
+				918E7E2E164832E70047B4AE /* 5-3.tmx in Resources */,
+				918E7E3216483B510047B4AE /* 6-1.tmx in Resources */,
+				918E7E3316483B510047B4AE /* 6-2.tmx in Resources */,
+				918E7E3416483B510047B4AE /* 6-3.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

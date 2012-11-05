@@ -8,14 +8,14 @@
 
 #import "BBGameLayer.h"
 
-#define kJumpUpTimeForSwipe 0.5
+#define kJumpUpTimeForSwipe 0.4
 #define kJumpUpDistanceForSwipe 30
 
-#define kJumpDownTimeForSwipe 0.5
+#define kJumpDownTimeForSwipe 0.4
 #define kJumpDownDistanceForSwipe 30
 
-#define kAimTimeForSwipe 0.2
-#define kAimDistanceForSwipe 20
+#define kAimTimeForSwipe 0.4
+#define kAimDistanceForSwipe 30
 
 @implementation BBGameLayer
 

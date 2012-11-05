@@ -5,7 +5,7 @@
  </tileset>
  <layer name="Terrain Background" width="40" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2BwAFYgNodiJiBmI1E/OxBz4MCcJNiPy15WqLu0GRgaiDWTmgDmP1z2wuSlge7DJo8vfBVJZIPMsoBiJizmkQNg4YvNPHLcx8SA2zwYAAAA+gSp
+   eJxjYBgFo2BwAFYgNodiJiBmI1E/OxBz4MCcRNrPgMdeVqi7tBkYGog1k5oA5j9c9sLkpYHuwybPisRGD19FEtnoZpETX9jcx8SA3Txy3MfEgNs8GAAAzWgDlA==
   </data>
  </layer>
  <layer name="CollisionTop" width="40" height="8">

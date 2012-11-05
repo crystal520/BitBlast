@@ -151,14 +151,9 @@
 	}
 	
 	// generate random number based on number of chunks
-	int ranChunk = floor(CCRANDOM_0_1() * [[chunks objectAtIndex:curSpeedLevel] count]);
-	
-	if(ranChunk < [[chunks objectAtIndex:curSpeedLevel] count]) {
-		[self addChunk:[[chunks objectAtIndex:curSpeedLevel] objectAtIndex:ranChunk] withOffset:ccp(offset, 0)];
-	}
-	else {
-		NSLog(@"ERROR: Failed to add random chunk for index \"%i\" because it is out of bounds of the chunks array with length \"%i\"", ranChunk, [[chunks objectAtIndex:curSpeedLevel] count]);
-	}
+	int ranLevel = MIN(floor(CCRANDOM_0_1() * curSpeedLevel), [chunks count]-1);
+	int ranChunk = MIN(floor(CCRANDOM_0_1() * [[chunks objectAtIndex:ranLevel] count]), [[chunks objectAtIndex:ranLevel] count]-1);
+    [self addChunk:[[chunks objectAtIndex:ranLevel] objectAtIndex:ranChunk] withOffset:ccp(offset, 0)];
 }
 
 - (void) removeChunk {
