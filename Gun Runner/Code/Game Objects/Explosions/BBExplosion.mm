@@ -14,7 +14,7 @@
 @synthesize explodingObject, offset;
 
 - (id) init {
-	if((self = [super initWithFile:@"dropshipExplosion"])) {
+	if((self = [super initWithFile:@"explosion"])) {
         enabled = YES;
 		[self setEnabled:NO];
 		self.scale = 2;

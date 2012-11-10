@@ -56,13 +56,13 @@
     // Show an interstitial
     [cb showInterstitial];
     
-    // start the TestFlight session
-    [TestFlight takeOff:@"0062c6fa2e325ad3ac0770b55f750df5_MTExNjM5MjAxMi0wOC0yMyAyMzowNzozMi43ODA3NDU"];
-    
     // keep track of device ID, for testing purposes
 #ifdef DEBUG_TEST_FLIGHT_DEVICE
     [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 #endif
+    
+    // start the TestFlight session
+    [TestFlight takeOff:@"0062c6fa2e325ad3ac0770b55f750df5_MTExNjM5MjAxMi0wOC0yMyAyMzowNzozMi43ODA3NDU"];
 }
 
 - (void)didReceiveMemoryWarning

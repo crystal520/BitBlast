@@ -204,28 +204,18 @@
 		0A90C641162F5A850001312A /* bossTop 3-1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C545162F5A840001312A /* bossTop 3-1.plist */; };
 		0A90C642162F5A850001312A /* bossTop 3-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C546162F5A840001312A /* bossTop 3-2.plist */; };
 		0A90C643162F5A850001312A /* bossTop 3-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C547162F5A840001312A /* bossTop 3-3.plist */; };
-		0A90C644162F5A850001312A /* birdDropShip.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C549162F5A840001312A /* birdDropShip.plist */; };
-		0A90C645162F5A850001312A /* dropFromBelow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C54A162F5A840001312A /* dropFromBelow.plist */; };
-		0A90C646162F5A850001312A /* dropShip1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C54B162F5A840001312A /* dropShip1.plist */; };
-		0A90C647162F5A850001312A /* dropShip2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C54C162F5A840001312A /* dropShip2.plist */; };
-		0A90C648162F5A850001312A /* dropshipExplosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C54D162F5A840001312A /* dropshipExplosion.plist */; };
+		0A90C648162F5A850001312A /* explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C54D162F5A840001312A /* explosion.plist */; };
 		0A90C649162F5A850001312A /* dropshipLevels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C54E162F5A840001312A /* dropshipLevels.plist */; };
-		0A90C64A162F5A850001312A /* easyWallDropShip.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C54F162F5A840001312A /* easyWallDropShip.plist */; };
 		0A90C64B162F5A850001312A /* testDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C550162F5A840001312A /* testDropship.plist */; };
-		0A90C64C162F5A850001312A /* wallDropShip.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C551162F5A840001312A /* wallDropShip.plist */; };
 		0A90C64D162F5A850001312A /* minibossPistolBullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C554162F5A840001312A /* minibossPistolBullet.plist */; };
 		0A90C64E162F5A850001312A /* minibossPlasmaBullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C555162F5A840001312A /* minibossPlasmaBullet.plist */; };
 		0A90C64F162F5A850001312A /* minibossFlames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C556162F5A840001312A /* minibossFlames.plist */; };
 		0A90C650162F5A850001312A /* minibossLevels.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C557162F5A840001312A /* minibossLevels.plist */; };
 		0A90C651162F5A850001312A /* minibossPistol.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C559162F5A840001312A /* minibossPistol.plist */; };
 		0A90C652162F5A850001312A /* minibossPlasma.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C55A162F5A840001312A /* minibossPlasma.plist */; };
-		0A90C653162F5A850001312A /* easyWall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C55C162F5A840001312A /* easyWall.plist */; };
 		0A90C654162F5A850001312A /* enemyBird.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C55D162F5A840001312A /* enemyBird.plist */; };
-		0A90C655162F5A850001312A /* enemySoldier.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C55E162F5A840001312A /* enemySoldier.plist */; };
-		0A90C656162F5A850001312A /* enemySoldierInfected.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C55F162F5A840001312A /* enemySoldierInfected.plist */; };
 		0A90C657162F5A850001312A /* testEnemy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C560162F5A840001312A /* testEnemy.plist */; };
 		0A90C658162F5A850001312A /* testEnemy2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C561162F5A840001312A /* testEnemy2.plist */; };
-		0A90C659162F5A850001312A /* wall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C562162F5A840001312A /* wall.plist */; };
 		0A90C65A162F5A850001312A /* gamefont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C564162F5A840001312A /* gamefont.fnt */; };
 		0A90C65B162F5A850001312A /* gamefont.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C565162F5A840001312A /* gamefont.png */; };
 		0A90C65C162F5A850001312A /* large.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 0A90C566162F5A840001312A /* large.fnt */; };
@@ -505,7 +495,7 @@
 		918E7E3F164855520047B4AE /* boss 1-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3C164855520047B4AE /* boss 1-2.tmx */; };
 		918E7E40164855520047B4AE /* boss 1-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3D164855520047B4AE /* boss 1-3.tmx */; };
 		918E7E421648568B0047B4AE /* boss start.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E411648568B0047B4AE /* boss start.tmx */; };
-		91C720041639997500754EC4 /* tutorialDropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorialDropship.plist */; };
+		91C720041639997500754EC4 /* tutorial_dropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorial_dropship.plist */; };
 		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
 		91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */; };
 		91E1B3C4164187D300F61E9C /* LocalyticsSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BF164187D300F61E9C /* LocalyticsSession.m */; };
@@ -852,28 +842,18 @@
 		0A90C545162F5A840001312A /* bossTop 3-1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 3-1.plist"; sourceTree = "<group>"; };
 		0A90C546162F5A840001312A /* bossTop 3-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 3-2.plist"; sourceTree = "<group>"; };
 		0A90C547162F5A840001312A /* bossTop 3-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "bossTop 3-3.plist"; sourceTree = "<group>"; };
-		0A90C549162F5A840001312A /* birdDropShip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = birdDropShip.plist; sourceTree = "<group>"; };
-		0A90C54A162F5A840001312A /* dropFromBelow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropFromBelow.plist; sourceTree = "<group>"; };
-		0A90C54B162F5A840001312A /* dropShip1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropShip1.plist; sourceTree = "<group>"; };
-		0A90C54C162F5A840001312A /* dropShip2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropShip2.plist; sourceTree = "<group>"; };
-		0A90C54D162F5A840001312A /* dropshipExplosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropshipExplosion.plist; sourceTree = "<group>"; };
+		0A90C54D162F5A840001312A /* explosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = explosion.plist; path = ../Enemies/Dropships/explosion.plist; sourceTree = "<group>"; };
 		0A90C54E162F5A840001312A /* dropshipLevels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dropshipLevels.plist; sourceTree = "<group>"; };
-		0A90C54F162F5A840001312A /* easyWallDropShip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easyWallDropShip.plist; sourceTree = "<group>"; };
 		0A90C550162F5A840001312A /* testDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testDropship.plist; sourceTree = "<group>"; };
-		0A90C551162F5A840001312A /* wallDropShip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wallDropShip.plist; sourceTree = "<group>"; };
 		0A90C554162F5A840001312A /* minibossPistolBullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = minibossPistolBullet.plist; sourceTree = "<group>"; };
 		0A90C555162F5A840001312A /* minibossPlasmaBullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = minibossPlasmaBullet.plist; sourceTree = "<group>"; };
 		0A90C556162F5A840001312A /* minibossFlames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = minibossFlames.plist; sourceTree = "<group>"; };
 		0A90C557162F5A840001312A /* minibossLevels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = minibossLevels.plist; sourceTree = "<group>"; };
 		0A90C559162F5A840001312A /* minibossPistol.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = minibossPistol.plist; sourceTree = "<group>"; };
 		0A90C55A162F5A840001312A /* minibossPlasma.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = minibossPlasma.plist; sourceTree = "<group>"; };
-		0A90C55C162F5A840001312A /* easyWall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = easyWall.plist; sourceTree = "<group>"; };
 		0A90C55D162F5A840001312A /* enemyBird.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemyBird.plist; sourceTree = "<group>"; };
-		0A90C55E162F5A840001312A /* enemySoldier.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemySoldier.plist; sourceTree = "<group>"; };
-		0A90C55F162F5A840001312A /* enemySoldierInfected.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemySoldierInfected.plist; sourceTree = "<group>"; };
 		0A90C560162F5A840001312A /* testEnemy.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy.plist; sourceTree = "<group>"; };
 		0A90C561162F5A840001312A /* testEnemy2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testEnemy2.plist; sourceTree = "<group>"; };
-		0A90C562162F5A840001312A /* wall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = wall.plist; sourceTree = "<group>"; };
 		0A90C564162F5A840001312A /* gamefont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gamefont.fnt; sourceTree = "<group>"; };
 		0A90C565162F5A840001312A /* gamefont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamefont.png; sourceTree = "<group>"; };
 		0A90C566162F5A840001312A /* large.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = large.fnt; sourceTree = "<group>"; };
@@ -1294,7 +1274,7 @@
 		918E7E3C164855520047B4AE /* boss 1-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss 1-2.tmx"; sourceTree = "<group>"; };
 		918E7E3D164855520047B4AE /* boss 1-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss 1-3.tmx"; sourceTree = "<group>"; };
 		918E7E411648568B0047B4AE /* boss start.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss start.tmx"; sourceTree = "<group>"; };
-		91C720031639997500754EC4 /* tutorialDropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorialDropship.plist; sourceTree = "<group>"; };
+		91C720031639997500754EC4 /* tutorial_dropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorial_dropship.plist; sourceTree = "<group>"; };
 		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
 		91E1B3BC164187D300F61E9C /* LocalyticsDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalyticsDatabase.h; sourceTree = "<group>"; };
@@ -2123,16 +2103,9 @@
 			children = (
 				91E1B3C816418B7A00F61E9C /* 1-1_dropship.plist */,
 				91E1B3C916418B7A00F61E9C /* 1-2_dropship.plist */,
-				0A90C549162F5A840001312A /* birdDropShip.plist */,
-				0A90C54A162F5A840001312A /* dropFromBelow.plist */,
-				0A90C54B162F5A840001312A /* dropShip1.plist */,
-				0A90C54C162F5A840001312A /* dropShip2.plist */,
-				0A90C54D162F5A840001312A /* dropshipExplosion.plist */,
 				0A90C54E162F5A840001312A /* dropshipLevels.plist */,
-				0A90C54F162F5A840001312A /* easyWallDropShip.plist */,
 				0A90C550162F5A840001312A /* testDropship.plist */,
-				91C720031639997500754EC4 /* tutorialDropship.plist */,
-				0A90C551162F5A840001312A /* wallDropShip.plist */,
+				91C720031639997500754EC4 /* tutorial_dropship.plist */,
 			);
 			path = Dropships;
 			sourceTree = "<group>";
@@ -2171,13 +2144,9 @@
 			children = (
 				91E1B3CC16418CC500F61E9C /* 1-1_soldier.plist */,
 				91E1B3CE16418D2800F61E9C /* 1-1_soldierInfected.plist */,
-				0A90C55C162F5A840001312A /* easyWall.plist */,
 				0A90C55D162F5A840001312A /* enemyBird.plist */,
-				0A90C55E162F5A840001312A /* enemySoldier.plist */,
-				0A90C55F162F5A840001312A /* enemySoldierInfected.plist */,
 				0A90C560162F5A840001312A /* testEnemy.plist */,
 				0A90C561162F5A840001312A /* testEnemy2.plist */,
-				0A90C562162F5A840001312A /* wall.plist */,
 			);
 			path = Minions;
 			sourceTree = "<group>";
@@ -2242,6 +2211,7 @@
 				0A90C57C162F5A840001312A /* cameraProperties.plist */,
 				0A90C57D162F5A840001312A /* collisionShapes.plist */,
 				0A90C57E162F5A840001312A /* dice.plist */,
+				0A90C54D162F5A840001312A /* explosion.plist */,
 				0A90C57F162F5A840001312A /* leaderboards.plist */,
 				0A90C580162F5A840001312A /* promo.plist */,
 			);
@@ -2905,28 +2875,18 @@
 				0A90C641162F5A850001312A /* bossTop 3-1.plist in Resources */,
 				0A90C642162F5A850001312A /* bossTop 3-2.plist in Resources */,
 				0A90C643162F5A850001312A /* bossTop 3-3.plist in Resources */,
-				0A90C644162F5A850001312A /* birdDropShip.plist in Resources */,
-				0A90C645162F5A850001312A /* dropFromBelow.plist in Resources */,
-				0A90C646162F5A850001312A /* dropShip1.plist in Resources */,
-				0A90C647162F5A850001312A /* dropShip2.plist in Resources */,
-				0A90C648162F5A850001312A /* dropshipExplosion.plist in Resources */,
+				0A90C648162F5A850001312A /* explosion.plist in Resources */,
 				0A90C649162F5A850001312A /* dropshipLevels.plist in Resources */,
-				0A90C64A162F5A850001312A /* easyWallDropShip.plist in Resources */,
 				0A90C64B162F5A850001312A /* testDropship.plist in Resources */,
-				0A90C64C162F5A850001312A /* wallDropShip.plist in Resources */,
 				0A90C64D162F5A850001312A /* minibossPistolBullet.plist in Resources */,
 				0A90C64E162F5A850001312A /* minibossPlasmaBullet.plist in Resources */,
 				0A90C64F162F5A850001312A /* minibossFlames.plist in Resources */,
 				0A90C650162F5A850001312A /* minibossLevels.plist in Resources */,
 				0A90C651162F5A850001312A /* minibossPistol.plist in Resources */,
 				0A90C652162F5A850001312A /* minibossPlasma.plist in Resources */,
-				0A90C653162F5A850001312A /* easyWall.plist in Resources */,
 				0A90C654162F5A850001312A /* enemyBird.plist in Resources */,
-				0A90C655162F5A850001312A /* enemySoldier.plist in Resources */,
-				0A90C656162F5A850001312A /* enemySoldierInfected.plist in Resources */,
 				0A90C657162F5A850001312A /* testEnemy.plist in Resources */,
 				0A90C658162F5A850001312A /* testEnemy2.plist in Resources */,
-				0A90C659162F5A850001312A /* wall.plist in Resources */,
 				0A90C65A162F5A850001312A /* gamefont.fnt in Resources */,
 				0A90C65B162F5A850001312A /* gamefont.png in Resources */,
 				0A90C65C162F5A850001312A /* large.fnt in Resources */,
@@ -3074,7 +3034,7 @@
 				0A5E8D6C163210E000B3DA5B /* tutorial-postJumpDown.tmx in Resources */,
 				0A5E8D6D163210E000B3DA5B /* tutorial-postJumpUp.tmx in Resources */,
 				0A5E8D6E163210E000B3DA5B /* tutorial-start.tmx in Resources */,
-				91C720041639997500754EC4 /* tutorialDropship.plist in Resources */,
+				91C720041639997500754EC4 /* tutorial_dropship.plist in Resources */,
 				914977BC163ED9AF000C0543 /* 1-4.tmx in Resources */,
 				914977BD163ED9AF000C0543 /* 1-5.tmx in Resources */,
 				914977C2163EF115000C0543 /* 2-2.tmx in Resources */,
