@@ -151,8 +151,14 @@
 	}
 	
 	// generate random number based on number of chunks
-	int ranLevel = MIN(floor(CCRANDOM_0_1() * curSpeedLevel), [chunks count]-1);
-	int ranChunk = MIN(floor(CCRANDOM_0_1() * [[chunks objectAtIndex:ranLevel] count]), [[chunks objectAtIndex:ranLevel] count]-1);
+    int ranLevel = 0;
+    int count = 0;
+    do {
+        ranLevel = CCRANDOM_MIN_MAX(0, MIN(curSpeedLevel, [chunks count]-1) + 1);
+        count++;
+    } while(ranLevel == lastChunkGroup && count < 5);
+    lastChunkGroup = ranLevel;
+	int ranChunk = CCRANDOM_MIN_MAX(0, [[chunks objectAtIndex:ranLevel] count]);
     [self addChunk:[[chunks objectAtIndex:ranLevel] objectAtIndex:ranChunk] withOffset:ccp(offset, 0)];
 }
 
