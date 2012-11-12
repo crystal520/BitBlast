@@ -19,6 +19,8 @@
 	int curSpeedLevel;
     // number of chunks added within the current tutorial state
     int chunkCount;
+    // last group of chunks the last chunk was taken from. to avoid repeats
+    int lastChunkGroup;
 }
 
 @property (nonatomic, readonly) NSMutableArray *currentChunks;
