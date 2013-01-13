@@ -44,7 +44,7 @@
 		[self addChild:coins];
         
         // create tutorial label
-        tutorial = [[CCLabelBMFont alloc] initWithString:@"Swipe up to jump" fntFile:@"gamefont.fnt"];
+        tutorial = [[CCLabelBMFont alloc] initWithString:@"Tap to jump" fntFile:@"gamefont.fnt"];
         tutorial.scale = 0.7;
         tutorial.tag = SPRITE_TAG_HUD_TUTORIAL;
         tutorial.position = ccp(winSize.width * 0.5, winSize.height * 0.25);
@@ -145,11 +145,11 @@
     // show helpful text for the player if they're in the tutorial
     if([Globals sharedSingleton].tutorial && (![self getActionByTag:ACTION_TAG_FLASH] || ([self getActionByTag:ACTION_TAG_FLASH] && [[self getActionByTag:ACTION_TAG_FLASH] isDone]))) {
         if([Globals sharedSingleton].tutorialState == TUTORIAL_STATE_JUMP_UP && [ChunkManager sharedSingleton].chunkCount >= 5) {
-            [self showTutorialString:@"Swipe up to jump"];
+            [self showTutorialString:@"Tap to jump"];
             [TestFlight passCheckpoint:@"showTutorial_JumpUp"];
         }
         else if([Globals sharedSingleton].tutorialState == TUTORIAL_STATE_DOUBLE_JUMP && [ChunkManager sharedSingleton].chunkCount >= 5) {
-            [self showTutorialString:@"Swipe up twice to double jump"];
+            [self showTutorialString:@"Tap twice to double jump"];
             [TestFlight passCheckpoint:@"showTutorial_DoubleJump"];
         }
         else if([Globals sharedSingleton].tutorialState == TUTORIAL_STATE_JUMP_DOWN && [ChunkManager sharedSingleton].chunkCount >= 5) {

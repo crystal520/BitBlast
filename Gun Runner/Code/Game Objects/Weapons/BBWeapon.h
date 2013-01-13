@@ -30,6 +30,7 @@
 
 @property (nonatomic, readonly) NSString *identifier;
 @property (nonatomic, assign) WeaponType type;
+@property (nonatomic, readonly) CGPoint currentOffset;
 
 // setup
 - (void) loadFromFile:(NSString*)filename;

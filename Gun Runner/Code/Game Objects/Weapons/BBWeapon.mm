@@ -76,30 +76,22 @@
 #pragma mark setters
 - (void) setAngle:(float)newAngle {
 	// set current offset based on newAngle
-	if(newAngle == 0) {
-		currentOffset = torsoOffset;
+	if(newAngle < -15) {
+		currentOffset = torsoOffsetDown;
 	}
-	else if(newAngle > 0) {
+	else if(newAngle > 15) {
 		currentOffset = torsoOffsetUp;
 	}
 	else {
-		currentOffset = torsoOffsetDown;
-	}
-	// set new shot angle based on newAngle
-	float newShotAngle = straightAngle;
-	if(newAngle > 0) {
-		newShotAngle = upAngle;
-	}
-	else if(newAngle < 0) {
-		newShotAngle = downAngle;
+		currentOffset = torsoOffset;
 	}
 	// loop through shots and update angle
 	for(BBShot *s in shots) {
-		[s setAngle:newShotAngle];
+		[s setAngle:newAngle];
 	}
 	// loop through lasers and update angle
 	for(BBLaser *l in lasers) {
-		[l setAngle:newShotAngle];
+		[l setAngle:newAngle];
 	}
 }
 

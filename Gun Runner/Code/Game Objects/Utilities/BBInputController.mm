@@ -61,6 +61,10 @@
     return CGPointMake(0, 0);
 }
 
+- (CGPoint) positionForLastTouch {
+    return [self positionForTouch:lastTouch];
+}
+
 - (void) touchOver:(UITouch *)touch {
     lastTouch = touch;
     [delegate inputControllerTouchEnded];

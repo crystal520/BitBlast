@@ -173,6 +173,8 @@
             [[SettingsManager sharedSingleton] setInteger:previousTotalDistance + [[SettingsManager sharedSingleton] getInt:@"currentMeters"] keyString:@"totalMeters"];
             // update torso position
             [self updateTorso];
+            // update aim
+            [self updateWeaponAngle];
             // update weapons
             [self updateWeapons:delta];
             
@@ -233,6 +235,23 @@
 	// update global variables so other classes can use them
 	[Globals sharedSingleton].playerPosition = dummyPosition;
 	[Globals sharedSingleton].playerVelocity = velocity;
+}
+
+- (void) updateWeaponAngle {
+    // grab the currently equipped weapon
+    BBWeapon *weapon = [[[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER] anyObject];
+    // convert player's position to screen coordinates
+    CGPoint playerPos = [self convertToWorldSpace:ccpAdd(weapon.currentOffset, torso.position)];
+    // get angle to horizontal of line created from last known aim position and player's screen position
+    float angle = CC_RADIANS_TO_DEGREES(atan2f(lastKnownAimPosition.y - playerPos.y, lastKnownAimPosition.x - playerPos.x));
+    // limit angle to a certain range
+    angle = MAX(MIN(55, angle), -55);
+    // shoot straight forward if player isn't aiming yet or has stopped aiming
+    if(CGPointEqualToPoint(CGPointZero, lastKnownAimPosition)) {
+        angle = 0;
+    }
+    // finally update all weapons with new angle
+    [self setWeaponAngle:angle];
 }
 
 #pragma mark -
@@ -302,7 +321,7 @@
 	state = newState;
 }
 
-- (void) setWeaponAngle:(int)newAngle {
+- (void) setWeaponAngle:(float)newAngle {
     // make sure player isn't paused
     if(!paused) {
         // update weapons with new angle
@@ -310,10 +329,10 @@
             [w setAngle:newAngle];
         }
         // update torso image based on new angle
-        if(newAngle > 0) {
+        if(newAngle > 15) {
             [torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_up.png"]];
         }
-        else if(newAngle < 0) {
+        else if(newAngle < -15) {
             [torso setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"torso_down.png"]];
         }
         else {
@@ -325,6 +344,11 @@
 - (void) setHealth:(int)newHealth {
 	health = newHealth;
 	[[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerHealthNotification object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:health] forKey:@"health"]]];
+}
+
+- (void)setLastKnownAimPosition:(CGPoint)newLastKnownAimPosition {
+    lastKnownAimPosition = newLastKnownAimPosition;
+    [self updateWeaponAngle];
 }
 
 #pragma mark -

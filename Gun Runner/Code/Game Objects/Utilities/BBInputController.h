@@ -34,6 +34,7 @@
 // getters
 - (float) timeForLastTouch;
 - (CGPoint) distanceForLastTouch;
+- (CGPoint) positionForLastTouch;
 // helper
 - (void) touchOver:(UITouch*)touch;
 - (NSString*) hashForTouch:(UITouch*)touch;

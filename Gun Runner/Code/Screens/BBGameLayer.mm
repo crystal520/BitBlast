@@ -280,6 +280,10 @@
     }
 }
 
+- (void) updateWeaponAngle {
+    
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) playIntro {
@@ -588,20 +592,15 @@
     else if([inputController timeForLastTouch] < kJumpUpTimeForTap) {
         [player jump];
     }
+    else {
+        [player setLastKnownAimPosition:CGPointZero];
+    }
 }
 
 - (void) inputControllerTouchMoved {
-    // check to see if player is swiping up or down from original location
+    // check to see if player weapon angle should be updated
     if([inputController timeForLastTouch] > kAimTimeForSwipe) {
-        if([inputController distanceForLastTouch].y > kAimDistanceForSwipe) {
-            [player setWeaponAngle:1];
-        }
-        else if([inputController distanceForLastTouch].y < -kAimDistanceForSwipe) {
-            [player setWeaponAngle:-1];
-        }
-        else {
-            [player setWeaponAngle:0];
-        }
+        [player setLastKnownAimPosition:[inputController positionForLastTouch]];
     }
 }
 

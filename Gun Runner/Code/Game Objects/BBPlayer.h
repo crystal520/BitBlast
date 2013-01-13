@@ -37,7 +37,7 @@ typedef enum {
 	float jumpImpulse, speedIncrement, jumpTimer, maxJumpTime, invincibleTime, jumpDownTime;
     // number of jumps the player has taken (for double jumping)
     int numJumps;
-    CGPoint initialGravity;
+    CGPoint initialGravity, lastKnownAimPosition;
 	CGSize prevSize;
 	int chunksToIncrement, curNumChunks, startingHealth;
 	// player's current and previous states
@@ -87,7 +87,8 @@ typedef enum {
 - (void) updateGlobals;
 // setters
 - (void) setState:(PlayerState)newState;
-- (void) setWeaponAngle:(int)newAngle;
+- (void) setWeaponAngle:(float)newAngle;
+- (void) setLastKnownAimPosition:(CGPoint)newLastKnownAimPosition;
 // actions
 - (void) addCoins:(int)coins;
 - (void) playIntro;
