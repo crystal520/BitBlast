@@ -9,6 +9,7 @@
 #import "BBGameLayer.h"
 
 #define kJumpUpTimeForSwipe 0.4
+#define kJumpUpTimeForTap 0.25
 #define kJumpUpDistanceForSwipe 30
 
 #define kJumpDownTimeForSwipe 0.4
@@ -580,15 +581,12 @@
 #pragma mark -
 #pragma mark BBInputControllerDelegate
 - (void) inputControllerTouchEnded {
-    // check to see if player swiped up to jump
-    if([inputController timeForLastTouch] < kJumpUpTimeForSwipe && [inputController distanceForLastTouch].y > kJumpUpDistanceForSwipe) {
-        [player jump];
-    }
-    else if([inputController timeForLastTouch] < kJumpDownTimeForSwipe && [inputController distanceForLastTouch].y < -kJumpDownDistanceForSwipe) {
+    // check to see if player swiped down to jump down
+    if([inputController timeForLastTouch] < kJumpDownTimeForSwipe && [inputController distanceForLastTouch].y < -kJumpDownDistanceForSwipe) {
         [player jumpDown];
     }
-    else {
-        [player setWeaponAngle:0];
+    else if([inputController timeForLastTouch] < kJumpUpTimeForTap) {
+        [player jump];
     }
 }
 
