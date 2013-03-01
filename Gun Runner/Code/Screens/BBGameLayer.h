@@ -36,6 +36,7 @@
 #import "Debug.h"
 #import "BBGameWin.h"
 #import "BBMedals.h"
+#import "BBMission.h"
 #import "GB2DebugDrawLayer.h"
 
 @interface BBGameLayer : CCLayer <iCadeEventDelegate, ChartboostDelegate, BBInputControllerDelegate> {

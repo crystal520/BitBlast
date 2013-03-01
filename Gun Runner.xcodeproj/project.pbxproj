@@ -1248,6 +1248,8 @@
 		0A90C8831630856F0001312A /* CCActionsExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionsExtended.m; sourceTree = "<group>"; };
 		0A90CAD31630B7660001312A /* GB2DebugDrawLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2DebugDrawLayer.h; sourceTree = "<group>"; };
 		0A90CAD41630B7680001312A /* GB2DebugDrawLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2DebugDrawLayer.mm; sourceTree = "<group>"; };
+		3479D85716E0816D00DF868F /* BBMission.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBMission.h; sourceTree = "<group>"; };
+		3479D85816E0816D00DF868F /* BBMission.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBMission.m; sourceTree = "<group>"; };
 		914977BA163ED9AF000C0543 /* 1-4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-4.tmx"; sourceTree = "<group>"; };
 		914977BB163ED9AF000C0543 /* 1-5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-5.tmx"; sourceTree = "<group>"; };
 		914977BE163EF115000C0543 /* 2-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2-2.tmx"; sourceTree = "<group>"; };
@@ -1954,6 +1956,8 @@
 				0A90C4CE162F5A6E0001312A /* BBMainMenu.mm */,
 				0A90C4CF162F5A6E0001312A /* BBMedals.h */,
 				0A90C4D0162F5A6E0001312A /* BBMedals.m */,
+				3479D85716E0816D00DF868F /* BBMission.h */,
+				3479D85816E0816D00DF868F /* BBMission.m */,
 				0A90C4D1162F5A6E0001312A /* BBPause.h */,
 				0A90C4D2162F5A6E0001312A /* BBPause.mm */,
 				0A90C4D3162F5A6E0001312A /* BBShop.h */,

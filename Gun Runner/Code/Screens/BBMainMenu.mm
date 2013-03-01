@@ -86,6 +86,17 @@
 		[medals setSpriteBatchNode:uiSpriteBatch];
 		medals.position = ccp(winSize.width * 0.892, smallButtonShell4.position.y + medals.contentSize.height * 0.23);
 		[self addChild:medals];
+        
+        
+        // create MISSION label
+		CCLabelBMFont *missionText = [CCLabelBMFont labelWithString:@"MISSION" fntFile:@"gamefont.fnt"];
+        missionText.scale = 0.30;
+		
+		// create MISSON button
+		CCLabelButton *mission = [CCLabelButton buttonWithLabel:missionText normalSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_unpressed.png"] selectedSprite:[CCSprite spriteWithSpriteFrameName:@"bluebutton_pressed.png"] target:self selector:@selector(gotoMission)];
+		[mission setSpriteBatchNode:uiSpriteBatch];
+		mission.position = ccp(winSize.width * 0.892, smallButtonShell5.position.y + mission.contentSize.height * 0.23);
+		[self addChild:mission];
 		
 		// create leaderboard label
 		CCLabelBMFont *leaderboardText = [CCLabelBMFont labelWithString:@"LEADER\nBOARDS" fntFile:@"gamefont.fnt"];
@@ -213,6 +224,11 @@
 }
 
 - (void) gotoMedals {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMedalsNotification object:nil]];
+}
+
+- (void) gotoMission {
     [[SimpleAudioEngine sharedEngine] playEffect:@"select.wav"];
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kNavMedalsNotification object:nil]];
 }

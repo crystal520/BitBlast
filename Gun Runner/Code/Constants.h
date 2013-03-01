@@ -157,3 +157,4 @@ typedef enum {
 #define kNavResumeNotification @"navResumeNotification"
 #define kNavGameWinNotification @"navGameWinNotification"
 #define kNavMedalsNotification @"navMedalsNotification"
+#define kNavMissionNotification @"navMissionNotification"
