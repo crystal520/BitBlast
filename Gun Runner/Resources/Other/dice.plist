@@ -26,28 +26,6 @@
 				<string>{1,2}</string>
 			</dict>
 		</array>
-		<array>
-			<dict>
-				<key>type</key>
-				<string>coinGroup</string>
-				<key>probability</key>
-				<real>0.3</real>
-			</dict>
-			<dict>
-				<key>type</key>
-				<string>dropship</string>
-				<key>probability</key>
-				<real>0.3</real>
-			</dict>
-			<dict>
-				<key>type</key>
-				<string>delay</string>
-				<key>probability</key>
-				<real>0.4</real>
-				<key>range</key>
-				<string>{1,2}</string>
-			</dict>
-		</array>
 	</array>
 	<key>numKeysToSummonMiniboss</key>
 	<integer>7</integer>

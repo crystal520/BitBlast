@@ -23,8 +23,6 @@
 	BOOL enabled;
 	// current dropship level
 	int dropshipLevel;
-	// array of dropship levels
-	NSArray *dropshipLevels;
 	// explosions!
 	BBExplosionManager *explosionManager;
     // parent nodes for dropships
@@ -33,6 +31,10 @@
     BOOL paused;
     // the level that a dropship will be spawned at
     ChunkLevel overrideLevel;
+    // the maximum level that dropships and enemies can be
+    int maxLevel;
+    // types of dropships available
+    NSArray *availableDropships;
 }
 
 @property (nonatomic, assign) int dropshipLevel;

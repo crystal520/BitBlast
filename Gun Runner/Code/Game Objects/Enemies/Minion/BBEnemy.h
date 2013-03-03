@@ -21,9 +21,7 @@ typedef enum {
 @end
 
 @interface BBEnemy : BBMovingObject {
-	// type of enemy
-	NSString* type;
-    // damage the enemy can take before it's considered dead
+	// damage the enemy can take before it's considered dead
 	float health;
 	// whether or not the enemy can be recycled
 	BOOL recycle;
@@ -35,6 +33,18 @@ typedef enum {
 	int coins;
     // reference to last bullet that hit this enemy
     BBBullet *lastBulletHit;
+    // base amount of health, before applying level increases
+    float baseHealth;
+    // base amount of coins, before applying level increases
+    int baseCoins;
+    // base speed, before applying level increases
+    float baseSpeed;
+    // amount health increases per level
+    float healthIncrease;
+    // amount coins increase per level
+    int coinsIncrease;
+    // amount speed increases per level
+    float speedIncrease;
 }
 
 @property (nonatomic, assign) BOOL recycle, enabled, alive;
@@ -42,6 +52,7 @@ typedef enum {
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setCollisionShape:(NSString *)shapeName;
+- (void) setLevel:(int)level;
 // update
 - (void) update:(float)delta;
 // actions

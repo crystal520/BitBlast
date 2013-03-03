@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>health</key>
+	<key>baseHealth</key>
 	<integer>25</integer>
-	<key>spawnRate</key>
+	<key>baseSpawnRate</key>
 	<integer>1</integer>
 	<key>enemyTypes</key>
 	<array>
@@ -33,7 +33,7 @@
 		<key>y</key>
 		<integer>100</integer>
 	</dict>
-	<key>coins</key>
+	<key>baseCoins</key>
 	<integer>35</integer>
 	<key>sounds</key>
 	<dict>

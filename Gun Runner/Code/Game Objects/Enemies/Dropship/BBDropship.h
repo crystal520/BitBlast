@@ -67,12 +67,15 @@ typedef enum {
     float minibossChance;
     // sound when dropship is hit by bullet
     CDSoundSource *hitSound;
+    // level that enemies are spawned at
+    int enemyLevel;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;
 @property (nonatomic, readonly) ChunkLevel level;
 @property (nonatomic, assign) BBExplosionManager *explosionManager;
 @property (nonatomic, assign) CCNode *switchNode;
+@property (nonatomic, assign) int enemyLevel;
 
 // update
 - (void) update:(float)delta;

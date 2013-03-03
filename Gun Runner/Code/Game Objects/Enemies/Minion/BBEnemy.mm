@@ -23,11 +23,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[type release];
-	[super dealloc];
-}
-
 #pragma mark -
 #pragma mark setup
 - (void) loadFromFile:(NSString *)filename {
@@ -36,11 +31,13 @@
 	[super loadFromFile:filename];
 	// load extra variables
 	tileOffset = ccp(0, [[dictionary objectForKey:@"tileCenterOffset"] floatValue] * [ResolutionManager sharedSingleton].inversePositionScale);
-	type = [[dictionary objectForKey:@"type"] retain];
-	velocity = ccp([[[dictionary objectForKey:@"speed"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"speed"] objectForKey:@"y"] floatValue]);
-	health = [[dictionary objectForKey:@"health"] floatValue];
+	baseSpeed = [[dictionary objectForKey:@"baseSpeed"] floatValue];
+	speedIncrease = [[dictionary objectForKey:@"speedIncrease"] floatValue];
+	baseHealth = [[dictionary objectForKey:@"baseHealth"] floatValue];
+	healthIncrease = [[dictionary objectForKey:@"healthIncrease"] floatValue];
 	gravity = ccp(0, [[dictionary objectForKey:@"gravity"] floatValue]);
-	coins = [[dictionary objectForKey:@"coins"] intValue];
+	baseCoins = [[dictionary objectForKey:@"baseCoins"] intValue];
+	coinsIncrease = [[dictionary objectForKey:@"coinsIncrease"] intValue];
     minVelocity = CGPointFromString([dictionary objectForKey:@"minVelocity"]);
     maxVelocity = CGPointFromString([dictionary objectForKey:@"maxVelocity"]);
     [self setCollisionShape:[dictionary objectForKey:@"collisionShape"]];
@@ -80,6 +77,14 @@
     }
 }
 
+- (void)setLevel:(int)level {
+    NSLog(@"setting enemy level: %i", level);
+    // using level and attribute increments, set attributes for enemy
+    health = baseHealth + (level * healthIncrease);
+    velocity = ccp(baseSpeed - (level * speedIncrease), 0);
+    coins = baseCoins + (level * coinsIncrease);
+}
+
 #pragma mark -
 #pragma mark update
 - (void) update:(float)delta {
@@ -93,9 +98,6 @@
 #pragma mark -
 #pragma mark actions
 - (void) reset {
-	if(type) {
-		[type release];
-	}
 }
    
 - (void) resetWithPosition:(CGPoint)newPosition withType:(NSString *)enemyType {

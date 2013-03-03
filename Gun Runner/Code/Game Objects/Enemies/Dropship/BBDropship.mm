@@ -11,7 +11,7 @@
 
 @implementation BBDropship
 
-@synthesize enabled, alive, level, explosionManager, switchNode;
+@synthesize enabled, alive, level, explosionManager, switchNode, enemyLevel;
 
 - (id) init {
 	if((self = [super init])) {
@@ -44,12 +44,12 @@
 	}
 	
 	// set values from dictionary
-	spawnRate = [[dictionary objectForKey:@"spawnRate"] floatValue];
+	spawnRate = [[dictionary objectForKey:@"baseSpawnRate"] floatValue];
 	spawnTimer = 0;
-	health = [[dictionary objectForKey:@"health"] floatValue];
+	health = [[dictionary objectForKey:@"baseHealth"] floatValue];
     maxHealth = health;
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
-	coins = [[dictionary objectForKey:@"coins"] intValue];
+	coins = [[dictionary objectForKey:@"baseCoins"] intValue];
     minibossChance = [[dictionary objectForKey:@"minibossChance"] floatValue];
     
     if(sounds) {
@@ -73,6 +73,7 @@
 	self.rotation = 0;
 	gravity = ccp(0, 0);
 	velocity = ccp(0, 0);
+    self.enemyLevel = 0;
 }
 
 #pragma mark -
@@ -181,6 +182,8 @@
 		BBEnemy *newEnemy = [[BBEnemyManager sharedSingleton] getRecycledEnemy];
 		// reset with position of dropship and random enemy type
 		[newEnemy resetWithPosition:dummyPosition withType:[self getRandomEnemy]];
+        // set level
+        [newEnemy setLevel:enemyLevel];
 	}
 }
 

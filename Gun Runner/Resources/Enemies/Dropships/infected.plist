@@ -2,15 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>health</key>
-	<integer>250</integer>
-	<key>spawnRate</key>
-	<real>0.65</real>
+	<key>baseHealth</key>
+	<integer>150</integer>
+	<key>baseSpawnRate</key>
+	<integer>1</integer>
+	<key>baseCoins</key>
+	<integer>50</integer>
 	<key>enemyTypes</key>
 	<array>
-		<string>testEnemy</string>
-		<string>testEnemy2</string>
-		<string>enemyBird</string>
+		<string>bird</string>
+		<string>hopper</string>
+		<string>infectedSoldier</string>
+		<string>juggernaut</string>
+		<string>soldier</string>
 	</array>
 	<key>collisionShape</key>
 	<string>infected_dropship</string>
@@ -35,8 +39,6 @@
 		<key>y</key>
 		<integer>100</integer>
 	</dict>
-	<key>coins</key>
-	<integer>50</integer>
 	<key>sounds</key>
 	<dict>
 		<key>hit</key>

@@ -2,17 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>levels</key>
+	<key>numLevels</key>
+	<integer>10</integer>
+	<key>ships</key>
 	<array>
-		<dict>
-			<key>ships</key>
-			<array>
-				<string>1-1_dropship</string>
-				<string>1-2_dropship</string>
-			</array>
-			<key>maxShipsOnScreen</key>
-			<integer>1</integer>
-		</dict>
+		<string>infected</string>
+		<string>jumbo</string>
+		<string>tiny</string>
 	</array>
 </dict>
 </plist>

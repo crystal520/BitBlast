@@ -46,7 +46,9 @@
 		}
 		[explosionManager setNode:frontNode];
 		// load dropship levels
-		dropshipLevels = [[NSArray alloc] initWithArray:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropshipLevels" ofType:@"plist"]] objectForKey:@"levels"]];
+        NSDictionary *dropshipFile = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"dropshipLevels" ofType:@"plist"]];
+		availableDropships = [[NSArray alloc] initWithArray:[dropshipFile objectForKey:@"ships"]];
+        maxLevel = [[dropshipFile objectForKey:@"numLevels"] intValue];
 		[self setDropshipLevel:0];
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
@@ -60,7 +62,7 @@
 }
 
 - (void) dealloc {
-	[dropshipLevels release];
+	[availableDropships release];
 	[dropships release];
     [frontNode removeFromParentAndCleanup:YES];
     [backNode removeFromParentAndCleanup:YES];
@@ -71,11 +73,12 @@
 #pragma mark setters
 - (void) setDropshipLevel:(int)newDropshipLevel {
     dropshipLevel = newDropshipLevel;
-	if(dropshipLevel >= [dropshipLevels count]) {
-		dropshipLevel = [dropshipLevels count]-1;
+	if(dropshipLevel >= maxLevel) {
+		dropshipLevel = maxLevel-1;
 	}
 	// update target dropships
-	targetDropships = [[[dropshipLevels objectAtIndex:dropshipLevel] objectForKey:@"maxShipsOnScreen"] intValue];
+	targetDropships = MAX(dropshipLevel / floor(maxLevel / MAX_DROPSHIPS), 1);
+    NSLog(@"target dropships: %i", targetDropships);
     // make sure to only spawn 1 dropship if we're in the tutorial
     if([Globals sharedSingleton].tutorial) {
         targetDropships = 1;
@@ -115,12 +118,11 @@
         return @"tutorial_dropship";
     }
     
-	NSArray *currentShips = [[dropshipLevels objectAtIndex:dropshipLevel] objectForKey:@"ships"];
-	int ran = CCRANDOM_MIN_MAX(0, [currentShips count]);
-	if(ran < [currentShips count]) {
-		return [currentShips objectAtIndex:ran];
+	int ran = CCRANDOM_MIN_MAX(0, [availableDropships count]);
+	if(ran < [availableDropships count]) {
+		return [availableDropships objectAtIndex:ran];
 	}
-	return [currentShips objectAtIndex:0];
+	return [availableDropships objectAtIndex:0];
 }
 
 #pragma mark -
@@ -177,6 +179,7 @@
             [newDropship removeFromParentAndCleanup:NO];
             [frontNode addChild:newDropship];
 			[newDropship resetWithPosition:ccp([ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
+            [newDropship setEnemyLevel:dropshipLevel];
 		}
 	}
 }
