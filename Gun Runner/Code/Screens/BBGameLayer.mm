@@ -106,6 +106,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finalBossDead) name:kEventFinalBossDead object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameWin) name:kEventGameWin object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tutorialOver) name:kEventTutorialOver object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotoMission) name:kNavMissionNotification object:nil];
 		
 		// set initial state
 		state = kStateUnknown;
