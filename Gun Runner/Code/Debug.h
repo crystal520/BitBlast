@@ -18,7 +18,7 @@
 
 // PLAYER VARIABLES
 // if enabled, player will never lose health
-#define DEBUG_GOD_MODE 1
+#define DEBUG_GOD_MODE 0
 // number of keys to start the player out with (out of 7)
 #define DEBUG_OVERRIDE_KEYS 0
 // number of triforces to start the player out with (out of 4)

@@ -11,7 +11,7 @@
 
 @implementation BBDropship
 
-@synthesize enabled, alive, level, explosionManager, switchNode, enemyLevel;
+@synthesize enabled, alive, terrainLevel, explosionManager, switchNode, level;
 
 - (id) init {
 	if((self = [super init])) {
@@ -19,7 +19,7 @@
 		[self setEnabled:NO];
 		alive = YES;
 		needsPlatformCollisions = NO;
-		level = CHUNK_LEVEL_UNKNOWN;
+		terrainLevel = CHUNK_LEVEL_UNKNOWN;
 	}
 	return self;
 }
@@ -44,12 +44,14 @@
 	}
 	
 	// set values from dictionary
-	spawnRate = [[dictionary objectForKey:@"baseSpawnRate"] floatValue];
+	baseSpawnRate = [[dictionary objectForKey:@"baseSpawnRate"] floatValue];
+    spawnRateIncrease = [[dictionary objectForKey:@"spawnRateIncrease"] floatValue];
 	spawnTimer = 0;
-	health = [[dictionary objectForKey:@"baseHealth"] floatValue];
-    maxHealth = health;
+	baseHealth = [[dictionary objectForKey:@"baseHealth"] floatValue];
+    healthIncrease = [[dictionary objectForKey:@"healthIncrease"] floatValue];
 	[enemyTypes setArray:[dictionary objectForKey:@"enemyTypes"]];
-	coins = [[dictionary objectForKey:@"baseCoins"] intValue];
+	baseCoins = [[dictionary objectForKey:@"baseCoins"] intValue];
+    coinsIncrease = [[dictionary objectForKey:@"coinsIncrease"] intValue];
     minibossChance = [[dictionary objectForKey:@"minibossChance"] floatValue];
     
     if(sounds) {
@@ -73,7 +75,7 @@
 	self.rotation = 0;
 	gravity = ccp(0, 0);
 	velocity = ccp(0, 0);
-    self.enemyLevel = 0;
+    self.level = 0;
 }
 
 #pragma mark -
@@ -154,7 +156,7 @@
         [self hover];
 	}
 	if(!newEnabled) {
-		level = CHUNK_LEVEL_UNKNOWN;
+		terrainLevel = CHUNK_LEVEL_UNKNOWN;
 	}
 	enabled = newEnabled;
 }
@@ -174,6 +176,14 @@
     }
 }
 
+- (void) setLevel:(int)newLevel {
+    level = newLevel;
+    // using level and attribute increments, set attributes for enemy
+    health = maxHealth = baseHealth + healthIncrease * level;
+    coins = baseCoins + coinsIncrease * level;
+    spawnRate = baseSpawnRate - spawnRateIncrease * level;
+}
+
 #pragma mark -
 #pragma mark actions
 - (void) spawnEnemy {
@@ -182,8 +192,8 @@
 		BBEnemy *newEnemy = [[BBEnemyManager sharedSingleton] getRecycledEnemy];
 		// reset with position of dropship and random enemy type
 		[newEnemy resetWithPosition:dummyPosition withType:[self getRandomEnemy]];
-        // set level
-        [newEnemy setLevel:enemyLevel];
+        // set level of new enemy
+        [newEnemy setLevel:level];
 	}
 }
 
@@ -255,7 +265,7 @@
     [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"numDropshipsWithoutKey"];
 	alive = NO;
 	gravity = ccp(2, 5);
-	level = CHUNK_LEVEL_UNKNOWN;
+	terrainLevel = CHUNK_LEVEL_UNKNOWN;
 	// turn towards the ground and crash!
 	[self runAction:[CCRotateTo actionWithDuration:1 angle:-15]];
 }
@@ -276,11 +286,11 @@
 	
 	// determine offset based on level type
 	CGPoint levelOffset = ccp(0, 0);
-	level = newLevel;
-	if(level == CHUNK_LEVEL_BOTTOM) {
+	terrainLevel = newLevel;
+	if(terrainLevel == CHUNK_LEVEL_BOTTOM) {
 		levelOffset = ccp([[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetBottom"] objectForKey:@"y"] floatValue]);
 	}
-	else if(level == CHUNK_LEVEL_TOP) {
+	else if(terrainLevel == CHUNK_LEVEL_TOP) {
 		levelOffset = ccp([[[dictionary objectForKey:@"offsetTop"] objectForKey:@"x"] floatValue], [[[dictionary objectForKey:@"offsetTop"] objectForKey:@"y"] floatValue]);
 	}
 	else {

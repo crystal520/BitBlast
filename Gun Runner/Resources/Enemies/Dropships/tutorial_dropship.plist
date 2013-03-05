@@ -8,7 +8,7 @@
 	<integer>1</integer>
 	<key>enemyTypes</key>
 	<array>
-		<string>enemyBird</string>
+		<string>bird</string>
 	</array>
 	<key>collisionShape</key>
 	<string>dropship_2_2</string>

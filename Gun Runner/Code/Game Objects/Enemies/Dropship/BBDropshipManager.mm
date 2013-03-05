@@ -160,7 +160,7 @@
 			// check other ships
 			BOOL breakOut = YES;
 			for(BBDropship *d in dropships) {
-				if(d.level == typeLevel) {
+				if(d.terrainLevel == typeLevel) {
 					breakOut = NO;
 				}
 			}
@@ -179,7 +179,7 @@
             [newDropship removeFromParentAndCleanup:NO];
             [frontNode addChild:newDropship];
 			[newDropship resetWithPosition:ccp([ResolutionManager sharedSingleton].size.width * [ResolutionManager sharedSingleton].inversePositionScale, [[[ChunkManager sharedSingleton] getCurrentChunk] getLevel:ranLevel]) type:[self getRandomDropshipType] level:typeLevel];
-            [newDropship setEnemyLevel:dropshipLevel];
+            [newDropship setLevel:dropshipLevel];
 		}
 	}
 }

@@ -46,7 +46,7 @@ typedef enum {
 	// whether or not the ship is alive
 	BOOL alive;
 	// level the dropship is on. used to make sure 2 dropships don't appear on the same level
-	ChunkLevel level;
+	ChunkLevel terrainLevel;
 	// current state of the dropship
 	DropshipState state;
 	// position the dropship will be enabled at
@@ -67,15 +67,27 @@ typedef enum {
     float minibossChance;
     // sound when dropship is hit by bullet
     CDSoundSource *hitSound;
-    // level that enemies are spawned at
-    int enemyLevel;
+    // level of dropship
+    int level;
+    // base amount of health
+    float baseHealth;
+    // amount health increases per level
+    float healthIncrease;
+    // base spawn rate
+    float baseSpawnRate;
+    // amount spawn rate decreases per level
+    float spawnRateIncrease;
+    // base amount of coins
+    int baseCoins;
+    // amount coins increase per level
+    int coinsIncrease;
 }
 
 @property (nonatomic, assign) BOOL enabled, alive;
-@property (nonatomic, readonly) ChunkLevel level;
+@property (nonatomic, readonly) ChunkLevel terrainLevel;
 @property (nonatomic, assign) BBExplosionManager *explosionManager;
 @property (nonatomic, assign) CCNode *switchNode;
-@property (nonatomic, assign) int enemyLevel;
+@property (nonatomic, assign) int level;
 
 // update
 - (void) update:(float)delta;
@@ -85,6 +97,7 @@ typedef enum {
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
 - (void) setCollisionShape:(NSString*)newShape;
+- (void) setLevel:(int)newLevel;
 // actions
 - (void) spawnEnemy;
 - (void) hitByBullet:(BBBullet*)bullet withContact:(GB2Contact*)contact;

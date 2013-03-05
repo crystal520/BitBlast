@@ -4,10 +4,16 @@
 <dict>
 	<key>baseHealth</key>
 	<integer>150</integer>
+	<key>healthIncrease</key>
+	<integer>25</integer>
 	<key>baseSpawnRate</key>
 	<integer>1</integer>
+	<key>spawnRateIncrease</key>
+	<real>0.05</real>
 	<key>baseCoins</key>
 	<integer>50</integer>
+	<key>coinsIncrease</key>
+	<integer>5</integer>
 	<key>enemyTypes</key>
 	<array>
 		<string>bird</string>
