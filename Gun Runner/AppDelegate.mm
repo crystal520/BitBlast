@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "BBGameLayer.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppController
 
@@ -88,6 +89,9 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
+    
+    // start Crashlytics
+    [Crashlytics startWithAPIKey:@"3caf2a83b3347267ddb61d19ba9478aad758668e"];
 	
 	return YES;
 }

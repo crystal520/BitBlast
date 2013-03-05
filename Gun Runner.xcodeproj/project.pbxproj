@@ -498,6 +498,7 @@
 		918E7E3F164855520047B4AE /* boss 1-2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3C164855520047B4AE /* boss 1-2.tmx */; };
 		918E7E40164855520047B4AE /* boss 1-3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E3D164855520047B4AE /* boss 1-3.tmx */; };
 		918E7E421648568B0047B4AE /* boss start.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 918E7E411648568B0047B4AE /* boss start.tmx */; };
+		919D1B2616E5A40900116338 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 919D1B2516E5A40900116338 /* Crashlytics.framework */; };
 		91C720041639997500754EC4 /* tutorial_dropship.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C720031639997500754EC4 /* tutorial_dropship.plist */; };
 		91E1B3B91641830D00F61E9C /* BBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3B81641830D00F61E9C /* BBNavigationController.m */; };
 		91E1B3C3164187D300F61E9C /* LocalyticsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E1B3BD164187D300F61E9C /* LocalyticsDatabase.m */; };
@@ -1279,6 +1280,7 @@
 		918E7E3C164855520047B4AE /* boss 1-2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss 1-2.tmx"; sourceTree = "<group>"; };
 		918E7E3D164855520047B4AE /* boss 1-3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss 1-3.tmx"; sourceTree = "<group>"; };
 		918E7E411648568B0047B4AE /* boss start.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "boss start.tmx"; sourceTree = "<group>"; };
+		919D1B2516E5A40900116338 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		91C720031639997500754EC4 /* tutorial_dropship.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorial_dropship.plist; sourceTree = "<group>"; };
 		91E1B3B71641830D00F61E9C /* BBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNavigationController.h; sourceTree = "<group>"; };
 		91E1B3B81641830D00F61E9C /* BBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNavigationController.m; sourceTree = "<group>"; };
@@ -1322,6 +1324,7 @@
 				0A90C725162F645C0001312A /* libChartBoost.a in Frameworks */,
 				0A90C726162F645C0001312A /* libSessionM.a in Frameworks */,
 				0A90C727162F645D0001312A /* libTestFlight.a in Frameworks */,
+				919D1B2616E5A40900116338 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1371,6 +1374,7 @@
 				0A90C753162F6F110001312A /* AdSupport.framework */,
 				0A90C751162F6F050001312A /* libxml2.2.dylib */,
 				0A90C74F162F6EFB0001312A /* libz.1.2.5.dylib */,
+				919D1B2516E5A40900116338 /* Crashlytics.framework */,
 				0A90C74D162F6EE40001312A /* CoreMedia.framework */,
 				0A90C74B162F6EDA0001312A /* MobileCoreServices.framework */,
 				0A90C749162F6ECD0001312A /* CoreTelephony.framework */,
@@ -3082,7 +3086,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 2fa6302c3e528319c2fd8f4c233d688012b78633";
+			shellScript = "./Crashlytics.framework/run 3caf2a83b3347267ddb61d19ba9478aad758668e";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3374,6 +3378,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gun Runner/Prefix.pch";
@@ -3402,6 +3410,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gun Runner/Prefix.pch";
 				HEADER_SEARCH_PATHS = (
