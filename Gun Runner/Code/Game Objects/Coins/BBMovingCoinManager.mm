@@ -126,6 +126,13 @@
     triforce.type = MOVING_COIN_TYPE_TRIFORCE;
 }
 
+- (void) spawnHeartAtPosition:(CGPoint)position {
+    BBMovingCoin *heart = [self getRecycledCoin];
+    [heart resetWithPosition:position];
+    [heart repeatAnimation:@"heart"];
+    heart.type = MOVING_COIN_TYPE_HEART;
+}
+
 #pragma mark -
 #pragma mark notifications
 - (void) pause {

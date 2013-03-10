@@ -41,6 +41,7 @@
     minVelocity = CGPointFromString([dictionary objectForKey:@"minVelocity"]);
     maxVelocity = CGPointFromString([dictionary objectForKey:@"maxVelocity"]);
     [self setCollisionShape:[dictionary objectForKey:@"collisionShape"]];
+    heartChance = [[dictionary objectForKey:@"heartChance"] floatValue];
 }
 
 #pragma mark -
@@ -125,7 +126,13 @@
             [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"currentEnemies"];
             [[SettingsManager sharedSingleton] incrementInteger:1 keyString:@"dailyEnemies"];
             [self die];
-            [[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:ccpAdd(self.dummyPosition, ccp(0, self.contentSize.height))];
+            
+            float ran = CCRANDOM_0_1();
+            if(ran < heartChance) {
+                [[BBMovingCoinManager sharedSingleton] spawnHeartAtPosition:ccpAdd(self.dummyPosition, ccp(0, self.contentSize.height))];
+            } else {
+                [[BBMovingCoinManager sharedSingleton] spawnCoins:coins atPosition:ccpAdd(self.dummyPosition, ccp(0, self.contentSize.height))];
+            }
         }
         else if([[self getActionByTag:ACTION_TAG_FLASH] isDone] || ![self getActionByTag:ACTION_TAG_FLASH]) {
             [self flashFrom:ccc3(255, 255, 255) to:ccc3(255, 0, 0) withTime:0.1 numberOfTimes:1 onSprite:self];

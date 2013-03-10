@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A02E7E316EC20DA00E987CF /* gunList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A02E7E216EC20DA00E987CF /* gunList.plist */; };
 		0A5E8D5C1631EC5800B3DA5B /* tutorial.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D5B1631EC5800B3DA5B /* tutorial.plist */; };
 		0A5E8D68163210E000B3DA5B /* tutorial-doubleJump.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D60163210E000B3DA5B /* tutorial-doubleJump.tmx */; };
 		0A5E8D69163210E000B3DA5B /* tutorial-dropship.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 0A5E8D61163210E000B3DA5B /* tutorial-dropship.tmx */; };
@@ -508,6 +509,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A02E7E216EC20DA00E987CF /* gunList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = gunList.plist; sourceTree = "<group>"; };
 		0A5E8D5B1631EC5800B3DA5B /* tutorial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tutorial.plist; sourceTree = "<group>"; };
 		0A5E8D60163210E000B3DA5B /* tutorial-doubleJump.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-doubleJump.tmx"; sourceTree = "<group>"; };
 		0A5E8D61163210E000B3DA5B /* tutorial-dropship.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "tutorial-dropship.tmx"; sourceTree = "<group>"; };
@@ -2389,6 +2391,7 @@
 		0A90C605162F5A840001312A /* Guns */ = {
 			isa = PBXGroup;
 			children = (
+				0A02E7E216EC20DA00E987CF /* gunList.plist */,
 				0A90C606162F5A840001312A /* bluewave.plist */,
 				0A90C607162F5A840001312A /* burstshot.plist */,
 				0A90C608162F5A840001312A /* experimentalplasmapistol.plist */,
@@ -2782,7 +2785,6 @@
 				0A90C109162F43D50001312A /* Sources */,
 				0A90C10A162F43D50001312A /* Frameworks */,
 				0A90C10B162F43D50001312A /* Resources */,
-				0AE8AC8C16E59FB100929C5D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -3065,26 +3067,11 @@
 				916FC36C16E3F11700ADD17F /* infectedSoldier.plist in Resources */,
 				916FC39B16E4066C00ADD17F /* jumbo.plist in Resources */,
 				916FC39D16E40B8C00ADD17F /* dropshipLevels.plist in Resources */,
+				0A02E7E316EC20DA00E987CF /* gunList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0AE8AC8C16E59FB100929C5D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 2fa6302c3e528319c2fd8f4c233d688012b78633";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A90C109162F43D50001312A /* Sources */ = {

@@ -79,13 +79,24 @@
         
         // create hearts based on player's starting health
 		hearts = [NSMutableArray new];
-		for(int i=0;i<[Globals sharedSingleton].playerStartingHealth;i++) {
+		for(int i=0;i<6;i++) {
 			CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"heart.png"];
-			sprite.position = ccp(sprite.contentSize.width * 0.65 + i * (sprite.contentSize.width + 10), winSize.height - sprite.contentSize.height * 0.5 - 2);
+			sprite.position = ccp(sprite.contentSize.width * 0.65 + i * (sprite.contentSize.width + 10), winSize.height * 0.94);
 			[sprite setVisible:(i < [Globals sharedSingleton].playerStartingHealth)];
 			[hearts addObject:sprite];
 			[uiSpriteBatch addChild:sprite];
 		}
+        
+        // create heart count label
+        CCSprite *firstHeart = [hearts objectAtIndex:0];
+		heartsCount = [[CCLabelBMFont alloc] initWithString:@"x 7" fntFile:@"gamefont.fnt"];
+		heartsCount.anchorPoint = ccp(0, 1);
+		heartsCount.scale = 0.7;
+		heartsCount.position = ccp(firstHeart.position.x + firstHeart.contentSize.width, winSize.height);
+		heartsCount.color = ccc3(255, 255, 255);
+        heartsCount.tag = SPRITE_TAG_HUD_HEART_COUNT;
+        heartsCount.visible = NO;
+		[self addChild:heartsCount];
 		
 		// register for notifications
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(healthUpdate:) name:kPlayerHealthNotification object:nil];
@@ -171,7 +182,7 @@
 #pragma mark setters
 - (void) setVisible:(BOOL)newVisible {
     for(CCNode *c in self.children) {
-        if(c.tag != SPRITE_TAG_HUD_TUTORIAL) {
+        if(c.tag != SPRITE_TAG_HUD_TUTORIAL && c.tag != SPRITE_TAG_HUD_HEART_COUNT) {
             c.visible = newVisible;
         }
     }
@@ -184,8 +195,11 @@
 	// display number of hearts equal to new health
 	for(int i=0,j=[hearts count];i<j;i++) {
 		CCSprite *heart = [hearts objectAtIndex:i];
-		[heart setVisible:(i < newHealth)];
+		[heart setVisible:(i < newHealth && (newHealth <= [hearts count] || i == 0))];
 	}
+    // if there's more hearts than can be displayed, use <3 X #
+    heartsCount.visible = (newHealth > [hearts count]);
+    [heartsCount setString:[NSString stringWithFormat:@"X %i", newHealth]];
 }
 
 - (void) keyUpdate:(NSNotification*)n {

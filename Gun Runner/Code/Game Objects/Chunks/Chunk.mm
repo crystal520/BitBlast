@@ -16,7 +16,6 @@
 
 - (id) initWithFile:(NSString*)chunkName withOffset:(CGPoint)offset {
 	
-    NSLog(@"LOADING CHUNK: %@", chunkName);
 	if((self = [super initWithTMXFile:chunkName])) {
 		
 		dummyPosition = offset;

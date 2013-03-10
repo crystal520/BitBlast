@@ -238,6 +238,16 @@
 		<dict>
 			<key>frames</key>
 			<array>
+				<string>heart.png</string>
+			</array>
+			<key>name</key>
+			<string>heart</string>
+			<key>speed</key>
+			<real>0.1</real>
+		</dict>
+		<dict>
+			<key>frames</key>
+			<array>
 				<string>triforceEmpty.png</string>
 			</array>
 			<key>name</key>

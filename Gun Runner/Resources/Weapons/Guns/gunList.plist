@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>guns</key>
+	<array>
+		<string>bluewave</string>
+		<string>burstshot</string>
+		<string>experimentalplasmapistol</string>
+		<string>flamethrower</string>
+		<string>gattlingun</string>
+		<string>highenergyshot</string>
+		<string>machinegun</string>
+		<string>pistol</string>
+		<string>plasmapistol</string>
+		<string>ripley</string>
+		<string>shotgun</string>
+		<string>spreadgun</string>
+		<string>supershotgun</string>
+		<string>ultraLaser</string>
+		<string>wavegun</string>
+	</array>
+</dict>
+</plist>

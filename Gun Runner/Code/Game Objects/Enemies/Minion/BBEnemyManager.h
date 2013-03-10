@@ -23,6 +23,7 @@
 - (void) update:(float)delta;
 // getters
 - (BBEnemy*) getRecycledEnemy;
+- (NSArray *)getActiveEnemies;
 // setters
 - (void) setEnabled:(BOOL)newEnabled;
 // notifications

@@ -17,6 +17,8 @@
     CCLabelBMFont *score;
 	// array of hearts keeping track of health
 	NSMutableArray *hearts;
+    // keeps track of health if it goes above a certain amount
+    CCLabelBMFont *heartsCount;
 	// pause button
 	CCButton *pause;
 	// keeps track of player coins during game

@@ -45,6 +45,10 @@ typedef enum {
     int coinsIncrease;
     // amount speed increases per level
     float speedIncrease;
+    // chance that on death, enemy will drop a heart
+    float heartChance;
+    // chance that on death, enemy will drop a gun
+    float gunChance;
 }
 
 @property (nonatomic, assign) BOOL recycle, enabled, alive;

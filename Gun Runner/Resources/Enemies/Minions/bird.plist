@@ -24,5 +24,7 @@
 	<string>flyer1</string>
 	<key>animation</key>
 	<string>enemyFlyer</string>
+	<key>heartChance</key>
+	<real>0.01</real>
 </dict>
 </plist>

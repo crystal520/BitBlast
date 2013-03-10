@@ -11,7 +11,7 @@
 
 @implementation BBWeaponManager
 
-@synthesize weapons;
+@synthesize weapons, weaponKeys;
 
 + (BBWeaponManager*) sharedSingleton {
 	
@@ -48,6 +48,8 @@
 			[self equip:@"pistol" forType:WEAPON_INVENTORY_PLAYER];
 		}
         
+        weaponKeys = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gunList" ofType:@"plist"]] objectForKey:@"guns"];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pause) name:kNavPauseNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resume) name:kNavResumeNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gameOver) name:kPlayerDeadNotification object:nil];
@@ -73,6 +75,16 @@
         }
     }
     return nil;
+}
+
+- (NSArray *)getUnlockedWeapons {
+    NSMutableArray *unlockedWeapons = [NSMutableArray array];
+    for (NSString *w in weaponKeys) {
+        if([[SettingsManager sharedSingleton] getBool:w]) {
+            [unlockedWeapons addObject:w];
+        }
+    }
+    return unlockedWeapons;
 }
 
 #pragma mark -

@@ -242,12 +242,14 @@
     BBWeapon *weapon = [[[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER] anyObject];
     // convert player's position to screen coordinates
     CGPoint playerPos = [self convertToWorldSpace:ccpAdd(weapon.currentOffset, torso.position)];
-    // get angle to horizontal of line created from last known aim position and player's screen position
-    float angle = CC_RADIANS_TO_DEGREES(atan2f(lastKnownAimPosition.y - playerPos.y, lastKnownAimPosition.x - playerPos.x));
+    
+    // take difference between y position of touch point and player
+    float yDif = (lastKnownAimPosition.y - playerPos.y) / ([CCDirector sharedDirector].winSize.height / 2);
+    float angle = yDif * 55;
     // limit angle to a certain range
     angle = MAX(MIN(55, angle), -55);
     // shoot straight forward if player isn't aiming yet or has stopped aiming
-    if(CGPointEqualToPoint(CGPointZero, lastKnownAimPosition)) {
+    if(CGPointEqualToPoint(lastKnownAimPosition, CGPointZero)) {
         angle = 0;
     }
     // finally update all weapons with new angle
@@ -571,19 +573,21 @@
         if(coin.type == MOVING_COIN_TYPE_COIN) {
             [[SimpleAudioEngine sharedEngine] playEffect:@"coin.wav"];
             [self addCoins:1];
-            [coin setEnabled:NO];
         }
         else if(coin.type == MOVING_COIN_TYPE_KEY) {
             [[SimpleAudioEngine sharedEngine] playEffect:@"key.wav"];
             [self addKeys:1];
-            [coin setEnabled:NO];
             [[SettingsManager sharedSingleton] setInteger:0 keyString:@"numDropshipsWithoutKey"];
+        }
+        else if(coin.type == MOVING_COIN_TYPE_HEART) {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"key.wav"];
+            [self setHealth:health+1];
         }
         else {
             [[SimpleAudioEngine sharedEngine] playEffect:@"triforce.wav"];
             [self addTriforce:1];
-            [coin setEnabled:NO];
         }
+        [coin setEnabled:NO];
     }
 }
 

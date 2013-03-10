@@ -24,5 +24,7 @@
 	<string>monster1_1</string>
 	<key>animation</key>
 	<string>enemy1</string>
+	<key>heartChance</key>
+	<real>0.01</real>
 </dict>
 </plist>

@@ -31,6 +31,7 @@
 - (void) spawnCoins:(int)numCoins atPosition:(CGPoint)position;
 - (void) spawnKeyAtPosition:(CGPoint)position;
 - (void) spawnTriforceAtPosition:(CGPoint)position;
+- (void) spawnHeartAtPosition:(CGPoint)position;
 // notifications
 - (void) pause;
 - (void) resume;

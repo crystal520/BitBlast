@@ -70,6 +70,9 @@
 		// load level
 		[scrollingNode addChild:[ChunkManager sharedSingleton] z:DEPTH_GAME_LEVEL];
 		[self resetLevel:@"jungleLevel"];
+        
+        // load game variables
+        [BBLogic sharedSingleton];
 		
 		// add dropships to scrollingNode
 		[scrollingNode addChild:[BBDropshipManager sharedSingleton].backNode z:DEPTH_GAME_DROPSHIPS];

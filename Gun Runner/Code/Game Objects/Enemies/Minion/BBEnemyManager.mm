@@ -79,6 +79,16 @@
 	return nil;
 }
 
+- (NSArray *)getActiveEnemies {
+    NSMutableArray *activeEnemies = [NSMutableArray array];
+    for (BBEnemy *e in enemies) {
+        if(!e.recycle && e.enabled) {
+            [activeEnemies addObject:e];
+        }
+    }
+    return activeEnemies;
+}
+
 #pragma mark -
 #pragma mark setters
 - (void) setEnabled:(BOOL)newEnabled {

@@ -3,6 +3,7 @@
 //
 
 #import "SettingsManager.h"
+#import "BBWeaponManager.h"
 
 @implementation SettingsManager
 
@@ -42,20 +43,9 @@ static SettingsManager* _sharedSettingsManager = nil;
 }
 
 - (void) clearWeapons {
-    [self setBool:NO keyString:@"highenergyshot"];
-    [self setBool:NO keyString:@"ultraLaser"];
-    [self setBool:NO keyString:@"wavegun"];
-    [self setBool:NO keyString:@"flamethrower"];
-    [self setBool:NO keyString:@"ripley"];
-    [self setBool:NO keyString:@"bluewave"];
-    [self setBool:NO keyString:@"spreadgun"];
-    [self setBool:NO keyString:@"shotgun"];
-    [self setBool:NO keyString:@"supershotgun"];
-    [self setBool:NO keyString:@"gattlingun"];
-    [self setBool:NO keyString:@"machinegun"];
-    [self setBool:NO keyString:@"burstshot"];
-    [self setBool:NO keyString:@"plasmapistol"];
-    [self setBool:NO keyString:@"experimentalplasmapistol"];
+    for (NSString *w in [BBWeaponManager sharedSingleton].weaponKeys) {
+        [self setBool:NO keyString:w];
+    }
 }
 
 - (void) awardMedal {
@@ -180,20 +170,9 @@ static SettingsManager* _sharedSettingsManager = nil;
     [self setInteger:DEBUG_OVERRIDE_TRIFORCE keyString:@"totalTriforce"];
 #endif
 #if DEBUG_ALL_GUNS
-    [self setBool:YES keyString:@"highenergyshot"];
-    [self setBool:YES keyString:@"ultraLaser"];
-    [self setBool:YES keyString:@"wavegun"];
-    [self setBool:YES keyString:@"flamethrower"];
-    [self setBool:YES keyString:@"ripley"];
-    [self setBool:YES keyString:@"bluewave"];
-    [self setBool:YES keyString:@"spreadgun"];
-    [self setBool:YES keyString:@"shotgun"];
-    [self setBool:YES keyString:@"supershotgun"];
-    [self setBool:YES keyString:@"gattlingun"];
-    [self setBool:YES keyString:@"machinegun"];
-    [self setBool:YES keyString:@"burstshot"];
-    [self setBool:YES keyString:@"plasmapistol"];
-    [self setBool:YES keyString:@"experimentalplasmapistol"];
+    for (NSString *w in [BBWeaponManager sharedSingleton].weaponKeys) {
+        [self setBool:YES keyString:w];
+    }
 #endif
 #if DEBUG_PISTOL_ONLY
     [self clearWeapons];

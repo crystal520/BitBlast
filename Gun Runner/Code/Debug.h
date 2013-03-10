@@ -48,7 +48,7 @@
 
 // WEAPON VARIABLES
 // if enabled, will automatically give player all guns
-#define DEBUG_ALL_GUNS 0
+#define DEBUG_ALL_GUNS 1
 // if enabled, will reset the player to only have the pistol unlocked
 #define DEBUG_PISTOL_ONLY 0
 

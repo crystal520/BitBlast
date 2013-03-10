@@ -14,14 +14,18 @@
     NSMutableDictionary *weapons;
     // last equipped item that player actually owns
     NSMutableString *lastEquipped;
+    // array of weapon keys
+    NSArray *weaponKeys;
 }
 
 @property (nonatomic, readonly) NSMutableDictionary *weapons;
+@property (nonatomic) NSArray *weaponKeys;
 
 + (BBWeaponManager*) sharedSingleton;
 // getters
 - (NSSet*) weaponsForType:(WeaponInventory)type;
 - (BBWeapon*) weaponWithID:(NSString*)weaponID forType:(WeaponInventory)type;
+- (NSArray *)getUnlockedWeapons;
 // setters
 - (void) setEnabled:(BOOL)newEnabled forType:(WeaponInventory)type;
 - (void) setScale:(float)scale forType:(WeaponInventory)type;
