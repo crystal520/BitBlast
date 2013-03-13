@@ -272,6 +272,7 @@
             // make sure we don't go over the maximum speed allowed
             speed = MIN(speed, maxVelocity.x);
             velocity = ccp(speed, velocity.y);
+            [Globals sharedSingleton].level++;
             [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kPlayerLevelIncreaseNotification object:nil]];
         }
     }
@@ -425,6 +426,7 @@
     [self setWeaponAngle:0];
     [legs setColor:ccc3(255, 255, 255)];
     [torso setColor:ccc3(255, 255, 255)];
+    [Globals sharedSingleton].level = 0;
     
     // make sure the legs don't change to a running frame
     [legs stopAllActions];

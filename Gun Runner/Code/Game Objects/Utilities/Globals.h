@@ -38,10 +38,12 @@
     BOOL tutorialStateCanChange;
     // the number of dropships a player can kill before forcing a miniboss key to appear
     int numDropshipsForceKey;
+    // current level the player has reached
+    int level;
 }
 
 @property (nonatomic, assign) CGPoint playerPosition, playerVelocity, cameraOffset;
-@property (nonatomic, assign) int playerStartingHealth, numKeysForMiniboss, numPiecesForFinalBoss, numDropshipsForceKey;
+@property (nonatomic, assign) int playerStartingHealth, numKeysForMiniboss, numPiecesForFinalBoss, numDropshipsForceKey, level;
 @property (nonatomic, assign) ReasonForDeath playerReasonForDeath;
 @property (nonatomic, assign) GameState gameState;
 @property (nonatomic, assign) TutorialState tutorialState;

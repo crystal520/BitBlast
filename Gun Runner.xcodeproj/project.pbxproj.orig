@@ -3077,6 +3077,8 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+<<<<<<< HEAD
+=======
 /* Begin PBXShellScriptBuildPhase section */
 		0AE8AC8C16E59FB100929C5D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3093,6 +3095,7 @@
 		};
 /* End PBXShellScriptBuildPhase section */
 
+>>>>>>> 1625cb0507c279ba7303dc6afe0e8d339030313c
 /* Begin PBXSourcesBuildPhase section */
 		0A90C109162F43D50001312A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;

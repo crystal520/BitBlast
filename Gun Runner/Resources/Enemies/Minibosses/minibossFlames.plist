@@ -41,13 +41,13 @@
 					<array>
 						<dict>
 							<key>type</key>
-							<string>enemySoldierInfected</string>
+							<string>infectedSoldier</string>
 							<key>probability</key>
 							<real>0.75</real>
 						</dict>
 						<dict>
 							<key>type</key>
-							<string>testEnemy2</string>
+							<string>soldier</string>
 							<key>probability</key>
 							<real>0.25</real>
 						</dict>
@@ -69,13 +69,13 @@
 					<array>
 						<dict>
 							<key>type</key>
-							<string>enemySoldierInfected</string>
+							<string>hopper</string>
 							<key>probability</key>
 							<real>0.75</real>
 						</dict>
 						<dict>
 							<key>type</key>
-							<string>testEnemy2</string>
+							<string>bird</string>
 							<key>probability</key>
 							<real>0.25</real>
 						</dict>
@@ -158,13 +158,13 @@
 					<array>
 						<dict>
 							<key>type</key>
-							<string>enemySoldierInfected</string>
+							<string>juggernaut</string>
 							<key>probability</key>
 							<real>0.75</real>
 						</dict>
 						<dict>
 							<key>type</key>
-							<string>testEnemy2</string>
+							<string>hopper</string>
 							<key>probability</key>
 							<real>0.25</real>
 						</dict>
