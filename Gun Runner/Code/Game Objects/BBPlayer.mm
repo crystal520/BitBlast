@@ -239,13 +239,13 @@
 
 - (void) updateWeaponAngle {
     // grab the currently equipped weapon
-    BBWeapon *weapon = [[[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER] anyObject];
+    //BBWeapon *weapon = [[[BBWeaponManager sharedSingleton] weaponsForType:WEAPON_INVENTORY_PLAYER] anyObject];
     // convert player's position to screen coordinates
-    CGPoint playerPos = [self convertToWorldSpace:ccpAdd(weapon.currentOffset, torso.position)];
+    //CGPoint playerPos = [self convertToWorldSpace:ccpAdd(weapon.currentOffset, torso.position)];
     
     // take difference between y position of touch point and player
-    float yDif = (lastKnownAimPosition.y - playerPos.y) / ([CCDirector sharedDirector].winSize.height / 2);
-    float angle = yDif * 55;
+    //float yDif = (lastKnownAimPosition.y - playerPos.y) / ([CCDirector sharedDirector].winSize.height / 2);
+    float angle = ((lastKnownAimPosition.y - [CCDirector sharedDirector].winSize.height / 2) / [CCDirector sharedDirector].winSize.height) * 55;
     // limit angle to a certain range
     angle = MAX(MIN(55, angle), -55);
     // shoot straight forward if player isn't aiming yet or has stopped aiming
